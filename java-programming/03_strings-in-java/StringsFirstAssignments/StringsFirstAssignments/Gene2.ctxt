@@ -1,0 +1,9 @@
+#BlueJ class context
+comment0.target=Gene2
+comment0.text=\r\n\ Write\ a\ description\ of\ class\ Part1\ here.\r\n\r\n\ @author\ (your\ name)\r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
+comment1.params=dna\ startCodon\ stopCodon
+comment1.target=java.lang.String\ findSimpleGene(java.lang.String,\ java.lang.String,\ java.lang.String)
+comment1.text=\r\n\ Finds\ the\ index\ position\ of\ the\ start\ codon\ \u201CATG\u201D.\ \r\n\ If\ there\ is\ no\ \u201CATG\u201D,\ return\ the\ empty\ string.\r\n\ Finds\ the\ index\ position\ of\ the\ first\ stop\ codon\ \r\n\ \u201CTAA\u201D\ appearing\ after\ the\ \u201CATG\u201D\ that\ was\ found.\ \r\n\ If\ there\ is\ no\ such\ \u201CTAA\u201D,\ return\ the\ empty\ string.\r\n\ If\ the\ length\ of\ the\ substring\ between\ the\ \u201CATG\u201D\ \r\n\ and\ \u201CTAA\u201D\ is\ a\ multiple\ of\ 3,\ then\ return\ \r\n\ the\ substring\ that\ starts\ with\ that\ \u201CATG\u201D\ \r\n\ and\ ends\ with\ that\ \u201CTAA\u201D\r\n
+comment2.params=
+comment2.target=void\ testSimpleGene()
+numComments=3
