@@ -5,18 +5,17 @@ public class Part2
 {
     public int howMany (String stringa, String stringb) {
         
-        int I = stringb.indexOf(stringa);
-        System.out.println("I: " + I);
-        if (I != -1){
+        int R = stringb.indexOf(stringa);
         
-        int C = 0;
+        if (R != -1){
+        int Counter = 0;
+        while (R != -1){
+            ++Counter;
             
-        for (int L = stringb.indexOf(stringa); L != -1; ++C){
-            L=I;
-            System.out.println("C:" + C);
-            
-            
+            R = stringb.indexOf(stringa,R + stringa.length());
         }
+        
+        System.out.println(Counter);
         }
         return 0;
         };
