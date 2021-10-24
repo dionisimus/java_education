@@ -21,6 +21,35 @@ public class Part1
         return r;
     }
     
+<<<<<<< HEAD
+    public String findGene(String dna, int Start) {
+		int startIndex = dna.indexOf("ATG",Start);
+		if(startIndex == -1) {
+			return "";
+		}
+
+		int taaIndex = findStopCodon(dna, startIndex, "TAA");
+		int tagIndex = findStopCodon(dna, startIndex, "TAG");
+		int tgaIndex = findStopCodon(dna, startIndex, "TGA");
+
+		int minIndex = 0;
+		if(taaIndex == -1 || (tagIndex != -1 && tagIndex < taaIndex)) {
+			minIndex = tagIndex;
+		} else {
+			minIndex = taaIndex;
+		}
+
+		if(minIndex == -1 || (tgaIndex != -1 && tgaIndex < minIndex)) {
+			minIndex = tgaIndex;
+		}
+
+		if(minIndex == -1) {
+			return "";
+		}
+
+		return dna.substring(startIndex, minIndex + 3);
+	}    
+=======
     
     
     public String findGene (String dna, int Start){
@@ -58,6 +87,7 @@ public class Part1
        
     }
     
+>>>>>>> 694bc52aaa733df7150d0f44a9aa041c234a2892
     
     
     public StorageResource getAllGenes (String dna){
@@ -65,12 +95,26 @@ public class Part1
         
         int Start = 0;
         
+<<<<<<< HEAD
+=======
         
+>>>>>>> 694bc52aaa733df7150d0f44a9aa041c234a2892
         while (true){
             String Gene = findGene(dna,Start);
             if (Gene.isEmpty()){
                 break;
             }
+<<<<<<< HEAD
+            
+            geneList.add(Gene);
+            Start = dna.indexOf(Gene, Start) + Gene.length();
+            }
+              
+        return geneList;      
+    }
+
+}
+=======
         
             geneList.add(Gene);
             Start = dna.indexOf(Gene, Start) + Gene.length();
@@ -84,3 +128,4 @@ public class Part1
     }
 
 }
+>>>>>>> 694bc52aaa733df7150d0f44a9aa041c234a2892
