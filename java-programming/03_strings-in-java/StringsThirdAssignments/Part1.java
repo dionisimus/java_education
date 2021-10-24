@@ -1,124 +1,114 @@
+
 import edu.duke.*;
-import java.lang.String;
+import java.lang.Math;
 
-
-
-
-
-public class Part1
-{
-    
-    public int findStopCodon (String  dna, int startIndex, String stopCodon) {
-        // put your code here
-        int v = dna.indexOf(stopCodon,startIndex);
-        int r;
-            if (v != -1 && v % 3 == 0 ){
-            r = v;
-            //System.out.println("Found, Index = "+r);
-        }
-        else { 
-            r = -1;
-            //System.out.println("Not found, length = "+r);
-        }
+public class Part1 {
+    public int findStopCodon(String dna, int startIndex, String stopCodon) {
+        int index = 0;
         
-        return r;
-    }
-    
-
-    public String findGene(String dna, int Start) {
-        int startIndex = dna.indexOf("ATG",Start);
-        if(startIndex == -1) {
-            return "";
-        }
-
-        int taaIndex = findStopCodon(dna, startIndex, "TAA");
-        int tagIndex = findStopCodon(dna, startIndex, "TAG");
-        int tgaIndex = findStopCodon(dna, startIndex, "TGA");
-
-        int minIndex = 0;
-        if(taaIndex == -1 || (tagIndex != -1 && tagIndex < taaIndex)) {
-            minIndex = tagIndex;
-        } else {
-            minIndex = taaIndex;
-        }
-
-        if(minIndex == -1 || (tgaIndex != -1 && tgaIndex < minIndex)) {
-            minIndex = tgaIndex;
-        }
-
-        if(minIndex == -1) {
-            return "";
-        }
-
-        return dna.substring(startIndex, minIndex + 3);
-    }    
-
-    
-        
-    public StorageResource getAllGenes (String dna){
-        StorageResource geneList = new StorageResource();   
-        
-        int Start = 0;
-        
-
-        while (true){
-            String Gene = findGene(dna,Start);
-            if (Gene.isEmpty()){
+        while(true) {
+            index = dna.toUpperCase().indexOf(stopCodon, startIndex + 3);
+            System.out.println("String index: " + index);
+            if (index == -1 || (index - startIndex) % 3 == 0) {
                 break;
             }
             
-            geneList.add(Gene);
-            Start = dna.indexOf(Gene, Start) + Gene.length();
-            }
-              
-        return geneList;      
+            startIndex += 3;
+        }
+        
+        if (index != -1) {
+            return index;
+        } else {
+            return dna.length();            
+        }
     }
-
     
-    public float cgRatio (String dna){
+    public String findGene(String dna, int start) {
+        final String START_CODON = "ATG";
+        int startIndex = dna.toUpperCase().indexOf(START_CODON, start);
+
+        if (startIndex == -1) {
+            return "";
+        }
         
-        float C = 0;
-        float L = dna.length();
+        int taaIndex = findStopCodon(dna, startIndex, "TAA");
+        int tagIndex = findStopCodon(dna, startIndex, "TAG");
+        int tgaIndex = findStopCodon(dna, startIndex, "TGA");
         
-        for (int i = 0; i < L; i++ ) {
-            if (dna.charAt(i) == 'C'||dna.charAt(i) == 'G')
-            C++;
+        int minIndex = Math.min(taaIndex, Math.min(tagIndex, tgaIndex));
+        
+        if (minIndex == dna.length()) {
+            return "";
+        } else {
+            return dna.substring(startIndex, minIndex + 3);
+        }
+    }
+    
+    public StorageResource getAllGenes(String dna) {
+        int start = 0;
+        StorageResource geneList = new StorageResource();
+        
+        while (true) {
+            String gene = findGene(dna, start);
+            
+            if (gene.isEmpty()) {
+                break;
+            }
+            
+            geneList.add(gene);
+            
+            start = dna.indexOf(gene, start) + gene.length();
+        }
+        
+        return geneList;
+    }
+    
+    public double cgRatio(String dna) {
+        int totalOccurences = 0;
+        
+        for (int i = 0; i < dna.length(); i++) {
+            if (dna.toUpperCase().charAt(i) == 'C' || dna.toUpperCase().charAt(i) == 'G') {
+                totalOccurences++;
+            }
          }
          
-        float ratio = C/L ; 
-        
-        return ratio;      
+         return (double) totalOccurences / dna.length();
     }
     
-    public int countCTG (String dna){
-        int Start=0;
-        int C = 0;
- 
-        while (true){
-            int Codon = dna.indexOf("CTG",Start);
-            if (Codon == -1)
-            break;
-            C++;
-            Start = Codon + 3;
+    private void processGenes(StorageResource sr) {
+        int lengthCount = 0;
+        int cgRatioCount = 0;
+        int longestLength = Integer.MIN_VALUE;
+        
+        for (String gene : sr.data()) {
+            int currentLength = gene.length();
+            double cgRatio = cgRatio(gene);
+            
+            System.out.println("CG RATIO: " + cgRatio);
+            if (currentLength > 60) {
+                System.out.println("Longer than 60 characters: " + gene);
+                lengthCount++;
+            }
+            
+            if (cgRatio > 0.35) {
+                System.out.println("C-G ratio higher than 0.35: " + gene);
+                cgRatioCount++;
+            }
+            
+            longestLength = Math.max(longestLength, currentLength);
         }
-         
         
-        
-        return C;      
+        System.out.println("Total genes: " + sr.size());
+        System.out.println("Total gene longer than 60 characters: " + lengthCount);
+        System.out.println("Total gene with C-G ratio higher than 0.35: " + cgRatioCount);
+        System.out.println("Length of longest dna: " + longestLength);
     }
     
-    
-    
-    
-    
-    
-    
-    
-    
+    public void testProcessGenes() {
+        FileResource fr = new FileResource("brca1line.fa");
+        String dna = fr.asString();
+        
+        StorageResource geneList = getAllGenes(dna);
+        processGenes(geneList);
+    }
 }
-      
-
-
-
-
-  
