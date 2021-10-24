@@ -1,4 +1,7 @@
 import edu.duke.*;
+import java.lang.String;
+
+
 
 
 
@@ -71,5 +74,51 @@ public class Part1
         return geneList;      
     }
 
-}
+    
+    public float cgRatio (String dna){
         
+        float C = 0;
+        float L = dna.length();
+        
+        for (int i = 0; i < L; i++ ) {
+            if (dna.charAt(i) == 'C'||dna.charAt(i) == 'G')
+            C++;
+         }
+         
+        float ratio = C/L ; 
+        
+        return ratio;      
+    }
+    
+    public int countCTG (String dna){
+        int Start=0;
+        int C = 0;
+ 
+        while (true){
+            int Codon = dna.indexOf("CTG",Start);
+            if (Codon == -1)
+            break;
+            C++;
+            Start = Codon + 3;
+        }
+         
+        
+        
+        return C;      
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+}
+      
+
+
+
+
+  
