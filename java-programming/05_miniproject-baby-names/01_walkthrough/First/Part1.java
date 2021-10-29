@@ -96,7 +96,10 @@ public class Part1
         DirectoryResource dr = new DirectoryResource();
         for (File f : dr.selectedFiles()){
             FileResource fr = new FileResource(f);
-            CSVParser
+            String path = f.getName();
+            String year = path.replaceAll("[^0-9]+", "");
+            System.out.println(year);
+            
         }
     }
 }
