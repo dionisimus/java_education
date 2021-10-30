@@ -1,0 +1,9 @@
+#BlueJ class context
+comment0.target=Part1
+comment1.params=
+comment1.target=void\ sampleMethod()
+comment2.params=oldName\ newImage
+comment2.target=void\ saver(java.lang.String,\ edu.duke.ImageResource)
+comment3.params=image
+comment3.target=edu.duke.ImageResource\ grayScale(edu.duke.ImageResource)
+numComments=4
