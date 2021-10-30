@@ -66,7 +66,6 @@ public class Part1
     
     public void whatIsNameInYear (String name, int year, int newYear, String gender){
         String firstRank = getRank(year, name, gender);
-        
         String genderType = "she";
         FileResource fr = new FileResource();
         CSVParser parser = fr.getCSVParser(false);
@@ -92,15 +91,97 @@ public class Part1
         " if " + genderType + " war born in " + newYear);
     }
     
-    public void yearOfHighestRank(String name, String gender){
+    public int yearOfHighestRank(String name, String gender){
         DirectoryResource dr = new DirectoryResource();
+        int currentRank = 0;
+        int highestRank = 0;
+        int highestYear = 0;
         for (File f : dr.selectedFiles()){
             FileResource fr = new FileResource(f);
             String path = f.getName();
             String year = path.replaceAll("[^0-9]+", "");
-            System.out.println(year);
+            CSVParser parser = fr.getCSVParser(false);
+            currentRank = getRankNoFR(parser, gender, name);
+            if (highestRank == 0){
+            highestRank = getRankNoFR(parser, gender, name);
+            highestYear = Integer.parseInt(year);
+            }
+            
+            if (currentRank < highestRank){
+            highestRank = currentRank;
+            highestYear = Integer.parseInt(year);
+            }
+        }
+        
+        return highestYear;
+    }
+    
+    public int getRankNoFR (CSVParser parser, String gender, 
+                              String name) {
+        int returnCount = 0;
+        int genderCount = 0;
+        for (CSVRecord data : parser){
+            String nameRow = data.get(0);
+            String genderRow = data.get(1);
+            
+            if (genderRow.equals(gender))
+                genderCount++;
+            if (nameRow.equals(name) && genderRow.contains(gender)){
+                //if no name in file return -1
+                returnCount = genderCount;
+            }
+            }
+             if (returnCount != 0)
+            return returnCount;
+        else 
+            return -1;
+    }
+    
+    //returns a double representing the average rank of the name 
+    //and gender over the selected files
+    
+    public double getAverageRank (String name, String gender){
+        DirectoryResource dr = new DirectoryResource();
+        int totalRank = 0;
+        int totalFiles = 0;
+        
+        for (File f : dr.selectedFiles()){
+            FileResource fr = new FileResource(f);
+            CSVParser parser = fr.getCSVParser(false);
+            totalRank = totalRank + getRankNoFR(parser, gender, name);
+            totalFiles++;
+        } 
+        if (totalRank == 0)
+            return -1.0;
+        double averageRank = totalRank/totalFiles;
+        return averageRank;
+    }   
+    
+    public int getTotalBirthsRankedHigher (int year, String name, 
+                                           String gender){                                  
+        int genderCount = 0;
+        int nameRank = 0;
+        int totalBirthAbove = 0;
+        FileResource fr = new FileResource();
+        CSVParser parser = fr.getCSVParser(false);
+        for (CSVRecord data : parser){
+            String nameRow = data.get(0);
+            String genderRow = data.get(1);
+            String birthRow = data.get(2);
+            if (nameRow.equals(name) && genderRow.contains(gender)){
+                //if no name in file return -1
+                break;
+            }
+            if (genderRow.equals(gender)){
+                genderCount++;
+                totalBirthAbove = totalBirthAbove + Integer.parseInt
+                (birthRow);
+            }
             
         }
+        return totalBirthAbove;
+        }    
+        
     }
-}
+
 
