@@ -1,0 +1,147 @@
+1
+00:00:03,172 --> 00:00:07,963
+Think back to the problem where you found
+how many unique IP addresses there were in
+
+2
+00:00:07,963 --> 00:00:09,880
+a web server log.
+
+3
+00:00:09,880 --> 00:00:13,490
+That problem was essentially finding out
+how many different strings there were.
+
+4
+00:00:14,600 --> 00:00:19,210
+If you look at what you just did, finding
+how many times each string occurred,
+
+5
+00:00:19,210 --> 00:00:22,180
+you may realize that you have
+solved a larger problem.
+
+6
+00:00:22,180 --> 00:00:26,240
+The solution to the problem of counting
+unique Strings is already here.
+
+7
+00:00:26,240 --> 00:00:29,960
+You have each unique String
+in this HashMap as a key, and
+
+8
+00:00:29,960 --> 00:00:33,890
+would just need a way to turn
+it into the answer you want.
+
+9
+00:00:33,890 --> 00:00:36,442
+Your counting out rhythm has
+already done the hard work.
+
+10
+00:00:36,442 --> 00:00:39,940
+You would just need to be able to
+extract the answer from the HashMap.
+
+11
+00:00:41,150 --> 00:00:44,030
+This situation is common in programming.
+
+12
+00:00:44,030 --> 00:00:48,610
+You may write code to solve a more
+complex problem and then be able to solve
+
+13
+00:00:48,610 --> 00:00:54,900
+a simpler problem easily by using the more
+complex algorithm to do the hard work.
+
+14
+00:00:54,900 --> 00:00:57,740
+Recognizing such situations
+can be quite helpful
+
+15
+00:00:57,740 --> 00:00:59,880
+to becoming a highly
+productive programmer.
+
+16
+00:01:01,050 --> 00:01:06,150
+In this case, using the HashMap from the
+second problem to solve the first problem,
+
+17
+00:01:06,150 --> 00:01:07,760
+is easy.
+
+18
+00:01:07,760 --> 00:01:10,670
+HashMaps have a .size() method,
+
+19
+00:01:10,670 --> 00:01:13,900
+which tells how many key
+value pairs the HashMap has.
+
+20
+00:01:14,930 --> 00:01:19,270
+As each key appears once in the HashMap,
+the result from .size() tells you
+
+21
+00:01:19,270 --> 00:01:22,660
+exactly how many unique keys
+there were in the input.
+
+22
+00:01:23,730 --> 00:01:26,783
+If you had written
+countVisitsPerIP() first,
+
+23
+00:01:26,783 --> 00:01:31,587
+you could have written countUniqueIPs()
+with just these two lines of code.
+
+24
+00:01:31,587 --> 00:01:36,340
+The first line uses countVisitsPerIP()
+to solve a larger problem.
+
+25
+00:01:36,340 --> 00:01:41,430
+And the second line uses the .size()
+method in HashMap to turn the answer from
+
+26
+00:01:41,430 --> 00:01:44,670
+that problem in to
+the answer to this problem.
+
+27
+00:01:44,670 --> 00:01:48,830
+The size of the HashMap is exactly
+the number of unique keys,
+
+28
+00:01:48,830 --> 00:01:51,206
+which is the answer to this problem.
+
+29
+00:01:51,206 --> 00:01:53,050
+Whenever you are programming,
+
+30
+00:01:53,050 --> 00:01:57,440
+try to think of way to use code that
+you have already written and tested.
+
+31
+00:01:57,440 --> 00:01:57,940
+Thank You.

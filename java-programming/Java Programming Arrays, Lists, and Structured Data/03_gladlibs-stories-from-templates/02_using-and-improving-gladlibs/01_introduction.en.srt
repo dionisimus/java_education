@@ -1,0 +1,578 @@
+1
+00:00:03,015 --> 00:00:05,705
+Now that you've learned about ArrayLists,
+
+2
+00:00:05,705 --> 00:00:08,763
+it is time to work with
+the Gladlib.java program.
+
+3
+00:00:08,763 --> 00:00:12,770
+You will learn how it works and
+how to modify it to create stories and
+
+4
+00:00:12,770 --> 00:00:14,440
+new kinds of data.
+
+5
+00:00:14,440 --> 00:00:17,720
+You'll need to understand the programs so
+that you can modify it.
+
+6
+00:00:17,720 --> 00:00:21,300
+As a programmer or software engineer,
+sometimes you'll be creating programs from
+
+7
+00:00:21,300 --> 00:00:24,440
+scratch and
+sometimes you'll be modifying programs.
+
+8
+00:00:24,440 --> 00:00:28,010
+Enhancing them,
+making them more robust, and more.
+
+9
+00:00:28,010 --> 00:00:30,400
+In this program there are many pieces,
+
+10
+00:00:30,400 --> 00:00:33,490
+many methods each of which
+you can write yourself.
+
+11
+00:00:33,490 --> 00:00:36,280
+This means you'll be able to
+understand each method and
+
+12
+00:00:36,280 --> 00:00:39,310
+be able to modify the program
+in different ways.
+
+13
+00:00:39,310 --> 00:00:43,020
+Since you'll start with a working program,
+you'll be able to make improvements and
+
+14
+00:00:43,020 --> 00:00:48,010
+additions while testing your program to
+see that it continues to work correctly.
+
+15
+00:00:48,010 --> 00:00:52,110
+You'll be able to understand class design,
+method design and the limitations of
+
+16
+00:00:52,110 --> 00:00:57,120
+the GladLib.Java program you start with
+as you make improvements to the code.
+
+17
+00:00:57,120 --> 00:01:00,120
+As you work to understand these
+aspects of software design and
+
+18
+00:01:00,120 --> 00:01:02,360
+engineering, you can
+tell stories about it.
+
+19
+00:01:03,480 --> 00:01:07,530
+As you modify the program you'll be
+creating reusable program components and
+
+20
+00:01:07,530 --> 00:01:12,500
+reusable ideas that you'll be able to use
+as you develop software experience and
+
+21
+00:01:12,500 --> 00:01:13,010
+expertise.
+
+22
+00:01:14,390 --> 00:01:17,990
+We'll take a tour of the program before
+you begin to make enhancements and
+
+23
+00:01:17,990 --> 00:01:19,370
+improvements.
+
+24
+00:01:19,370 --> 00:01:24,410
+As with all Java classes, a constructor
+will initialize a GladLib object.
+
+25
+00:01:24,410 --> 00:01:27,720
+The constructor will create
+the ArrayList instance variables
+
+26
+00:01:27,720 --> 00:01:31,300
+that hold replacements for
+nouns, colors, and more.
+
+27
+00:01:31,300 --> 00:01:35,440
+It will also create
+the Java.util.random object used for
+
+28
+00:01:35,440 --> 00:01:37,640
+choosing a replacement at random.
+
+29
+00:01:37,640 --> 00:01:41,280
+The general control flow of
+the program after initialization
+
+30
+00:01:41,280 --> 00:01:45,050
+will be to read a story template and
+process each word.
+
+31
+00:01:45,050 --> 00:01:49,960
+If the word is a label, like country or
+timeframe, indicated by angle brackets,
+
+32
+00:01:49,960 --> 00:01:52,950
+the code will find
+a replacement at random.
+
+33
+00:01:52,950 --> 00:01:56,270
+After the story is created,
+the program will print it.
+
+34
+00:01:56,270 --> 00:01:58,259
+Let's look at these pieces in more detail.
+
+35
+00:02:00,080 --> 00:02:05,610
+First, let's take a quick look at creating
+stories from the template you just saw.
+
+36
+00:02:05,610 --> 00:02:08,970
+There is one public method in the class,
+makeStory.
+
+37
+00:02:08,970 --> 00:02:12,410
+Calling this method will use
+a template to generate a story
+
+38
+00:02:12,410 --> 00:02:15,610
+as we'll see when we look
+more closely at the code.
+
+39
+00:02:15,610 --> 00:02:17,470
+In Kenya, a long time ago,
+
+40
+00:02:17,470 --> 00:02:22,310
+nearly 245 decades ago,
+there live a pink, funny tiger.
+
+41
+00:02:22,310 --> 00:02:25,440
+It so loved to sing and dance,
+but there was an angry,
+
+42
+00:02:25,440 --> 00:02:28,700
+gigantic lion named Lance
+that scared it so much.
+
+43
+00:02:30,000 --> 00:02:32,650
+In Ecuador, a long time ago,
+
+44
+00:02:32,650 --> 00:02:37,290
+nearly 105 months ago,
+there lived a jovial, yellow polar bear.
+
+45
+00:02:37,290 --> 00:02:38,940
+It so loved to sing and dance, but
+
+46
+00:02:38,940 --> 00:02:42,830
+there was a furious, angry rabbit
+named Albert that scared it so much.
+
+47
+00:02:44,680 --> 00:02:46,460
+Reading words from the template and
+
+48
+00:02:46,460 --> 00:02:51,172
+printing the story will be code
+you likely won't need to modify.
+
+49
+00:02:51,172 --> 00:02:55,380
+Calling makeStory will read
+a template from a file or URL and
+
+50
+00:02:55,380 --> 00:02:57,660
+loop over each word in the template.
+
+51
+00:02:57,660 --> 00:03:00,480
+If the word is a label with angle
+brackets, it will be replaced.
+
+52
+00:03:01,550 --> 00:03:05,211
+Finding labels is a straight
+use of .indexOf and
+
+53
+00:03:05,211 --> 00:03:09,560
+.substring in the private
+method processWord.
+
+54
+00:03:09,560 --> 00:03:13,700
+We use these methods to ensure that
+punctuation or letters before and
+
+55
+00:03:13,700 --> 00:03:15,680
+after the angle brackets are preserved.
+
+56
+00:03:16,680 --> 00:03:21,090
+Printing the story will display the final
+result in the console window of Blue Jay.
+
+57
+00:03:21,090 --> 00:03:23,620
+Or a different programming environment.
+
+58
+00:03:23,620 --> 00:03:27,940
+The private method printOut has
+a parameter to specify the line width, so
+
+59
+00:03:27,940 --> 00:03:32,770
+you can create a story and use 80 or
+40 characters, or any other number.
+
+60
+00:03:34,770 --> 00:03:37,910
+You could modify the printOut method
+to write this story to a file,
+
+61
+00:03:37,910 --> 00:03:42,112
+too, using
+the edu.duke.fileresource class.
+
+62
+00:03:42,112 --> 00:03:45,430
+Changing the GladLib.java program requires
+
+63
+00:03:45,430 --> 00:03:48,880
+understanding how the ArrayList
+variables are used.
+
+64
+00:03:48,880 --> 00:03:50,320
+There is one ArrayList for
+
+65
+00:03:50,320 --> 00:03:54,750
+each possible label in a story
+template like noun or color.
+
+66
+00:03:54,750 --> 00:03:58,920
+These instance variables should be named
+appropriately so that programmers will be
+
+67
+00:03:58,920 --> 00:04:03,370
+able to easily understand their
+use in reading and modifying code.
+
+68
+00:04:03,370 --> 00:04:06,690
+As with all instance variables or
+fields, they'll be created and
+
+69
+00:04:06,690 --> 00:04:11,250
+initialized when the GladLib constructor
+is called either using new or
+
+70
+00:04:11,250 --> 00:04:14,480
+from within BlueJay when
+you create an object.
+
+71
+00:04:14,480 --> 00:04:17,310
+The program can use all of
+the fields when replacing words
+
+72
+00:04:17,310 --> 00:04:18,810
+as part of telling a story.
+
+73
+00:04:20,170 --> 00:04:24,540
+The field adjective list will hold
+replacements for the label adjective.
+
+74
+00:04:24,540 --> 00:04:27,570
+The field nounList will be for nouns and
+
+75
+00:04:27,570 --> 00:04:32,080
+the instance variable colorList will
+hold colors to be chosen at random.
+
+76
+00:04:32,080 --> 00:04:36,050
+Each field holds replacements for
+the label that's part of its name.
+
+77
+00:04:36,050 --> 00:04:39,800
+This is a convention in the program
+not required by Java, but
+
+78
+00:04:39,800 --> 00:04:43,260
+following the convention will make it
+simpler to create a new instance variable,
+
+79
+00:04:43,260 --> 00:04:44,970
+like verbList, for a new label.
+
+80
+00:04:46,010 --> 00:04:49,270
+We'll look at each use of these fields.
+
+81
+00:04:49,270 --> 00:04:52,760
+One is finding a substitute for
+a label like color.
+
+82
+00:04:52,760 --> 00:04:56,280
+Based on the word that's part
+of a label like color or
+
+83
+00:04:56,280 --> 00:04:59,070
+noun, the private method
+getSubstitute will
+
+84
+00:04:59,070 --> 00:05:03,220
+access the appropriate instance variable
+to find our random replacement.
+
+85
+00:05:03,220 --> 00:05:05,210
+For example if the label is color,
+
+86
+00:05:05,210 --> 00:05:08,840
+then a replacement will be chosen
+from the field color list.
+
+87
+00:05:08,840 --> 00:05:12,490
+If the label is noun
+then noun list is used.
+
+88
+00:05:12,490 --> 00:05:16,250
+You can see in the method
+getSubstitute that adding a new label
+
+89
+00:05:16,250 --> 00:05:21,280
+will require adding a new if statement
+to access the appropriate ArrayList.
+
+90
+00:05:21,280 --> 00:05:25,640
+A value is chosen at random using
+a private method, randomFrom.
+
+91
+00:05:25,640 --> 00:05:28,610
+Both randomFrom and
+getSubstitute are private.
+
+92
+00:05:28,610 --> 00:05:32,115
+They're called as a result of
+calling the public makeStory method.
+
+93
+00:05:32,115 --> 00:05:35,539
+When getSubstitute calls randomFrom,
+
+94
+00:05:35,539 --> 00:05:41,030
+getSubstitute will always pass one of
+the instance variables you made such as
+
+95
+00:05:41,030 --> 00:05:46,698
+adjective list etc., as the value for
+the parameter source.
+
+96
+00:05:46,698 --> 00:05:49,230
+Initializing the ArrayList
+is straightforward, but
+
+97
+00:05:49,230 --> 00:05:53,658
+you'll need to understand it to
+create a new field for a new label.
+
+98
+00:05:53,658 --> 00:05:55,560
+All the ArrayLists must be created and
+
+99
+00:05:55,560 --> 00:05:58,010
+initialized when
+the constructor is called.
+
+100
+00:05:58,010 --> 00:06:02,280
+The constructor will call a private
+helper method, initializeFrom.
+
+101
+00:06:02,280 --> 00:06:07,960
+The source for the data for colors, nouns,
+and so on, could be a URL or a file.
+
+102
+00:06:07,960 --> 00:06:11,100
+Calling initializeFrom will
+result in reading files or
+
+103
+00:06:11,100 --> 00:06:15,110
+URLs to store strings in each ArrayList.
+
+104
+00:06:15,110 --> 00:06:18,970
+If the parameter to initializeFrom
+begins with HTTP then
+
+105
+00:06:18,970 --> 00:06:23,500
+eventually a URL resource object
+will be used to read data.
+
+106
+00:06:23,500 --> 00:06:26,780
+Otherwise, a file resource
+object will be used.
+
+107
+00:06:26,780 --> 00:06:30,680
+You can't see that in the code here
+because the parameter source is simply
+
+108
+00:06:30,680 --> 00:06:34,620
+passed to the helper method, read it,
+where the reading code is located.
+
+109
+00:06:35,660 --> 00:06:39,720
+Let's summarize how the instance
+variable for replacing labels are used.
+
+110
+00:06:39,720 --> 00:06:44,700
+You'll need to understand this to enhance
+the program by adding a new label.
+
+111
+00:06:44,700 --> 00:06:50,080
+For example, to create a label like verb,
+you'll need a new instance variable.
+
+112
+00:06:50,080 --> 00:06:53,160
+You'll name it appropriately
+like verbList.
+
+113
+00:06:53,160 --> 00:06:57,410
+You'll need to modify code in two
+methods with the addition of verbList.
+
+114
+00:06:57,410 --> 00:07:00,180
+You'll modify the method initiazeFrom,
+
+115
+00:07:00,180 --> 00:07:02,330
+a private method called
+from the constructor.
+
+116
+00:07:03,590 --> 00:07:07,370
+You'll modify the code in
+the method getSubstitute,
+
+117
+00:07:07,370 --> 00:07:10,670
+also a private method,
+called by the public,
+
+118
+00:07:10,670 --> 00:07:15,710
+makeStory via the private methods
+fromTemplate and processWord.
+
+119
+00:07:16,710 --> 00:07:20,990
+The program documentation should include
+information like this to help you,
+
+120
+00:07:20,990 --> 00:07:24,850
+the software engineer,
+make modifications and enhancements.
+
+121
+00:07:24,850 --> 00:07:27,150
+Have fun telling stories and writing code.

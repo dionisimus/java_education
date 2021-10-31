@@ -1,0 +1,469 @@
+1
+00:00:03,240 --> 00:00:03,762
+Hi.
+
+2
+00:00:03,762 --> 00:00:07,057
+Now that you know a bit about
+object oriented concepts.
+
+3
+00:00:07,057 --> 00:00:09,971
+It's time to go a bit deeper
+into the idea of fields,
+
+4
+00:00:09,971 --> 00:00:13,110
+which are also called instance variables.
+
+5
+00:00:13,110 --> 00:00:17,060
+Remember that when we redesigned our
+CaesarCipher to be more object oriented,
+
+6
+00:00:17,060 --> 00:00:18,580
+we created two fields.
+
+7
+00:00:18,580 --> 00:00:21,480
+One for the alphabet, and
+one for the shiftedAlphabet.
+
+8
+00:00:21,480 --> 00:00:26,930
+These fields are declared inside of
+the class, but outside of any method.
+
+9
+00:00:26,930 --> 00:00:31,900
+They belong to the object and are created
+when new is called to create an object.
+
+10
+00:00:31,900 --> 00:00:33,840
+Either in code you write, or
+
+11
+00:00:33,840 --> 00:00:38,240
+when you create an object in BlueJ
+that's shown on the object workbench.
+
+12
+00:00:38,240 --> 00:00:43,770
+These fields are part of the object and
+exist as long as the object exists.
+
+13
+00:00:43,770 --> 00:00:45,580
+What does all this mean?
+
+14
+00:00:45,580 --> 00:00:50,040
+Every CaesarCipher object you
+create has its own alphabet and
+
+15
+00:00:50,040 --> 00:00:51,920
+its own shifted alphabet.
+
+16
+00:00:51,920 --> 00:00:55,780
+This is why fields are also
+called instance variables.
+
+17
+00:00:55,780 --> 00:00:57,090
+They act like variables,
+
+18
+00:00:57,090 --> 00:01:00,740
+where there's one variable per
+instance of the object you create.
+
+19
+00:01:01,940 --> 00:01:03,890
+What does this really mean?
+
+20
+00:01:03,890 --> 00:01:07,710
+Let's look more deeply at fields and
+instance variables.
+
+21
+00:01:07,710 --> 00:01:13,630
+Every CaesarCipher object has its own copy
+of the alphabet and the shifted alphabet.
+
+22
+00:01:13,630 --> 00:01:16,040
+You can make different
+CaesarCipher objects and
+
+23
+00:01:16,040 --> 00:01:18,630
+each will have its own
+inference variables.
+
+24
+00:01:18,630 --> 00:01:21,930
+These variables are specific
+to the instance.
+
+25
+00:01:21,930 --> 00:01:25,800
+If you create three CaesarCiphers,
+with three different keys.
+
+26
+00:01:25,800 --> 00:01:29,670
+Each has its own copy of these fields
+with potentially different values.
+
+27
+00:01:31,160 --> 00:01:35,680
+One cipher might have a shifted
+alphabet of QRS for example.
+
+28
+00:01:35,680 --> 00:01:38,950
+Based on the integer shift value
+passed to the constructor.
+
+29
+00:01:38,950 --> 00:01:44,400
+While another object might have MNO as
+the shift value and the third object
+
+30
+00:01:44,400 --> 00:01:49,990
+could have HIJ as it's instance variable
+set again when the object is constructed.
+
+31
+00:01:51,290 --> 00:01:54,746
+To call a method like
+encrypt on an object,
+
+32
+00:01:54,746 --> 00:02:00,610
+you'll typically use a variable
+name like cc and you'll cc.encrypt.
+
+33
+00:02:00,610 --> 00:02:04,550
+You can also call a method from
+an object on the BlueJ object workbench.
+
+34
+00:02:04,550 --> 00:02:06,930
+These objects have names too.
+
+35
+00:02:06,930 --> 00:02:11,440
+And when you call .encrypt for example,
+the method will use the values of
+
+36
+00:02:11,440 --> 00:02:14,780
+the fields in the object you
+used to call the method.
+
+37
+00:02:14,780 --> 00:02:18,150
+Like CC, if you wrote CC.encrypt.
+
+38
+00:02:18,150 --> 00:02:24,174
+Calling encrypt on this CaesarCipher
+will use it's QRS shifted alphabet.
+
+39
+00:02:24,174 --> 00:02:27,657
+So when we call .encrypt and
+provide the message,
+
+40
+00:02:27,657 --> 00:02:31,224
+first legion attack east flank,
+as the parameter.
+
+41
+00:02:31,224 --> 00:02:35,070
+The QRS alphabet is used to create
+the encrypted version that you see here.
+
+42
+00:02:36,370 --> 00:02:37,750
+In the same way,
+
+43
+00:02:37,750 --> 00:02:43,220
+calling encrypt on this CaesarCipher
+object will use its MNO shifted alphabet.
+
+44
+00:02:43,220 --> 00:02:45,520
+This is the principal of encapsulation.
+
+45
+00:02:45,520 --> 00:02:49,100
+The method and the data
+are logically inside of the object.
+
+46
+00:02:49,100 --> 00:02:52,580
+And the method acts on the data
+inside the object that it lives in.
+
+47
+00:02:53,630 --> 00:02:57,710
+As you can see here, calling encrypt
+uses this shifted alphabet and
+
+48
+00:02:57,710 --> 00:03:01,060
+we see a different encrypted
+version of the same message.
+
+49
+00:03:01,060 --> 00:03:04,750
+Because the field shifted off of
+it's starch, with MNO, is used here.
+
+50
+00:03:05,880 --> 00:03:10,080
+Finally, using this object
+with HIJ as the field,
+
+51
+00:03:10,080 --> 00:03:13,130
+will result in a different
+encrypted message.
+
+52
+00:03:13,130 --> 00:03:17,500
+When encrypt is called, the encrypt
+code uses this shifted alphabet,
+
+53
+00:03:17,500 --> 00:03:19,160
+of this instance.
+
+54
+00:03:19,160 --> 00:03:21,800
+And the encrypt code creates
+the encrypted message you see here.
+
+55
+00:03:22,900 --> 00:03:26,860
+Fields, or instance variables, are very
+important concepts in designing and
+
+56
+00:03:26,860 --> 00:03:28,030
+using classes.
+
+57
+00:03:28,030 --> 00:03:31,530
+Since they can be accessed by
+every method in the class.
+
+58
+00:03:31,530 --> 00:03:34,490
+Like encrypt, that you see here,
+and the constructor as well.
+
+59
+00:03:36,360 --> 00:03:40,030
+As you begin to design our own classes,
+and think about the fields and
+
+60
+00:03:40,030 --> 00:03:42,030
+methods to put in these classes.
+
+61
+00:03:42,030 --> 00:03:45,040
+Here are a few design principles
+you should keep in mind.
+
+62
+00:03:45,040 --> 00:03:47,740
+The first is that a class name
+should correspond to a noun.
+
+63
+00:03:48,870 --> 00:03:51,250
+Classes describe things.
+
+64
+00:03:51,250 --> 00:03:55,570
+Each object you make for
+a particular class is one of that thing.
+
+65
+00:03:55,570 --> 00:03:57,882
+Let's think about the classes
+you've seen so far for this course.
+
+66
+00:03:57,882 --> 00:04:01,222
+Strings, pixels, CSV records.
+
+67
+00:04:01,222 --> 00:04:03,510
+Each of these is a noun.
+
+68
+00:04:03,510 --> 00:04:04,410
+It describes a thing.
+
+69
+00:04:05,410 --> 00:04:07,410
+A class could be a car for example.
+
+70
+00:04:07,410 --> 00:04:09,590
+That's a noun.
+And then the methods and
+
+71
+00:04:09,590 --> 00:04:12,310
+fields would correspond to
+things that a car can do.
+
+72
+00:04:13,860 --> 00:04:16,530
+Methods, on the other hand, are verbs.
+
+73
+00:04:16,530 --> 00:04:19,640
+They're what you do to or with an object.
+
+74
+00:04:19,640 --> 00:04:24,140
+Things like get pixel,
+set care at, or encrypt.
+
+75
+00:04:24,140 --> 00:04:30,150
+Sometimes method names don't sound like
+verbs, such as substring or index of.
+
+76
+00:04:30,150 --> 00:04:35,920
+But these describe actions,
+get a subscreen, or find the index of.
+
+77
+00:04:35,920 --> 00:04:37,550
+The program has just shortened the name.
+
+78
+00:04:38,600 --> 00:04:43,410
+For the car,
+a method might be accelerate or brake.
+
+79
+00:04:43,410 --> 00:04:46,210
+These are things a car can do.
+
+80
+00:04:46,210 --> 00:04:50,670
+For example, invoking a method would
+make the car go faster or stop suddenly.
+
+81
+00:04:52,390 --> 00:04:56,720
+Fields, or instance variables,
+are important class concepts.
+
+82
+00:04:56,720 --> 00:04:58,430
+Fields are also nouns.
+
+83
+00:04:58,430 --> 00:05:01,929
+And should describe things the class has.
+
+84
+00:05:01,929 --> 00:05:05,760
+The string class might have a field for
+a sequence of characters.
+
+85
+00:05:05,760 --> 00:05:10,400
+A sequence of characters is a thing and
+a string has one of these things.
+
+86
+00:05:10,400 --> 00:05:14,220
+Similarly an image might have many pixels.
+
+87
+00:05:14,220 --> 00:05:18,554
+Fields can also be adjectives as they
+describe the properties of an object.
+
+88
+00:05:18,554 --> 00:05:23,837
+For example, a pixel might have a field,
+or fields describing its color.
+
+89
+00:05:23,837 --> 00:05:27,407
+That could be an adjective giving more
+information about the properties of
+
+90
+00:05:27,407 --> 00:05:28,950
+the pixel.
+
+91
+00:05:28,950 --> 00:05:33,500
+For cars, fields could include
+things a car has, nouns.
+
+92
+00:05:33,500 --> 00:05:37,820
+Like an engine with a certain number of
+cylinders, or wheels of a certain size,
+
+93
+00:05:38,920 --> 00:05:42,500
+for cars adjectives might
+describe the color of the car.
+
+94
+00:05:42,500 --> 00:05:46,710
+Or the kind of engine the car has or
+the type of wheel.
+
+95
+00:05:46,710 --> 00:05:49,760
+As you get started making
+more complex classes,
+
+96
+00:05:49,760 --> 00:05:53,360
+we will provide guidance on fields and
+methods you should make.
+
+97
+00:05:53,360 --> 00:05:57,125
+But think about these designs
+principles as you write your code.
+
+98
+00:05:57,125 --> 00:05:58,875
+As you gain more experience,
+
+99
+00:05:58,875 --> 00:06:04,625
+you'll want to start designing classes
+on your own, based on these ideas.
+
+100
+00:06:04,625 --> 00:06:05,755
+Happy coding acceleration.

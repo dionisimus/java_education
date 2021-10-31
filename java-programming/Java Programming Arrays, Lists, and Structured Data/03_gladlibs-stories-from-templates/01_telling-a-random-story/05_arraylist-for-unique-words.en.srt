@@ -1,0 +1,490 @@
+1
+00:00:02,936 --> 00:00:08,300
+Hi, we're gonna show an example of
+how the array list structure works.
+
+2
+00:00:08,300 --> 00:00:13,055
+We'll show code that keeps track of how
+many times each word in a file occurs.
+
+3
+00:00:13,055 --> 00:00:16,995
+The file or it could be a URL,
+could be a large file,
+
+4
+00:00:16,995 --> 00:00:22,105
+like text from Shakespeare's Romeo and
+Juliet, or like the sayings of Confucius.
+
+5
+00:00:22,105 --> 00:00:24,985
+We don't know how many different
+words there are before we start
+
+6
+00:00:24,985 --> 00:00:26,205
+reading the file.
+
+7
+00:00:26,205 --> 00:00:29,115
+So we can't easily use an array.
+
+8
+00:00:29,115 --> 00:00:32,410
+Instead we'll use two
+ArrayList structures.
+
+9
+00:00:32,410 --> 00:00:35,980
+One that holds strings and
+one that holds integer values.
+
+10
+00:00:35,980 --> 00:00:38,370
+We'll need integer instead of int.
+
+11
+00:00:38,370 --> 00:00:39,970
+We'll explain why.
+
+12
+00:00:39,970 --> 00:00:44,930
+The kth value of the array list, whose
+name is myFreqs, will store an integer.
+
+13
+00:00:44,930 --> 00:00:49,480
+The number of occurrences of the kth value
+in the instance variable array list,
+
+14
+00:00:49,480 --> 00:00:50,700
+myWords.
+
+15
+00:00:50,700 --> 00:00:54,780
+The names are names of instance
+variables that we'll see in the code.
+
+16
+00:00:54,780 --> 00:01:00,180
+As shown here we see two occurrences
+of the with a string and an integer
+
+17
+00:01:00,180 --> 00:01:04,760
+stored in the location with index zero
+in the two different array lists.
+
+18
+00:01:04,760 --> 00:01:08,560
+Similarly there were three
+occurrences of the word dog, and
+
+19
+00:01:08,560 --> 00:01:10,410
+one occurrence of the word green.
+
+20
+00:01:10,410 --> 00:01:11,970
+Let's write code.
+
+21
+00:01:11,970 --> 00:01:14,540
+We've got a class, WordFrequencies.
+
+22
+00:01:14,540 --> 00:01:18,370
+I'm gonna open it up, and
+take a look to see how it works.
+
+23
+00:01:18,370 --> 00:01:20,360
+And one way we can
+easily see how it works,
+
+24
+00:01:20,360 --> 00:01:23,140
+before we look at the code,
+is simply to run it.
+
+25
+00:01:23,140 --> 00:01:27,440
+I've created an instance of
+it on my object work bench.
+
+26
+00:01:27,440 --> 00:01:29,540
+I'm going to right click and
+run the tester method.
+
+27
+00:01:31,020 --> 00:01:33,020
+I'm gonna open the file romeo.txt,
+
+28
+00:01:33,020 --> 00:01:36,230
+the entire text of Shakespeare's Romeo and
+Juliet.
+
+29
+00:01:37,640 --> 00:01:42,340
+And I can see that there
+were 5,895 unique words.
+
+30
+00:01:42,340 --> 00:01:46,640
+What I like to do with ArrayList is
+count how many times each word occurs.
+
+31
+00:01:46,640 --> 00:01:50,530
+So I'll find out how many
+times the occurs Montague,
+
+32
+00:01:50,530 --> 00:01:52,640
+Capulet, all the words from Romeo and
+Juliet.
+
+33
+00:01:53,660 --> 00:01:57,560
+Just going through this code very quickly
+to highlight the key features before I
+
+34
+00:01:57,560 --> 00:01:58,960
+add the counting.
+
+35
+00:01:58,960 --> 00:02:02,700
+I have an instance variable, myWords,
+
+36
+00:02:02,700 --> 00:02:06,880
+which is initialized to be able to
+hold strings in the constructor.
+
+37
+00:02:08,210 --> 00:02:11,590
+In tester, I call the function findUnique.
+
+38
+00:02:11,590 --> 00:02:13,840
+Which creates a file resource and
+
+39
+00:02:13,840 --> 00:02:18,400
+because it had no parameters that
+allowed me to open up any file I wanted.
+
+40
+00:02:18,400 --> 00:02:22,550
+It looks over every word,
+converts each word to lowercase.
+
+41
+00:02:23,690 --> 00:02:28,550
+If the word has never been seen before,
+which I find out by using the array list
+
+42
+00:02:28,550 --> 00:02:33,930
+method .indexOf which is a method whose
+same name we've seen in the string class.
+
+43
+00:02:33,930 --> 00:02:37,340
+If it has never been seen,
+I add it to my words.
+
+44
+00:02:37,340 --> 00:02:39,500
+Now what I want to do is
+have a parallel array.
+
+45
+00:02:39,500 --> 00:02:43,420
+I will call it myFreqs,
+for my frequencies.
+
+46
+00:02:43,420 --> 00:02:45,490
+So I need another instance variable.
+
+47
+00:02:46,780 --> 00:02:48,650
+This has to store integer values,
+
+48
+00:02:48,650 --> 00:02:53,060
+and unfortunately with array lists
+in Java, I must use integer.
+
+49
+00:02:53,060 --> 00:02:56,250
+You've seen this before
+with integer.parseint.
+
+50
+00:02:56,250 --> 00:02:59,770
+Similar to the class Double.parseDouble,
+
+51
+00:02:59,770 --> 00:03:04,140
+I'll explain this as I go,
+I need to store integers.
+
+52
+00:03:04,140 --> 00:03:06,210
+I'm going to create a place for it.
+
+53
+00:03:06,210 --> 00:03:09,780
+I'm going to initialize that
+in the constructor to a new
+
+54
+00:03:09,780 --> 00:03:12,290
+ArrayList of Integer values.
+
+55
+00:03:13,650 --> 00:03:17,480
+And then If I've never
+seen the word before,
+
+56
+00:03:17,480 --> 00:03:19,590
+that means this is the first occurrence.
+
+57
+00:03:19,590 --> 00:03:23,830
+So, I'm gonna add to the end
+of the array list the value 1.
+
+58
+00:03:23,830 --> 00:03:30,090
+This is just like the idea of, the first
+time you see a word, it's occurred once.
+
+59
+00:03:30,090 --> 00:03:33,199
+But, if I've seen it before,
+this is in my else statement.
+
+60
+00:03:34,680 --> 00:03:39,390
+If I’ve seen it before I know where
+it is because index tells me.
+
+61
+00:03:39,390 --> 00:03:44,120
+So what I’m going to do is find
+the value that’s in myFreqs,
+
+62
+00:03:44,120 --> 00:03:46,310
+this is the number of times
+it’s already occurred.
+
+63
+00:03:48,050 --> 00:03:54,480
+I can get this value using the get
+method and then I can set the value.
+
+64
+00:03:55,980 --> 00:03:58,193
+In myFreqs, to value +1.
+
+65
+00:03:58,193 --> 00:04:03,100
+So, let me make clear what
+I've just done there.
+
+66
+00:04:03,100 --> 00:04:07,350
+I've accessed the value at
+the location specified by index,
+
+67
+00:04:07,350 --> 00:04:11,370
+which was returned to me
+by the dot index of method.
+
+68
+00:04:11,370 --> 00:04:18,530
+And the idea here is that if the word the,
+occurs in location 500 of my words,
+
+69
+00:04:18,530 --> 00:04:23,370
+the frequency, or number of times that
+occurs is in location 500 of myFreqs.
+
+70
+00:04:23,370 --> 00:04:25,310
+They match up exactly.
+
+71
+00:04:25,310 --> 00:04:27,380
+This will, I hope, compile.
+
+72
+00:04:28,510 --> 00:04:29,910
+Cannot find myFreqs.
+
+73
+00:04:31,420 --> 00:04:38,020
+So, I've looked up here and
+I can see myFreqs, myFreqs myFreqs, that's
+
+74
+00:04:38,020 --> 00:04:42,550
+because I forgot to say set, the name
+of the method to set the value is set.
+
+75
+00:04:43,820 --> 00:04:44,650
+Now I'm ready to run it.
+
+76
+00:04:45,730 --> 00:04:48,010
+But I haven't printed any values.
+
+77
+00:04:48,010 --> 00:04:51,040
+After I've printed them, so
+after I've tested them all and
+
+78
+00:04:51,040 --> 00:04:55,950
+found them I will literally print every
+single word and how many times it occurs.
+
+79
+00:04:55,950 --> 00:05:00,740
+So I'm gonna use the standard four
+loop that loops over array values or
+
+80
+00:05:00,740 --> 00:05:01,830
+array list values.
+
+81
+00:05:03,040 --> 00:05:05,310
+Size is the method that
+tells me how many there are.
+
+82
+00:05:06,730 --> 00:05:15,606
+And I'm going to print The number
+of occurrences which is in myFreqs,
+
+83
+00:05:15,606 --> 00:05:19,704
+a tap character and then the word itself.
+
+84
+00:05:26,207 --> 00:05:32,320
+That compiled I'll create a new one by
+right clicking and creating a new object.
+
+85
+00:05:34,750 --> 00:05:39,310
+And then I'm going to run the tester
+method on this object by right clicking.
+
+86
+00:05:42,320 --> 00:05:44,960
+There's the right click, run tester.
+
+87
+00:05:44,960 --> 00:05:45,710
+Let's count romeo.
+
+88
+00:05:45,710 --> 00:05:51,820
+And you can see how many times
+different words have occurred in Romeo.
+
+89
+00:05:51,820 --> 00:05:57,640
+For example, the has occurred 677 times,
+Romeo 48 and Juliet 23.
+
+90
+00:05:57,640 --> 00:06:01,860
+Another word that occurs often
+is Juliet with a period.
+
+91
+00:06:01,860 --> 00:06:05,170
+I haven't taken into
+account punctuation at all.
+
+92
+00:06:05,170 --> 00:06:08,680
+And from occurs 86 times.
+
+93
+00:06:08,680 --> 00:06:10,670
+Let's make sure that part
+of the code is clear.
+
+94
+00:06:11,750 --> 00:06:18,640
+I've accessed the value in myFreqs and
+stored it in the Int value.
+
+95
+00:06:18,640 --> 00:06:24,141
+And then I've set
+the value at index to value
+
+96
+00:06:24,141 --> 00:06:30,430
++1 because array lists use integer rather
+than int, this is a two step process.
+
+97
+00:06:30,430 --> 00:06:33,860
+Find the value and then store the value.
+
+98
+00:06:33,860 --> 00:06:36,270
+That's what we need to do with integer
+
+99
+00:06:36,270 --> 00:06:38,800
+which would be a little bit
+different than we had with int.
+
+100
+00:06:38,800 --> 00:06:41,100
+We'll see that in a later video.
+
+101
+00:06:41,100 --> 00:06:42,290
+Let's look down here.
+
+102
+00:06:42,290 --> 00:06:48,092
+MyFreqs .get(k) returns the kth
+value of the frequency array list.
+
+103
+00:06:48,092 --> 00:06:52,760
+And myWords.get(k) returns
+the corresponding word.
+
+104
+00:06:52,760 --> 00:06:57,380
+The 23rd frequency is the number of
+times the 23rd word has occurred.
+
+105
+00:06:57,380 --> 00:07:00,965
+Now that you know a little more about
+array lists, let's write some code.

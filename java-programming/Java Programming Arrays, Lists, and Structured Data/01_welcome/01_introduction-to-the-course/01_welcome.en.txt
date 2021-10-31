@@ -1,0 +1,40 @@
+[SOUND] This is Duke University. >> Hi, I'm Susan and I'm really excited to be working with our
+team at Duke to introduce this course. Java Programming, Arrays,
+Lists, and Structured Data. We've designed a great set of problems and
+programs that combine real world data analytics with lessons that
+introduce security and cryptography. Whether this is your first
+course with our great team, or you're coming from our previous courses
+as part of Java programming and introduction to software specialization. You'll use a seven-step
+process to help you design and implement Java programs
+to solve problems and hone the skills that will help you
+become an effective software engineer. In working on the problems we've designed,
+you'll learn about arrays and maps, two standard data structures
+that are used to create efficient and robust programs to solve problems. As part of our cryptography lesson,
+you'll learn how the words melon and cubed are related by the number 16. >> Hello, I'm Drew. In this course, you'll be using the
+edu.duke library of classes we've designed to write programs that solve interesting
+problems, like analyzing web logs, and generating random stories from templates. But you'll also use the standard java.util
+library of classes that will help you grow your knowledge and skill in using java
+to create solutions to these problems. Understanding APIs so you can use code
+from libraries is an important part of this course, as is beginning to develop an
+understanding of object-oriented program. In this course, you'll learn
+how classes are structured and how programs are created by strategically
+combining classes together. You'll also learn about
+how the words fusion and layout are related by the number 20. >> Hi, I'm Robert. For this course, we've designed an exciting mini-project
+as part of this course to help you learn more about classes, object-orientation,
+and data structures. You will use standard techniques and
+libraries that are part of nearly all java programs designed
+to solve problems at scale. We've structured the module in this
+course to introduce topics, and then explore them in more detail,
+and with more robust, scalable solutions that improve
+upon that initial program. This allows you to learn the new
+techniques while solving a familiar problem. We hope that this learning approach will
+facilitate success for all learners. Also in this course, you'll learn
+how the number 19 connects to words, jolly and cheer. >> Hi, I'm Owen. I'm excited about the approach
+we've taken in this course to introduce two important programming
+structures, arrays and maps. These are not simply Java structures. They are used in every programming
+language to create efficient solutions to programming problems. By exploring how these structures are
+related and encountering them in familiar contexts, you'll be able to practice
+using them as you develop mastery with both concepts and the Java libraries
+that anchor these concepts in code. You'll also learn why having 14 fake toys would be an enormous
+cryptographic coincidence. Welcome to arrays,
+lists and structured data.

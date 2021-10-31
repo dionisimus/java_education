@@ -1,0 +1,261 @@
+1
+00:00:03,650 --> 00:00:04,270
+Hello.
+
+2
+00:00:04,270 --> 00:00:06,330
+In this module you
+learned about arrays and
+
+3
+00:00:06,330 --> 00:00:09,250
+how to use arrays to
+crack a Caesar Cipher.
+
+4
+00:00:09,250 --> 00:00:11,520
+You'll continue to solve
+problems using arrays.
+
+5
+00:00:11,520 --> 00:00:13,050
+They're a powerful programming tool.
+
+6
+00:00:14,070 --> 00:00:16,510
+Arrays are indexed collections.
+
+7
+00:00:16,510 --> 00:00:19,520
+In Java, you use brackets to
+indicate an array variable.
+
+8
+00:00:19,520 --> 00:00:24,710
+And arrays can store strings,
+more ints, or even storage resources.
+
+9
+00:00:24,710 --> 00:00:26,650
+Almost anything can be stored in an array.
+
+10
+00:00:27,700 --> 00:00:32,930
+The power of an array is that one variable
+name can represent two, a thousand,
+
+11
+00:00:32,930 --> 00:00:35,140
+or a million different values and
+
+12
+00:00:35,140 --> 00:00:38,599
+each value can be accessed
+separately from the others.
+
+13
+00:00:40,070 --> 00:00:42,940
+This access is done by a numeric index.
+
+14
+00:00:42,940 --> 00:00:46,340
+A value that starts at zero for
+the first element in the array.
+
+15
+00:00:46,340 --> 00:00:48,650
+Just like you did with strings.
+
+16
+00:00:48,650 --> 00:00:53,290
+Just as a group of mail or post boxes can
+be found quickly using a number, accessing
+
+17
+00:00:53,290 --> 00:00:57,349
+an array element by it's numeric index
+helps in storing and accessing value.
+
+18
+00:00:58,600 --> 00:01:01,500
+Here's a quick overview of
+how arrays work in Java.
+
+19
+00:01:01,500 --> 00:01:04,430
+In Java, arrays are created using new.
+
+20
+00:01:04,430 --> 00:01:07,770
+And once an array has been
+created its size does not change.
+
+21
+00:01:07,770 --> 00:01:12,050
+However, the value stored in each
+indexed array cell can change.
+
+22
+00:01:12,050 --> 00:01:14,970
+And that's what makes arrays useful and
+powerful.
+
+23
+00:01:14,970 --> 00:01:16,860
+Arrays are created using new.
+
+24
+00:01:16,860 --> 00:01:19,660
+And brackets are used both to indicate
+
+25
+00:01:19,660 --> 00:01:23,020
+that a variable like names
+is an array of strings and
+
+26
+00:01:23,020 --> 00:01:27,220
+as part of the syntax in new to specify
+the number of items in the array.
+
+27
+00:01:28,610 --> 00:01:32,920
+You can define arrays of int values in
+Java just as you can define arrays of
+
+28
+00:01:32,920 --> 00:01:34,380
+string values.
+
+29
+00:01:34,380 --> 00:01:37,550
+Int values in an array
+are initialized to zero.
+
+30
+00:01:37,550 --> 00:01:40,140
+String and other object values
+are initialized to null.
+
+31
+00:01:41,580 --> 00:01:45,650
+You can assign values to
+an array using an index and
+
+32
+00:01:45,650 --> 00:01:49,530
+you can access an array to
+update the contents as well.
+
+33
+00:01:50,730 --> 00:01:54,080
+You've used indices to
+access array elements and
+
+34
+00:01:54,080 --> 00:01:57,170
+loops are typically used to access
+all the elements in an array.
+
+35
+00:01:58,430 --> 00:02:03,020
+Here's a loop that starts at the first
+index, zero, and loops through the last
+
+36
+00:02:03,020 --> 00:02:06,780
+valid index, which is one less
+than the length of the array list.
+
+37
+00:02:06,780 --> 00:02:10,050
+This is typical code that
+loops over array elements.
+
+38
+00:02:11,260 --> 00:02:12,090
+In the loop body,
+
+39
+00:02:12,090 --> 00:02:17,060
+the loop control variable is usually used
+to access each element in the array.
+
+40
+00:02:17,060 --> 00:02:21,420
+In this loop, the value of k is
+used to indicate the index at which
+
+41
+00:02:21,420 --> 00:02:23,970
+a word is found in
+the array parameter list.
+
+42
+00:02:25,200 --> 00:02:28,740
+In general,
+this pattern of looping over all elements
+
+43
+00:02:28,740 --> 00:02:33,540
+using indices is very common in
+solving problems using arrays.
+
+44
+00:02:33,540 --> 00:02:37,275
+We used arrays to solve several
+problems including cracking code.
+
+45
+00:02:38,320 --> 00:02:42,280
+You saw how arrays were used in
+cracking the Caesar cipher method
+
+46
+00:02:42,280 --> 00:02:44,340
+of encrypting messages.
+
+47
+00:02:44,340 --> 00:02:48,250
+Using frequencies obtained from
+the message by using indexing and
+
+48
+00:02:48,250 --> 00:02:51,485
+arrays made it possible
+to crack a Caesar cipher.
+
+49
+00:02:51,485 --> 00:02:55,320
+Indexing was also used
+in both encrypting and
+
+50
+00:02:55,320 --> 00:02:57,470
+decrypting as well as
+in cracking the code.
+
+51
+00:02:58,940 --> 00:03:01,730
+It's good to know that the encryption
+used on the internet to protect your
+
+52
+00:03:01,730 --> 00:03:05,470
+transactions is far more
+secure than the Caesar cipher.
+
+53
+00:03:05,470 --> 00:03:08,950
+Scientists and mathematicians don't
+think that today's internet encryption
+
+54
+00:03:08,950 --> 00:03:13,180
+can be hacked or cracked using brute
+force or even smart algorithms.
+
+55
+00:03:14,440 --> 00:03:18,670
+But you should be careful online with
+your personal information in any case.

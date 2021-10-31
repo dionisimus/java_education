@@ -1,0 +1,60 @@
+Okay, great, now you have cracked
+Vigenere for English messages of unknown key length, but what if
+the messages were in other languages? What if you did not know the language? Well, you can use the same technique and
+just try each language. For each potential language, you would
+need a list of words in that language and to know the most common character,
+which is not E for all languages. Then you can try breaking the cipher for
+each language. You would use the same code you
+already wrote to find the key length that gives you the most real
+words in each language. This gives you the best choice for
+that particular language. Then you just see which language
+results in the most real words. That is, which language's best
+decryption is best overall? To do this, you're going to read
+the words in for each language. You can make use of the readDictionary
+method that you already wrote. As you read each dictionary,
+you will want to put it into a hash map, whose keys are strings and
+whose values are hash sets of strings. In particular,
+the key is the name of the language and the value is the dictionary that
+you read in with read dictionary. Such a hash map would
+conceptually look like this here. Here you have a table where the keys
+are the names of languages. The values are then the sets
+of words in each language. You might think that this
+type looks a little complex. You have multiple sets of angle
+brackets nested together. However, it is a great example of
+an important programming principle. Do you remember the idea of composition? If you took our course
+Programming in the Web for Beginners, you learned about
+it in the context of HTML. The idea that programming languages
+allow you to put small pieces together to make larger pieces, and that they obey
+the same rules when you put them together. This principle lets you make and
+understand large and complex things. In this case you can understand
+this complicated looking type by understanding the pieces. So what exactly do you need to make
+your Vigenere breaker work for unknown languages? You need to write two new methods, one
+that counts the most common character and hash set of strings, and
+one that tries the different languages. You also need to modify two old methods,
+the break Vigenere method, which is what you run from BlueJ,
+and the breakForLanguage method. You need to write the mostCommonCharIn
+method to account for the fact that E is not the most
+common letter in all languages. So you will count the frequency of
+each letter in the HashSet of strings which is the list of words for
+that language. You have seen and done many problems with
+counting how often you find something, and figuring out which of
+something occurs most often. So hopefully, you are getting
+proficient in these skills by now. The other new method we'll try
+each language in that keySet of the HashMap language. You will want to use breakForLanguage to do the work of trying to break
+that one particular language. You will want to use .get, to get the word list out of the HashMap
+to pass into breakForLanguage. You will then want to see how
+many words you ended up with in the string that
+breakForLanguage returns. Fortunately, we already wrote
+a method that does that. You will then want to pick the best
+language, the one with the most words, and its decryption. Print them out so
+that you know what your program found. You will want to make a few
+changes to breakVigenere(), the method that you call from BlueJ. Instead of just reading
+one language's word list, you'll want to read many of them. The other change is that you will want
+this method to call breakForAllLangs instead of breakForLanguage, so that it tries all of
+the languages that you read in. You will also want to make one
+small change to breakForLanguage. Up to now, you have just passed
+an E as the most common letter. However, now you will want to
+use the mostCommonCharIn method that you just wrote to find the most
+common letter in the word list, and pass that into try key links. So, now that you know the plan,
+it's time for you to devise your algorithms and
+write your code.

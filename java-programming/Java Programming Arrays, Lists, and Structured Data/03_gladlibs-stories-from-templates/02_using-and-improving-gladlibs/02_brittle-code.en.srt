@@ -1,0 +1,255 @@
+1
+00:00:03,380 --> 00:00:07,240
+We'll outline some of the design
+features of the GladLib class and
+
+2
+00:00:07,240 --> 00:00:09,180
+talk about software design in general.
+
+3
+00:00:10,400 --> 00:00:15,040
+Adding a new label, like verb,
+means modifying the GladLib.java
+
+4
+00:00:15,040 --> 00:00:18,040
+implementation in several
+different places and
+
+5
+00:00:18,040 --> 00:00:21,059
+requires following a naming
+convention used in the class.
+
+6
+00:00:22,530 --> 00:00:24,740
+You'll need to create a new
+instance variable for
+
+7
+00:00:24,740 --> 00:00:29,560
+the array list that stores examples
+of verbs, like run, think, or swim.
+
+8
+00:00:30,620 --> 00:00:35,040
+You'll need to initialize the array
+list using the method initialize from
+
+9
+00:00:35,040 --> 00:00:36,490
+called from the constructor.
+
+10
+00:00:37,810 --> 00:00:40,630
+You'll need to get a random verb,
+when needed,
+
+11
+00:00:40,630 --> 00:00:44,360
+by modifying the code in
+the method get substitute.
+
+12
+00:00:44,360 --> 00:00:47,300
+You should follow the naming conventions
+used in the class where the label
+
+13
+00:00:47,300 --> 00:00:50,448
+noun is associated with
+the instance variable nounList,
+
+14
+00:00:50,448 --> 00:00:55,342
+just as the label country is
+associated with countryList.
+
+15
+00:00:55,342 --> 00:00:59,320
+This means you should use
+the name verbList for
+
+16
+00:00:59,320 --> 00:01:03,200
+a field that's the array list that
+stores strings that are verbs.
+
+17
+00:01:05,040 --> 00:01:07,466
+As you modify and
+extend programs and classes,
+
+18
+00:01:07,466 --> 00:01:10,990
+you'll gain experience with many
+kinds of programming and design.
+
+19
+00:01:12,130 --> 00:01:16,520
+You'll gain experience that will help you
+make good decisions when programming and
+
+20
+00:01:16,520 --> 00:01:17,730
+create good designs.
+
+21
+00:01:19,200 --> 00:01:22,880
+But you'll see that sometimes
+experience comes from bad judgment or
+
+22
+00:01:22,880 --> 00:01:25,140
+bad designs that, nevertheless,
+
+23
+00:01:25,140 --> 00:01:29,440
+allow you to reason about the trade-offs
+in doing things in more than one way.
+
+24
+00:01:30,990 --> 00:01:33,880
+So you might realize
+that a choice that works
+
+25
+00:01:33,880 --> 00:01:36,670
+can lead to code that's
+not easy to maintain.
+
+26
+00:01:38,330 --> 00:01:42,170
+Some software designs are called brittle,
+meaning that the software or
+
+27
+00:01:42,170 --> 00:01:44,930
+design breaks when you try to extend it or
+
+28
+00:01:44,930 --> 00:01:49,000
+use it in ways that is a little bit
+different than what's initially intended.
+
+29
+00:01:50,120 --> 00:01:51,160
+Flexible designs,
+
+30
+00:01:51,160 --> 00:01:55,999
+on the other hand, are better able to
+cope with changes in the software.
+
+31
+00:01:58,000 --> 00:01:59,850
+When you learn about
+object oriented design,
+
+32
+00:01:59,850 --> 00:02:04,260
+you may come across a principle that says,
+code should be open for
+
+33
+00:02:04,260 --> 00:02:09,390
+extension but closed for modification,
+the open/closed principle.
+
+34
+00:02:09,390 --> 00:02:12,720
+The idea is that you should
+be able to extend software
+
+35
+00:02:12,720 --> 00:02:15,820
+without extensive modifications
+to the existing code.
+
+36
+00:02:17,210 --> 00:02:20,610
+That's more possible with
+object oriented design ideas
+
+37
+00:02:20,610 --> 00:02:23,310
+that we won't be able to
+cover in this course, but
+
+38
+00:02:23,310 --> 00:02:26,190
+you can still create designs
+that are more open than others.
+
+39
+00:02:27,310 --> 00:02:31,730
+You'll be able to understand a better
+design after working with this design and
+
+40
+00:02:31,730 --> 00:02:32,430
+implementation.
+
+41
+00:02:33,680 --> 00:02:36,329
+The GladLib class does
+have some good features.
+
+42
+00:02:37,590 --> 00:02:42,250
+It's relatively easy to understand
+each method, and the code works.
+
+43
+00:02:43,340 --> 00:02:46,350
+It is possible to extend the code,
+as you'll see,
+
+44
+00:02:46,350 --> 00:02:49,360
+even if the extension requires
+changing the code in several places.
+
+45
+00:02:51,610 --> 00:02:55,550
+You'll be able to create a better design
+after learning some new Java concepts
+
+46
+00:02:55,550 --> 00:02:59,870
+we'll introduce soon, but
+those concepts will be more clear
+
+47
+00:02:59,870 --> 00:03:04,000
+because you'll have this experience
+with this code and class,
+
+48
+00:03:04,000 --> 00:03:08,560
+and you'll understand why the new Java
+features can make the code simpler.
+
+49
+00:03:09,668 --> 00:03:12,810
+The new Java features will let
+you keep changes in one place,
+
+50
+00:03:12,810 --> 00:03:16,049
+rather than being sprinkled
+across three parts of the class.
+
+51
+00:03:17,050 --> 00:03:20,460
+The new features will also
+minimize the duplicated code
+
+52
+00:03:20,460 --> 00:03:21,800
+that's in the current implementation.
+
+53
+00:03:22,930 --> 00:03:24,510
+Have fun making new stories!

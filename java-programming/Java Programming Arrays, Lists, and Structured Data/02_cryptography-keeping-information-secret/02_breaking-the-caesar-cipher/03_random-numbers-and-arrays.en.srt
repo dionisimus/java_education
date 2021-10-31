@@ -1,0 +1,701 @@
+1
+00:00:03,254 --> 00:00:07,082
+Computers are very good at modeling and
+simulation, in part because
+
+2
+00:00:07,082 --> 00:00:12,190
+computers can perform billions of
+mathematical operations every second.
+
+3
+00:00:12,190 --> 00:00:16,430
+Often simulation and modeling relies
+on generating random numbers.
+
+4
+00:00:16,430 --> 00:00:21,440
+In this coding example we'll see a simple
+use of arrays to help determine how
+
+5
+00:00:21,440 --> 00:00:26,310
+really random
+the java.util.Random class is.
+
+6
+00:00:26,310 --> 00:00:28,540
+Computers don't use
+natural random phenomena,
+
+7
+00:00:28,540 --> 00:00:32,970
+but model randomness of what's
+called pseudo-randomness.
+
+8
+00:00:32,970 --> 00:00:37,400
+Using mathematics to model what
+might be random events in nature.
+
+9
+00:00:37,400 --> 00:00:40,430
+In this example,
+we will simulate rolling a pair of dice.
+
+10
+00:00:40,430 --> 00:00:41,470
+Many times.
+
+11
+00:00:41,470 --> 00:00:43,810
+By generating random numbers.
+
+12
+00:00:43,810 --> 00:00:45,887
+We would like to know how
+many twos do we roll,
+
+13
+00:00:45,887 --> 00:00:51,600
+how many sevens do we roll, we will count
+how many times each type of roll occurs.
+
+14
+00:00:51,600 --> 00:00:56,460
+So I've got this code right here
+called Simple Stimulate and
+
+15
+00:00:56,460 --> 00:01:01,000
+I can run it and say how many
+rolls I want to do, and right now,
+
+16
+00:01:01,000 --> 00:01:04,970
+it counts how many times I get two,
+and how many times I get 12.
+
+17
+00:01:04,970 --> 00:01:07,520
+So let's run it and see what it does.
+
+18
+00:01:07,520 --> 00:01:08,600
+So we'll come over here.
+
+19
+00:01:11,810 --> 00:01:12,980
+It's already compiled.
+
+20
+00:01:14,160 --> 00:01:15,850
+I'll create the object.
+
+21
+00:01:18,550 --> 00:01:20,480
+And we'll run simple simulate.
+
+22
+00:01:20,480 --> 00:01:23,970
+And here we actually get to choose how
+many times, so I'll say 10,000 times.
+
+23
+00:01:23,970 --> 00:01:26,797
+And we'll just run it.
+
+24
+00:01:29,921 --> 00:01:36,270
+And you can see I got two 298 times,
+and I got 12 271 times.
+
+25
+00:01:37,780 --> 00:01:41,071
+It'd be nice to run it and
+count all the possible rolls you could
+
+26
+00:01:41,071 --> 00:01:43,754
+get from two to 12, so
+let's look at doing that.
+
+27
+00:01:50,337 --> 00:01:53,005
+So what I'm gonna do is I'm gonna cut and
+paste this and
+
+28
+00:01:53,005 --> 00:01:55,460
+we'll write a different method.
+
+29
+00:01:55,460 --> 00:01:56,550
+So we'll just copy this whole thing.
+
+30
+00:02:01,337 --> 00:02:03,005
+And then we'll put it up here.
+
+31
+00:02:14,254 --> 00:02:16,780
+And we'll just call this one Simulate.
+
+32
+00:02:20,960 --> 00:02:24,690
+There we go and so
+now we're gonna have to modify it so
+
+33
+00:02:24,690 --> 00:02:29,600
+the first thing is we have generate
+a rand and then we need counters for
+
+34
+00:02:29,600 --> 00:02:33,620
+two, three, four, five, six,
+seven, eight, nine, 10, 11, 12.
+
+35
+00:02:33,620 --> 00:02:35,360
+That's a lot of counters.
+
+36
+00:02:35,360 --> 00:02:40,560
+So what I would like to do instead
+is to use an array of counters,
+
+37
+00:02:40,560 --> 00:02:42,560
+so that's what we'll do.
+
+38
+00:02:42,560 --> 00:02:48,700
+So we'll replace this here with an array.
+
+39
+00:02:48,700 --> 00:02:52,840
+So we want an array of counters so
+it'll be int array instead.
+
+40
+00:02:52,840 --> 00:02:53,900
+We'll have to give it a name.
+
+41
+00:02:53,900 --> 00:02:55,249
+We'll call it counts.
+
+42
+00:02:57,000 --> 00:02:58,950
+And then we'll have to create the array.
+
+43
+00:03:01,350 --> 00:03:06,440
+It's an integer array and
+then what size is it gonna be?
+
+44
+00:03:06,440 --> 00:03:10,730
+So, two through 12,
+we need at least 11 counters but
+
+45
+00:03:10,730 --> 00:03:16,280
+it would be kind of nice if we set
+it up so that when we threw a four,
+
+46
+00:03:16,280 --> 00:03:20,740
+we would count four in
+the fourth slot of the array.
+
+47
+00:03:20,740 --> 00:03:24,410
+So what we'll do is we'll create
+the array with size 13 which
+
+48
+00:03:24,410 --> 00:03:28,050
+will allow us to use from zero to 12 and
+
+49
+00:03:28,050 --> 00:03:31,780
+really we'll just use two through 12 and
+we'll ignore the zero and one counters.
+
+50
+00:03:33,230 --> 00:03:38,650
+So I'll make my array of size 13 I
+don't need this 12 counter anymore.
+
+51
+00:03:38,650 --> 00:03:39,504
+So we'll get rid of that.
+
+52
+00:03:41,880 --> 00:03:42,480
+Okay.
+So
+
+53
+00:03:42,480 --> 00:03:46,660
+now we're gonna have to adjust the code
+to handle using this array of counters.
+
+54
+00:03:48,950 --> 00:03:51,690
+Okay.
+So we're still rolling
+
+55
+00:03:51,690 --> 00:03:53,860
+whatever number of times we typed in for
+rolls.
+
+56
+00:03:53,860 --> 00:03:55,200
+So that's the same.
+
+57
+00:03:55,200 --> 00:03:59,790
+We're still throwing two dice, d1 and d2,
+and we are gonna to add them together.
+
+58
+00:03:59,790 --> 00:04:04,100
+But, as you can see here, we have this if
+statement, where we have to check and see,
+
+59
+00:04:04,100 --> 00:04:05,480
+was it two?
+
+60
+00:04:05,480 --> 00:04:05,996
+Was it 12?
+And
+
+61
+00:04:05,996 --> 00:04:08,170
+we could add all these
+other if statements.
+
+62
+00:04:08,170 --> 00:04:10,380
+Was it three, four, five and so on?
+
+63
+00:04:10,380 --> 00:04:14,140
+But instead, we can just notice,
+we just add the two together.
+
+64
+00:04:14,140 --> 00:04:17,880
+That's also the index position of
+the counter and that's all we have to do.
+
+65
+00:04:17,880 --> 00:04:19,214
+So we can get rid of this if statement.
+
+66
+00:04:23,504 --> 00:04:26,447
+And instead we're just gonna add code, so
+
+67
+00:04:26,447 --> 00:04:30,950
+we're gonna update or
+counter that position by one.
+
+68
+00:04:30,950 --> 00:04:34,349
+So our array is called counts,
+
+69
+00:04:34,349 --> 00:04:38,662
+we're gonna add in the d1 + d2 slot,
+
+70
+00:04:38,662 --> 00:04:42,600
+we're just gonna add 1, + = 1.
+
+71
+00:04:42,600 --> 00:04:45,004
+That's it,
+that replaced a huge if statement.
+
+72
+00:04:49,587 --> 00:04:52,870
+Let's see, so now we're gonna output.
+
+73
+00:04:52,870 --> 00:04:56,780
+So you can see we have two lines
+of output for twos and 12s.
+
+74
+00:04:56,780 --> 00:05:01,400
+What we're gonna do instead is it would be
+nice if we just had one print statement
+
+75
+00:05:01,400 --> 00:05:06,340
+and we used it over and over again for
+each position in our counter array.
+
+76
+00:05:06,340 --> 00:05:07,504
+So we're gonna add a four loop here.
+
+77
+00:05:12,337 --> 00:05:16,680
+And remember, our counter started at two.
+
+78
+00:05:16,680 --> 00:05:18,965
+So we'll have our k start at two.
+
+79
+00:05:18,965 --> 00:05:23,110
+Cuz the first, lowest thing you can
+get is two ones, from each dice.
+
+80
+00:05:23,110 --> 00:05:24,570
+And that's two.
+
+81
+00:05:24,570 --> 00:05:32,894
+So that'll be the lowest, and
+then it'll be k less than or equal to 12.
+
+82
+00:05:34,210 --> 00:05:35,700
+Because we're gonna go from two to 12.
+
+83
+00:05:35,700 --> 00:05:39,837
+And then we'll update it the same way,
+k++.
+
+84
+00:05:46,171 --> 00:05:50,000
+Okay and then we just need one of
+these output statements to modify.
+
+85
+00:05:51,680 --> 00:05:55,797
+Or I'll just, I'll just type a new one,
+will just say here so
+
+86
+00:05:55,797 --> 00:06:02,080
+System.out.println, and
+what we wanna do is we wanna print
+
+87
+00:06:02,080 --> 00:06:07,670
+k cuz that'll be the counter,
+so k for two through 12, right.
+
+88
+00:06:07,670 --> 00:06:15,729
+So we will print k and then we'll print,
+we can still do the quotes.
+
+89
+00:06:16,880 --> 00:06:18,295
+Equals and a tab.
+
+90
+00:06:18,295 --> 00:06:20,790
+\t is the tab.
+
+91
+00:06:22,910 --> 00:06:27,650
+Plus, and then we wanna know,
+how many twos were there,
+
+92
+00:06:27,650 --> 00:06:30,730
+or how many tens were there, etc.
+
+93
+00:06:30,730 --> 00:06:37,110
+And that's just counts k.
+
+94
+00:06:37,110 --> 00:06:40,720
+That's how many of type k
+there were that we counted.
+
+95
+00:06:42,370 --> 00:06:47,421
+Plus, we can add another tab.
+
+96
+00:06:50,171 --> 00:06:55,651
+And then we can add the rest of this,
+
+97
+00:06:55,651 --> 00:07:02,412
+100 times counts of k divided by rolls and
+
+98
+00:07:02,412 --> 00:07:08,090
+I'll just put that in parenthesis.
+
+99
+00:07:08,090 --> 00:07:13,337
+I guess it doesn't matter.
+
+100
+00:07:19,796 --> 00:07:23,962
+We do need to add a semicolon at the end.
+
+101
+00:07:32,171 --> 00:07:35,820
+And then I can get rid of these
+two print statements here.
+
+102
+00:07:37,620 --> 00:07:38,120
+Oops, there we
+
+103
+00:07:38,120 --> 00:07:48,837
+go.
+
+104
+00:07:48,837 --> 00:07:52,840
+Okay so I think we have everything now,
+so we've got,
+
+105
+00:07:52,840 --> 00:07:58,420
+we now have our loop that prints for
+each one, two through 12 what it does.
+
+106
+00:07:58,420 --> 00:08:00,462
+Let's see if we have it compiling.
+
+107
+00:08:03,040 --> 00:08:08,180
+Oh, we're missing one right paren,
+right here.
+
+108
+00:08:08,180 --> 00:08:09,000
+So we can add that.
+
+109
+00:08:10,690 --> 00:08:14,350
+Oops, we'll add it and
+then put our semicolon.
+
+110
+00:08:14,350 --> 00:08:15,530
+There we go.
+
+111
+00:08:15,530 --> 00:08:16,800
+Let's try compiling it again.
+
+112
+00:08:16,800 --> 00:08:20,010
+And it says it compiles.
+
+113
+00:08:20,010 --> 00:08:21,500
+There's our code.
+
+114
+00:08:21,500 --> 00:08:23,337
+So now let's run it and see what happens.
+
+115
+00:08:28,211 --> 00:08:29,370
+It's already compiled.
+
+116
+00:08:29,370 --> 00:08:30,600
+We can create our object.
+
+117
+00:08:32,090 --> 00:08:36,230
+And then we can run it, simple simulate,
+this is called simulate.
+
+118
+00:08:37,630 --> 00:08:43,110
+And then we'll run it again,
+let's run it 100,000 times.
+
+119
+00:08:43,110 --> 00:08:48,030
+There it goes, okay, so now you can
+see we're getting lots of numbers.
+
+120
+00:08:48,030 --> 00:08:50,570
+Lots of counts for twos,
+threes, fours, and so on.
+
+121
+00:08:51,710 --> 00:08:53,660
+How do you know it actually works?
+
+122
+00:08:53,660 --> 00:08:55,710
+We just got lots of numbers.
+
+123
+00:08:55,710 --> 00:08:59,660
+It looks pretty good in the sense
+that if you wrote seven you're
+
+124
+00:08:59,660 --> 00:09:04,450
+going to get that more likely than any
+other thing because seven is two and five,
+
+125
+00:09:04,450 --> 00:09:08,580
+one and six, three and four and it does
+have the highest number but to really be
+
+126
+00:09:08,580 --> 00:09:12,770
+sure what we'll do is we'll run a simple
+example and we'll add print statement.
+
+127
+00:09:12,770 --> 00:09:15,740
+Like, let's run it ten times and
+let's see what the actual roles are and
+
+128
+00:09:15,740 --> 00:09:18,250
+we can see if our counters
+are really working correctly.
+
+129
+00:09:18,250 --> 00:09:20,175
+So, let's do that real quick.
+
+130
+00:09:20,175 --> 00:09:21,712
+We'll go back to the code here.
+
+131
+00:09:25,796 --> 00:09:27,598
+So, this is really adding just for
+
+132
+00:09:27,598 --> 00:09:32,620
+testing it to make sure that the counters
+are really the counters we think they are.
+
+133
+00:09:32,620 --> 00:09:35,355
+So whenever we roll a dice,
+which is right here,
+
+134
+00:09:35,355 --> 00:09:37,837
+I'm just gonna add a print statement here.
+
+135
+00:09:43,004 --> 00:09:51,379
+So what I'll do is I'll
+print out roll is d1.
+
+136
+00:09:55,268 --> 00:09:56,630
+Plus.
+
+137
+00:10:01,306 --> 00:10:05,171
+D2 which equals.
+
+138
+00:10:10,004 --> 00:10:12,255
+D1 + d2.
+
+139
+00:10:16,587 --> 00:10:18,920
+So, that's all we're doing,
+we're just printing out the roll.
+
+140
+00:10:18,920 --> 00:10:21,430
+Then we're just gonna run it
+a very small number of times, so
+
+141
+00:10:21,430 --> 00:10:24,800
+that we can see our counters
+are actually working correctly.
+
+142
+00:10:24,800 --> 00:10:28,060
+So, we'll compile that and that worked.
+
+143
+00:10:28,060 --> 00:10:29,213
+So, let's run it now.
+
+144
+00:10:36,754 --> 00:10:38,690
+Okay, so I'm just gonna run it ten times.
+
+145
+00:10:38,690 --> 00:10:40,110
+Throw the dice ten times.
+
+146
+00:10:40,110 --> 00:10:42,420
+And let's see what we get.
+
+147
+00:10:44,600 --> 00:10:48,870
+So, we got it looks like one,
+two, three sevens and
+
+148
+00:10:48,870 --> 00:10:51,300
+if you look, it counted seven three times.
+
+149
+00:10:51,300 --> 00:10:55,290
+We got one, two, three tens and
+it counted ten three times.
+
+150
+00:10:55,290 --> 00:10:56,990
+We got a four once, we got a four.
+
+151
+00:10:56,990 --> 00:11:00,000
+So it looks like it is
+counting them correctly.
+
+152
+00:11:00,000 --> 00:11:03,450
+So this is way you can kind of test
+it on a small amount of data and
+
+153
+00:11:03,450 --> 00:11:05,050
+that seems to work.
+
+154
+00:11:05,050 --> 00:11:08,280
+All right so anyway,
+I hope you enjoyed dice rolling.
+
+155
+00:11:08,280 --> 00:11:08,780
+Thank you.

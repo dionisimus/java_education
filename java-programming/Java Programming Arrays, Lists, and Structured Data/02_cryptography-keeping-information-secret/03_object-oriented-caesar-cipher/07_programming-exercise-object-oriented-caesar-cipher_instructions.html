@@ -1,0 +1,431 @@
+<meta charset="utf-8"/>
+<co-content>
+ <h3 level="3">
+  Assignment 1: One Key
+ </h3>
+ <p>
+  In this assignment, you will put together the
+  <strong>
+   CaesarCipher
+  </strong>
+  class from the lesson and add a
+  <strong>
+   decrypt
+  </strong>
+  method to decrypt with the same key. In addition you will create a second class,
+  <strong>
+   TestCaesarCipher
+  </strong>
+  to test examples that use the
+  <strong>
+   CaesarCipher
+  </strong>
+  class, including writing a method that will automatically decrypt an encrypted file by determining the key and then decrypting with that key.
+ </p>
+ <p>
+  Specifically, you should do the following.
+ </p>
+ <p>
+  Create the
+  <strong>
+   CaesarCipher
+  </strong>
+  class with the following parts:
+ </p>
+ <ul bullettype="bullets">
+  <li>
+   <p>
+    Private fields for the
+    <strong>
+     alphabet
+    </strong>
+    and
+    <strong>
+     shiftedAlphabet
+    </strong>
+   </p>
+  </li>
+  <li>
+   <p>
+    Write a constructor
+    <strong>
+     CaesarCipher
+    </strong>
+    that has one int parameter
+    <strong>
+     key
+    </strong>
+    . This method should initialize all the private fields of the class.
+   </p>
+  </li>
+  <li>
+   <p>
+    Write an
+    <strong>
+     encrypt
+    </strong>
+    method that has one String parameter named
+    <strong>
+     input
+    </strong>
+    . This method returns a String that is the input encrypted using
+    <strong>
+     shiftedAlphabet
+    </strong>
+    .
+   </p>
+  </li>
+  <li>
+   <p>
+    Write a
+    <strong>
+     decrypt
+    </strong>
+    method that has one String parameter named
+    <strong>
+     input
+    </strong>
+    . This method returns a String that is the encrypted String decrypted using the key associated with this
+    <strong>
+     CaesarCipher
+    </strong>
+    object. One way to do this is to create another private field
+    <strong>
+     mainKey
+    </strong>
+    , which is initialized to be the value of
+    <strong>
+     key
+    </strong>
+    . Then you can create a
+    <strong>
+     CaesarCipher
+    </strong>
+    object within
+    <strong>
+     decrypt
+    </strong>
+    : CaesarCipher cc = new CaesarCipher(26 - mainKey); and call cc.encrypt(input).
+   </p>
+  </li>
+ </ul>
+ <p>
+  Create the
+  <strong>
+   TestCaesarCipher
+  </strong>
+  class with the following parts:
+ </p>
+ <ul bullettype="bullets">
+  <li>
+   <p>
+    Include the methods
+    <strong>
+     countLetters
+    </strong>
+    and
+    <strong>
+     maxIndex
+    </strong>
+    that you wrote in the previous lesson.
+   </p>
+  </li>
+  <li>
+   <p>
+    Write the void method
+    <strong>
+     simpleTests
+    </strong>
+    that has no parameters. This method should read in a file as a String, create a
+    <strong>
+     CaesarCipher
+    </strong>
+    object with key 18, encrypt the String read in using the
+    <strong>
+     CaesarCipher
+    </strong>
+    object, print the encrypted String, and decrypt the encrypted String using the
+    <strong>
+     decrypt
+    </strong>
+    method.
+   </p>
+  </li>
+  <li>
+   <p>
+    Write the method
+    <strong>
+     breakCaesarCipher
+    </strong>
+    that has one String parameter named
+    <strong>
+     input
+    </strong>
+    . This method should figure out which key was used to encrypt this message (in a similar manner as the previous lesson), then create a
+    <strong>
+     CaesarCipher
+    </strong>
+    object with that key and decrypt the message.
+   </p>
+  </li>
+  <li>
+   <p>
+    In the
+    <strong>
+     simpleTests
+    </strong>
+    method, add a call to
+    <strong>
+     breakCaesarCipher
+    </strong>
+    on the encrypted String to decrypt it automatically by determining the key, and print the decrypted String.
+   </p>
+  </li>
+ </ul>
+ <p>
+ </p>
+ <h3 level="3">
+  Assignment 2: Two Keys
+ </h3>
+ <p>
+  In this assignment, you will put together the
+  <strong>
+   CaesarCipherTwo
+  </strong>
+  class that encrypts a message with two keys (the same way as the previous lesson:
+  <strong>
+   key1
+  </strong>
+  is used to encrypt every other letter, starting with the first, and
+  <strong>
+   key2
+  </strong>
+  is used to encrypt every other letter, starting with the second), and also decrypts the same message. In addition you will create a second class,
+  <strong>
+   TestCaesarCipherTwo
+  </strong>
+  to test examples that use the
+  <strong>
+   CaesarCipherTwo
+  </strong>
+  class, including writing a method that will automatically decrypt an encrypted file by determining the two keys that were used to encrypt it.
+ </p>
+ <p>
+  Specifically, you should do the following.
+ </p>
+ <p>
+  Create the
+  <strong>
+   CaesarCipherTwo
+  </strong>
+  class with the following parts:
+ </p>
+ <ul bullettype="bullets">
+  <li>
+   <p>
+    Include private fields for the
+    <strong>
+     alphabet
+    </strong>
+    ,
+    <strong>
+     shiftedAlphabet1
+    </strong>
+    , and
+    <strong>
+     shiftedAlphabet2
+    </strong>
+    .
+   </p>
+  </li>
+  <li>
+   <p>
+    Write a constructor
+    <strong>
+     CaesarCipherTwo
+    </strong>
+    that has two int parameters
+    <strong>
+     key1
+    </strong>
+    and
+    <strong>
+     key2
+    </strong>
+    . This method should initialize all the private fields.
+   </p>
+  </li>
+  <li>
+   <p>
+    Write an
+    <strong>
+     encrypt
+    </strong>
+    method that has one String parameter named
+    <strong>
+     input
+    </strong>
+    . This method returns a String that is the input encrypted using the two shifted alphabets.
+   </p>
+  </li>
+  <li>
+   <p>
+    Write a
+    <strong>
+     decrypt
+    </strong>
+    method that has one String parameter named
+    <strong>
+     input
+    </strong>
+    . This method returns a String that is the encrypted String decrypted using the
+    <strong>
+     key1
+    </strong>
+    and
+    <strong>
+     key2
+    </strong>
+    associated with this
+    <strong>
+     CaesarCipherTwo
+    </strong>
+    object. You might want to add more private fields to the class.
+   </p>
+  </li>
+ </ul>
+ <p>
+  Create the
+  <strong>
+   TestCaesarCipherTwo
+  </strong>
+  class with the following parts:
+ </p>
+ <ul bullettype="bullets">
+  <li>
+   <p>
+    Include the methods
+    <strong>
+     halfOfString
+    </strong>
+    ,
+    <strong>
+     countLetters
+    </strong>
+    , and
+    <strong>
+     maxIndex
+    </strong>
+    that you wrote in the previous lesson.
+   </p>
+  </li>
+  <li>
+   <p>
+    Write the void method
+    <strong>
+     simpleTests
+    </strong>
+    that has no parameters. This method should read in a file as a String, create a
+    <strong>
+     CaesarCipherTwo
+    </strong>
+    object with keys 17 and 3, encrypt the String using the
+    <strong>
+     CaesarCipherTwo
+    </strong>
+    object, print the encrypted String, and decrypt the encrypted String using the
+    <strong>
+     decrypt
+    </strong>
+    method.
+   </p>
+  </li>
+  <li>
+   <p>
+    Write the method
+    <strong>
+     breakCaesarCipher
+    </strong>
+    that has one String parameter named
+    <strong>
+     input
+    </strong>
+    . This method should figure out which keys were used to encrypt this message (in a similar manner as before), then create a
+    <strong>
+     CaesarCipherTwo
+    </strong>
+    object with that key and decrypt the message.
+   </p>
+  </li>
+  <li>
+   <p>
+    In the
+    <strong>
+     simpleTests
+    </strong>
+    method, add a call to
+    <strong>
+     breakCaesarCipher
+    </strong>
+    on the encrypted String to decrypt it automatically by determining the keys, and then print the decrypted String.
+   </p>
+  </li>
+ </ul>
+ <p>
+ </p>
+ <p>
+  Link to FAQ page for this course: http://www.dukelearntoprogram.com/course3/faq.php
+ </p>
+ <p>
+ </p>
+ <asset assettype="generic" extension="pdf" id="WPoE5IM6EeWmJg7NNdw_GQ" name="Programming Exercise - OO Caesar Cipher">
+ </asset>
+</co-content>
+<style>
+ body {
+    padding: 50px 85px 50px 85px;
+}
+
+table th, table td {
+    border: 1px solid #e0e0e0;
+    padding: 5px 20px;
+    text-align: left;
+}
+input {
+    margin: 10px;
+}
+}
+th {
+    font-weight: bold;
+}
+td, th {
+    display: table-cell;
+    vertical-align: inherit;
+}
+img {
+    height: auto;
+    max-width: 100%;
+}
+pre {
+    display: block;
+    margin: 20px;
+    background: #424242;
+    color: #fff;
+    font-size: 13px;
+    white-space: pre-wrap;
+    padding: 9.5px;
+    margin: 0 0 10px;
+    border: 1px solid #ccc;
+}
+</style>
+<script async="" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript">
+</script>
+<script type="text/x-mathjax-config">
+ MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$$','$$'], ['$','$'] ],
+      displayMath: [ ["\\[","\\]"] ],
+      processEscapes: true
+    }
+  });
+</script>

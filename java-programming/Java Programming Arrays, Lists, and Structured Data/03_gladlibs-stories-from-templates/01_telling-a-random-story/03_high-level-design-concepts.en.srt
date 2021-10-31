@@ -1,0 +1,491 @@
+1
+00:00:03,283 --> 00:00:06,380
+You're going to think about the design and
+implementation of a class for
+
+2
+00:00:06,380 --> 00:00:08,090
+generating random stories.
+
+3
+00:00:08,090 --> 00:00:11,070
+This problem is a bit larger than
+the ones you have solved so far, so
+
+4
+00:00:11,070 --> 00:00:14,810
+you will need to think about the methods
+that you need and how they work together.
+
+5
+00:00:14,810 --> 00:00:18,020
+The same ideas that you are used to
+from the seven step process will still
+
+6
+00:00:18,020 --> 00:00:19,260
+guide you through this.
+
+7
+00:00:19,260 --> 00:00:22,800
+You will not only need to think about the
+algorithm, but also the data involved and
+
+8
+00:00:22,800 --> 00:00:23,680
+how to represent it.
+
+9
+00:00:24,680 --> 00:00:26,270
+In Java, thinking about the data and
+
+10
+00:00:26,270 --> 00:00:29,060
+methods guides you through
+designing a class.
+
+11
+00:00:29,060 --> 00:00:33,060
+As always, you want to work the problem
+by hand before you do anything else.
+
+12
+00:00:33,060 --> 00:00:36,490
+You could use a story template like this,
+with pencil and paper, by yourself or
+
+13
+00:00:36,490 --> 00:00:37,600
+with friends.
+
+14
+00:00:37,600 --> 00:00:40,020
+This template is similar
+to one you've seen before.
+
+15
+00:00:40,020 --> 00:00:43,200
+It uses words and
+labels to create an interesting story.
+
+16
+00:00:43,200 --> 00:00:46,310
+Let's look at how you might create
+a story from this template.
+
+17
+00:00:46,310 --> 00:00:51,190
+This story template starts out my name is,
+then the template requires a name.
+
+18
+00:00:51,190 --> 00:00:54,800
+Remember that a label in angle
+brackets requires replacement.
+
+19
+00:00:54,800 --> 00:00:57,770
+Here we want a name, so
+I'll pick my own, Drew.
+
+20
+00:00:59,570 --> 00:01:05,170
+After that it goes my job is to,
+and then we need a verb.
+
+21
+00:01:05,170 --> 00:01:07,180
+I'll let my friend pick a verb.
+
+22
+00:01:07,180 --> 00:01:07,750
+>> Ride.
+
+23
+00:01:08,840 --> 00:01:10,760
+>> And a noun.
+
+24
+00:01:10,760 --> 00:01:11,300
+>> Dinosaurs.
+
+25
+00:01:12,850 --> 00:01:18,890
+>> If you have ever seen one of these, you
+know that this job is really adjective.
+
+26
+00:01:18,890 --> 00:01:20,530
+>> Entertaining.
+
+27
+00:01:20,530 --> 00:01:24,390
+>> Because they are so adjective.
+
+28
+00:01:24,390 --> 00:01:25,540
+>> Fluffy.
+
+29
+00:01:25,540 --> 00:01:30,650
+>> Yep, that sounds like a great job to
+do when I retire, ride fluffy dinosaurs.
+
+30
+00:01:31,690 --> 00:01:34,040
+Now, if you started
+developing the algorithm for
+
+31
+00:01:34,040 --> 00:01:38,130
+this random story program, you might end
+up with something along these lines.
+
+32
+00:01:38,130 --> 00:01:42,960
+We read each word, saw if it had
+angle brackets around it, and
+
+33
+00:01:42,960 --> 00:01:45,540
+then if it did,
+picked a random word from that category.
+
+34
+00:01:45,540 --> 00:01:49,010
+If there are no angle brackets,
+we just kept the word.
+
+35
+00:01:49,010 --> 00:01:52,080
+But as always you need to
+be careful as it is easily,
+
+36
+00:01:52,080 --> 00:01:56,070
+easy to mentally gloss over things
+that happen naturally for you.
+
+37
+00:01:56,070 --> 00:01:59,630
+In particular, we picked random words for
+each category.
+
+38
+00:01:59,630 --> 00:02:01,240
+But how did we do that?
+
+39
+00:02:01,240 --> 00:02:05,160
+More importantly for this problem, how
+would you make a computer program do that?
+
+40
+00:02:06,180 --> 00:02:09,320
+If I ask you to think of an animal,
+you can just do it, and
+
+41
+00:02:09,320 --> 00:02:12,640
+it may seem hard to explain
+an algorithm to think of an animal.
+
+42
+00:02:12,640 --> 00:02:15,270
+As a human,
+you just know what animals are.
+
+43
+00:02:15,270 --> 00:02:18,570
+You implicitly have a mental
+list of animals in your head and
+
+44
+00:02:18,570 --> 00:02:20,130
+can just name one of them.
+
+45
+00:02:20,130 --> 00:02:24,220
+It may not be truly random, but
+maybe you just saw a cat recently or
+
+46
+00:02:24,220 --> 00:02:26,060
+were thinking about your pet dog.
+
+47
+00:02:26,060 --> 00:02:28,400
+But picking some animal is easy.
+
+48
+00:02:28,400 --> 00:02:30,660
+For a computer, however,
+you need an algorithm and
+
+49
+00:02:30,660 --> 00:02:32,880
+it needs to have data to operate on.
+
+50
+00:02:32,880 --> 00:02:37,290
+The program will need an explicit list of
+animals to choose from, which could be
+
+51
+00:02:37,290 --> 00:02:42,070
+written into the program source code, or
+read from a file, or from the internet.
+
+52
+00:02:42,070 --> 00:02:46,270
+So if you think about these steps, there
+was a step that was implicit for you, but
+
+53
+00:02:46,270 --> 00:02:48,400
+needs to be explicit for the computer.
+
+54
+00:02:48,400 --> 00:02:50,290
+Making a list of animals.
+
+55
+00:02:50,290 --> 00:02:54,600
+More generally, making a list for
+each template label, not just for animals.
+
+56
+00:02:55,930 --> 00:03:00,110
+You should also think about this step,
+reading each word in a story template.
+
+57
+00:03:00,110 --> 00:03:02,010
+Where did these words come from?
+
+58
+00:03:02,010 --> 00:03:06,760
+This should be some sort of input,
+like a file or a website.
+
+59
+00:03:06,760 --> 00:03:09,370
+Your program will need to
+read that file or website,
+
+60
+00:03:09,370 --> 00:03:13,149
+which makes use of familiar classes
+like file resource, and URL resource.
+
+61
+00:03:14,390 --> 00:03:17,850
+You might also notice that some of
+these steps are a bit complicated.
+
+62
+00:03:17,850 --> 00:03:21,440
+Making a list of words in each category
+might require more than a few lines of
+
+63
+00:03:21,440 --> 00:03:25,710
+code, though using a file resource or
+URL resource will help.
+
+64
+00:03:25,710 --> 00:03:29,910
+Picking a random word might also
+require some planning and programming.
+
+65
+00:03:29,910 --> 00:03:32,680
+It is perfectly fine for
+your algorithm, and thus your program,
+
+66
+00:03:32,680 --> 00:03:34,810
+to end up with complicated steps.
+
+67
+00:03:34,810 --> 00:03:38,450
+These steps may be names of other
+methods you will need to write.
+
+68
+00:03:38,450 --> 00:03:42,930
+For example, you might write a method
+to pick a random word from a category.
+
+69
+00:03:42,930 --> 00:03:46,160
+Suppose the method were
+named pickRandomWord.
+
+70
+00:03:46,160 --> 00:03:47,280
+If you have this method,
+
+71
+00:03:47,280 --> 00:03:51,320
+the corresponding step in the algorithm
+is now just one line of code.
+
+72
+00:03:51,320 --> 00:03:55,270
+You just call the method pickRandomWord
+and it does the work for you.
+
+73
+00:03:55,270 --> 00:03:58,070
+Working through the algorithm
+development helps you figure out what
+
+74
+00:03:58,070 --> 00:03:59,400
+methods to write.
+
+75
+00:03:59,400 --> 00:04:02,380
+As you write each of these methods,
+you may in turn find you need yet
+
+76
+00:04:02,380 --> 00:04:03,490
+more methods.
+
+77
+00:04:03,490 --> 00:04:04,790
+Don't let this worry you,
+
+78
+00:04:04,790 --> 00:04:08,830
+as you break the large program down into
+many smaller problems, the methods you
+
+79
+00:04:08,830 --> 00:04:12,420
+find you need to write will often be
+simpler than the ones you started with.
+
+80
+00:04:13,520 --> 00:04:16,950
+To make the list of words, you will
+need some variable to hold the data.
+
+81
+00:04:16,950 --> 00:04:18,870
+But how should you store this data?
+
+82
+00:04:18,870 --> 00:04:22,560
+What type are each of these lists
+of words for template labels?
+
+83
+00:04:22,560 --> 00:04:25,450
+You have seen two types that would work,
+an array of strings and
+
+84
+00:04:25,450 --> 00:04:26,810
+a storage resource.
+
+85
+00:04:26,810 --> 00:04:29,290
+But neither one is ideal for this problem.
+
+86
+00:04:29,290 --> 00:04:32,260
+Each of these structures has benefits and
+drawbacks.
+
+87
+00:04:32,260 --> 00:04:35,590
+The StorageResource class is
+relatively simple to use.
+
+88
+00:04:35,590 --> 00:04:38,560
+Your code can add elements
+to a StorageResource
+
+89
+00:04:38,560 --> 00:04:41,000
+without knowing how many
+elements are going to be added.
+
+90
+00:04:41,000 --> 00:04:43,860
+That is, without knowing
+the number of colors, or nouns, or
+
+91
+00:04:43,860 --> 00:04:46,010
+names that will be added.
+
+92
+00:04:46,010 --> 00:04:48,990
+Accessing StorageResource
+elements requires using a for
+
+93
+00:04:48,990 --> 00:04:51,080
+loop to iterate over all of them.
+
+94
+00:04:51,080 --> 00:04:54,920
+This will make using an element at
+random a little tricky to code.
+
+95
+00:04:54,920 --> 00:04:59,510
+On the other hand, string arrays have
+almost the opposite benefits and drawback.
+
+96
+00:04:59,510 --> 00:05:01,610
+It's simple to choose
+an element at random,
+
+97
+00:05:01,610 --> 00:05:04,240
+pick a random index less than
+the size of the array, and
+
+98
+00:05:04,240 --> 00:05:09,360
+return that element,
+like the element at index two or seven.
+
+99
+00:05:09,360 --> 00:05:14,140
+However, declaring an array variable
+requires knowing how many elements would
+
+100
+00:05:14,140 --> 00:05:14,790
+be stored.
+
+101
+00:05:15,810 --> 00:05:18,670
+That makes arrays not
+always the right choice.
+
+102
+00:05:18,670 --> 00:05:20,610
+We could use either a StorageResource or
+
+103
+00:05:20,610 --> 00:05:24,640
+a string array to implement this program,
+but we'll see that a new concept,
+
+104
+00:05:24,640 --> 00:05:29,800
+the ArrayList, combines the best aspects
+of both arrays and StorageResources.
+
+105
+00:05:29,800 --> 00:05:30,510
+Happy coding!

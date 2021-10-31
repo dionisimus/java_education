@@ -1,0 +1,264 @@
+<meta charset="utf-8"/>
+<co-content>
+ <h3 level="3">
+  Assignment: English Language, Unknown Key Length
+ </h3>
+ <p>
+  Now that you have broken Vigenère ciphers with a known key length, it is time to expand your program’s functionality to break Vigenère ciphers of unknown key length. You will do this by adding three methods to your
+  <strong>
+   VigenereBreaker
+  </strong>
+  class, and then modifying your
+  <strong>
+   breakVigenere
+  </strong>
+  method.
+ </p>
+ <p>
+  Specifically, you should do the following:
+ </p>
+ <ul bullettype="bullets">
+  <li>
+   <p>
+    In the
+    <strong>
+     VigenereBreaker
+    </strong>
+    class, write the public method
+    <strong>
+     readDictionary
+    </strong>
+    , which has one parameter—a FileResource
+    <strong>
+     fr
+    </strong>
+    . This method should first make a new HashSet of Strings, then read each line in
+    <strong>
+     fr
+    </strong>
+    (which should contain exactly one word per line), convert that line to lowercase, and put that line into the HashSet that you created. The method should then return the HashSet representing the words in a dictionary. All the dictionary files, including the English dictionary file, are included in the starter program you download. They are inside the folder called ‘dictionaries’.
+   </p>
+  </li>
+  <li>
+   <p>
+    In the
+    <strong>
+     VigenereBreaker
+    </strong>
+    class, write the public method
+    <strong>
+     countWords
+    </strong>
+    , which has two parameters—a String
+    <strong>
+     message
+    </strong>
+    , and a HashSet of Strings
+    <strong>
+     dictionary
+    </strong>
+    . This method should split the message into words (use
+    <strong>
+     .split(“\\W+”)
+    </strong>
+    , which returns a String array), iterate over those words, and see how many of them are “real words”—that is, how many appear in the dictionary. Recall that the words in
+    <strong>
+     dictionary
+    </strong>
+    are lowercase. This method should return the integer count of how many valid words it found.
+   </p>
+  </li>
+  <li>
+   <p>
+    In the
+    <strong>
+     VigenereBreaker
+    </strong>
+    class, write the public method
+    <strong>
+     breakForLanguage
+    </strong>
+    , which has two parameters—a String
+    <strong>
+     encrypted
+    </strong>
+    , and a HashSet of Strings
+    <strong>
+     dictionary
+    </strong>
+    . This method should try all key lengths from 1 to 100 (use your
+    <strong>
+     tryKeyLength
+    </strong>
+    method to try one particular key length) to obtain the best decryption for each key length in that range. For each key length, your method should decrypt the message (using VigenereCipher’s
+    <strong>
+     decrypt
+    </strong>
+    method as before), and count how many of the “words” in it are real words in English, based on the dictionary passed in (use the
+    <strong>
+     countWords
+    </strong>
+    method you just wrote). This method should figure out which decryption gives the largest count of real words, and return that String decryption. Note that there is nothing special about 100; we will just give you messages with key lengths in the range 1–100. If you did not have this information, you could iterate all the way to
+    <strong>
+     encrypted.length()
+    </strong>
+    . Your program would just take a bit longer to run.
+   </p>
+  </li>
+  <li>
+   <p>
+    Finally, you need to modify your
+    <strong>
+     breakVigenere
+    </strong>
+    method to make use of your new code. The steps below describe what your
+    <strong>
+     breakVigenere
+    </strong>
+    method should do. They are similar to the steps from the previous portion of this project but have been updated:
+    <em>
+     new items are in italics
+    </em>
+    , [and old items that you should no longer do are in square brackets.]
+   </p>
+  </li>
+ </ul>
+ <ol bullettype="numbers">
+  <li>
+   <p>
+    Create a new FileResource using its default constructor (which displays a dialog for you to select a file to decrypt).
+   </p>
+  </li>
+  <li>
+   <p>
+    Use that FileResource’s
+    <strong>
+     asString
+    </strong>
+    method to read the entire contents of the file into a String.
+   </p>
+  </li>
+  <li>
+   <p>
+    <em>
+     You should make a new FileResource to read from the English dictionary file that we have provided.
+    </em>
+    [Use the
+    <strong>
+     tryKeyLength
+    </strong>
+    method that you just wrote to find the key for the message you read in. For now, you should just pass ‘e’ for
+    <strong>
+     mostCommon
+    </strong>
+    .]
+   </p>
+  </li>
+  <li>
+   <p>
+    <em>
+     You should use your
+     <strong>
+      readDictionary
+     </strong>
+     method to read the contents of that file into a HashSet of Strings.
+    </em>
+    [You should create a new VigenereCipher, passing in the key that
+    <strong>
+     tryKeyLength
+    </strong>
+    found for you.]
+   </p>
+  </li>
+  <li>
+   <p>
+    <em>
+     You should use the
+     <strong>
+      breakForLanguage
+     </strong>
+     method that you just wrote to decrypt the encrypted message.
+    </em>
+    [You should use a VigenereCipher object to decrypt the encrypted message.]
+   </p>
+  </li>
+  <li>
+   <p>
+    Finally, you should print out the decrypted message!
+   </p>
+  </li>
+  <li>
+   <p>
+   </p>
+  </li>
+ </ol>
+ <p>
+  Test this method on the text file
+  <strong>
+   athens_keyflute.txt
+  </strong>
+  . The first line should be “SCENE II. Athens. QUINCE'S house”, and the key is “flute”, or {5, 11, 20, 19, 4}. This file contains 376 valid words out of 386 (total word count ignores whitespace).
+ </p>
+ <p>
+ </p>
+ <p>
+  Link to FAQ page for this course:
+  <a href="http://www.dukelearntoprogram.com/course3/faq.php">
+   http://www.dukelearntoprogram.com/course3/faq.php
+  </a>
+ </p>
+ <p>
+ </p>
+ <asset assettype="generic" extension="pdf" id="zCgrDIlYEeWfLQpWwxBoaw" name="Programming Exercise - Unknown Key Length">
+ </asset>
+ <p>
+ </p>
+</co-content>
+<style>
+ body {
+    padding: 50px 85px 50px 85px;
+}
+
+table th, table td {
+    border: 1px solid #e0e0e0;
+    padding: 5px 20px;
+    text-align: left;
+}
+input {
+    margin: 10px;
+}
+}
+th {
+    font-weight: bold;
+}
+td, th {
+    display: table-cell;
+    vertical-align: inherit;
+}
+img {
+    height: auto;
+    max-width: 100%;
+}
+pre {
+    display: block;
+    margin: 20px;
+    background: #424242;
+    color: #fff;
+    font-size: 13px;
+    white-space: pre-wrap;
+    padding: 9.5px;
+    margin: 0 0 10px;
+    border: 1px solid #ccc;
+}
+</style>
+<script async="" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript">
+</script>
+<script type="text/x-mathjax-config">
+ MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$$','$$'], ['$','$'] ],
+      displayMath: [ ["\\[","\\]"] ],
+      processEscapes: true
+    }
+  });
+</script>

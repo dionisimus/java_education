@@ -1,0 +1,498 @@
+1
+00:00:03,098 --> 00:00:07,936
+In this lesson, we'll look at how we can
+use the HashMap class to make our GladLib
+
+2
+00:00:07,936 --> 00:00:11,209
+class easier to extend,
+have fewer lines of code, and
+
+3
+00:00:11,209 --> 00:00:16,290
+be a good example of how to become a more
+skilled and experienced software designer.
+
+4
+00:00:17,340 --> 00:00:21,430
+As a reminder, extending
+the class to use a new label like
+
+5
+00:00:21,430 --> 00:00:26,910
+angle bracket verb angle bracket, requires
+modifying the code in three places.
+
+6
+00:00:26,910 --> 00:00:30,240
+You'll need to create an array
+list instance variable,
+
+7
+00:00:30,240 --> 00:00:34,439
+initialize it properly, and use it as
+the source for your random replacements.
+
+8
+00:00:35,590 --> 00:00:39,720
+You should also follow a convention of
+using field names, like verbList, for
+
+9
+00:00:39,720 --> 00:00:41,480
+the label verb.
+
+10
+00:00:41,480 --> 00:00:45,670
+This makes it difficult to
+use text files or URLs for
+
+11
+00:00:45,670 --> 00:00:51,290
+the source of word replacements unless all
+such sources follow the same conventions,
+
+12
+00:00:51,290 --> 00:00:56,488
+such as using a file name noun.txt for
+the label noun, or the field,
+
+13
+00:00:56,488 --> 00:01:01,720
+nounList, or color.txt for
+colorlist in the field color.
+
+14
+00:01:02,880 --> 00:01:05,830
+Let's take a look at the concepts
+behind these requirements for
+
+15
+00:01:05,830 --> 00:01:11,650
+extending the GladLib class, to look at
+a new way of structuring data in classes.
+
+16
+00:01:11,650 --> 00:01:16,400
+Each label is associated with
+an ArrayList instance variable.
+
+17
+00:01:16,400 --> 00:01:19,000
+You see the label <noun>
+associated with nounList,
+
+18
+00:01:19,000 --> 00:01:21,360
+the label <color> with colorList,
+and so on.
+
+19
+00:01:22,510 --> 00:01:25,210
+These named instance variables make for
+a poor design.
+
+20
+00:01:26,260 --> 00:01:31,570
+Adding a new label, like verb, requires
+defining an instance variable by name,
+
+21
+00:01:31,570 --> 00:01:35,250
+initializing it by name,
+and using it by name.
+
+22
+00:01:35,250 --> 00:01:39,000
+That's three places in which
+the program must be modified.
+
+23
+00:01:39,000 --> 00:01:44,460
+Instead, we'll use a HashMap to help
+create a better and more flexible design.
+
+24
+00:01:44,460 --> 00:01:47,140
+The HashMap will allow us to label or
+
+25
+00:01:47,140 --> 00:01:52,079
+align the label to an ArrayList without
+ever having to name the ArrayList, itself.
+
+26
+00:01:53,610 --> 00:01:55,858
+Given a label, the code will look up or
+
+27
+00:01:55,858 --> 00:02:00,050
+find the associated ArrayList
+in the HashMap structure.
+
+28
+00:02:00,050 --> 00:02:03,970
+As you've seen,
+this is similar to how indexOf works for
+
+29
+00:02:03,970 --> 00:02:07,690
+finding a value in an ArrayList or
+a character in a string.
+
+30
+00:02:07,690 --> 00:02:11,624
+Getting the value associated with
+a label will return an ArrayList.
+
+31
+00:02:13,045 --> 00:02:17,660
+Let's take a closer look at how using
+a HashMap creates a more flexible design.
+
+32
+00:02:18,990 --> 00:02:22,900
+One HashMap will replace seven or
+more instance variables.
+
+33
+00:02:22,900 --> 00:02:26,400
+The HashMap will reference as
+many Arraylists as needed,
+
+34
+00:02:26,400 --> 00:02:29,650
+rather than us having to define
+separate instance variables, and
+
+35
+00:02:29,650 --> 00:02:31,869
+following a naming convention,
+as you see here.
+
+36
+00:02:32,980 --> 00:02:38,770
+The code will use a single instance
+variable, a HashMap named myMap.
+
+37
+00:02:38,770 --> 00:02:42,090
+This will associate
+an ArrayList with each label.
+
+38
+00:02:42,090 --> 00:02:47,490
+So the keys in the map are strings,
+the label in the GladLib program.
+
+39
+00:02:47,490 --> 00:02:51,610
+The value associated with each key is
+the ArrayList of replacement words for
+
+40
+00:02:51,610 --> 00:02:52,110
+that label.
+
+41
+00:02:53,610 --> 00:02:56,420
+This means that to add a new label and
+
+42
+00:02:56,420 --> 00:02:59,970
+a new ArrayList, we don't have
+to add a new instance variable.
+
+43
+00:02:59,970 --> 00:03:05,780
+We simply need to store new values in
+the single HashMap instance named, myMap.
+
+44
+00:03:07,710 --> 00:03:12,450
+Let's look at how the method,
+getSubstitute, works with a HashMap.
+
+45
+00:03:12,450 --> 00:03:17,310
+In the original program, a sequence
+of if statements was used to identify
+
+46
+00:03:17,310 --> 00:03:20,270
+the instance variable associated
+with the particular label.
+
+47
+00:03:20,270 --> 00:03:22,310
+The naming convention of
+using countryList for
+
+48
+00:03:22,310 --> 00:03:26,230
+country allows a programmer
+to extend the code.
+
+49
+00:03:26,230 --> 00:03:30,150
+But there will always be as many if
+statements in the getSubstitute method
+
+50
+00:03:30,150 --> 00:03:31,919
+as there are labels and
+instance variables.
+
+51
+00:03:32,930 --> 00:03:34,850
+The last if statement is different.
+
+52
+00:03:34,850 --> 00:03:38,490
+You can see that the label,
+angle bracket, number, angle bracket,
+
+53
+00:03:38,490 --> 00:03:42,800
+generates a random number instead of
+finding one in a list of numbers.
+
+54
+00:03:44,010 --> 00:03:48,170
+When using a Hashmap, the getSubstitute
+method is much more simple.
+
+55
+00:03:48,170 --> 00:03:51,539
+The Hashmap associates a label with
+the ArrayList of replacements.
+
+56
+00:03:52,540 --> 00:03:57,630
+The ArrayList for a label is accessed
+using the HashMap.get method to
+
+57
+00:03:57,630 --> 00:04:03,670
+get the ArrayList associated with a string
+label like country or noun or color.
+
+58
+00:04:03,670 --> 00:04:07,610
+Adding a new label doesn't require
+modifying this method at all.
+
+59
+00:04:07,610 --> 00:04:10,130
+And that's an example of
+the open/closed principle
+
+60
+00:04:10,130 --> 00:04:12,370
+we talked about in a previous video.
+
+61
+00:04:12,370 --> 00:04:17,217
+Using a HasMap makes for a more flexible
+class that's easier to extend, but
+
+62
+00:04:17,217 --> 00:04:21,320
+there's room for even more
+improvement using HashMaps again.
+
+63
+00:04:22,500 --> 00:04:27,470
+The original program reads a file or
+URL to store information in each
+
+64
+00:04:27,470 --> 00:04:31,129
+named instance variable, the ArrayList
+of replacement values for that label.
+
+65
+00:04:32,180 --> 00:04:36,690
+That was done in a sequence of statements
+that called the helper method, readIt.
+
+66
+00:04:38,450 --> 00:04:43,360
+The HashMap version still associates
+a label with a file name, and
+
+67
+00:04:43,360 --> 00:04:46,120
+that file name must be
+specified in the program.
+
+68
+00:04:46,120 --> 00:04:49,680
+But the code is different because we
+use a loop to associate each label with
+
+69
+00:04:49,680 --> 00:04:50,900
+a file name.
+
+70
+00:04:50,900 --> 00:04:52,960
+This wasn't possible in
+the original program.
+
+71
+00:04:54,290 --> 00:04:57,290
+Note the private helper method,
+readIt, is still called.
+
+72
+00:04:58,790 --> 00:05:02,420
+What changes if we want to
+add a new label like verb?
+
+73
+00:05:02,420 --> 00:05:06,240
+The program will still
+associate the name of
+
+74
+00:05:06,240 --> 00:05:10,790
+the file of replacement values
+in verb.txt with the new label.
+
+75
+00:05:11,870 --> 00:05:13,850
+We could store a new string,
+
+76
+00:05:13,850 --> 00:05:17,970
+like quote verb quote, in the local
+string array of variable labels.
+
+77
+00:05:17,970 --> 00:05:22,560
+We could add that just after the string,
+timeframe, for example.
+
+78
+00:05:22,560 --> 00:05:26,100
+Unfortunately, we still have
+the limitation in that the code
+
+79
+00:05:26,100 --> 00:05:30,470
+uses a naming convention for
+files like verb.text for the label verb.
+
+80
+00:05:31,610 --> 00:05:36,370
+We could use a HashMap in a different
+way to associate file names with labels,
+
+81
+00:05:36,370 --> 00:05:38,700
+without modifying the program.
+
+82
+00:05:38,700 --> 00:05:43,122
+The program could be designed to read
+a file of information that specifies where
+
+83
+00:05:43,122 --> 00:05:45,940
+to find the words to replace the labels.
+
+84
+00:05:45,940 --> 00:05:50,510
+Rather than requiring the code to
+modified, compiled, tested, and
+
+85
+00:05:50,510 --> 00:05:53,589
+run to simply find nouns in
+a different file or website.
+
+86
+00:05:54,730 --> 00:05:59,230
+This kind of file is often called
+a .properties or property file.
+
+87
+00:05:59,230 --> 00:06:00,050
+As shown here,
+
+88
+00:06:00,050 --> 00:06:04,120
+it simply associates a label with
+a source of replacements for that label.
+
+89
+00:06:05,270 --> 00:06:08,780
+The convention of using a colon to
+separate values in a .properties
+
+90
+00:06:08,780 --> 00:06:13,620
+file is common, but
+equals could also separate the values.
+
+91
+00:06:13,620 --> 00:06:18,260
+The ,properties file can be read using
+a file resource object, for example, and
+
+92
+00:06:18,260 --> 00:06:20,987
+the information in the properties
+file stored in a HashMap.
+
+93
+00:06:22,670 --> 00:06:28,120
+Suppose a HashMap instance variable named
+myLabelSouce is used to associate labels
+
+94
+00:06:28,120 --> 00:06:34,123
+like noun with the source of
+words that are now replacements,
+
+95
+00:06:34,123 --> 00:06:38,260
+like GladLibs.com/nounsfunny.txt.
+
+96
+00:06:38,260 --> 00:06:42,490
+The method initialized from source
+would simply loop over the values
+
+97
+00:06:42,490 --> 00:06:44,910
+stored as keys in the HashMap.
+
+98
+00:06:44,910 --> 00:06:49,000
+Recall that keys are accessed
+via the method, keySet.
+
+99
+00:06:50,550 --> 00:06:52,570
+The string that specifies the source for
+
+100
+00:06:52,570 --> 00:06:57,540
+each label is retrieved from
+the map using the .get method.
+
+101
+00:06:57,540 --> 00:07:01,400
+The source is used to read values
+into the ArrayList for the label.
+
+102
+00:07:03,330 --> 00:07:06,630
+You could add such a feature to
+the GladLib program to make it
+
+103
+00:07:06,630 --> 00:07:07,940
+even more extensible.

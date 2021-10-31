@@ -1,0 +1,178 @@
+<meta charset="utf-8"/>
+<co-content>
+ <h3 level="3">
+  Assignment: Reading Web Logs
+ </h3>
+ <p>
+  In this assignment you will complete the program to read and print web logs that was described in the lesson.
+ </p>
+ <p>
+  You will start with the files provided, which include:
+ </p>
+ <ul bullettype="bullets">
+  <li>
+   <p>
+    The class
+    <strong>
+     LogEntry
+    </strong>
+    from the lesson that has five private variables, a constructor, five get methods to access the private fields, and a
+    <strong>
+     toString
+    </strong>
+    method for printing out a LogEntry.
+   </p>
+  </li>
+  <li>
+   <p>
+    The Class
+    <strong>
+     LogAnalyzer
+    </strong>
+    , which has been started for you.
+   </p>
+  </li>
+  <li>
+   <p>
+    The Class
+    <strong>
+     WebLogParser
+    </strong>
+    , which we are providing. You should not edit this file—just use its
+    <strong>
+     parseEntry
+    </strong>
+    method.
+   </p>
+  </li>
+  <li>
+   <p>
+    The
+    <strong>
+     Tester
+    </strong>
+    class from the lesson, which has been started for you.
+   </p>
+  </li>
+ </ul>
+ <p>
+  Specifically, you should do the following:
+ </p>
+ <ul bullettype="bullets">
+  <li>
+   <p>
+    In the
+    <strong>
+     LogAnalyzer
+    </strong>
+    class you will need to complete the constructor to initialize
+    <strong>
+     records
+    </strong>
+    to an empty ArrayList and complete the
+    <strong>
+     readFile
+    </strong>
+    method to create a FileResource and to iterate over all the lines in the file. For each line, create a LogEntry and store it in the
+    <strong>
+     records
+    </strong>
+    ArrayList. (Refer to the lecture on parsing log files for help.)
+   </p>
+  </li>
+ </ul>
+ <ul bullettype="bullets">
+  <li>
+   <p>
+    In the
+    <strong>
+     Tester
+    </strong>
+    class you will need to complete the
+    <strong>
+     testLogAnalyzer
+    </strong>
+    method, which creates a LogAnalyzer object, calls
+    <strong>
+     readFile
+    </strong>
+    on the data file
+    <strong>
+     short-test_log
+    </strong>
+    , and then calls
+    <strong>
+     printAll
+    </strong>
+    to print all the web logs.
+   </p>
+  </li>
+ </ul>
+ <p>
+ </p>
+ <p>
+  Note: if your time zone is different from Durham, USA, you may want to temporarily change the time zone on your computer as the time zone setting of your computer affects the output value from the getAccessTime method.
+ </p>
+ <p>
+ </p>
+ <p>
+  Link to FAQ page for this course:
+  <a href="http://www.dukelearntoprogram.com/course3/faq.php">
+   http://www.dukelearntoprogram.com/course3/faq.php
+  </a>
+ </p>
+ <p>
+ </p>
+ <asset assettype="generic" extension="pdf" id="hO2hcob6EeW-6xKknuoJgw" name="Programming Exercise - Reading Log Files">
+ </asset>
+ <p>
+ </p>
+</co-content>
+<style>
+ body {
+    padding: 50px 85px 50px 85px;
+}
+
+table th, table td {
+    border: 1px solid #e0e0e0;
+    padding: 5px 20px;
+    text-align: left;
+}
+input {
+    margin: 10px;
+}
+}
+th {
+    font-weight: bold;
+}
+td, th {
+    display: table-cell;
+    vertical-align: inherit;
+}
+img {
+    height: auto;
+    max-width: 100%;
+}
+pre {
+    display: block;
+    margin: 20px;
+    background: #424242;
+    color: #fff;
+    font-size: 13px;
+    white-space: pre-wrap;
+    padding: 9.5px;
+    margin: 0 0 10px;
+    border: 1px solid #ccc;
+}
+</style>
+<script async="" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript">
+</script>
+<script type="text/x-mathjax-config">
+ MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$$','$$'], ['$','$'] ],
+      displayMath: [ ["\\[","\\]"] ],
+      processEscapes: true
+    }
+  });
+</script>

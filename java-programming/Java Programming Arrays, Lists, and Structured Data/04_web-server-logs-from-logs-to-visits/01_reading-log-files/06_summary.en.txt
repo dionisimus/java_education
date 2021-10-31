@@ -1,0 +1,10 @@
+In this lesson you learned
+a bit about web server logs, which can give you a lot of
+information about your website. You learned what is in them,
+how those records are formatted, as we looked at the Apache web
+server documentation together. And then you learned how
+to make a LogEntry class based on the information in that file. As part of that,
+you learned about toString, which is an important Java concept, as you will want to write a toString
+method in many of the classes you create. Finally, you wrote code
+to read in the log file using the parsing code that we provided. Now, you are ready to write some code
+to analyze the data you've read in.

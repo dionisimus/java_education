@@ -1,0 +1,183 @@
+1
+00:00:03,220 --> 00:00:06,380
+If you think back to the start of
+this course, you learned a little bit
+
+2
+00:00:06,380 --> 00:00:09,930
+about cryptography and
+implemented the Caesar cipher.
+
+3
+00:00:09,930 --> 00:00:14,920
+Now you're going to learn a bit about
+the Vigenere Cipher, which historically
+
+4
+00:00:14,920 --> 00:00:18,959
+is quite important, as it was thought to
+be unbreakable for hundreds of years.
+
+5
+00:00:20,040 --> 00:00:22,670
+However, as you're going to see and
+
+6
+00:00:22,670 --> 00:00:26,120
+do, the cipher is quite easy
+to break with the computer.
+
+7
+00:00:26,120 --> 00:00:27,990
+Now, let's see how this cipher works.
+
+8
+00:00:29,010 --> 00:00:32,740
+The key in Vigenere was
+classically a word.
+
+9
+00:00:32,740 --> 00:00:35,590
+For example,
+here we picked dice as our key.
+
+10
+00:00:36,760 --> 00:00:41,159
+You write down the word repeatedly
+to match the message length.
+
+11
+00:00:42,320 --> 00:00:47,090
+Each letter represents a number for
+how much to shift by, so
+
+12
+00:00:47,090 --> 00:00:54,230
+dice means shift by 3,
+8, 2, and 4, repeatedly.
+
+13
+00:00:54,230 --> 00:00:55,240
+In a Java program,
+
+14
+00:00:55,240 --> 00:00:59,419
+it would be quite convenient to
+represent the key as an array of ints.
+
+15
+00:01:00,830 --> 00:01:05,260
+Now to encrypt, you shift each letter
+by the amount written under it,
+
+16
+00:01:05,260 --> 00:01:10,970
+much like you in a Caesar cipher, but each
+letter gets shifted by a different amount.
+
+17
+00:01:12,010 --> 00:01:17,150
+The first letter is M,
+which has 3 added to it, so you get P.
+
+18
+00:01:17,150 --> 00:01:21,540
+The second letter is E,
+which has 8 added to it, so you get M.
+
+19
+00:01:22,680 --> 00:01:26,020
+Then you repeat this process
+across the entire message.
+
+20
+00:01:27,460 --> 00:01:30,860
+As we did for Cesar, we'll have to
+skip anything that's not a letter.
+
+21
+00:01:32,600 --> 00:01:38,400
+Notice that conceptually, this cipher
+is like four different Cesar cyphers.
+
+22
+00:01:38,400 --> 00:01:41,690
+One with a shift of three, shown in blue.
+
+23
+00:01:41,690 --> 00:01:44,400
+One with a shift of eight, shown in red.
+
+24
+00:01:44,400 --> 00:01:47,630
+Another with a shift of two,
+shown in green.
+
+25
+00:01:47,630 --> 00:01:51,560
+And a fourth with a shift of four,
+shown in purple.
+
+26
+00:01:51,560 --> 00:01:55,800
+This similarity means that a programmer
+who has already written an implementation
+
+27
+00:01:55,800 --> 00:02:01,300
+of Caesar cipher could make use of it
+to help implement a Vigenere Cipher.
+
+28
+00:02:01,300 --> 00:02:05,560
+In fact, you could make an array
+of Caesar cipher objects,
+
+29
+00:02:05,560 --> 00:02:10,040
+one with each shift specified in the key
+and use them for your encryption.
+
+30
+00:02:10,040 --> 00:02:15,000
+If you did something like this,
+you could use the mod operator to wrap
+
+31
+00:02:15,000 --> 00:02:19,947
+a count into the pattern,
+0,1,2,3, 0,1,2,3.
+
+32
+00:02:19,947 --> 00:02:24,280
+For this mini-project,
+we're going to give you the code for
+
+33
+00:02:24,280 --> 00:02:28,550
+a Vigenere cipher and you are going
+to write the code to break it.
+
+34
+00:02:28,550 --> 00:02:32,580
+Your goal is to take messages that
+we have encrypted with Vigenere and
+
+35
+00:02:32,580 --> 00:02:36,740
+find the decrypted message
+without knowing the key we used.
+
+36
+00:02:36,740 --> 00:02:41,560
+You will start with breaking a message
+that you know is in English,
+
+37
+00:02:41,560 --> 00:02:43,798
+and then expand your program so
+
+38
+00:02:43,798 --> 00:02:48,381
+that you can try to break encryption
+in a variety of languages.

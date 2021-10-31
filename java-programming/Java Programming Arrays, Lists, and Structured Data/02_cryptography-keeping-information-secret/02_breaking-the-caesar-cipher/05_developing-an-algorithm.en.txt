@@ -1,0 +1,62 @@
+We'd like to automate the cracking,
+or breaking, of the Caesar Cipher. To do this, we'll rely on frequencies
+of letters in English text. If you're encrypting a message in
+another language, you'll need to use the frequencies from that language,
+but the approach will be the same. We'll write code to find the character
+that occurs most frequently in the message being decrypted. We'll assume this is the letter
+e since e occurs more frequently than any other letter in English text. In Russian, for example, the letter
+o occurs more frequently than e. If our assumption about e is wrong,
+we won't decrypt the original message. It's possible to use more than just e,
+but to rely on the frequencies of all the letters and use statistical
+approaches to break the CaesarCipher. In some cases, these approaches will break
+other encryption methods, though not the methods used to encrypt data for
+online shopping and secure transactions. Let's look at the code for
+decryption in two steps. We need to count the occurrences
+of each letter, a through z, in the message we're encrypting. We'll have code to scan each letter
+of the text, an increment counter for each of the 26 different letters. Initially all the counters are zero since we haven't started scanning
+the text letter by letter. Each counter is numbered from 0 to 25
+because the counters are array elements. The index from a string of 26 letters
+will help us find the right index for the counter we'll increment
+as we scan the text. As we scan the message, looking at each character, we'll
+increment the counter at index 7 for H. Then as we scan,
+I will increment the counter index 8, which is the index of I
+in our alphabet string. We won't increment for
+the comma, or for the space. Then we'll increment the calendar
+at index 3 for the D. The counter at index 14 for the O, we won't increment for the space because
+space doesn't occur in the alphabet. Then, we'll increment
+the counter at index 24 for Y. And we'll set the counter at index 14 to 2
+when we scan the second O in the message. When we're done scanning every character,
+we'll have these values for each counter. If you look carefully at these values, you see that our decryption
+method is likely to fail. The value of the counter
+with index 4 is 0, there are no Es in this message,
+but this is a very unusual message. Now we'll look at the code for this idea. We scan the message character by
+character using a standard for loop. We find where the character occurs in a
+string of each letter in the alphabet, so that E will be found at index 4. Notice that we converted the characters in
+the message being decrypted to lower case. We use the index in the alphabet to
+increment the corresponding counter as part of decrypting the message. If the character wasn't in
+the letters of the alphabet, the .indexOf method returned -1,
+and we don't increment any counter. The code that uses the idea of e occurring
+most frequently, is straightforward developed from the ideas, algorithm,
+and code you've just seen. As you can see, the code isn't very long
+but we've created two helpful methods and relied on the CeasarCipher class to help. We've called the method countLetters,
+which we just discussed. This method will count the occurrences of
+every character in the string encrypted, with a being stored in the first,
+or index 0, location of the array returned by the function, and
+referenced here by the variable freqs. Then we call a method maxIndex, which will return the index of their
+entry in freqs that is the largest. The location we will assume
+is where the e was shifted. We'll find the distance from this
+location to E, E has index 4, since we start with 0 for A, and then get
+B, C, D, E, for 1, 2, 3, 4, respectively. If the maximal index is less than 4, we'll need to wrap around from
+26 to find the shift use for E. If the value dkey was used to encrypt,
+then 26- dkey is used to decrypt, and
+we return the decrypted string. You'll be ready to use your programming
+knowledge to finish the task of decrypting, and then apply this knowledge in the mini
+project with a different cypher. But there's some details
+we want to highlight. The array freqs in the code we've just saw
+has a relationship between the index and the value in the array. For example, freqs of 8 is how often I occurs since I is the ninth letter and
+has index 8. Remember, we start with index 0. When looking for a maximal value, as with
+the method maxIndex that we called, and whose implementation you see here, we
+returned the index of the largest value, not the largest value itself. We use the index to find
+the distance from e. Using the existing CaesarCipher class made
+decryption much more straightforward. In general it is a good idea to use
+code that has already been developed and tested, rather than reinventing it. Have fun coding.

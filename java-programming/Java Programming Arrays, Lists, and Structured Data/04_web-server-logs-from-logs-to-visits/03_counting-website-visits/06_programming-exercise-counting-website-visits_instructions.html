@@ -1,0 +1,240 @@
+<meta charset="utf-8"/>
+<co-content>
+ <h3 level="3">
+  Assignment: Website Visits
+ </h3>
+ <p>
+  In this assignment you will continue to build on the
+  <strong>
+   LogEntry
+  </strong>
+  and
+  <strong>
+   LogAnalyzer
+  </strong>
+  classes that you worked on in the last lesson. You will continue to use the method
+  <strong>
+   parseEntry
+  </strong>
+  from the
+  <strong>
+   WebLogParser
+  </strong>
+  class, and you should not modify this class. You will write several methods to solve problems about web logs. There are four small files you can use to test the methods:
+  <strong>
+   short-test_log
+  </strong>
+  ,
+  <strong>
+   weblog-short_log
+  </strong>
+  ,
+  <strong>
+   weblog2-short_log
+  </strong>
+  , and
+  <strong>
+   weblog3-short_log
+  </strong>
+  . You should write code to test the methods in a
+  <strong>
+   Tester
+  </strong>
+  class that creates a LogAnalyzer object.
+ </p>
+ <p>
+ </p>
+ <p>
+  Specifically, you should do the following:
+ </p>
+ <ul bullettype="bullets">
+  <li>
+   <p>
+    In the
+    <strong>
+     LogAnalyzer
+    </strong>
+    class, write the method
+    <strong>
+     countVisitsPerIP
+    </strong>
+    , which has no parameters. This method returns a HashMap&lt;String, Integer&gt; that maps an IP address to the number of times that IP address appears in
+    <strong>
+     records
+    </strong>
+    , meaning the number of times this IP address visited the website. Recall that
+    <strong>
+     records
+    </strong>
+    stores LogEntrys from a file of web logs. For help, refer to the video in this lesson on translating to code. Be sure to test this method on sample files.
+   </p>
+  </li>
+  <li>
+   <p>
+    In the
+    <strong>
+     LogAnalyzer
+    </strong>
+    class, write the method
+    <strong>
+     mostNumberVisitsByIP
+    </strong>
+    , which has one parameter, a HashMap&lt;String, Integer&gt; that maps an IP address to the number of times that IP address appears in the web log file. This method returns the maximum number of visits to this website by a single IP address. For example, the call
+    <strong>
+     mostNumberVisitsByIP
+    </strong>
+    on a HashMap formed using the file
+    <strong>
+     weblog3-short_log
+    </strong>
+    returns 3.
+   </p>
+  </li>
+  <li>
+   <p>
+    In the
+    <strong>
+     LogAnalyzer
+    </strong>
+    class, write the method
+    <strong>
+     iPsMostVisits
+    </strong>
+    , which has one parameter, a HashMap&lt;String, Integer&gt; that maps an IP address to the number of times that IP address appears in the web log file. This method returns an ArrayList of Strings of IP addresses that all have the maximum number of visits to this website. For example, the call
+    <strong>
+     iPsMostVisits
+    </strong>
+    on a HashMap formed using the file
+    <strong>
+     weblog3-short_log
+    </strong>
+    returns the ArrayList with these two IP addresses,  61.15.121.171 and  84.133.195.161. Both of them visited the site three times, which is the maximum number of times any IP address visited the site.
+   </p>
+  </li>
+  <li>
+   <p>
+    In the
+    <strong>
+     LogAnalyzer
+    </strong>
+    class, write the method
+    <strong>
+     iPsForDays
+    </strong>
+    , which has no parameters. This method returns a HashMap&lt;String, ArrayList&lt;String&gt;&gt; that uses
+    <strong>
+     records
+    </strong>
+    and maps days from web logs to an ArrayList of IP addresses that occurred on that day (including repeated IP addresses). A day is in the format “MMM DD” where MMM is the first three characters of the month name with the first letter capital and the others in lowercase, and DD is the day in two digits (examples are “Dec 05” and “Apr 22”). For example, for the file
+    <strong>
+     weblog3-short_log
+    </strong>
+    , after building this HashMap, if you print it out, you will see that Sep 14 maps to one IP address, Sep 21 maps to four IP addresses, and Sep 30 maps to five IP addresses.
+   </p>
+  </li>
+  <li>
+   <p>
+    In the
+    <strong>
+     LogAnalyzer
+    </strong>
+    class, write the method
+    <strong>
+     dayWithMostIPVisits
+    </strong>
+    , which has one parameter that is a HashMap&lt;String, ArrayList&lt;String&gt;&gt; that uses
+    <strong>
+     records
+    </strong>
+    and maps days from web logs to an ArrayList of IP addresses that occurred on that day. This method returns the day that has the most IP address visits. If there is a tie, then return any such day. For example, if you use the file
+    <strong>
+     weblog3-short_log
+    </strong>
+    , then this method should return the day most visited as Sep 30.
+   </p>
+  </li>
+  <li>
+   <p>
+    In the
+    <strong>
+     LogAnalyzer
+    </strong>
+    class, write the method
+    <strong>
+     iPsWithMostVisitsOnDay
+    </strong>
+    , which has two parameters—the first one is a HashMap&lt;String, ArrayList&lt;String&gt;&gt; that uses
+    <strong>
+     records
+    </strong>
+    and maps days from web logs to an ArrayList of IP addresses that occurred on that day, and the second parameter is a String representing a day in the format “MMM DD” described above. This method returns an ArrayList&lt;String&gt; of IP addresses that had the most accesses on the given day. For example, if you use the file
+    <strong>
+     weblog3-short_log
+    </strong>
+    , and the parameter for the day is “Sep 30”, then there are two IP addresses in the ArrayList returned: 61.15.121.171 and 177.4.40.87. Hint: This method should call another method you have written.
+   </p>
+  </li>
+ </ul>
+ <p>
+ </p>
+ <p>
+  Link to FAQ page for this course:
+  <a href="http://www.dukelearntoprogram.com/course3/faq.php">
+   http://www.dukelearntoprogram.com/course3/faq.php
+  </a>
+ </p>
+ <p>
+ </p>
+ <asset assettype="generic" extension="pdf" id="4GpIdYfaEeWAKg5wUUk-Uw" name="Programming Exercise - Counting Website Visits">
+ </asset>
+ <p>
+ </p>
+</co-content>
+<style>
+ body {
+    padding: 50px 85px 50px 85px;
+}
+
+table th, table td {
+    border: 1px solid #e0e0e0;
+    padding: 5px 20px;
+    text-align: left;
+}
+input {
+    margin: 10px;
+}
+}
+th {
+    font-weight: bold;
+}
+td, th {
+    display: table-cell;
+    vertical-align: inherit;
+}
+img {
+    height: auto;
+    max-width: 100%;
+}
+pre {
+    display: block;
+    margin: 20px;
+    background: #424242;
+    color: #fff;
+    font-size: 13px;
+    white-space: pre-wrap;
+    padding: 9.5px;
+    margin: 0 0 10px;
+    border: 1px solid #ccc;
+}
+</style>
+<script async="" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript">
+</script>
+<script type="text/x-mathjax-config">
+ MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$$','$$'], ['$','$'] ],
+      displayMath: [ ["\\[","\\]"] ],
+      processEscapes: true
+    }
+  });
+</script>

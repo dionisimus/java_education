@@ -1,0 +1,394 @@
+1
+00:00:03,467 --> 00:00:04,884
+Hello.
+
+2
+00:00:04,884 --> 00:00:07,028
+We'll introduce the class character,
+
+3
+00:00:07,028 --> 00:00:11,670
+which you can use to determine
+properties of character values in Java.
+
+4
+00:00:11,670 --> 00:00:16,980
+The type char is a primitive type,
+like int, boolean, and double.
+
+5
+00:00:16,980 --> 00:00:22,280
+Some people pronounce it char,
+some people pronounce it car,
+
+6
+00:00:22,280 --> 00:00:24,380
+and some people say care.
+
+7
+00:00:24,380 --> 00:00:27,710
+But everyone says the word
+character the same way, so
+
+8
+00:00:27,710 --> 00:00:30,420
+I typically use the careful pronunciation.
+
+9
+00:00:31,435 --> 00:00:34,110
+Char values are specified
+with single quotes.
+
+10
+00:00:34,110 --> 00:00:39,350
+For example, you can see quote A quote and
+quote 1 quote.
+
+11
+00:00:39,350 --> 00:00:41,240
+End quote, space quote here.
+
+12
+00:00:41,240 --> 00:00:42,791
+These are character values.
+
+13
+00:00:42,791 --> 00:00:46,640
+The value "a" is a string value.
+
+14
+00:00:46,640 --> 00:00:51,450
+It's usually much easier to write the code
+than to say all these quote values.
+
+15
+00:00:51,450 --> 00:00:55,150
+The character class has several
+methods you can use in writing code.
+
+16
+00:00:55,150 --> 00:01:00,390
+You may remember the methods
+Integer.Parseint and Double.ParseDouble.
+
+17
+00:01:00,390 --> 00:01:06,074
+These are methods of the classes
+Integer and Double, respectively.
+
+18
+00:01:06,074 --> 00:01:13,340
+The method Character.toLowercase returns
+a lowercase equivalent to its argument.
+
+19
+00:01:13,340 --> 00:01:17,810
+For example,
+this call will return a lowercase g,
+
+20
+00:01:17,810 --> 00:01:22,520
+since an uppercase G is the argument
+to Character.toLowerCase.
+
+21
+00:01:22,520 --> 00:01:25,020
+If you pass a character that
+is already in lowercase,
+
+22
+00:01:25,020 --> 00:01:27,180
+the same value will be returned.
+
+23
+00:01:27,180 --> 00:01:31,040
+The table shows Boolean value
+functions like, isLowerCase and
+
+24
+00:01:31,040 --> 00:01:36,910
+isDigit, as well as conversion functions
+like toLowerCase and toUpperCase.
+
+25
+00:01:36,910 --> 00:01:41,010
+Using the Java documentation, we'll show
+you more Boolean and conversion methods.
+
+26
+00:01:41,010 --> 00:01:45,515
+Have fun building character,
+and writing code.
+
+27
+00:01:45,515 --> 00:01:49,403
+We have the CharacterDemo class here
+in BlueJ, and we've got two methods
+
+28
+00:01:49,403 --> 00:01:54,170
+that I'm going to run through and
+illustrate, and I'll add one very quickly.
+
+29
+00:01:54,170 --> 00:01:59,797
+This first method, digitTest, creates a
+test string that has uppercase characters,
+
+30
+00:01:59,797 --> 00:02:03,040
+lowercase characters,
+digits, and punctuation.
+
+31
+00:02:03,040 --> 00:02:06,150
+Move through every
+character of the string and
+
+32
+00:02:06,150 --> 00:02:10,147
+calls the character.isDigit method,
+a Boolean method.
+
+33
+00:02:10,147 --> 00:02:14,400
+And the Character.isAlphabetic method,
+another Boolean method.
+
+34
+00:02:14,400 --> 00:02:19,180
+So, let's run through digitTest,
+and see what it does.
+
+35
+00:02:19,180 --> 00:02:24,370
+I'm going to create a new object on
+my work bench, by right-clicking.
+
+36
+00:02:24,370 --> 00:02:28,660
+And then I'm going to run the digitTest
+method by right-clicking on that.
+
+37
+00:02:28,660 --> 00:02:34,590
+And we can see here pretty clearly that A,
+B, C, uppercase characters,
+
+38
+00:02:34,590 --> 00:02:38,070
+little a, little b, little c,
+those are all alphabetic characters.
+
+39
+00:02:38,070 --> 00:02:41,830
+And then the digits are labeled
+as digit characters.
+
+40
+00:02:41,830 --> 00:02:46,140
+Notice that no punctuation was printed,
+so that when I go back to my editor,
+
+41
+00:02:46,140 --> 00:02:51,050
+we can see that the uppercase
+characters were all alphabetic.
+
+42
+00:02:51,050 --> 00:02:55,470
+The characters that look like
+digits were all labeled as digits.
+
+43
+00:02:55,470 --> 00:02:59,880
+And the punctuation wasn't any character
+in that it didn't have the label,
+
+44
+00:02:59,880 --> 00:03:02,910
+alphabetic and
+it didn't have the label, digit.
+
+45
+00:03:02,910 --> 00:03:04,800
+Just want to illustrate
+one quick thing here.
+
+46
+00:03:04,800 --> 00:03:11,457
+I can also say if ch is
+equal to the character #,
+
+47
+00:03:11,457 --> 00:03:20,321
+then I can print a message that,
+It's a hashtag.
+
+48
+00:03:20,321 --> 00:03:21,238
+Highly enlightening.
+
+49
+00:03:29,156 --> 00:03:34,150
+And now if I compile this program,
+it compiled without any errors.
+
+50
+00:03:35,210 --> 00:03:37,390
+And I'll make another object.
+
+51
+00:03:39,640 --> 00:03:42,910
+I'll invoke the digitTest method.
+
+52
+00:03:42,910 --> 00:03:47,227
+And we can see that lo and
+behold, # is a hashtag.
+
+53
+00:03:49,607 --> 00:03:52,112
+That's just a reminder that for
+
+54
+00:03:52,112 --> 00:03:57,590
+characters we use single quotes
+to differentiate the values.
+
+55
+00:03:57,590 --> 00:03:59,710
+Whereas strings use double quotes.
+
+56
+00:03:59,710 --> 00:04:00,652
+We can see that here,
+
+57
+00:04:00,652 --> 00:04:04,950
+where I've created another string
+test in the method conversionTest.
+
+58
+00:04:04,950 --> 00:04:07,641
+I've created a similar string
+with uppercase characters,
+
+59
+00:04:07,641 --> 00:04:11,460
+lowercase characters,
+digits and some punctuation.
+
+60
+00:04:11,460 --> 00:04:16,160
+I'm going to loop through by
+using the string charAt method.
+
+61
+00:04:16,160 --> 00:04:19,070
+To store a character variable ch.
+
+62
+00:04:19,070 --> 00:04:24,860
+I'm creating an uch variable and
+an lch variable, both of type char.
+
+63
+00:04:24,860 --> 00:04:28,409
+I'm creating them calling
+Character.toUpperCase which will return
+
+64
+00:04:28,409 --> 00:04:29,888
+an uppercase character, and
+
+65
+00:04:29,888 --> 00:04:33,980
+Character.toLowerCase that will
+return a lowercase equivalent.
+
+66
+00:04:33,980 --> 00:04:36,495
+Remember that converting
+a digit to upper or
+
+67
+00:04:36,495 --> 00:04:38,660
+lowercase doesn't change the digit at all.
+
+68
+00:04:38,660 --> 00:04:40,165
+And if a character is already lowercase,
+
+69
+00:04:40,165 --> 00:04:43,020
+converting it to lowercase
+leaves it alone.
+
+70
+00:04:43,020 --> 00:04:49,160
+So, running that method, I will right
+click on my class and call conversionTest.
+
+71
+00:04:49,160 --> 00:04:53,970
+We can see that I get the characters
+in my string on the left column.
+
+72
+00:04:53,970 --> 00:04:57,930
+The function that you got
+by calling toUppercase and
+
+73
+00:04:57,930 --> 00:05:01,715
+the results that you get
+by calling toLowercase.
+
+74
+00:05:01,715 --> 00:05:04,995
+So I get character, uppercase, lowercase.
+
+75
+00:05:04,995 --> 00:05:09,415
+You can see that in each column, I have
+all uppercase characters or digits and
+
+76
+00:05:09,415 --> 00:05:10,790
+punctuation.
+
+77
+00:05:10,790 --> 00:05:14,210
+All lowercase characters
+weren't considered punctuation.
+
+78
+00:05:14,210 --> 00:05:18,750
+And as one quick review of that code,
+to remind you of where that came from,
+
+79
+00:05:19,830 --> 00:05:24,780
+you can see that I called toUppercase,
+toLowercase, and then printed them
+
+80
+00:05:24,780 --> 00:05:29,130
+as the character, the uppercase
+version and the lowercase version.
+
+81
+00:05:29,130 --> 00:05:33,110
+Using the Java documentation for
+characters will help a lot
+
+82
+00:05:33,110 --> 00:05:36,900
+in making your program run smoothly,
+when you're using character values.
+
+83
+00:05:36,900 --> 00:05:39,720
+Have fun building more character
+than you did last time.

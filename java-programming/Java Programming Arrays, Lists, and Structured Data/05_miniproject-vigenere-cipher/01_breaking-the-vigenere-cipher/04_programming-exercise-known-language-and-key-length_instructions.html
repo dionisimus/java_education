@@ -1,0 +1,399 @@
+<meta charset="utf-8"/>
+<co-content>
+ <h3 level="3">
+  Assignment: English Language, Known Key Length
+ </h3>
+ <p>
+  The first step of this mini-project is for you to write a program that breaks a Vigenère cipher, where you know that the language is English and the key length is also known.
+ </p>
+ <p>
+  We have provided three Java classes to get you started:
+ </p>
+ <p>
+  <strong>
+   CaesarCipher
+  </strong>
+  : This class provides an implementation of the Caesar cipher algorithm that you learned about earlier with public
+  <strong>
+   encrypt
+  </strong>
+  and
+  <strong>
+   decrypt
+  </strong>
+  methods. A few adjustments have been made to the code to make it easier for you to work with here:
+ </p>
+ <ul bullettype="bullets">
+  <li>
+   <p>
+    This code follows the second, object-oriented design you learned about, in which the constructor takes the key.
+   </p>
+  </li>
+  <li>
+   <p>
+    The code provides public methods to encrypt or decrypt one single character
+    <strong>
+     encryptLetter
+    </strong>
+    and
+    <strong>
+     decryptLetter
+    </strong>
+    .
+   </p>
+  </li>
+  <li>
+   <p>
+    In the constructor, the alphabets are built to have upper- and lowercase letters to preserve the case of a message.
+   </p>
+  </li>
+  <li>
+   <p>
+    You should test this code in a tester class that creates a CaesarCipher object and attempts to encrypt and decrypt an entire message (such as
+    <strong>
+     titus-small.txt
+    </strong>
+    ), as well as individual characters.
+   </p>
+  </li>
+ </ul>
+ <p>
+  <strong>
+   CaesarCracker
+  </strong>
+  : This class provides an implementation of the Caesar cipher cracking (or breaking) algorithm that you learned about earlier. As with the
+  <strong>
+   CaesarCipher
+  </strong>
+  class, a few adjustments have been made:
+ </p>
+ <ul bullettype="bullets">
+  <li>
+   <p>
+    The constructor takes a parameter for the most common letter, so it can be used for languages other than English.
+   </p>
+  </li>
+  <li>
+   <p>
+    Finding the key has been separated from decrypting the message. You can use the method
+    <strong>
+     getKey
+    </strong>
+    to pass in an encrypted message and receive the key back.
+   </p>
+  </li>
+  <li>
+   <p>
+    You can test these methods in the tester class by making a new CaesarCracker object and decrypting the file
+    <strong>
+     titus-small_key5.txt
+    </strong>
+    using no arguments for the constructor (default most common character ‘e’), and the file
+    <strong>
+     os
+    </strong>
+    <strong>
+     lusiadas_key17.txt
+    </strong>
+    , noting that the most common character in Portuguese is ‘a’.
+   </p>
+  </li>
+ </ul>
+ <p>
+  <strong>
+   VigenereCipher
+  </strong>
+  : This class implements a Vigenère cipher. It has the following functionality:
+ </p>
+ <ul bullettype="bullets">
+  <li>
+   <p>
+    <strong>
+     public VigenereCipher(int[] key)
+    </strong>
+    : the constructor, which takes a key, which is an array of integers and initializes the field
+    <strong>
+     ciphers
+    </strong>
+    , which is an array of CaesarCipher objects.
+   </p>
+  </li>
+  <li>
+   <p>
+    <strong>
+     public String encrypt(String input)
+    </strong>
+    : a method that encrypts the String passed in and returns the encrypted message.
+   </p>
+  </li>
+  <li>
+   <p>
+    <strong>
+     public String decrypt(String input)
+    </strong>
+    : a method that decrypts the String passed in and returns the decrypted message.
+   </p>
+  </li>
+  <li>
+   <p>
+    <strong>
+     public String toString()
+    </strong>
+    : returns a String representing the key for this cipher.
+   </p>
+  </li>
+  <li>
+   <p>
+    You can test these methods in the tester class by creating a VigenereCipher object with the key “rome”, which is {17, 14, 12, 4} in integers and encrypting and decrypting the file
+    <strong>
+     titus-small.txt
+    </strong>
+    , the encrypted first line of which is “Tcmp-pxety mj nikhqv htee mrfhtii tyv”.
+   </p>
+  </li>
+ </ul>
+ <p>
+ </p>
+ <p>
+  Your first step in this mini-project is to write the three methods in the
+  <strong>
+   VigenereBreaker
+  </strong>
+  class. Specifically you should do the following:
+ </p>
+ <ul bullettype="bullets">
+  <li>
+   <p>
+    Write the public method
+    <strong>
+     sliceString
+    </strong>
+    , which has three parameters—a String
+    <strong>
+     message
+    </strong>
+    , representing the encrypted message, an integer
+    <strong>
+     whichSlice
+    </strong>
+    , indicating the index the slice should start from, and an integer
+    <strong>
+     totalSlices
+    </strong>
+    , indicating the length of the key. This method returns a String consisting of every
+    <strong>
+     totalSlices
+    </strong>
+    -th character from message, starting at the
+    <strong>
+     whichSlice
+    </strong>
+    -th character.
+   </p>
+  </li>
+ </ul>
+ <p>
+  You can test your method on these examples:
+ </p>
+ <p>
+  sliceString("abcdefghijklm", 0, 3) should return "adgjm"
+ </p>
+ <p>
+  sliceString("abcdefghijklm", 1, 3) should return "behk"
+ </p>
+ <p>
+  sliceString("abcdefghijklm", 2, 3) should return "cfil"
+ </p>
+ <p>
+  sliceString("abcdefghijklm", 0, 4) should return "aeim"
+ </p>
+ <p>
+  sliceString("abcdefghijklm", 1, 4) should return "bfj"
+ </p>
+ <p>
+  sliceString("abcdefghijklm", 2, 4) should return "cgk"
+ </p>
+ <p>
+  sliceString("abcdefghijklm", 3, 4) should return "dhl"
+ </p>
+ <p>
+  sliceString("abcdefghijklm", 0, 5) should return "afk"
+ </p>
+ <p>
+  sliceString("abcdefghijklm", 1, 5) should return "bgl"
+ </p>
+ <p>
+  sliceString("abcdefghijklm", 2, 5) should return "chm"
+ </p>
+ <p>
+  sliceString("abcdefghijklm", 3, 5) should return "di"
+ </p>
+ <p>
+  sliceString("abcdefghijklm", 4, 5) should return "ej"
+ </p>
+ <ul bullettype="bullets">
+  <li>
+   <p>
+    Write the public method
+    <strong>
+     tryKeyLength
+    </strong>
+    , which takes three parameters—a String
+    <strong>
+     encrypted
+    </strong>
+    that represents the encrypted message, an integer
+    <strong>
+     klength
+    </strong>
+    that represents the key length, and a character
+    <strong>
+     mostCommon
+    </strong>
+    that indicates the most common character in the language of the message. This method should make use of the
+    <strong>
+     CaesarCracker
+    </strong>
+    class, as well as the
+    <strong>
+     sliceString
+    </strong>
+    method, to find the shift for each index in the key. You should fill in the key (which is an array of integers) and return it. Test this method on the text file
+    <strong>
+     athens_keyflute.txt
+    </strong>
+    , which is a scene from A Midsummer Night’s Dream encrypted with the key “flute”, and make sure you get the key {5, 11, 20, 19, 4}.
+   </p>
+  </li>
+  <li>
+   <p>
+    Write the public method
+    <strong>
+     breakVigenere
+    </strong>
+    with no parameters. This void method should put everything together, so that you can create a new VigenereBreaker in BlueJ, call this method on it, and crack the cipher used on a message. This method should perform 6 tasks (in this order):
+   </p>
+  </li>
+ </ul>
+ <ol bullettype="numbers">
+  <li>
+   <p>
+    Create a new FileResource using its default constructor (which displays a dialog for you to select a file to decrypt).
+   </p>
+  </li>
+  <li>
+   <p>
+    Use the
+    <strong>
+     asString
+    </strong>
+    method to read the entire contents of the file into a String.
+   </p>
+  </li>
+  <li>
+   <p>
+    Use the
+    <strong>
+     tryKeyLength
+    </strong>
+    method, which you just wrote, to find the key for the message you read in. For now, you should just pass ‘e’ for
+    <strong>
+     mostCommon
+    </strong>
+    .
+   </p>
+  </li>
+  <li>
+   <p>
+    You should create a new VigenereCipher, passing in the key that
+    <strong>
+     tryKeyLength
+    </strong>
+    found for you.
+   </p>
+  </li>
+  <li>
+   <p>
+    You should use the VigenereCipher’s
+    <strong>
+     decrypt
+    </strong>
+    method to decrypt the encrypted message.
+   </p>
+  </li>
+  <li>
+   <p>
+    Finally, you should print out the decrypted message!
+   </p>
+  </li>
+ </ol>
+ <p>
+  Test this method on the text file
+  <strong>
+   athens_keyflute.txt
+  </strong>
+  , using key length 5. The first line should be “SCENE II. Athens. QUINCE'S house.”
+ </p>
+ <p>
+ </p>
+ <p>
+  Link to FAQ page for this course:
+  <a href="http://www.dukelearntoprogram.com/course3/faq.php">
+   http://www.dukelearntoprogram.com/course3/faq.php
+  </a>
+ </p>
+ <p>
+ </p>
+ <asset assettype="generic" extension="pdf" id="F5u9v4pPEeWXyArFyzwYoQ" name="Programming Exercise - Known Language Key Length">
+ </asset>
+ <p>
+ </p>
+</co-content>
+<style>
+ body {
+    padding: 50px 85px 50px 85px;
+}
+
+table th, table td {
+    border: 1px solid #e0e0e0;
+    padding: 5px 20px;
+    text-align: left;
+}
+input {
+    margin: 10px;
+}
+}
+th {
+    font-weight: bold;
+}
+td, th {
+    display: table-cell;
+    vertical-align: inherit;
+}
+img {
+    height: auto;
+    max-width: 100%;
+}
+pre {
+    display: block;
+    margin: 20px;
+    background: #424242;
+    color: #fff;
+    font-size: 13px;
+    white-space: pre-wrap;
+    padding: 9.5px;
+    margin: 0 0 10px;
+    border: 1px solid #ccc;
+}
+</style>
+<script async="" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript">
+</script>
+<script type="text/x-mathjax-config">
+ MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$$','$$'], ['$','$'] ],
+      displayMath: [ ["\\[","\\]"] ],
+      processEscapes: true
+    }
+  });
+</script>

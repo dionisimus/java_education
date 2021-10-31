@@ -1,0 +1,79 @@
+1
+00:00:03,296 --> 00:00:07,089
+Now it's time for you to solve
+a new problem with web server logs.
+
+2
+00:00:07,089 --> 00:00:11,314
+For this problem you'll be writing
+a program to determine how many times each
+
+3
+00:00:11,314 --> 00:00:13,370
+user visited the website.
+
+4
+00:00:13,370 --> 00:00:18,020
+This information can be quite useful for
+understanding how people use your website.
+
+5
+00:00:18,020 --> 00:00:20,540
+Do the same people visit
+your site repeatedly?
+
+6
+00:00:20,540 --> 00:00:25,430
+For example this person keeps coming
+back to the site again and again.
+
+7
+00:00:25,430 --> 00:00:28,860
+Her IP appears many times in the log file.
+
+8
+00:00:28,860 --> 00:00:31,890
+Seeing the same visitor
+repeatedly coming to your site
+
+9
+00:00:31,890 --> 00:00:36,960
+might indicate that they find the website
+useful because they keep coming back.
+
+10
+00:00:36,960 --> 00:00:41,610
+By contrast, this person visited
+the site once, but never came back.
+
+11
+00:00:41,610 --> 00:00:46,170
+Maybe it wasn't what he was looking for,
+or maybe he found the site hard to use.
+
+12
+00:00:46,170 --> 00:00:48,860
+If most users only visit your site once,
+
+13
+00:00:48,860 --> 00:00:52,230
+it might suggest that there are some
+issues you would want to look into.
+
+14
+00:00:52,230 --> 00:00:54,180
+Of course, as with all problems,
+
+15
+00:00:54,180 --> 00:00:57,280
+the techniques you are going to learn
+are useful in a wide variety of
+
+16
+00:00:57,280 --> 00:01:01,530
+other problems, not just those
+dealing with web server log analysis.
+
+17
+00:01:01,530 --> 00:01:02,620
+So, let's dive right in.

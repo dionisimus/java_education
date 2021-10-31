@@ -1,0 +1,31 @@
+Welcome back. Now that you're becoming proficient
+at solving problems in Java it is time to talk about some aspects of Java
+that will help you solve larger problems. You've probably heard that Java is
+an object oriented language but what exactly does that mean? As the name suggests, your code works with
+objects which you've already been doing with objects from a wide variety of types,
+strings, image resources, and CSV records, just to name a few. One of the important characteristics of
+objects is that they encapsulate code and data, putting them together
+into one logical unit. You have already written methods,
+which are the code in an object. However, you've not yet made your own fields which describe
+the data within an object. As a familiar example, think about
+strings which you have worked with a lot. A string is an object and
+it encapsulates code and data together. For a string, the data is the sequence
+of characters which it represents. These characters are logically
+inside of the string object. You can also call a lot of different
+methods on a string to operate on it and not on the data inside of it. You are familiar with many methods in
+string such as indexOf and substring. As you learn a bit more about
+object oriented programming, it is useful to be
+precise with terminology. A class defines a type,
+specifically what fields and methods are inside of
+objects of that type. Objects are instances of a class. You can make many different objects from
+the same class, which you do with new. You have seen new before and learned that you use it to make things,
+but now you can be a bit more precise. New creates a new instance of an object. So why use an object oriented language? What is the point of classes and objects? A long time ago programming language
+designers realized that it was helpful for programmers to be able to
+think in terms of objects as they correspond more naturally
+to how you think about the world. They designed object oriented languages
+around this idea along with a variety of features which help programmers design and
+write large programs. You're going to learn some basic features
+of object oriented programming here so that you can create your own
+classes with both code and data. If you continue onwards to take our Java
+Programming: Principles of Software Design course after this,
+you will learn some more principles and techniques of object oriented programming. So let's dive right in.

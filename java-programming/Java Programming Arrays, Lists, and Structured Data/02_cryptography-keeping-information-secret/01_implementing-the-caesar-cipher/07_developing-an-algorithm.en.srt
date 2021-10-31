@@ -1,0 +1,415 @@
+1
+00:00:03,380 --> 00:00:04,610
+Welcome back.
+
+2
+00:00:04,610 --> 00:00:08,370
+Now you have all the concepts required
+to implement a Caesar Cipher.
+
+3
+00:00:08,370 --> 00:00:10,760
+So let's get started
+developing the algorithm.
+
+4
+00:00:10,760 --> 00:00:11,300
+As always,
+
+5
+00:00:11,300 --> 00:00:16,290
+you should start with step one, working
+an instance of the problem yourself.
+
+6
+00:00:16,290 --> 00:00:19,470
+Even though we have seen some
+instances worked, it is good to work
+
+7
+00:00:19,470 --> 00:00:24,210
+a small instance, so you can write
+everything down and think it through.
+
+8
+00:00:24,210 --> 00:00:30,464
+Let's encrypt the message I AM, which is
+really I, space, A-M with a key of 17,
+
+9
+00:00:30,464 --> 00:00:35,942
+meaning you will shift each letter
+17 positions through the alphabet.
+
+10
+00:00:35,942 --> 00:00:39,338
+You might want to start by
+writing down the alphabet, and
+
+11
+00:00:39,338 --> 00:00:44,260
+then writing down the alphabet shifted
+by 17 characters underneath it.
+
+12
+00:00:44,260 --> 00:00:46,510
+For example, A has R beneath it,
+
+13
+00:00:46,510 --> 00:00:50,100
+where R is 17 characters to the right
+of A in the original alphabet.
+
+14
+00:00:51,210 --> 00:00:54,120
+Next you would go through and
+replace each character in the message
+
+15
+00:00:54,120 --> 00:00:57,000
+with the appropriate letter
+from the shifted alphabet.
+
+16
+00:00:57,000 --> 00:01:01,620
+When you are done you have
+the encrypted message Z RD.
+
+17
+00:01:01,620 --> 00:01:03,125
+Great, you have finished Step 1..
+
+18
+00:01:04,750 --> 00:01:09,520
+Now it is time to do Step 2, and
+write down exactly what you just did.
+
+19
+00:01:09,520 --> 00:01:12,390
+The first thing you did was
+write down the alphabet.
+
+20
+00:01:12,390 --> 00:01:15,040
+Then you computed the shifted alphabet.
+
+21
+00:01:15,040 --> 00:01:18,660
+The third thing you did was to look
+at the 0th letter of the message.
+
+22
+00:01:18,660 --> 00:01:22,510
+Don't forget, when you index into
+sequences such as strings and
+
+23
+00:01:22,510 --> 00:01:26,380
+string builders,
+the first element is at index zero.
+
+24
+00:01:27,620 --> 00:01:30,640
+That letter was I, so
+you looked in the alphabet to find I,
+
+25
+00:01:30,640 --> 00:01:37,200
+then you found the letter in the shifted
+alphabet at the same position which was Z.
+
+26
+00:01:37,200 --> 00:01:40,310
+So, you replace the zero
+character of the message with Z.
+
+27
+00:01:41,700 --> 00:01:46,410
+Next, you look at the first letter of the
+message which is a space If you look for
+
+28
+00:01:46,410 --> 00:01:48,650
+space in the alphabet,
+you would not find it, so
+
+29
+00:01:48,650 --> 00:01:51,570
+you would not change the character
+at index one of the message.
+
+30
+00:01:52,570 --> 00:01:56,900
+Next, the second character is an A, for
+which you perform a very similar process
+
+31
+00:01:56,900 --> 00:02:00,480
+as you did for the 0th character,
+and end up changing it to R.
+
+32
+00:02:01,660 --> 00:02:03,020
+Finally, you do the same thing for
+
+33
+00:02:03,020 --> 00:02:05,950
+the third character which is
+an M that you turned into a D.
+
+34
+00:02:07,550 --> 00:02:10,570
+Now that you have thought through
+all of that, you have a list of
+
+35
+00:02:10,570 --> 00:02:14,830
+the 17 things you did for this particular
+message, and this particular key.
+
+36
+00:02:14,830 --> 00:02:19,130
+However, there's one more thing that is
+good to note here before you proceed.
+
+37
+00:02:19,130 --> 00:02:23,290
+Notice that your algorithm calls for
+replacing characters in the message.
+
+38
+00:02:23,290 --> 00:02:26,820
+If your message is a string,
+you cannot do that.
+
+39
+00:02:26,820 --> 00:02:31,290
+As you recently learned, strings are
+immutable, meaning you cannot change them.
+
+40
+00:02:32,460 --> 00:02:36,270
+If you recognize this issue now you can
+adjust your algorithm to reflect the fact
+
+41
+00:02:36,270 --> 00:02:38,770
+that you want to work
+with a string builder.
+
+42
+00:02:38,770 --> 00:02:42,520
+Here we've added a step at the start
+to create a string builder
+
+43
+00:02:42,520 --> 00:02:43,560
+from the string message.
+
+44
+00:02:44,600 --> 00:02:47,810
+And then we updated the algorithm
+to work on the string builder.
+
+45
+00:02:48,940 --> 00:02:51,450
+If you do not realize
+you need to do this now,
+
+46
+00:02:51,450 --> 00:02:54,370
+you would figure it out at a later step.
+
+47
+00:02:54,370 --> 00:02:58,240
+But the earlier you can figure it out,
+everything you need to do, the better.
+
+48
+00:02:59,410 --> 00:03:04,350
+Looking at this algorithm you can see that
+the first few steps are an initial setup,
+
+49
+00:03:04,350 --> 00:03:07,870
+before you begin performing repetitive
+steps for each letter in the message.
+
+50
+00:03:09,360 --> 00:03:13,640
+If you focus on the steps after
+the initial set-up, you can see that you
+
+51
+00:03:13,640 --> 00:03:17,810
+are doing almost, but not quite the same
+thing for each character n the message.
+
+52
+00:03:18,870 --> 00:03:22,900
+One significant difference is what
+you decide to do based on whether or
+
+53
+00:03:22,900 --> 00:03:26,070
+not you find the letter in the alphabet.
+
+54
+00:03:26,070 --> 00:03:28,400
+Replacing the current
+character if you find it.
+
+55
+00:03:29,400 --> 00:03:30,790
+Or doing nothing if you do not.
+
+56
+00:03:32,230 --> 00:03:35,790
+If you look at the steps for one
+particular character where the letter is
+
+57
+00:03:35,790 --> 00:03:39,240
+in the alphabet, you will notice
+that the character you looked for
+
+58
+00:03:39,240 --> 00:03:42,180
+in the alphabet is the current
+character in the string.
+
+59
+00:03:42,180 --> 00:03:45,300
+And that the letter you used to
+replace the current character
+
+60
+00:03:45,300 --> 00:03:48,380
+is what you found in the same
+position in the shifted alphabet.
+
+61
+00:03:50,220 --> 00:03:51,670
+Now that you have thought
+this all through,
+
+62
+00:03:51,670 --> 00:03:55,120
+you can write down,
+a much more general algorithm.
+
+63
+00:03:56,560 --> 00:03:59,980
+Notice that the step number two
+here requires a little thought, and
+
+64
+00:03:59,980 --> 00:04:01,980
+a couple of statements.
+
+65
+00:04:01,980 --> 00:04:03,650
+But you've already seen how to do it.
+
+66
+00:04:04,890 --> 00:04:08,580
+When you are looking for patterns,
+you should examine any constants,
+
+67
+00:04:08,580 --> 00:04:12,580
+such as zero here, and
+ask if you always use that constant.
+
+68
+00:04:12,580 --> 00:04:14,500
+Or if you need to look for
+a more general pattern.
+
+69
+00:04:15,660 --> 00:04:17,280
+Here you always want to start from zero.
+
+70
+00:04:18,600 --> 00:04:19,730
+What about three?
+
+71
+00:04:19,730 --> 00:04:23,660
+Do you always want to
+stop counting at three?
+
+72
+00:04:24,700 --> 00:04:25,640
+No.
+
+73
+00:04:25,640 --> 00:04:28,310
+How high you count depends on
+the length of the message.
+
+74
+00:04:28,310 --> 00:04:31,870
+Here we've written that you want to
+count to the length of encrypted.
+
+75
+00:04:31,870 --> 00:04:37,320
+But noted that you want to count to less
+than it, not less than or equal to it.
+
+76
+00:04:37,320 --> 00:04:41,290
+In our example, encrypted was four,
+and you only want to count to three.
+
+77
+00:04:42,730 --> 00:04:45,150
+Now it's time to test out the steps.
+
+78
+00:04:45,150 --> 00:04:50,754
+Pause the video now and try to encrypt
+the message, a space bat with a key of 19.
+
+79
+00:04:53,640 --> 00:04:55,870
+Did you catch the subtle
+problem with this algorithm?
+
+80
+00:04:55,870 --> 00:04:59,000
+Even though it computed
+everything you wanted,
+
+81
+00:04:59,000 --> 00:05:00,900
+we never said what the final answer is.
+
+82
+00:05:02,070 --> 00:05:04,610
+You want to be sure to
+explicitly say this so
+
+83
+00:05:04,610 --> 00:05:07,850
+that you know what to return from your
+method when you translate the code.
+
+84
+00:05:09,390 --> 00:05:12,670
+Your answer is the string inside of
+the string builder you called encrypted.
+
+85
+00:05:13,780 --> 00:05:16,850
+Now that you have fixed this detail
+of your algorithm you are ready to
+
+86
+00:05:16,850 --> 00:05:17,820
+turn it into Java code.
+
+87
+00:05:17,820 --> 00:05:18,320
+Thank you.

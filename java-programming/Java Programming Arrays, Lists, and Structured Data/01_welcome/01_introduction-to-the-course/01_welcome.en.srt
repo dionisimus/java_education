@@ -1,0 +1,258 @@
+1
+00:00:00,025 --> 00:00:02,160
+[SOUND] This is Duke University.
+
+2
+00:00:02,160 --> 00:00:03,392
+>> Hi, I'm Susan and
+
+3
+00:00:03,392 --> 00:00:09,210
+I'm really excited to be working with our
+team at Duke to introduce this course.
+
+4
+00:00:09,210 --> 00:00:13,610
+Java Programming, Arrays,
+Lists, and Structured Data.
+
+5
+00:00:13,610 --> 00:00:18,300
+We've designed a great set of problems and
+programs that combine real world data
+
+6
+00:00:18,300 --> 00:00:23,000
+analytics with lessons that
+introduce security and cryptography.
+
+7
+00:00:23,000 --> 00:00:26,100
+Whether this is your first
+course with our great team, or
+
+8
+00:00:26,100 --> 00:00:30,380
+you're coming from our previous courses
+as part of Java programming and
+
+9
+00:00:30,380 --> 00:00:33,010
+introduction to software specialization.
+
+10
+00:00:33,010 --> 00:00:36,090
+You'll use a seven-step
+process to help you design and
+
+11
+00:00:36,090 --> 00:00:39,730
+implement Java programs
+to solve problems and
+
+12
+00:00:39,730 --> 00:00:44,720
+hone the skills that will help you
+become an effective software engineer.
+
+13
+00:00:44,720 --> 00:00:49,020
+In working on the problems we've designed,
+you'll learn about arrays and
+
+14
+00:00:49,020 --> 00:00:53,800
+maps, two standard data structures
+that are used to create efficient and
+
+15
+00:00:53,800 --> 00:00:56,450
+robust programs to solve problems.
+
+16
+00:00:56,450 --> 00:01:01,090
+As part of our cryptography lesson,
+you'll learn how the words melon and
+
+17
+00:01:01,090 --> 00:01:05,220
+cubed are related by the number 16.
+
+18
+00:01:05,220 --> 00:01:06,830
+>> Hello, I'm Drew.
+
+19
+00:01:06,830 --> 00:01:10,980
+In this course, you'll be using the
+edu.duke library of classes we've designed
+
+20
+00:01:10,980 --> 00:01:14,920
+to write programs that solve interesting
+problems, like analyzing web logs, and
+
+21
+00:01:14,920 --> 00:01:17,190
+generating random stories from templates.
+
+22
+00:01:17,190 --> 00:01:22,020
+But you'll also use the standard java.util
+library of classes that will help you grow
+
+23
+00:01:22,020 --> 00:01:26,530
+your knowledge and skill in using java
+to create solutions to these problems.
+
+24
+00:01:26,530 --> 00:01:30,920
+Understanding APIs so you can use code
+from libraries is an important part of
+
+25
+00:01:30,920 --> 00:01:36,420
+this course, as is beginning to develop an
+understanding of object-oriented program.
+
+26
+00:01:36,420 --> 00:01:39,600
+In this course, you'll learn
+how classes are structured and
+
+27
+00:01:39,600 --> 00:01:43,460
+how programs are created by strategically
+combining classes together.
+
+28
+00:01:43,460 --> 00:01:46,480
+You'll also learn about
+how the words fusion and
+
+29
+00:01:46,480 --> 00:01:48,764
+layout are related by the number 20.
+
+30
+00:01:49,900 --> 00:01:51,250
+>> Hi, I'm Robert.
+
+31
+00:01:51,250 --> 00:01:51,930
+For this course,
+
+32
+00:01:51,930 --> 00:01:55,910
+we've designed an exciting mini-project
+as part of this course to help you learn
+
+33
+00:01:55,910 --> 00:02:00,220
+more about classes, object-orientation,
+and data structures.
+
+34
+00:02:00,220 --> 00:02:03,450
+You will use standard techniques and
+libraries that are part of nearly
+
+35
+00:02:03,450 --> 00:02:07,350
+all java programs designed
+to solve problems at scale.
+
+36
+00:02:07,350 --> 00:02:11,140
+We've structured the module in this
+course to introduce topics, and
+
+37
+00:02:11,140 --> 00:02:14,420
+then explore them in more detail,
+and with more robust,
+
+38
+00:02:14,420 --> 00:02:18,580
+scalable solutions that improve
+upon that initial program.
+
+39
+00:02:18,580 --> 00:02:21,330
+This allows you to learn the new
+techniques while solving
+
+40
+00:02:21,330 --> 00:02:23,040
+a familiar problem.
+
+41
+00:02:23,040 --> 00:02:26,359
+We hope that this learning approach will
+facilitate success for all learners.
+
+42
+00:02:27,580 --> 00:02:31,100
+Also in this course, you'll learn
+how the number 19 connects to words,
+
+43
+00:02:31,100 --> 00:02:32,398
+jolly and cheer.
+
+44
+00:02:32,398 --> 00:02:35,190
+>> Hi, I'm Owen.
+
+45
+00:02:35,190 --> 00:02:37,940
+I'm excited about the approach
+we've taken in this course
+
+46
+00:02:37,940 --> 00:02:42,820
+to introduce two important programming
+structures, arrays and maps.
+
+47
+00:02:42,820 --> 00:02:45,100
+These are not simply Java structures.
+
+48
+00:02:45,100 --> 00:02:49,020
+They are used in every programming
+language to create efficient solutions
+
+49
+00:02:49,020 --> 00:02:50,920
+to programming problems.
+
+50
+00:02:50,920 --> 00:02:54,980
+By exploring how these structures are
+related and encountering them in familiar
+
+51
+00:02:54,980 --> 00:02:59,250
+contexts, you'll be able to practice
+using them as you develop mastery with
+
+52
+00:02:59,250 --> 00:03:04,030
+both concepts and the Java libraries
+that anchor these concepts in code.
+
+53
+00:03:04,030 --> 00:03:07,570
+You'll also learn why having 14 fake toys
+
+54
+00:03:07,570 --> 00:03:10,730
+would be an enormous
+cryptographic coincidence.
+
+55
+00:03:10,730 --> 00:03:13,567
+Welcome to arrays,
+lists and structured data.

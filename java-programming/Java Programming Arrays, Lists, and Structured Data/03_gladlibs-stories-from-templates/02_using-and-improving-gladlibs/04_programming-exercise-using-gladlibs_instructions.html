@@ -1,0 +1,182 @@
+<meta charset="utf-8"/>
+<co-content>
+ <h3 level="3">
+  Assignment: Verbs and Fruits
+ </h3>
+ <p>
+  Run the
+  <strong>
+   GladLib.java
+  </strong>
+  program that is provided. You should also have a
+  <strong>
+   data
+  </strong>
+  folder with several files. This program should generate a story using the file
+  <strong>
+   madtemplate.txt
+  </strong>
+  , which is also in the
+  <strong>
+   data
+  </strong>
+  folder. This program creates a story by replacing placeholder words such as &lt;noun&gt; by looking for a random word of that type. This approach uses multiple private ArrayLists, one for each type of word, to store each type of replacement. For example, one ArrayList stores different nouns. These nouns are initially read in from a file called
+  <strong>
+   noun.txt
+  </strong>
+  and stored in the ArrayList named
+  <strong>
+   nounList
+  </strong>
+  . Whenever the templated word &lt;noun&gt; is found in the story, a random noun from the
+  <strong>
+   nounList
+  </strong>
+  is used in place of &lt;noun&gt;.
+ </p>
+ <p>
+  You will now modify the
+  <strong>
+   GladLib.java
+  </strong>
+  file to handle two additional categories—verbs and fruits. Specifically, you should make the following adjustments to your program:
+ </p>
+ <ul bullettype="bullets">
+  <li>
+   <p>
+    Modify the program to handle replacing verbs with &lt;verb&gt; tags and fruits with &lt;fruit&gt; tags. You will read in choices of verbs from the file
+    <strong>
+     verb.txt
+    </strong>
+    and choices for fruit from the file
+    <strong>
+     fruit.txt
+    </strong>
+    . These files are already in the
+    <strong>
+     data
+    </strong>
+    folder. There are several parts of the program that you will need to modify.
+   </p>
+  </li>
+  <li>
+   <p>
+    Add private ArrayLists, one for verbs and one for fruits.
+   </p>
+  </li>
+  <li>
+   <p>
+    Modify the method
+    <strong>
+     initializeFromSource
+    </strong>
+    to read the data from these two files.
+   </p>
+  </li>
+  <li>
+   <p>
+    Modify the method
+    <strong>
+     getSubstitute
+    </strong>
+    to handle the replacements of &lt;verb&gt; and &lt;fruit&gt; with random words of those types.
+   </p>
+  </li>
+  <li>
+   <p>
+    Modify the file
+    <strong>
+     makeStory
+    </strong>
+    to read in the template file
+    <strong>
+     madtemplate2.txt
+    </strong>
+    that also uses the &lt;verb&gt; and &lt;fruit&gt; tags.
+   </p>
+  </li>
+  <li>
+   <p>
+    Run your program to make sure it works before making additional changes.
+   </p>
+  </li>
+  <li>
+   <p>
+    Now modify your program so that once it uses a word, it never uses that word again. You should declare and initialize an additional private ArrayList to keep track of words that have been seen. HINT: You will need to modify the method
+    <strong>
+     processWord
+    </strong>
+    . Once it finds a word to use, check to see if that word has been used before or not. You should also be sure that you clear out this new ArrayList in
+    <strong>
+     makeStory
+    </strong>
+    before each run of your program. The folder
+    <strong>
+     datalong
+    </strong>
+    with longer data files is provided.
+   </p>
+  </li>
+  <li>
+   <p>
+    Modify your program to print out the total number of words that were replaced right after the story is printed.
+   </p>
+  </li>
+ </ul>
+ <p>
+ </p>
+ <p>
+ </p>
+ <asset assettype="generic" extension="pdf" id="FJ0NqYPuEeWDIw4otenPPw" name="Programming Exercise - Using GladLibs">
+ </asset>
+ <p>
+ </p>
+</co-content>
+<style>
+ body {
+    padding: 50px 85px 50px 85px;
+}
+
+table th, table td {
+    border: 1px solid #e0e0e0;
+    padding: 5px 20px;
+    text-align: left;
+}
+input {
+    margin: 10px;
+}
+}
+th {
+    font-weight: bold;
+}
+td, th {
+    display: table-cell;
+    vertical-align: inherit;
+}
+img {
+    height: auto;
+    max-width: 100%;
+}
+pre {
+    display: block;
+    margin: 20px;
+    background: #424242;
+    color: #fff;
+    font-size: 13px;
+    white-space: pre-wrap;
+    padding: 9.5px;
+    margin: 0 0 10px;
+    border: 1px solid #ccc;
+}
+</style>
+<script async="" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript">
+</script>
+<script type="text/x-mathjax-config">
+ MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$$','$$'], ['$','$'] ],
+      displayMath: [ ["\\[","\\]"] ],
+      processEscapes: true
+    }
+  });
+</script>

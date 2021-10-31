@@ -1,0 +1,105 @@
+1
+00:00:03,400 --> 00:00:04,680
+Welcome back.
+
+2
+00:00:04,680 --> 00:00:08,440
+You have already written code
+to read a web server log file,
+
+3
+00:00:08,440 --> 00:00:13,280
+parsing each line into a log entry object,
+and creating an array list of them.
+
+4
+00:00:13,280 --> 00:00:17,550
+Now it is time for you to write some
+code to analyze the data you have read.
+
+5
+00:00:17,550 --> 00:00:20,300
+The first problem you're
+going to solve is finding out
+
+6
+00:00:20,300 --> 00:00:23,150
+how many different people
+visited a website.
+
+7
+00:00:23,150 --> 00:00:26,950
+You don't want to just look at how many
+elements there are in your array list,
+
+8
+00:00:26,950 --> 00:00:30,890
+since some people may have visited
+your website multiple times.
+
+9
+00:00:30,890 --> 00:00:35,130
+So you need some way to distinguish
+requests from different places.
+
+10
+00:00:36,180 --> 00:00:39,820
+You can use the IP address as recorded
+in the log file to tell where
+
+11
+00:00:39,820 --> 00:00:41,680
+the request came from.
+
+12
+00:00:41,680 --> 00:00:44,140
+Using the IP address is not perfect,
+
+13
+00:00:44,140 --> 00:00:49,730
+since you cannot distinguish between
+different people using the same computer.
+
+14
+00:00:49,730 --> 00:00:54,240
+But how many different IP addresses
+you see is a very good estimator for
+
+15
+00:00:54,240 --> 00:00:56,450
+how many different
+people visited the site.
+
+16
+00:00:57,510 --> 00:01:01,910
+As you might recall from programming and
+the web for beginners,
+
+17
+00:01:01,910 --> 00:01:06,240
+an IP address is the address of
+a device on the internet, whether that
+
+18
+00:01:06,240 --> 00:01:10,510
+device is a traditional computer,
+a mobile phone, or something else.
+
+19
+00:01:12,010 --> 00:01:15,610
+So what you are going to need
+to do to solve this problem
+
+20
+00:01:15,610 --> 00:01:20,420
+is take the array list that you
+have read the log entries into and
+
+21
+00:01:20,420 --> 00:01:24,720
+find out how many distinct
+IP addresses are in it.
+
+22
+00:01:24,720 --> 00:01:25,220
+Have fun.

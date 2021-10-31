@@ -1,0 +1,343 @@
+1
+00:00:03,260 --> 00:00:07,699
+Hi, today we're gonna write some code to
+find out how many times every word in
+
+2
+00:00:07,699 --> 00:00:08,800
+a file occurs.
+
+3
+00:00:08,800 --> 00:00:12,980
+So we'll find out how many times the word
+the occurs, how many times the word
+
+4
+00:00:12,980 --> 00:00:16,280
+wonderful occurs, and we're going
+to start with a working program.
+
+5
+00:00:16,280 --> 00:00:18,022
+Let me show you very quickly
+what that looks like.
+
+6
+00:00:18,022 --> 00:00:22,590
+This countWords function that we
+have here, this method countWords,
+
+7
+00:00:22,590 --> 00:00:26,850
+simply creates a file resource,
+loops over all the words in it, and
+
+8
+00:00:26,850 --> 00:00:29,660
+counts how many total words there are.
+
+9
+00:00:29,660 --> 00:00:35,160
+If I take this program, make an object
+on my workbench, right click and
+
+10
+00:00:35,160 --> 00:00:41,260
+call countWords, it will ask me for
+to enter the name of a file.
+
+11
+00:00:41,260 --> 00:00:42,630
+I will use Confucius, and
+
+12
+00:00:42,630 --> 00:00:48,730
+it will tell me that there are 34,582
+words in the works of Confucius.
+
+13
+00:00:48,730 --> 00:00:50,710
+Rather than knowing
+the total number of words,
+
+14
+00:00:50,710 --> 00:00:54,660
+I'd like to find out how many
+times each individual word occurs.
+
+15
+00:00:54,660 --> 00:00:57,120
+To do that, I'm going to use a map.
+
+16
+00:00:57,120 --> 00:01:01,140
+So I'm going to need to add another
+local variable here, a HashMap.
+
+17
+00:01:01,140 --> 00:01:03,420
+I'm going to map strings to integers.
+
+18
+00:01:03,420 --> 00:01:07,470
+Each string will be a word that occurs
+in my file, that's the key in this map.
+
+19
+00:01:07,470 --> 00:01:11,900
+And the value in the map is how
+many times that word occurs.
+
+20
+00:01:11,900 --> 00:01:13,201
+So I need to create a new one.
+
+21
+00:01:18,072 --> 00:01:22,690
+I'm allowed to make a HashMap
+because I've imported java.util.
+
+22
+00:01:22,690 --> 00:01:25,350
+That's the package in
+which we find HashMap.
+
+23
+00:01:25,350 --> 00:01:29,040
+Now, as I read the words,
+rather than incrementing the total,
+
+24
+00:01:29,040 --> 00:01:33,870
+I'm going to ask,
+have we seen w in the map before?
+
+25
+00:01:33,870 --> 00:01:39,600
+So I'm going to ask whether the key set
+
+26
+00:01:39,600 --> 00:01:44,790
+associated with the map contains w,
+the word I'm looking for.
+
+27
+00:01:46,050 --> 00:01:49,750
+And if it does, I've seen the word before,
+
+28
+00:01:49,750 --> 00:01:55,140
+I'm going to put the value
+w back in the map.
+
+29
+00:01:55,140 --> 00:01:56,330
+It's already there.
+
+30
+00:01:56,330 --> 00:02:00,840
+I'm going to get the number of times
+that word occurs and add once.
+
+31
+00:02:00,840 --> 00:02:03,150
+I'll go over again what
+I'm doing in a minute.
+
+32
+00:02:03,150 --> 00:02:08,280
+If I've never seen the word before, then
+what I'm going to do is put it in my map
+
+33
+00:02:09,550 --> 00:02:13,620
+with the number one, because the word
+will have occurred one time.
+
+34
+00:02:13,620 --> 00:02:16,300
+Let me compile and
+make sure I've got that right.
+
+35
+00:02:16,300 --> 00:02:19,540
+So let me go over very
+quickly what I've just done.
+
+36
+00:02:19,540 --> 00:02:23,200
+I've looked to see, does this word,
+
+37
+00:02:23,200 --> 00:02:28,490
+w, that I just read and converted
+to lowercase, is it in my keyset?
+
+38
+00:02:28,490 --> 00:02:30,420
+Have I ever seen it before?
+
+39
+00:02:30,420 --> 00:02:35,010
+If I have seen it before, let me get
+the integer value associated with it.
+
+40
+00:02:35,010 --> 00:02:37,690
+That's the number of times
+it's already occurred.
+
+41
+00:02:37,690 --> 00:02:42,590
+Add 1 to that, and put that in the map
+as a key value pair, with the word and
+
+42
+00:02:42,590 --> 00:02:44,030
+an incremented count.
+
+43
+00:02:44,030 --> 00:02:46,450
+If I've never seen it before,
+this is the first time.
+
+44
+00:02:48,060 --> 00:02:52,210
+I've now added all the values to the map
+and now I'd like to print them out.
+
+45
+00:02:52,210 --> 00:02:56,890
+The way I'm going to print them
+out is to loop over the key set.
+
+46
+00:02:59,370 --> 00:03:01,330
+That's all the words
+that are keys in my map.
+
+47
+00:03:02,600 --> 00:03:06,954
+And I'm going to get the value associated
+with it, that's the number of occurences.
+
+48
+00:03:09,370 --> 00:03:14,584
+That's the value associated with my word,
+and if that value is big, and here I'm
+
+49
+00:03:14,584 --> 00:03:20,042
+gonna say if it's bigger than 500, I'm
+going to print the words that occur a lot.
+
+50
+00:03:22,916 --> 00:03:27,651
+Which is, so I'm going to print the number
+of occurrences, a tab character,
+
+51
+00:03:27,651 --> 00:03:29,860
+and the word itself.
+
+52
+00:03:29,860 --> 00:03:34,040
+So I'm looping over the keyset
+that allows me to find every key.
+
+53
+00:03:34,040 --> 00:03:38,130
+I'm getting the value associated
+with that key in the map, and
+
+54
+00:03:38,130 --> 00:03:40,430
+if that's big, I'm going to print it.
+
+55
+00:03:40,430 --> 00:03:43,187
+Big in this case is bigger than 500.
+
+56
+00:03:43,187 --> 00:03:45,940
+So I'm going to right click and
+create a new object.
+
+57
+00:03:48,634 --> 00:03:51,721
+And I am going invoke the method
+countWords which before,
+
+58
+00:03:51,721 --> 00:03:54,052
+used to count the total number of words,
+and
+
+59
+00:03:54,052 --> 00:03:57,900
+now it's gonna count all
+the individual words in Confucius.
+
+60
+00:03:57,900 --> 00:04:00,780
+And here we can see that
+in the file Confucius
+
+61
+00:04:00,780 --> 00:04:05,030
+there are not that many words
+that occur more than 500 times.
+
+62
+00:04:05,030 --> 00:04:07,610
+The occurs more that 2,000 times.
+
+63
+00:04:07,610 --> 00:04:09,754
+And occurs 762.
+
+64
+00:04:09,754 --> 00:04:13,310
+If I wanna see a little more in
+the way of words, I'll say 200,
+
+65
+00:04:13,310 --> 00:04:17,140
+just to make sure that I'm
+getting something more.
+
+66
+00:04:17,140 --> 00:04:24,370
+And I'll make a new version of this
+that sits on the object workbench.
+
+67
+00:04:24,370 --> 00:04:27,220
+I'll right click and call countWords.
+
+68
+00:04:27,220 --> 00:04:30,530
+I'll once again count Confucius, and
+you can see there are more words.
+
+69
+00:04:30,530 --> 00:04:33,490
+Master occurs 484 times.
+
+70
+00:04:33,490 --> 00:04:36,440
+Confucius was the master of many things.
+
+71
+00:04:36,440 --> 00:04:40,690
+You are now going to be the master
+of programming as you use maps
+
+72
+00:04:40,690 --> 00:04:44,140
+to map keys to values
+to solve many problems.
+
+73
+00:04:44,140 --> 00:04:44,840
+Have fun coding.

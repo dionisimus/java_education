@@ -1,0 +1,333 @@
+1
+00:00:03,837 --> 00:00:05,250
+>> Welcome back.
+
+2
+00:00:05,250 --> 00:00:08,890
+In this lesson, you are going to learn
+about the two visibility modifiers that
+
+3
+00:00:08,890 --> 00:00:12,320
+you saw in the object-oriented
+version of the CaesarCipher.
+
+4
+00:00:13,340 --> 00:00:18,010
+Public, which was used here, and
+private, which was used here.
+
+5
+00:00:18,010 --> 00:00:20,960
+There are two other visibility modifiers,
+however.
+
+6
+00:00:20,960 --> 00:00:23,840
+Explaining them requires some
+more advanced concepts, so
+
+7
+00:00:23,840 --> 00:00:25,780
+you will only learn about these now.
+
+8
+00:00:27,470 --> 00:00:32,100
+When you declare something, whether it is
+a class, field, method, or constructor as
+
+9
+00:00:32,100 --> 00:00:37,600
+public it means that any code, anywhere
+in your program can access that thing.
+
+10
+00:00:37,600 --> 00:00:42,720
+Code from any class can call a public
+method, read or update a public field,
+
+11
+00:00:42,720 --> 00:00:46,770
+use a public constructor when making
+an object, and make use of a public class.
+
+12
+00:00:48,210 --> 00:00:52,670
+By contrast, when you declare
+something private, it tells Java that
+
+13
+00:00:52,670 --> 00:00:58,150
+only code inside of this particular class
+can see the thing you declare private.
+
+14
+00:00:58,150 --> 00:01:00,370
+These two fields are declared private so
+
+15
+00:01:00,370 --> 00:01:05,140
+all of the code inside of the CaesarCipher
+class can read and update them but
+
+16
+00:01:05,140 --> 00:01:10,410
+code outside of the CaesarCipher class
+is not allowed to access them at all.
+
+17
+00:01:10,410 --> 00:01:14,730
+So what happens if you write code that
+tries to access private fields or
+
+18
+00:01:14,730 --> 00:01:16,420
+methods from outside the class?
+
+19
+00:01:17,660 --> 00:01:20,380
+The Java compiler will give
+you an error like this,
+
+20
+00:01:20,380 --> 00:01:23,090
+which says that you are not
+allowed to do that.
+
+21
+00:01:23,090 --> 00:01:24,942
+In general,
+when you get this sort of error,
+
+22
+00:01:24,942 --> 00:01:28,590
+it either means that you
+are improperly using a class.
+
+23
+00:01:28,590 --> 00:01:32,130
+Especially if it's a class that
+is part of an existing library.
+
+24
+00:01:32,130 --> 00:01:36,120
+Or that you have designed a class and
+made something private that should not be.
+
+25
+00:01:37,500 --> 00:01:40,080
+So why do you want to
+declare things as private?
+
+26
+00:01:40,080 --> 00:01:45,090
+After all, it seems like it would just
+be easier to make everything public.
+
+27
+00:01:45,090 --> 00:01:49,350
+So you can just access whatever you want,
+wherever you want.
+
+28
+00:01:49,350 --> 00:01:51,270
+Remember the idea of distraction?
+
+29
+00:01:51,270 --> 00:01:55,500
+The principle that you want to separate
+the interface from the implementation.
+
+30
+00:01:55,500 --> 00:01:58,690
+Restricting the visibility of
+the implementation details
+
+31
+00:01:58,690 --> 00:02:00,610
+helps you enforce abstractions you design.
+
+32
+00:02:01,750 --> 00:02:03,770
+You can make the interface of a class,
+
+33
+00:02:03,770 --> 00:02:09,210
+all the methods that other classes
+are supposed to call public, and
+
+34
+00:02:09,210 --> 00:02:12,290
+then you can make
+the implementation details private.
+
+35
+00:02:13,330 --> 00:02:17,010
+No other class should know about
+the implementation details directly.
+
+36
+00:02:17,010 --> 00:02:21,070
+And declaring them private lets you
+enforce that rule in your code.
+
+37
+00:02:21,070 --> 00:02:27,130
+In our CaesarCypher example, you want
+other classes to be able to call encrypt.
+
+38
+00:02:27,130 --> 00:02:30,170
+But they should not know about
+the implementation details,
+
+39
+00:02:30,170 --> 00:02:33,420
+such as the fact that you made
+a variable called shifted alphabet.
+
+40
+00:02:34,560 --> 00:02:37,930
+Keeping these details private
+means that you can change them and
+
+41
+00:02:37,930 --> 00:02:42,230
+be sure that no other code relies on
+the private implementation details.
+
+42
+00:02:43,330 --> 00:02:47,860
+As you start to think about designing
+your own classes, there are a few general
+
+43
+00:02:47,860 --> 00:02:52,460
+pieces of guidance to get you started
+on how to choose public or private.
+
+44
+00:02:52,460 --> 00:02:57,640
+First, fields are generally part of
+the implementation of an object.
+
+45
+00:02:57,640 --> 00:02:59,210
+So they typically should be private.
+
+46
+00:03:00,300 --> 00:03:04,010
+For methods it depends on what
+the purpose of the method is.
+
+47
+00:03:04,010 --> 00:03:07,490
+If the method is part of the interface
+you want your class to have,
+
+48
+00:03:07,490 --> 00:03:11,748
+that is part of the behaviors you want
+it to provide to other pieces of code,
+
+49
+00:03:11,748 --> 00:03:13,660
+you should declare that method public.
+
+50
+00:03:14,780 --> 00:03:17,850
+On the other hand,
+some methods are helpers.
+
+51
+00:03:17,850 --> 00:03:22,800
+You array them to abstract out specific
+complex tasks which are not meant for
+
+52
+00:03:22,800 --> 00:03:23,810
+other classes to call.
+
+53
+00:03:24,830 --> 00:03:27,860
+They just help accomplish
+the public interface.
+
+54
+00:03:27,860 --> 00:03:33,500
+These methods should be private so that
+only the code in your class can call them.
+
+55
+00:03:33,500 --> 00:03:36,880
+For classes,
+you should always declare them public.
+
+56
+00:03:36,880 --> 00:03:40,540
+As you become more skilled in Java, you
+will learn some more advanced topics that
+
+57
+00:03:40,540 --> 00:03:44,640
+lead to situations where you
+might want non-public classes.
+
+58
+00:03:44,640 --> 00:03:46,530
+But for now, always use public.
+
+59
+00:03:47,790 --> 00:03:52,120
+Likewise, for constructors, you should
+always make these public for now.
+
+60
+00:03:52,120 --> 00:03:56,240
+Typically, constructors are part of
+the public interface of a class.
+
+61
+00:03:56,240 --> 00:03:58,000
+They specify how to make an instance.
+
+62
+00:03:58,000 --> 00:04:03,190
+There are situations where non-public
+constructors are appropriate.
+
+63
+00:04:03,190 --> 00:04:05,202
+But as with non-public classes,
+
+64
+00:04:05,202 --> 00:04:09,840
+these only come up when you have
+learned some more advanced topics.
+
+65
+00:04:09,840 --> 00:04:13,290
+So for now,
+you should just make constructors public.
+
+66
+00:04:14,290 --> 00:04:15,100
+Great.
+
+67
+00:04:15,100 --> 00:04:18,490
+So now you know what public and
+private mean.
+
+68
+00:04:18,490 --> 00:04:22,140
+Why they are useful and
+some general guidelines for
+
+69
+00:04:22,140 --> 00:04:24,220
+how to use them in your own classes.
+
+70
+00:04:24,220 --> 00:04:24,720
+Thank you.

@@ -1,0 +1,709 @@
+1
+00:00:03,462 --> 00:00:06,629
+What are the most common words
+in the English language?
+
+2
+00:00:06,629 --> 00:00:08,922
+There are many ways to find common words.
+
+3
+00:00:08,922 --> 00:00:13,951
+Using search tools to find shared data
+that has been curated from thousands and
+
+4
+00:00:13,951 --> 00:00:16,629
+thousands of available text helps here.
+
+5
+00:00:16,629 --> 00:00:20,800
+Others have already done such to figure
+out what the most common words are.
+
+6
+00:00:20,800 --> 00:00:26,796
+For example, they have determined that
+the word the is used than any other word.
+
+7
+00:00:26,796 --> 00:00:29,254
+Did Shakespeare use common words?
+
+8
+00:00:29,254 --> 00:00:34,975
+We can use our edu.duke classes, public
+domain versions of Shakespeare's plays,
+
+9
+00:00:34,975 --> 00:00:38,797
+and some simple array code to
+help answer this question.
+
+10
+00:00:38,797 --> 00:00:42,927
+In this example, we will examine
+several of Shakespeare's plays and
+
+11
+00:00:42,927 --> 00:00:46,420
+count how many times he
+uses the most common words.
+
+12
+00:00:46,420 --> 00:00:48,839
+All right, so I've started the code for
+
+13
+00:00:48,839 --> 00:00:52,337
+counting the most common
+words in Shakespeare's plays.
+
+14
+00:00:52,337 --> 00:00:54,450
+So here's the code, let's look at it.
+
+15
+00:00:54,450 --> 00:00:57,004
+I've got this method
+called Count Shakespeare.
+
+16
+00:00:57,004 --> 00:01:00,040
+And you can see here,
+actually, this is a new thing.
+
+17
+00:01:00,040 --> 00:01:04,504
+This shows you how you
+can initialize an array.
+
+18
+00:01:04,504 --> 00:01:09,129
+Right here we've got the array plays,
+which is an array of strings.
+
+19
+00:01:09,129 --> 00:01:14,004
+And we can just put curly brackets and
+list the items in the array.
+
+20
+00:01:14,004 --> 00:01:19,104
+And so what I've done here is
+I've listed six data files that
+
+21
+00:01:19,104 --> 00:01:24,510
+we've gotten that have text from
+six of Shakespeare's plays.
+
+22
+00:01:24,510 --> 00:01:28,213
+We've also got another string
+array called common and
+
+23
+00:01:28,213 --> 00:01:30,797
+there's a method called getCommon.
+
+24
+00:01:30,797 --> 00:01:34,588
+Let's go look at that and
+see what that does.
+
+25
+00:01:34,588 --> 00:01:36,546
+Here's getCommon.
+
+26
+00:01:36,546 --> 00:01:38,671
+Here you can see there's
+another data file.
+
+27
+00:01:38,671 --> 00:01:44,296
+This one is called common.txt and that's
+where I've already put 20 common words.
+
+28
+00:01:44,296 --> 00:01:47,700
+The most common words that somebody
+else has determined are the most common
+
+29
+00:01:47,700 --> 00:01:48,464
+English words.
+
+30
+00:01:48,464 --> 00:01:49,936
+We're just going to read that and
+
+31
+00:01:49,936 --> 00:01:53,420
+then since I happen to know there are 20
+words in there, that's important.
+
+32
+00:01:53,420 --> 00:01:57,984
+I can create the common string
+array of size 20 because
+
+33
+00:01:57,984 --> 00:02:01,005
+arrays have to know the actual size.
+
+34
+00:02:01,005 --> 00:02:05,774
+So, reading that in, and this loop
+here all it does is it goes though and
+
+35
+00:02:05,774 --> 00:02:09,047
+reads them in one at a time and
+puts them in there.
+
+36
+00:02:09,047 --> 00:02:11,297
+So we read in the 20 most common words.
+
+37
+00:02:11,297 --> 00:02:13,214
+That's all getCommon does.
+
+38
+00:02:13,214 --> 00:02:16,837
+Let's go back down here.
+
+39
+00:02:16,837 --> 00:02:20,916
+So we've got the plays,
+we got the common word, and
+
+40
+00:02:20,916 --> 00:02:26,587
+now we have a loop which is gonna go
+over and it's gonna read in each play.
+
+41
+00:02:26,587 --> 00:02:29,560
+I've got the plays
+stored in a data folder.
+
+42
+00:02:29,560 --> 00:02:33,780
+So you can see I'm adding data/
+right before the name of the play.
+
+43
+00:02:33,780 --> 00:02:38,148
+And then I'm gonna call count
+words which is going to count for
+
+44
+00:02:38,148 --> 00:02:39,753
+each word in the play.
+
+45
+00:02:39,753 --> 00:02:43,070
+It's going to check and see if it's
+one of the common words and if it is,
+
+46
+00:02:43,070 --> 00:02:45,960
+it's going to count how many
+times each common word appears.
+
+47
+00:02:47,050 --> 00:02:50,504
+And then we just print a message that
+says hey we're done with the plays.
+
+48
+00:02:50,504 --> 00:02:54,522
+Once we've counted all the common words,
+then we go through, and
+
+49
+00:02:54,522 --> 00:02:57,047
+we're gonna print for each common word.
+
+50
+00:02:57,047 --> 00:02:59,841
+So for example the,
+we're gonna print the and
+
+51
+00:02:59,841 --> 00:03:03,790
+then how many times it occurs in
+all six of Shakespeare's plays.
+
+52
+00:03:03,790 --> 00:03:07,337
+So let's go ahead and
+run this and see what happens.
+
+53
+00:03:07,337 --> 00:03:09,046
+We'll compile it.
+
+54
+00:03:09,046 --> 00:03:10,086
+It's compiled.
+
+55
+00:03:13,588 --> 00:03:16,300
+We will create an object.
+
+56
+00:03:16,300 --> 00:03:18,755
+Then let's go ahead and run it.
+
+57
+00:03:18,755 --> 00:03:19,587
+countShakespeare.
+
+58
+00:03:21,379 --> 00:03:25,254
+And you can see it
+doesn't work quite right.
+
+59
+00:03:25,254 --> 00:03:28,380
+It's only counting of, a lot.
+
+60
+00:03:28,380 --> 00:03:29,880
+So let's go back and look at the code.
+
+61
+00:03:29,880 --> 00:03:31,880
+It turns out I haven't
+given you all the code.
+
+62
+00:03:31,880 --> 00:03:33,504
+We still have to write one of the methods.
+
+63
+00:03:39,087 --> 00:03:40,460
+All right, so let's go see.
+
+64
+00:03:40,460 --> 00:03:44,297
+We are going to have to write index of.
+
+65
+00:03:44,297 --> 00:03:48,996
+So what index of does is it
+takes a list of words and
+
+66
+00:03:48,996 --> 00:03:53,811
+a word, and we would like it to look for
+the word and
+
+67
+00:03:53,811 --> 00:03:57,937
+a list of words or
+the array list of words and
+
+68
+00:03:57,937 --> 00:04:03,462
+see if it's in there and
+count how many times it appears.
+
+69
+00:04:03,462 --> 00:04:07,810
+Or actually we want it to give you
+the location the index of word appears In
+
+70
+00:04:07,810 --> 00:04:09,200
+there.
+
+71
+00:04:09,200 --> 00:04:13,820
+So what we're gonna have to do is we're
+gonna have to loop over all the words in
+
+72
+00:04:13,820 --> 00:04:17,464
+the array list and check to see
+if word is equal to one of them.
+
+73
+00:04:17,464 --> 00:04:21,255
+And if it is,
+we'll return the location of where it is.
+
+74
+00:04:21,255 --> 00:04:25,171
+So let's just go ahead and start that.
+
+75
+00:04:25,171 --> 00:04:27,046
+All right, so
+we will start with a four loop.
+
+76
+00:04:33,754 --> 00:04:37,337
+So in order to loop over
+the array we'll need a for loop.
+
+77
+00:04:37,337 --> 00:04:41,754
+So let's say we'll need a variable int k.
+
+78
+00:04:41,754 --> 00:04:43,171
+We'll start at zero.
+
+79
+00:04:46,629 --> 00:04:49,337
+And then as long as we don't
+go off the end of the array.
+
+80
+00:04:49,337 --> 00:04:55,504
+So we'll say k less than list.length.
+
+81
+00:04:55,504 --> 00:04:59,510
+And then we need to update
+our counter k by one.
+
+82
+00:05:06,878 --> 00:05:12,007
+Okay, so we'll go through and
+then what we need to do Is for
+
+83
+00:05:12,007 --> 00:05:15,148
+each case slot, we need to check and
+
+84
+00:05:15,148 --> 00:05:19,879
+see if the word matches
+the word that's in that slot.
+
+85
+00:05:19,879 --> 00:05:22,985
+So we'll ask if,
+
+86
+00:05:22,985 --> 00:05:27,547
+what is the word in list k?
+
+87
+00:05:27,547 --> 00:05:31,086
+And we need to compare it to word,
+so we'll use dot equals.
+
+88
+00:05:41,962 --> 00:05:47,462
+And if it equals it, we found it, so
+we can return the location of it.
+
+89
+00:05:51,630 --> 00:05:55,700
+Return k.
+
+90
+00:05:55,700 --> 00:05:59,846
+So this loop will go through and
+check to see does word equal this word,
+
+91
+00:05:59,846 --> 00:06:03,588
+this word, this word, and
+if we find it inside k, we return k.
+
+92
+00:06:03,588 --> 00:06:07,749
+If we don't find it, we need to indicate
+we don't find it so we need to fix this
+
+93
+00:06:07,749 --> 00:06:11,671
+return that's after the for loop,
+after we've looked at everything.
+
+94
+00:06:11,671 --> 00:06:15,212
+We'll change this to minus one,
+which is not a position in the array.
+
+95
+00:06:15,212 --> 00:06:18,254
+And that will indicate
+that we didn't find it.
+
+96
+00:06:18,254 --> 00:06:21,587
+Now, let's see how index of is being used.
+
+97
+00:06:21,587 --> 00:06:22,754
+And we come over here.
+
+98
+00:06:27,970 --> 00:06:32,962
+Index is being used in countWords,
+which is right here.
+
+99
+00:06:32,962 --> 00:06:39,712
+And you can see here we crawl index of for
+each word.
+
+100
+00:06:39,712 --> 00:06:41,379
+We’re getting each word out of the file.
+
+101
+00:06:41,379 --> 00:06:44,730
+We pass the common words,
+and we pass the word.
+
+102
+00:06:44,730 --> 00:06:47,921
+And then we check to see does it match?
+
+103
+00:06:47,921 --> 00:06:52,921
+If it matches, then we're gonna use
+the counts array to update that count.
+
+104
+00:06:52,921 --> 00:06:56,380
+So for the word the, we'll keep
+track of how many times we find it.
+
+105
+00:06:56,380 --> 00:07:00,121
+Every time we find it we will
+update the counter counts,
+
+106
+00:07:00,121 --> 00:07:04,672
+which is in the same slot as the word
+the which is in the common array.
+
+107
+00:07:04,672 --> 00:07:06,680
+All lright, let's try and run this now.
+
+108
+00:07:06,680 --> 00:07:07,920
+We'll compile it.
+
+109
+00:07:09,020 --> 00:07:11,296
+No syntax errors, that's good.
+
+110
+00:07:11,296 --> 00:07:13,046
+We'll come over here and we'll run it.
+
+111
+00:07:18,712 --> 00:07:21,460
+So we're going to run countShakespeare.
+
+112
+00:07:21,460 --> 00:07:22,587
+There we go.
+
+113
+00:07:22,587 --> 00:07:30,129
+So, what this does is, first of all,
+you can see I've got six data files.
+
+114
+00:07:30,129 --> 00:07:34,228
+Caesar.txt, errors.txt, Hamlet,
+likeit, Macbeth, and Romeo.
+
+115
+00:07:34,228 --> 00:07:39,066
+And we've read all of those in and for
+each word in that file we've checked to
+
+116
+00:07:39,066 --> 00:07:41,878
+see if it matches one
+of these common words.
+
+117
+00:07:41,878 --> 00:07:46,129
+Here you can see the common words are the,
+of, and, and so on.
+
+118
+00:07:46,129 --> 00:07:52,038
+And you can see that
+the appears in the combination
+
+119
+00:07:52,038 --> 00:07:56,546
+of those six texts 4,237 times.
+
+120
+00:07:56,546 --> 00:07:59,754
+And then you can see another
+one "for" appears 1,071.
+
+121
+00:07:59,754 --> 00:08:04,090
+So you can see how many times each
+of these common words appear.
+
+122
+00:08:04,090 --> 00:08:06,837
+So it looks like Shakespeare
+did use a lot of common words.
+
+123
+00:08:06,837 --> 00:08:10,087
+Now how do we know that
+this is actually correct?
+
+124
+00:08:10,087 --> 00:08:12,600
+They're just big numbers, how do we know?
+
+125
+00:08:12,600 --> 00:08:15,735
+So, what I'm gonna do is I'm
+now gonna modify my program so
+
+126
+00:08:15,735 --> 00:08:18,493
+I can run it on a really small
+file just to make sure and
+
+127
+00:08:18,493 --> 00:08:21,837
+convince myself that I'm
+counting these numbers correctly.
+
+128
+00:08:21,837 --> 00:08:25,213
+So, I will come back over here.
+
+129
+00:08:25,213 --> 00:08:26,701
+And you can see here,
+
+130
+00:08:26,701 --> 00:08:31,671
+I have this file called small.txt
+where I just put a few words in there.
+
+131
+00:08:31,671 --> 00:08:34,504
+And what I wanna do now is modify my code.
+
+132
+00:08:40,297 --> 00:08:44,797
+So that I look at this file, small.txt.
+
+133
+00:08:44,797 --> 00:08:49,728
+So back here in countShakespeare, What I'm
+
+134
+00:08:49,728 --> 00:08:52,880
+gonna do is I'm gonna
+comment out this line here.
+
+135
+00:08:57,230 --> 00:09:02,463
+These two lines and I'm going to create
+my string plays just to be that one file.
+
+136
+00:09:02,463 --> 00:09:07,046
+So I will say string,
+
+137
+00:09:10,921 --> 00:09:15,212
+Plays is going to equal just the one file,
+which is small.txt.
+
+138
+00:09:22,254 --> 00:09:25,172
+That's all I have to do, and
+now I'm gonna to run it.
+
+139
+00:09:25,172 --> 00:09:28,046
+And this time,
+it will just look at that one file.
+
+140
+00:09:28,046 --> 00:09:30,587
+So let's compile it.
+
+141
+00:09:30,587 --> 00:09:32,090
+We got it compiled.
+
+142
+00:09:32,090 --> 00:09:33,440
+We need to run it.
+
+143
+00:09:43,961 --> 00:09:45,547
+And there we go.
+
+144
+00:09:45,547 --> 00:09:47,463
+So let's see.
+
+145
+00:09:47,463 --> 00:09:51,872
+So if you look in small.txt,
+you can see the word the appears one, two,
+
+146
+00:09:51,872 --> 00:09:52,754
+three times.
+
+147
+00:09:52,754 --> 00:09:56,005
+If you look over here,
+you can see me counted the three times.
+
+148
+00:09:56,005 --> 00:09:57,630
+That looks good.
+
+149
+00:09:57,630 --> 00:10:00,421
+Of appears twice.
+
+150
+00:10:00,421 --> 00:10:03,129
+We got two and and appears twice.
+
+151
+00:10:03,129 --> 00:10:04,629
+We got a appears once.
+
+152
+00:10:04,629 --> 00:10:07,005
+Okay, so it looks like it worked.
+
+153
+00:10:07,005 --> 00:10:12,640
+Now I'm really more convinced that I
+counted the Shakespeare words correctly.
+
+154
+00:10:12,640 --> 00:10:13,879
+All right, that's it.
+
+155
+00:10:13,879 --> 00:10:14,600
+Thanks.

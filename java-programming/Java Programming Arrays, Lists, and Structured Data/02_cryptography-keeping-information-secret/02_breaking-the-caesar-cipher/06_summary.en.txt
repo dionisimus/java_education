@@ -1,0 +1,43 @@
+Hello. In this module you
+learned about arrays and how to use arrays to
+crack a Caesar Cipher. You'll continue to solve
+problems using arrays. They're a powerful programming tool. Arrays are indexed collections. In Java, you use brackets to
+indicate an array variable. And arrays can store strings,
+more ints, or even storage resources. Almost anything can be stored in an array. The power of an array is that one variable
+name can represent two, a thousand, or a million different values and each value can be accessed
+separately from the others. This access is done by a numeric index. A value that starts at zero for
+the first element in the array. Just like you did with strings. Just as a group of mail or post boxes can
+be found quickly using a number, accessing an array element by it's numeric index
+helps in storing and accessing value. Here's a quick overview of
+how arrays work in Java. In Java, arrays are created using new. And once an array has been
+created its size does not change. However, the value stored in each
+indexed array cell can change. And that's what makes arrays useful and
+powerful. Arrays are created using new. And brackets are used both to indicate that a variable like names
+is an array of strings and as part of the syntax in new to specify
+the number of items in the array. You can define arrays of int values in
+Java just as you can define arrays of string values. Int values in an array
+are initialized to zero. String and other object values
+are initialized to null. You can assign values to
+an array using an index and you can access an array to
+update the contents as well. You've used indices to
+access array elements and loops are typically used to access
+all the elements in an array. Here's a loop that starts at the first
+index, zero, and loops through the last valid index, which is one less
+than the length of the array list. This is typical code that
+loops over array elements. In the loop body, the loop control variable is usually used
+to access each element in the array. In this loop, the value of k is
+used to indicate the index at which a word is found in
+the array parameter list. In general,
+this pattern of looping over all elements using indices is very common in
+solving problems using arrays. We used arrays to solve several
+problems including cracking code. You saw how arrays were used in
+cracking the Caesar cipher method of encrypting messages. Using frequencies obtained from
+the message by using indexing and arrays made it possible
+to crack a Caesar cipher. Indexing was also used
+in both encrypting and decrypting as well as
+in cracking the code. It's good to know that the encryption
+used on the internet to protect your transactions is far more
+secure than the Caesar cipher. Scientists and mathematicians don't
+think that today's internet encryption can be hacked or cracked using brute
+force or even smart algorithms. But you should be careful online with
+your personal information in any case.

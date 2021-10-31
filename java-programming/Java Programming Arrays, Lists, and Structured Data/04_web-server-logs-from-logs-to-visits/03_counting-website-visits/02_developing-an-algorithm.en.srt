@@ -1,0 +1,355 @@
+1
+00:00:03,129 --> 00:00:07,580
+As always, you are going to apply
+the seven steps to solve this problem.
+
+2
+00:00:07,580 --> 00:00:10,150
+As with the previous problem,
+we'll observe
+
+3
+00:00:10,150 --> 00:00:14,390
+that the problem is fundamentally
+the same no matter what Strings you use.
+
+4
+00:00:14,390 --> 00:00:18,370
+And use Strings that are easier
+to talk about than IP addresses.
+
+5
+00:00:18,370 --> 00:00:21,040
+We'll work through this
+using some animals.
+
+6
+00:00:21,040 --> 00:00:25,620
+We want to count how many times each
+animal name appears in this list, cat,
+
+7
+00:00:25,620 --> 00:00:29,050
+snake, T-Rex, snake, cat.
+
+8
+00:00:29,050 --> 00:00:33,650
+Now, you start by working through this
+example in a step by step fashion,
+
+9
+00:00:33,650 --> 00:00:38,670
+examining each animal and keeping count
+of how many times you have seen its name.
+
+10
+00:00:38,670 --> 00:00:41,979
+When you have finished looking at each
+animal in the list, you have your answer.
+
+11
+00:00:41,979 --> 00:00:46,542
+Cat and snake both appear twice,
+and T-Rex appears once.
+
+12
+00:00:46,542 --> 00:00:50,878
+Now that you've worked an example,
+it is time to think about and
+
+13
+00:00:50,878 --> 00:00:54,240
+write down exactly what you just did.
+
+14
+00:00:54,240 --> 00:00:56,615
+The first thing was to
+make an empty table, or
+
+15
+00:00:56,615 --> 00:01:00,465
+you can keep track of each name and
+how many times you had seen it.
+
+16
+00:01:00,465 --> 00:01:05,385
+Saying you made a table is fine, but it is
+also good to think about what this means
+
+17
+00:01:05,385 --> 00:01:09,125
+in terms of actual data types
+you can use in your program.
+
+18
+00:01:09,125 --> 00:01:13,765
+What type have you seen that is useful for
+representing this kind of information?
+
+19
+00:01:14,890 --> 00:01:19,730
+Yes, a HashMap that maps Strings
+names to Integers counts.
+
+20
+00:01:20,878 --> 00:01:22,780
+Once you realized that this is a HashMap,
+
+21
+00:01:22,780 --> 00:01:27,020
+you may as well call the columns by
+their technical names, Key and Value.
+
+22
+00:01:28,440 --> 00:01:32,301
+Finally, you'd want to give this HashMap
+a name so that you can refer to it easily.
+
+23
+00:01:32,301 --> 00:01:33,820
+We'll call it Counts.
+
+24
+00:01:35,070 --> 00:01:38,730
+Next, you looked at the first
+string in the list, Cat.
+
+25
+00:01:38,730 --> 00:01:42,134
+Then you looked for Cat in counts and
+saw it wasn't there,
+
+26
+00:01:42,134 --> 00:01:44,163
+so you put it in with a value of one.
+
+27
+00:01:44,163 --> 00:01:48,181
+You did a similar step for
+the second String Snake,
+
+28
+00:01:48,181 --> 00:01:53,360
+which was also not in counts,
+and for the third String, T-Rex.
+
+29
+00:01:53,360 --> 00:01:57,220
+For the fourth string, Snake,
+things were a little different.
+
+30
+00:01:57,220 --> 00:02:01,296
+When you look in count, you see Snake is
+already there with a count of one, so
+
+31
+00:02:01,296 --> 00:02:02,965
+you update the count to be two.
+
+32
+00:02:02,965 --> 00:02:04,021
+And similarly,
+
+33
+00:02:04,021 --> 00:02:08,480
+for the last string, Cat, you find
+that it already has a count of one.
+
+34
+00:02:08,480 --> 00:02:10,570
+So, you update it to have a count of two.
+
+35
+00:02:11,730 --> 00:02:16,230
+After all of that,
+the entire HashMap count is your answer.
+
+36
+00:02:17,300 --> 00:02:21,540
+That leads to these steps for
+this particular instance of the problem.
+
+37
+00:02:21,540 --> 00:02:26,210
+So now, it is time to find patterns and
+generalize to any instance of the problem.
+
+38
+00:02:26,210 --> 00:02:30,278
+Notice there are several steps where
+you did not find the current String in
+
+39
+00:02:30,278 --> 00:02:31,072
+the HashMap.
+
+40
+00:02:31,072 --> 00:02:36,158
+In each of these cases, you put it
+into the HashMap with a value of one.
+
+41
+00:02:36,158 --> 00:02:37,144
+Why one?
+
+42
+00:02:37,144 --> 00:02:40,581
+Do you always want one, or
+should you look for some other pattern?
+
+43
+00:02:40,581 --> 00:02:43,893
+If you think about it for a moment,
+you will realize that here,
+
+44
+00:02:43,893 --> 00:02:45,027
+you always want one.
+
+45
+00:02:45,027 --> 00:02:48,300
+It is the first occurrence of that name,
+so you've seen it once.
+
+46
+00:02:49,350 --> 00:02:52,500
+There are also some cases where
+you already had that particular
+
+47
+00:02:52,500 --> 00:02:54,070
+name in a HashMap.
+
+48
+00:02:54,070 --> 00:02:57,291
+In these cases,
+you updated the value to be 2.
+
+49
+00:02:57,291 --> 00:03:00,681
+Again, you should should ask yourself,
+why did I use 2?
+
+50
+00:03:00,681 --> 00:03:03,143
+Do I always want 2, or
+is there some other pattern?
+
+51
+00:03:03,143 --> 00:03:06,452
+In this case, you do not always want 2.
+
+52
+00:03:06,452 --> 00:03:10,370
+Instead, you want the old value plus 1.
+
+53
+00:03:10,370 --> 00:03:13,050
+That just happens to always be 2 here,
+
+54
+00:03:13,050 --> 00:03:15,550
+because of the specific
+example you worked.
+
+55
+00:03:15,550 --> 00:03:19,433
+With all of that in mind, you should
+be able to generalize these steps and
+
+56
+00:03:19,433 --> 00:03:21,989
+come up with an algorithm
+that looks like this.
+
+57
+00:03:21,989 --> 00:03:25,323
+This algorithm makes an empty HashMap,
+then iterates over
+
+58
+00:03:25,323 --> 00:03:29,733
+each String in the input, and checks if
+that String is already in the HashMap.
+
+59
+00:03:29,733 --> 00:03:34,098
+If not, the algorithm puts that String
+in to the HashMap with a value of 1, and
+
+60
+00:03:34,098 --> 00:03:39,150
+if it's already there, it updates
+the value to be 1 more than the old value.
+
+61
+00:03:39,150 --> 00:03:42,950
+After processing all the Strings,
+the answer is the HashMap counts.
+
+62
+00:03:44,450 --> 00:03:47,380
+Now, you want to test this algorithm out.
+
+63
+00:03:47,380 --> 00:03:50,990
+Test it on the input fish,
+dog, fish, fish.
+
+64
+00:03:53,160 --> 00:03:55,500
+This algorithm got you the right answer so
+
+65
+00:03:55,500 --> 00:03:57,380
+you can be more confident
+that it's correct.
+
+66
+00:03:58,700 --> 00:04:00,460
+Before you turn this into code,
+
+67
+00:04:00,460 --> 00:04:04,566
+we're going to remember that our input
+is not actually a list of Strings but
+
+68
+00:04:04,566 --> 00:04:08,036
+a list of login entries whose IP
+addresses you want to process.
+
+69
+00:04:08,036 --> 00:04:11,611
+This slightly adjusted algorithm
+is basically the same.
+
+70
+00:04:11,611 --> 00:04:15,915
+But we have changed this variable
+name to le, to stand for log entry,
+
+71
+00:04:15,915 --> 00:04:19,851
+and are iterating over the contents
+of the array list records,
+
+72
+00:04:19,851 --> 00:04:24,300
+which is an instance variable
+in the LogAnalyzer class.
+
+73
+00:04:24,300 --> 00:04:27,964
+Then, you want to get the IP
+address out of that log entry, and
+
+74
+00:04:27,964 --> 00:04:31,366
+use that as the string that
+you use to update the HashMap.
+
+75
+00:04:31,366 --> 00:04:33,720
+Now, it is time to turn this into code.

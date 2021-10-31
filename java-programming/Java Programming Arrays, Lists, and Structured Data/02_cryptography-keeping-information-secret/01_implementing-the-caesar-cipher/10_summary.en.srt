@@ -1,0 +1,51 @@
+1
+00:00:03,646 --> 00:00:07,140
+Let us wrap up this lesson
+where you learned a lot.
+
+2
+00:00:07,140 --> 00:00:10,070
+First, you learned a bit about
+the historical, as well as,
+
+3
+00:00:10,070 --> 00:00:11,691
+modern importance of cryptography.
+
+4
+00:00:11,691 --> 00:00:15,703
+Then you learned some more concepts
+about strings, as well as,
+
+5
+00:00:15,703 --> 00:00:19,668
+how to use a StringBuilder to
+efficiently construct a string.
+
+6
+00:00:19,668 --> 00:00:22,090
+Then you learned about counting for
+
+7
+00:00:22,090 --> 00:00:26,110
+loops, adding another important tool
+to your programming repertoire.
+
+8
+00:00:26,110 --> 00:00:30,100
+Finally, you implemented
+the Caesar Cipher, a classical cipher,
+
+9
+00:00:30,100 --> 00:00:32,370
+dating back thousands of years.
+
+10
+00:00:32,370 --> 00:00:36,580
+As you will learn in the next lesson, this
+cipher is not secure by modern standards,
+
+11
+00:00:36,580 --> 00:00:39,620
+but it is a good starting point to
+understand the ideas of cryptography.

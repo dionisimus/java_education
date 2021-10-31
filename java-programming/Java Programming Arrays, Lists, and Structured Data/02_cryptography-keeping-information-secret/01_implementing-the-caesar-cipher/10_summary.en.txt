@@ -1,0 +1,9 @@
+Let us wrap up this lesson
+where you learned a lot. First, you learned a bit about
+the historical, as well as, modern importance of cryptography. Then you learned some more concepts
+about strings, as well as, how to use a StringBuilder to
+efficiently construct a string. Then you learned about counting for loops, adding another important tool
+to your programming repertoire. Finally, you implemented
+the Caesar Cipher, a classical cipher, dating back thousands of years. As you will learn in the next lesson, this
+cipher is not secure by modern standards, but it is a good starting point to
+understand the ideas of cryptography.

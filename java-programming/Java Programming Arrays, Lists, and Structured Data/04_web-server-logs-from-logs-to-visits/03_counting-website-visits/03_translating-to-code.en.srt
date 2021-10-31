@@ -1,0 +1,626 @@
+1
+00:00:03,290 --> 00:00:06,908
+We'd like to find out how many
+times somebody visits a web site.
+
+2
+00:00:06,908 --> 00:00:12,585
+So we're gonna look at a log file that
+has IP addresses and see, for example,
+
+3
+00:00:12,585 --> 00:00:16,880
+for one IP address, how many times did
+that IP address appear in the file?
+
+4
+00:00:16,880 --> 00:00:20,190
+That's how many times that
+person visited the web site.
+
+5
+00:00:20,190 --> 00:00:24,970
+So we have a program here,
+a class called LogAnalyzer.
+
+6
+00:00:24,970 --> 00:00:31,790
+And we are going to write
+the method count visits per IP.
+
+7
+00:00:31,790 --> 00:00:35,420
+So how many times does each
+IP address visit a page?
+
+8
+00:00:35,420 --> 00:00:42,560
+And what we have in here is we're going
+to put log entries in an ArrayList.
+
+9
+00:00:42,560 --> 00:00:44,510
+It's called records.
+
+10
+00:00:44,510 --> 00:00:49,140
+So we have a constructor that
+initializes that ArrayList.
+
+11
+00:00:49,140 --> 00:00:55,580
+We then have readFile, which is gonna
+have the file name of the log entries.
+
+12
+00:00:55,580 --> 00:00:59,770
+And that is going to allow you
+to select a log entry file.
+
+13
+00:00:59,770 --> 00:01:04,060
+And then it just goes through and
+reads through all the lines and
+
+14
+00:01:04,060 --> 00:01:05,990
+puts them into records.
+
+15
+00:01:07,560 --> 00:01:11,238
+So we are gonna focus on
+writing countVisitsPerIP and
+
+16
+00:01:11,238 --> 00:01:13,780
+we are gonna use a HashMap to do that.
+
+17
+00:01:15,770 --> 00:01:21,345
+So the first thing we are gonna do
+is we need to make an empty HashMap.
+
+18
+00:01:21,345 --> 00:01:24,720
+And we're going to be mapping
+a string to an integer.
+
+19
+00:01:24,720 --> 00:01:29,610
+So for each IP address, which is a string,
+we're gonna map that to the account,
+
+20
+00:01:29,610 --> 00:01:34,020
+which is the number of times that
+IP address appears in the file.
+
+21
+00:01:34,020 --> 00:01:36,087
+So first let's make, let's see.
+
+22
+00:01:43,421 --> 00:01:48,554
+A HashMap of type String,
+which is the type of the key,
+
+23
+00:01:48,554 --> 00:01:54,931
+and of type Integer, which is the type
+of the value for the HashMap.
+
+24
+00:01:57,260 --> 00:02:00,760
+We need to give it a name, so
+we're gonna call it counts and
+
+25
+00:02:00,760 --> 00:02:03,510
+then we have to create a new one.
+
+26
+00:02:03,510 --> 00:02:08,268
+So a new HashMap of type
+
+27
+00:02:08,268 --> 00:02:12,775
+String for the key and
+
+28
+00:02:12,775 --> 00:02:18,480
+Integer for the value.
+
+29
+00:02:18,480 --> 00:02:18,980
+There we go.
+
+30
+00:02:21,650 --> 00:02:26,824
+Now that we have it,
+we want to iterate over all
+
+31
+00:02:26,824 --> 00:02:32,397
+the records that we have,
+so we're gonna use a for
+
+32
+00:02:32,397 --> 00:02:39,923
+loop for Each log entry.
+
+33
+00:02:43,712 --> 00:02:46,790
+And we need a variable name so
+I'm just gonna call that le.
+
+34
+00:02:48,760 --> 00:02:52,992
+We're going to iterate over the records
+where we've put all the records from
+
+35
+00:02:52,992 --> 00:02:53,587
+the file.
+
+36
+00:02:57,547 --> 00:02:58,296
+Okay.
+
+37
+00:03:13,087 --> 00:03:14,750
+All right, there's our for loop.
+
+38
+00:03:14,750 --> 00:03:19,129
+And now we're going to look at
+each LogEntry, one at a time.
+
+39
+00:03:21,754 --> 00:03:25,070
+So, first what we'll do from the LogEntry
+is we'll get the IP address.
+
+40
+00:03:26,100 --> 00:03:29,870
+Okay, so we need a variable for that,
+and that is gonna be of type String.
+
+41
+00:03:29,870 --> 00:03:34,879
+So we'll call that variable, say,
+IP, which is of type String.
+
+42
+00:03:34,879 --> 00:03:38,920
+And we will use the log
+entry to get the IP address.
+
+43
+00:03:38,920 --> 00:03:45,379
+So if you remember we have getIpAddress.
+
+44
+00:03:50,963 --> 00:03:53,949
+And that should get us the IP address.
+
+45
+00:03:55,200 --> 00:04:00,348
+Now that we have the IP address, we have
+to see if it's already in our HashMap or
+
+46
+00:04:00,348 --> 00:04:03,629
+not, so
+we'll have to ask a question about that.
+
+47
+00:04:08,837 --> 00:04:10,880
+So, we're going to ask if.
+
+48
+00:04:17,836 --> 00:04:24,546
+Counts.containsKey, okay.
+
+49
+00:04:24,546 --> 00:04:29,910
+So again, counts is our HashMap and
+we're using the containsKey function,
+
+50
+00:04:29,910 --> 00:04:33,470
+and we will ask if that IP
+address is in there or not.
+
+51
+00:04:33,470 --> 00:04:37,500
+And I am actually going to ask
+first if it's not in there.
+
+52
+00:04:37,500 --> 00:04:44,962
+So we'll put the not there.
+
+53
+00:04:50,213 --> 00:04:53,784
+And if it's not in there, then that
+means we want to put it in there for
+
+54
+00:04:53,784 --> 00:04:54,655
+the first time.
+
+55
+00:04:54,655 --> 00:04:58,085
+When we put it in there for
+the first time, its count is gonna be 1.
+
+56
+00:04:58,085 --> 00:04:59,505
+So we'll add code for that.
+
+57
+00:05:01,955 --> 00:05:05,460
+So we get the name of
+the HashMap which is counts.
+
+58
+00:05:05,460 --> 00:05:07,110
+And we'll use the put.
+
+59
+00:05:07,110 --> 00:05:12,250
+And we need to put in the IP address,
+which is the variable IP.
+
+60
+00:05:12,250 --> 00:05:17,380
+And we put in 1 for the count 1.
+
+61
+00:05:20,379 --> 00:05:22,072
+Now if it's not in there.
+
+62
+00:05:25,713 --> 00:05:27,020
+Then we'll want to.
+
+63
+00:05:27,020 --> 00:05:30,000
+Sorry, if it is in there,
+then we'll know it's already in there.
+
+64
+00:05:30,000 --> 00:05:31,230
+We need to get the value out.
+
+65
+00:05:31,230 --> 00:05:33,480
+We need to add 1 to it and
+we need to put it back in.
+
+66
+00:05:33,480 --> 00:05:34,422
+So we'll do that now.
+
+67
+00:05:44,129 --> 00:05:47,130
+So essentially we're
+gonna use counts.put but
+
+68
+00:05:47,130 --> 00:05:52,031
+what we're gonna put in there is we're
+gonna put the IP address in there again,
+
+69
+00:05:52,031 --> 00:05:57,540
+or basically replace it with, we have to
+get the old value out and add 1 to it.
+
+70
+00:05:57,540 --> 00:06:02,629
+So we'll have to use counts.get
+to get the old value of it.
+
+71
+00:06:06,504 --> 00:06:08,255
+And then we'll have to add 1 to that.
+
+72
+00:06:16,296 --> 00:06:18,370
+And then what else do we have to do?
+
+73
+00:06:18,370 --> 00:06:20,150
+We come down here.
+
+74
+00:06:20,150 --> 00:06:25,072
+So if we get to the end of that and
+we've put all of our log entries into our
+
+75
+00:06:25,072 --> 00:06:30,569
+HashMap and essentially they're each in
+there once, with the count of how many
+
+76
+00:06:30,569 --> 00:06:36,421
+times they appear in the file, then we can
+return the answer, which is just counts.
+
+77
+00:06:39,878 --> 00:06:43,893
+So we'll compile this and, let's see,
+
+78
+00:06:43,893 --> 00:06:49,870
+we gotta spell getIpAddress correctly,
+so we'll fix that.
+
+79
+00:06:52,680 --> 00:06:54,690
+And we've compiled it with
+no syntax errors now.
+
+80
+00:06:55,890 --> 00:06:58,030
+All right, so now we wanna test this out.
+
+81
+00:06:58,030 --> 00:07:02,912
+Again, let's just see, countVisitsPerIP
+is gonna return the HashMap that is all
+
+82
+00:07:02,912 --> 00:07:08,170
+the mappings of the IP addresses to their
+counts, so you get the whole thing.
+
+83
+00:07:08,170 --> 00:07:10,610
+We need to test it out now.
+
+84
+00:07:10,610 --> 00:07:16,180
+So in order to test it out,
+we're going to create another class here,
+
+85
+00:07:16,180 --> 00:07:19,717
+which I've started, called CountTester.
+
+86
+00:07:21,060 --> 00:07:26,290
+And what we'll do in here is
+we'll first create a LogAnalyzer,
+
+87
+00:07:26,290 --> 00:07:34,380
+the class that we just had, so,
+we'll create a LogAnalyzer object.
+
+88
+00:07:34,380 --> 00:07:35,780
+We'll just call it la.
+
+89
+00:07:35,780 --> 00:07:37,587
+And we have to create a new one.
+
+90
+00:07:43,586 --> 00:07:44,130
+Okay.
+
+91
+00:07:44,130 --> 00:07:46,700
+So, now we have a LogAnalyzer object.
+
+92
+00:07:46,700 --> 00:07:49,480
+We'll need to pick a file to read from.
+
+93
+00:07:49,480 --> 00:07:55,290
+So I'm going to use the readFile and
+we'll put in.
+
+94
+00:07:55,290 --> 00:07:58,920
+I happen to have a very small
+test file to make sure and
+
+95
+00:07:58,920 --> 00:08:01,590
+convince myself that this actually works.
+
+96
+00:08:01,590 --> 00:08:07,634
+So it is called short-test_log.
+
+97
+00:08:10,180 --> 00:08:13,265
+And I'll show you that in a minute, and
+
+98
+00:08:13,265 --> 00:08:16,990
+then I want to now call
+count visits per IP.
+
+99
+00:08:16,990 --> 00:08:19,659
+And remember that's gonna
+return a HashMap, so
+
+100
+00:08:19,659 --> 00:08:22,860
+I need to have a HashMap
+variable to put it in.
+
+101
+00:08:22,860 --> 00:08:23,670
+So I'll do that.
+
+102
+00:08:24,740 --> 00:08:32,629
+HashMap of type String Integer.
+
+103
+00:08:36,296 --> 00:08:40,960
+I'm gonna call it counts and
+now that is gonna be assigned
+
+104
+00:08:40,960 --> 00:08:45,817
+the value returned by our
+LogAnalyzer which is called la and
+
+105
+00:08:45,817 --> 00:08:51,761
+that's gonna call the method we just
+wrote which is countVisitsPerIP.
+
+106
+00:08:55,629 --> 00:09:02,260
+And then once we have that, we can just
+print out the HashMap that we created.
+
+107
+00:09:02,260 --> 00:09:10,421
+So I'll just have
+system.out.println on counts.
+
+108
+00:09:13,160 --> 00:09:15,004
+Now, let's see if this compiles.
+
+109
+00:09:17,755 --> 00:09:19,290
+And we're missing something.
+
+110
+00:09:19,290 --> 00:09:20,110
+Let's see.
+
+111
+00:09:21,910 --> 00:09:22,560
+We need to use.
+
+112
+00:09:22,560 --> 00:09:24,710
+We used the wrong kind of quotes.
+
+113
+00:09:24,710 --> 00:09:26,379
+So, we'll put double quotes here.
+
+114
+00:09:30,462 --> 00:09:32,466
+And we'll try compiling it again.
+
+115
+00:09:32,466 --> 00:09:37,700
+And we forgot the semicolon at the end.
+
+116
+00:09:37,700 --> 00:09:41,940
+All right good, we're good.
+
+117
+00:09:41,940 --> 00:09:48,410
+So that works, and I want to show you over
+here my simple file and then we'll run it.
+
+118
+00:09:48,410 --> 00:09:53,347
+So I have this very short test file, and
+you can see it's got one, two, three,
+
+119
+00:09:53,347 --> 00:09:55,587
+four, seven log entries in there.
+
+120
+00:09:55,587 --> 00:10:02,879
+You can see the second entry which is
+152.3.135.44 is in there three times.
+
+121
+00:10:02,879 --> 00:10:04,879
+Now we're gonna run it.
+
+122
+00:10:04,879 --> 00:10:06,500
+So we'll come over to BlueJ.
+
+123
+00:10:06,500 --> 00:10:08,170
+Everything's compiled.
+
+124
+00:10:08,170 --> 00:10:09,430
+We'll run count tester.
+
+125
+00:10:10,610 --> 00:10:12,360
+We gotta create the new object first.
+
+126
+00:10:15,600 --> 00:10:18,010
+And we'll run, and there we go.
+
+127
+00:10:18,010 --> 00:10:20,940
+And you can see, if I can put both
+of these up here at the same time.
+
+128
+00:10:20,940 --> 00:10:23,360
+There we go with one.
+
+129
+00:10:25,400 --> 00:10:31,520
+So we created a HashMap,
+and you can see that
+
+130
+00:10:31,520 --> 00:10:38,412
+the one that starts with 152.3 is
+listed as being there three times.
+
+131
+00:10:38,412 --> 00:10:40,090
+That is, we print out the HashMap and
+
+132
+00:10:40,090 --> 00:10:45,460
+it prints out each IP address equals
+its count that we came up with.
+
+133
+00:10:45,460 --> 00:10:50,570
+And so the second entry here
+is 152.3.135.44 with a 3 and
+
+134
+00:10:50,570 --> 00:10:54,210
+you can see the 157.55 one is
+only in there one time and
+
+135
+00:10:54,210 --> 00:10:59,860
+we got 1 and you can see
+the 152.3.135 is in there twice.
+
+136
+00:10:59,860 --> 00:11:02,170
+And you can see, we counted it twice.
+
+137
+00:11:02,170 --> 00:11:06,430
+So now I'm more convinced that
+what we wrote is correct.
+
+138
+00:11:06,430 --> 00:11:07,630
+All right, happy coding.

@@ -1,0 +1,282 @@
+1
+00:00:03,260 --> 00:00:04,640
+Welcome back.
+
+2
+00:00:04,640 --> 00:00:07,490
+To start learning concepts of
+object oriented programming,
+
+3
+00:00:07,490 --> 00:00:09,880
+it is useful to take
+an existing piece of code and
+
+4
+00:00:09,880 --> 00:00:13,390
+see how you could write it differently
+in a more object oriented way.
+
+5
+00:00:13,390 --> 00:00:16,980
+Here is the code you wrote in a previous
+lesson to perform encryption with
+
+6
+00:00:16,980 --> 00:00:18,700
+a CaesarCipher.
+
+7
+00:00:18,700 --> 00:00:21,610
+As you may recall one of
+the parameters to this method
+
+8
+00:00:21,610 --> 00:00:23,297
+is the encryption key that you wanna use.
+
+9
+00:00:24,360 --> 00:00:28,501
+And the first thing you did with this code
+was to compute the shifted alphabet based
+
+10
+00:00:28,501 --> 00:00:29,171
+on this key.
+
+11
+00:00:31,004 --> 00:00:34,874
+Here's a different way to write
+the CaesarCipher class, which does exactly
+
+12
+00:00:34,874 --> 00:00:38,580
+the same thing but makes better use of
+the object oriented nature of Java.
+
+13
+00:00:39,880 --> 00:00:41,600
+This class has two fields.
+
+14
+00:00:41,600 --> 00:00:45,340
+A field is a special kind of variable
+which lives inside of an object
+
+15
+00:00:45,340 --> 00:00:47,380
+instead of inside of a method.
+
+16
+00:00:47,380 --> 00:00:50,983
+Here, the two fields are the strings for
+the alphabet and
+
+17
+00:00:50,983 --> 00:00:55,879
+the shifted alphabet and they have been
+moved outside of the encrypt method.
+
+18
+00:00:55,879 --> 00:01:01,290
+Notice that they are now declared inside
+of the class, but outside of any method.
+
+19
+00:01:01,290 --> 00:01:04,740
+These are now data that
+are encapsulated in your object.
+
+20
+00:01:04,740 --> 00:01:08,790
+When you make a CaesarCipher object,
+it will have these two fields,
+
+21
+00:01:08,790 --> 00:01:11,500
+which any code inside that
+class can refer to by name.
+
+22
+00:01:13,450 --> 00:01:18,230
+Next, notice that there is some code
+here which looks like a method,
+
+23
+00:01:18,230 --> 00:01:22,660
+where we forgot to write the return type,
+and named it the same as the class.
+
+24
+00:01:22,660 --> 00:01:27,730
+This code is actually a constructor, which
+means code that gets run to initialize
+
+25
+00:01:27,730 --> 00:01:30,290
+an object when it is created using new.
+
+26
+00:01:31,470 --> 00:01:36,680
+This constructor takes in the key as a
+parameter and initializes the alphabet and
+
+27
+00:01:36,680 --> 00:01:41,100
+shifted alphabet fields using
+the same approach you used before.
+
+28
+00:01:41,100 --> 00:01:44,730
+If you look further down in this
+implementation of the CaesarCipher,
+
+29
+00:01:44,730 --> 00:01:48,050
+the encrypt method looks
+mostly the same as before but
+
+30
+00:01:48,050 --> 00:01:52,790
+it no longer takes the key as a parameter,
+nor does it compute the shifted alphabet.
+
+31
+00:01:52,790 --> 00:01:55,120
+But the rest of the code is the same.
+
+32
+00:01:55,120 --> 00:01:59,880
+In fact, the code uses the alphabet and
+shifted alphabet fields in the object,
+
+33
+00:01:59,880 --> 00:02:03,680
+even though these are not
+declared inside the method.
+
+34
+00:02:03,680 --> 00:02:07,640
+This code is allowed to use them
+because it is inside the object.
+
+35
+00:02:07,640 --> 00:02:10,220
+So it can use any fields
+within the object.
+
+36
+00:02:11,790 --> 00:02:16,170
+An illustration helps understand the
+differences between these two approaches.
+
+37
+00:02:16,170 --> 00:02:19,950
+In the old code,
+a CaesarCipher object held no data.
+
+38
+00:02:19,950 --> 00:02:23,550
+When you do new CaesarCipher,
+you pass in no arguments and
+
+39
+00:02:23,550 --> 00:02:25,780
+create an object with nothing in it.
+
+40
+00:02:25,780 --> 00:02:28,540
+When you call encrypt,
+you pass the message and
+
+41
+00:02:28,540 --> 00:02:32,340
+the key and
+the method returns the encrypted message.
+
+42
+00:02:33,540 --> 00:02:37,430
+In the new way,
+each CaesarCipher object contains a key.
+
+43
+00:02:37,430 --> 00:02:41,120
+Now when you do new CaesarCipher,
+you pass in the key and
+
+44
+00:02:41,120 --> 00:02:45,502
+the object you have created
+stores that key inside of itself.
+
+45
+00:02:45,502 --> 00:02:49,690
+When you call encrypt on such an object
+you pass in only the message.
+
+46
+00:02:49,690 --> 00:02:51,850
+The key is already in the object and
+
+47
+00:02:51,850 --> 00:02:54,840
+it still returns the same
+encrypted message as before.
+
+48
+00:02:56,090 --> 00:02:59,710
+So if these two implementations
+produce the same result
+
+49
+00:02:59,710 --> 00:03:02,870
+what are the benefits of
+an object oriented approach?
+
+50
+00:03:02,870 --> 00:03:06,230
+When you encapsulate the key
+inside of the cipher object,
+
+51
+00:03:06,230 --> 00:03:10,810
+you have one thing that is capable of
+taking a message and encrypting it.
+
+52
+00:03:10,810 --> 00:03:15,050
+That makes a nice logical unit to
+think about, a thing that does a task.
+
+53
+00:03:15,050 --> 00:03:18,520
+You do not need to separately
+track the key and pass it in.
+
+54
+00:03:18,520 --> 00:03:21,300
+For small programs,
+such as the ones you have written so
+
+55
+00:03:21,300 --> 00:03:23,790
+far, that may not seem like a big deal.
+
+56
+00:03:23,790 --> 00:03:27,737
+However, as you solve larger
+programs with more complex code,
+
+57
+00:03:27,737 --> 00:03:30,378
+this design idea will help you immensely.
+
+58
+00:03:30,378 --> 00:03:34,245
+Now that you have seen an example of these
+ideas in action, the rest of the lesson
+
+59
+00:03:34,245 --> 00:03:37,320
+will teach you about the details
+of the technique you just saw.

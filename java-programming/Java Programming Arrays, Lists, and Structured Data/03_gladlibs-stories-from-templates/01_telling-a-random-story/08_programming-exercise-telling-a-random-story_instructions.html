@@ -1,0 +1,428 @@
+<meta charset="utf-8"/>
+<co-content>
+ <h3 level="3">
+  Assignment 1: Most Frequent Word
+ </h3>
+ <p>
+  You will write a program to determine the word that occurs the most often in a file. If more than one word occurs as the most often, then return the first such word found. You should make all words lowercase before counting them. Thus, “This” and “this” will both be counted as the lowercase version of “this”. You should not consider punctuation, so “end” and “end,” will be considered different words. Use the
+  <strong>
+   WordFrequencies
+  </strong>
+  program in the lesson as a starting point.
+ </p>
+ <p>
+  Specifically, you should do the following:
+ </p>
+ <ul bullettype="bullets">
+  <li>
+   <p>
+    Create a new project in BlueJ and then create a new class called
+    <strong>
+     WordFrequencies
+    </strong>
+    . Put all the following items in this class.
+   </p>
+  </li>
+  <li>
+   <p>
+    Create two private variables. One is called
+    <strong>
+     myWords
+    </strong>
+    and should be an ArrayList of type String to store unique words from a file, and one is called
+    <strong>
+     myFreqs
+    </strong>
+    and should be an ArrayList of type Integer. The kth position in
+    <strong>
+     myFreqs
+    </strong>
+    should represent the number of times the kth word in
+    <strong>
+     myWords
+    </strong>
+    occurs in the file.
+   </p>
+  </li>
+  <li>
+   <p>
+    Write a constructor
+    <strong>
+     WordFrequencies
+    </strong>
+    , and initialize the private variables.
+   </p>
+  </li>
+  <li>
+   <p>
+    Write a void method
+    <strong>
+     findUnique
+    </strong>
+    that has no parameters. This method should first clear both
+    <strong>
+     myWords
+    </strong>
+    and
+    <strong>
+     myFreqs
+    </strong>
+    , using the .clear() method. Then it selects a file and then iterates over every word in the file, putting the unique words found into
+    <strong>
+     myWords
+    </strong>
+    . For each word in the kth position of
+    <strong>
+     myWords
+    </strong>
+    , it puts the count of how many times that word occurs from the selected file into the kth position of
+    <strong>
+     myFreqs
+    </strong>
+    , as was demonstrated in the lesson.
+   </p>
+  </li>
+  <li>
+   <p>
+    Write a void
+    <strong>
+     tester
+    </strong>
+    method that has no parameters. This method should call
+    <strong>
+     findUnique
+    </strong>
+    . Then print out the number of unique words, and for each unique word, print the frequency of each word and the word, as was demonstrated in the lesson.
+   </p>
+  </li>
+  <li>
+   <p>
+    Write the method
+    <strong>
+     findIndexOfMax
+    </strong>
+    that has no parameters. This method returns an int that is the index location of the largest value in
+    <strong>
+     myFreqs
+    </strong>
+    . If there is a tie, then return the first such value.
+   </p>
+  </li>
+  <li>
+   <p>
+    Add code to the
+    <strong>
+     tester
+    </strong>
+    method to determine and print the word that occurs the most often in a selected file and how many times it occurs. You should find it helpful to call
+    <strong>
+     findIndexOfMax
+    </strong>
+    .
+   </p>
+  </li>
+ </ul>
+ <p>
+  For example, if the file were
+  <strong>
+   testwordfreqs.txt
+  </strong>
+  :
+ </p>
+ <p>
+  This is a test. Yes a test of a test. Test.
+ </p>
+ <p>
+  Then the output would be:
+ </p>
+ <pre language="java">Number of unique words: 7
+1 this
+1 is
+3 a
+3 test.
+1 yes
+1 test
+1 of
+The word that occurs most often and its count are: a 3</pre>
+ <p>
+  We are ignoring punctuation, so note that “test.” and “test” are different, as the first one has a period with it. Also note that there is a tie—two words are counted three times; you should return the first such word found which is “a”.
+ </p>
+ <p>
+ </p>
+ <h3 level="3">
+  Assignment 2: Character Names
+ </h3>
+ <p>
+  Write a program to determine the characters in one of Shakespeare’s plays that have the most speaking parts. Consider the play “The Tragedy of Macbeth” in the file
+  <strong>
+   macbeth.txt
+  </strong>
+  . Here are a few lines from the file put into a much smaller file called
+  <strong>
+   macbethSmall.txt
+  </strong>
+  :
+ </p>
+ <p>
+  MACBETH. My dearest love,
+ </p>
+ <p>
+  Duncan comes here tonight.
+ </p>
+ <p>
+  LADY MACBETH. And when goes hence?
+ </p>
+ <p>
+  MACBETH. Tomorrow, as he purposes.
+ </p>
+ <p>
+  LADY MACBETH. O, never
+ </p>
+ <p>
+  Shall sun that morrow see!
+ </p>
+ <p>
+  Your face, my Thane, is as a book where men
+ </p>
+ <p>
+  May read strange matters. To beguile the time,
+ </p>
+ <p>
+  Look like the time; bear welcome in your eye,
+ </p>
+ <p>
+  Your hand, your tongue; look like the innocent flower,
+ </p>
+ <p>
+  But be the serpent under it. He that's coming
+ </p>
+ <p>
+  Must be provided for; and you shall put
+ </p>
+ <p>
+  This night's great business into my dispatch,
+ </p>
+ <p>
+  Which shall to all our nights and days to come
+ </p>
+ <p>
+  Give solely sovereign sway and masterdom.
+ </p>
+ <p>
+  MACBETH. We will speak further.
+ </p>
+ <p>
+  Note that each speaking part is at the beginning of the line (there may be some blanks before it) and has a period immediately following it. Shakespeare used this format in many of his plays. Sometimes the name of the person to speak was all capitalized and sometimes it was not.
+ </p>
+ <p>
+  Write a program to print out the main characters in one of Shakespeare’s plays, those with the most speaking parts. You should identify a speaking part by reading the file line-by-line and finding the location of the first period on the line. Then you will assume that everything up to the first period is the name of a character and count how many times that occurs in the file. You will only print those characters that appear more often than others. Notice our method is somewhat error prone. For example, a period is also used to indicate the end of a sentence. By printing out only those characters that appear a lot, we will get rid of most of the errors. Periods that indicate the end of a sentence will likely be a unique phrase so you won’t print that as it would just occur once or maybe twice.
+ </p>
+ <p>
+  For the file
+  <strong>
+   macbethSmall.txt
+  </strong>
+  , if we process it and print ALL the possible speaker characters  and counts found, we would get the following output:
+ </p>
+ <p>
+  MACBETH	3
+ </p>
+ <p>
+  Duncan comes here tonight	1
+ </p>
+ <p>
+  LADY MACBETH	2
+ </p>
+ <p>
+  May read strange matters	1
+ </p>
+ <p>
+  But be the serpent under it	1
+ </p>
+ <p>
+  Give solely sovereign sway and masterdom	1
+ </p>
+ <p>
+  If we only print those with a count greater than 1, then our output is:
+ </p>
+ <p>
+  MACBETH	3
+ </p>
+ <p>
+  LADY MACBETH	2
+ </p>
+ <p>
+  In processing the complete play in
+  <strong>
+   macbeth.txt
+  </strong>
+  you should not print out every count—you would have too much output, so instead print every count that is greater than or equal to some number (you decide what that number is).
+ </p>
+ <p>
+ </p>
+ <p>
+  Specifically, you should do the following:
+ </p>
+ <ul bullettype="bullets">
+  <li>
+   <p>
+    Create a class named
+    <strong>
+     CharactersInPlay
+    </strong>
+    . Put all the following items below in this class.
+   </p>
+  </li>
+  <li>
+   <p>
+    You will need to create two private ArrayLists. One to store the the names of the characters you find and one to store the corresponding counts for each character.
+   </p>
+  </li>
+  <li>
+   <p>
+    Write a void method named
+    <strong>
+     update
+    </strong>
+    that has one String parameter named
+    <strong>
+     person
+    </strong>
+    . This method should update the two ArrayLists, adding the character’s name if it is not already there, and counting this line as one speaking part for this person.
+   </p>
+  </li>
+  <li>
+   <p>
+    Write a void method called
+    <strong>
+     findAllCharacters
+    </strong>
+    that opens a file, and reads the file line-by-line. For each line, if there is a period on the line, extract the possible name of the speaking part, and call
+    <strong>
+     update
+    </strong>
+    to count it as an occurrence for this person. Make sure you clear the appropriate instance variables before each new file.
+   </p>
+  </li>
+  <li>
+   <p>
+    Write a void method called
+    <strong>
+     tester
+    </strong>
+    that has no parameters. This method should call
+    <strong>
+     findAllCharacters
+    </strong>
+    , and then for each main character, print out the main character, followed by the number of speaking parts that character has. A main character is one who has more speaking parts than most people. You’ll have to estimate what that number should be. Test your method on the file
+    <strong>
+     macbethSmall.txt
+    </strong>
+    . and then
+    <strong>
+     macbeth.txt
+    </strong>
+    .
+   </p>
+  </li>
+  <li>
+   <p>
+    Write a void method called
+    <strong>
+     charactersWithNumParts
+    </strong>
+    that has two int parameters named
+    <strong>
+     num1
+    </strong>
+    and
+    <strong>
+     num2
+    </strong>
+    , where you can assume
+    <strong>
+     num1
+    </strong>
+    should be less than or equal to
+    <strong>
+     num2
+    </strong>
+    . This method should print out the names of all those characters that have exactly number speaking parts, where number is greater than or equal to
+    <strong>
+     num1
+    </strong>
+    and less than or equal to
+    <strong>
+     num2
+    </strong>
+    . Add code in
+    <strong>
+     tester
+    </strong>
+    to test this method out.
+   </p>
+  </li>
+ </ul>
+ <p>
+ </p>
+ <p>
+  Link to FAQ page for this course:
+  <a href="http://www.dukelearntoprogram.com/course3/faq.php">
+   http://www.dukelearntoprogram.com/course3/faq.php
+  </a>
+ </p>
+ <p>
+ </p>
+ <asset assettype="generic" extension="pdf" id="UyQIu4POEeWQ7RJdmuvcCw" name="Programming Exercise - Random Story">
+ </asset>
+ <p>
+ </p>
+</co-content>
+<style>
+ body {
+    padding: 50px 85px 50px 85px;
+}
+
+table th, table td {
+    border: 1px solid #e0e0e0;
+    padding: 5px 20px;
+    text-align: left;
+}
+input {
+    margin: 10px;
+}
+}
+th {
+    font-weight: bold;
+}
+td, th {
+    display: table-cell;
+    vertical-align: inherit;
+}
+img {
+    height: auto;
+    max-width: 100%;
+}
+pre {
+    display: block;
+    margin: 20px;
+    background: #424242;
+    color: #fff;
+    font-size: 13px;
+    white-space: pre-wrap;
+    padding: 9.5px;
+    margin: 0 0 10px;
+    border: 1px solid #ccc;
+}
+</style>
+<script async="" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript">
+</script>
+<script type="text/x-mathjax-config">
+ MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$$','$$'], ['$','$'] ],
+      displayMath: [ ["\\[","\\]"] ],
+      processEscapes: true
+    }
+  });
+</script>

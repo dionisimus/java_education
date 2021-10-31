@@ -1,0 +1,10 @@
+Great, now you have completed your first
+analysis of the web server log file data that you read. You wrote code to figure out how
+many unique IP addresses there were, which gives you a good idea of how
+many people visited your site. Doing this gave you some great practice
+with ArrayLists which are useful for solving a wide variety of problems. And you also learned about Java's
+two different notions of equality. == which, tests if it's operands
+refer to exactly the same object and the .equals method which checks if two
+objects have the same logical meaning. Each class can define this method however
+it needs to, so that it can provide the appropriate definition of
+having the same logical meaning.

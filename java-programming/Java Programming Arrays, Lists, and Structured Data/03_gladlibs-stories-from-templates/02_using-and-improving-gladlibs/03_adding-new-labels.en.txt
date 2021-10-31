@@ -1,0 +1,49 @@
+Hi, we're gonna walk through
+the process of adding a new label to the GladLib.java program and
+the GladLib class. A new label might be something like
+verb which would go along with noun, color and the other labels we have. To do that, you've seen part of that process
+outlined in one of the previous lessons. What I'm going to do here is show
+you that to add a new label we need a new template file, so I've taken the
+standard template file that we had before, which was called madtemplate.txt and
+I've replaced sing and dance, the two things that a creature would do in the
+stories we generated, with verb and verb. So I'm adding the label verb to replace
+sing and dance in the original story. I still call this madtemplate.txt. You will use whatever text editing
+software you have which is usually something like
+TextEdit on a Mac or Notepad++ on a Windows machine,
+but you can use any text editor. Now I'm going to take the GladLib
+program that we've used before, and I'm going to walk through the locations
+where we need to make changes. I need to create a new array
+list to store my verbs. I'm going to go along with the same
+conventions that have been used before and make sure that I use verbList to go
+along with adjectiveList, nounList, etc. As I scroll through my source code,
+I see that these ArrayLists are initialized in
+the initializeFromSource method. It's called from our class's constructor. I need to initialize verbList. And its going to be
+initialize by calling readIt. Passing the source. Which is either a place on my computer
+where it can access files, or a url. This is verb.txt. I'm going to also have to
+make one other addition. Because now my label might be
+an adjective or an animal or a name. But I'm going to need to copy and
+paste these so that in addition to using timeframe,
+I'm going to use verb. So I'll replace that,
+make sure I get the syntax right. If the label is verb, I'm going to
+replace the label from verblist. I'm going to compile my program. I know that in this program it's reading
+the template form madtemplate.txt which I've modified to include the angle
+bracket verb angle bracket label. I'm going to create a new
+GladLib on my object work bench. And then I'm going to run
+the Make Story method. It so loved to unknown and unknown. There was a funny, slippery lion
+named Vivian that scared it so much. So if we go back and look at our source
+code we'll see that it must have found verb but failed to replace the verb with
+the objects that it was replaced with. In this case, I've got verb list here,
+my instance variable. I've initialized it from verb
+here I've made sure that if, oh look, if label.equals verb t,
+I had a misprint when I spelled it. Now it's got verb. So I'm going to go back and recreate that. Create my gladLib object,
+open it up and make a story. Hey, it's so loved to think and
+contemplate, but there was a gigantic, gigantic tiger. Let me run that one more time and
+see if I get something besides think and contemplate. It's so loved to ride and surrender. One more time, and I'll be convinced
+that it's actually reading verbs. It so loved to surrender and surrender, we've done nothing to make
+sure that it can use the same word or verb more than once, so
+just to remind you what we've done. I've used this location to
+change when the label was found. I've made sure that the label
+was read from the source. And I used verbList here, which is
+the name of my instance variable here, verbList. Using the same naming conventions
+we've used in all the other programs. I compiled my program, I tested it,
+I created a new text file to hold verbs, and a new text file for the template. Happy verbing.

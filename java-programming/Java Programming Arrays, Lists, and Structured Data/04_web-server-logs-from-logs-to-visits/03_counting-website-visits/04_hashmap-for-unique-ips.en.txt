@@ -1,0 +1,25 @@
+Think back to the problem where you found
+how many unique IP addresses there were in a web server log. That problem was essentially finding out
+how many different strings there were. If you look at what you just did, finding
+how many times each string occurred, you may realize that you have
+solved a larger problem. The solution to the problem of counting
+unique Strings is already here. You have each unique String
+in this HashMap as a key, and would just need a way to turn
+it into the answer you want. Your counting out rhythm has
+already done the hard work. You would just need to be able to
+extract the answer from the HashMap. This situation is common in programming. You may write code to solve a more
+complex problem and then be able to solve a simpler problem easily by using the more
+complex algorithm to do the hard work. Recognizing such situations
+can be quite helpful to becoming a highly
+productive programmer. In this case, using the HashMap from the
+second problem to solve the first problem, is easy. HashMaps have a .size() method, which tells how many key
+value pairs the HashMap has. As each key appears once in the HashMap,
+the result from .size() tells you exactly how many unique keys
+there were in the input. If you had written
+countVisitsPerIP() first, you could have written countUniqueIPs()
+with just these two lines of code. The first line uses countVisitsPerIP()
+to solve a larger problem. And the second line uses the .size()
+method in HashMap to turn the answer from that problem in to
+the answer to this problem. The size of the HashMap is exactly
+the number of unique keys, which is the answer to this problem. Whenever you are programming, try to think of way to use code that
+you have already written and tested. Thank You.

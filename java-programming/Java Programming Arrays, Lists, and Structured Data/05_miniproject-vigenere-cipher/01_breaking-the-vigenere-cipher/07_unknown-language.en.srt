@@ -1,0 +1,342 @@
+1
+00:00:03,120 --> 00:00:07,660
+Okay, great, now you have cracked
+Vigenere for English messages of
+
+2
+00:00:07,660 --> 00:00:12,920
+unknown key length, but what if
+the messages were in other languages?
+
+3
+00:00:12,920 --> 00:00:15,040
+What if you did not know the language?
+
+4
+00:00:15,040 --> 00:00:19,260
+Well, you can use the same technique and
+just try each language.
+
+5
+00:00:19,260 --> 00:00:23,960
+For each potential language, you would
+need a list of words in that language and
+
+6
+00:00:23,960 --> 00:00:28,170
+to know the most common character,
+which is not E for all languages.
+
+7
+00:00:29,710 --> 00:00:33,580
+Then you can try breaking the cipher for
+each language.
+
+8
+00:00:33,580 --> 00:00:37,210
+You would use the same code you
+already wrote to find the key length
+
+9
+00:00:37,210 --> 00:00:40,970
+that gives you the most real
+words in each language.
+
+10
+00:00:40,970 --> 00:00:44,200
+This gives you the best choice for
+that particular language.
+
+11
+00:00:44,200 --> 00:00:48,830
+Then you just see which language
+results in the most real words.
+
+12
+00:00:48,830 --> 00:00:53,270
+That is, which language's best
+decryption is best overall?
+
+13
+00:00:53,270 --> 00:00:57,330
+To do this, you're going to read
+the words in for each language.
+
+14
+00:00:57,330 --> 00:01:00,790
+You can make use of the readDictionary
+method that you already wrote.
+
+15
+00:01:02,180 --> 00:01:06,020
+As you read each dictionary,
+you will want to put it into a hash map,
+
+16
+00:01:06,020 --> 00:01:11,830
+whose keys are strings and
+whose values are hash sets of strings.
+
+17
+00:01:11,830 --> 00:01:14,880
+In particular,
+the key is the name of the language and
+
+18
+00:01:14,880 --> 00:01:19,530
+the value is the dictionary that
+you read in with read dictionary.
+
+19
+00:01:19,530 --> 00:01:23,520
+Such a hash map would
+conceptually look like this here.
+
+20
+00:01:23,520 --> 00:01:27,360
+Here you have a table where the keys
+are the names of languages.
+
+21
+00:01:27,360 --> 00:01:30,430
+The values are then the sets
+of words in each language.
+
+22
+00:01:31,820 --> 00:01:35,070
+You might think that this
+type looks a little complex.
+
+23
+00:01:35,070 --> 00:01:38,800
+You have multiple sets of angle
+brackets nested together.
+
+24
+00:01:38,800 --> 00:01:43,710
+However, it is a great example of
+an important programming principle.
+
+25
+00:01:43,710 --> 00:01:46,950
+Do you remember the idea of composition?
+
+26
+00:01:46,950 --> 00:01:49,520
+If you took our course
+Programming in the Web for
+
+27
+00:01:49,520 --> 00:01:52,860
+Beginners, you learned about
+it in the context of HTML.
+
+28
+00:01:52,860 --> 00:01:58,020
+The idea that programming languages
+allow you to put small pieces together
+
+29
+00:01:58,020 --> 00:02:03,480
+to make larger pieces, and that they obey
+the same rules when you put them together.
+
+30
+00:02:03,480 --> 00:02:07,870
+This principle lets you make and
+understand large and complex things.
+
+31
+00:02:07,870 --> 00:02:11,530
+In this case you can understand
+this complicated looking type
+
+32
+00:02:11,530 --> 00:02:13,030
+by understanding the pieces.
+
+33
+00:02:14,040 --> 00:02:18,390
+So what exactly do you need to make
+your Vigenere breaker work for
+
+34
+00:02:18,390 --> 00:02:20,010
+unknown languages?
+
+35
+00:02:20,010 --> 00:02:25,280
+You need to write two new methods, one
+that counts the most common character and
+
+36
+00:02:25,280 --> 00:02:29,920
+hash set of strings, and
+one that tries the different languages.
+
+37
+00:02:31,550 --> 00:02:38,800
+You also need to modify two old methods,
+the break Vigenere method,
+
+38
+00:02:38,800 --> 00:02:44,090
+which is what you run from BlueJ,
+and the breakForLanguage method.
+
+39
+00:02:45,580 --> 00:02:49,850
+You need to write the mostCommonCharIn
+method to account for
+
+40
+00:02:49,850 --> 00:02:54,900
+the fact that E is not the most
+common letter in all languages.
+
+41
+00:02:54,900 --> 00:03:00,240
+So you will count the frequency of
+each letter in the HashSet of strings
+
+42
+00:03:00,240 --> 00:03:02,660
+which is the list of words for
+that language.
+
+43
+00:03:04,140 --> 00:03:09,540
+You have seen and done many problems with
+counting how often you find something, and
+
+44
+00:03:09,540 --> 00:03:13,290
+figuring out which of
+something occurs most often.
+
+45
+00:03:13,290 --> 00:03:16,770
+So hopefully, you are getting
+proficient in these skills by now.
+
+46
+00:03:18,160 --> 00:03:21,710
+The other new method we'll try
+each language in that keySet
+
+47
+00:03:21,710 --> 00:03:22,900
+of the HashMap language.
+
+48
+00:03:24,050 --> 00:03:26,590
+You will want to use breakForLanguage
+
+49
+00:03:26,590 --> 00:03:31,710
+to do the work of trying to break
+that one particular language.
+
+50
+00:03:31,710 --> 00:03:33,810
+You will want to use .get,
+
+51
+00:03:33,810 --> 00:03:39,380
+to get the word list out of the HashMap
+to pass into breakForLanguage.
+
+52
+00:03:39,380 --> 00:03:42,840
+You will then want to see how
+many words you ended up with
+
+53
+00:03:42,840 --> 00:03:46,040
+in the string that
+breakForLanguage returns.
+
+54
+00:03:46,040 --> 00:03:48,910
+Fortunately, we already wrote
+a method that does that.
+
+55
+00:03:50,120 --> 00:03:55,280
+You will then want to pick the best
+language, the one with the most words, and
+
+56
+00:03:55,280 --> 00:03:56,890
+its decryption.
+
+57
+00:03:56,890 --> 00:03:59,380
+Print them out so
+that you know what your program found.
+
+58
+00:03:59,380 --> 00:04:04,150
+You will want to make a few
+changes to breakVigenere(),
+
+59
+00:04:04,150 --> 00:04:06,510
+the method that you call from BlueJ.
+
+60
+00:04:06,510 --> 00:04:09,660
+Instead of just reading
+one language's word list,
+
+61
+00:04:09,660 --> 00:04:11,940
+you'll want to read many of them.
+
+62
+00:04:11,940 --> 00:04:17,420
+The other change is that you will want
+this method to call breakForAllLangs
+
+63
+00:04:17,420 --> 00:04:20,180
+instead of breakForLanguage, so
+
+64
+00:04:20,180 --> 00:04:26,120
+that it tries all of
+the languages that you read in.
+
+65
+00:04:26,120 --> 00:04:30,400
+You will also want to make one
+small change to breakForLanguage.
+
+66
+00:04:30,400 --> 00:04:34,730
+Up to now, you have just passed
+an E as the most common letter.
+
+67
+00:04:34,730 --> 00:04:39,880
+However, now you will want to
+use the mostCommonCharIn method
+
+68
+00:04:39,880 --> 00:04:43,620
+that you just wrote to find the most
+common letter in the word list, and
+
+69
+00:04:43,620 --> 00:04:47,090
+pass that into try key links.
+
+70
+00:04:47,090 --> 00:04:49,360
+So, now that you know the plan,
+it's time for
+
+71
+00:04:49,360 --> 00:04:51,830
+you to devise your algorithms and
+write your code.

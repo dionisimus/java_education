@@ -1,0 +1,33 @@
+If you think back to the start of
+this course, you learned a little bit about cryptography and
+implemented the Caesar cipher. Now you're going to learn a bit about
+the Vigenere Cipher, which historically is quite important, as it was thought to
+be unbreakable for hundreds of years. However, as you're going to see and do, the cipher is quite easy
+to break with the computer. Now, let's see how this cipher works. The key in Vigenere was
+classically a word. For example,
+here we picked dice as our key. You write down the word repeatedly
+to match the message length. Each letter represents a number for
+how much to shift by, so dice means shift by 3,
+8, 2, and 4, repeatedly. In a Java program, it would be quite convenient to
+represent the key as an array of ints. Now to encrypt, you shift each letter
+by the amount written under it, much like you in a Caesar cipher, but each
+letter gets shifted by a different amount. The first letter is M,
+which has 3 added to it, so you get P. The second letter is E,
+which has 8 added to it, so you get M. Then you repeat this process
+across the entire message. As we did for Cesar, we'll have to
+skip anything that's not a letter. Notice that conceptually, this cipher
+is like four different Cesar cyphers. One with a shift of three, shown in blue. One with a shift of eight, shown in red. Another with a shift of two,
+shown in green. And a fourth with a shift of four,
+shown in purple. This similarity means that a programmer
+who has already written an implementation of Caesar cipher could make use of it
+to help implement a Vigenere Cipher. In fact, you could make an array
+of Caesar cipher objects, one with each shift specified in the key
+and use them for your encryption. If you did something like this,
+you could use the mod operator to wrap a count into the pattern,
+0,1,2,3, 0,1,2,3. For this mini-project,
+we're going to give you the code for a Vigenere cipher and you are going
+to write the code to break it. Your goal is to take messages that
+we have encrypted with Vigenere and find the decrypted message
+without knowing the key we used. You will start with breaking a message
+that you know is in English, and then expand your program so that you can try to break encryption
+in a variety of languages.

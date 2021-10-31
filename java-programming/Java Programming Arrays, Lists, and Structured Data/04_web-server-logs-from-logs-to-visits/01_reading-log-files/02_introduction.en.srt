@@ -1,0 +1,107 @@
+1
+00:00:03,469 --> 00:00:07,964
+Now, you're going to write some programs
+and analyze web server log files.
+
+2
+00:00:07,964 --> 00:00:10,670
+Most major web servers log
+each access to a file,
+
+3
+00:00:10,670 --> 00:00:12,716
+which records who made the request,
+
+4
+00:00:12,716 --> 00:00:17,930
+when the request was made, what their
+request was, and how the server responded.
+
+5
+00:00:17,930 --> 00:00:21,050
+So why would you want to
+analyze web server logs?
+
+6
+00:00:21,050 --> 00:00:24,040
+A web sever's log file lets
+you understand a lot about
+
+7
+00:00:24,040 --> 00:00:26,160
+how your website is being used.
+
+8
+00:00:26,160 --> 00:00:29,380
+You might want to know,
+how many people are visiting your site?
+
+9
+00:00:29,380 --> 00:00:30,640
+Is it popular or not?
+
+10
+00:00:31,760 --> 00:00:35,780
+If you have many different pages, are they
+all getting traffic or only a few?
+
+11
+00:00:36,950 --> 00:00:40,370
+Understanding how your site is being
+used is particularly important
+
+12
+00:00:40,370 --> 00:00:42,350
+if you're trying to make money off of it.
+
+13
+00:00:42,350 --> 00:00:44,360
+Popular pages bring in revenue,
+
+14
+00:00:44,360 --> 00:00:48,170
+while pages that nobody looks at
+are not helping your business.
+
+15
+00:00:48,170 --> 00:00:51,780
+The log file can also be
+useful in diagnosing problems,
+
+16
+00:00:51,780 --> 00:00:54,709
+as it will tell you when your
+server is experiencing errors.
+
+17
+00:00:55,740 --> 00:00:59,460
+If one of the pages isn't getting
+traffic because a link to it is broken,
+
+18
+00:00:59,460 --> 00:01:01,980
+you want to know, so you can fix it.
+
+19
+00:01:01,980 --> 00:01:03,150
+In the rest of this lesson,
+
+20
+00:01:03,150 --> 00:01:06,840
+you're going to work on code to
+read the contents of a log file.
+
+21
+00:01:06,840 --> 00:01:10,910
+Being able to read the contents of a log
+file will set you up to solve a variety of
+
+22
+00:01:10,910 --> 00:01:15,150
+problems, such as figuring out how many
+different visitors have come to a website
+
+23
+00:01:15,150 --> 00:01:18,100
+or how many times each
+visitor has visited the site.

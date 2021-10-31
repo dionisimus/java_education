@@ -1,0 +1,466 @@
+1
+00:00:03,345 --> 00:00:03,997
+Welcome back.
+
+2
+00:00:03,997 --> 00:00:07,078
+Now that you know the importance
+of web server logs, it's time for
+
+3
+00:00:07,078 --> 00:00:10,670
+you to start thinking about
+writing code that deals with them.
+
+4
+00:00:10,670 --> 00:00:14,670
+The first thing you're going to
+want to do is to be able to rename
+
+5
+00:00:14,670 --> 00:00:19,361
+a web server log file and represent
+the information in it in Java objects.
+
+6
+00:00:19,361 --> 00:00:22,970
+To do this,
+you need to think about two things.
+
+7
+00:00:22,970 --> 00:00:28,071
+The first is what does all of the
+information in the web server log mean?
+
+8
+00:00:28,071 --> 00:00:32,390
+And the second is how do you
+represent it in a Java class?
+
+9
+00:00:32,390 --> 00:00:36,171
+Here, you can see one entry
+from a web server log file.
+
+10
+00:00:36,171 --> 00:00:41,700
+It has a lot of information and it's not
+readily apparent what each piece means.
+
+11
+00:00:41,700 --> 00:00:42,840
+To find out what it means,
+
+12
+00:00:42,840 --> 00:00:45,660
+you would want to read documentation
+about this web server.
+
+13
+00:00:46,830 --> 00:00:51,681
+This particular data came from the web
+server log for an Apache 2.4 web server.
+
+14
+00:00:51,681 --> 00:00:55,819
+So to find out more,
+you could go to Google and search for
+
+15
+00:00:55,819 --> 00:00:59,850
+Apache 2.4 web server log file format.
+
+16
+00:00:59,850 --> 00:01:02,400
+If you do that,
+you'll end up with a lot of hits.
+
+17
+00:01:02,400 --> 00:01:08,050
+And this first one here, gives you
+a link to the Apache documentation site.
+
+18
+00:01:08,050 --> 00:01:12,070
+If you scroll down a bit, you'll find
+the information on the access log.
+
+19
+00:01:12,070 --> 00:01:17,580
+That is the log of accesses to the web
+server, which is what this web log is and
+
+20
+00:01:17,580 --> 00:01:22,720
+you will see that it has information
+about each of the pieces of this entry.
+
+21
+00:01:24,110 --> 00:01:29,419
+The first is the IP address, that is
+the address of the device on the internet,
+
+22
+00:01:29,419 --> 00:01:32,645
+which made the web request
+that is logged here.
+
+23
+00:01:32,645 --> 00:01:38,100
+The next two pieces are both dashes that
+indicates they are missing information.
+
+24
+00:01:38,100 --> 00:01:43,990
+The first dash is for some information
+about who made this request,
+
+25
+00:01:43,990 --> 00:01:47,200
+which you'll see the documentation
+says is unreliable.
+
+26
+00:01:47,200 --> 00:01:50,180
+The users computer could
+lie about who they are.
+
+27
+00:01:50,180 --> 00:01:54,700
+This second dash is for
+the user name if they're logged in
+
+28
+00:01:54,700 --> 00:01:58,910
+with HTTPF authentication, if they typed
+in a username and password on the website.
+
+29
+00:02:00,020 --> 00:02:04,160
+The next piece of information is the date
+and time when the request was made.
+
+30
+00:02:05,250 --> 00:02:09,729
+Next, you have the request itself
+including what type of request it was.
+
+31
+00:02:09,729 --> 00:02:14,513
+In this case, get, where they're
+asking for a particular web page and
+
+32
+00:02:14,513 --> 00:02:16,600
+then what page they asked for.
+
+33
+00:02:16,600 --> 00:02:18,019
+Next is the status.
+
+34
+00:02:18,019 --> 00:02:21,270
+Here it says, 200,
+which indicates success.
+
+35
+00:02:21,270 --> 00:02:25,121
+There are many other statuses,
+which indicate success or failures.
+
+36
+00:02:25,121 --> 00:02:29,956
+You may be familiar with 404,
+which is the very well-known status code
+
+37
+00:02:29,956 --> 00:02:33,497
+that indicates that the requested
+page was not found.
+
+38
+00:02:33,497 --> 00:02:38,220
+Finally, is the number of bytes
+that the server replied with.
+
+39
+00:02:38,220 --> 00:02:41,120
+How much data it sent back
+to fulfill this request?
+
+40
+00:02:43,180 --> 00:02:47,150
+Now that you've read the documentation and
+understand what each of these pieces of
+
+41
+00:02:47,150 --> 00:02:53,370
+information mean, it's time to think about
+how to represent them in a java class.
+
+42
+00:02:53,370 --> 00:02:58,070
+The first thing you need to think about is
+what type of information each of these is.
+
+43
+00:02:58,070 --> 00:02:59,510
+For the IP address,
+
+44
+00:02:59,510 --> 00:03:04,200
+you could use a string since you're
+interested in just the text of that field.
+
+45
+00:03:04,200 --> 00:03:08,191
+Java does have a built-in class for IP
+addresses, which would give us some more
+
+46
+00:03:08,191 --> 00:03:11,898
+features if we wanted to actually
+connect to that address, for example.
+
+47
+00:03:11,898 --> 00:03:13,900
+But we don't need that functionality and
+
+48
+00:03:13,900 --> 00:03:18,420
+we don't need to worry about the
+complexity that would introduce right now.
+
+49
+00:03:18,420 --> 00:03:21,860
+We don't need to represent
+the two fields that we've omitted
+
+50
+00:03:21,860 --> 00:03:24,010
+that have no useful information.
+
+51
+00:03:24,010 --> 00:03:26,740
+We do, however,
+want to represent the date.
+
+52
+00:03:26,740 --> 00:03:31,159
+You could use a string for that in which
+case, you would just have its text or
+
+53
+00:03:31,159 --> 00:03:35,791
+you could use the built-in Java Date
+class, which understands what dates and
+
+54
+00:03:35,791 --> 00:03:38,406
+times are and
+how they relate to each other.
+
+55
+00:03:38,406 --> 00:03:41,890
+So you could check if one time
+is before or after another time.
+
+56
+00:03:43,330 --> 00:03:46,450
+For the request,
+you can just use a string.
+
+57
+00:03:46,450 --> 00:03:50,050
+And for the status and number of bytes,
+those are both numbers, so
+
+58
+00:03:50,050 --> 00:03:51,050
+you can use an int.
+
+59
+00:03:52,580 --> 00:03:54,927
+Now that we've gotten through these types,
+
+60
+00:03:54,927 --> 00:03:57,218
+it's time to turn this
+into some Java code.
+
+61
+00:03:57,218 --> 00:04:01,553
+Here you can see the start of
+a Java class for a LogEntry,
+
+62
+00:04:01,553 --> 00:04:04,967
+we've declared a public class LogEntry and
+
+63
+00:04:04,967 --> 00:04:09,500
+written fields based on the types
+that we just discussed.
+
+64
+00:04:10,520 --> 00:04:14,604
+You should now think, should each of
+these fields be public or private?
+
+65
+00:04:14,604 --> 00:04:19,154
+Remember that if a field is public,
+any piece of code can access it.
+
+66
+00:04:19,154 --> 00:04:24,120
+If a field is private, only code within
+this particular class can access it.
+
+67
+00:04:25,240 --> 00:04:30,300
+In this particular case, it makes sense
+to have each of these be private and
+
+68
+00:04:30,300 --> 00:04:33,090
+to design your class to be immutable.
+
+69
+00:04:33,090 --> 00:04:38,140
+Remember, from earlier when we learned
+about strings that immutable means,
+
+70
+00:04:38,140 --> 00:04:41,160
+you cannot modify an object
+once you create it.
+
+71
+00:04:41,160 --> 00:04:43,050
+So you're going to write this class, so
+
+72
+00:04:43,050 --> 00:04:48,250
+that each of these fields will be set in
+its constructor, but can only be read.
+
+73
+00:04:48,250 --> 00:04:53,550
+To make anything able to read these
+fields, you'll write a public getter or
+
+74
+00:04:53,550 --> 00:04:58,680
+accesser method such as these, which will
+just return the value of that field, but
+
+75
+00:04:58,680 --> 00:05:03,190
+there will be no way to set the value
+of the field once its constructed.
+
+76
+00:05:03,190 --> 00:05:08,650
+Speaking of constructing, you need to
+write a constructor for this class.
+
+77
+00:05:08,650 --> 00:05:10,320
+There are two ways you could do it.
+
+78
+00:05:10,320 --> 00:05:14,650
+The first is to take in
+this entire string and
+
+79
+00:05:14,650 --> 00:05:19,420
+then I have the constructor pull it apart
+into each of these individual pieces and
+
+80
+00:05:19,420 --> 00:05:22,290
+fill in the fields or
+instance variables of the class.
+
+81
+00:05:23,700 --> 00:05:28,580
+The other is to have the constructor take
+each piece of information separately and
+
+82
+00:05:28,580 --> 00:05:32,270
+simply initialize
+the fields of the object.
+
+83
+00:05:32,270 --> 00:05:34,744
+We're going to have you do the second one,
+
+84
+00:05:34,744 --> 00:05:39,556
+just making a constructor that looks like
+this, which is going to fill in the fields
+
+85
+00:05:39,556 --> 00:05:44,186
+based on the information passed down
+with each piece being passed separately.
+
+86
+00:05:44,186 --> 00:05:45,740
+Why would you do it this way?
+
+87
+00:05:45,740 --> 00:05:50,442
+Well, this gives you a little more
+flexibility if you wanted to create one of
+
+88
+00:05:50,442 --> 00:05:54,719
+these objects from some other source
+of information you could do so.
+
+89
+00:05:54,719 --> 00:05:58,524
+It turns out that pulling this line apart
+is actually a little bit tricky, so
+
+90
+00:05:58,524 --> 00:06:00,552
+we're gonna give you the code for that.
+
+91
+00:06:00,552 --> 00:06:04,777
+It's a little bit ugly and we'll package
+it up into a nice method for you, so
+
+92
+00:06:04,777 --> 00:06:06,770
+you can just use it to read the file.
+
+93
+00:06:07,850 --> 00:06:12,156
+Here is the final log entry class with
+all of the things you just learned about.
+
+94
+00:06:12,156 --> 00:06:16,897
+You would use this to represent one of
+these log entries as you work with it.
+
+95
+00:06:16,897 --> 00:06:20,155
+So your next task is going
+to be to use this class,
+
+96
+00:06:20,155 --> 00:06:24,366
+the code we give you to split this
+up into each separate piece and
+
+97
+00:06:24,366 --> 00:06:29,230
+put them together to make code that's
+going to read the entire log file.

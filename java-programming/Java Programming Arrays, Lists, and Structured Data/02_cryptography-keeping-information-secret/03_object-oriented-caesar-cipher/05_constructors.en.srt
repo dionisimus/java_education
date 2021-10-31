@@ -1,0 +1,294 @@
+1
+00:00:03,390 --> 00:00:04,370
+Welcome.
+
+2
+00:00:04,370 --> 00:00:08,050
+The last object oriented concept
+you're going to learn in this lesson
+
+3
+00:00:08,050 --> 00:00:09,670
+is constructors.
+
+4
+00:00:09,670 --> 00:00:13,630
+Recall that the object oriented
+CaesarCipher we wrote had a constructor,
+
+5
+00:00:13,630 --> 00:00:17,840
+which took the key as a parameter and
+initialized the fields on the object.
+
+6
+00:00:19,020 --> 00:00:22,830
+When you want to write a constructor,
+there are certain rules for declaring it.
+
+7
+00:00:22,830 --> 00:00:28,910
+The first is that its name has to be
+exactly the name of the class it is in.
+
+8
+00:00:28,910 --> 00:00:32,830
+Here, the constructor's name
+must be CaesarCipher because
+
+9
+00:00:32,830 --> 00:00:35,710
+it's in a class called CaesarCipher.
+
+10
+00:00:35,710 --> 00:00:40,580
+The second rule is that the constructor
+has no return type, not even void.
+
+11
+00:00:40,580 --> 00:00:45,210
+Normally you would write a method's return
+type here between public and the name
+
+12
+00:00:45,210 --> 00:00:50,100
+of the method, but for constructor you do
+not need to write anything between them.
+
+13
+00:00:51,600 --> 00:00:55,980
+Like a normal method, a constructor
+has its parameter list in parentheses.
+
+14
+00:00:55,980 --> 00:01:00,140
+You can make constructors with any
+number and types of parameters you want.
+
+15
+00:01:00,140 --> 00:01:03,370
+You can have no parameters
+to a constructor or several.
+
+16
+00:01:04,430 --> 00:01:07,290
+Here we have one parameter of type int,
+the key.
+
+17
+00:01:08,650 --> 00:01:11,970
+Finally, a constructor has a body,
+like a normal method.
+
+18
+00:01:11,970 --> 00:01:16,760
+You can write whatever code you want in
+the constructor's body to specify how
+
+19
+00:01:16,760 --> 00:01:17,900
+to initialize the object.
+
+20
+00:01:19,070 --> 00:01:22,570
+Constructors are not quite
+like normal methods, however.
+
+21
+00:01:22,570 --> 00:01:24,670
+You do not call them directly.
+
+22
+00:01:24,670 --> 00:01:28,590
+Instead, they are automatically
+as part of newing an object.
+
+23
+00:01:28,590 --> 00:01:32,760
+When you create a new object, the
+constructor is invoked to initialize that
+
+24
+00:01:32,760 --> 00:01:36,430
+object immediately after
+the new object is made.
+
+25
+00:01:36,430 --> 00:01:39,410
+This is one of the great
+benefits of constructors.
+
+26
+00:01:39,410 --> 00:01:44,390
+They allow you to specify how an object
+should be initialized, and you can be sure
+
+27
+00:01:44,390 --> 00:01:49,510
+that code will always be run for
+every object, as soon as it is made.
+
+28
+00:01:49,510 --> 00:01:52,740
+You do not have to worry about
+bugs in your code from forgetting
+
+29
+00:01:52,740 --> 00:01:55,090
+to call some initialization code.
+
+30
+00:01:55,090 --> 00:01:57,440
+What happens if you do not write
+a constructor for your class?
+
+31
+00:01:58,520 --> 00:02:02,530
+Whenever you write no constructors as
+you've been doing up to this point,
+
+32
+00:02:02,530 --> 00:02:06,690
+the Java compiler will provide
+a default constructor for you.
+
+33
+00:02:06,690 --> 00:02:10,480
+The constructor that the compiler
+provides looks like this.
+
+34
+00:02:10,480 --> 00:02:13,080
+It is public, which you should recall,
+
+35
+00:02:13,080 --> 00:02:16,030
+means any piece of code may use
+it to initialize an object.
+
+36
+00:02:17,190 --> 00:02:22,130
+It takes no arguments, so you would pass
+no arguments when you create new objects.
+
+37
+00:02:22,130 --> 00:02:26,160
+And it does not do anything, there is no
+special initialization of the object.
+
+38
+00:02:27,680 --> 00:02:29,730
+Now that you know the rules
+about constructors,
+
+39
+00:02:29,730 --> 00:02:32,900
+let's see how a constructor works.
+
+40
+00:02:32,900 --> 00:02:38,378
+Let's suppose you had a line of code
+somewhere else in your program like this,
+
+41
+00:02:38,378 --> 00:02:41,785
+CaesarCipher cc = new CaesarCipher(22).
+
+42
+00:02:41,785 --> 00:02:46,144
+This line of code asks Java to make a new
+instance of the CaesarCipher class and
+
+43
+00:02:46,144 --> 00:02:49,880
+initialize it by passing
+22 to your constructor.
+
+44
+00:02:49,880 --> 00:02:54,660
+Let us see what this does by starting when
+Java is just about to execute this line.
+
+45
+00:02:54,660 --> 00:02:57,280
+The first thing it does is
+create a new variable, cc.
+
+46
+00:02:57,280 --> 00:03:00,910
+Then it creates a new instance
+of the CaesarCipher class.
+
+47
+00:03:00,910 --> 00:03:06,240
+That means you have a new object with its
+own copy of the fields of that class,
+
+48
+00:03:06,240 --> 00:03:08,350
+alphabet and shiftedAlphabet.
+
+49
+00:03:08,350 --> 00:03:11,090
+Then it calls the constructor,
+passing 22 for the key.
+
+50
+00:03:11,090 --> 00:03:13,220
+Once inside the constructor,
+
+51
+00:03:13,220 --> 00:03:17,280
+Java begins executing the code you
+wrote to initialize the object.
+
+52
+00:03:17,280 --> 00:03:22,600
+This code initializes alphabet,
+then initializes shiftedAlphabet.
+
+53
+00:03:22,600 --> 00:03:24,070
+Having finished the constructor,
+
+54
+00:03:24,070 --> 00:03:28,350
+Java returns back to where
+you are creating the object.
+
+55
+00:03:28,350 --> 00:03:30,630
+The key was just a parameter
+to the constructor so
+
+56
+00:03:30,630 --> 00:03:33,240
+it only exists during that call.
+
+57
+00:03:33,240 --> 00:03:37,480
+However, the fields are part of the object
+so they continue to exist in it.
+
+58
+00:03:38,590 --> 00:03:42,380
+And then finishes the assignment
+statement by initializing the cc variable
+
+59
+00:03:42,380 --> 00:03:44,210
+to the newly created object.
+
+60
+00:03:44,210 --> 00:03:49,390
+Great, now you know the basic rules of
+how to write constructors, what they do,
+
+61
+00:03:49,390 --> 00:03:52,480
+and how they are used
+to initialize objects.
+
+62
+00:03:52,480 --> 00:03:52,980
+Thank you.

@@ -1,0 +1,220 @@
+1
+00:00:03,791 --> 00:00:04,670
+All right.
+
+2
+00:00:04,670 --> 00:00:08,180
+Now you've devised the algorithm
+to count the unique IP addresses
+
+3
+00:00:08,180 --> 00:00:09,470
+in a web server log.
+
+4
+00:00:09,470 --> 00:00:11,660
+So, it's time to turn it into code.
+
+5
+00:00:11,660 --> 00:00:15,570
+As usual, we have here
+the outline of this method with
+
+6
+00:00:15,570 --> 00:00:17,820
+the pseudo code that
+you've just developed.
+
+7
+00:00:17,820 --> 00:00:21,573
+The first thing we wanna do is make
+unique IPs which starts as an empty list.
+
+8
+00:00:21,573 --> 00:00:25,990
+So, we're going to have
+an array list of strings.
+
+9
+00:00:25,990 --> 00:00:27,881
+And we're going to call it unique IPs.
+
+10
+00:00:27,881 --> 00:00:30,321
+And it's going to be
+a new empty array list.
+
+11
+00:00:34,001 --> 00:00:37,401
+Now, we want to do something for
+each element,
+
+12
+00:00:37,401 --> 00:00:40,041
+which we'll call LE in our records.
+
+13
+00:00:40,041 --> 00:00:44,990
+So, as you're familiar with by now,
+this is a for each style, for loop.
+
+14
+00:00:46,000 --> 00:00:47,986
+Each of these is going to be a log entry.
+
+15
+00:00:51,821 --> 00:00:57,317
+And remember that records,
+even though we don't have a records
+
+16
+00:00:57,317 --> 00:01:02,221
+variable in here,
+is an instance variable in our class.
+
+17
+00:01:06,141 --> 00:01:09,621
+So, we're going to take
+each log entry in records.
+
+18
+00:01:09,621 --> 00:01:14,621
+And then, we're going to get
+to the IP address out of it.
+
+19
+00:01:23,866 --> 00:01:29,705
+And then we wanna know if IP address is or
+is not in unique IPs.
+
+20
+00:01:29,705 --> 00:01:34,197
+So, we're going to say if
+
+21
+00:01:34,197 --> 00:01:40,331
+uniqueIps.contains IP address.
+
+22
+00:01:40,331 --> 00:01:43,051
+But we want not that,
+that is the opposite.
+
+23
+00:01:43,051 --> 00:01:46,140
+So, we're going to put a not in front.
+
+24
+00:01:47,410 --> 00:01:51,315
+Then we want to add IP
+address to unique IPs,
+
+25
+00:01:51,315 --> 00:01:57,412
+uniqueIPs.add IP address.
+
+26
+00:01:57,412 --> 00:02:00,047
+Close that.
+
+27
+00:02:00,047 --> 00:02:02,391
+Close that.
+
+28
+00:02:02,391 --> 00:02:05,420
+And then at the end here,
+
+29
+00:02:05,420 --> 00:02:10,771
+it says we want to return unique IPs.size.
+
+30
+00:02:10,771 --> 00:02:14,071
+Now, my braces have ended up
+in slightly weird places.
+
+31
+00:02:14,071 --> 00:02:17,751
+That's probably just because I
+have some braces in my comments.
+
+32
+00:02:17,751 --> 00:02:24,226
+So, I'm going to delete those and then
+try to make sure my code lines up nicely.
+
+33
+00:02:34,511 --> 00:02:35,700
+Okay.
+
+34
+00:02:35,700 --> 00:02:37,250
+So, now I'm gonna hit compile.
+
+35
+00:02:38,280 --> 00:02:40,081
+Those class compiled, no syntax errors.
+
+36
+00:02:40,081 --> 00:02:41,990
+Of course, we want to test this.
+
+37
+00:02:41,990 --> 00:02:46,060
+I've all ready written a tester here,
+which is going to create a new log in
+
+38
+00:02:46,060 --> 00:02:51,060
+analyzer, read in short test log,
+which is this log file here.
+
+39
+00:02:51,060 --> 00:02:53,231
+It has this IP address.
+
+40
+00:02:53,231 --> 00:02:57,960
+The same IP address appears three times,
+we've only seen two unique IP addresses.
+
+41
+00:02:57,960 --> 00:02:59,781
+We have a third, and we have a fourth.
+
+42
+00:02:59,781 --> 00:03:02,923
+All right.
+Then it uses the LogAnalyzer to count
+
+43
+00:03:02,923 --> 00:03:06,971
+unique IPs,
+to count the unique IPs like we just did.
+
+44
+00:03:06,971 --> 00:03:09,720
+And then it prints out how many there are.
+
+45
+00:03:09,720 --> 00:03:11,961
+So, I'm gonna go over here to BlueJ.
+
+46
+00:03:11,961 --> 00:03:18,162
+I am going to make a new unique IP tester.
+
+47
+00:03:18,162 --> 00:03:21,281
+And I'm going to run test unique IPs.
+
+48
+00:03:21,281 --> 00:03:26,420
+And it prints out there are four IPs,
+which is the result that we expected.
+
+49
+00:03:26,420 --> 00:03:28,430
+So, we're more confident
+that our code is correct.

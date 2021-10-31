@@ -1,0 +1,56 @@
+1
+00:00:03,670 --> 00:00:06,730
+In this lesson you learned
+a bit about web server logs,
+
+2
+00:00:06,730 --> 00:00:09,850
+which can give you a lot of
+information about your website.
+
+3
+00:00:09,850 --> 00:00:13,420
+You learned what is in them,
+how those records are formatted,
+
+4
+00:00:13,420 --> 00:00:16,530
+as we looked at the Apache web
+server documentation together.
+
+5
+00:00:17,810 --> 00:00:21,290
+And then you learned how
+to make a LogEntry class
+
+6
+00:00:21,290 --> 00:00:22,930
+based on the information in that file.
+
+7
+00:00:24,030 --> 00:00:27,120
+As part of that,
+you learned about toString,
+
+8
+00:00:27,120 --> 00:00:29,130
+which is an important Java concept,
+
+9
+00:00:29,130 --> 00:00:32,550
+as you will want to write a toString
+method in many of the classes you create.
+
+10
+00:00:33,700 --> 00:00:36,890
+Finally, you wrote code
+to read in the log file
+
+11
+00:00:36,890 --> 00:00:38,840
+using the parsing code that we provided.
+
+12
+00:00:40,130 --> 00:00:44,010
+Now, you are ready to write some code
+to analyze the data you've read in.

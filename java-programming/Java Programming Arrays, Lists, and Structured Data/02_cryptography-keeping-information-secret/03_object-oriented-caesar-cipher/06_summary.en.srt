@@ -1,0 +1,65 @@
+1
+00:00:03,171 --> 00:00:04,118
+In this lesson,
+
+2
+00:00:04,118 --> 00:00:09,170
+you'll learn some of the basic concepts
+of object oriented programming.
+
+3
+00:00:09,170 --> 00:00:12,470
+You'll learn about encapsulation,
+the idea of putting code and
+
+4
+00:00:12,470 --> 00:00:14,350
+data together in an object,
+
+5
+00:00:14,350 --> 00:00:19,285
+such as the methods of the object act on
+the data that's inside the same object.
+
+6
+00:00:19,285 --> 00:00:23,280
+You learned about fields,
+which are also called instance variables.
+
+7
+00:00:23,280 --> 00:00:26,450
+They let you declare data that
+should be inside of objects.
+
+8
+00:00:27,540 --> 00:00:30,880
+And you learned about visibility
+modifiers, private and
+
+9
+00:00:30,880 --> 00:00:34,440
+public, which let you expose or
+restrict access to fields and
+
+10
+00:00:34,440 --> 00:00:38,560
+methods, so you can enforce abstractions
+and provide the interface you want.
+
+11
+00:00:39,690 --> 00:00:42,250
+Finally, you learned about constructors,
+
+12
+00:00:42,250 --> 00:00:46,991
+which let you write code specifying how
+to initialize the objects you create.
+
+13
+00:00:48,450 --> 00:00:53,180
+When you do object oriented programming,
+it's called OO programming,
+
+14
+00:00:53,180 --> 00:00:56,640
+giving you OO7, license to code.

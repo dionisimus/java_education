@@ -1,0 +1,675 @@
+1
+00:00:03,106 --> 00:00:07,261
+Hi, as you get ready to solve problems
+that are slightly more complex,
+
+2
+00:00:07,261 --> 00:00:11,310
+you'll learn some new
+programming constructs to help.
+
+3
+00:00:11,310 --> 00:00:14,580
+In this video you'll learn
+about counting loops.
+
+4
+00:00:14,580 --> 00:00:18,374
+You've used different kinds of
+loops in solving problems before.
+
+5
+00:00:18,374 --> 00:00:23,772
+You used a while(true) loop in finding
+codons in DNA or tags in a web page.
+
+6
+00:00:23,772 --> 00:00:27,743
+And you have used a for
+each loop within iterable many times.
+
+7
+00:00:27,743 --> 00:00:32,098
+As an reading lines in a file or
+processing pixels in an image.
+
+8
+00:00:32,098 --> 00:00:36,671
+You've also used indexes to access and
+reference parts of a string.
+
+9
+00:00:36,671 --> 00:00:41,470
+You know that indexes start with zero
+in Java and with other many languages.
+
+10
+00:00:41,470 --> 00:00:45,210
+So, when you use .indexOf
+you know it returns zero
+
+11
+00:00:45,210 --> 00:00:48,026
+when a match is found at
+the first character in a string.
+
+12
+00:00:48,026 --> 00:00:49,928
+Both .indexOf and
+
+13
+00:00:49,928 --> 00:00:55,190
+.substring use indexes to access
+the elements or characters of a string.
+
+14
+00:00:56,350 --> 00:01:00,340
+We'll look at code to access
+individual characters in a string.
+
+15
+00:01:00,340 --> 00:01:04,150
+We'll do this in the context of
+looking at the reverse of a string.
+
+16
+00:01:04,150 --> 00:01:08,796
+Where the reverse of CGATTA is ATTAGC and
+
+17
+00:01:08,796 --> 00:01:14,270
+the reverse of TIP, T-I-P is PIT, P-I-T.
+
+18
+00:01:15,950 --> 00:01:19,050
+Scientists studying genomes
+
+19
+00:01:19,050 --> 00:01:23,500
+often have to look at a string
+backwards to analyze the DNA.
+
+20
+00:01:24,540 --> 00:01:26,700
+It can also be a source of fun or
+
+21
+00:01:26,700 --> 00:01:29,710
+word play to look at phrases
+that are palindromes.
+
+22
+00:01:29,710 --> 00:01:32,720
+The same read backwards as forward.
+
+23
+00:01:32,720 --> 00:01:35,920
+Here's a sentence in Russian that
+you can see reads backwards and
+
+24
+00:01:35,920 --> 00:01:38,780
+forwards, if you understand
+the cyrillic alphabet.
+
+25
+00:01:38,780 --> 00:01:41,610
+It means, the boar pressed the eggplant.
+
+26
+00:01:42,940 --> 00:01:47,700
+In Spanish, we have a palindromic sentence
+that means, there jogs the tortilla.
+
+27
+00:01:49,220 --> 00:01:51,540
+While in French,
+the sentence [FOREIGN] means.
+
+28
+00:01:51,540 --> 00:01:54,120
+And, how is the cow?
+
+29
+00:01:55,640 --> 00:01:57,610
+Finally, we see an English sentence.
+
+30
+00:01:57,610 --> 00:02:00,390
+Draw, O Caesar, erase a coward.
+
+31
+00:02:00,390 --> 00:02:05,570
+Which is particularly appropriate as we
+implement a Caesar cipher in this module.
+
+32
+00:02:05,570 --> 00:02:09,090
+We'll use a new loop,
+the counting loop, to reverse a string.
+
+33
+00:02:10,620 --> 00:02:13,370
+Indexing a string in a loop can
+be done in several ways, but
+
+34
+00:02:13,370 --> 00:02:16,010
+we'll look at a very common approach.
+
+35
+00:02:16,010 --> 00:02:19,170
+We must understand
+a loop with three parts.
+
+36
+00:02:19,170 --> 00:02:22,460
+Each part is separated from
+the other parts by a semi-colon.
+
+37
+00:02:22,460 --> 00:02:25,330
+As you can see in the code on the slide.
+
+38
+00:02:25,330 --> 00:02:28,800
+The first part of the loop is
+called the initialization.
+
+39
+00:02:28,800 --> 00:02:31,440
+Here the variable k is assigned a value 0.
+
+40
+00:02:31,440 --> 00:02:36,300
+And this happens once before the loop
+guard and the loop body are executed.
+
+41
+00:02:37,580 --> 00:02:42,180
+The loop guard is evaluated each time,
+before the loop block or
+
+42
+00:02:42,180 --> 00:02:43,730
+body maybe executed.
+
+43
+00:02:43,730 --> 00:02:46,730
+When the loop guard is true,
+the body is executed.
+
+44
+00:02:46,730 --> 00:02:48,930
+And when it's false the loop executes.
+
+45
+00:02:48,930 --> 00:02:52,020
+Sometimes the loop guard
+is called the loop test.
+
+46
+00:02:52,020 --> 00:02:57,460
+The increment here happens after all the
+statements in the loop body are executed.
+
+47
+00:02:57,460 --> 00:03:00,890
+After the increment the loop
+guard is evaluated again
+
+48
+00:03:00,890 --> 00:03:03,790
+to see if the loop continues or exits.
+
+49
+00:03:03,790 --> 00:03:05,970
+We'll look at this more closely.
+
+50
+00:03:05,970 --> 00:03:09,760
+To understand the for loop,
+we'll compare it to the while loop
+
+51
+00:03:09,760 --> 00:03:15,340
+that you've seen before, though not with
+this precise style of counting in a loop.
+
+52
+00:03:15,340 --> 00:03:19,010
+The for loop does not provide
+more power than a while loop.
+
+53
+00:03:19,010 --> 00:03:22,090
+Or allow you to solve different problems.
+
+54
+00:03:22,090 --> 00:03:25,020
+The for loop is simply syntactic sugar.
+
+55
+00:03:25,020 --> 00:03:30,180
+Or a dressing up of a while loop before
+loop puts all the parts in one place.
+
+56
+00:03:30,180 --> 00:03:34,130
+And many programmers think this makes
+the loop easier to write and to read.
+
+57
+00:03:35,150 --> 00:03:36,630
+As we've discussed,
+
+58
+00:03:36,630 --> 00:03:41,340
+the initialization happens once
+before the loop guard is tested.
+
+59
+00:03:41,340 --> 00:03:44,180
+You can see in the comparison
+here how initialization happens
+
+60
+00:03:44,180 --> 00:03:45,540
+before the while loop, too.
+
+61
+00:03:46,690 --> 00:03:51,230
+The loop guard is evaluated to see
+if the loop body will execute.
+
+62
+00:03:51,230 --> 00:03:54,240
+When the loop guard is false,
+the loop is over.
+
+63
+00:03:54,240 --> 00:03:59,280
+Both the while and the for loop exit
+when this loop guard or test is false.
+
+64
+00:04:00,360 --> 00:04:03,630
+When the guard is true,
+the loop body executes, and
+
+65
+00:04:03,630 --> 00:04:07,830
+as the last statement in the body,
+we see the increment statement.
+
+66
+00:04:07,830 --> 00:04:08,700
+Which will execute.
+
+67
+00:04:09,730 --> 00:04:12,220
+We'll trace through the execution of a for
+
+68
+00:04:12,220 --> 00:04:17,770
+loop in a particular example of a reverse
+function to better understand the loop.
+
+69
+00:04:17,770 --> 00:04:21,600
+And to trace this,
+we'll look at the call reverse pit.
+
+70
+00:04:21,600 --> 00:04:24,950
+This means the value of
+parameter s is the string pit.
+
+71
+00:04:26,010 --> 00:04:30,890
+The local variable r, or ret,
+will accumulate the reversed string.
+
+72
+00:04:30,890 --> 00:04:34,090
+It's initialized to the empty
+string before the loop.
+
+73
+00:04:34,090 --> 00:04:35,740
+As we trace through the code,
+
+74
+00:04:35,740 --> 00:04:38,670
+the green arrow indicates
+the statement that will execute next.
+
+75
+00:04:39,780 --> 00:04:44,600
+The loop index, or control variable k,
+is initialized to 0.
+
+76
+00:04:44,600 --> 00:04:48,310
+Remember that the loop initialization
+only happens once in a for loop.
+
+77
+00:04:48,310 --> 00:04:52,800
+And the variable k is only accessible
+within the loop, but not after the loop.
+
+78
+00:04:52,800 --> 00:04:53,690
+Its scope is limited.
+
+79
+00:04:54,780 --> 00:04:58,840
+When the loop guard is checked,
+the value of k, which is 0,
+
+80
+00:04:58,840 --> 00:05:03,810
+is less than s dot length, which is
+three since pit has three characters.
+
+81
+00:05:03,810 --> 00:05:06,010
+So loop guard evaluates to true.
+
+82
+00:05:06,010 --> 00:05:09,660
+Loop guards are always
+boolean expressions.
+
+83
+00:05:09,660 --> 00:05:11,820
+The loop body now executes.
+
+84
+00:05:11,820 --> 00:05:17,480
+And the string method charAt acts
+as a character at a specific index.
+
+85
+00:05:17,480 --> 00:05:21,200
+We should point out here that some
+people say charAt, the way I do,
+
+86
+00:05:21,200 --> 00:05:25,620
+and some people say charAt
+either one is fine.
+
+87
+00:05:25,620 --> 00:05:30,720
+Since k is 0,
+the expression s.careAt(0) evaluates to p.
+
+88
+00:05:31,890 --> 00:05:35,050
+We've shown the character
+'p' with single quotes
+
+89
+00:05:35,050 --> 00:05:38,720
+which is used in Java to
+indicate the primitive type care.
+
+90
+00:05:38,720 --> 00:05:42,520
+The value of red is shown as
+the empty string in double quotes.
+
+91
+00:05:42,520 --> 00:05:46,460
+Because these double quotes in
+Java indicate a string literal.
+
+92
+00:05:46,460 --> 00:05:53,975
+Concatenating the character p to
+the empty string yields a new string p.
+
+93
+00:05:53,975 --> 00:05:58,015
+The variable ret will be
+assigned the value p.
+
+94
+00:05:58,015 --> 00:05:59,864
+The string variable changes and
+
+95
+00:05:59,864 --> 00:06:03,910
+it's no longer pointing to
+the empty string as it used to.
+
+96
+00:06:03,910 --> 00:06:06,490
+Remember that strings
+in Java are immutable.
+
+97
+00:06:06,490 --> 00:06:09,090
+We can create new ones, but
+we can't change a string.
+
+98
+00:06:10,090 --> 00:06:13,570
+The increment executes
+after the loop body.
+
+99
+00:06:13,570 --> 00:06:16,790
+This changes k, so
+that it has the value 1.
+
+100
+00:06:16,790 --> 00:06:22,543
+After the increment statement, we're ready
+to trace the next iteration of the loop.
+
+101
+00:06:22,543 --> 00:06:25,201
+The local variable ret has the value p.
+
+102
+00:06:25,201 --> 00:06:29,480
+The loop control variable k has the value
+1 and we're ready to continue the trace.
+
+103
+00:06:30,610 --> 00:06:32,570
+K has the value 1.
+
+104
+00:06:32,570 --> 00:06:35,160
+The length of s, the string pit, is three.
+
+105
+00:06:35,160 --> 00:06:38,460
+And so the loop body executes,
+since the guard evaluates to true.
+
+106
+00:06:39,470 --> 00:06:44,430
+Remember that the .carat method
+accesses the kth character.
+
+107
+00:06:44,430 --> 00:06:47,490
+Here that's the character i,
+whose index is 1.
+
+108
+00:06:47,490 --> 00:06:52,180
+The character i is prepended via string
+concatenation to ret, which is p,
+
+109
+00:06:52,180 --> 00:06:54,930
+and this creates a new string, ip.
+
+110
+00:06:54,930 --> 00:07:00,700
+The assignment statement changes ret,
+so that references this new string.
+
+111
+00:07:00,700 --> 00:07:05,580
+And now the loop increment will execute,
+the value of k is 2,
+
+112
+00:07:05,580 --> 00:07:08,080
+and the loop will continue to execute.
+
+113
+00:07:09,190 --> 00:07:13,868
+We'll now trace through
+the last iteration of the loop.
+
+114
+00:07:13,868 --> 00:07:16,680
+The local variable ret has the value ip.
+
+115
+00:07:16,680 --> 00:07:20,210
+The loop variable k has the value 2 and
+
+116
+00:07:20,210 --> 00:07:24,080
+as we can see here the loop
+guard will be evaluated.
+
+117
+00:07:24,080 --> 00:07:28,490
+Since 2 is less than 3 the guard is
+true and the loop body executes.
+
+118
+00:07:28,490 --> 00:07:35,830
+S.charAt t evaluates to t,
+as you can see here.
+
+119
+00:07:35,830 --> 00:07:41,050
+The character t is prepended to
+the string ip to form the string tip.
+
+120
+00:07:42,130 --> 00:07:47,600
+Variable ret now references tip and
+the loop continues.
+
+121
+00:07:47,600 --> 00:07:53,320
+The increment statement executes
+which changes k to have the value 3.
+
+122
+00:07:53,320 --> 00:07:56,410
+Now the loop guard will
+be evaluated again.
+
+123
+00:07:58,660 --> 00:08:02,490
+As the loop guard is evaluated here,
+you can see that the value of k is 3,
+
+124
+00:08:02,490 --> 00:08:05,060
+and the length of s is 3 as well.
+
+125
+00:08:06,080 --> 00:08:10,950
+Since 3 is not less than 3,
+the loop guard is false.
+
+126
+00:08:10,950 --> 00:08:14,970
+Control in the program continues
+to the statement after the loop.
+
+127
+00:08:14,970 --> 00:08:20,240
+The value of ret is tip,
+the reverse of the string parameter s,
+
+128
+00:08:20,240 --> 00:08:21,750
+so tip will be returned.
+
+129
+00:08:23,430 --> 00:08:28,650
+It's good to know that you'll see others
+write code and you should understand that.
+
+130
+00:08:28,650 --> 00:08:33,500
+Many programmers use i as a loop
+control or index variable.
+
+131
+00:08:33,500 --> 00:08:37,610
+Some programmers think the letter i is
+hard to distinguish from the number 1.
+
+132
+00:08:37,610 --> 00:08:40,950
+But i is more common than
+k in reading other code.
+
+133
+00:08:42,010 --> 00:08:49,428
+Many programmers use the post-increment
+operator i++ instead of i plus gets 1.
+
+134
+00:08:49,428 --> 00:08:52,161
+We won't explain the nuances of i++ here,
+but
+
+135
+00:08:52,161 --> 00:08:54,502
+it's a very common idiom in using loops.
+
+136
+00:08:54,502 --> 00:08:59,620
+And it's fine to use i++ by itself,
+in the loop increment.
+
+137
+00:08:59,620 --> 00:09:04,440
+Sometimes it's useful to define the loop
+index variable before the loop,
+
+138
+00:09:04,440 --> 00:09:07,530
+rather than inside
+the parentheses of the loop.
+
+139
+00:09:07,530 --> 00:09:10,350
+This allows the value of
+i to be referenced or
+
+140
+00:09:10,350 --> 00:09:13,630
+accessed after the loop is over.
+
+141
+00:09:13,630 --> 00:09:17,940
+When the variable is defined within the
+parenthesis of the loop, that loop control
+
+142
+00:09:17,940 --> 00:09:21,800
+variable can only be referenced within
+the loop body, but not after the loop.
+
+143
+00:09:23,140 --> 00:09:27,270
+Have fun programming and programming and
+programming as you loop and loop and loop.

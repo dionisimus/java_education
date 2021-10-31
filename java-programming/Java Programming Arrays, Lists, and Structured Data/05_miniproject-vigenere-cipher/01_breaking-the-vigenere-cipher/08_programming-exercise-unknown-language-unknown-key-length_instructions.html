@@ -1,0 +1,175 @@
+<meta charset="utf-8"/>
+<co-content>
+ <h3 level="3">
+  Assignment: Multiple Languages
+ </h3>
+ <p>
+  Finally, it is time to expand your program so that it can crack messages in other languages. To accomplish this, you need to write two new methods and modify two methods you have already written.
+ </p>
+ <p>
+  Specifically, you should do the following:
+ </p>
+ <ul bullettype="bullets">
+  <li>
+   <p>
+    In the
+    <strong>
+     VigenereBreaker
+    </strong>
+    class, write the public method
+    <strong>
+     mostCommonCharIn
+    </strong>
+    , which has one parameter—a HashSet of Strings
+    <strong>
+     dictionary
+    </strong>
+    . This method should find out which character, of the letters in the English alphabet, appears most often in the words in
+    <strong>
+     dictionary
+    </strong>
+    . It should return this most commonly occurring character. Remember that you can iterate over a HashSet of Strings with a for-each style for loop.
+   </p>
+  </li>
+  <li>
+   <p>
+    In the
+    <strong>
+     VigenereBreaker
+    </strong>
+    class, write the public method
+    <strong>
+     breakForAllLangs
+    </strong>
+    , which has two parameters—a String
+    <strong>
+     encrypted
+    </strong>
+    , and a HashMap, called
+    <strong>
+     languages
+    </strong>
+    , mapping a String representing the name of a language to a HashSet of Strings containing the words in that language. Try breaking the encryption for each language, and see which gives the best results! Remember that you can iterate over the
+    <strong>
+     languages.keySet()
+    </strong>
+    to get the name of each language, and then you can use
+    <strong>
+     .get()
+    </strong>
+    to look up the corresponding dictionary for that language. You will want to use the
+    <strong>
+     breakForLanguage
+    </strong>
+    and
+    <strong>
+     countWords
+    </strong>
+    methods that you already wrote to do most of the work (it is slightly inefficient to re-count the words here, but it is simpler, and the inefficiency is not significant). You will want to print out the decrypted message as well as the language that you identified for the message.
+   </p>
+  </li>
+  <li>
+   <p>
+    Modify the method
+    <strong>
+     breakForLanguage
+    </strong>
+    to make use of your
+    <strong>
+     mostCommonCharIn
+    </strong>
+    method to find the most common character in the language, and pass that to
+    <strong>
+     tryKeyLength
+    </strong>
+    instead of ‘e’.
+   </p>
+  </li>
+  <li>
+   <p>
+    Modify your
+    <strong>
+     breakVigenere
+    </strong>
+    method to read many dictionaries instead of just one. In particular, you should make a HashMap mapping Strings to a HashSet of Strings that will map each language name to the set of words in its dictionary. Then, you will want to read (using your
+    <strong>
+     readDictionary
+    </strong>
+    method) each of the dictionaries that we have provided (Danish, Dutch, English, French, German, Italian, Portuguese, and Spanish) and store the words in the HashMap you made. Reading all the dictionaries may take a little while, so you might add some print statements to reassure you that your program is making progress. Once you have made that change, you will want to call
+    <strong>
+     breakForAllLangs
+    </strong>
+    , passing in the message (the code to read in the message is unchanged from before), and the HashMap you just created.
+   </p>
+  </li>
+ </ul>
+ <p>
+  Test your program on the file
+  <strong>
+   athens_keyflute.txt
+  </strong>
+  . Notice that the correct key “flute” {5, 11, 20, 19, 4} is detected for English, French, Danish, German, and Dutch, due to ‘e’ being the most common character and the languages having cognates, but English has the greatest number of valid words for its decryption.
+ </p>
+ <p>
+ </p>
+ <p>
+  Link to FAQ page for this course:
+  <a href="http://www.dukelearntoprogram.com/course3/faq.php">
+   http://www.dukelearntoprogram.com/course3/faq.php
+  </a>
+ </p>
+ <p>
+ </p>
+ <asset assettype="generic" extension="pdf" id="Z366oolsEeWYGQ6rU9cBHw" name="Programming Exercise - Unknown Language">
+ </asset>
+ <p>
+ </p>
+</co-content>
+<style>
+ body {
+    padding: 50px 85px 50px 85px;
+}
+
+table th, table td {
+    border: 1px solid #e0e0e0;
+    padding: 5px 20px;
+    text-align: left;
+}
+input {
+    margin: 10px;
+}
+}
+th {
+    font-weight: bold;
+}
+td, th {
+    display: table-cell;
+    vertical-align: inherit;
+}
+img {
+    height: auto;
+    max-width: 100%;
+}
+pre {
+    display: block;
+    margin: 20px;
+    background: #424242;
+    color: #fff;
+    font-size: 13px;
+    white-space: pre-wrap;
+    padding: 9.5px;
+    margin: 0 0 10px;
+    border: 1px solid #ccc;
+}
+</style>
+<script async="" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript">
+</script>
+<script type="text/x-mathjax-config">
+ MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$$','$$'], ['$','$'] ],
+      displayMath: [ ["\\[","\\]"] ],
+      processEscapes: true
+    }
+  });
+</script>

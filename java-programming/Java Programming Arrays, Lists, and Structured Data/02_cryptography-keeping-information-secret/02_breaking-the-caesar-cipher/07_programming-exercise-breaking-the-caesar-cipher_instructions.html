@@ -1,0 +1,405 @@
+<meta charset="utf-8"/>
+<co-content>
+ <p>
+  Before attempting these assignments, you should type in, compile, and understand the example programs from the lesson, including: 1) counting the twenty most common words from Shakespeare’s plays, 2) counting the resulting random rolls of dice (how many 2’s, 3’s, 4’s, etc), and 3) automatic decryption of the Caesar Cipher using statistical letter occurrences.
+ </p>
+ <p>
+ </p>
+ <h3 level="3">
+  Assignment 1: Word lengths
+ </h3>
+ <p>
+  You will write a program to figure out the most common word length of words from a file. To solve this problem you will need to keep track of how many words from a file are of each possible length. You should group all words of length 30 or more together, and you should not count basic punctuation that are the first or last characters of a group of characters.
+ </p>
+ <p>
+  Specifically, you should do the following:
+ </p>
+ <ul bullettype="bullets">
+  <li>
+   <p>
+    Create a new class called
+    <strong>
+     WordLengths
+    </strong>
+    .
+   </p>
+  </li>
+  <li>
+   <p>
+    Write a void method
+    <strong>
+     countWordLengths
+    </strong>
+    that has two parameters, a FileResource named
+    <strong>
+     resource
+    </strong>
+    and an integer array named
+    <strong>
+     counts
+    </strong>
+    . This method should read in the words from resource and count the number of words of each length for all the words in resource, storing these counts in the array counts.
+   </p>
+  </li>
+ </ul>
+ <p>
+  - For example, after this method executes, counts[k] should contain the number of words of length k.
+ </p>
+ <p>
+  - If a word has a non-letter as the first or last character, it should not be counted as part of the word length. For example, the word And, would be considered of length 3 (the comma is not counted), the word “blue-jeans” would be considered of length 10 (the double quotes are not counted, but the hyphen is). Note that we will miscount some words, such as “Hello,” which will be counted as 6 since we don’t count the double quotes but will count the comma, but that is OK as there should not be many words in that category.
+ </p>
+ <p>
+  - For any words equal to or larger than the last index of the counts array, count them as the largest size represented in the counts array.
+ </p>
+ <p>
+  - You may want to consider using the
+  <strong>
+   Character.isLetter
+  </strong>
+  method that returns true if a character is a letter, and false otherwise. For example, Character.isLetter(‘a’) returns true, and Character.isLetter(‘-’) returns false.
+ </p>
+ <ul bullettype="bullets">
+  <li>
+   <p>
+    Write a void method
+    <strong>
+     testCountWordLengths
+    </strong>
+    that creates a FileResource so you can select a file, and creates a
+    <strong>
+     counts
+    </strong>
+    integer array of size 31. This method should call
+    <strong>
+     countWordLengths
+    </strong>
+    with a file and then print the number of words of each length. Test it on the small file
+    <strong>
+     smallHamlet.txt
+    </strong>
+    shown below.
+   </p>
+  </li>
+  <li>
+   <p>
+    Write a method
+    <strong>
+     indexOfMax
+    </strong>
+    that has one parameter named
+    <strong>
+     values
+    </strong>
+    that is an integer array. This method returns the index position of the largest element in values. Then add code to the method
+    <strong>
+     testCountWordLengths
+    </strong>
+    to call
+    <strong>
+     indexOfMax
+    </strong>
+    to determine the most common word length in the file. For example, calling
+    <strong>
+     indexOfMax
+    </strong>
+    after calling
+    <strong>
+     countWordLengths
+    </strong>
+    on the file
+    <strong>
+     smallHamlet.txt
+    </strong>
+    should return 3.
+   </p>
+  </li>
+ </ul>
+ <p>
+  First test your program on a small file, such as this simple file shown called
+  <strong>
+   smallHamlet.txt
+  </strong>
+  :
+ </p>
+ <p>
+  Laer. My necessaries are embark'd. Farewell.
+ </p>
+ <p>
+  And, sister, as the winds give benefit
+ </p>
+ <p>
+  Note this file has words that are:
+ </p>
+ <p>
+  2 words of length 2: My as
+ </p>
+ <p>
+  3 words of length 3: are And the
+ </p>
+ <p>
+  2 words of length 4: Laer give
+ </p>
+ <p>
+  1 word of length 5: winds
+ </p>
+ <p>
+  1 word of length 6: sister
+ </p>
+ <p>
+  1 word of length 7: benefit
+ </p>
+ <p>
+  2 words of length 8: embark’d Farewell
+ </p>
+ <p>
+  1 word of length 11: necessaries
+ </p>
+ <p>
+ </p>
+ <h3 level="3">
+  Assignment 2:  Caesar Cipher Two Keys Decrypt
+ </h3>
+ <p>
+  You should start by writing the decryption method explained in the lesson that decrypts a message that was encrypted with one key, using statistical letter frequencies of English text. Then you will add code to be able to decrypt a message that was encrypted with two keys, using ideas from the single key decryption method and the encryption with two keys method from the program you wrote in the last lesson.
+ </p>
+ <p>
+  <em>
+   Idea for two keys decrypt method.
+  </em>
+  Recall that in using two keys,
+  <strong>
+   key1
+  </strong>
+  and
+  <strong>
+   key2
+  </strong>
+  ,
+  <strong>
+   key1
+  </strong>
+  was used to encrypt every other character, starting with the first, of the String, and
+  <strong>
+   key2
+  </strong>
+  was used to encrypt every other character, starting with the second. In order to decrypt the encrypted String, it may be easier to split the String into two Strings, one String of all the letters encrypted with
+  <strong>
+   key1
+  </strong>
+  and one String of all the letters encrypted with
+  <strong>
+   key2
+  </strong>
+  . Then use the algorithm from the lesson to determine the key for each String, and then use those keys and the two key encryption method to decrypt the original encrypted message.
+ </p>
+ <p>
+  For example, if the encrypted message was “Qbkm Zgis”, then you would split this String into two Strings: “Qk gs”, representing the characters in the odd number positions and  “bmZi” representing the characters in the even number positions. Then you would get the key for each half String and use the two key encryption method to find the message. Note this example is so small it likely won’t find the keys, but it illustrates how to take the Strings apart.
+ </p>
+ <p>
+  A sample file to test your program that is small with lots of e’s is called
+  <strong>
+   wordsLotsOfEs.txt
+  </strong>
+  and shown here:
+ </p>
+ <p>
+  Just a test string with lots of eeeeeeeeeeeeeeeees
+ </p>
+ <p>
+  And the same file encrypted using keys 23 and 2 is called
+  <strong>
+   wordsLotsOfEsEncrypted.txt
+  </strong>
+  and is shown here:
+ </p>
+ <p>
+  Gwpv c vbuq pvokki yfve iqqu qc bgbgbgbgbgbgbgbgbu
+ </p>
+ <p>
+  Specifically, you should do the following.
+ </p>
+ <ul bullettype="bullets">
+  <li>
+   <p>
+    Complete the decryption method shown in the lesson by creating a
+    <strong>
+     CaesarBreaker
+    </strong>
+    class with the methods
+    <strong>
+     countLetters
+    </strong>
+    ,
+    <strong>
+     maxIndex
+    </strong>
+    , and
+    <strong>
+     decrypt
+    </strong>
+    . Recall that the
+    <strong>
+     decrypt
+    </strong>
+    method creates a CaesarCipher object in order to use the
+    <strong>
+     encrypt
+    </strong>
+    method you wrote for the last lesson. Make sure that your CaesarCipher class is in the same folder as CaesarBreaker! You may want to use the following code as part of your decrypt method.
+   </p>
+  </li>
+ </ul>
+ <pre language="java">CaesarCipher cc = new CaesarCipher();
+String message = cc.encrypt(encrypted, 26 - key);</pre>
+ <ul bullettype="bullets">
+  <li>
+   <p>
+    Write a
+    <strong>
+     testDecrypt
+    </strong>
+    method in the CaesarBreaker class that prints the decrypted message, and make sure it works for encrypted messages that were encrypted with one key.
+   </p>
+  </li>
+  <li>
+   <p>
+    Write the method
+    <strong>
+     halfOfString
+    </strong>
+    in the CaesarBreaker class that has two parameters, a String parameter named
+    <strong>
+     message
+    </strong>
+    and an int parameter named
+    <strong>
+     start
+    </strong>
+    . This method should return a new String that is every other character from message starting with the start position. For example, the call halfOfString(“Qbkm Zgis”, 0) returns the String “Qk gs” and the call halfOfString(“Qbkm Zgis”, 1) returns the String “bmZi”. Be sure to test this method with a small example.
+   </p>
+  </li>
+  <li>
+   <p>
+    Write the method
+    <strong>
+     getKey
+    </strong>
+    in the CaesarBreaker class that has one parameter, a String
+    <strong>
+     s
+    </strong>
+    . This method should call
+    <strong>
+     countLetters
+    </strong>
+    to get an array of the letter frequencies in String s and then use
+    <strong>
+     maxIndex
+    </strong>
+    to calculate the index of the largest letter frequency, which is the location of the encrypted letter ‘e’, which leads to the key, which is returned.
+   </p>
+  </li>
+  <li>
+   <p>
+    Write the method
+    <strong>
+     decryptTwoKeys
+    </strong>
+    in the CaesarBreaker class that has one parameter, a String parameter named
+    <strong>
+     encrypted
+    </strong>
+    that represents a String that was encrypted with the two key algorithm discussed in the previous lesson. This method attempts to determine the two keys used to encrypt the message, prints the two keys, and then returns the decrypted String with those two keys. More specifically, this method should:
+   </p>
+  </li>
+ </ul>
+ <p>
+  - Calculate a String of every other character starting with the
+  <u>
+   first character
+  </u>
+  of the encrypted String by calling halfOfString.
+ </p>
+ <p>
+  - Calculate a String of every other character starting with the
+  <u>
+   second character
+  </u>
+  of the encrypted String.
+ </p>
+ <p>
+  - Then calculate the key used to encrypt each half String.
+ </p>
+ <p>
+  - You should print the two keys found.
+ </p>
+ <p>
+  - Calculate and return the decrypted String using the
+  <strong>
+   encryptTwoKeys
+  </strong>
+  method from your CaesarCipher class, again making sure it is in the same folder as your CaesarBreaker class.
+ </p>
+ <p>
+ </p>
+ <p>
+  Link to FAQ page for this course:
+  <a href="http://www.dukelearntoprogram.com/course3/faq.php">
+   http://www.dukelearntoprogram.com/course3/faq.php
+  </a>
+ </p>
+ <p>
+ </p>
+ <asset assettype="pdf" extension="pdf" id="GgFKn1AbEeaughJrsEVARw" name="ProgrammingExercise-BreakingTheCaesarCipher">
+ </asset>
+ <p>
+ </p>
+</co-content>
+<style>
+ body {
+    padding: 50px 85px 50px 85px;
+}
+
+table th, table td {
+    border: 1px solid #e0e0e0;
+    padding: 5px 20px;
+    text-align: left;
+}
+input {
+    margin: 10px;
+}
+}
+th {
+    font-weight: bold;
+}
+td, th {
+    display: table-cell;
+    vertical-align: inherit;
+}
+img {
+    height: auto;
+    max-width: 100%;
+}
+pre {
+    display: block;
+    margin: 20px;
+    background: #424242;
+    color: #fff;
+    font-size: 13px;
+    white-space: pre-wrap;
+    padding: 9.5px;
+    margin: 0 0 10px;
+    border: 1px solid #ccc;
+}
+</style>
+<script async="" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript">
+</script>
+<script type="text/x-mathjax-config">
+ MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$$','$$'], ['$','$'] ],
+      displayMath: [ ["\\[","\\]"] ],
+      processEscapes: true
+    }
+  });
+</script>

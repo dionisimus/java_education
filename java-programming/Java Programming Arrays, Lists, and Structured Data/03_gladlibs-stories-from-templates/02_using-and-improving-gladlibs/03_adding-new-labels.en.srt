@@ -1,0 +1,311 @@
+1
+00:00:03,378 --> 00:00:07,787
+Hi, we're gonna walk through
+the process of adding a new label to
+
+2
+00:00:07,787 --> 00:00:12,060
+the GladLib.java program and
+the GladLib class.
+
+3
+00:00:12,060 --> 00:00:17,160
+A new label might be something like
+verb which would go along with noun,
+
+4
+00:00:17,160 --> 00:00:19,630
+color and the other labels we have.
+
+5
+00:00:19,630 --> 00:00:20,610
+To do that,
+
+6
+00:00:20,610 --> 00:00:24,740
+you've seen part of that process
+outlined in one of the previous lessons.
+
+7
+00:00:24,740 --> 00:00:29,960
+What I'm going to do here is show
+you that to add a new label we need
+
+8
+00:00:29,960 --> 00:00:35,120
+a new template file, so I've taken the
+standard template file that we had before,
+
+9
+00:00:35,120 --> 00:00:41,360
+which was called madtemplate.txt and
+I've replaced sing and dance, the two
+
+10
+00:00:41,360 --> 00:00:46,270
+things that a creature would do in the
+stories we generated, with verb and verb.
+
+11
+00:00:46,270 --> 00:00:53,670
+So I'm adding the label verb to replace
+sing and dance in the original story.
+
+12
+00:00:53,670 --> 00:00:55,770
+I still call this madtemplate.txt.
+
+13
+00:00:55,770 --> 00:01:00,130
+You will use whatever text editing
+software you have which is
+
+14
+00:01:00,130 --> 00:01:02,708
+usually something like
+TextEdit on a Mac or
+
+15
+00:01:02,708 --> 00:01:06,530
+Notepad++ on a Windows machine,
+but you can use any text editor.
+
+16
+00:01:07,610 --> 00:01:11,190
+Now I'm going to take the GladLib
+program that we've used before, and
+
+17
+00:01:11,190 --> 00:01:14,640
+I'm going to walk through the locations
+where we need to make changes.
+
+18
+00:01:14,640 --> 00:01:18,140
+I need to create a new array
+list to store my verbs.
+
+19
+00:01:18,140 --> 00:01:22,720
+I'm going to go along with the same
+conventions that have been used before and
+
+20
+00:01:22,720 --> 00:01:26,600
+make sure that I use verbList to go
+along with adjectiveList, nounList, etc.
+
+21
+00:01:27,750 --> 00:01:31,820
+As I scroll through my source code,
+I see that these
+
+22
+00:01:31,820 --> 00:01:36,630
+ArrayLists are initialized in
+the initializeFromSource method.
+
+23
+00:01:36,630 --> 00:01:39,440
+It's called from our class's constructor.
+
+24
+00:01:39,440 --> 00:01:42,120
+I need to initialize verbList.
+
+25
+00:01:42,120 --> 00:01:44,440
+And its going to be
+initialize by calling readIt.
+
+26
+00:01:45,580 --> 00:01:46,860
+Passing the source.
+
+27
+00:01:46,860 --> 00:01:53,270
+Which is either a place on my computer
+where it can access files, or a url.
+
+28
+00:01:53,270 --> 00:01:57,450
+This is verb.txt.
+
+29
+00:01:57,450 --> 00:02:00,240
+I'm going to also have to
+make one other addition.
+
+30
+00:02:00,240 --> 00:02:04,490
+Because now my label might be
+an adjective or an animal or a name.
+
+31
+00:02:04,490 --> 00:02:08,090
+But I'm going to need to copy and
+paste these so
+
+32
+00:02:08,090 --> 00:02:12,940
+that in addition to using timeframe,
+I'm going to use verb.
+
+33
+00:02:12,940 --> 00:02:17,300
+So I'll replace that,
+make sure I get the syntax right.
+
+34
+00:02:17,300 --> 00:02:22,170
+If the label is verb, I'm going to
+replace the label from verblist.
+
+35
+00:02:25,440 --> 00:02:26,910
+I'm going to compile my program.
+
+36
+00:02:28,540 --> 00:02:34,336
+I know that in this program it's reading
+the template form madtemplate.txt
+
+37
+00:02:34,336 --> 00:02:42,580
+which I've modified to include the angle
+bracket verb angle bracket label.
+
+38
+00:02:42,580 --> 00:02:47,820
+I'm going to create a new
+GladLib on my object work bench.
+
+39
+00:02:49,810 --> 00:02:51,800
+And then I'm going to run
+the Make Story method.
+
+40
+00:02:53,540 --> 00:02:56,910
+It so loved to unknown and unknown.
+
+41
+00:02:56,910 --> 00:03:01,620
+There was a funny, slippery lion
+named Vivian that scared it so much.
+
+42
+00:03:01,620 --> 00:03:06,250
+So if we go back and look at our source
+code we'll see that it must have found
+
+43
+00:03:06,250 --> 00:03:13,160
+verb but failed to replace the verb with
+the objects that it was replaced with.
+
+44
+00:03:13,160 --> 00:03:18,240
+In this case, I've got verb list here,
+my instance variable.
+
+45
+00:03:19,270 --> 00:03:25,830
+I've initialized it from verb
+here I've made sure that if,
+
+46
+00:03:25,830 --> 00:03:31,670
+oh look, if label.equals verb t,
+I had a misprint when I spelled it.
+
+47
+00:03:31,670 --> 00:03:32,870
+Now it's got verb.
+
+48
+00:03:34,020 --> 00:03:36,350
+So I'm going to go back and recreate that.
+
+49
+00:03:38,090 --> 00:03:43,040
+Create my gladLib object,
+open it up and make a story.
+
+50
+00:03:43,040 --> 00:03:47,060
+Hey, it's so loved to think and
+contemplate, but there was a gigantic,
+
+51
+00:03:47,060 --> 00:03:48,540
+gigantic tiger.
+
+52
+00:03:48,540 --> 00:03:52,100
+Let me run that one more time and
+see if I get something besides think and
+
+53
+00:03:52,100 --> 00:03:53,320
+contemplate.
+
+54
+00:03:53,320 --> 00:03:55,550
+It's so loved to ride and surrender.
+
+55
+00:03:56,650 --> 00:04:01,910
+One more time, and I'll be convinced
+that it's actually reading verbs.
+
+56
+00:04:01,910 --> 00:04:03,840
+It so loved to surrender and
+
+57
+00:04:03,840 --> 00:04:08,700
+surrender, we've done nothing to make
+sure that it can use the same word or
+
+58
+00:04:08,700 --> 00:04:13,610
+verb more than once, so
+just to remind you what we've done.
+
+59
+00:04:13,610 --> 00:04:17,520
+I've used this location to
+change when the label was found.
+
+60
+00:04:18,770 --> 00:04:22,790
+I've made sure that the label
+was read from the source.
+
+61
+00:04:22,790 --> 00:04:27,400
+And I used verbList here, which is
+the name of my instance variable here,
+
+62
+00:04:27,400 --> 00:04:28,620
+verbList.
+
+63
+00:04:28,620 --> 00:04:33,490
+Using the same naming conventions
+we've used in all the other programs.
+
+64
+00:04:33,490 --> 00:04:39,130
+I compiled my program, I tested it,
+I created a new text file to hold verbs,
+
+65
+00:04:39,130 --> 00:04:41,100
+and a new text file for the template.
+
+66
+00:04:42,190 --> 00:04:42,780
+Happy verbing.

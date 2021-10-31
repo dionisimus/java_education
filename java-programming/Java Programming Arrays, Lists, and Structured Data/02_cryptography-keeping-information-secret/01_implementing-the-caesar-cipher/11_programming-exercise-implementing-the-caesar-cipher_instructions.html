@@ -1,0 +1,314 @@
+<meta charset="utf-8"/>
+<co-content>
+ <h3 level="3">
+  Assignment 1: Word Play
+ </h3>
+ <p>
+  You will write a program to transform words from a file into another form, such as replacing vowels with an asterix.
+ </p>
+ <p>
+  Specifically, you should do the following.
+ </p>
+ <ul bullettype="bullets">
+  <li>
+   <p>
+    Create a new class called WordPlay.
+   </p>
+  </li>
+  <li>
+   <p>
+    Write a method
+    <strong>
+     isVowel
+    </strong>
+    that has one Char parameter named
+    <strong>
+     ch
+    </strong>
+    . This method returns
+    <strong>
+     true
+    </strong>
+    if
+    <strong>
+     ch
+    </strong>
+    is a vowel (one of 'a', 'e', 'i', 'o', or 'u' or the uppercase versions) and
+    <strong>
+     false
+    </strong>
+    otherwise. You should write a tester method to see if this method works correctly. For example,
+    <strong>
+     isVowel(‘F’)
+    </strong>
+    should return
+    <strong>
+     false
+    </strong>
+    , and
+    <strong>
+     isVowel(‘a’)
+    </strong>
+    should return
+    <strong>
+     true
+    </strong>
+    .
+   </p>
+  </li>
+  <li>
+   <p>
+    Write a method
+    <strong>
+     replaceVowels
+    </strong>
+    that has two parameters, a String named
+    <strong>
+     phrase
+    </strong>
+    and a Char named
+    <strong>
+     ch
+    </strong>
+    . This method should return a String that is the string
+    <strong>
+     phrase
+    </strong>
+    with all the vowels (uppercase or lowercase) replaced by
+    <strong>
+     ch
+    </strong>
+    . For example, the call
+    <strong>
+     replaceVowels(“Hello World”, ‘*’)
+    </strong>
+    returns the string “H*ll* W*rld”. Be sure to call the method
+    <strong>
+     isVowel
+    </strong>
+    that you wrote and also test this method.
+   </p>
+  </li>
+  <li>
+   <p>
+    Write a method
+    <strong>
+     emphasize
+    </strong>
+    with two parameters, a String named
+    <strong>
+     phrase
+    </strong>
+    and a character named
+    <strong>
+     ch
+    </strong>
+    . This method should return a String that is the string
+    <strong>
+     phrase
+    </strong>
+    but with the Char
+    <strong>
+     ch
+    </strong>
+    (upper- or lowercase) replaced by
+   </p>
+  </li>
+ </ul>
+ <p>
+  ‘*’ if it is in an odd number location in the string (e.g. the first character has an odd number location but an even index, it is at index 0), or
+ </p>
+ <p>
+  ‘+’ if it is in an even number location in the string (e.g. the second character has an even number location but an odd index, it is at index 1).
+ </p>
+ <p>
+  For example, the call
+  <strong>
+   emphasize(“dna ctgaaactga”, ‘a’)
+  </strong>
+  would return the string “dn* ctg+*+ctg+”, and the call
+  <strong>
+   emphasize(“Mary Bella Abracadabra”, ‘a’)
+  </strong>
+  would return the string “M+ry Bell+ +br*c*d*br+”. Be sure to test this method.
+ </p>
+ <p>
+ </p>
+ <h3 level="3">
+  Assignment 2: Caesar Cipher
+ </h3>
+ <p>
+  You will start with the Caesar Cipher algorithm you learned about in the videos, and you will make some enhancements to it, so that it works with all letters (both uppercase and lowercase) and to make it a little bit harder to decrypt. Write these methods in a CaesarCipher class you can use in the next lesson.
+ </p>
+ <p>
+  Specifically, you should do the following:
+ </p>
+ <ul bullettype="bullets">
+  <li>
+   <p>
+    Create a new class called
+    <strong>
+     CaesarCipher
+    </strong>
+    .
+   </p>
+  </li>
+  <li>
+   <p>
+    Write the method
+    <strong>
+     encrypt
+    </strong>
+    that has two parameters, a String named
+    <strong>
+     input
+    </strong>
+    and an int named
+    <strong>
+     key
+    </strong>
+    . This method returns a String that has been encrypted using the Caesar Cipher algorithm explained in the videos. Assume that all the alphabetic characters are uppercase letters. For example, the call
+   </p>
+  </li>
+ </ul>
+ <p>
+  <strong>
+   encrypt(“FIRST LEGION ATTACK EAST FLANK!”, 23)
+  </strong>
+ </p>
+ <p>
+  should return the string
+ </p>
+ <p>
+  “CFOPQ IBDFLK XQQXZH BXPQ CIXKH!”
+ </p>
+ <ul bullettype="bullets">
+  <li>
+   <p>
+    Write the void method
+    <strong>
+     testCaesar
+    </strong>
+    that has no parameters. This method should read a file and encrypt the complete file using the Caesar Cipher algorithm, printing the encrypted message. You may want to include the lines:
+   </p>
+  </li>
+ </ul>
+ <pre language="java">FileResource fr = new FileResource();
+String message = fr.asString();
+String encrypted = encrypt(message, key);
+System.out.println("key is " + key + "\n" + encrypted);</pre>
+ <ul bullettype="bullets">
+  <li>
+   <p>
+    Modify the
+    <strong>
+     encrypt
+    </strong>
+    method to be able to handle both uppercase and lowercase letters. For example,
+    <strong>
+     encrypt(“First Legion”, 23)
+    </strong>
+    should return “Cfopq Ibdflk”, and
+    <strong>
+     encrypt(“First Legion”, 17)
+    </strong>
+    should return “Wzijk Cvxzfe”.  Be sure to test the encrypt method.
+   </p>
+  </li>
+  <li>
+   <p>
+    Write the method
+    <strong>
+     encryptTwoKeys
+    </strong>
+    that has three parameters, a String named
+    <strong>
+     input
+    </strong>
+    , and two integers named
+    <strong>
+     key1
+    </strong>
+    and
+    <strong>
+     key2
+    </strong>
+    . This method returns a String that has been encrypted using the following algorithm. Parameter
+    <strong>
+     key1
+    </strong>
+    is used to encrypt every other character with the Caesar Cipher algorithm, starting with the first character, and
+    <strong>
+     key2
+    </strong>
+    is used to encrypt every other character, starting with the second character. For example, the call
+    <strong>
+     encryptTwoKeys(“First Legion”, 23, 17)
+    </strong>
+    should return “Czojq Ivdzle”. Note the ‘F’ is encrypted with key 23, the first ‘i’ with 17, the ‘r’ with 23, and the ‘s’ with 17, etc. Be sure to test this method.
+   </p>
+  </li>
+ </ul>
+ <p>
+ </p>
+ <p>
+  Link to FAQ page for this course:
+  <a href="http://www.dukelearntoprogram.com/course3/faq.php">
+   http://www.dukelearntoprogram.com/course3/faq.php
+  </a>
+ </p>
+ <p>
+ </p>
+ <asset assettype="pdf" extension="pdf" id="qViuwlAXEeaughJrsEVARw" name="ProgrammingExercise-ImplementingTheCaesarCipher">
+ </asset>
+ <p>
+ </p>
+</co-content>
+<style>
+ body {
+    padding: 50px 85px 50px 85px;
+}
+
+table th, table td {
+    border: 1px solid #e0e0e0;
+    padding: 5px 20px;
+    text-align: left;
+}
+input {
+    margin: 10px;
+}
+}
+th {
+    font-weight: bold;
+}
+td, th {
+    display: table-cell;
+    vertical-align: inherit;
+}
+img {
+    height: auto;
+    max-width: 100%;
+}
+pre {
+    display: block;
+    margin: 20px;
+    background: #424242;
+    color: #fff;
+    font-size: 13px;
+    white-space: pre-wrap;
+    padding: 9.5px;
+    margin: 0 0 10px;
+    border: 1px solid #ccc;
+}
+</style>
+<script async="" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript">
+</script>
+<script type="text/x-mathjax-config">
+ MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$$','$$'], ['$','$'] ],
+      displayMath: [ ["\\[","\\]"] ],
+      processEscapes: true
+    }
+  });
+</script>

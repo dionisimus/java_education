@@ -1,0 +1,211 @@
+1
+00:00:03,105 --> 00:00:07,786
+Hi, now that you've made your LogEntry
+class, you need to parse the lines
+
+2
+00:00:07,786 --> 00:00:12,430
+of the web server log to be able to
+create instances of the LogEntry class.
+
+3
+00:00:12,430 --> 00:00:16,280
+You'll do this by splitting the string
+into the appropriate fields
+
+4
+00:00:16,280 --> 00:00:19,420
+to pass values to the constructor for
+the LogEntry class.
+
+5
+00:00:19,420 --> 00:00:24,360
+You could accomplish this task with
+many indexOf and substring calls.
+
+6
+00:00:24,360 --> 00:00:29,450
+Although this task is not algorithmically
+hard, the code for it is very cumbersome.
+
+7
+00:00:29,450 --> 00:00:31,950
+For example, for
+the time portion of this entry,
+
+8
+00:00:31,950 --> 00:00:35,120
+you would need to turn
+the string in to a Date object.
+
+9
+00:00:35,120 --> 00:00:40,960
+The built in Java class from the Java.util
+package which represents a date and time.
+
+10
+00:00:40,960 --> 00:00:46,200
+Even though both the date and time class,
+as well as methods which parse strings,
+
+11
+00:00:46,200 --> 00:00:51,210
+are part of Java, the interface to
+the Date class is complex, especially
+
+12
+00:00:51,210 --> 00:00:56,200
+since the date format in the server
+logs is not the default format in Java.
+
+13
+00:00:56,200 --> 00:01:00,020
+For these reasons, we've provided code for
+you which will take a string from the web
+
+14
+00:01:00,020 --> 00:01:06,350
+server logs, parse it into appropriate
+fields, and return a log entry record.
+
+15
+00:01:06,350 --> 00:01:13,210
+To use this call WebLogParser.parseEntry
+and pass the string you want to parse.
+
+16
+00:01:13,210 --> 00:01:15,450
+The method returns a LogEntry object.
+
+17
+00:01:16,500 --> 00:01:21,740
+With that in mind, its time for you to
+starting the write the LogAnalyzer class.
+
+18
+00:01:21,740 --> 00:01:26,510
+For right now, you're gonna write code in
+the constructor to initialize the object,
+
+19
+00:01:26,510 --> 00:01:29,100
+and then write the read file method.
+
+20
+00:01:29,100 --> 00:01:31,840
+In later lessons,
+you'll write additional methods
+
+21
+00:01:31,840 --> 00:01:35,219
+that will perform that actually analysis
+of the log file that you've read in.
+
+22
+00:01:36,420 --> 00:01:39,830
+The first thing you would do to fill
+in the code for the constructor.
+
+23
+00:01:39,830 --> 00:01:44,450
+The constructor should initialize that
+the record fields to an empty ArrayList.
+
+24
+00:01:44,450 --> 00:01:46,850
+You've created ArrayLists in the past so
+
+25
+00:01:46,850 --> 00:01:51,040
+what you need to accomplish
+this task should be familiar.
+
+26
+00:01:51,040 --> 00:01:54,387
+The second thing you should do is
+fill in code for the readFile method.
+
+27
+00:01:55,570 --> 00:02:02,230
+This method will determine the file
+name to read from and then add log
+
+28
+00:02:02,230 --> 00:02:07,060
+entries to the records field to reflect
+the information from the file you opened.
+
+29
+00:02:07,060 --> 00:02:10,509
+To accomplish this task,
+you will want to make a FileResource for
+
+30
+00:02:10,509 --> 00:02:11,646
+the requested file.
+
+31
+00:02:11,646 --> 00:02:16,010
+You will then want to iterate
+over the FileResource's lines.
+
+32
+00:02:16,010 --> 00:02:21,350
+And for each line, you will use
+the WebLogParser.parseEntry method
+
+33
+00:02:21,350 --> 00:02:24,700
+to convert the line of
+text into a LogEntry.
+
+34
+00:02:24,700 --> 00:02:28,800
+Then you'll add that LogEntry to the
+records field, which as you may recall,
+
+35
+00:02:28,800 --> 00:02:29,605
+is an ArrayList.
+
+36
+00:02:30,900 --> 00:02:34,026
+When you've written a constructor and
+the readFile method,
+
+37
+00:02:34,026 --> 00:02:36,580
+you'll want to test out your code.
+
+38
+00:02:36,580 --> 00:02:39,850
+We've provided a convenient method
+called printAll, which will print
+
+39
+00:02:39,850 --> 00:02:43,438
+all the log entries you've stored
+in the instance variable records.
+
+40
+00:02:43,438 --> 00:02:46,095
+Remember the .toString
+method that we taught about?
+
+41
+00:02:46,095 --> 00:02:50,506
+System.out.println will make
+use of that .toString method to
+
+42
+00:02:50,506 --> 00:02:53,870
+represent the log entry as a string.
+
+43
+00:02:53,870 --> 00:02:58,300
+Once all this works, it will be time to
+start analyzing the data you've read in.
+
+44
+00:02:58,300 --> 00:02:58,890
+Happy coding.
