@@ -1,0 +1,11 @@
+#BlueJ class context
+comment0.target=CaesarCipher
+comment1.params=input\ key
+comment1.target=java.lang.String\ encrypt(java.lang.String,\ int)
+comment2.params=
+comment2.target=void\ testCaesar()
+comment3.params=key\ ch
+comment3.target=char\ Encryption(int,\ char)
+comment4.params=input\ key1\ key2
+comment4.target=java.lang.String\ encryptTwoKeys(java.lang.String,\ int,\ int)
+numComments=5
