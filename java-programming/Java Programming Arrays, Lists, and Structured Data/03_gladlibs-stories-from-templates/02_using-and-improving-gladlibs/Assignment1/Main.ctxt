@@ -1,0 +1,14 @@
+#BlueJ class context
+comment0.target=Main
+comment1.params=
+comment1.target=Main()
+comment1.text=\n\ Constructor\ for\ objects\ of\ class\ Codons\n
+comment2.params=start\ dna
+comment2.target=void\ buildCodonMap(int,\ java.lang.String)
+comment3.params=
+comment3.target=java.lang.String\ getMostCommonCodon()
+comment4.params=start\ end
+comment4.target=void\ printCodonCounts(int,\ int)
+comment5.params=start\ end
+comment5.target=void\ tester(int,\ int)
+numComments=6
