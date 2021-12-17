@@ -66,16 +66,17 @@ public class Main
             
         }
     }
-    public void tester (int start, int end){
+    public void tester (){
         FileResource fr = new FileResource();
-        String dna = fr.asString().toUpperCase();
+        String dna = fr.asString().toUpperCase().trim();
         for(int i=0;i<3;i++){
+            System.out.println(i);
             buildCodonMap(i,dna);
             for (String key : codonMaps.keySet()){
                 System.out.println(key);
             }
-            System.out.println("Most common: "+getMostCommonCodon()+" i "+codonMaps.get(getMostCommonCodon()));
-            printCodonCounts(start,end);
+            System.out.println("Most common: "+getMostCommonCodon()+" "+codonMaps.get(getMostCommonCodon()));
+            
         }
 
     }
