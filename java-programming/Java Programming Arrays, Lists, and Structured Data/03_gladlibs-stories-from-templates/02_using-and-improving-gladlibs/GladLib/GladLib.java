@@ -21,15 +21,7 @@ public class GladLib {
     private static String dataSourceDirectory = "data";
     
     public GladLib(){
-        wordsList.put("adjectiveList",adjectiveList);
-        wordsList.put("nounList",nounList);
-        wordsList.put("colorList",colorList);
-        wordsList.put("countryList",countryList);
-        wordsList.put("nameList",nameList);
-        wordsList.put("animalList",animalList);
-        wordsList.put("timeList",timeList);
-        wordsList.put("verbList",verbList);
-        wordsList.put("fruitList",fruitList);
+ 
         
         initializeFromSource(dataSourceDirectory);
         myRandom = new Random();
@@ -41,25 +33,31 @@ public class GladLib {
         myRandom = new Random();
     }
     
-    private void fillMap(){
-        wordsList.put("adjectiveList",adjectiveList);
-        wordsList.put("nounList",nounList);
-        wordsList.put("colorList",colorList);
-        wordsList.put("countryList",countryList);
-        wordsList.put("nameList",nameList);
-        wordsList.put("adjectiveList",adjectiveList);
-        wordsList.put("adjectiveList",adjectiveList);
-        wordsList.put("adjectiveList",adjectiveList);
-    }
+
     
-    private void initializeFromSource(String source) {
-        adjectiveList= readIt(source+"/adjective.txt");    
+    public void initializeFromSource(String source) {
+        wordsList = new HashMap<String,ArrayList>();
+        adjectiveList = readIt(source+"/adjective.txt");    
         nounList = readIt(source+"/noun.txt");
         colorList = readIt(source+"/color.txt");
         countryList = readIt(source+"/country.txt");
         nameList = readIt(source+"/name.txt");        
         animalList = readIt(source+"/animal.txt");
-        timeList = readIt(source+"/timeframe.txt");        
+        timeList = readIt(source+"/timeframe.txt");  
+        verbList = readIt(source+"/verb.txt");
+        fruitList = readIt(source+"/fruit.txt");
+        
+        
+        wordsList.put("adjective",adjectiveList);
+        wordsList.put("noun",nounList);
+        wordsList.put("color",colorList);
+        wordsList.put("country",countryList);
+        wordsList.put("name",nameList);
+        wordsList.put("animal",animalList);
+        wordsList.put("timeframe",timeList);
+        wordsList.put("verb",verbList);
+        wordsList.put("fruit",fruitList);
+        
     }
     
     private String randomFrom(ArrayList<String> source){
@@ -67,39 +65,27 @@ public class GladLib {
         return source.get(index);
     }
     
-    private String getSubstitute(String label) {
-        if (label.equals("country")) {
-            return randomFrom(countryList);
-        }
-        if (label.equals("color")){
-            return randomFrom(colorList);
-        }
-        if (label.equals("noun")){
-            return randomFrom(nounList);
-        }
-        if (label.equals("name")){
-            return randomFrom(nameList);
-        }
-        if (label.equals("adjective")){
-            return randomFrom(adjectiveList);
-        }
-        if (label.equals("animal")){
-            return randomFrom(animalList);
-        }
-        if (label.equals("timeframe")){
-            return randomFrom(timeList);
-        }
-        if (label.equals("number")){
-            return ""+myRandom.nextInt(50)+5;
-        }
-        return "**UNKNOWN**";
+    public String getSubstitute(String label) {
+        System.out.println();
+        for (String word : wordsList.keySet()){
+            if (word.equals(label)){
+                return randomFrom(wordsList.get(word));
+            }
+        }      
+            if (label.equals("number")){
+                return Integer.toString(myRandom.nextInt(50)+5);
+            }
+        return "null";
+        
     }
     
     private String processWord(String w){
         int first = w.indexOf("<");
         int last = w.indexOf(">",first);
         if (first == -1 || last == -1){
+            
             return w;
+            
         }
         String prefix = w.substring(0,first);
         String suffix = w.substring(last+1);
@@ -131,6 +117,7 @@ public class GladLib {
             FileResource resource = new FileResource(source);
             for(String word : resource.words()){
                 story = story + processWord(word) + " ";
+                
             }
         }
         return story;
@@ -156,9 +143,17 @@ public class GladLib {
     public void makeStory(){
         System.out.println("\n");
         String story = fromTemplate("data/madtemplate.txt");
+        System.out.println(story);
         printOut(story, 60);
     }
     
+    private int totalWordsInMap (){
+        int size = 0;
+        for (ArrayList value : wordsList.values()){
+            size = size + value.size();
+        }
+        return size;
+    }
 
 
 }
