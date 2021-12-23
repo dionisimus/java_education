@@ -3,6 +3,7 @@ import java.util.*;
 
 public class GladLib {
     private HashMap<String,ArrayList> wordsList;
+    private ArrayList<String> userWords;
     
     private ArrayList<String> adjectiveList;
     private ArrayList<String> nounList;
@@ -35,8 +36,9 @@ public class GladLib {
     
 
     
-    public void initializeFromSource(String source) {
+    private void initializeFromSource(String source) {
         wordsList = new HashMap<String,ArrayList>();
+        userWords = new ArrayList<String>();
         adjectiveList = readIt(source+"/adjective.txt");    
         nounList = readIt(source+"/noun.txt");
         colorList = readIt(source+"/color.txt");
@@ -65,15 +67,22 @@ public class GladLib {
         return source.get(index);
     }
     
-    public String getSubstitute(String label) {
+    private String getSubstitute(String label) {
         System.out.println();
+        
         for (String word : wordsList.keySet()){
             if (word.equals(label)){
+                if (!userWords.contains(word)){
+                    userWords.add(word);
+                }
                 return randomFrom(wordsList.get(word));
             }
         }      
-            if (label.equals("number")){
-                return Integer.toString(myRandom.nextInt(50)+5);
+        if (label.equals("number")){
+            if (!userWords.contains("number")){
+                    userWords.add("number");
+                }
+            return Integer.toString(myRandom.nextInt(50)+5);
             }
         return "null";
         
@@ -143,8 +152,11 @@ public class GladLib {
     public void makeStory(){
         System.out.println("\n");
         String story = fromTemplate("data/madtemplate.txt");
-        System.out.println(story);
+        
         printOut(story, 60);
+        System.out.println("\nTotal words: "+ totalWordsInMap());
+        totalWordsConsidered();
+        System.out.println("Words considered: " + totalWordsConsidered());
     }
     
     private int totalWordsInMap (){
@@ -153,6 +165,17 @@ public class GladLib {
             size = size + value.size();
         }
         return size;
+    }
+    private int totalWordsConsidered(){
+        int size = 0;
+        for (String word : userWords){
+            
+            if (!word.equals("number"))
+            size = size + (wordsList.get(word).size());
+        }
+        return size;
+        
+        
     }
 
 
