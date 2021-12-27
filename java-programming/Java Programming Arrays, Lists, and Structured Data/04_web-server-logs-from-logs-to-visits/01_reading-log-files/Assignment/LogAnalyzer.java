@@ -8,6 +8,7 @@
 
 import java.util.*;
 import edu.duke.*;
+import java.util.ArrayList;
 
 public class LogAnalyzer
 {
@@ -108,7 +109,49 @@ public class LogAnalyzer
      }
      
      public HashMap<String, ArrayList<String>> iPsForDays(){
+         HashMap<String, ArrayList<String>> ipForDays = new HashMap<String, ArrayList<String>>();
+         for (LogEntry le : records){
+             String date = le.getAccessTime().toString().substring(3,10)+" "+le.getAccessTime().toString().substring(25);
+                 if (!ipForDays.containsKey(date)){
+                     ipForDays.put(date,new ArrayList<String>());
+                     ipForDays.get(date).add(le.getIpAddress());
+                 }else{
+                     ipForDays.get(date).add(le.getIpAddress());
+                 }
+         }
          
+         iPsWithMostVisitsOnDay(ipForDays,dayWithMostIPVisits(ipForDays));
+         return ipForDays;
+     }
+     
+     public String dayWithMostIPVisits(HashMap<String, ArrayList<String>> map){
+         int max = 0;
+         String maxDay = "";
+         for (String day : map.keySet()){
+             if(map.get(day).size()>max){
+                 max = map.get(day).size();
+                 maxDay = day; 
+             }
+         }
+         return maxDay;
+     }
+     
+     public ArrayList<String> iPsWithMostVisitsOnDay (HashMap<String, ArrayList<String>> map, String day){
+         ArrayList<String> temp = map.get(day);
+         ArrayList<String> onlyOneIp = new ArrayList<String>();
+         
+         for(String days1 : map.get(day)){
+             int counter = 0;
+             for (String days2 : temp){
+                 if (days1.equals(days2)){
+                     counter++;
+                    }
+                }
+             if (counter > 1 && !onlyOneIp.contains(days1)){
+                 onlyOneIp.add(days1);
+             }
+         }
+         System.out.println(onlyOneIp);
          return null;
      }
 }
