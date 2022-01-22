@@ -1,0 +1,20 @@
+[MUSIC] All right, here's your overview
+of the last part of the project. I'm actually only gonna demo part
+of the last part of the project, because the very last part of the project
+is an open-ended extension of your choice. So, you'll get to have some freedom and
+some creativity with that. Really, anything goes. It's up to you. But for the first part of
+the project that everybody will do, what we are asking you to do is actually
+make no changes to the map at all. So your map is going to behave
+basically just like it did in the last part of
+the programming assignment. But what you are going to add is,
+you are going to add code that will sort the earthquakes in
+descending order of magnitude. So when you run the program now,
+in addition to printing out the number of earthquakes per country,
+they will also print out a list of the earthquakes in the RSP that
+you read sorted in reverse order. So, strongest magnitude first,
+and then a descending order. And you'll write a function
+that allows you to control the number of earthquakes
+that get printed out here. So that's really it, and then you'll get
+to work on that open ended extension, so have fun with it. You're gonna get to learn about some
+searching and sorting algorithms to write this part of the project and
+then dive into that open ended extension.

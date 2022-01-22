@@ -1,0 +1,122 @@
+[MUSIC] Okay, the last lesson in this module
+is talking about variable scope. Now you may be already familiar with
+the notion of variable scope, but we're gonna introduce it again because
+it's such an important concept. And we're gonna do more than just
+introduce the notion of variable scope, we're gonna also incorporate it
+into those memory models for reasoning about Java code. So by the end of this module, you'll be
+able to describe the notion of scope and Java's rules for scope as well as draw
+those memory models to incorporate scope and reason about code
+using those memory models. So get out your pencil. Get out your piece of paper. Make sure you're not driving and you'll draw these memory
+models right along with us. So, we're starting off with
+a little warm up question. I want you to look at this code. And, this code should look
+pretty familiar to you by now. And I want you to identify the six
+variables that appear in this code. So, pause the video for a second and see if you can find
+six variables in this code. All right. Welcome back. Hopefully you found six variables,
+if you didn't don't worry about it. Here's the six variables
+that I found in this code. Now, you may have also identified
+that keyword, this, as a variable. It's not quite a variable,
+it behaves a little bit like a variable. We'll talk more bout that later as we
+add in scope into our memory models. But here are those six variables. There's latitude and longitude, which are the member variables
+in our SimpleLocation class. There's latIn and lonIn,
+which are the parameters to our method, to our constructor. And then over in our main method, there's
+lima, which is our simple location object. And then that tricky one, which is
+the parameter to the main method args. So all of these variables are not
+necessarily created equal. So even though latitude is
+a variable in this code, if I try to refer to latitude over here in the main
+method, what do you think's gonna happen? So take a minute, take a guess,
+what happens if I just try to directly access the variable
+latitude in the main method? So if you tried this, you will have
+found that it caused an error. If you try to access latitude in
+this location, in this main method, Java is gonna tell you that this
+variable latitude is not defined here. So this brings us to the idea of scope. The scope of a variable is
+the area in the code where it's defined to have a particular value. And in this case, in the main method, that
+variable latitude is not defined at all. It hasn't been declared here. It was declared over in
+the SimpleLocation class. It was one of the member variables. So I can't get at it in main. So let's talk about a few
+different types of variables and types of scoping rules for
+those variables. So the first kind of variable we're going
+to talk about is called a local variable. A local variable is a variable
+that's declared inside some method. For example, lima is a local variable. And if that variable is declared inside
+the method, outside of any block like an if statement or a while loop,
+then that variable can be used, and has a particular value that you set it to,
+all the way through that method. So in this case I can use the variable
+lima anywhere inside the main method, but not outside the main method. Second kind of variable I wanna
+talk about are parameters. Parameters are those arguments
+that we pass into methods, and they behave basically just
+like local variables. You can use them anywhere
+inside the method, you can change their value if you want to. And essentially,
+they're just like local variables. The third kind of variable
+are called member variables. Now you're familiar with
+member variables already. They're those variables
+that belong to a class. Rather than being declared
+locally in any method, they're declared outside
+any method in the class. And this means that these variables, their
+scope is actually the entire class itself. So you can refer to latitude and longitude from any method inside
+this simple location class. So they have kind of a broader scope or a wider array of places where they can
+be used than those local variables. So that in a nutshell describes scope and
+a few different kinds of variables, but really what we want to do is be able
+to reason with this notion of scope and in order to do that we're going
+to go back to our memory model. So here's where you're gonna need that pen
+or that pencil and that piece of paper. We're gonna trace through this code. It's only two lines of code. And we're gonna layer in this notion
+of scope into our memory model. So we're gonna start you off
+with a simple statement here, which is just a variable declaration,
+and an assignment statement. So you know what to do. You draw the box,
+you put the value in the box. There you go. There's our variable. It's called lat, and
+it stores the value -12.0. But now we're going to, as I mentioned,
+layer in a notion of scope. So this variable doesn't
+exist just anywhere, it exists inside the scope
+of the main method. So the way I'm gonna denote that in my
+model is I'm gonna draw a box around that variable and label it with the name
+of the scope that I'm talking about. So I've got a fancy box with some shadows,
+but in your drawing on your piece of paper,
+just put a simple box around it. Label it with the name of the method,
+which is main. My next line down,
+I declare another local variable, lima, inside of the main method as well. So that also goes into the box
+representing the scope for me. Now things get a little bit interesting,
+because lima is an object type variable. It's going to store a reference
+to a SimpleLocation object. So that SimpleLocation object, as we've
+looked at before, gets created over here, in the heap,
+which is a separate part of memory. So the SimpleLocation object gets created,
+and its two member variables, latitude and longitude, get placed inside the object
+that gets created on the heap. So that latitude and longitude,
+they're not inside main scope. They're over there in
+the scope of the object. So that's how I'm going to
+denote them in our memory model. But when the constructor gets called
+we get some more variables that get instantiated. We get those parameters latIn and
+lonIn and they have their own scope which is local
+to the constructor for SimpleLocation. So I need to draw that scope in together
+with the variables latIn and lonIn. So I've got another scope box for the constructor with the parameters
+that I've passed in. Those parameters of course get their value
+from the arguments that I passed when I called the constructor. Now I'm gonna add one more thing
+to the scope of the constructor. And that is this keyword, this. So, we talked about this before. This refers to the calling object. And in any method that's inside the class,
+we have access to this keyword, this. And what this stores is a reference
+to the object that we just created. So, in this case,
+we see that object over there on the heap. We have our keyword this whose value is
+a reference to that newly created object. And I'll put this inside the constructor
+scope because the constructor has access to this. So now we can go ahead and
+trace through the rest of the constructor. We see that that first line of
+the constructor takes the value of latIn, which is inside the constructor scope, and
+copies that value over into this.latitude. So, we follow the arrow and copy that into the member variable
+latitude inside the object. Same things happens with
+the longitude variable. We just copy the value from lonIn over
+into the objects version of the longitude variable. Now, the constructor is over. So what happens to its scope? Well, when a method ends,
+its scope disappears. So all those local variables, the parameters, any variable that has
+been declared locally, they disappear. They go away. You can never use them again. They're just gone. And now as we know, the constructor is
+over, so we return back to the main method and set lima to have a reference
+to that newly created object. So that's basically it for adding
+scope to your memory model diagrams. There's just one more subtlety I want
+to touch on before we finish off this introduction to scope,
+and that's the keyword this. So we've been using it,
+and it's very useful, but it's not strictly required in Java. So I don't have to preface my
+member variables with a this dot. I don't have to preface calls to
+methods inside my class with this dot. I can omit this. And Java will work just fine. It will figure out what I'm
+talking about just fine, and let's take a closer look
+at how it does that. So, if I leave off the keyword this, what
+Java is going to do is first gonna say, oh, I see a variable name called latitude. I think that's probably a local variable,
+so I'm gonna look for it inside the scope of the method that I'm currently in,
+which, in this case, is the constructor. But in this case, it's not going to find
+the variable latitude in the constructor. So what it's going to do instead is
+look over in the object, basically, that was the calling object for
+this particular method. So it looks over here in
+the SimpleLocation object, now it finds the variable latitude, and that's the variable that gets changed
+with this assignment statement. So that's all there is to scope. And we've got some practice problems for
+you which we hope you'll enjoy.

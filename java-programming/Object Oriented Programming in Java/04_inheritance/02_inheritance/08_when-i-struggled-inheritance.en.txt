@@ -1,0 +1,11 @@
+[MUSIC] So when I was working on a really
+large project in graduate school, I hit this point where I was
+changing all of my code and I knew the right thing to
+do was to do inheritance. I was basically making three objects, but I was a little bit lazy with
+the software infrastructure. I was like you know what,
+I'm just gonna do this in one class. I can make this work. And it worked for little while. So I worked on it for a few weeks,
+got the code working. But over the next couple of months, I kept running into bug after bug
+after bug related to this code. And finally one day I had to go to
+a group meeting for a research group and say, I'm gonna need to take two weeks and
+rewrite the code properly. I did. I lost two weeks of my life doing it, but
+it worked out after that, no more bugs. So I learned inheritance the hard way.

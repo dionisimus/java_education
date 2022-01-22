@@ -1,0 +1,387 @@
+1
+00:00:00,000 --> 00:00:04,265
+[MUSIC]
+
+2
+00:00:04,265 --> 00:00:08,378
+In this part of the project you'll be
+customizing a map using dynamic data.
+
+3
+00:00:08,378 --> 00:00:12,846
+So in the next three videos what we'll be
+doing is stepping through an example that
+
+4
+00:00:12,846 --> 00:00:14,280
+has a similar objective.
+
+5
+00:00:14,280 --> 00:00:17,389
+So you can see how you might
+want to design your thinking for
+
+6
+00:00:17,389 --> 00:00:21,150
+the next part of the project and
+also see how we might do it in practice.
+
+7
+00:00:22,150 --> 00:00:25,440
+So by the end of this sequence of videos,
+you'll be able to
+
+8
+00:00:25,440 --> 00:00:28,880
+approach customizing maps, and
+you'll be reading in data files and
+
+9
+00:00:28,880 --> 00:00:31,550
+working with the data that
+you get from those files.
+
+10
+00:00:31,550 --> 00:00:35,800
+And then you'll organize that data using
+objects both from the unfolding libraries
+
+11
+00:00:35,800 --> 00:00:37,909
+and objects that you define yourself, and
+
+12
+00:00:37,909 --> 00:00:42,620
+we'll be thinking about organizing
+data using some abstract data types.
+
+13
+00:00:42,620 --> 00:00:44,320
+So let's start by setting up the problem,
+
+14
+00:00:44,320 --> 00:00:46,770
+and this example I just
+find really striking.
+
+15
+00:00:46,770 --> 00:00:50,410
+So what we'll be doing is
+annotating a map of the world, so
+
+16
+00:00:50,410 --> 00:00:52,950
+we'll look at all
+countries in the world and
+
+17
+00:00:52,950 --> 00:00:56,290
+we'll be thinking about data for
+average life expectancy at birth.
+
+18
+00:00:56,290 --> 00:01:00,470
+You can think about a person born on
+the other side of the world from you,
+
+19
+00:01:00,470 --> 00:01:02,980
+and as they start off their life journey,
+
+20
+00:01:02,980 --> 00:01:05,610
+how long might they expect
+to have on this world?
+
+21
+00:01:05,610 --> 00:01:09,270
+So there's data collected by
+the World Bank and you can read it in.
+
+22
+00:01:09,270 --> 00:01:11,620
+And what we've done is annotate
+this picture of the world,
+
+23
+00:01:11,620 --> 00:01:16,140
+this map of the world, so that
+the bright red spots are countries where
+
+24
+00:01:16,140 --> 00:01:19,490
+the average life expectancy at
+birth is somewhere around 45 years.
+
+25
+00:01:19,490 --> 00:01:24,460
+And the bright blue spots have average
+life expectancy around 85 to 90 years.
+
+26
+00:01:24,460 --> 00:01:28,614
+And so just in this visualization
+we see that the range of life
+
+27
+00:01:28,614 --> 00:01:30,901
+expectancies we find globally.
+
+28
+00:01:30,901 --> 00:01:34,781
+And this is pretty striking, and so by the
+end of the videos, you'll be able to do
+
+29
+00:01:34,781 --> 00:01:38,664
+similar visualizations with all sorts of
+data sets that are available online and
+
+30
+00:01:38,664 --> 00:01:42,630
+in other sources and that we'll also make
+available for you through this course.
+
+31
+00:01:43,770 --> 00:01:47,830
+So the life expectancy data that we
+might get, say from the World Bank,
+
+32
+00:01:47,830 --> 00:01:52,940
+for example, comes to us as a spreadsheet,
+comma separated values.
+
+33
+00:01:52,940 --> 00:01:56,110
+Lots and lots of rows in this file.
+
+34
+00:01:56,110 --> 00:01:57,450
+And we want to make sense of it,
+
+35
+00:01:57,450 --> 00:02:02,010
+we want to present it in a way that's
+easier to understand and organize.
+
+36
+00:02:02,010 --> 00:02:05,350
+So when we have a high level
+objective like drawing pictures or
+
+37
+00:02:05,350 --> 00:02:09,100
+visualizing data on a map, it's useful
+to break it down into manageable
+
+38
+00:02:09,100 --> 00:02:12,500
+chunks before we sit down
+to program a solution up.
+
+39
+00:02:12,500 --> 00:02:17,300
+And so for this particular problem, we
+can think of our project in three stages.
+
+40
+00:02:17,300 --> 00:02:22,090
+First, we might setup the map, configure
+the window and display the countries.
+
+41
+00:02:22,090 --> 00:02:26,730
+Then we might go to reading in the data,
+and looking at the data file that we have.
+
+42
+00:02:26,730 --> 00:02:31,750
+And finally we can convert that data
+into a visualization on the map.
+
+43
+00:02:31,750 --> 00:02:35,165
+So the videos will be separated
+into these three stages and
+
+44
+00:02:35,165 --> 00:02:37,450
+we'll wrap up this video
+by setting up our map.
+
+45
+00:02:39,050 --> 00:02:42,140
+So this is a good opportunity to think
+back to the beginning of your project.
+
+46
+00:02:42,140 --> 00:02:46,440
+And you've already played around with
+similar code where we declare a class, we
+
+47
+00:02:46,440 --> 00:02:52,060
+create a new class, that extends PApplet
+and uses the UnfoldingMaps library.
+
+48
+00:02:52,060 --> 00:02:58,410
+So in this class definition we are in
+a new file, the LifeExpectancy file.
+
+49
+00:02:58,410 --> 00:03:01,660
+And remember that the file name
+has to match the class name.
+
+50
+00:03:01,660 --> 00:03:04,110
+And what we're going to
+do is create a map and
+
+51
+00:03:04,110 --> 00:03:08,980
+then we have to define two methods, the
+two methods that will setup our applet and
+
+52
+00:03:08,980 --> 00:03:13,990
+then draw it continuously while
+the applet is running to update the view.
+
+53
+00:03:13,990 --> 00:03:17,390
+Okay, so
+let's start by setting up the map and
+
+54
+00:03:17,390 --> 00:03:20,990
+that first line of code is setting
+up the size of the canvas.
+
+55
+00:03:20,990 --> 00:03:24,840
+We've seen that in a few earlier videos so
+hopefully it's familiar at this point.
+
+56
+00:03:24,840 --> 00:03:27,830
+And then beyond that
+we're creating a new map.
+
+57
+00:03:27,830 --> 00:03:32,810
+So we're using the constructor for
+the UnfoldingMap, and we're creating a new
+
+58
+00:03:32,810 --> 00:03:36,610
+map object that we'll be manipulating and
+using throughout the project.
+
+59
+00:03:37,660 --> 00:03:41,790
+All right, this is slightly new and
+what we're doing here is using
+
+60
+00:03:41,790 --> 00:03:46,200
+one of the built-in methods
+in the UnfoldingMaps library.
+
+61
+00:03:46,200 --> 00:03:48,880
+And what this method does is allow
+
+62
+00:03:48,880 --> 00:03:52,110
+the user to interact with
+the map in some limited ways.
+
+63
+00:03:52,110 --> 00:03:58,720
+So by invoking
+MapUtils.createDefaultEventDispatcher,
+
+64
+00:03:58,720 --> 00:04:02,560
+which all seem like magic words at this
+point, but if you invoke this little
+
+65
+00:04:02,560 --> 00:04:07,510
+magic command, What that happens when we
+run our applet is that double-clicking
+
+66
+00:04:07,510 --> 00:04:12,730
+leads to zooming in in the map and we
+can do some panning around in the world.
+
+67
+00:04:12,730 --> 00:04:16,480
+Now, computer science is not magic and
+
+68
+00:04:16,480 --> 00:04:19,490
+we will make all of this
+clear in a future module.
+
+69
+00:04:19,490 --> 00:04:21,450
+We will talk about event handlers.
+
+70
+00:04:21,450 --> 00:04:23,940
+We'll talk about what's going
+on under the hood, but for
+
+71
+00:04:23,940 --> 00:04:29,750
+now in order to add some added
+interactivity, we use this line of code.
+
+72
+00:04:29,750 --> 00:04:31,480
+Okay, so
+we've set up the map a little bit,
+
+73
+00:04:31,480 --> 00:04:35,280
+we've created a map object and
+we've configured its size.
+
+74
+00:04:35,280 --> 00:04:40,020
+And now if we go ahead into that draw
+method, we can call the map's own
+
+75
+00:04:40,020 --> 00:04:45,120
+draw method, each UnfoldingMap comes with
+its own draw method, that will refresh
+
+76
+00:04:45,120 --> 00:04:49,160
+the screen based on the current objects
+and parameters associated with the map.
+
+77
+00:04:49,160 --> 00:04:56,990
+And so at this point what we have is that
+default canvas with the map of the globe.
+
+78
+00:04:56,990 --> 00:05:01,100
+And what we'll do in the next two videos
+is start bringing in our data and
+
+79
+00:05:01,100 --> 00:05:05,080
+shading the countries of the world based
+on the life expectancy data that we
+
+80
+00:05:05,080 --> 00:05:05,800
+talked about earlier.

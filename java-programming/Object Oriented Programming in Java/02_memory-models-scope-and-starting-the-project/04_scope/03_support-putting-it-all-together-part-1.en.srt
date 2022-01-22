@@ -1,0 +1,236 @@
+1
+00:00:00,025 --> 00:00:07,163
+[SOUND] So
+you've now heard a lot about objects.
+
+2
+00:00:07,163 --> 00:00:08,620
+You've heard a lot about memory models.
+
+3
+00:00:08,620 --> 00:00:10,180
+You've heard a lot about scope.
+
+4
+00:00:10,180 --> 00:00:13,050
+You've worked through
+some concept challenges.
+
+5
+00:00:13,050 --> 00:00:16,220
+And, now we have an opportunity
+to put it all together.
+
+6
+00:00:16,220 --> 00:00:20,040
+So, buckle in, get ready,
+this is gonna be a tricky example, but
+
+7
+00:00:20,040 --> 00:00:21,740
+we're gonna get through it together.
+
+8
+00:00:21,740 --> 00:00:26,490
+So what we're going to do here is
+take the simple location class that
+
+9
+00:00:26,490 --> 00:00:30,040
+you've talked about a lot with Christine
+and we're going to change it a bit.
+
+10
+00:00:30,040 --> 00:00:33,870
+So remember the simple location we
+want to encode the latitude and
+
+11
+00:00:33,870 --> 00:00:38,420
+the longitude and so far we've been
+encoding them as two instance variables,
+
+12
+00:00:38,420 --> 00:00:42,070
+each of them is a number type
+of primitive type double.
+
+13
+00:00:42,070 --> 00:00:46,420
+But now we're going to twist things up
+a bit and we're gonna define a new class,
+
+14
+00:00:46,420 --> 00:00:49,380
+a different class, called a ray location.
+
+15
+00:00:49,380 --> 00:00:52,910
+And we're still going to want to record
+the coordinates of that location,
+
+16
+00:00:52,910 --> 00:00:57,450
+but we're gonna try to implement
+this by recording them in an array.
+
+17
+00:00:57,450 --> 00:01:00,660
+So it's an array that
+were called quarts and
+
+18
+00:01:00,660 --> 00:01:05,102
+the kind of information that's stored in
+that array are still gonna be doubles.
+
+19
+00:01:05,102 --> 00:01:10,180
+All right, so, let's think about how we
+might define this class ArrayLocation and
+
+20
+00:01:10,180 --> 00:01:12,290
+then try to use it in the main method.
+
+21
+00:01:12,290 --> 00:01:17,590
+Okay, so, for our class definition
+we defined the instance variable
+
+22
+00:01:17,590 --> 00:01:21,400
+coords of type array that's
+going to contain doubles.
+
+23
+00:01:21,400 --> 00:01:24,320
+And then we're going to need
+to define the constructor.
+
+24
+00:01:24,320 --> 00:01:30,710
+And the constructor when it receives
+a parameter that's specifying an array
+
+25
+00:01:30,710 --> 00:01:36,000
+that indicates the coordinates,
+we're going to say this.coords = coords.
+
+26
+00:01:36,000 --> 00:01:38,940
+That's going to be the definition
+of our constructor.
+
+27
+00:01:38,940 --> 00:01:42,727
+And then we might go ahead and
+want to try to use these objects.
+
+28
+00:01:42,727 --> 00:01:47,986
+And so in our main method you can
+imagine a situation where we start
+
+29
+00:01:47,986 --> 00:01:53,736
+us off by defining a new array and
+initializing it to 5.0 and 0.0.
+
+30
+00:01:53,736 --> 00:01:55,107
+And if you'll look on a map,
+
+31
+00:01:55,107 --> 00:01:58,550
+you'll see that those are roughly
+the coordinates of accra in Africa.
+
+32
+00:01:59,570 --> 00:02:04,040
+And so then we might want to create
+a location and label the variable that's
+
+33
+00:02:04,040 --> 00:02:09,060
+pointing to that object, that array
+location object, call it accra and say.
+
+34
+00:02:10,080 --> 00:02:13,600
+That variable accra is going to
+point to a new array location
+
+35
+00:02:13,600 --> 00:02:16,990
+with the coordinates as specified
+in that previous array.
+
+36
+00:02:16,990 --> 00:02:21,240
+And then we might want to go ahead and
+get ready to think about
+
+37
+00:02:21,240 --> 00:02:26,000
+a different location and so
+we might want to use our coords array and
+
+38
+00:02:26,000 --> 00:02:31,610
+store the value 32.9 in the zeroth
+index and -117.2 in the index 1.
+
+39
+00:02:31,610 --> 00:02:36,330
+And if you recognize those, those
+are the coordinates for UC San Diego.
+
+40
+00:02:36,330 --> 00:02:41,420
+And then, oh just to check that we haven't
+messed anything up, we might debug
+
+41
+00:02:41,420 --> 00:02:46,790
+our code by printing out the coordinates
+pointed to by the accra variable.
+
+42
+00:02:46,790 --> 00:02:51,660
+And so what I'd like to do now
+is pause and I want you to
+
+43
+00:02:52,700 --> 00:02:55,590
+first of all think through what you
+think will happen when we do this.
+
+44
+00:02:55,590 --> 00:02:58,760
+And second of all, open up Eclipse,
+
+45
+00:02:58,760 --> 00:03:02,105
+type in this code, remember that you're
+file name is going to have to be
+
+46
+00:03:02,105 --> 00:03:05,360
+ArrayLocation.java to
+match with the class name.
+
+47
+00:03:05,360 --> 00:03:08,540
+And see what happens and
+see if you can explain what happens.
+
+48
+00:03:08,540 --> 00:03:11,680
+And when we come back together,
+we'll work through the memory models and
+
+49
+00:03:11,680 --> 00:03:13,740
+figure out together what happens and why.

@@ -1,0 +1,9 @@
+[MUSIC] Hi there.
+My name is Liliana, and I'm a software engineer for
+the shopping team at Google in Mountain View. >> Hi. My name is Rosalie and I work on
+identity and authentication at Google. >> Hi, I'm Landon Judkins. And I'm a software engineer at
+Google's Pittsburgh office. >> Hi, my name is Nina Yi. I'm on the Google Fiber
+Software Engineering team. >> I'm [Kabeche] and
+I'm an engineer on the Google Docs team. >> Hi, I'm Matt Healy. I'm a Google engineer working
+on conversational shopping in our Pittsburgh office. Welcome to the Intermediate
+Programming Specialization.

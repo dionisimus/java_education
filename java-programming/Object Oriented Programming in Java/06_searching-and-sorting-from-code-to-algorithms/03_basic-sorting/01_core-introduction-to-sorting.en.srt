@@ -1,0 +1,612 @@
+1
+00:00:00,000 --> 00:00:03,531
+[MUSIC]
+
+2
+00:00:03,531 --> 00:00:07,000
+In the previous videos,
+Christine talked about some algorithms for
+
+3
+00:00:07,000 --> 00:00:10,310
+finding information in
+large collections of data.
+
+4
+00:00:10,310 --> 00:00:10,970
+What you saw is,
+
+5
+00:00:10,970 --> 00:00:15,260
+if the data is organized, then it's
+easier to do some of these algorithms.
+
+6
+00:00:15,260 --> 00:00:18,690
+So in this video, we'll talk about
+ways of organizing data, and
+
+7
+00:00:18,690 --> 00:00:21,790
+in particular,
+how to sort it in some order.
+
+8
+00:00:21,790 --> 00:00:24,820
+And then you'll see some
+advantages of having it sorted.
+
+9
+00:00:24,820 --> 00:00:28,240
+So let's think back to binary search,
+which is one of those algorithms for
+
+10
+00:00:28,240 --> 00:00:30,720
+searching that Christine presented.
+
+11
+00:00:30,720 --> 00:00:34,860
+Remember that when we do binary search,
+at each step of the algorithm
+
+12
+00:00:34,860 --> 00:00:38,670
+we reduce the number of elements
+that we need to look at by half.
+
+13
+00:00:38,670 --> 00:00:43,110
+And so, all in all we look at
+about log n number of steps if
+
+14
+00:00:43,110 --> 00:00:47,000
+n is the size of the list of
+elements that we started.
+
+15
+00:00:47,000 --> 00:00:52,050
+Okay, so what we remember now is that
+in order for binary search to work,
+
+16
+00:00:52,050 --> 00:00:56,910
+the data in our list of elements has to
+be sorted by what we are searching at.
+
+17
+00:00:56,910 --> 00:00:59,880
+So for example, if we're looking for.
+
+18
+00:00:59,880 --> 00:01:03,040
+The country code,
+the airport code of Essen.
+
+19
+00:01:03,040 --> 00:01:08,190
+Then what we do with this particular
+list is we looked about halfway through
+
+20
+00:01:08,190 --> 00:01:11,920
+our list of elements, and
+oh, we found it, excellent.
+
+21
+00:01:11,920 --> 00:01:13,150
+Essen is right in the middle.
+
+22
+00:01:13,150 --> 00:01:15,560
+All right, so that's kind of silly.
+
+23
+00:01:15,560 --> 00:01:16,990
+Let's look for another element.
+
+24
+00:01:16,990 --> 00:01:18,030
+Maybe let's look for Beijing.
+
+25
+00:01:18,030 --> 00:01:20,440
+Let's look for
+the airport code of Beijing.
+
+26
+00:01:20,440 --> 00:01:24,310
+And so, again, we start by looking in
+the middle of our list of elements.
+
+27
+00:01:24,310 --> 00:01:28,010
+And then we compare Beijing with Essen and
+
+28
+00:01:28,010 --> 00:01:32,050
+we see that Beijing is
+alphabetically earlier than Essen.
+
+29
+00:01:32,050 --> 00:01:37,050
+And so we only need to look at the first
+half of the list because we have
+
+30
+00:01:37,050 --> 00:01:39,430
+the list sorted in alphabetical order.
+
+31
+00:01:39,430 --> 00:01:42,240
+So the order is really
+helping us out here.
+
+32
+00:01:42,240 --> 00:01:44,530
+Now, think about this order.
+
+33
+00:01:44,530 --> 00:01:49,500
+Sorting, means that we list our element
+in some order that we decide ahead
+
+34
+00:01:49,500 --> 00:01:54,460
+of time and is compatible with the search
+algorithm that we're trying to do,
+
+35
+00:01:54,460 --> 00:01:57,510
+if the sorting is done as
+a first step towards searching.
+
+36
+00:01:57,510 --> 00:01:59,900
+So in particular, for this example,
+
+37
+00:01:59,900 --> 00:02:04,860
+what we're trying to do is find a city
+name, and so we're sorting our data.
+
+38
+00:02:04,860 --> 00:02:08,710
+Based on the first letter and
+then the second letter of the city, so
+
+39
+00:02:08,710 --> 00:02:11,740
+we're sorting the city names
+in alphabetical order.
+
+40
+00:02:11,740 --> 00:02:13,360
+Now, when you think about airports,
+
+41
+00:02:13,360 --> 00:02:16,490
+the city is not the only piece of
+data associated with the airport.
+
+42
+00:02:16,490 --> 00:02:20,620
+We also have a country that the airport is
+located in, and so it's conceivable that
+
+43
+00:02:20,620 --> 00:02:25,950
+instead of sorting by city, we would want
+to sort our airports by, say, country.
+
+44
+00:02:25,950 --> 00:02:30,940
+And so we'd want to organize the airports
+alphabetically according to country.
+
+45
+00:02:30,940 --> 00:02:33,130
+There's nothing stopping
+us from doing that, but
+
+46
+00:02:33,130 --> 00:02:35,630
+we have to think about
+why we wanna do that.
+
+47
+00:02:35,630 --> 00:02:40,390
+And so if we're looking for
+an airport in a given country,
+
+48
+00:02:40,390 --> 00:02:45,010
+then it would make sense to sort all
+the airports based on the country name.
+
+49
+00:02:45,010 --> 00:02:49,270
+And so that's why the sorting has to
+be compatible with the searching.
+
+50
+00:02:51,210 --> 00:02:51,970
+Binary search,
+
+51
+00:02:51,970 --> 00:02:57,360
+when Christine presented it, she showed
+you how it was absolutely necessary for
+
+52
+00:02:57,360 --> 00:03:02,150
+the list to be organized in order,
+in order for binary search to at all work.
+
+53
+00:03:02,150 --> 00:03:05,680
+But before she talked about binary search,
+she already talked about linear search,
+
+54
+00:03:05,680 --> 00:03:07,930
+which was the sort of
+simpler algorithm for
+
+55
+00:03:07,930 --> 00:03:14,260
+looking through a collection of pieces of
+data, to try to find one particular item.
+
+56
+00:03:14,260 --> 00:03:15,650
+And with linear search,
+
+57
+00:03:15,650 --> 00:03:19,510
+we didn't have to make any assumptions
+about how the data was organized.
+
+58
+00:03:19,510 --> 00:03:22,260
+Remember that in linear search, we start
+at the beginning and we flip through,
+
+59
+00:03:22,260 --> 00:03:24,430
+one at at time keep on going,
+keep on going.
+
+60
+00:03:24,430 --> 00:03:29,070
+Looking for our particularly desired
+piece of information or piece of data.
+
+61
+00:03:29,070 --> 00:03:31,320
+And that's fine.
+
+62
+00:03:31,320 --> 00:03:37,190
+But actually, what happen is if we happen
+to know that our information is sorted,
+
+63
+00:03:37,190 --> 00:03:39,510
+then we get a performance payoff.
+
+64
+00:03:39,510 --> 00:03:44,230
+So let's think about the array of
+airports in cities and countries and
+
+65
+00:03:44,230 --> 00:03:48,290
+let's think about trying to find the
+airport code for Istanbul, for example.
+
+66
+00:03:48,290 --> 00:03:52,640
+What we might do in linear search is start
+with the first element of our array,
+
+67
+00:03:52,640 --> 00:03:55,330
+Agra in India, and see,
+okay, that's not Istanbul.
+
+68
+00:03:55,330 --> 00:03:56,540
+We have to keep on going.
+
+69
+00:03:56,540 --> 00:04:00,140
+Then we go to Beijing, so that's not
+Istanbul, we have to keep on going.
+
+70
+00:04:00,140 --> 00:04:03,810
+Chicago, Essen, Lagos,
+
+71
+00:04:03,810 --> 00:04:08,150
+well If we were just doing linear search,
+we'd have to keep on going.
+
+72
+00:04:08,150 --> 00:04:11,100
+Montreal, Quito, Sydney.
+
+73
+00:04:11,100 --> 00:04:14,670
+And then only once we got to
+the end of the array, we would say,
+
+74
+00:04:14,670 --> 00:04:18,250
+okay, Istanbul wasn't there,
+it's missing from our array.
+
+75
+00:04:18,250 --> 00:04:19,860
+We can't do anything, we return null.
+
+76
+00:04:21,170 --> 00:04:23,870
+But if we know that our array is sorted,
+
+77
+00:04:23,870 --> 00:04:27,210
+we actually could have stopped
+a little earlier when I paused.
+
+78
+00:04:27,210 --> 00:04:31,720
+Right as soon as we got to
+Lagos we noticed that Lagos
+
+79
+00:04:31,720 --> 00:04:35,740
+starts with L which is alphabetically
+after I in the alphabet and
+
+80
+00:04:35,740 --> 00:04:40,490
+so if Istanbul was in our array it
+would have to happen before Lagos.
+
+81
+00:04:40,490 --> 00:04:43,620
+And so we don't have to look at
+the rest of the elements in the array
+
+82
+00:04:43,620 --> 00:04:48,180
+to know that Istanbul is missing
+from this collection of data.
+
+83
+00:04:48,180 --> 00:04:52,551
+And so what we get here is that
+if we do some up front work,
+
+84
+00:04:52,551 --> 00:04:55,809
+if we sort our array, if we sort our list.
+
+85
+00:04:55,809 --> 00:04:59,337
+Then in certain cases our
+algorithm can run much faster and
+
+86
+00:04:59,337 --> 00:05:04,089
+we can have some logic built in to our
+algorithm that says If we're sure that our
+
+87
+00:05:04,089 --> 00:05:08,769
+element that we're looking for is missing,
+we don't have to keep on going,
+
+88
+00:05:08,769 --> 00:05:10,659
+we can stop right here and say.
+
+89
+00:05:10,659 --> 00:05:14,554
+We've reached somewhere past the
+alphabetical location of where our element
+
+90
+00:05:14,554 --> 00:05:17,250
+would be, we don't need to keep going.
+
+91
+00:05:17,250 --> 00:05:17,970
+Okay.
+
+92
+00:05:17,970 --> 00:05:20,420
+So, so far we've seen that sorting,
+
+93
+00:05:20,420 --> 00:05:25,660
+which means arranging in order can help us
+in both binary search and linear search.
+
+94
+00:05:25,660 --> 00:05:32,120
+And there's actually another algorithm
+that is helped by having our data sorted.
+
+95
+00:05:32,120 --> 00:05:36,340
+And so let's think about the problem
+of having a huge amount of information.
+
+96
+00:05:36,340 --> 00:05:37,070
+And we want to look for
+
+97
+00:05:37,070 --> 00:05:40,920
+duplicates, that you can imagine
+all sorts of use cases for this.
+
+98
+00:05:40,920 --> 00:05:45,070
+But for that let's abstract away all
+the applications and just think about.
+
+99
+00:05:45,070 --> 00:05:46,820
+How we would approach this question.
+
+100
+00:05:46,820 --> 00:05:49,710
+And so if we're given a whole bunch of
+unorganized data this might be kind of
+
+101
+00:05:49,710 --> 00:05:52,470
+hard and we might have to leap
+through the list a few times.
+
+102
+00:05:52,470 --> 00:05:56,700
+And figure out if there's any two
+pairs in the list that are the same.
+
+103
+00:05:56,700 --> 00:05:59,850
+But what if we were willing
+to pay some upfront cost and
+
+104
+00:05:59,850 --> 00:06:03,380
+sort the information first, well then.
+
+105
+00:06:03,380 --> 00:06:06,750
+We just need to do one pass over
+the information after it's sorted, and
+
+106
+00:06:06,750 --> 00:06:11,530
+look at consecutive pairs of elements,
+and see if they're equal,
+
+107
+00:06:11,530 --> 00:06:16,170
+because the duplicates would show up
+right after another in the sorted list.
+
+108
+00:06:16,170 --> 00:06:19,700
+And so in the data that we started with,
+we see that it's pretty quick to find
+
+109
+00:06:19,700 --> 00:06:22,839
+that 84 appears twice,
+once we've sorted the list.
+
+110
+00:06:24,060 --> 00:06:27,800
+Alright, so I'd like to leave
+you with a few questions,
+
+111
+00:06:27,800 --> 00:06:32,810
+what we've done in this video, is given
+a taste for the algorithmic questions
+
+112
+00:06:32,810 --> 00:06:37,210
+we think about when we're developing
+new strategies for solving problems.
+
+113
+00:06:37,210 --> 00:06:40,380
+So when we have an algorithm
+like binary search or
+
+114
+00:06:40,380 --> 00:06:43,340
+like linear search,
+we like to ask ourselves.
+
+115
+00:06:43,340 --> 00:06:48,380
+For particular cases,
+how fast will this algorithm run?
+
+116
+00:06:48,380 --> 00:06:50,240
+How slow will it run?
+
+117
+00:06:50,240 --> 00:06:54,080
+How many steps do we need to take and
+how lucky can we be?
+
+118
+00:06:54,080 --> 00:06:57,350
+So can the data or its organization,
+
+119
+00:06:57,350 --> 00:07:01,820
+the input from the outside world, have an
+impact on the run time of the algorithm?
+
+120
+00:07:02,880 --> 00:07:05,050
+What's it going to be
+like in the worst case?
+
+121
+00:07:05,050 --> 00:07:07,620
+What's it going to be
+like in the best case?
+
+122
+00:07:07,620 --> 00:07:10,210
+And also,
+when we're developing algorithms,
+
+123
+00:07:10,210 --> 00:07:14,020
+sometimes we're willing to spend
+a lot of energy at the beginning,
+
+124
+00:07:14,020 --> 00:07:18,650
+if we're going to be able to reap
+the benefits from that upfront cost.
+
+125
+00:07:18,650 --> 00:07:22,340
+By having the later algorithms,
+that maybe we do a lot of times,
+
+126
+00:07:22,340 --> 00:07:26,940
+be much more efficient,
+because we did some overhead initial work.
+
+127
+00:07:26,940 --> 00:07:29,880
+So in the next few videos we're gonna
+be talking about algorithms for
+
+128
+00:07:29,880 --> 00:07:33,650
+sorting, and hopefully now you
+understand why they're so important,
+
+129
+00:07:33,650 --> 00:07:38,040
+because having sorted data could really
+help all sorts of follow on algorithms.

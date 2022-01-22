@@ -1,0 +1,612 @@
+1
+00:00:00,008 --> 00:00:03,799
+[MUSIC]
+
+2
+00:00:03,799 --> 00:00:08,710
+We are almost done so
+remember what we've done up until now.
+
+3
+00:00:08,710 --> 00:00:12,840
+We are working towards building an
+application that has a background image of
+
+4
+00:00:12,840 --> 00:00:18,270
+the beach, and then has a visual clock
+that is represented by a second sun.
+
+5
+00:00:18,270 --> 00:00:23,080
+And at this point we've defined
+the setup method of our class
+
+6
+00:00:23,080 --> 00:00:28,270
+MyPApplet that customizes the PApplet
+class provided by processing.
+
+7
+00:00:28,270 --> 00:00:30,660
+And then we've started
+working on the draw method.
+
+8
+00:00:30,660 --> 00:00:33,930
+And our draw method so
+far has brought in and
+
+9
+00:00:33,930 --> 00:00:38,110
+displayed the background image but
+we're still missing the sun.
+
+10
+00:00:38,110 --> 00:00:41,620
+So let's think back to where
+we want the sun to be.
+
+11
+00:00:41,620 --> 00:00:46,700
+And think about where that location is in
+that grid of coordinates that we have for
+
+12
+00:00:46,700 --> 00:00:49,670
+specifying positions on our canvass.
+
+13
+00:00:49,670 --> 00:00:54,180
+And so we want the sun to be somewhere
+in the top left of our picture.
+
+14
+00:00:54,180 --> 00:01:00,450
+And before talked about how that's roughly
+about 50, x equals 50, y equals 50.
+
+15
+00:01:00,450 --> 00:01:04,380
+Which is about a quarter of the way across
+and maybe a quarter of the way down.
+
+16
+00:01:04,380 --> 00:01:08,680
+And maybe we wanna tweak it so
+it's a little bit higher up.
+
+17
+00:01:08,680 --> 00:01:10,600
+And so
+we want maybe a fifth of the way down.
+
+18
+00:01:10,600 --> 00:01:14,820
+And so what we wanna think about
+is how to specify the location
+
+19
+00:01:14,820 --> 00:01:18,990
+of the center of the sun in this x and
+y space.
+
+20
+00:01:18,990 --> 00:01:24,310
+And we're going to do it dynamically so
+that the sun stays in that top left corner
+
+21
+00:01:24,310 --> 00:01:29,990
+and visible, even as the user of our
+application might resize the window.
+
+22
+00:01:29,990 --> 00:01:35,300
+And so we're not going to use fixed
+numbers like 50 pixels across or
+
+23
+00:01:35,300 --> 00:01:38,950
+50 pixels down,
+we're going to use relative coordinates
+
+24
+00:01:38,950 --> 00:01:43,590
+relative to those variables,
+width or height of the canvas.
+
+25
+00:01:43,590 --> 00:01:47,080
+All right, so let's think about
+where we might want to put it, and
+
+26
+00:01:47,080 --> 00:01:49,150
+about a quarter of the way across and
+
+27
+00:01:49,150 --> 00:01:54,490
+a fifth of the way down seems like
+about right position for the sun.
+
+28
+00:01:54,490 --> 00:01:58,030
+So now we need to go ahead and
+place sun there.
+
+29
+00:01:58,030 --> 00:02:03,920
+And we use a library method
+ellipse to draw an ellipse
+
+30
+00:02:03,920 --> 00:02:08,640
+in the locations x and
+y so the coordinates of
+
+31
+00:02:08,640 --> 00:02:14,380
+the center of the ellipse are the first
+two parameters of the method.
+
+32
+00:02:14,380 --> 00:02:16,970
+But then we have two
+other parameters as well.
+
+33
+00:02:16,970 --> 00:02:22,280
+And, so the second two parameters
+are the actual width of the ellipse and
+
+34
+00:02:22,280 --> 00:02:23,950
+the height of the ellipse.
+
+35
+00:02:23,950 --> 00:02:28,610
+So if those two parameters happen to be
+equal, then we're going to get a circle.
+
+36
+00:02:28,610 --> 00:02:31,650
+And if those type of
+parameters are unequal,
+
+37
+00:02:31,650 --> 00:02:35,030
+then we'll get an ellipse
+that's maybe flatter or longer.
+
+38
+00:02:35,030 --> 00:02:39,450
+Okay, and so a thought question,
+something to keep in mind.
+
+39
+00:02:39,450 --> 00:02:44,950
+With this particular method, will what
+we're drawing always be a true circle,
+
+40
+00:02:44,950 --> 00:02:49,260
+or can you think of a situation
+where what we've specified over here
+
+41
+00:02:49,260 --> 00:02:53,740
+will actually look like a flattened
+ellipse or a tall ellipse?
+
+42
+00:02:53,740 --> 00:02:55,380
+All right so
+that's something to keep in mind.
+
+43
+00:02:55,380 --> 00:02:59,370
+But let's keep going with our example,
+with our application.
+
+44
+00:02:59,370 --> 00:03:02,010
+And if we run the code as it is right now,
+
+45
+00:03:02,010 --> 00:03:05,410
+we see we get our circle
+in the top left corner.
+
+46
+00:03:05,410 --> 00:03:05,910
+But it's what?
+
+47
+00:03:06,985 --> 00:03:11,334
+Okay and so, here is where we get to
+the dynamic part that we want to change as
+
+48
+00:03:11,334 --> 00:03:12,795
+this application runs.
+
+49
+00:03:12,795 --> 00:03:15,985
+And what we'd like to change
+is the color of the sun.
+
+50
+00:03:15,985 --> 00:03:20,075
+So now we're getting to the nitty gritty
+of how we want the color to change,
+
+51
+00:03:20,075 --> 00:03:21,935
+now that we've displayed the shapes.
+
+52
+00:03:21,935 --> 00:03:24,565
+Okay, so let's think about how
+we're going to specify the sun.
+
+53
+00:03:24,565 --> 00:03:30,920
+And this is a super common way of
+coding colors in programming languages.
+
+54
+00:03:30,920 --> 00:03:34,570
+It's used in web development, it's used
+in Java, it's used all over the place.
+
+55
+00:03:34,570 --> 00:03:38,300
+What we're going to do is
+we're going to specify a color
+
+56
+00:03:38,300 --> 00:03:41,850
+by specifying three values
+that describe a color.
+
+57
+00:03:41,850 --> 00:03:46,480
+The amount of red in it, the amount of
+green in it, and the amount of blue in it.
+
+58
+00:03:46,480 --> 00:03:51,650
+So we think of a color as being
+decomposed into three channels rgb.
+
+59
+00:03:51,650 --> 00:03:54,650
+Okay and so
+we want that sunny yellow color and so
+
+60
+00:03:54,650 --> 00:03:57,800
+we need to talk about how
+much red will be in there,
+
+61
+00:03:57,800 --> 00:04:01,780
+how much green will be in there,
+how much blue will be in there.
+
+62
+00:04:01,780 --> 00:04:05,630
+And the smallest amount of
+a color that we can specify is 0,
+
+63
+00:04:05,630 --> 00:04:10,558
+we can say we don't want any for example,
+blue or we don't want any green and
+
+64
+00:04:10,558 --> 00:04:13,260
+the maximum amount is going to be 255.
+
+65
+00:04:13,260 --> 00:04:16,270
+And that 255 is, there's a reason for it.
+
+66
+00:04:16,270 --> 00:04:17,390
+It seems like a random number.
+
+67
+00:04:17,390 --> 00:04:21,890
+There's a reason for it, you can look
+it up, but it's there for a reason.
+
+68
+00:04:21,890 --> 00:04:26,520
+And it's the maximum value for
+a color channel in the RGB coding.
+
+69
+00:04:27,940 --> 00:04:31,930
+Okay, so for
+the particular color that we care about,
+
+70
+00:04:31,930 --> 00:04:37,270
+it turns out that we're going to get that
+warm sunny shade of yellow if we have
+
+71
+00:04:37,270 --> 00:04:42,246
+the red set to it's maximum value 255, the
+blue set to it's minimum value 0, because
+
+72
+00:04:42,246 --> 00:04:46,810
+blue's kind of a cold color, we don't want
+it in this particular shade, and the green
+
+73
+00:04:46,810 --> 00:04:51,860
+is helping that red go off to yellow so
+the green is pretty high as well.
+
+74
+00:04:51,860 --> 00:04:55,750
+Now, you don't need to
+know how to design colors.
+
+75
+00:04:55,750 --> 00:04:56,380
+It's kind of fun.
+
+76
+00:04:56,380 --> 00:04:58,470
+You can play around with
+these three values and
+
+77
+00:04:58,470 --> 00:05:02,660
+see what colors you can create,
+but you can use Google and
+
+78
+00:05:02,660 --> 00:05:08,480
+just put in the search string,
+HTML color selector or RGB codes.
+
+79
+00:05:08,480 --> 00:05:13,270
+Color selectors and you'll get lots of
+these palettes where you can click on
+
+80
+00:05:13,270 --> 00:05:15,510
+the particular shade that
+you're interested in and
+
+81
+00:05:15,510 --> 00:05:18,660
+out will come the rgb code for it.
+
+82
+00:05:18,660 --> 00:05:23,280
+So it's a handy tool and
+you should feel free to use that.
+
+83
+00:05:23,280 --> 00:05:26,410
+Okay, so if we set the fill or
+
+84
+00:05:26,410 --> 00:05:31,435
+the pen color, you could think of,
+of the drawing to be 255, 209, 0,
+
+85
+00:05:31,435 --> 00:05:36,350
+i.e., the color specified by the RGB code,
+
+86
+00:05:36,350 --> 00:05:41,940
+where R level is 255,
+G level is 209, and B level is 0,
+
+87
+00:05:41,940 --> 00:05:45,910
+And then draw the ellipse then
+the ellipse is filled with that color.
+
+88
+00:05:45,910 --> 00:05:50,380
+And so then we get our beautiful sun just
+like we wanted in the top left corner
+
+89
+00:05:50,380 --> 00:05:52,850
+of Lahoya Shores Beach okay.
+
+90
+00:05:52,850 --> 00:05:55,723
+Well that's great for
+the static version but
+
+91
+00:05:55,723 --> 00:05:58,678
+now we want that sun to
+change color over time.
+
+92
+00:05:58,678 --> 00:06:03,820
+So at 7:00 when it's beautiful sunset
+we want maybe a pinker sun and
+
+93
+00:06:03,820 --> 00:06:06,316
+then as dusk comes we want it gray.
+
+94
+00:06:06,316 --> 00:06:10,794
+And the way that we can get our
+application to change is by
+
+95
+00:06:10,794 --> 00:06:16,320
+remembering that crucial fact that
+when we have the methods set up and
+
+96
+00:06:16,320 --> 00:06:21,368
+draw in a class that extends p applet,
+the draw method loops and
+
+97
+00:06:21,368 --> 00:06:25,390
+updates the drawing over and
+over and over again.
+
+98
+00:06:25,390 --> 00:06:30,950
+And so what we're going to do is
+in our draw method we're going to
+
+99
+00:06:30,950 --> 00:06:38,850
+set the color of the sun based on the hour
+of the current time stamp of the clock.
+
+100
+00:06:38,850 --> 00:06:41,560
+So I'm going to leave that as a tease for
+you.
+
+101
+00:06:41,560 --> 00:06:43,070
+I want you to try and implement it.
+
+102
+00:06:43,070 --> 00:06:47,230
+And in one of the support videos that we
+have coming up Christina is going to work
+
+103
+00:06:47,230 --> 00:06:51,200
+through how to draw a similar method,
+and then we'll be right back at you from
+
+104
+00:06:51,200 --> 00:06:55,410
+tweaking the example that she shows you
+to getting this application to work.
+
+105
+00:06:55,410 --> 00:06:56,570
+And you can do it.
+
+106
+00:06:56,570 --> 00:07:01,360
+But I want you to keep in mind
+that central paradigm of setup
+
+107
+00:07:01,360 --> 00:07:06,280
+being run once and then draw anything
+dynamic, that changes, it's gonna be in
+
+108
+00:07:06,280 --> 00:07:10,540
+that draw method because it gets
+executed over and over and over again.
+
+109
+00:07:10,540 --> 00:07:14,240
+So that's one big central
+message from this example.
+
+110
+00:07:14,240 --> 00:07:17,980
+The second really important message
+that I want you to get from these videos
+
+111
+00:07:17,980 --> 00:07:20,500
+is documentation is our friend.
+
+112
+00:07:20,500 --> 00:07:22,550
+So when we are writing code,
+
+113
+00:07:22,550 --> 00:07:25,600
+think of yourself as joining
+this wonderful brotherhood and
+
+114
+00:07:25,600 --> 00:07:29,510
+sisterhood of programmers all around
+the world developing code together.
+
+115
+00:07:29,510 --> 00:07:33,930
+Developing libraries together and
+we want to use each others experience,
+
+116
+00:07:33,930 --> 00:07:38,540
+expertise, and draw from the work
+that we've all done together and
+
+117
+00:07:38,540 --> 00:07:43,570
+the way we can do that is by describing
+what methods we have and what they do.
+
+118
+00:07:43,570 --> 00:07:47,310
+And so the API for
+libraries are what tell us
+
+119
+00:07:47,310 --> 00:07:51,230
+what methods are available in a library,
+so that's like our index to the library.
+
+120
+00:07:51,230 --> 00:07:56,920
+But also, what we can use those methods
+to do and what functionality that have.
+
+121
+00:07:56,920 --> 00:07:58,640
+So for the processing library,
+
+122
+00:07:58,640 --> 00:08:03,160
+for the library that we've been using
+up until now to create applets and
+
+123
+00:08:03,160 --> 00:08:08,200
+to draw shapes on them the documentation
+is on your screen right now.
+
+124
+00:08:08,200 --> 00:08:13,410
+And in the next lesson of this module,
+we'll be taking it one step further and
+
+125
+00:08:13,410 --> 00:08:17,780
+thinking about how processing
+can be used as the backbone for
+
+126
+00:08:17,780 --> 00:08:20,330
+some more sophisticated
+visual applications
+
+127
+00:08:20,330 --> 00:08:23,869
+that also involve real-time
+data coming from the Internet.

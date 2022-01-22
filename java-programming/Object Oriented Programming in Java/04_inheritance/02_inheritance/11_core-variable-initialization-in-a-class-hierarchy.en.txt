@@ -1,0 +1,64 @@
+[MUSIC] In the past couple of videos, we've been
+starting to look at how class creation, or object creation happens in Java, specifically how does inheritance
+apply to object creation. In the last video, we actually looked
+at a number of compiler rules. Now these compiler rules are what the
+compiler does when it looks at your code. Now the reason we want to
+know about these rules, is because it's going to
+help us trace our code. In fact, we're going to see an error
+in our code here in just a little bit, which comes about because of these rules. We're also going to use
+same-class constructors, and super class constructors to
+help with class creation. Now we started by saying all objects
+are created from the inside out. In the last video we saw how
+the compiler rules make this happen. But what we did with the last video was
+essentially just create a number of default constructors without
+actually initializing anything. So what we're gonna do now is modify
+these to initialize the name variable. Again, you've likely initialized
+a variable before in a constructor. What we're focusing on are the elements
+that apply to inheritance. So let's start off with our person class. Remember that the extends object was
+automatically put there by the compiler. And what we're gonna do instead of
+having it automatically put there, is we're gonna explicitly put it here. Likewise, I'm gonna explicitly
+put the default constructor which would have been inserted
+by the compiler anyway. And what we're gonna so now is modify this default constructor
+to initialize the name variable. So let's add a string
+argument to the constructor. Let's add this.name = n and
+just do what we would of done before. Now, to be honest if we didn't have
+that call to super we'd be fine. But because I've now inserted this line,
+I've got an error. Remember that rule. The very first line of instructor has to
+be a call to your same class constructor or a super class constructor. I have broken this rule
+by saying this.name = n. And because I have a call
+to super() after that, this is going to produce
+a fairly cryptic compiler error. Now you know what that error means and you
+can fix it by just switching the order. So now i'm calling my superclass
+constructor correctly and now I can initialize my variable. Let's modify the student class now to
+initialize the variables there as well. So i'm gonna take default
+student constructor and i'm gonna make changes to it. I'm gonna insert String n. I'm gonna insert as a parameter, and I'm
+also going to initialize that variable. Is this gonna work? I want you to pause and
+think about this for a few seconds. Look at the code and
+see if there's any errors here. If you start to recognize that I'm not
+allowed to say this.name, you're right. That's a private variable
+in the person class. I'm not allowed to direct the access
+of that in the student class, I'd have to use a getter or
+a setter to do so. But I don't have a getter or a setter. Is there a way for me to do this? Can I initialize name without
+having the public getter setter? The answer is yes. All I have to do is change this now
+to call the superclass constructor that takes an argument,
+which is gonna initialize to be named. Perfect. So, just cross out those two lines, replace it with super,
+with that name variable being passed in. And it's gonna initialize
+everything properly. Let's go a little bit further with this,
+though. Let me add one more constructor
+to that student class. Let me add in, so this is our code
+from where we just left off, and now let me add in that
+no-arg default constructor. Now you should might be tempted to do
+with a no-arg default constructor and let's just throw in some
+kind of default name here. Is to just say super student. This will work, it's not the word idea but
+is there a better way to do this? Yes, there is. There is no reason I should be
+calling these super classes. Argument constructor when I
+have one in my own class. A better way to do this
+would be to do it like this. I should use my own same class
+constructor if it's available to me, because they maybe code within
+my same class constructor which does things that I wanna
+initialize based on this. I shouldn't just jump
+straight to the super class. But having done all these pieces, we now
+see how object creation happens in Java. We see that it happens
+from the inside out, we see that everything inherits
+from object, and we now know how to use Superclass Constructors and Ownclass
+constructors design our classes better.

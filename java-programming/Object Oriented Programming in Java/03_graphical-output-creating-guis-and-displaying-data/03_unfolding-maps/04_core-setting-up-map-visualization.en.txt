@@ -1,0 +1,135 @@
+[MUSIC] So now we're ready to
+lay the foundation for the specific graphical application
+that you're doing for the project. And so remember that what we'll be
+doing here is placing earthquake data around the world. By the end of this sequence of videos, you'll be able to place markers on a map
+of the world that you're displaying, and format those markers in
+whichever way you choose. Now the way that you'll be doing
+that is by really delving deeply into the documentation for Java, for
+Processing, for Unfolding Maps, and really learning how to become comfortable
+using other people's code and their interfaces in
+developing your own project. So all of this is in
+the service of the really cool project that we hope your
+excited about diving into. So let's start by thinking about
+the map that we want to build and the information that we
+want to lay over top of it. And if you think back to how Christine
+introduced the ideas behind objects and classes, we really want to think about our
+map as representing real world data and modelling that real world data with
+the Java constructs that we use. So some of those real world objects
+that we care about include things like location and geographical information, and then those points of interest that
+we want to highlight using markers. In our case,
+those points of interest are earthquakes. So let's think about how we implement some
+of this in Java, and we've got the two faces the project being setting up the map
+and then adding the content to that map. So, thinking back to our graphical
+applications from the previous lesson, we know that the PApplet class
+lets us display data visually. And so,
+when we want to customize that display, we can extend the data type PApplet. And so our skeleton code for this new Java
+class would have the name of the class, and just a reminder that the class
+name needs to be the name of the file that we're
+saving this code in. So our file name would be
+EarthquakeCityMap.java. Now in this class, what we need to define in order to
+specify how we're customizing the output are the two special methods that we have,
+the setup method and the draw method. Notice that,
+right now in the skeleton code, we also have declared a private instance
+variable that we'll be referring to, and it's a variable of type UnfoldingMap. And so let's see how we fill some of this
+skeleton code and what that all means. As we're getting more comfortable with
+this code, we want to trace through it and see what the methods are doing and why they are placed in
+the code where they're placed. So take a moment, please, and
+see which of these methods you recognize from the previous work that we've done,
+and which one seem new. Okay, so let's start with the familiar
+methods, and you'll notice that some of these methods we used before when we
+were building just a simple graphical application by extending PApplet
+before from the processing library. And for example, the size method
+that we're using here in setup lets us specify the dimensions of
+the canvas that we're displaying. And the background method in
+the draw method that we've got here, let's just specify the background
+color of the canvas. So those methods we're familiar with. Now in order to implement the project
+that we care about that has quite a much more sophisticated output
+than just some colors on a canvas, what we're using is
+the UnfoldingMaps library. And that library gives us access to
+a whole array of new data types. And one of those data types that's very
+important that's sort of at the crux of what we'll be doing is
+the map object itself. So that data type is called UnfoldingMap,
+and you see that we're using the constructor
+to build an UnfoldingMap type object in the second line of the setup method. So, as we're building that object,
+we need to tell Java some parameter information about
+the object that we want to create. So some of those parameters indicate the
+size of the map that we want to display. And so we have the height and
+the width dimensions of the unfolding map. But that map is going to be
+associated with a canvas. And so we need to tell the display
+where on that canvas to locate the map, and so we need to also give
+the coordinates of the map in the canvas. Now notice in the particular example
+that we're working on right now, the map is much smaller than the canvas,
+and there's a reason for that. Remember that in the project for
+this week, what we'll be doing is putting the map and a key for
+that map together on the same canvas. And so we can't have the map
+taking up the entire space. The other piece of the puzzle that we
+needed to specify when we're building a new unfolding map object is where
+that unfolding map object learns about the map features, in particular,
+the boundaries of continents for example, or countries, or any road data
+that we want to display in our map. And in order to do that, Unfolding Maps
+has this infrastructure of map providers, and for now we could just use this long constructor as a bit of a magical
+incantation with all of its parameters. And we know that if we want to display a
+map, that last parameter needs to be a new map provider, and we're choosing
+to use the Google Map provider. So one of the things that you're working
+with in some of the end-of-module assessments is playing with
+the different map providers and seeing what the effects
+of that would look like. Now as we continue setting up our map, we are modifying the map
+object that we just created. We're calling a method on it
+that says zoom to level, and we're specifying the level two. We can choose the default zoom
+level of the map that we're using. Now for those of you who are working
+through this course offline, you'll notice that we've put
+in some functionality for you. We've put in some options for you that
+let you still work and program without accessing the map providers online in
+real time as you're running your applets. You will have to be a little careful
+though with zoom levels, so in particular, the offline version of the map
+only has three zoom levels. Now some of those methods, then,
+allow us to incorporate some really cool functionality in our maps without having
+to code it all off some scratch, and the MapUtils library also lets us do that. So the
+MapUtils.createDefaultEventDispatcher basically sounds like magic at the moment,
+but we'll talk more about events
+later on in the course. And what this event dispatcher
+does is it makes our map come to life in the sense that we can double-click
+on it and change the zoom level. We can drag-and-drop the map, we can
+zoom to different parts of the world. And so without us having to write up
+a whole bunch of code to implement that functionality,
+by using what other people have done, we can already boost
+the interactivity of our application. We're using another method from
+the map object in the draw method. And notice that, in the draw method, as soon as we've set the color,
+what we've said is map.draw. And map.draw is actually
+a very powerful method. In that one line, what we're saying is,
+take the map object and anything that's associated with it, and
+refresh the view of that map object. And what you'll see as we go ahead and customize our map is that instead of
+drawing each one of the new pieces that we've added to our application
+everytime we invoke the draw method, what we're going to do is associate each
+one of those new pieces to the map object. And then map.draw's method
+will refresh them all. So we've talked in a fair amount of detail
+about a lot of the methods that you see here in this starter code. But there's one yet
+that we haven't defined or discussed, and that's the addKey method, and
+you get to design that method. That method is a private
+helper method in this class where you will design how to interpret and
+display the markers that indicate the magnitude of earthquakes
+that you're showing on this map. And so the definition for this method
+occurs a little bit later in this file, and as you look through
+the starter code for this week's project,
+make sure to trace through the code and find where you'll be filling in
+the body of that method In this class. So as we trace through the code,
+it's important to know what all the methods are doing,
+not just where they come from. And so now that we have a sense of what
+each of the methods do individually, let's think about what we expect to see when we
+run a piece of code like this in Eclipse. So let's start by predicting
+what you would expect to see. Okay, so what you probably predicted
+was a canvas that has a background that is almost completely black and
+which displays a map that doesn't take up the whole canvas, but
+that shows up on the canvas. Now my question is, what if we wanted to display something
+just a little bit different? For example, if we wanted this to be
+our canvas, what would we need to do? So you probably have honed in on the
+background method as what we would need to change if we wanted to change the
+background color from almost nearly black to this light gray. And you might remember that in
+the processing library documentation, we have the definition of the background
+method and it's various parameters. And if we want to switch our color from
+almost black to gray, what we could do is just pick up value for the gray
+level that is much closer to white. So for example, if we picked a value,
+say 220 or 230, then we'd achieve the effect of having a light gray
+background like we were anticipating. So at this point, we've done a really
+thorough job of setting up our map. And the next step is to add some content,
+so that's what we'll do next.

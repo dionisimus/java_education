@@ -1,0 +1,31 @@
+[MUSIC] In this video, we'll be talking about
+two different programming paradigms. We'll be talking about
+procedural programming. And we'll also be talking about
+event driven programming. And I'd like to start with an analogy. So think about how you start your day and try to make sure that you have
+a great day feeling well and healthy. So when I get up, I brush my teeth. Then, I may take some vitamins. Brush my hair, get organized, and I have
+a sequence of events that I go through, one at a time, at the beginning of my
+day to start feeling fresh and healthy. But some days that's not quite enough. Maybe, I have a headache. Maybe, I need to drink some extra water,
+it's really hot out. Maybe, I need to even take
+some pain medication. And so there's a qualitative difference
+between the events that are procedural that follow a sequence that's predictable
+and happen everyday on a regular basis. And then, the actions that I take in
+response to events that are maybe, not as predictable that happen every so often
+based on some sort of external stimulus. And so now, back in programming, we have an analogy to both
+of these kinds of behaviors. So when we think about
+procedural programming, we think about code that's
+executed line by line, one statement after another potentially,
+with some predictable control flow. So this is akin to all of the programs
+that we've been writing in this course up until now and
+the code that you probably written before. So we'd execute one statement. And then we come to a foreloop and
+we'd go through that foreloop and execute one at a time. And what that means is that even though
+the execution might be a little bit different, depending on the values
+of variables that we're using. We still can trace through the code and understand what is going to happen at each
+moment based on the state of the program. On the other hand, what we'll be developing in this
+module is event driven programming. And what this allows us to do,
+is incorporate the power of interactivity. So, we'd like to be able for our programs
+to respond to stimulus, from users, from sensors. We'd like it to be able to respond
+to interfaces like mouses or mice, keyboards, multi touch technology. But also,
+things like thermometers or timers, if we're thinking about programs powering
+remote devices or wearable sensors. So event driven programming
+is incredibly useful. And we'll talk about more of how
+to implement it in the next video.

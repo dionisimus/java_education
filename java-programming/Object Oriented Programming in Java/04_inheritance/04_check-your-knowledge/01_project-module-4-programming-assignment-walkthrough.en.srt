@@ -1,0 +1,652 @@
+1
+00:00:00,000 --> 00:00:03,991
+[MUSIC]
+
+2
+00:00:03,991 --> 00:00:06,995
+As in the previous walk throughs,
+it's a good idea to make sure you watch
+
+3
+00:00:06,995 --> 00:00:09,227
+the overview video before
+you walk through this one.
+
+4
+00:00:09,227 --> 00:00:10,430
+The review video, again,
+
+5
+00:00:10,430 --> 00:00:14,000
+gives you the high-level picture of what
+is being asked of you for this project.
+
+6
+00:00:15,240 --> 00:00:18,471
+So let's just dive right
+into the write up.
+
+7
+00:00:18,471 --> 00:00:21,540
+In this programming exam, we're gonna be
+adding new features just like we did for
+
+8
+00:00:21,540 --> 00:00:22,128
+module three.
+
+9
+00:00:22,128 --> 00:00:24,338
+It's a good idea to make sure you
+read through the learning outcomes,
+
+10
+00:00:24,338 --> 00:00:25,280
+as well as the introduction.
+
+11
+00:00:26,720 --> 00:00:28,690
+Again, just like in the last module,
+
+12
+00:00:28,690 --> 00:00:32,210
+make sure you have these two
+references open when you're working.
+
+13
+00:00:32,210 --> 00:00:34,486
+So what are you gonna do for
+this assignment?
+
+14
+00:00:34,486 --> 00:00:37,469
+First is you're gonna make sure you
+find and open up the starter code.
+
+15
+00:00:37,469 --> 00:00:41,267
+So here's our starter code for
+module four right over here.
+
+16
+00:00:41,267 --> 00:00:43,903
+And you're gonna notice we
+have five classes in here.
+
+17
+00:00:43,903 --> 00:00:45,527
+So that's kind of your first step.
+
+18
+00:00:45,527 --> 00:00:46,572
+Open up these files and
+
+19
+00:00:46,572 --> 00:00:49,602
+you may wanna check to see what
+the relationship is between them.
+
+20
+00:00:49,602 --> 00:00:51,181
+So for example, EarthquakeCityMap.
+
+21
+00:00:51,181 --> 00:00:54,083
+It sends p applet,
+just like it did before.
+
+22
+00:00:54,083 --> 00:00:59,003
+But you'll notice that city marker
+is gonna extend simple point marker
+
+23
+00:00:59,003 --> 00:00:59,748
+and so on.
+
+24
+00:00:59,748 --> 00:01:02,920
+It's a good idea to walk through those, so
+you can figure out the class hierarchy.
+
+25
+00:01:04,700 --> 00:01:07,518
+In the next step, you're gonna
+want a trace to the store code,
+
+26
+00:01:07,518 --> 00:01:09,872
+predict what happens when you run it and
+then run it.
+
+27
+00:01:09,872 --> 00:01:12,972
+Now, notice that we've made some changes
+to the code from the previous assignment.
+
+28
+00:01:12,972 --> 00:01:18,452
+So you're gonna wanna make sure that
+you identify what those changes are.
+
+29
+00:01:18,452 --> 00:01:22,281
+The next major step is
+implement the IsLand method in
+
+30
+00:01:22,281 --> 00:01:24,639
+the EarthquakeCityMap class.
+
+31
+00:01:24,639 --> 00:01:29,492
+So let's go to EarthquakeCityMap,
+you scroll down for awhile.
+
+32
+00:01:29,492 --> 00:01:34,359
+You're gonna find there is
+a earthquake surround even more,
+
+33
+00:01:34,359 --> 00:01:37,178
+your gonna find the IsLand method.
+
+34
+00:01:37,178 --> 00:01:42,015
+The reason we're gonna use this is for
+this next step in the assignment,
+
+35
+00:01:42,015 --> 00:01:45,030
+where you're trying to
+figure out whether or
+
+36
+00:01:45,030 --> 00:01:48,777
+not an earthquake occurred in land or
+under the oceans.
+
+37
+00:01:48,777 --> 00:01:52,478
+And if it did occur in the land, you're
+going to know what country it occurred in.
+
+38
+00:01:52,478 --> 00:01:55,559
+And the good news is
+we've given you a method,
+
+39
+00:01:55,559 --> 00:01:59,600
+a little bit further
+down called IsInCountry.
+
+40
+00:01:59,600 --> 00:02:04,265
+So this is gonna allow you to essentially
+check is my earthquake occurring in this
+
+41
+00:02:04,265 --> 00:02:06,665
+country in the process of checking that,
+
+42
+00:02:06,665 --> 00:02:10,936
+it's actually gonna set that property
+of the country that it's part of.
+
+43
+00:02:10,936 --> 00:02:13,391
+So if it is actually inside that country,
+
+44
+00:02:13,391 --> 00:02:17,680
+it'll set that earthquake to be
+attached essentially to that country.
+
+45
+00:02:17,680 --> 00:02:20,177
+You'll wanna use that in a future step.
+
+46
+00:02:20,177 --> 00:02:25,576
+So you wanna use this method IsInCountry
+
+47
+00:02:25,576 --> 00:02:29,395
+within your IsLand method.
+
+48
+00:02:29,395 --> 00:02:34,560
+The next step is to implement
+your printQuakes method.
+
+49
+00:02:34,560 --> 00:02:38,403
+The idea for the printQuakes method is
+to print out all the earthquakes that
+
+50
+00:02:38,403 --> 00:02:42,368
+occurred in each country, as long as
+there's at least one earthquake in that
+
+51
+00:02:42,368 --> 00:02:46,275
+country and then also print out how
+many earthquakes occurred in the ocean.
+
+52
+00:02:46,275 --> 00:02:50,849
+You're gonna wanna use that
+country property that's
+
+53
+00:02:50,849 --> 00:02:54,634
+attached to earthquakes
+to help solve this.
+
+54
+00:02:54,634 --> 00:02:57,538
+The next step after you have coded
+these is just like any piece of code,
+
+55
+00:02:57,538 --> 00:03:00,113
+you're going to test it to make
+sure it's working properly.
+
+56
+00:03:00,113 --> 00:03:03,679
+So the way to test this is we have
+given you two tester input files called
+
+57
+00:03:03,679 --> 00:03:07,911
+testonediadem and testtwodiadem and you
+can essentially just use those test cases
+
+58
+00:03:07,911 --> 00:03:10,630
+to make sure you get the right output.
+
+59
+00:03:10,630 --> 00:03:13,154
+I'm giving you the test1.out.text and
+
+60
+00:03:13,154 --> 00:03:18,100
+text2.out.text is essentially
+the right answers to verify against.
+
+61
+00:03:18,100 --> 00:03:19,560
+If your printQuake method and
+
+62
+00:03:19,560 --> 00:03:23,060
+your IsLand method are working properly,
+this should work just fine.
+
+63
+00:03:25,130 --> 00:03:27,870
+Your next step is to draw
+a UML class hierarchy.
+
+64
+00:03:29,370 --> 00:03:32,205
+As I was showing you just before,
+you can always look in say,
+
+65
+00:03:32,205 --> 00:03:33,660
+EarthquakeMarker to figure out.
+
+66
+00:03:34,700 --> 00:03:38,130
+Go back to your code, look in
+EarthquakeMarker and see where it extends.
+
+67
+00:03:38,130 --> 00:03:40,360
+So this extends a simple point marker.
+
+68
+00:03:40,360 --> 00:03:42,160
+And we know a simple point marker,
+
+69
+00:03:42,160 --> 00:03:45,550
+if you look in the documentation
+extends for marker.
+
+70
+00:03:45,550 --> 00:03:50,086
+So this is the way you're essentially
+going to piece this all together with
+
+71
+00:03:50,086 --> 00:03:52,903
+the class you'll know
+hierarchy looks like.
+
+72
+00:03:52,903 --> 00:03:55,515
+The next step is to complete
+the method definition for
+
+73
+00:03:55,515 --> 00:03:57,847
+the draw method within
+your CityMarker class.
+
+74
+00:03:57,847 --> 00:04:00,610
+We're gonna wanna add all
+of the cities to the map.
+
+75
+00:04:00,610 --> 00:04:02,664
+So this is essentially
+our goal at this point.
+
+76
+00:04:02,664 --> 00:04:06,543
+And to do this, you're gonna
+go into your CityMarker class.
+
+77
+00:04:06,543 --> 00:04:08,504
+You're gonna find the draw method and
+
+78
+00:04:08,504 --> 00:04:11,382
+you're gonna find that there's
+a big TODO which says,
+
+79
+00:04:11,382 --> 00:04:15,563
+this is where you're gonna want to draw
+a triangle to represent the CityMarker.
+
+80
+00:04:15,563 --> 00:04:19,784
+To draw a triangle and then you have to
+think about where is the center location,
+
+81
+00:04:19,784 --> 00:04:21,740
+which is denoted by this x and this y?
+
+82
+00:04:21,740 --> 00:04:24,108
+And how will I draw a triangle
+essentially around that?
+
+83
+00:04:27,022 --> 00:04:31,322
+Your next step in the project is gonna
+be completing the method definitions for
+
+84
+00:04:31,322 --> 00:04:34,059
+drawEarthquake in
+the LandQuakeMarker class and
+
+85
+00:04:34,059 --> 00:04:37,520
+drawEarthquake in
+the OceanQuakeMarker class.
+
+86
+00:04:37,520 --> 00:04:40,964
+Notice that if you go
+into EarthQuakeMarker,
+
+87
+00:04:40,964 --> 00:04:45,836
+there is a drawEarthquake method,
+that's an abstract method.
+
+88
+00:04:45,836 --> 00:04:49,539
+So this is a method that you're gonna have
+to override within the derived classes.
+
+89
+00:04:49,539 --> 00:04:51,357
+So both LandQuakeMarker and
+
+90
+00:04:51,357 --> 00:04:54,392
+OceanQuakeMarker have
+to have these methods.
+
+91
+00:04:54,392 --> 00:04:57,294
+They already have them, but
+they're essentially stubs.
+
+92
+00:04:57,294 --> 00:04:58,954
+They don't do anything yet.
+
+93
+00:04:58,954 --> 00:05:02,472
+So if you want to drawEarthquakes, you're
+gonna add the code to draw a circle,
+
+94
+00:05:02,472 --> 00:05:04,376
+if you're in the LandQuakeMarker class.
+
+95
+00:05:04,376 --> 00:05:08,857
+For the OceanQuakeMarker class,
+you wanna add the code to draw a square.
+
+96
+00:05:11,435 --> 00:05:14,658
+Your next step is going to be
+completing the color determine
+
+97
+00:05:14,658 --> 00:05:17,112
+method within the EarthquakeMarker class.
+
+98
+00:05:17,112 --> 00:05:22,417
+Let's look real quickly though, at where
+that's called and then what it's gonna do.
+
+99
+00:05:22,417 --> 00:05:26,008
+So if we pull-up our code for
+EarthquakeMarker,
+
+100
+00:05:26,008 --> 00:05:28,152
+we have a method called draw.
+
+101
+00:05:28,152 --> 00:05:30,121
+So this is what the EarthquakeMarker
+is gonna look like and
+
+102
+00:05:30,121 --> 00:05:31,252
+it essentially does a few steps.
+
+103
+00:05:31,252 --> 00:05:34,332
+It's going to call this
+colorDetermine method,
+
+104
+00:05:34,332 --> 00:05:37,058
+which we know we have to write for
+this step.
+
+105
+00:05:37,058 --> 00:05:39,460
+And then it calls it drawEarthquake
+method, which we wrote for
+
+106
+00:05:39,460 --> 00:05:40,240
+the previous step.
+
+107
+00:05:41,750 --> 00:05:43,270
+So let's look in
+the colorDetermine method.
+
+108
+00:05:45,720 --> 00:05:49,241
+Within the colorDetermine method,
+we don't have any code yet.
+
+109
+00:05:49,241 --> 00:05:53,302
+So what we wanna do here is figure out
+whether or not it should be red, blue or
+
+110
+00:05:53,302 --> 00:05:57,634
+yellow and these are the colors we suggest
+based on the depth of the earthquake.
+
+111
+00:05:57,634 --> 00:06:00,673
+If you're curious to figure
+out how to figure out depth,
+
+112
+00:06:00,673 --> 00:06:04,855
+notice there's a bunch of helper methods
+within EarthquakeMarker class that
+
+113
+00:06:04,855 --> 00:06:09,058
+are gonna be useful to you from getting
+the magnitude, to getting the depths.
+
+114
+00:06:09,058 --> 00:06:12,193
+Now we're gonna talk real quickly
+about why we laid this out this way?
+
+115
+00:06:12,193 --> 00:06:16,108
+So you have your draw method
+in the EarthquakeMarker class,
+
+116
+00:06:16,108 --> 00:06:20,958
+which is the parent class of both
+LandQuakeMarker and OceanQuakeMarker.
+
+117
+00:06:20,958 --> 00:06:25,275
+Because you're gonna mark and determine
+the color to be red, green or blue
+
+118
+00:06:25,275 --> 00:06:30,278
+regardless of whether or not, it's a Land
+or an OceanQuakeMarker, it actually makes
+
+119
+00:06:30,278 --> 00:06:35,090
+sense to put this color determination call
+in the parent class and define it there.
+
+120
+00:06:37,020 --> 00:06:41,076
+If you try to put it in the subclasses,
+LandQuakeMarker or OceanQuakeMarker,
+
+121
+00:06:41,076 --> 00:06:44,539
+you just write the same code twice and
+that doesn't make any sense.
+
+122
+00:06:44,539 --> 00:06:45,641
+Back to our steps.
+
+123
+00:06:45,641 --> 00:06:47,476
+We are almost done at this point.
+
+124
+00:06:47,476 --> 00:06:50,199
+If you want,
+you can add this extra feature,
+
+125
+00:06:50,199 --> 00:06:54,081
+which is a check to see if
+the earthquake has occurred recently.
+
+126
+00:06:54,081 --> 00:06:57,518
+And if it has, then you will
+want to draw these kind of Xs.
+
+127
+00:06:57,518 --> 00:07:01,999
+And the place you will wanna do that
+is actually, we scrolled right past it.
+
+128
+00:07:01,999 --> 00:07:06,075
+If you wanna check to see right here,
+right after drawEarthquake, whether or
+
+129
+00:07:06,075 --> 00:07:07,944
+not it's occurred in the last day.
+
+130
+00:07:07,944 --> 00:07:11,230
+If it has occurred within the past day,
+you'll wanna put an X.
+
+131
+00:07:11,230 --> 00:07:13,447
+I hope these steps help you get started.
+
+132
+00:07:13,447 --> 00:07:17,080
+As always with these projects, you'll
+wanna work through this step by step.
+
+133
+00:07:17,080 --> 00:07:20,030
+So go right back up to step one and
+start working through.
+
+134
+00:07:20,030 --> 00:07:24,097
+You wanna read this fairly carefully,
+because we've tried to give you
+
+135
+00:07:24,097 --> 00:07:28,387
+the necessary details to solve that
+part of the problem in text right here.
+
+136
+00:07:28,387 --> 00:07:31,607
+If you do run into problems though,
+feel free to review the videos,
+
+137
+00:07:31,607 --> 00:07:32,521
+check the forums.
+
+138
+00:07:32,521 --> 00:07:34,310
+And again, try to have fun.

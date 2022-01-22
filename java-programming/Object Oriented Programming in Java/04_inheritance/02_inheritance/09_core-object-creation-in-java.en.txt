@@ -1,0 +1,42 @@
+[SOUND] As we continue on in
+this module on Inheritance, what we're gonna do next is look
+at object construction in Java. Now, you've already reconstructed before,
+so you might say, well, wait a second why
+are we revisiting this? Well, the reason we're revisiting this
+is because now we know inheritance, we now know some more details about
+how objects actually get constructed. So the goals of this video
+is to recognize that all objects actually are derived
+from the object class. And you may already know that but
+we're gonna dive into some details about how that actually works
+over the course of the next few videos. And we're also gonna look at
+how Java actually constructs or initializes its objects
+really from the inside out. We'll talk about what we mean
+by that in just a moment. We're gonna keep working with this
+in hierarchy that we've been working with before, where we have a person class,
+a super class, and the student and the faculty classes is drive classes. And we're gonna focus in on
+essentially one line of code, Student s = new Student();. We know the new statement,
+new is actually an operator. That operator means allocates space. And a second piece to this
+is once given that space, pass a reference to that space to
+the constructor for initialization. In fact constructors really should
+be called Initializers, and you'll see in other programming languages
+that they're actually called init. So really what the student
+constructor does is just initialize the variables associated with student. And the way that's gonna do this is
+essentially from the inside out. So you can go all the way up the
+hierarchy, all the way up to object and then you can come back down. As you come back down you're gonna
+initialize all those variables. And what we're gonna do is step
+through this step by step to understand how this works. So first thing you do after you've new, you've created the space object you've
+passed that space through the constructor. The student constructor then, it's very first line of code is gonna
+send you to the superclass constructor. In this case, Person. The very first line of code of
+the person constructor is gonna immediately send you to it's indirect
+superclass or in this case, Object. Now, the object constructor can initialize
+the variables associated with object, essentially filling in
+that part of the object. Once it's done, it returns back to Person. Person now can initialize it's variables. And then it's gonna
+return back to Student. And Student now is gonna initialize
+the variables associated with Student. And through this process we've essentially
+initialized all these variables, went all the way up to object,
+and all the way back down. And that's what we mean by
+initializing inside out. What you may be thinking at this point is,
+Wait. I don't remember ever extending
+from the object class. And you may not have done so
+explicitly, but it still happens. And we'll talk about how that
+happens in the next video.

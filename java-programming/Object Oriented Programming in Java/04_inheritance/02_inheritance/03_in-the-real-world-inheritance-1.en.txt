@@ -1,0 +1,8 @@
+[MUSIC] For example, I work with Google Docs, and what we do is we'll use a base class for
+representing format buttons. So every button has a specific style,
+an image, an action that the button does. And we'll use that and we'll extend it
+to make things like the bold button, the italic button, the underline button. Another example of Google APIs that use inheritance is actually found in Android,
+where we will extend the Activity class. So an activity is a single focused thing
+that the user can do within an app. And an app can be made of
+several activities and we use an inheritance to
+prevent us from repeating code.

@@ -1,0 +1,17 @@
+1
+00:00:00,000 --> 00:00:05,938
+[MUSIC]
+
+2
+00:00:05,938 --> 00:00:09,541
+You've made to our final module,
+where we'll talk about searching and
+
+3
+00:00:09,541 --> 00:00:13,087
+sorting, as well as giving you
+the opportunity to extend the project in
+
+4
+00:00:13,087 --> 00:00:14,639
+a direction of your choosing.

@@ -1,0 +1,608 @@
+1
+00:00:00,025 --> 00:00:06,260
+[APPLAUSE]
+>> All right, now we get to have some fun.
+
+2
+00:00:06,260 --> 00:00:10,430
+In that last video that Mia presented,
+she showed you how to work with GUIs
+
+3
+00:00:10,430 --> 00:00:13,620
+in Java and
+specifically using the processing library.
+
+4
+00:00:13,620 --> 00:00:16,790
+And in this video we're gonna
+actually write some code together
+
+5
+00:00:16,790 --> 00:00:18,630
+to create a fun little GUI.
+
+6
+00:00:18,630 --> 00:00:19,930
+So, I hope you're at your computer.
+
+7
+00:00:19,930 --> 00:00:21,620
+You should open up Eclipse.
+
+8
+00:00:21,620 --> 00:00:25,250
+You should navigate to the package, to the
+project, where you've got all the code set
+
+9
+00:00:25,250 --> 00:00:29,830
+up for this class that we set up in Module
+1, and you'll be ready to get started.
+
+10
+00:00:29,830 --> 00:00:30,490
+Okay, so
+
+11
+00:00:30,490 --> 00:00:34,680
+we're gonna get started by creating
+a new package to place our code in.
+
+12
+00:00:34,680 --> 00:00:36,840
+So let's go over here
+to our source folder,
+
+13
+00:00:36,840 --> 00:00:40,670
+and I'll right-click and
+I'll create a new package.
+
+14
+00:00:40,670 --> 00:00:42,460
+So here's my new package.
+
+15
+00:00:42,460 --> 00:00:45,100
+I'm gonna call my package GUI module.
+
+16
+00:00:47,750 --> 00:00:50,560
+Okay, so I've got a new package
+to put my new class in it.
+
+17
+00:00:50,560 --> 00:00:53,900
+It's always a good idea to organize
+your classes in packages so
+
+18
+00:00:53,900 --> 00:00:57,040
+they don't just become a mess
+that's all unorganized.
+
+19
+00:00:57,040 --> 00:01:00,310
+So inside this new class
+there's our new package.
+
+20
+00:01:00,310 --> 00:01:03,490
+I am going to create a new class.
+
+21
+00:01:03,490 --> 00:01:08,250
+So I go over here,
+right-click again and say New > Class.
+
+22
+00:01:08,250 --> 00:01:13,180
+And I'll call my class MyDisplay and
+create it.
+
+23
+00:01:13,180 --> 00:01:15,570
+So here's my new class.
+
+24
+00:01:15,570 --> 00:01:19,950
+So let me get rid of this window
+here cuz I don't need it anymore.
+
+25
+00:01:19,950 --> 00:01:22,450
+So I've got my new class all set up.
+
+26
+00:01:22,450 --> 00:01:26,840
+And if you remember back from Mia's video,
+the way I'm gonna turn this class in to
+
+27
+00:01:26,840 --> 00:01:31,670
+a class that represents a GUI is I'm
+going to make it extend with this
+
+28
+00:01:31,670 --> 00:01:36,610
+magical keywords extends, that we're
+gonna talk about next module, I promise.
+
+29
+00:01:36,610 --> 00:01:40,306
+And it's going to extend
+the PApplet class.
+
+30
+00:01:40,306 --> 00:01:45,280
+All right, so that PApplet class, it's,
+Eclipse is giving me an error on that.
+
+31
+00:01:45,280 --> 00:01:48,680
+It's saying, I don't know what the PApplet
+class is, and it turns out it's actually
+
+32
+00:01:48,680 --> 00:01:53,840
+smart enough to fix this error for
+us by importing the correct class for me.
+
+33
+00:01:53,840 --> 00:01:56,300
+So f I go right down here and I go yes,
+
+34
+00:01:56,300 --> 00:01:59,780
+I want to import that PApplet class,
+it will do that for me.
+
+35
+00:01:59,780 --> 00:02:02,320
+So it adds that import line for
+me and I'm ready to go.
+
+36
+00:02:03,370 --> 00:02:07,410
+So now if you remember back from the video
+as well you know that there are two magic
+
+37
+00:02:07,410 --> 00:02:11,370
+methods that we have to implement
+in order to get our GUI to display.
+
+38
+00:02:11,370 --> 00:02:12,800
+So let's implement those now.
+
+39
+00:02:12,800 --> 00:02:16,040
+So they are public void setup.
+
+40
+00:02:16,040 --> 00:02:21,850
+That's the code that gets run right at
+the beginning of when that GUI starts up.
+
+41
+00:02:21,850 --> 00:02:25,870
+And then there's this other
+method public void draw, and
+
+42
+00:02:25,870 --> 00:02:30,220
+that's the method that's gonna get
+called every time the GUI is redrawn,
+
+43
+00:02:30,220 --> 00:02:32,850
+which actually turns out
+happens quite a bit.
+
+44
+00:02:32,850 --> 00:02:35,940
+So I've got our two methods set up and
+ready to go, and
+
+45
+00:02:35,940 --> 00:02:38,710
+now in fact this GUI will run.
+
+46
+00:02:38,710 --> 00:02:39,710
+So let's try it out.
+
+47
+00:02:39,710 --> 00:02:41,360
+Let's look at what happens
+when I press play.
+
+48
+00:02:42,420 --> 00:02:44,350
+Great.
+So when I press play,
+
+49
+00:02:44,350 --> 00:02:46,040
+I see a small window here.
+
+50
+00:02:46,040 --> 00:02:46,600
+That's my GUI.
+
+51
+00:02:46,600 --> 00:02:50,450
+It's kind of a boring GUI, so
+let's do something interesting with it.
+
+52
+00:02:50,450 --> 00:02:53,880
+Let's start first by playing
+with the size of that window.
+
+53
+00:02:53,880 --> 00:02:58,180
+So, you may remember from the video,
+we have this method called size, and
+
+54
+00:02:58,180 --> 00:02:59,560
+I can pass in parameters,
+
+55
+00:02:59,560 --> 00:03:03,070
+the width that I want my window to be and
+the height that I want my window to be.
+
+56
+00:03:03,070 --> 00:03:09,510
+So I'll make a 400 by 600 size window and
+then run that again and see what happens.
+
+57
+00:03:09,510 --> 00:03:10,040
+There we go.
+
+58
+00:03:10,040 --> 00:03:14,290
+My window is both wider and
+taller than it was last time.
+
+59
+00:03:14,290 --> 00:03:15,090
+So there's my new window.
+
+60
+00:03:16,210 --> 00:03:19,390
+Now, it's always a good idea to
+just write a tiny piece of code and
+
+61
+00:03:19,390 --> 00:03:21,160
+then play around by pressing Run, and
+
+62
+00:03:21,160 --> 00:03:25,020
+we're gonna use this method a lot as we
+write this GUI code, especially GUI code.
+
+63
+00:03:25,020 --> 00:03:29,070
+It's almost impossible to tell what you're
+writing if you don't actually see it, so
+
+64
+00:03:29,070 --> 00:03:33,830
+we'll be writing a couple lines, running
+it, and it'll be kinda more fun that way.
+
+65
+00:03:33,830 --> 00:03:37,500
+So now that we've got our window set up,
+actually I want to make my window square,
+
+66
+00:03:37,500 --> 00:03:40,245
+so I'm gonna make
+a window that 400 by 400.
+
+67
+00:03:40,245 --> 00:03:42,400
+Let's start playing around with color.
+
+68
+00:03:42,400 --> 00:03:46,050
+So I want to first change
+the background color of this window.
+
+69
+00:03:46,050 --> 00:03:49,510
+And in order to do that, I need to
+remember that there's a method that I can
+
+70
+00:03:49,510 --> 00:03:51,420
+call that will change
+the background color.
+
+71
+00:03:51,420 --> 00:03:54,420
+Now, we might not remember what that
+method is called, but that's okay.
+
+72
+00:03:54,420 --> 00:03:56,970
+And that's where our documentation
+is going to come in handy.
+
+73
+00:03:56,970 --> 00:03:58,660
+So I'll use that page in a second.
+
+74
+00:03:58,660 --> 00:04:02,930
+But for now, I want to show
+you the documentation page for
+
+75
+00:04:02,930 --> 00:04:04,990
+the processing library.
+
+76
+00:04:04,990 --> 00:04:09,534
+So here is the documentation page for the
+processing library, and if you just search
+
+77
+00:04:09,534 --> 00:04:13,310
+for processing documentation you
+should be able to find this page, or
+
+78
+00:04:13,310 --> 00:04:14,530
+the URL is right here.
+
+79
+00:04:14,530 --> 00:04:17,256
+And I can look right here
+at this color column and
+
+80
+00:04:17,256 --> 00:04:21,482
+see I've got a number of methods that
+will change the color of my drawing,
+
+81
+00:04:21,482 --> 00:04:24,960
+and one of them right here
+is called background.
+
+82
+00:04:24,960 --> 00:04:26,770
+So if I click on the background method,
+
+83
+00:04:26,770 --> 00:04:29,920
+I see that there are a number of different
+versions of this background method.
+
+84
+00:04:29,920 --> 00:04:34,000
+Remember that overloading we talked about
+in module, in that last module on objects.
+
+85
+00:04:35,410 --> 00:04:38,288
+And you can see that there's a method,
+there's a version of it that takes one
+
+86
+00:04:38,288 --> 00:04:41,120
+parameter, three parameters,
+takes an image parameter.
+
+87
+00:04:41,120 --> 00:04:44,106
+I'm gonna focus here on the one
+that takes three parameters and
+
+88
+00:04:44,106 --> 00:04:47,010
+explain that in a little bit more detail.
+
+89
+00:04:47,010 --> 00:04:51,460
+So that three parameter background method,
+what it's doing is it's
+
+90
+00:04:53,570 --> 00:04:58,130
+taking three values which
+are respectively the red, green, and
+
+91
+00:04:58,130 --> 00:05:00,840
+blue amounts that I want in my color.
+
+92
+00:05:00,840 --> 00:05:04,240
+So we're defining a color in terms
+of its red, green, and blue.
+
+93
+00:05:04,240 --> 00:05:07,830
+And that's a standard way of
+representing color on a computer.
+
+94
+00:05:07,830 --> 00:05:13,980
+So if I say I want no red, no green,
+and no blue, I pass in all zeros.
+
+95
+00:05:13,980 --> 00:05:16,881
+And take a minute to guess about what
+color you think this is gonna be.
+
+96
+00:05:20,002 --> 00:05:24,030
+All right, let's try to run it, and
+see what happens, see if you were right.
+
+97
+00:05:26,670 --> 00:05:28,110
+Nope, it has errors.
+
+98
+00:05:28,110 --> 00:05:30,090
+I forgot a semicolon.
+
+99
+00:05:30,090 --> 00:05:31,610
+No problem, I'll fix that.
+
+100
+00:05:31,610 --> 00:05:35,240
+Now I'll run it, and now you can
+see that this background is black,
+
+101
+00:05:35,240 --> 00:05:38,810
+because I have no red light,
+no green light, no blue light.
+
+102
+00:05:38,810 --> 00:05:40,260
+So no light at all gives me black.
+
+103
+00:05:41,390 --> 00:05:44,412
+If I want white,
+I can change these colors to,
+
+104
+00:05:44,412 --> 00:05:48,457
+these channels to all their maximum value,
+which is 255.
+
+105
+00:05:50,501 --> 00:05:56,050
+And you can see that I'm going
+to get a white background.
+
+106
+00:05:56,050 --> 00:05:56,970
+So there's my white background.
+
+107
+00:05:58,180 --> 00:05:59,890
+And I can play around with the color here.
+
+108
+00:05:59,890 --> 00:06:03,476
+I can change it to red
+by making the blue and
+
+109
+00:06:03,476 --> 00:06:08,770
+the green channels both 0 and run again,
+so there's my red background,
+
+110
+00:06:08,770 --> 00:06:12,020
+and I can keep playing around to get other
+combinations of red, green, and blue.
+
+111
+00:06:12,020 --> 00:06:13,690
+But if you get tired of playing around,
+
+112
+00:06:13,690 --> 00:06:16,610
+there are plenty of sites on
+the internet that you can go to.
+
+113
+00:06:16,610 --> 00:06:20,110
+Here's one that I like that
+will allow you to pick an RGB,
+
+114
+00:06:20,110 --> 00:06:24,580
+sorry pick a color visually and
+then it tells you what its RGB value is.
+
+115
+00:06:24,580 --> 00:06:29,380
+So, if I like this nice kinda teal color,
+I can see that its red, green,
+
+116
+00:06:29,380 --> 00:06:31,350
+blue value are in those boxes below.
+
+117
+00:06:31,350 --> 00:06:34,860
+I think I copy those values
+out into my processing window.
+
+118
+00:06:36,200 --> 00:06:40,392
+Okay, so I want my background
+to be just a kind of plain grey.
+
+119
+00:06:40,392 --> 00:06:45,070
+So I'll put it at 200, 200, 200.
+
+120
+00:06:45,070 --> 00:06:49,077
+And incidentally, whenever I have a red,
+green, blue value that are all the same,
+
+121
+00:06:49,077 --> 00:06:50,497
+I'll get some shade of grey.
+
+122
+00:06:50,497 --> 00:06:53,780
+The lower the numbers, the closer
+to black, the higher the numbers,
+
+123
+00:06:53,780 --> 00:06:54,790
+the closer to white.
+
+124
+00:06:56,050 --> 00:06:57,950
+Okay, I've got my window setup.
+
+125
+00:06:57,950 --> 00:07:01,740
+I've got my canvas setup,
+it's just gonna be a grey square.
+
+126
+00:07:01,740 --> 00:07:03,930
+And I am ready to draw a picture.
+
+127
+00:07:03,930 --> 00:07:04,550
+But we're gonna,
+
+128
+00:07:04,550 --> 00:07:08,430
+in order to keep these videos from getting
+too long, I'm gonna break the video here.
+
+129
+00:07:08,430 --> 00:07:12,780
+Feel free to go off and play, start
+creating your own image on this GUI, or
+
+130
+00:07:12,780 --> 00:07:16,640
+you can come back to the next video and
+we'll draw a happy face.

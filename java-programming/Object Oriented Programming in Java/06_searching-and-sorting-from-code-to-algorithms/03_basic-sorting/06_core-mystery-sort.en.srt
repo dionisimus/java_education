@@ -1,0 +1,1045 @@
+1
+00:00:00,000 --> 00:00:04,126
+[MUSIC]
+
+2
+00:00:04,126 --> 00:00:07,467
+>> So in the previous video we
+talked about selection sort which is
+
+3
+00:00:07,467 --> 00:00:10,055
+one algorithm for sorting data.
+
+4
+00:00:10,055 --> 00:00:13,060
+By the end of this video, you'll have
+seen another algorithm for sorting data.
+
+5
+00:00:13,060 --> 00:00:15,100
+And we're going to play a little game.
+
+6
+00:00:15,100 --> 00:00:17,470
+Instead of talking with
+the algorithm at a high level,
+
+7
+00:00:17,470 --> 00:00:19,850
+what we're going to do
+is present some code.
+
+8
+00:00:19,850 --> 00:00:24,040
+That I promise you will sort the data,
+but what I'd like to do is work with you
+
+9
+00:00:24,040 --> 00:00:28,128
+to figure out how to describe
+that code in high-level terms.
+
+10
+00:00:28,128 --> 00:00:32,230
+And this are really useful skill that
+helps with reverse engineering code and
+
+11
+00:00:32,230 --> 00:00:33,680
+also working in big teams,
+
+12
+00:00:33,680 --> 00:00:36,600
+when other people are implementing
+different pieces of the code.
+
+13
+00:00:36,600 --> 00:00:40,440
+And so then, once we'll have traced
+the code and figured out what it does.
+
+14
+00:00:40,440 --> 00:00:43,480
+We'll be able to describe alternate
+algorithms for sorting and
+
+15
+00:00:43,480 --> 00:00:45,420
+compare their relative merits.
+
+16
+00:00:45,420 --> 00:00:48,180
+So let's start with a code, and
+let's see what we have here.
+
+17
+00:00:48,180 --> 00:00:50,930
+So we're gonna call this method
+mysterySort until we solve
+
+18
+00:00:50,930 --> 00:00:52,230
+the mystery together.
+
+19
+00:00:52,230 --> 00:00:56,230
+And at this point there aren't
+a lot of comments to help guide us,
+
+20
+00:00:56,230 --> 00:00:59,580
+we're just seeing some Java statements and
+so
+
+21
+00:00:59,580 --> 00:01:03,820
+let's see what we've got here and we'll
+step through with a particular example.
+
+22
+00:01:03,820 --> 00:01:05,740
+So we see that we've got
+a variable being declared and
+
+23
+00:01:05,740 --> 00:01:10,230
+we've got a for loop that does something
+and has an inner while loop, okay.
+
+24
+00:01:10,230 --> 00:01:13,420
+Doesn't help us so much so far,
+but let's work through an example.
+
+25
+00:01:13,420 --> 00:01:16,980
+And again, it's really useful to
+work through some concrete examples
+
+26
+00:01:16,980 --> 00:01:21,240
+when we're working through these questions
+to help guide our understanding.
+
+27
+00:01:21,240 --> 00:01:22,798
+And then later, we wana generalize.
+
+28
+00:01:22,798 --> 00:01:24,860
+We wanna think about the full generality.
+
+29
+00:01:24,860 --> 00:01:25,460
+But first,
+
+30
+00:01:25,460 --> 00:01:28,900
+let's make sure that we understand
+what's happening at a small scale.
+
+31
+00:01:28,900 --> 00:01:30,220
+Okay, so
+
+32
+00:01:30,220 --> 00:01:34,140
+we're working with the array of integers
+that we talked about last video as well.
+
+33
+00:01:35,200 --> 00:01:38,640
+So we've got six elements and
+we're going to trace through and
+
+34
+00:01:38,640 --> 00:01:43,430
+step through the execution of our
+mystery method to see what happens.
+
+35
+00:01:43,430 --> 00:01:49,530
+Okay, so at the beginning in our for loop,
+we are initializing the value pos to one.
+
+36
+00:01:49,530 --> 00:01:52,350
+And what's going to happen the first
+time we run through this for
+
+37
+00:01:52,350 --> 00:01:54,430
+loop is that currInd.
+
+38
+00:01:54,430 --> 00:01:57,970
+Which you might guess means current index,
+
+39
+00:01:57,970 --> 00:02:01,020
+is going to be initialized
+to the same values position.
+
+40
+00:02:01,020 --> 00:02:04,278
+And so what we see on the left of the code
+here, is that we've got a memory model.
+
+41
+00:02:04,278 --> 00:02:08,382
+So think way back to the earlier module,
+one of the first modules that we did in
+
+42
+00:02:08,382 --> 00:02:12,109
+this course where we talked about
+using memory models to help us reason
+
+43
+00:02:12,109 --> 00:02:16,100
+through the change in values of
+variables as we run through code.
+
+44
+00:02:16,100 --> 00:02:19,800
+And so we've got boxes for each variables
+and at the beginning each of those
+
+45
+00:02:19,800 --> 00:02:23,450
+contains the values of the initial
+values of the variables namely, one.
+
+46
+00:02:23,450 --> 00:02:26,720
+Okay, now what happens is,
+we look into the condition for
+
+47
+00:02:26,720 --> 00:02:30,881
+the while loop and we see, do we have
+to execute the body of the while loop?
+
+48
+00:02:30,881 --> 00:02:34,911
+While we're checking whether the current
+index is greater than zero, so yes,
+
+49
+00:02:34,911 --> 00:02:35,460
+it's 1.
+
+50
+00:02:35,460 --> 00:02:41,259
+And we wanna check whether the array
+element at position currIndex
+
+51
+00:02:41,259 --> 00:02:46,476
+is less than the array element
+at position currIndex-1.
+
+52
+00:02:46,476 --> 00:02:50,940
+So, currIndex is 1,
+currIndex minus 1 is 0.
+
+53
+00:02:50,940 --> 00:02:54,070
+So we're comparing the numbers 7 and
+16, and
+
+54
+00:02:54,070 --> 00:02:58,940
+we're checking whether 16 is less than 7?
+
+55
+00:02:58,940 --> 00:03:03,300
+It's not, and so we don't need to
+execute the body of the while loop.
+
+56
+00:03:03,300 --> 00:03:05,490
+We go right back up to the top of the for
+
+57
+00:03:05,490 --> 00:03:10,110
+loop, after incrementing the pos
+variable or position variable.
+
+58
+00:03:10,110 --> 00:03:12,570
+Okay, so now position is two and
+
+59
+00:03:12,570 --> 00:03:16,240
+the currIndex is initialized at the top
+of the body of the for loop to be two.
+
+60
+00:03:17,370 --> 00:03:21,404
+And again, we have to check the condition
+for the while loop and we look,
+
+61
+00:03:21,404 --> 00:03:23,202
+is the current index positive?
+
+62
+00:03:23,202 --> 00:03:28,488
+Yes, okay and now we wanna compare
+the value of the array element at position
+
+63
+00:03:28,488 --> 00:03:33,880
+2 and compare that to the value of
+the array element at position 1.
+
+64
+00:03:33,880 --> 00:03:36,180
+And basically look at
+what's happening here,
+
+65
+00:03:36,180 --> 00:03:39,800
+we're asking whether they're in the
+correct relative position to one another.
+
+66
+00:03:39,800 --> 00:03:43,430
+We're asking whether 66 is less than 16?
+
+67
+00:03:43,430 --> 00:03:46,280
+Or 16 is less than 66?
+
+68
+00:03:46,280 --> 00:03:49,210
+And in the array as it stands right now,
+16 and
+
+69
+00:03:49,210 --> 00:03:53,500
+66 are the correct relative positions,
+so we don't need to do anything.
+
+70
+00:03:53,500 --> 00:03:56,720
+All right, so
+far we haven't done much except for
+
+71
+00:03:56,720 --> 00:04:01,520
+updating our helper variables, pos and
+currInd and we do that once more.
+
+72
+00:04:01,520 --> 00:04:05,780
+Okay, we step up to the next execution
+of the body of the for loop and so
+
+73
+00:04:05,780 --> 00:04:07,960
+now the pos variable has value of 3 and
+
+74
+00:04:07,960 --> 00:04:11,240
+the current index has the same value
+of that at that the beginning.
+
+75
+00:04:11,240 --> 00:04:15,676
+And now we check whether
+the array element at 43,
+
+76
+00:04:15,676 --> 00:04:20,010
+i'm sorry at position 3
+which is 43 is less than
+
+77
+00:04:20,010 --> 00:04:25,085
+the array element at position 2,
+which is 66 and it is.
+
+78
+00:04:25,085 --> 00:04:30,870
+So 43 is less than 66, which means that
+these two array elements are out of order.
+
+79
+00:04:30,870 --> 00:04:33,690
+They need to be swapped in order
+to be in the correct location
+
+80
+00:04:33,690 --> 00:04:35,380
+relative to one another.
+
+81
+00:04:35,380 --> 00:04:38,163
+And so that's what's happening
+in the body of the while loop,
+
+82
+00:04:38,163 --> 00:04:39,909
+we're swapping these two positions.
+
+83
+00:04:40,940 --> 00:04:45,020
+And we also need to update
+the current index variable.
+
+84
+00:04:45,020 --> 00:04:48,797
+Okay, so we've swapped the two positions,
+now we have 43 in position 2.
+
+85
+00:04:48,797 --> 00:04:53,550
+We have 66 in position 3, and
+the current index is two.
+
+86
+00:04:53,550 --> 00:04:57,280
+And we go back to the top of the while
+loop and we check whether 16 and
+
+87
+00:04:57,280 --> 00:04:59,880
+43 are in the correct relative positions?
+
+88
+00:04:59,880 --> 00:05:00,990
+They are, so
+
+89
+00:05:00,990 --> 00:05:04,630
+we don't need to do a thing in this
+execution of the body of the for loop.
+
+90
+00:05:04,630 --> 00:05:06,770
+We increment, pos.
+
+91
+00:05:06,770 --> 00:05:09,790
+We update currInd, and we go again and
+
+92
+00:05:09,790 --> 00:05:14,330
+now we're checking whether 66 and
+97 are in the correct relative position?
+
+93
+00:05:14,330 --> 00:05:19,220
+They are, awesome, keep going,
+update pos, update currIndex.
+
+94
+00:05:19,220 --> 00:05:23,165
+And we check whether 97 and 51,
+the elements at position 4 and
+
+95
+00:05:23,165 --> 00:05:26,624
+5 are in the correct relative position and
+they're not.
+
+96
+00:05:26,624 --> 00:05:32,090
+97 is greater than 51, and so what we
+need to do is we need to swap them.
+
+97
+00:05:32,090 --> 00:05:35,570
+We update the current index,
+and now we check again.
+
+98
+00:05:35,570 --> 00:05:40,440
+And what we're checking is whether 66 and
+51 are in the correct relative positions?
+
+99
+00:05:40,440 --> 00:05:44,610
+They're not, so we need to swap them and
+update current index.
+
+100
+00:05:44,610 --> 00:05:49,070
+Okay current index is now three, 51 and
+66 are in the correct relative positions.
+
+101
+00:05:49,070 --> 00:05:53,480
+And now we check whether 43 and
+51 are in the correct relative positions?
+
+102
+00:05:53,480 --> 00:05:56,450
+And they are, so sweet, we're done.
+
+103
+00:05:56,450 --> 00:06:02,805
+Okay, so what that means is, at each
+point of the execution of the for loop.
+
+104
+00:06:02,805 --> 00:06:07,659
+At each time we've gone through the for
+loop, what we know is that we've
+
+105
+00:06:07,659 --> 00:06:13,130
+guaranteed that an increasing part of
+the array is going to be in sorted order.
+
+106
+00:06:13,130 --> 00:06:17,957
+So, if you think about what happens and
+what the array looks like at the end of
+
+107
+00:06:17,957 --> 00:06:21,280
+the body of the for
+loop when pos equals one.
+
+108
+00:06:21,280 --> 00:06:27,390
+What we have here is that 7 and
+16 are in their correct final locations.
+
+109
+00:06:27,390 --> 00:06:33,700
+Okay, at the end of position 2, we have 7,
+16, and 66 at the head of our array.
+
+110
+00:06:33,700 --> 00:06:38,180
+Now these are not going to be the correct
+final locations of each of these elements.
+
+111
+00:06:38,180 --> 00:06:40,010
+At the end when we finish
+sorting the array,
+
+112
+00:06:40,010 --> 00:06:43,300
+66 is not gonna be in that third position.
+
+113
+00:06:43,300 --> 00:06:47,795
+But, what we do know, is that the first
+three elements of the array at this point.
+
+114
+00:06:47,795 --> 00:06:51,380
+Are in the correct relative order,
+with respect to one another.
+
+115
+00:06:51,380 --> 00:06:56,760
+And so what we're doing is we're
+growing an array that is sorted,
+
+116
+00:06:56,760 --> 00:07:01,720
+even though there might need to
+be some elements that get put in,
+
+117
+00:07:01,720 --> 00:07:05,690
+into that array later on as we go
+through the rest of the algorithm.
+
+118
+00:07:05,690 --> 00:07:08,001
+Okay, so at the end of position,
+at the end of the for
+
+119
+00:07:08,001 --> 00:07:10,500
+loop when we've got position equals 3.
+
+120
+00:07:10,500 --> 00:07:15,200
+What we have is, that we have a list of
+four elements of incorrect sorted order,
+
+121
+00:07:15,200 --> 00:07:17,780
+then we have two elements that
+we haven't worried about yet.
+
+122
+00:07:17,780 --> 00:07:22,100
+And they may need to go somewhere and
+nudge some of these sorted elements
+
+123
+00:07:22,100 --> 00:07:26,630
+around, but these four elements will never
+switch position relative to one another.
+
+124
+00:07:26,630 --> 00:07:27,130
+Okay.
+
+125
+00:07:29,000 --> 00:07:31,620
+So, what we have here is.
+
+126
+00:07:31,620 --> 00:07:36,960
+A beginning of a description in higher
+level terms of what this code is doing.
+
+127
+00:07:36,960 --> 00:07:40,470
+And this transition between looking
+at code and being able to trace it's
+
+128
+00:07:40,470 --> 00:07:45,440
+execution one step at a time, to being
+able to describe it in higher level terms
+
+129
+00:07:45,440 --> 00:07:50,160
+is a really really hard cognitive leap but
+that is really important.
+
+130
+00:07:50,160 --> 00:07:53,430
+And so it takes practice, keep at it.
+
+131
+00:07:53,430 --> 00:07:56,480
+Work on it and
+you can see you'll get much better at it.
+
+132
+00:07:56,480 --> 00:07:58,590
+And the one of the key strategies for
+
+133
+00:07:58,590 --> 00:08:01,265
+doing it is tot take it
+little pieces at a time.
+
+134
+00:08:01,265 --> 00:08:05,859
+Okay, and so what we're thinking about
+is we're thinking about this for loop.
+
+135
+00:08:05,859 --> 00:08:12,350
+Where we're growing a piece of the array
+that is in relative sorted order.
+
+136
+00:08:12,350 --> 00:08:17,232
+So it's sorted, and even though
+the elements in this part of the array
+
+137
+00:08:17,232 --> 00:08:20,147
+may not be in the correct final location.
+
+138
+00:08:20,147 --> 00:08:24,348
+Which is different from what we saw
+in the previous video by the way,
+
+139
+00:08:24,348 --> 00:08:29,570
+they are still always going to be in
+the same relative order to one another.
+
+140
+00:08:29,570 --> 00:08:33,920
+And then we're increasing the amount of
+the array that is in this relative sorted
+
+141
+00:08:33,920 --> 00:08:35,460
+order each time.
+
+142
+00:08:35,460 --> 00:08:40,550
+Okay, and so what's happening here is,
+in order to increase
+
+143
+00:08:40,550 --> 00:08:45,290
+the piece of the array that's sorted each
+time within the body of the for loop.
+
+144
+00:08:45,290 --> 00:08:50,270
+We're finding the correct location
+of the next element that we haven't
+
+145
+00:08:50,270 --> 00:08:55,290
+thought about up until now relative
+to the first i-1 elements.
+
+146
+00:08:55,290 --> 00:08:59,680
+And so then we want to nudge it into the
+sorted part of the array, nudge, nudge,
+
+147
+00:08:59,680 --> 00:09:00,290
+nudge, nudge, nudge,
+
+148
+00:09:00,290 --> 00:09:04,530
+until it gets into its correct
+relative location, leave it there.
+
+149
+00:09:04,530 --> 00:09:10,360
+And then all of a sudden we have a nice,
+bigger part of the array that
+
+150
+00:09:10,360 --> 00:09:13,969
+is sorted and we can go look at the next
+element that we haven't looked at yet.
+
+151
+00:09:15,100 --> 00:09:17,920
+So this is actually a well
+known sorting algorithm.
+
+152
+00:09:17,920 --> 00:09:18,960
+It's a mystery no longer.
+
+153
+00:09:18,960 --> 00:09:23,756
+It's called Insertion Sort and
+that's because we keep inserting new
+
+154
+00:09:23,756 --> 00:09:28,469
+elements into a previously sorted array,
+into the correct position
+
+155
+00:09:28,469 --> 00:09:33,524
+relative to the other elements and
+then this sorted part grows and grows.
+
+156
+00:09:33,524 --> 00:09:37,009
+All right, notice that this
+algorithm is quite different from
+
+157
+00:09:37,009 --> 00:09:39,573
+the previous algorithm
+that we talked about,
+
+158
+00:09:39,573 --> 00:09:43,666
+the selection sort algorithm that we
+talked about in the previous video.
+
+159
+00:09:43,666 --> 00:09:48,917
+And that's because in the insertion
+sort algorithm, we have the elements
+
+160
+00:09:48,917 --> 00:09:53,910
+that were taken care of,
+they get taken care of in a different way.
+
+161
+00:09:53,910 --> 00:09:56,710
+We don't immediately put them
+where they're going to be.
+
+162
+00:09:57,870 --> 00:10:00,420
+And they stay in that
+position forever after, and
+
+163
+00:10:00,420 --> 00:10:04,730
+we know their location in the complete
+array from that point on.
+
+164
+00:10:04,730 --> 00:10:09,424
+Rather, we're looking at relative
+locations and relative ordering and so
+
+165
+00:10:09,424 --> 00:10:11,637
+we have two different algorithms.
+
+166
+00:10:11,637 --> 00:10:17,516
+But they share some features and so
+with each algorithm, as we go through it.
+
+167
+00:10:17,516 --> 00:10:21,522
+We ask similar questions about
+correctness, and performance, and
+
+168
+00:10:21,522 --> 00:10:26,288
+similarly we would want to compare that
+selection sort algorithm to the insertion
+
+169
+00:10:26,288 --> 00:10:30,180
+sort algorithms and
+other algorithms as well as they come.
+
+170
+00:10:30,180 --> 00:10:35,600
+So, with insertion sort, the mystery sort
+that we were working through just now,
+
+171
+00:10:35,600 --> 00:10:37,820
+how do we know that it's correct?
+
+172
+00:10:37,820 --> 00:10:42,540
+Well, the argument that we were making
+before about the part of the array that is
+
+173
+00:10:42,540 --> 00:10:44,200
+in relative sorted order,
+
+174
+00:10:44,200 --> 00:10:48,200
+growing and growing and growing until we
+get to all of the elements in the array.
+
+175
+00:10:48,200 --> 00:10:49,910
+Well, if we were able
+to make that precise,
+
+176
+00:10:49,910 --> 00:10:53,410
+that would be a convincing argument
+that this algorithm is correct.
+
+177
+00:10:53,410 --> 00:10:56,630
+Because no matter what we start with,
+at the end we get
+
+178
+00:10:56,630 --> 00:11:00,870
+all of the elements in the array in
+sorted order and that's what we want.
+
+179
+00:11:00,870 --> 00:11:02,860
+So then theres the question
+of can we do better?
+
+180
+00:11:02,860 --> 00:11:06,570
+And when it comes to algorithms,
+we always want to do better but
+
+181
+00:11:06,570 --> 00:11:08,310
+what is that even mean?
+
+182
+00:11:08,310 --> 00:11:13,070
+And so the question of goodness of
+an algorithm has a few levels to it and
+
+183
+00:11:13,070 --> 00:11:14,798
+has a lot of complexity to it.
+
+184
+00:11:14,798 --> 00:11:19,770
+So the baseline, lowest bar of
+goodness that we want is that
+
+185
+00:11:19,770 --> 00:11:22,480
+algorithm does what it's supposed to,
+that it's correct.
+
+186
+00:11:22,480 --> 00:11:26,740
+Okay, both selection sort and
+insertion sort have met that bar.
+
+187
+00:11:26,740 --> 00:11:29,130
+But then, we might want more.
+
+188
+00:11:29,130 --> 00:11:33,950
+So for example, we want to be able
+to tackle huge reams of data and so
+
+189
+00:11:33,950 --> 00:11:37,150
+we might want our algorithms
+to be really fast.
+
+190
+00:11:37,150 --> 00:11:40,170
+And so
+we want to be able to process billions and
+
+191
+00:11:40,170 --> 00:11:43,375
+trillions of pieces of information,
+very efficiently.
+
+192
+00:11:43,375 --> 00:11:48,050
+And so we need to think about, how do
+we measure the speed of an algorithm?
+
+193
+00:11:48,050 --> 00:11:51,963
+How do we talk about its performance
+in terms of time in general?
+
+194
+00:11:51,963 --> 00:11:54,632
+When we don't a priori know
+what our data looks like.
+
+195
+00:11:54,632 --> 00:11:57,770
+We wanted to be good for
+all sorts of pieces of data.
+
+196
+00:11:57,770 --> 00:12:01,870
+And so, that will lead us to things
+like worst case analysis and asymptotic
+
+197
+00:12:01,870 --> 00:12:06,030
+analysis that you'll see lots more about
+in the next course of this specialization.
+
+198
+00:12:07,290 --> 00:12:09,980
+I want to also mention that there
+are other measures of goodness
+
+199
+00:12:09,980 --> 00:12:11,240
+of an algorithm.
+
+200
+00:12:11,240 --> 00:12:15,745
+For example, we might not want
+to waste a lot of memory while
+
+201
+00:12:15,745 --> 00:12:19,091
+performing the execution of an algorithm.
+
+202
+00:12:19,091 --> 00:12:23,241
+And so, we might want you to
+be very resource sensitive and
+
+203
+00:12:23,241 --> 00:12:25,030
+not use up a lot of space.
+
+204
+00:12:25,030 --> 00:12:27,840
+And so, there's a notion of space
+complexity that we would want to
+
+205
+00:12:27,840 --> 00:12:29,310
+think about as well.
+
+206
+00:12:29,310 --> 00:12:31,970
+And then we also might want to think about
+
+207
+00:12:31,970 --> 00:12:35,540
+other properties that the algorithm
+could preserve or not preserve.
+
+208
+00:12:35,540 --> 00:12:40,047
+So for example, if we want to
+sort a lot of data on dimensions.
+
+209
+00:12:40,047 --> 00:12:43,590
+So you can think back about
+the airport data, we want to sort.
+
+210
+00:12:43,590 --> 00:12:46,880
+First by name of country,
+and then by name of city.
+
+211
+00:12:46,880 --> 00:12:49,350
+Then we would want our
+algorithm to behave in a way
+
+212
+00:12:49,350 --> 00:12:52,580
+that's compatible with doing
+multiple task sorting.
+
+213
+00:12:52,580 --> 00:12:55,830
+And so we might want to restrict
+which algorithms we consider,
+
+214
+00:12:55,830 --> 00:12:59,820
+based on only those that have
+properties amenable to our use case.
+
+215
+00:12:59,820 --> 00:13:02,030
+So goodness and can we do better?
+
+216
+00:13:02,030 --> 00:13:06,720
+Are always relative questions, relative
+to how we plan to use the algorithms.
+
+217
+00:13:06,720 --> 00:13:12,054
+Algorithms are actual living,
+breathing objects you can think about.
+
+218
+00:13:12,054 --> 00:13:15,550
+And they don't exist in a vacuum,
+we want to use them and the measure of
+
+219
+00:13:15,550 --> 00:13:19,420
+their goodness is only in terms of how we
+can use them and what they can tell us.

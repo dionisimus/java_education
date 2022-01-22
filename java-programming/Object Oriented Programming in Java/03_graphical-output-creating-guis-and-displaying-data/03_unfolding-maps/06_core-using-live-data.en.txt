@@ -1,0 +1,147 @@
+So right now what we had was a map
+with a single gray dot on it to indicate the epicenter
+of the Chile earthquake. But really where our map
+comes to life is when we add changing data based on the current
+earthquake data from around the world. And what we'd like to do that
+then is think about handling and displaying multiple markers and having those markers be customized
+based on properties of the earthquakes. And so, let's think about how
+we can get to that level. So, in order to deal with more complicated
+data and more complicated displays on our maps, it can be useful to
+separate two aspects of the data. We can separate out the properties
+that we're thinking of defining an earthquake from how we might want to
+represent visually those properties, or that earthquake. And unfolding maps actually let's
+us do that in a very clean way, using different data types. So, one of these data types we're more
+familiar with the marker interface, that tells us about how to place dots
+on particular locations in the map. And then how to style those dots, and
+so we've already talked about that. But the new piece that we're going
+to add in now is the feature class. And this feature class is a way of
+grouping together certain properties and saying, this collection of
+information is somehow connected. And I want to encapsulate
+it in a single object. And so what we might do if we're thinking
+a little bit further about that important Chilean earthquake is we might want to
+add properties about that earthquake, like what was it's magnitude? When did it occur? Where was it's epicenter? Which is the only
+the information we had before. And so what we might do
+now is create a feature or a variable of type feature that points
+to an object of type PointFeature. And that PointFeature says that it's
+associated with some location in a map, and then we can add
+properties to that object. And we get to decide what
+those properties are. So every time we'd like to add some
+attribute or some property to this object, to this collection of information
+about some location in our map, what we can do is use the add
+property method that's supplied to us by the data types that
+built into the library. And this method takes in two parameters. One is the a string that represents
+the title of the the title of the property that we're about to set, and then the second argument
+is the value of that property. And so, we can see here that we've
+added properties for the title, for the magnitude, for the date,
+and then for the year. Now, once we have all of this
+information bunched into a nice tidy object of type hoit feature, what we can do is create a marker that
+uses that information and for example we can feed into this marker all of the
+properties that we had bundled together. And then add the marker to our map and
+so at this point, when we run this in Eclipse, we won't see anything
+different from what we did before. The end result of what we've just
+done is still just to add a marker in the location of the epicenter of
+this Chilean earthquake from 1960. But in the background, under the hood,
+there's actually a lot more that we could access about that marker if we then
+wanted to style it in various ways. And we'll see that in a minute. So that's what we wanted to do if we had just a single marker that had some
+rich data associated with it. But maybe we want to think about not
+just the worst earthquake that was ever recorded but maybe about,
+say, the top five. And so we can look up some of the most
+significant earthquake events that have happened in the world and
+say we wanted to add those into our map. And so we want to translate this data into objects that then we
+can manipulate in our map. And so we can go ahead and
+do that in our code, and so we could create feature objects for
+each one of these earthquakes. And what we'd like to do now is instead
+of having to deal with each one of these individually every time, and remember
+the names of all the variables that we've associated with it, et cetera,
+we'd like to somehow group them together into some data type that
+we can iterate over. And lists are fantastic for that. So what we might do is, we might declare
+a list that contains point features. And it's going to point to a new array
+list that will contain point features. And so, notice that in this
+declaration we're doing two things that seem a little bit sophisticated. One is that we're using
+that inter play between and interface and
+a class that implements that interface. And so
+notice the variable here is of type list. Where as the object we created
+is of type array list. Which is a data type that implemented
+that abstract data type of list. And We have a support video coming up that
+will talk through some of those details. And we'll also in a lot of
+detail about interfaces, and abstract data types, next week. So there's more coming to that, but for now we want you to be comfortable
+using some of these constructs. The other piece here that we'll go
+into more depth in the support video is the fact that we're using generics. So we're not just defining any old list,
+but we're also telling Java What kind of objects
+are being stored in this iterable list. We're saying that in particular
+each one of the elements in this list is a point feature. And the advantage of that then is
+that when we go through the list and read off the objects one by one, we'll know that what we're getting
+back is a point feature, and so we'll be using all the methods that
+are associated with those point features. So once we've declared and
+created this object, now we can add elements to that list. And so we can go ahead and add those five
+significant earthquakes to that list. And the big advantage comes now when
+we want to represent those features on in our map. And so we want to create markers for
+each of those features. Now because we put all of those
+earthquake features in a list. In order to create the markers what we
+could do is iterate through that list and we could say for each point feature
+in the list that we just created. What we're going to do is add a new
+marker to a list of markers and that new marker is going to be constructed
+from the information that we get from the particular PointFeature
+that we got back from this list. So every time we create a new marker,
+what we're doing is we're giving it a particular location and
+particular collection of properties. That are read off from one of these
+features that we created before. So the effect of having this for
+each point feature in this list of point features loop is
+that our markers list will be populated with a single marker for
+each one of these significant earthquakes. And then we can go ahead and add those
+markers to the map that's nice and all but at that point,
+all of those markers look the same. And so we have dots. We have five different dots on our map. But maybe we want to distinguish them,
+one from the other. And so we could do it different for
+each loop and look perhaps through our list of markers
+and customer the markers that we have. And in the documentation for the folding
+maps library is a bit of a theme here. If you want to look at that documentation
+we want to make sure that we understand what functionality is available to us
+as we use these different data types. One of the things that we can do to
+customize a marker is to change its color. And so we can go ahead and check for
+each of the markers in our list. Is it relatively recent, the event
+that is associated with this marker? Or is its event older, more historic? Vertical and so we could set
+some thresholds for ourselves. For example, we could decide to style the more recent IE after 2000
+earthquakes to be yellow. We could style the older ones,
+the more historical ones to be gray. And there's lots of opportunities for
+customization here. We'll invite you to do that as part of
+your project when you're working through the real live data. Now, as we're doing this, you might have noticed that we had
+to type in all of the features for each of these five earthquakes,
+that we wanted to represent on our map. And that's cumbersome. It's time consuming,
+and it's not scalable. And it's also not very dynamic. So If an earthquake happened today or
+tomorrow, and I want to depict it in my map, I would need to sit
+down and write down all of its attributes. And create a new object and feed it
+into And I feed it into the list and do everything I've just done with
+every earthquake that came in. And so what we'd like to think about is, is there a way to dynamically update this
+list of feature and then the list of markers that are associated with
+them that will be more scalable? And one thing that we've provided for you in the starter code that we hope
+you will find interesting is a parser. And that parser is designed to
+read in data from the USGS and what the USGS provides to anyone who is
+interest in this data is an RSS feed. Which is basically bulletin
+that get's send out As a text stream with updated information
+about earthquakes from around the world. And so we can download the current
+version of this text file, and you'll be doing that as
+part of your project. And if we feed that through the parse
+feed library that we've provided for you What we could do is translate all
+of the earthquakes that are depicted in this text file to a list of features. And so, we invite you to read
+through the ParseFeed class. It will be a bit of an exercise
+in tracing Java code, there's some complicated
+Constructs that we use there, and as you work your way through
+the various courses and specialization you may feel more comfortable with
+some of the methods that we use. It's not required for you to understand
+all the details of the parser for this project or for this course. But that's part of the beauty of extending
+libraries as you're building code. The focus of your developments time and
+energy is to design and build the project that you want, and you can
+use any tool at your disposal for that. And some of those tools may be
+written with techniques that you're not comfortable with, or that you don't
+have mastery over but that's okay so long as you know how to incorporate
+the end results of those techniques, and the end results of those tools into
+the work that you're trying to do. So in particular you'll notice that in
+the parse feed class we have a method that will return to us a list of point
+features but then we can reiterate over, just like we did before and create a list
+of markers but then we can add two r nap. So At the end of all this
+what we create is this beautiful map of the world where
+we've got the markers corresponding to the most up-to-date information
+that we have from this RSS feed. And then we can go through the list
+of markers that we create, iterate over it, and customize
+the display of each of these markers Based on whichever features you find
+most interesting and most important. So good luck and I hope you enjoy that.

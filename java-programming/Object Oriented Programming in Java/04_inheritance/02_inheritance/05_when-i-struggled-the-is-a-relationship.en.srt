@@ -1,0 +1,57 @@
+1
+00:00:00,000 --> 00:00:04,039
+[MUSIC]
+
+2
+00:00:04,039 --> 00:00:08,980
+So one of the problems I had when learning
+about inheritance is relationship.
+
+3
+00:00:08,980 --> 00:00:12,188
+And my professor used some analogy
+along the lines of animals, and
+
+4
+00:00:12,188 --> 00:00:13,401
+like a lion is an animal.
+
+5
+00:00:13,401 --> 00:00:15,748
+And for whatever reason that
+went right over my head and
+
+6
+00:00:15,748 --> 00:00:19,080
+it really frustrated me because I felt
+like all my peers quickly picked it up.
+
+7
+00:00:20,300 --> 00:00:22,810
+And so
+I reached out to my professor after class.
+
+8
+00:00:22,810 --> 00:00:25,750
+And, he just twisted
+the analogy to be cars.
+
+9
+00:00:25,750 --> 00:00:28,526
+And he asked me what kinda car I drove,
+and I answered, I drove a Toyota.
+
+10
+00:00:28,526 --> 00:00:32,600
+And he just relayed that same analogy,
+but back to cars and Toyotas.
+
+11
+00:00:32,600 --> 00:00:35,952
+And he said, a Toyota is a car,
+but not all cars are Toyotas.
+
+12
+00:00:35,952 --> 00:00:39,420
+And for whatever reason, that really
+clicked with me, and that's what it took.

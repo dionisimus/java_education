@@ -1,0 +1,13 @@
+1
+00:00:00,000 --> 00:00:06,422
+[MUSIC]
+
+2
+00:00:06,422 --> 00:00:09,343
+Welcome to our next module on
+Object Oriented Programming in Java,
+
+3
+00:00:09,343 --> 00:00:12,380
+where we'll dive into the details
+of inheritance and polymorphism.

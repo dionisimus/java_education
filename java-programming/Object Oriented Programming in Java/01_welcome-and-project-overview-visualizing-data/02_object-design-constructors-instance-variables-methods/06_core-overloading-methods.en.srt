@@ -1,0 +1,555 @@
+1
+00:00:03,175 --> 00:00:06,130
+Okay, now that you know the basics
+of creating classes and
+
+2
+00:00:06,130 --> 00:00:09,820
+objects in Java, let's talk about
+overloading methods which is another thing
+
+3
+00:00:09,820 --> 00:00:13,940
+that you're going to do and work with a
+lot as you work with classes and objects.
+
+4
+00:00:13,940 --> 00:00:17,879
+So by the end of this video you'll be
+able to give examples of what overloading
+
+5
+00:00:17,879 --> 00:00:19,530
+methods is in Java.
+
+6
+00:00:19,530 --> 00:00:23,240
+You'll be able to explain how to overload
+methods, and how not to overload methods
+
+7
+00:00:23,240 --> 00:00:26,770
+in Java, and you'll be able to explain
+why it's useful and why we wanna do it.
+
+8
+00:00:28,230 --> 00:00:32,670
+Let's go back to our simple location
+class that we worked with last video.
+
+9
+00:00:32,670 --> 00:00:36,900
+So we saw this class, here it is,
+it has a couple of member variables.
+
+10
+00:00:36,900 --> 00:00:39,640
+It has a constructor, and
+it has a method called, distance.
+
+11
+00:00:40,730 --> 00:00:45,655
+Of course, you know by now that it must
+be in a file called, SimpleLocation.java.
+
+12
+00:00:45,655 --> 00:00:50,270
+Now let's say right now we have one
+constrictor, it allows the user to
+
+13
+00:00:50,270 --> 00:00:55,109
+create objects of type simple location
+by passing in a latitude and longitude.
+
+14
+00:00:56,170 --> 00:00:58,980
+But let's say that the user doesn't want
+to always have to pass in a latitude and
+
+15
+00:00:58,980 --> 00:01:02,390
+longitude and, they want to be
+able to create SimpleLocation
+
+16
+00:01:02,390 --> 00:01:05,040
+objects without passing in any parameters.
+
+17
+00:01:05,040 --> 00:01:07,560
+Right now,
+the user of our class can't do that
+
+18
+00:01:07,560 --> 00:01:11,600
+because there's no constructor
+defined that takes no parameters.
+
+19
+00:01:11,600 --> 00:01:12,930
+But we can fix that.
+
+20
+00:01:12,930 --> 00:01:17,220
+We can create a new constructor
+that takes no parameters, and
+
+21
+00:01:17,220 --> 00:01:20,850
+create still a new simple location object.
+
+22
+00:01:20,850 --> 00:01:25,050
+Now, you might wonder, well where
+should this simple location object be
+
+23
+00:01:25,050 --> 00:01:27,820
+if the user doesn't
+give us any parameters.
+
+24
+00:01:27,820 --> 00:01:30,230
+And since I'm here at UC San Diego,
+
+25
+00:01:30,230 --> 00:01:34,940
+I'm gonna create my class that will always
+create simple location objects here at my
+
+26
+00:01:34,940 --> 00:01:40,300
+location at UC San Diego unless the user
+tells me to create it somewhere else.
+
+27
+00:01:40,300 --> 00:01:44,670
+So what I've done is I've added a new
+constructor that takes no arguments which,
+
+28
+00:01:44,670 --> 00:01:46,930
+by the way,
+is called the default constructor.
+
+29
+00:01:46,930 --> 00:01:50,300
+It's just the constructor that you can
+invoke without passing in any data at all.
+
+30
+00:01:50,300 --> 00:01:53,030
+And it will give my parameters, a sorry,
+
+31
+00:01:53,030 --> 00:01:55,940
+it will give my number variables,
+latitude and longitude,
+
+32
+00:01:55,940 --> 00:02:00,690
+these default values, which is the
+location of where I'm standing right now.
+
+33
+00:02:00,690 --> 00:02:03,840
+I still have my other constructor,
+which takes the two arguments,
+
+34
+00:02:03,840 --> 00:02:07,030
+latitude and longitude, lat and lon, and
+
+35
+00:02:07,030 --> 00:02:11,560
+those two constructors can exist
+happily together in the same class.
+
+36
+00:02:11,560 --> 00:02:15,760
+This is exactly what I'm talking about
+when I talk about overloading methods.
+
+37
+00:02:15,760 --> 00:02:20,020
+So I've now created a class where
+my constructor has been overloaded.
+
+38
+00:02:20,020 --> 00:02:24,030
+There are two different copies of the
+constructor that take different numbers
+
+39
+00:02:24,030 --> 00:02:26,260
+and types of arguments.
+
+40
+00:02:26,260 --> 00:02:31,180
+They both do the same thing more or less
+in that they both create a new object, but
+
+41
+00:02:31,180 --> 00:02:34,650
+how they assign values to latitude and
+longitude differ slightly.
+
+42
+00:02:36,110 --> 00:02:41,300
+So I can not only overload constructors, I
+can also overload the methods in my class.
+
+43
+00:02:41,300 --> 00:02:44,830
+So before I had one method
+called distance, and
+
+44
+00:02:44,830 --> 00:02:48,510
+it took in as a parameter
+another SimpleLocation object.
+
+45
+00:02:48,510 --> 00:02:53,090
+And, that was fine, but maybe I don't want
+to force the user of my class to have to
+
+46
+00:02:53,090 --> 00:02:58,190
+create a whole SimpleLocation object just
+to find the distance to another location.
+
+47
+00:02:58,190 --> 00:03:02,230
+So, I can overload the distance method
+by creating another version of it
+
+48
+00:03:02,230 --> 00:03:06,220
+that takes in two parameters other lat and
+other lon.
+
+49
+00:03:06,220 --> 00:03:09,690
+So instead of having to create a whole new
+SimpleLocation object just to pass it into
+
+50
+00:03:09,690 --> 00:03:14,240
+the distance function, the user of my
+class can now call my distance method
+
+51
+00:03:14,240 --> 00:03:17,710
+by passing in two parameters,
+representing the latitude and
+
+52
+00:03:17,710 --> 00:03:20,320
+longitude of the place that they're
+trying to find the distance to.
+
+53
+00:03:21,570 --> 00:03:24,000
+So two examples of overloading.
+
+54
+00:03:24,000 --> 00:03:25,780
+Why do we care about overloading?
+
+55
+00:03:25,780 --> 00:03:27,400
+Why is this useful?
+
+56
+00:03:27,400 --> 00:03:31,410
+Let's take a look at how you're gonna
+use it extensively in your project.
+
+57
+00:03:31,410 --> 00:03:36,100
+So this is a little snippet of code that
+we looked at back in module one that uses
+
+58
+00:03:36,100 --> 00:03:40,660
+this UnfoldingMaps library to create
+a new map and display it to the user.
+
+59
+00:03:40,660 --> 00:03:43,340
+And what it does is it creates
+a window of size 800 by 600 and
+
+60
+00:03:44,370 --> 00:03:47,070
+then puts a new map inside that window.
+
+61
+00:03:47,070 --> 00:03:49,500
+And when I run it I see
+something like this.
+
+62
+00:03:49,500 --> 00:03:53,480
+I've also created, I've added a line
+of code that zooms in on San Diego so
+
+63
+00:03:53,480 --> 00:03:56,680
+you see San Diego rather
+than the whole world.
+
+64
+00:03:56,680 --> 00:03:59,360
+So that's what I see when I run this code.
+
+65
+00:03:59,360 --> 00:04:03,140
+But what if I decide that I don't
+really like the fact that the map
+
+66
+00:04:03,140 --> 00:04:06,740
+takes up the whole window, I'd like
+to shrink the map down slightly so
+
+67
+00:04:06,740 --> 00:04:09,475
+there's a nice border
+around the edge of the map.
+
+68
+00:04:09,475 --> 00:04:10,261
+I can do that.
+
+69
+00:04:10,261 --> 00:04:16,680
+And I can do that by invoking a different
+version of the UnfoldingMaps constructor.
+
+70
+00:04:16,680 --> 00:04:20,510
+So this is an overloaded version
+of the UnfoldingMap constructor
+
+71
+00:04:20,510 --> 00:04:23,020
+that takes four additional parameters.
+
+72
+00:04:23,020 --> 00:04:26,860
+So my original call to UnfoldingMap
+just took two parameters.
+
+73
+00:04:26,860 --> 00:04:27,963
+Now I'm calling the,
+
+74
+00:04:27,963 --> 00:04:31,648
+the UnfoldingMap constructor
+that takes six parameters total.
+
+75
+00:04:31,648 --> 00:04:35,540
+And these four additional parameters
+I've added specify the x and
+
+76
+00:04:35,540 --> 00:04:39,630
+y position of where the map should appear
+in the window, as well as the width and
+
+77
+00:04:39,630 --> 00:04:41,010
+height of the map.
+
+78
+00:04:41,010 --> 00:04:45,470
+So when I run this code, what I see
+is a window that has a nice border
+
+79
+00:04:45,470 --> 00:04:49,580
+around the map that it displays, because
+the map is smaller than the window size.
+
+80
+00:04:49,580 --> 00:04:54,870
+So this is pretty useful, but
+you might wonder, well how do I even know?
+
+81
+00:04:54,870 --> 00:04:57,830
+How do I know what constructors
+are available to me?
+
+82
+00:04:57,830 --> 00:05:00,460
+That's where the Java
+documentation comes in.
+
+83
+00:05:00,460 --> 00:05:05,070
+So you can go to the UnfoldingMap Java doc
+just like we showed you in module one and
+
+84
+00:05:05,070 --> 00:05:08,350
+you'll see all the constructors
+detailed there.
+
+85
+00:05:08,350 --> 00:05:11,940
+So here's the first constructor we
+called that took two parameters and
+
+86
+00:05:11,940 --> 00:05:14,870
+you can see what it does and
+what those parameters are.
+
+87
+00:05:14,870 --> 00:05:18,420
+And here's that second constructor that we
+called that took those six parameters and
+
+88
+00:05:18,420 --> 00:05:21,830
+you can see that the second
+parameter's the x position of the map,
+
+89
+00:05:21,830 --> 00:05:25,930
+the third parameter's the y position
+of the map, and so on and so forth.
+
+90
+00:05:25,930 --> 00:05:28,910
+And if you do go to
+the unfolding map documentation,
+
+91
+00:05:28,910 --> 00:05:33,130
+which I encourage you to do right now,
+you'll see that there are actually like
+
+92
+00:05:33,130 --> 00:05:37,170
+eight or nine different overloaded
+constructors for UnfoldingMap.
+
+93
+00:05:37,170 --> 00:05:42,320
+So you can create unfolding map objects
+by passing it a wide variety of
+
+94
+00:05:42,320 --> 00:05:45,720
+information and each of those constructors
+will do something slightly different.
+
+95
+00:05:47,330 --> 00:05:49,940
+So before we end this video,
+I want to caution you
+
+96
+00:05:49,940 --> 00:05:54,980
+against something that seems really useful
+but is actually not possible in Java.
+
+97
+00:05:54,980 --> 00:05:59,040
+So you might think that it's a good
+idea to overload the distance method
+
+98
+00:05:59,040 --> 00:06:02,880
+instead of by changing the parameter list,
+by changing the return type.
+
+99
+00:06:02,880 --> 00:06:06,910
+So let's say you want a distance method
+that returns a double type, but you also
+
+100
+00:06:06,910 --> 00:06:10,920
+want a distance method that's slightly
+less precise and returns an integer type.
+
+101
+00:06:10,920 --> 00:06:13,560
+So you say, oh,
+I'll just overload the distance method and
+
+102
+00:06:13,560 --> 00:06:16,140
+make the other one return an integer.
+
+103
+00:06:16,140 --> 00:06:22,010
+Unfortunately that is not allowed,
+you can't do that, java will complain.
+
+104
+00:06:22,010 --> 00:06:25,940
+You have to have some difference in the
+parameter list when you overload a method.
+
+105
+00:06:25,940 --> 00:06:27,790
+You're not allowed to have
+a method with the same name,
+
+106
+00:06:27,790 --> 00:06:31,790
+and the same parameter list,
+and a different return type.
+
+107
+00:06:31,790 --> 00:06:35,210
+And the reason for that is a little bit
+beyond the scope of this course, but
+
+108
+00:06:35,210 --> 00:06:37,520
+it has to do with how the compiler works.
+
+109
+00:06:37,520 --> 00:06:41,260
+At compile time, Java C,
+the compiler, has to decide
+
+110
+00:06:41,260 --> 00:06:45,050
+which version of the overloaded method
+you're actually trying to call.
+
+111
+00:06:45,050 --> 00:06:47,810
+And it does that by using
+the parameter list.
+
+112
+00:06:47,810 --> 00:06:50,640
+It can't do that by using
+the return type alone.
+
+113
+00:06:50,640 --> 00:06:53,650
+So Java doesn't let you do
+this type of overloading.
+
+114
+00:06:53,650 --> 00:06:56,120
+So that's all for overloading and
+in the next video,
+
+115
+00:06:56,120 --> 00:06:58,730
+we'll talk about a few more
+details of objects and classes.

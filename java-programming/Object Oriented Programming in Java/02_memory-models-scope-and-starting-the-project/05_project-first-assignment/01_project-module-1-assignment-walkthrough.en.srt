@@ -1,0 +1,418 @@
+1
+00:00:00,000 --> 00:00:04,628
+[MUSIC]
+
+2
+00:00:04,628 --> 00:00:07,602
+Congratulations on getting Java,
+Eclipse, and
+
+3
+00:00:07,602 --> 00:00:09,880
+[INAUDIBLE] maps set up on your system.
+
+4
+00:00:11,120 --> 00:00:13,850
+Set up is actually one of the biggest
+barriers to getting started with this
+
+5
+00:00:13,850 --> 00:00:14,660
+course.
+
+6
+00:00:14,660 --> 00:00:17,960
+So now that you've gotten that done we can
+start diving into the program projects.
+
+7
+00:00:17,960 --> 00:00:19,020
+Which we hope will be more fun.
+
+8
+00:00:20,390 --> 00:00:24,600
+The role of these videos is, first,
+to give you an idea of what's required for
+
+9
+00:00:24,600 --> 00:00:28,070
+the project and, secondly, to give you
+some hints about where you should look at
+
+10
+00:00:28,070 --> 00:00:30,960
+in the code to help solve the problem.
+
+11
+00:00:30,960 --> 00:00:34,370
+So this video is really a high-level
+view of the programming assignment,
+
+12
+00:00:34,370 --> 00:00:35,970
+along with some tips.
+
+13
+00:00:35,970 --> 00:00:37,580
+If you want the full
+details of the assignment,
+
+14
+00:00:37,580 --> 00:00:41,140
+you can always go to the Reading
+on the Programming Assignment.
+
+15
+00:00:41,140 --> 00:00:42,910
+So for let's dive into the code.
+
+16
+00:00:45,530 --> 00:00:48,270
+So if you got un fully
+maps that are properly,
+
+17
+00:00:48,270 --> 00:00:51,220
+you should have have package
+here which is UCSDUnfoldingMaps.
+
+18
+00:00:51,220 --> 00:00:53,100
+And let's start by spanning that.
+
+19
+00:00:53,100 --> 00:00:56,910
+So, span it going to the source,
+module1 is for
+
+20
+00:00:56,910 --> 00:01:00,830
+this programming project Going to
+module 1, you'll find HelloWorld.
+
+21
+00:01:00,830 --> 00:01:04,080
+If you open that you'll
+find this file here.
+
+22
+00:01:04,080 --> 00:01:07,320
+Now it's always a good idea,
+when starting with a new file,
+
+23
+00:01:07,320 --> 00:01:09,730
+to figure out what the high
+level structure is.
+
+24
+00:01:09,730 --> 00:01:12,360
+So we know what the class name is,
+this is HelloWorld.
+
+25
+00:01:12,360 --> 00:01:13,370
+It's extending PApplet.
+
+26
+00:01:13,370 --> 00:01:17,100
+We're going to dive into some details
+about what extends means later in
+
+27
+00:01:17,100 --> 00:01:17,930
+this course.
+
+28
+00:01:17,930 --> 00:01:22,530
+But for right now this means that this is
+going to be a graphical user interface.
+
+29
+00:01:22,530 --> 00:01:24,400
+And it has two methods that
+we're going to care about.
+
+30
+00:01:24,400 --> 00:01:27,890
+So if you scroll down,
+you'll find the setup method.
+
+31
+00:01:27,890 --> 00:01:31,470
+Setup is called once, and
+it sets up everything within the frame.
+
+32
+00:01:31,470 --> 00:01:36,040
+And then the other method that
+we're going to focus on is draw.
+
+33
+00:01:36,040 --> 00:01:38,350
+Now draw is called repeatedly.
+
+34
+00:01:38,350 --> 00:01:40,990
+So now that we have an overview of
+the structure, that there's a setup and
+
+35
+00:01:40,990 --> 00:01:42,040
+a draw method.
+
+36
+00:01:42,040 --> 00:01:44,170
+Let's try running an application and
+see what it looks like.
+
+37
+00:01:44,170 --> 00:01:48,531
+So Go under here, do Run As > Java Applet.
+
+38
+00:01:51,087 --> 00:01:55,462
+And what we get is an application that
+has a background with a map on it, and
+
+39
+00:01:55,462 --> 00:01:58,230
+this map is zoomed in to California.
+
+40
+00:01:58,230 --> 00:02:01,290
+It already has some built-in
+functionality, in that you can zoom in or
+
+41
+00:02:01,290 --> 00:02:03,150
+zoom out if you wish.
+
+42
+00:02:03,150 --> 00:02:06,990
+And what's missing from this right now,
+is a second map,
+
+43
+00:02:06,990 --> 00:02:13,750
+which should go here, which is going to
+be zoomed in to your hometown.
+
+44
+00:02:13,750 --> 00:02:16,680
+So that's the main thing you have to do
+with this assignment is create the second
+
+45
+00:02:16,680 --> 00:02:19,090
+map that's zoomed in to your hometown.
+
+46
+00:02:19,090 --> 00:02:23,110
+And we'll do is we'll start looking at the
+code that might help you accomplish this.
+
+47
+00:02:23,110 --> 00:02:27,750
+So the main thing to focus on is
+where was that first map created.
+
+48
+00:02:27,750 --> 00:02:30,990
+So if you go into your code,
+what you'll find are,
+
+49
+00:02:30,990 --> 00:02:32,860
+we have two maps that are created,
+map1 and map2.
+
+50
+00:02:32,860 --> 00:02:37,490
+And before I dive into the details
+of those I do want to mention.
+
+51
+00:02:37,490 --> 00:02:41,220
+If you are working offline, you'll
+want to change this variable to be true.
+
+52
+00:02:41,220 --> 00:02:44,360
+All right, back to our maps.
+
+53
+00:02:44,360 --> 00:02:47,010
+So we have two maps,
+an unfolding map1 and an unfolding map2.
+
+54
+00:02:48,130 --> 00:02:50,160
+And what we've set up is map one for you.
+
+55
+00:02:50,160 --> 00:02:52,540
+But we haven't set up map two yet.
+
+56
+00:02:52,540 --> 00:02:55,080
+We create the application
+just as we do here,
+
+57
+00:02:55,080 --> 00:02:59,050
+which is using the size method which
+creates an 800 x 600 size map.
+
+58
+00:03:00,610 --> 00:03:02,250
+And then we set the background.
+
+59
+00:03:02,250 --> 00:03:05,400
+If you want to change the background
+color you can play with that here.
+
+60
+00:03:05,400 --> 00:03:07,410
+And then we use our map provider.
+
+61
+00:03:07,410 --> 00:03:08,820
+Which here we are using Google.
+
+62
+00:03:10,420 --> 00:03:12,200
+We have some code which only
+applies if you're offline,
+
+63
+00:03:12,200 --> 00:03:16,160
+and then you can find out here
+finally our first use of Map1.
+
+64
+00:03:16,160 --> 00:03:20,920
+Here we're creating a new unfolding map,
+here's our x, our y, our width, and
+
+65
+00:03:20,920 --> 00:03:25,420
+our size, and we're using this Google Map
+provider to creat this unfolding map.
+
+66
+00:03:26,610 --> 00:03:30,330
+Now you want to use something
+just like this for your solution.
+
+67
+00:03:30,330 --> 00:03:34,910
+And notice that, then, right after
+we create the map, we then zoom and
+
+68
+00:03:34,910 --> 00:03:36,050
+pan to a location.
+
+69
+00:03:36,050 --> 00:03:39,610
+And this location happens to
+be the location of UCSD, but
+
+70
+00:03:39,610 --> 00:03:42,220
+you'll want to put in the location
+of your hometown here.
+
+71
+00:03:43,530 --> 00:03:45,730
+The next step is to see if
+map1 is used anywhere else.
+
+72
+00:03:45,730 --> 00:03:49,030
+And it turns out map1 is
+shown in the draw method.
+
+73
+00:03:49,030 --> 00:03:51,340
+So as long as you do the draw method.
+
+74
+00:03:51,340 --> 00:03:56,430
+And if you call map1.draw within
+the draw method map 1 draws.
+
+75
+00:03:56,430 --> 00:03:58,950
+You want to do something
+similar with map 2.
+
+76
+00:03:58,950 --> 00:04:03,300
+So I hope at this point you have a pretty
+good feel of what you're going to do.
+
+77
+00:04:03,300 --> 00:04:06,910
+So you're going to focus
+on setting up a map 2 in
+
+78
+00:04:06,910 --> 00:04:09,120
+the right location in the application.
+
+79
+00:04:09,120 --> 00:04:12,050
+And then you're going to
+zoom in to your hometown.
+
+80
+00:04:12,050 --> 00:04:15,046
+And then you're going to make sure that
+map2 is drawing every time this draw
+
+81
+00:04:15,046 --> 00:04:15,927
+method gets called.
+
+82
+00:04:18,340 --> 00:04:21,658
+After completing your assignment,
+your next step will be to just take
+
+83
+00:04:21,658 --> 00:04:25,080
+the Programming Assignment quiz
+at the end of this module.
+
+84
+00:04:25,080 --> 00:04:29,230
+So you will not being sending any code for
+any of the assignments within this course.
+
+85
+00:04:29,230 --> 00:04:32,490
+Instead, you'll be taking
+the end of module quizzes,
+
+86
+00:04:32,490 --> 00:04:34,430
+which will test you on the concepts
+both in the module but
+
+87
+00:04:34,430 --> 00:04:36,930
+also on ideas related to
+the programming assignment.
+
+88
+00:04:36,930 --> 00:04:40,240
+So before take the end of
+week required quizzes,
+
+89
+00:04:40,240 --> 00:04:45,240
+make sure you do the programming
+assignments first.

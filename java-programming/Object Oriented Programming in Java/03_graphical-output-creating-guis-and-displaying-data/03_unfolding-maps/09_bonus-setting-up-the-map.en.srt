@@ -1,0 +1,642 @@
+1
+00:00:04,210 --> 00:00:07,058
+[SOUND] Welcome back to this
+second of three videos.
+
+2
+00:00:07,058 --> 00:00:09,540
+Where we'll be developing
+a project together.
+
+3
+00:00:09,540 --> 00:00:14,160
+We're going to build a map that visualizes
+life expectancy around the world and
+
+4
+00:00:14,160 --> 00:00:17,100
+we've broken up that
+task into three pieces.
+
+5
+00:00:17,100 --> 00:00:19,840
+In the first video we talked
+about setting up the map.
+
+6
+00:00:19,840 --> 00:00:22,340
+And I hoped that you've
+opened up the clips and
+
+7
+00:00:22,340 --> 00:00:25,320
+tried out that beginning setup procedure.
+
+8
+00:00:25,320 --> 00:00:30,140
+And that now you're ready to work
+with me to read in the data file from
+
+9
+00:00:30,140 --> 00:00:32,570
+the world bank with
+the life expectancy data.
+
+10
+00:00:32,570 --> 00:00:35,590
+And then we'll display
+the map in that third video.
+
+11
+00:00:35,590 --> 00:00:40,710
+So, this is our end goal what we'd like
+to see when we finish this project is
+
+12
+00:00:40,710 --> 00:00:45,970
+the range of colors from bright red to
+indicates countries with a very low
+
+13
+00:00:45,970 --> 00:00:50,560
+average life expectancy at birth to
+a bright blue color for countries with
+
+14
+00:00:50,560 --> 00:00:56,290
+a very relatively high life expectancy,
+average life expectancy at birth.
+
+15
+00:00:56,290 --> 00:01:01,290
+And all of that data is encapsulated
+in this data file that we can read in
+
+16
+00:01:01,290 --> 00:01:06,710
+from the World Bank, and this file is
+formatted as a whole bunch of rows,
+
+17
+00:01:06,710 --> 00:01:09,685
+and each row contains data
+about a single country.
+
+18
+00:01:09,685 --> 00:01:13,085
+So there's some header
+information in the file and
+
+19
+00:01:13,085 --> 00:01:18,145
+then we see that each of the fields
+is going to be separated by commas.
+
+20
+00:01:18,145 --> 00:01:20,855
+And so understanding how to read files and
+
+21
+00:01:20,855 --> 00:01:24,135
+manipulate files where
+we have formated data.
+
+22
+00:01:24,135 --> 00:01:29,170
+Rows each with a similar format and
+each row containing fields separated by
+
+23
+00:01:29,170 --> 00:01:34,180
+commas will be very powerful because lots
+of data is passed around in this way.
+
+24
+00:01:35,450 --> 00:01:40,100
+So what we'd like to do is
+to store data's associated,
+
+25
+00:01:40,100 --> 00:01:44,070
+associating countries with
+average live expectancy at birth.
+
+26
+00:01:44,070 --> 00:01:48,160
+And a really powerful data structure for
+doing so is the Map data structure.
+
+27
+00:01:49,660 --> 00:01:54,470
+Now take a minute, we're gonna use Map
+in two different ways in this video.
+
+28
+00:01:54,470 --> 00:01:58,910
+And so you want to make sure to keep
+straight which Map we're talking about.
+
+29
+00:01:58,910 --> 00:02:04,680
+And so at this point, when we say Map,
+we mean an association or a function
+
+30
+00:02:04,680 --> 00:02:09,390
+that relates something that you wanna
+think of input values to output values.
+
+31
+00:02:09,390 --> 00:02:14,060
+So a map is going to associate keys like
+
+32
+00:02:14,060 --> 00:02:19,280
+countries with values,
+their average life expectancy at birth.
+
+33
+00:02:19,280 --> 00:02:24,130
+And so, we're going to take the data
+from that file, that CSV file, and
+
+34
+00:02:24,130 --> 00:02:28,450
+store it in a data structure in our class
+and that data structure is going to
+
+35
+00:02:28,450 --> 00:02:31,690
+keep track of what life expectancy
+belongs to each country.
+
+36
+00:02:32,890 --> 00:02:38,560
+So this is an example of a general data
+type, an abstract data type called Map.
+
+37
+00:02:38,560 --> 00:02:44,140
+And you can keep in mind this image
+of keys being associated with values.
+
+38
+00:02:44,140 --> 00:02:48,510
+And what's important here is that every
+key is associated with exactly one value.
+
+39
+00:02:48,510 --> 00:02:50,860
+You're not going to have one country.
+
+40
+00:02:50,860 --> 00:02:54,310
+With two different values
+associated with it.
+
+41
+00:02:54,310 --> 00:02:59,140
+And so in our particular example,
+the keys are the country identifiers.
+
+42
+00:02:59,140 --> 00:03:01,510
+And the values that we want to store for
+
+43
+00:03:01,510 --> 00:03:04,670
+each country is that
+average life expectancy.
+
+44
+00:03:04,670 --> 00:03:08,790
+And both the keys and the values have
+types, and those types are going to be
+
+45
+00:03:08,790 --> 00:03:11,320
+different because they're
+different kinds of objects.
+
+46
+00:03:11,320 --> 00:03:13,420
+But there is some
+relationship between them,
+
+47
+00:03:13,420 --> 00:03:16,520
+which is why we're storing
+them as Ordered pairs.
+
+48
+00:03:17,720 --> 00:03:20,830
+So there is that word abstract.
+
+49
+00:03:20,830 --> 00:03:22,490
+We're talking about
+abstract data types and
+
+50
+00:03:22,490 --> 00:03:25,850
+we haven't talked about
+those in this lesson yet.
+
+51
+00:03:25,850 --> 00:03:27,610
+Or nor in this course.
+
+52
+00:03:27,610 --> 00:03:28,780
+We will talk about those.
+
+53
+00:03:28,780 --> 00:03:31,690
+Stay tuned in an upcoming module.
+
+54
+00:03:31,690 --> 00:03:37,540
+In our application, we'd like to create
+a map with country IDs as the keys.
+
+55
+00:03:37,540 --> 00:03:40,110
+And the life expectancy as the values.
+
+56
+00:03:40,110 --> 00:03:44,780
+Now, it's a little bit complicated
+to read in the data from a file and
+
+57
+00:03:44,780 --> 00:03:46,120
+create this data structure and
+
+58
+00:03:46,120 --> 00:03:51,000
+then put the information from the data
+file into the data structure.
+
+59
+00:03:51,000 --> 00:03:53,750
+And we don't want to
+clutter up our setup method
+
+60
+00:03:53,750 --> 00:03:58,450
+that talks about setting up the applet
+that we're displaying to the user.
+
+61
+00:03:58,450 --> 00:04:02,370
+We don't want to clutter up that method
+with all of this code that's very detailed
+
+62
+00:04:02,370 --> 00:04:05,970
+and maybe isn't so hard to follow,
+it is pretty hard to follow.
+
+63
+00:04:05,970 --> 00:04:09,980
+And so what we're going to do is
+carve it out of the setup method and
+
+64
+00:04:09,980 --> 00:04:14,330
+create a new helper method that
+we can follow through separately.
+
+65
+00:04:14,330 --> 00:04:17,820
+And so
+in the setup all we say is that the map,
+
+66
+00:04:17,820 --> 00:04:23,910
+lifeExpByCountry is going to be created
+by invoking this helper method.
+
+67
+00:04:23,910 --> 00:04:27,110
+Now in terms of class design,
+a good rule of thumb,
+
+68
+00:04:27,110 --> 00:04:30,970
+to extend what Christine earlier said
+is that when we have helper methods
+
+69
+00:04:30,970 --> 00:04:35,220
+that are really for this organization
+purpose, we want to keep them private.
+
+70
+00:04:35,220 --> 00:04:37,590
+We don't need to send
+them out into the world.
+
+71
+00:04:37,590 --> 00:04:41,070
+Okay so, we want to have
+a private helper method and
+
+72
+00:04:41,070 --> 00:04:46,820
+let's think about how we're specifying
+what it takes in is the filename.
+
+73
+00:04:46,820 --> 00:04:52,250
+That's going to lead us to the data and
+then what we want to return
+
+74
+00:04:52,250 --> 00:04:59,150
+after executing this method is the Map
+that associates countries with expected.
+
+75
+00:04:59,150 --> 00:05:00,290
+With life expectancy.
+
+76
+00:05:01,590 --> 00:05:05,159
+Okay, so we can go ahead and
+think about what we to have in there, and
+
+77
+00:05:05,159 --> 00:05:08,130
+the first thing we need to
+do is to construct the map.
+
+78
+00:05:08,130 --> 00:05:12,650
+Just construct that object that's gonna
+hold the counties and the life expectancy.
+
+79
+00:05:12,650 --> 00:05:17,230
+Now there's something a little funky here,
+and you'll notice that
+
+80
+00:05:17,230 --> 00:05:23,450
+the data type of the map that
+we're declaring here is just map.
+
+81
+00:05:23,450 --> 00:05:28,380
+But when we invoke a constructor,
+we're saying we want a new HashMap.
+
+82
+00:05:28,380 --> 00:05:31,310
+And that's different from other
+times that we've used constructors.
+
+83
+00:05:31,310 --> 00:05:34,860
+Other times that we've used constructors
+when we've created a new object,
+
+84
+00:05:34,860 --> 00:05:39,770
+the type of the object that we're creating
+matches the constructor that we're using.
+
+85
+00:05:39,770 --> 00:05:42,620
+Now this is a subtle point and it comes.
+
+86
+00:05:42,620 --> 00:05:47,040
+You'll see a lot more details about that
+one when we talk about abstract classes
+
+87
+00:05:47,040 --> 00:05:48,930
+tying into that abstract data type.
+
+88
+00:05:48,930 --> 00:05:54,070
+But for now the way that you can think
+about this is that we want a map and
+
+89
+00:05:54,070 --> 00:05:56,560
+the kind of map,
+the way it's being implemented,
+
+90
+00:05:56,560 --> 00:06:01,180
+the details of it is going to be
+a HashMap, but the functionality that we
+
+91
+00:06:01,180 --> 00:06:04,330
+care about is that it's a map
+that it has keys and values.
+
+92
+00:06:04,330 --> 00:06:05,410
+Okay, so that's the first thing we do.
+
+93
+00:06:05,410 --> 00:06:06,710
+We construct it.
+
+94
+00:06:06,710 --> 00:06:10,230
+Once we have the map declared,
+what we'd like to do is populate it.
+
+95
+00:06:10,230 --> 00:06:13,390
+And we're populating it
+from fields in the file.
+
+96
+00:06:13,390 --> 00:06:17,120
+And so we'd like to read in all the files
+and we're going to do that taking it one
+
+97
+00:06:17,120 --> 00:06:21,369
+row at a time and sticking the contents
+of a single row into an array of strings.
+
+98
+00:06:23,220 --> 00:06:26,550
+Now we iterate through all of
+the strings that we've just read in.
+
+99
+00:06:26,550 --> 00:06:28,530
+So each row one at a time.
+
+100
+00:06:28,530 --> 00:06:35,640
+And we can use the for each row in
+the array of strings rows construct.
+
+101
+00:06:35,640 --> 00:06:38,780
+So it's a special for loop that lets
+us iterate over an entire array.
+
+102
+00:06:38,780 --> 00:06:40,720
+And what we're going to do is for
+
+103
+00:06:40,720 --> 00:06:45,750
+each row, we'd like to parse away
+just the relevant information.
+
+104
+00:06:45,750 --> 00:06:48,820
+If you remember in
+the data file each row had
+
+105
+00:06:48,820 --> 00:06:53,190
+some beginning junk columns that told
+us the title of the data series and
+
+106
+00:06:53,190 --> 00:06:55,710
+then it had that relevant
+piece that we cared about.
+
+107
+00:06:55,710 --> 00:07:00,150
+The country and then also the average
+life expectancy at birth.
+
+108
+00:07:00,150 --> 00:07:03,490
+And so what we'd like to do is parse
+the string that comes to us from the file,
+
+109
+00:07:03,490 --> 00:07:06,950
+the entire row, and
+pick off just the important parts.
+
+110
+00:07:06,950 --> 00:07:12,420
+And so
+what we can do is take a single String,
+
+111
+00:07:12,420 --> 00:07:18,780
+which is that entire row, and
+split it based on a separating character.
+
+112
+00:07:18,780 --> 00:07:23,920
+And so we know that in a comma
+separated values file,
+
+113
+00:07:23,920 --> 00:07:28,240
+a CSV file, every time there's
+a comma we have a new field.
+
+114
+00:07:28,240 --> 00:07:33,410
+And so we're going to split the rows
+String into an array of strings,
+
+115
+00:07:33,410 --> 00:07:39,700
+each of the elements in the array of
+strings is another string that is a field.
+
+116
+00:07:40,840 --> 00:07:46,320
+Okay, but now what we'd like to do is just
+read off the fields in particular values
+
+117
+00:07:46,320 --> 00:07:50,956
+and so we have some logic to pick out
+exactly the columns that we need okay?
+
+118
+00:07:52,180 --> 00:07:55,650
+So looking in a little bit
+deeper into what we're doing,
+
+119
+00:07:55,650 --> 00:08:00,770
+what we'd like is the country ID and
+the life expectancy.
+
+120
+00:08:00,770 --> 00:08:05,050
+Now the country ID is a string,
+will be a string forever and after.
+
+121
+00:08:05,050 --> 00:08:06,290
+We don't need to worry about that.
+
+122
+00:08:06,290 --> 00:08:09,660
+But we are doing something
+in that the first line
+
+123
+00:08:09,660 --> 00:08:11,460
+that is highlighted in that box.
+
+124
+00:08:11,460 --> 00:08:16,770
+And that is we want to read off a float,
+a number type for
+
+125
+00:08:16,770 --> 00:08:19,430
+the life expectancy, but
+
+126
+00:08:19,430 --> 00:08:24,050
+in the data file we just read it in as a
+string, and so we're casting this string.
+
+127
+00:08:24,050 --> 00:08:27,220
+We're converting the string to a float,
+and so
+
+128
+00:08:27,220 --> 00:08:30,190
+we have a method that lets us do that.
+
+129
+00:08:31,280 --> 00:08:35,400
+So now that we've read all of the rows
+from the data file into our map,
+
+130
+00:08:35,400 --> 00:08:40,080
+we have access to all of the information
+that pairs the country ID
+
+131
+00:08:40,080 --> 00:08:44,500
+with its average life expectancy at birth,
+and we are ready to move to the next part
+
+132
+00:08:44,500 --> 00:08:48,110
+of the big picture of our project,
+which is to display the data
+
+133
+00:08:48,110 --> 00:08:52,720
+that we've just read in and convert it
+into some visualization on the map.

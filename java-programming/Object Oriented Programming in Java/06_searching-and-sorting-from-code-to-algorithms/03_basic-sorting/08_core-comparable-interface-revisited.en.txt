@@ -1,0 +1,101 @@
+[MUSIC] In the previous video, we started talking
+about how to use the built-in sort that's available to us in Java. What I'd like to do now is to think about
+how to generalize that technique for more complicated objects. So by the end of this video,
+you will be able to define and use the Comparable interface in Java. So that we can have access to
+that built-in sort method. So if you remember last time,
+what we talked about is how to use collections.sort and
+then feed in a list of integers, and somehow magically get the list
+returned to us as a sorted list. Now, what we did in, or what we observed
+happens when we used this method is that we're using
+the Built in Merge Sort. And the beauty of that was that we didn't
+have to implement merge sort ourselves. The issue, though, is that the list
+that we gave it was an integer list, so all the values are numbers. But sometimes the objects
+that we want to sort, the data that we want to
+organize isn't just numbers. Maybe it's more complicated objects, and
+so what we'd like to do now is think about using this built in functionality but
+for collections of non integers. And so for example,
+we might want to sort airports. So remember back to
+the beginning of the module and the motivating example that
+we've been talking about. We have an array of airports and each of those, each of the array elements
+are references to airport objects. And what we'd like to do is sort this
+array based on the city of the airport. Okay? So if we try to just go ahead and,
+in our airport class, define a method within the main method
+that just says, let's sort our airports. So we have an airports list and
+we're gonna go ahead and sort it, then we can hope for
+the best and try to compile this. But unfortunately,
+we're gonna get a big old error message. And the reason for that error message is
+that airports are kind of hard to sort. We don't know how to compare two airports. So this is where the comparable
+interface comes in. And the comparable interface says,
+I will be able to give you access to merge sort and all of these other built
+in functionalities like sorting in Java, if you only tell me how to compare
+two object instances of your class. And so, for example, if we think about
+the object that has the city Montreal, and Canada, with a particular airport code,
+and the airport object that we have that's initialized to the airport in Lagos,
+then we might want to compare these two. And say, M comes after L in the alphabet,
+and so when we're thinking about the city names than the
+object that corresponds to the airport in Montreal should come after the object
+that corresponds to the airport in Lagos. On the other hand, we might want to
+organize our data based on country names, rather than city names. And so then,
+we might focus in on a different field. And look at the instance variable for
+country. And in that case we see that Canada, starting with a C, comes earlier in the
+alphabet than Nigeria, starting with an N. And so we'd want our objects to be
+organized a little bit differently. All right, so how do we do that,
+and how do we tell Java this order? Well, if our class implements
+the comparable interface. And we say that by adding that
+keyword to the class definition. Then our objects in that class will be
+able to be compared to one another. Now notice that special word
+that's after comparable. We've got the angle brackets and Airport. And that's saying that we're specifying
+what kind of objects we're going to know how to compare, and
+this is using generics. Okay, so if we've told Java, we promised that we're going to implement
+what's needed for a comparable class. What that's saying is that we have to
+fulfill the promise of the interface. And the interface comparable says,
+you must implement a compareTo method. And the compareTo method has to be
+called by an object in that class. And it's going to tell us how
+to compare that calling object to an input other object. Okay.
+So let's think about how we might do that. And think about what
+functionality we want. So we're going to return an integer,
+and that integer should demonstrate the relationship between
+the calling object and the other object. So if the calling object is supposed
+to be smaller than the other object, then the integer that
+we return is negative. If the smaller object, if the calling
+object is supposed to be sort of the same size as the other object,
+then we should return zero. And if the calling object is
+bigger than the other object, then we're going to
+return a positive number. And so what you might think about is
+the comparison method is something like doing subtraction, subtracting
+the calling object minus other object. That's sort of the reference
+that we have for why these integers
+are returned the way they are. Okay, so what we'd like to
+do is to return some number. When an airport calls
+compared to another airport. And what we're comparing
+to is using the city name. So we're going to have to have access
+to the city name instance variables in each of these objects and
+we'd like to order those city names. But city names are just strings,
+and strings are objects, and strings can be compared because we can
+sort strings by alphabetical order. And so what we're going to do is
+really just be kind of lazy, and say someone else compare
+these two strings. And we just want to return
+the result of that comparison. So what we're returning here when
+we comparing two airport objects, is what happens when we compare
+the city name of our current object, the calling object, as compared to
+the city name of the other object. Okay, so let's try it out. Once we've implemented this compareTo
+method, what happens when we go ahead and
+try to sort a list of airport objects? So we go back to the main method
+of our airports class and we call Collections.sort
+on the list of airports. And now, beautifully, we get as our output the list of airports in sorted
+order based on the city name. So Agra in India comes first, and
+then Beijing in China, etc., etc. Cool. One more thing,
+when we first thought about this problem, we said we can compare airports
+in some different ways. Maybe we can sort based on
+the alphabetical order of the city name. But what about the country name. So what do we need to do in order
+to change our compareTo method in order to reflect the order
+of the country names? Well we just need to change the body
+of that method to instead of using the getCountry getter method for the,
+sorry, instead of using the getCity getter method for the city name of
+the airport, we're using getCountry. And that's really all there is to it. We just need to change that one line
+of code, and when we run the same Collections.sort method in the main
+method of the airport class, all of sudden our list is ordered
+based on the country names. We have Australia first, and
+then Canada, and then China etc. And so at this point, you're ready to
+dive back into the project and use the comparable interface and the compareTo
+method to compare markers in your project.

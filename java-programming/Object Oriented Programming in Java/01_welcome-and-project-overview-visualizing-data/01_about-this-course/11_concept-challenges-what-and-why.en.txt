@@ -1,0 +1,47 @@
+[MUSIC] Hi again, I'm Leo Porter. I'm a computer science
+professor here at UC San Diego. One of my areas of research is
+computer science education. What we like to do in that area of
+research is look at the best practices for student learning in the classroom. One of the best practices we know about
+in computer science is peer instruction. With peer instruction, students get to tackle hard problems,
+discuss it with their peers, and then participate in a large classwide
+discussion with the professor. We do this in a number of the courses
+here at UC San Diego, and we'd like to bring this to you. And we're gonna do this through a series
+of videos known as the Concept Challenges, so let me walk through an example here. So here we have you watching a video,
+now let's assume this is from a previous class in Java that you've taken before
+where you learned first about for loops. So, you watch the video on for loops,
+and then you get done with the video and the question becomes well,
+did you learn it? I mean, there's certainly areas of the
+video that you probably understood well. But there may be some areas that
+you didn't understand as well. So the best way to find out whether or not you really understood
+the material is to solve problems. So we're gonna ask you questions to help
+elucidate what areas you're strongest in and which areas you're not. So a question might look
+something like this, so you've just watched a video on for
+loops and here's an example of for loops. And the question here is asking,
+how many times does i<10 execute? Now the reason we ask a question like this
+is because we expect a number of folks will get this wrong. In fact, we want you to get a number of
+these question wrong because that means it's an opportunity for learning. What we expect is a lot of novice
+learners would answer B here. They would say that the loop executes ten
+times, so i<10 will execute ten times. But the condition i<10
+actually executes 11 times. And we'll talk more about
+that as we go forward. So after you solve
+the problem on your own, after you've tackled the problem yourself,
+what you're gonna then see, or what we hope you can do,
+is work with other learners around you. So if you have anyone else in your
+neighborhood, or friends who have taken the same course, this is a great time to
+get together and discuss the question. And by discussing it with your friends,
+you're gonna find out one of you may say, well, wait a second,
+does it execute that last time? And then you realize, oh, shoot,
+it does actually execute 11 times. But if you don't have
+some friends around you, what we're gonna give you is also a series
+of videos where you're seeing UC San Diego learners discussing the question. And there you'll hear them
+say things like, well, wait a second, it's really easy
+to forget that last check. Oh, yeah, so the answer must have been 11. And then, after you hear
+the UC San Diego learners discussing it, you're gonna hear one of our explanations. So the full course of one of
+these questions is gonna look something like this. You're gonna pause,
+try solving the problem yourself, you're gonna discuss the question with
+other learners around you if you can, you're either then gonna watch a video of
+the UC San Diego learners discussing it. And then you're gonna confirm your
+understanding by listening to our explanation. By solving these kind of hard problems, you're gonna understand
+your material much better. You're also gonna identify areas
+that you might need improvement. And that's where more support videos and
+the forums come in.

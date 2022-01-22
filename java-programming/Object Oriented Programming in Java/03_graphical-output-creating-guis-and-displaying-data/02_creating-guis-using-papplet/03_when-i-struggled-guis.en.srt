@@ -1,0 +1,36 @@
+1
+00:00:00,000 --> 00:00:03,496
+[MUSIC]
+
+2
+00:00:03,496 --> 00:00:08,210
+So one thing I had a lot of trouble
+with is Gooey and event handling.
+
+3
+00:00:08,210 --> 00:00:10,940
+I remember when I learned it,
+there was just so
+
+4
+00:00:10,940 --> 00:00:14,970
+many different things that you have to
+keep track of when you use these things
+
+5
+00:00:14,970 --> 00:00:16,720
+and it just didn't make any sense to me.
+
+6
+00:00:16,720 --> 00:00:21,450
+So what I did is, I took example code and
+I made edits until it compiled and
+
+7
+00:00:21,450 --> 00:00:22,870
+ran, and I kept running it and
+
+8
+00:00:22,870 --> 00:00:26,000
+making modifications until it
+ran the way I thought it should.

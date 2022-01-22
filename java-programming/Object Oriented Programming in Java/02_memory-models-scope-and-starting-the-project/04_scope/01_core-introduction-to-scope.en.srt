@@ -1,0 +1,800 @@
+1
+00:00:00,000 --> 00:00:03,730
+[MUSIC]
+
+2
+00:00:03,730 --> 00:00:07,490
+Okay, the last lesson in this module
+is talking about variable scope.
+
+3
+00:00:07,490 --> 00:00:10,620
+Now you may be already familiar with
+the notion of variable scope, but
+
+4
+00:00:10,620 --> 00:00:13,560
+we're gonna introduce it again because
+it's such an important concept.
+
+5
+00:00:13,560 --> 00:00:17,170
+And we're gonna do more than just
+introduce the notion of variable scope,
+
+6
+00:00:17,170 --> 00:00:19,990
+we're gonna also incorporate it
+into those memory models for
+
+7
+00:00:19,990 --> 00:00:21,880
+reasoning about Java code.
+
+8
+00:00:21,880 --> 00:00:25,320
+So by the end of this module, you'll be
+able to describe the notion of scope and
+
+9
+00:00:25,320 --> 00:00:30,300
+Java's rules for scope as well as draw
+those memory models to incorporate scope
+
+10
+00:00:30,300 --> 00:00:33,400
+and reason about code
+using those memory models.
+
+11
+00:00:33,400 --> 00:00:34,520
+So get out your pencil.
+
+12
+00:00:34,520 --> 00:00:35,990
+Get out your piece of paper.
+
+13
+00:00:35,990 --> 00:00:37,830
+Make sure you're not driving and
+
+14
+00:00:37,830 --> 00:00:40,259
+you'll draw these memory
+models right along with us.
+
+15
+00:00:41,730 --> 00:00:44,880
+So, we're starting off with
+a little warm up question.
+
+16
+00:00:44,880 --> 00:00:45,770
+I want you to look at this code.
+
+17
+00:00:45,770 --> 00:00:48,950
+And, this code should look
+pretty familiar to you by now.
+
+18
+00:00:48,950 --> 00:00:53,230
+And I want you to identify the six
+variables that appear in this code.
+
+19
+00:00:53,230 --> 00:00:54,200
+So, pause the video for
+
+20
+00:00:54,200 --> 00:00:57,280
+a second and see if you can find
+six variables in this code.
+
+21
+00:00:59,760 --> 00:01:00,560
+All right.
+
+22
+00:01:00,560 --> 00:01:01,210
+Welcome back.
+
+23
+00:01:01,210 --> 00:01:04,370
+Hopefully you found six variables,
+if you didn't don't worry about it.
+
+24
+00:01:04,370 --> 00:01:06,940
+Here's the six variables
+that I found in this code.
+
+25
+00:01:08,040 --> 00:01:11,935
+Now, you may have also identified
+that keyword, this, as a variable.
+
+26
+00:01:11,935 --> 00:01:15,085
+It's not quite a variable,
+it behaves a little bit like a variable.
+
+27
+00:01:15,085 --> 00:01:19,125
+We'll talk more bout that later as we
+add in scope into our memory models.
+
+28
+00:01:19,125 --> 00:01:20,650
+But here are those six variables.
+
+29
+00:01:20,650 --> 00:01:22,045
+There's latitude and longitude,
+
+30
+00:01:22,045 --> 00:01:24,895
+which are the member variables
+in our SimpleLocation class.
+
+31
+00:01:24,895 --> 00:01:28,405
+There's latIn and lonIn,
+which are the parameters to our method,
+
+32
+00:01:28,405 --> 00:01:29,835
+to our constructor.
+
+33
+00:01:29,835 --> 00:01:34,700
+And then over in our main method, there's
+lima, which is our simple location object.
+
+34
+00:01:34,700 --> 00:01:38,145
+And then that tricky one, which is
+the parameter to the main method args.
+
+35
+00:01:39,350 --> 00:01:43,036
+So all of these variables are not
+necessarily created equal.
+
+36
+00:01:43,036 --> 00:01:47,950
+So even though latitude is
+a variable in this code, if I try to
+
+37
+00:01:47,950 --> 00:01:52,410
+refer to latitude over here in the main
+method, what do you think's gonna happen?
+
+38
+00:01:52,410 --> 00:01:55,260
+So take a minute, take a guess,
+what happens if I just try to
+
+39
+00:01:55,260 --> 00:01:58,120
+directly access the variable
+latitude in the main method?
+
+40
+00:02:01,050 --> 00:02:04,728
+So if you tried this, you will have
+found that it caused an error.
+
+41
+00:02:04,728 --> 00:02:08,520
+If you try to access latitude in
+this location, in this main method,
+
+42
+00:02:08,520 --> 00:02:13,000
+Java is gonna tell you that this
+variable latitude is not defined here.
+
+43
+00:02:13,000 --> 00:02:15,170
+So this brings us to the idea of scope.
+
+44
+00:02:15,170 --> 00:02:17,720
+The scope of a variable is
+the area in the code where
+
+45
+00:02:17,720 --> 00:02:20,200
+it's defined to have a particular value.
+
+46
+00:02:20,200 --> 00:02:24,690
+And in this case, in the main method, that
+variable latitude is not defined at all.
+
+47
+00:02:24,690 --> 00:02:26,320
+It hasn't been declared here.
+
+48
+00:02:26,320 --> 00:02:29,520
+It was declared over in
+the SimpleLocation class.
+
+49
+00:02:29,520 --> 00:02:31,120
+It was one of the member variables.
+
+50
+00:02:31,120 --> 00:02:33,230
+So I can't get at it in main.
+
+51
+00:02:34,810 --> 00:02:38,640
+So let's talk about a few
+different types of variables and
+
+52
+00:02:38,640 --> 00:02:42,620
+types of scoping rules for
+those variables.
+
+53
+00:02:42,620 --> 00:02:46,070
+So the first kind of variable we're going
+to talk about is called a local variable.
+
+54
+00:02:46,070 --> 00:02:50,290
+A local variable is a variable
+that's declared inside some method.
+
+55
+00:02:50,290 --> 00:02:53,120
+For example, lima is a local variable.
+
+56
+00:02:53,120 --> 00:02:57,040
+And if that variable is declared inside
+the method, outside of any block like
+
+57
+00:02:57,040 --> 00:03:01,220
+an if statement or a while loop,
+then that variable can be used, and
+
+58
+00:03:01,220 --> 00:03:05,550
+has a particular value that you set it to,
+all the way through that method.
+
+59
+00:03:05,550 --> 00:03:09,370
+So in this case I can use the variable
+lima anywhere inside the main method, but
+
+60
+00:03:09,370 --> 00:03:10,960
+not outside the main method.
+
+61
+00:03:12,880 --> 00:03:15,510
+Second kind of variable I wanna
+talk about are parameters.
+
+62
+00:03:15,510 --> 00:03:18,970
+Parameters are those arguments
+that we pass into methods, and
+
+63
+00:03:18,970 --> 00:03:21,930
+they behave basically just
+like local variables.
+
+64
+00:03:21,930 --> 00:03:23,790
+You can use them anywhere
+inside the method,
+
+65
+00:03:23,790 --> 00:03:25,950
+you can change their value if you want to.
+
+66
+00:03:27,010 --> 00:03:29,710
+And essentially,
+they're just like local variables.
+
+67
+00:03:31,420 --> 00:03:34,150
+The third kind of variable
+are called member variables.
+
+68
+00:03:34,150 --> 00:03:36,150
+Now you're familiar with
+member variables already.
+
+69
+00:03:36,150 --> 00:03:38,670
+They're those variables
+that belong to a class.
+
+70
+00:03:38,670 --> 00:03:40,940
+Rather than being declared
+locally in any method,
+
+71
+00:03:40,940 --> 00:03:44,340
+they're declared outside
+any method in the class.
+
+72
+00:03:44,340 --> 00:03:49,620
+And this means that these variables, their
+scope is actually the entire class itself.
+
+73
+00:03:49,620 --> 00:03:51,570
+So you can refer to latitude and
+
+74
+00:03:51,570 --> 00:03:56,060
+longitude from any method inside
+this simple location class.
+
+75
+00:03:56,060 --> 00:03:58,080
+So they have kind of a broader scope or
+
+76
+00:03:58,080 --> 00:04:03,359
+a wider array of places where they can
+be used than those local variables.
+
+77
+00:04:04,420 --> 00:04:09,610
+So that in a nutshell describes scope and
+a few different kinds of variables,
+
+78
+00:04:09,610 --> 00:04:14,100
+but really what we want to do is be able
+to reason with this notion of scope and
+
+79
+00:04:14,100 --> 00:04:17,250
+in order to do that we're going
+to go back to our memory model.
+
+80
+00:04:17,250 --> 00:04:21,630
+So here's where you're gonna need that pen
+or that pencil and that piece of paper.
+
+81
+00:04:21,630 --> 00:04:22,870
+We're gonna trace through this code.
+
+82
+00:04:22,870 --> 00:04:24,630
+It's only two lines of code.
+
+83
+00:04:24,630 --> 00:04:28,828
+And we're gonna layer in this notion
+of scope into our memory model.
+
+84
+00:04:28,828 --> 00:04:31,984
+So we're gonna start you off
+with a simple statement here,
+
+85
+00:04:31,984 --> 00:04:36,250
+which is just a variable declaration,
+and an assignment statement.
+
+86
+00:04:36,250 --> 00:04:37,660
+So you know what to do.
+
+87
+00:04:37,660 --> 00:04:40,310
+You draw the box,
+you put the value in the box.
+
+88
+00:04:40,310 --> 00:04:41,290
+There you go.
+
+89
+00:04:41,290 --> 00:04:42,139
+There's our variable.
+
+90
+00:04:42,139 --> 00:04:45,640
+It's called lat, and
+it stores the value -12.0.
+
+91
+00:04:45,640 --> 00:04:49,520
+But now we're going to, as I mentioned,
+layer in a notion of scope.
+
+92
+00:04:49,520 --> 00:04:52,180
+So this variable doesn't
+exist just anywhere,
+
+93
+00:04:52,180 --> 00:04:55,220
+it exists inside the scope
+of the main method.
+
+94
+00:04:55,220 --> 00:04:58,940
+So the way I'm gonna denote that in my
+model is I'm gonna draw a box around that
+
+95
+00:04:58,940 --> 00:05:04,030
+variable and label it with the name
+of the scope that I'm talking about.
+
+96
+00:05:04,030 --> 00:05:06,080
+So I've got a fancy box with some shadows,
+but
+
+97
+00:05:06,080 --> 00:05:09,340
+in your drawing on your piece of paper,
+just put a simple box around it.
+
+98
+00:05:09,340 --> 00:05:10,880
+Label it with the name of the method,
+which is main.
+
+99
+00:05:12,560 --> 00:05:14,920
+My next line down,
+I declare another local variable,
+
+100
+00:05:14,920 --> 00:05:17,700
+lima, inside of the main method as well.
+
+101
+00:05:17,700 --> 00:05:20,560
+So that also goes into the box
+representing the scope for me.
+
+102
+00:05:22,210 --> 00:05:27,160
+Now things get a little bit interesting,
+because lima is an object type variable.
+
+103
+00:05:27,160 --> 00:05:30,618
+It's going to store a reference
+to a SimpleLocation object.
+
+104
+00:05:30,618 --> 00:05:35,280
+So that SimpleLocation object, as we've
+looked at before, gets created over here,
+
+105
+00:05:35,280 --> 00:05:38,108
+in the heap,
+which is a separate part of memory.
+
+106
+00:05:38,108 --> 00:05:42,760
+So the SimpleLocation object gets created,
+and its two member variables, latitude and
+
+107
+00:05:42,760 --> 00:05:48,210
+longitude, get placed inside the object
+that gets created on the heap.
+
+108
+00:05:48,210 --> 00:05:51,560
+So that latitude and longitude,
+they're not inside main scope.
+
+109
+00:05:51,560 --> 00:05:54,210
+They're over there in
+the scope of the object.
+
+110
+00:05:54,210 --> 00:05:56,610
+So that's how I'm going to
+denote them in our memory model.
+
+111
+00:05:57,675 --> 00:06:01,105
+But when the constructor gets called
+we get some more variables that get
+
+112
+00:06:01,105 --> 00:06:02,335
+instantiated.
+
+113
+00:06:02,335 --> 00:06:05,885
+We get those parameters latIn and
+lonIn and
+
+114
+00:06:05,885 --> 00:06:10,380
+they have their own scope which is local
+to the constructor for SimpleLocation.
+
+115
+00:06:10,380 --> 00:06:15,440
+So I need to draw that scope in together
+with the variables latIn and lonIn.
+
+116
+00:06:15,440 --> 00:06:17,350
+So I've got another scope box for
+
+117
+00:06:17,350 --> 00:06:20,920
+the constructor with the parameters
+that I've passed in.
+
+118
+00:06:20,920 --> 00:06:24,170
+Those parameters of course get their value
+from the arguments that I passed when
+
+119
+00:06:24,170 --> 00:06:25,040
+I called the constructor.
+
+120
+00:06:26,190 --> 00:06:30,280
+Now I'm gonna add one more thing
+to the scope of the constructor.
+
+121
+00:06:30,280 --> 00:06:33,300
+And that is this keyword, this.
+
+122
+00:06:33,300 --> 00:06:34,990
+So, we talked about this before.
+
+123
+00:06:34,990 --> 00:06:37,220
+This refers to the calling object.
+
+124
+00:06:37,220 --> 00:06:42,300
+And in any method that's inside the class,
+we have access to this keyword, this.
+
+125
+00:06:42,300 --> 00:06:45,930
+And what this stores is a reference
+to the object that we just created.
+
+126
+00:06:45,930 --> 00:06:48,740
+So, in this case,
+we see that object over there on the heap.
+
+127
+00:06:48,740 --> 00:06:53,960
+We have our keyword this whose value is
+a reference to that newly created object.
+
+128
+00:06:53,960 --> 00:06:58,350
+And I'll put this inside the constructor
+scope because the constructor has access
+
+129
+00:06:58,350 --> 00:06:59,740
+to this.
+
+130
+00:06:59,740 --> 00:07:02,760
+So now we can go ahead and
+trace through the rest of the constructor.
+
+131
+00:07:02,760 --> 00:07:05,620
+We see that that first line of
+the constructor takes the value of latIn,
+
+132
+00:07:05,620 --> 00:07:10,530
+which is inside the constructor scope, and
+copies that value over into this.latitude.
+
+133
+00:07:10,530 --> 00:07:12,340
+So, we follow the arrow and
+
+134
+00:07:12,340 --> 00:07:16,100
+copy that into the member variable
+latitude inside the object.
+
+135
+00:07:16,100 --> 00:07:18,133
+Same things happens with
+the longitude variable.
+
+136
+00:07:18,133 --> 00:07:23,002
+We just copy the value from lonIn over
+into the objects version of the longitude
+
+137
+00:07:23,002 --> 00:07:23,750
+variable.
+
+138
+00:07:24,980 --> 00:07:27,200
+Now, the constructor is over.
+
+139
+00:07:27,200 --> 00:07:29,300
+So what happens to its scope?
+
+140
+00:07:29,300 --> 00:07:32,430
+Well, when a method ends,
+its scope disappears.
+
+141
+00:07:32,430 --> 00:07:34,010
+So all those local variables,
+
+142
+00:07:34,010 --> 00:07:37,890
+the parameters, any variable that has
+been declared locally, they disappear.
+
+143
+00:07:37,890 --> 00:07:38,720
+They go away.
+
+144
+00:07:38,720 --> 00:07:40,190
+You can never use them again.
+
+145
+00:07:40,190 --> 00:07:40,870
+They're just gone.
+
+146
+00:07:42,250 --> 00:07:47,150
+And now as we know, the constructor is
+over, so we return back to the main
+
+147
+00:07:47,150 --> 00:07:52,270
+method and set lima to have a reference
+to that newly created object.
+
+148
+00:07:53,560 --> 00:07:57,240
+So that's basically it for adding
+scope to your memory model diagrams.
+
+149
+00:07:57,240 --> 00:08:01,300
+There's just one more subtlety I want
+to touch on before we finish off
+
+150
+00:08:01,300 --> 00:08:04,873
+this introduction to scope,
+and that's the keyword this.
+
+151
+00:08:04,873 --> 00:08:08,405
+So we've been using it,
+and it's very useful, but
+
+152
+00:08:08,405 --> 00:08:11,760
+it's not strictly required in Java.
+
+153
+00:08:11,760 --> 00:08:16,010
+So I don't have to preface my
+member variables with a this dot.
+
+154
+00:08:16,010 --> 00:08:21,080
+I don't have to preface calls to
+methods inside my class with this dot.
+
+155
+00:08:21,080 --> 00:08:23,660
+I can omit this.
+
+156
+00:08:23,660 --> 00:08:25,340
+And Java will work just fine.
+
+157
+00:08:25,340 --> 00:08:27,950
+It will figure out what I'm
+talking about just fine, and
+
+158
+00:08:27,950 --> 00:08:30,870
+let's take a closer look
+at how it does that.
+
+159
+00:08:30,870 --> 00:08:35,750
+So, if I leave off the keyword this, what
+Java is going to do is first gonna say,
+
+160
+00:08:35,750 --> 00:08:38,660
+oh, I see a variable name called latitude.
+
+161
+00:08:38,660 --> 00:08:42,640
+I think that's probably a local variable,
+so I'm gonna look for it inside the scope
+
+162
+00:08:42,640 --> 00:08:46,240
+of the method that I'm currently in,
+which, in this case, is the constructor.
+
+163
+00:08:46,240 --> 00:08:49,650
+But in this case, it's not going to find
+the variable latitude in the constructor.
+
+164
+00:08:49,650 --> 00:08:54,581
+So what it's going to do instead is
+look over in the object, basically,
+
+165
+00:08:54,581 --> 00:08:58,940
+that was the calling object for
+this particular method.
+
+166
+00:08:58,940 --> 00:09:02,280
+So it looks over here in
+the SimpleLocation object,
+
+167
+00:09:02,280 --> 00:09:04,610
+now it finds the variable latitude, and
+
+168
+00:09:04,610 --> 00:09:07,290
+that's the variable that gets changed
+with this assignment statement.
+
+169
+00:09:08,340 --> 00:09:10,120
+So that's all there is to scope.
+
+170
+00:09:10,120 --> 00:09:12,599
+And we've got some practice problems for
+you which we hope you'll enjoy.

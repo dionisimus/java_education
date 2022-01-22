@@ -1,0 +1,453 @@
+1
+00:00:04,670 --> 00:00:05,840
+[SOUND] Welcome back.
+
+2
+00:00:05,840 --> 00:00:07,920
+We're gonna do a challenge
+question at this point.
+
+3
+00:00:07,920 --> 00:00:10,190
+Now, you've learned a great
+deal about memory models.
+
+4
+00:00:10,190 --> 00:00:11,960
+Let's see if we really understand it well.
+
+5
+00:00:11,960 --> 00:00:16,330
+What we're going to do in this video, is
+we're going to walk through two questions.
+
+6
+00:00:16,330 --> 00:00:19,200
+The first one of which will be a question
+where we just stop, come back.
+
+7
+00:00:19,200 --> 00:00:21,930
+And the second question is where we're
+actually gonna walk through the full
+
+8
+00:00:22,980 --> 00:00:25,210
+concept challenge procedure.
+
+9
+00:00:25,210 --> 00:00:29,667
+Again, the procedure is you're gonna
+pause, think about the problem, solve it
+
+10
+00:00:29,667 --> 00:00:34,187
+yourself, discuss it, potentially,
+with other learners, watch a video of UCSD
+
+11
+00:00:34,187 --> 00:00:38,730
+learners discussing it, then confirm
+your understanding with our explanation.
+
+12
+00:00:40,880 --> 00:00:46,500
+So first, to get things started, what I
+wanna give you is an example is a code.
+
+13
+00:00:46,500 --> 00:00:49,750
+I have the SimpleLocation class
+we've already been working with.
+
+14
+00:00:49,750 --> 00:00:53,820
+And then I'm just going to create
+a main example of one of those objects.
+
+15
+00:00:53,820 --> 00:00:57,990
+So what I want you to do is pull
+out your pencils and paper.
+
+16
+00:00:57,990 --> 00:01:03,190
+Pause, draw the memory model as it
+stands right now, and then come back.
+
+17
+00:01:04,580 --> 00:01:07,180
+So if this was the model that you drew,
+you were spot on.
+
+18
+00:01:07,180 --> 00:01:11,300
+And this gives us a good starting
+point now for our next question.
+
+19
+00:01:13,760 --> 00:01:15,160
+We're gonna scale the question a bit.
+
+20
+00:01:16,590 --> 00:01:21,090
+We've got a single
+variable now within main,
+
+21
+00:01:21,090 --> 00:01:24,430
+we've also got two objects that
+we're creating within main.
+
+22
+00:01:24,430 --> 00:01:27,730
+The question here is,
+what memory model is gonna result?
+
+23
+00:01:27,730 --> 00:01:31,236
+Again, pull out a piece of paper and
+a pencil, draw this yourself, and
+
+24
+00:01:31,236 --> 00:01:32,880
+then we'll come back together.
+
+25
+00:01:34,810 --> 00:01:35,630
+>> Hi.
+
+26
+00:01:35,630 --> 00:01:36,710
+My name is Aziel.
+
+27
+00:01:36,710 --> 00:01:37,760
+>> Hi, I'm Julia.
+
+28
+00:01:37,760 --> 00:01:40,890
+>> And I'm Monica.
+>> And let's just get started.
+
+29
+00:01:42,500 --> 00:01:47,200
+Okay, so far, looking at this,
+I notice that there are two objects.
+
+30
+00:01:48,300 --> 00:01:50,720
+So, we can immediately cross out c.
+
+31
+00:01:50,720 --> 00:01:52,520
+>> So how are there two objects?
+
+32
+00:01:52,520 --> 00:01:53,100
+>> But why?
+
+33
+00:01:53,100 --> 00:01:54,670
+>> They're both simple location objects,
+
+34
+00:01:54,670 --> 00:01:59,210
+so wouldn't they point to a simple
+location inside the heap?
+
+35
+00:01:59,210 --> 00:02:01,780
+>> Yeah, but
+each one is a new simple location so
+
+36
+00:02:01,780 --> 00:02:04,350
+they don't point to
+the same area in the heap.
+
+37
+00:02:05,420 --> 00:02:08,160
+They point to different areas
+because they're both new objects.
+
+38
+00:02:08,160 --> 00:02:10,350
+>> So Washington DC gets it's own place?
+
+39
+00:02:10,350 --> 00:02:12,230
+>> Washington DC gets it's own place.
+
+40
+00:02:13,570 --> 00:02:16,380
+>> So there are two objects
+because there's two news, right?
+
+41
+00:02:16,380 --> 00:02:17,350
+>> Right.
+There's two news.
+
+42
+00:02:17,350 --> 00:02:19,870
+>> So that means C is not the answer.
+
+43
+00:02:19,870 --> 00:02:21,390
+>> Yeah, that's what I thought.
+
+44
+00:02:21,390 --> 00:02:22,690
+>> Okay.
+
+45
+00:02:22,690 --> 00:02:26,340
+>> But
+the part where I got a bit confused on,
+
+46
+00:02:26,340 --> 00:02:32,040
+was when I tried to look at each of
+the different locations in memory.
+
+47
+00:02:32,040 --> 00:02:36,930
+And I understand why latitude is -12 for
+each one of these, but
+
+48
+00:02:36,930 --> 00:02:41,280
+I don't really get why d
+doesn't point to -77, or
+
+49
+00:02:41,280 --> 00:02:46,220
+whether it actually is
+just -77 in the box.
+
+50
+00:02:46,220 --> 00:02:49,760
+>> So we know that d is primitive, which
+means that it's just a constant number.
+
+51
+00:02:49,760 --> 00:02:52,052
+>> Right, so-
+>> So, primitive types,
+
+52
+00:02:52,052 --> 00:02:56,130
+which are constant numbers,
+do not need an arrow, that's what I think.
+
+53
+00:02:56,130 --> 00:02:59,600
+>> Why don't we need an arrow though?
+
+54
+00:02:59,600 --> 00:03:03,670
+I mean,
+it's inside the object's memory area.
+
+55
+00:03:03,670 --> 00:03:06,550
+>> But, the item itself, is not an object.
+
+56
+00:03:06,550 --> 00:03:08,800
+>> Oh, okay, I see.
+
+57
+00:03:08,800 --> 00:03:12,850
+>> So, then you just write it
+directly into the box for both cases.
+
+58
+00:03:15,080 --> 00:03:18,030
+>> All right, now that you've heard
+an explanation about this for
+
+59
+00:03:18,030 --> 00:03:22,150
+our UCSD learners,
+you're already seeing how this works.
+
+60
+00:03:22,150 --> 00:03:25,720
+And really, the only way to do this is
+to trace the code just as they did.
+
+61
+00:03:25,720 --> 00:03:27,500
+I'm going to do that for us here.
+
+62
+00:03:28,590 --> 00:03:31,220
+We will start at the very top of main,
+as we always do.
+
+63
+00:03:31,220 --> 00:03:36,430
+And we're gonna have a double-variable
+d that is assigned the value -77.
+
+64
+00:03:36,430 --> 00:03:38,860
+And you can see that's within the scope
+of main in the drawing below.
+
+65
+00:03:40,470 --> 00:03:44,650
+And when I create a reference for lima,
+and just like we did at the very start
+
+66
+00:03:44,650 --> 00:03:48,780
+here, is I'm gonna actually
+now create this object.
+
+67
+00:03:48,780 --> 00:03:52,130
+So when I call new simple location
+that allocates space on the heap,
+
+68
+00:03:52,130 --> 00:03:53,680
+you can see that on the right.
+
+69
+00:03:54,780 --> 00:04:00,560
+And then I'm going to pass in
+as parameters, -12, and -77.
+
+70
+00:04:00,560 --> 00:04:05,540
+That's the value of d at the time
+that is passing as a parameter.
+
+71
+00:04:07,200 --> 00:04:07,700
+Perfect.
+
+72
+00:04:09,070 --> 00:04:13,200
+All right, now we can do the second piece.
+
+73
+00:04:13,200 --> 00:04:16,190
+Now we can create a second object, or
+sorry we're creating a reference for
+
+74
+00:04:16,190 --> 00:04:17,980
+a second object, which is called washDC.
+
+75
+00:04:19,110 --> 00:04:23,450
+And now I'm actually create the object
+by calling that new simple locations.
+
+76
+00:04:23,450 --> 00:04:27,100
+Again, new simple location allocates
+based on the heap for a new object.
+
+77
+00:04:27,100 --> 00:04:31,130
+And I'm now gonna call this method,
+passing in these two parameters.
+
+78
+00:04:31,130 --> 00:04:36,630
+And the key part to this problem is
+really what happens with lima.lon.
+
+79
+00:04:36,630 --> 00:04:41,253
+When you call a constructor and
+you're passing these values as parameters,
+
+80
+00:04:41,253 --> 00:04:44,110
+parameters in Java
+are always passed by value.
+
+81
+00:04:44,110 --> 00:04:47,291
+So 38.9 is gonna be copied
+over as exactly 38.9, and
+
+82
+00:04:47,291 --> 00:04:52,320
+lima.lon is gonna be evaluated
+to be the minus 77 that it is.
+
+83
+00:04:52,320 --> 00:04:56,920
+And then that minus 77 is
+what's passed to lonIn.
+
+84
+00:04:59,410 --> 00:05:01,530
+Now we're gonna copy the values
+over just like we did before.
+
+85
+00:05:01,530 --> 00:05:03,050
+We're gonna copy into this.lat.
+
+86
+00:05:03,050 --> 00:05:06,264
+We're gonna copy into this.lon.
+
+87
+00:05:07,700 --> 00:05:11,560
+And then at the very end of this
+constructor, and we're going to hook up
+
+88
+00:05:11,560 --> 00:05:16,570
+washDC to that lat and that lon.
+
+89
+00:05:16,570 --> 00:05:18,010
+Or that object that contains the lat and
+the lon.
+
+90
+00:05:18,010 --> 00:05:20,930
+So, this is our memory
+module at this point.
+
+91
+00:05:22,450 --> 00:05:23,430
+Is this close to what you got?
+
+92
+00:05:23,430 --> 00:05:26,280
+I hope it was.
+
+93
+00:05:27,280 --> 00:05:31,510
+It's worthwhile walking through a couple
+more of these memory model problems.
+
+94
+00:05:32,790 --> 00:05:34,410
+Keep in mind that when we
+are drawing memory models,
+
+95
+00:05:34,410 --> 00:05:37,120
+the purpose of this is to
+really understand your code.
+
+96
+00:05:37,120 --> 00:05:38,300
+It's difficult to reason and
+
+97
+00:05:38,300 --> 00:05:41,380
+debug code if you are not drawing
+the memory model associated with it.

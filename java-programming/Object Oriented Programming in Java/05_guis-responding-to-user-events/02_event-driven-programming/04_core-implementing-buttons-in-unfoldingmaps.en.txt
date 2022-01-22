@@ -1,0 +1,74 @@
+[MUSIC] What we'd like to do in this video
+is customize our user interface and use events in a slightly
+more sophisticated way. By the end of this video, you'll be able
+to design your own user interface elements and write the code to support them. So let's go back to our example,
+our friendly old map. And remember those two methods that we
+keep talking about, setup and draw. But now we've added that extra twist
+of having a Default Event Dispatcher supporting zoom through mouse clicks and
+keyboard presses. And so what we're starting with
+is our canvas with our map. And what we'd like to do in this
+video is add a couple of buttons. We're going to add a couple of buttons
+to control the color of the background. So, we're going to have a white square
+that will try to make that frame white and a gray square to make the frame gray. Okay, so
+let's think about how we can do that. And in terms of just drawing the buttons, we already have all
+the tools that we need. If you think back to module three,
+we know how to draw shapes in an applet using the 2D primitives that
+are given to us by the processing library. For example, the primitive method rect. Okay, so we've got these
+rectangles that we can draw. Remember that we're specifying their x and
+y position and then their width and their heights. And we can also specify the color
+that is drawn inside those rectangles using the fill method. But now, the question becomes
+where we'd like to insert these pieces of code to draw the two
+buttons, to draw those two squares. And there's two natural places, either in
+the setup method or in the draw method. So I encourage you to pause the video
+now and think, where would you put it? All right, come back together and
+maybe you've even opened up Eclipse while you're watching the videos, which would be
+a great idea, and tried out both options. And if you did that and you tried out the option of sticking this
+piece of code inside the setup method, what you'll see would have happened
+is that when the applet comes up. You see the buttons very, very briefly and
+then the map comes on top of them and erases them and then the buttons
+don't show up anymore, ever. Whereas, if we put it in the draw method,
+if we put those four lines of code in the draw method, then we see them on top
+of the map where they're supposed to be. And what's happening is that
+because setup is run only once. As soon as our canvas gets overwritten
+by the draw method, any code that was designing the canvas from the setup
+method doesn't get executed again and so those elements are no longer displayed. Okay, so we know what we need to do
+in order to draw the buttons and we know where to put those buttons, but
+so far, they're not really buttons, they're just squares. And so we'd like to add in that
+functionality to make sure that if a user puts their mouse inside one of those
+buttons or over top one of those buttons and clicks then hopefully
+the background of our map will change. So now we get to override some methods that are available to us because
+our applet is a listener. It's listening for mouse events and
+so PApplet implements some sort of default blank behavior to
+correspond to mouse clicks. But what we'd like to do now
+is customize that behaviour in the event of that those mouse clicks
+happen inside one of those buttons. Now there's a few different options of how
+to deal with mice or with mouse clicks and there's a few methods
+that are available to us. What we're going to use is
+the mouseReleased method. Which means that we don't
+really care about when the user starts clicking the mouse or the fact that it was a click rather
+than a click down and hold for a while. We just want to think about
+when the mouse was released and make sure that when the mouse is
+released it was inside the button and so we wanted to react to that action. So that means that when we think
+about the mouseReleased method, we're going to have to check
+that the mouse released event happened when the mouse was inside
+the button that we want to implement. And so
+we have to go back to the coordinates that are defining locations in our canvas. So when we defined for example, the white
+button, we said that it was a rectangle. Whose corner was at coordinate 100,100 and then this button is 25 pixels wide and
+25 pixels high. And so the four corner coordinates
+are now up on the screen. Which means when we're looking at the
+mouse event to check that the mouse event happens inside the button. We want to check that
+the X coordinates and the Y coordinates of the mouse's location
+are within the square that's defined by the corners and those corner coordinates. Now notice that we're doing
+something kinda cool here, we're accessing the coordinates of the
+mouse, using a variable mouseX and mouseY. And that's available again to us through
+inheritance because those variables are available to the applet superclass
+that we're inheriting from. So in the case where our mouse
+was actually released from inside the white button, what we end up doing is setting the
+background color of our canvas to white. And in the other situation, when we've
+calculated the corners of the gray button, we can also set the background
+color of the canvas to gray. Of course, corresponding to a mouse
+click inside the gray button. And that's really all there is to it
+to implementing a button inside this class because we can listen for
+mouse events and we can record the location
+of those mouse events. So not only do we know that
+a mouse was clicked and released, we also know where it happened.

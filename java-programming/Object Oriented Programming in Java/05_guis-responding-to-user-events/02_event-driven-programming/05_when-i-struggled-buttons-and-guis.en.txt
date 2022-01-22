@@ -1,0 +1,8 @@
+[MUSIC] So, one time I struggled
+in computer science. Was actually at the end of high school. And I had to just make one button and have it respond to being clicked and
+[LAUGH] it was the most frustrating thing. Because I just remember,
+we just got thrown into it and I had to see what this event handler was. There was so much terminology that
+was coming in out of nowhere. It wasn't until I sat down and I kinda just I looked it up on YouTube and I watched a few tutorials where I
+watched them code it and explain it. And that really helped me out. And I realized that it wasn't as
+complicated as I made it out to be, because of all the big words. It's actually pretty simple
+when you look at it.

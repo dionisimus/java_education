@@ -1,0 +1,400 @@
+1
+00:00:00,000 --> 00:00:03,912
+[MUSIC]
+
+2
+00:00:03,912 --> 00:00:07,690
+So we're going to continue building our
+map application displaying earthquakes,
+
+3
+00:00:07,690 --> 00:00:11,510
+and we're ready to start adding content
+to the map that we set up before.
+
+4
+00:00:11,510 --> 00:00:14,270
+So then the question is how
+do we add that content?
+
+5
+00:00:14,270 --> 00:00:19,890
+And we know that our map is, well, it's
+part of a class that extends p applet.
+
+6
+00:00:19,890 --> 00:00:22,550
+And so,
+the two main methods that we've got
+
+7
+00:00:22,550 --> 00:00:27,340
+where we're doing a lot of the hard work
+are the set up method and the draw method.
+
+8
+00:00:27,340 --> 00:00:31,170
+And so, it's a question where
+do we put the definitions
+
+9
+00:00:31,170 --> 00:00:35,720
+of all of these new objects that
+we want to create that will let us
+
+10
+00:00:35,720 --> 00:00:40,530
+point ad various parts in the map and
+remember that the setup method gets
+
+11
+00:00:40,530 --> 00:00:45,350
+executed exactly once at the beginning
+of when the p upload is launched.
+
+12
+00:00:45,350 --> 00:00:47,660
+Whereas the draw method
+that gets executed over and
+
+13
+00:00:47,660 --> 00:00:50,260
+over again,
+every time we want to refresh the view.
+
+14
+00:00:50,260 --> 00:00:52,945
+And all of these objects that
+were creating the pointers
+
+15
+00:00:52,945 --> 00:00:56,405
+to various milestones and
+features of the map
+
+16
+00:00:56,405 --> 00:01:00,815
+we don't want to create a new object
+every time the screen gets refreshed,
+
+17
+00:01:00,815 --> 00:01:04,750
+what we love to do is just have
+a single instance of those class
+
+18
+00:01:04,750 --> 00:01:08,250
+that represents a particular
+point that we're thinking about.
+
+19
+00:01:08,250 --> 00:01:13,220
+And have that point somehow
+associated with the map as a whole.
+
+20
+00:01:13,220 --> 00:01:15,690
+And then every time we need to
+refresh the map we just say
+
+21
+00:01:15,690 --> 00:01:18,200
+hey refresh every thing
+that we've already created.
+
+22
+00:01:18,200 --> 00:01:20,930
+And so for
+that reason all of these definitions.
+
+23
+00:01:20,930 --> 00:01:25,090
+All of the work that we're about to do
+will get put in the set up method and
+
+24
+00:01:25,090 --> 00:01:27,850
+then when we execute the map.draw method.
+
+25
+00:01:27,850 --> 00:01:31,980
+It within the p draw method,
+that mapped our draw method,
+
+26
+00:01:31,980 --> 00:01:35,290
+will go through all the objects
+that are associated with or
+
+27
+00:01:35,290 --> 00:01:39,260
+attached to a map object and
+will refresh them as well.
+
+28
+00:01:39,260 --> 00:01:43,230
+So, let's think about,
+adding a specific marker,
+
+29
+00:01:43,230 --> 00:01:48,170
+to denote a particularly significant
+earthquake that happened in Chile in 1960.
+
+30
+00:01:48,170 --> 00:01:54,800
+And so, what we'd like to do perhaps,
+is indicate that location as something
+
+31
+00:01:54,800 --> 00:02:00,230
+o note, and then put a dot on that
+location in our graphical representation.
+
+32
+00:02:00,230 --> 00:02:03,530
+So let's think about some code
+that we could use to do that.
+
+33
+00:02:03,530 --> 00:02:07,850
+In the first line of code, notice that
+we're working with coordinates, which
+
+34
+00:02:07,850 --> 00:02:11,730
+should be a little bit familiar to you
+from what Christine was doing earlier so
+
+35
+00:02:11,730 --> 00:02:16,600
+one of the great things about working
+with a library of methods and
+
+36
+00:02:16,600 --> 00:02:18,770
+data types that were special built for
+
+37
+00:02:18,770 --> 00:02:22,900
+a particular purpose is that a lot of the
+data types that we would naturally need
+
+38
+00:02:22,900 --> 00:02:26,900
+have the defined focal ready and
+location is one of those examples.
+
+39
+00:02:26,900 --> 00:02:31,140
+So in our earlier videos we actually
+defined a class called simple location and
+
+40
+00:02:31,140 --> 00:02:34,420
+we tried to built in some of
+the functionalities that location
+
+41
+00:02:34,420 --> 00:02:37,580
+ought to have but
+we see over here in the documentation for
+
+42
+00:02:37,580 --> 00:02:41,730
+unfolding maps that we already
+have that in the location class.
+
+43
+00:02:41,730 --> 00:02:44,900
+And so notice that there are a couple
+different constructors depending on which
+
+44
+00:02:44,900 --> 00:02:48,760
+parameters we want to use and
+then some public methods that we can use
+
+45
+00:02:48,760 --> 00:02:54,010
+to both access and modify some of
+the properties of the location objects.
+
+46
+00:02:54,010 --> 00:02:58,030
+So the first thing that we would want
+to do when putting a marker on this
+
+47
+00:02:58,030 --> 00:03:02,930
+significant earthquake on its
+location in the world is to create
+
+48
+00:03:02,930 --> 00:03:08,870
+a location object and set its coordinates
+to be the coordinates of the epicenter.
+
+49
+00:03:08,870 --> 00:03:13,510
+Now once we have that location object that
+still isn't associated with the map, and
+
+50
+00:03:13,510 --> 00:03:15,190
+the way that we can associate or
+
+51
+00:03:15,190 --> 00:03:18,880
+highlight a particular location
+on the map Is to create a marker.
+
+52
+00:03:18,880 --> 00:03:22,650
+So, a marker is, well,
+it's what you think it might mean, and
+
+53
+00:03:22,650 --> 00:03:27,710
+this is the beauty of having our Java
+objects mirror the, it'd be really
+
+54
+00:03:27,710 --> 00:03:32,480
+models for the real life objects, so
+that our code is readable and intuitive.
+
+55
+00:03:32,480 --> 00:03:36,760
+So a simple point marker
+represents a single location, and
+
+56
+00:03:36,760 --> 00:03:39,820
+it represents it using a circle.
+
+57
+00:03:39,820 --> 00:03:43,620
+Now, notice that there's something
+else in this documentation.
+
+58
+00:03:43,620 --> 00:03:48,600
+Notice the documentation points out
+that the simple point marker implements
+
+59
+00:03:48,600 --> 00:03:53,250
+something called a Marker, and
+it's an interface called a Marker.
+
+60
+00:03:53,250 --> 00:03:56,060
+Now, an interface is
+
+61
+00:03:56,060 --> 00:03:59,440
+something that indicates that we're
+dealing with an abstract data type.
+
+62
+00:03:59,440 --> 00:04:04,550
+It's like a promise
+between the programmer and
+
+63
+00:04:04,550 --> 00:04:09,020
+the person using the library's
+code that any data type
+
+64
+00:04:10,210 --> 00:04:15,600
+that implements the abstract data type
+marker will have certain behaviors,
+
+65
+00:04:15,600 --> 00:04:18,080
+will allow certain functionalities and
+
+66
+00:04:18,080 --> 00:04:22,230
+what the interface let's us do is hide
+some of the details of the implementation
+
+67
+00:04:22,230 --> 00:04:25,260
+of how those functionalities
+are actually put into practice.
+
+68
+00:04:25,260 --> 00:04:29,900
+So in our particular application,
+we don't really care
+
+69
+00:04:29,900 --> 00:04:33,630
+whether our marker is a SimplePointMarker
+or some other kind of marker.
+
+70
+00:04:33,630 --> 00:04:38,030
+All we care about is that it's a way of
+denoting a specific location on the map.
+
+71
+00:04:38,030 --> 00:04:42,360
+And so in our code what we might
+say is that the variable val
+
+72
+00:04:42,360 --> 00:04:47,580
+of type marker gets assigned to
+the object of type SimplePointMarker.
+
+73
+00:04:47,580 --> 00:04:50,910
+So when we're creating an object we
+have to give it a concrete data type.
+
+74
+00:04:50,910 --> 00:04:52,370
+So that it can actually,
+
+75
+00:04:52,370 --> 00:04:58,040
+you can actually use a specific details
+of the implementation of that class.
+
+76
+00:04:58,040 --> 00:05:01,600
+But when we're going to be using or
+pointing to that object,
+
+77
+00:05:01,600 --> 00:05:04,540
+all we'll need to know about it
+is that it's some kind of marker.
+
+78
+00:05:04,540 --> 00:05:08,730
+And in particular, what we'll be doing
+with it is adding that market to our map
+
+79
+00:05:08,730 --> 00:05:10,360
+so that it gets displayed, and so
+
+80
+00:05:10,360 --> 00:05:15,240
+that then when we execute the draw method,
+that marker will show up on our map.
+
+81
+00:05:15,240 --> 00:05:20,598
+And so, what we see is the map that
+displays the location of the Chile
+
+82
+00:05:20,598 --> 00:05:25,780
+earthquake and coming up,
+we'll add richer data and more date.

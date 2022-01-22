@@ -1,0 +1,35 @@
+[MUSIC] Welcome back. In this lesson, we get to start
+working with polymorphism in detail. Now, polymorphism, along with inheritance, is one of the most powerful features
+that we have in the java language. So what we're gonna do here is just
+revisit why we have polymorphism. So you're goal from this video is just
+to be able to explain it's purpose, and why we have it. Now, we've already done some polymorphism. You've already had a different super class
+reference pointing to a sub class object. That's very hard, this polymorphism. What we're gonna do then, is give a couple examples then,
+with the hierarchy that we already have. So our hierarchy, again is
+the Person class, the Student class, the Faculty class. And now you notice that I've
+added to this Faculty class, and now it has an employeeID number,
+which is a string. It has toString method just like
+Person does, just like Student does. So all three of our classes
+now have toString methods. We're gonna use this in the next context. We said in the very first
+videos on inheritance, that one of the nice features is that
+you can have a single data structure point to multiple objects of that type. So I'm allowed to have a person array,
+which has room for three references. And have one of those
+references be a person, one of those references be a student,
+and one of those references be faculty. And the reason I'm allowed to do that
+is because a person is a person, a student is a person,
+and a faculty is a person. So I'm allowed to have this array,
+and what I'd like to do then, is just iterate through the array. And call the toString method
+on each of the elements. And what you do is, pause for a few seconds and think about
+what should happen when I do this. All right, if you were saying,
+I hope it calls the toString method for each of the objects based on their
+dynamic type, you're spot on. That's exactly what we wanna have happen. I want the toString method for person
+to call the person's two string method. And I want the toString method for student
+to call the student's toString method. And I want the toString method being
+called on that third element to be called on the faculty member, and the faculty
+object, and that's exactly what happens. So. What polymorphism gives us, is the ability to keep all of our
+objects in one big collection. And then call methods on every
+single one of our elements and the appropriate method is
+what actually gets called. But this does get a little
+confusing at times, because we have a different reference
+point to a different type of object. To understand this in more depth,
+we have to look at compile time rules and run time rules, and
+we'll do that in the next video.

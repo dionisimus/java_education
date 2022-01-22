@@ -1,0 +1,321 @@
+1
+00:00:00,000 --> 00:00:03,827
+[MUSIC]
+
+2
+00:00:03,827 --> 00:00:08,020
+In the previous two videos, we've seen two
+different algorithms for sorting data.
+
+3
+00:00:08,020 --> 00:00:10,800
+Now, that's just the beginning,
+the tip of the iceberg.
+
+4
+00:00:10,800 --> 00:00:13,890
+There are many, many,
+many algorithms for sorting.
+
+5
+00:00:13,890 --> 00:00:15,900
+We're not gonna cover all of them.
+
+6
+00:00:15,900 --> 00:00:20,710
+What you do want to keep in mind is that
+it's possible to optimize these algorithms
+
+7
+00:00:20,710 --> 00:00:23,460
+tremendously depending on the application.
+
+8
+00:00:23,460 --> 00:00:27,810
+And that takes a lot of work, but
+if you actually just want to use sorting,
+
+9
+00:00:27,810 --> 00:00:30,920
+you don't need to write
+the sorting algorithm yourself.
+
+10
+00:00:30,920 --> 00:00:35,464
+So by the end of this video you'll be
+able to use the predefined Java method to
+
+11
+00:00:35,464 --> 00:00:39,937
+sort and you'll be able to explain
+the properties of this built in method.
+
+12
+00:00:39,937 --> 00:00:43,779
+Because whenever we use a tool we wanna be
+able to know both it's functionality and
+
+13
+00:00:43,779 --> 00:00:45,020
+it's limitations.
+
+14
+00:00:45,020 --> 00:00:50,107
+So it's useful to be aware of what
+the built in method is actually doing.
+
+15
+00:00:50,107 --> 00:00:54,340
+As a reminder, we've talked both about
+selection sort and insertion sort.
+
+16
+00:00:54,340 --> 00:00:59,251
+We talked about why each of these give
+correct algorithms for sorting data.
+
+17
+00:00:59,251 --> 00:01:03,228
+And we also talked bout some potential
+limitations in terms of the time that it
+
+18
+00:01:03,228 --> 00:01:07,910
+would take for the sorting algorithms
+to actually work through a lot of data.
+
+19
+00:01:07,910 --> 00:01:11,250
+And we've talked about how to
+write the code for these for
+
+20
+00:01:11,250 --> 00:01:12,360
+these sorting algorithms.
+
+21
+00:01:13,370 --> 00:01:15,580
+But we don't want to write
+that code each time, and
+
+22
+00:01:15,580 --> 00:01:20,490
+so here's this code snippet of how we
+might be able to sort some data as
+
+23
+00:01:20,490 --> 00:01:24,490
+part of a larger method without
+actually writing the sorting ourselves.
+
+24
+00:01:24,490 --> 00:01:27,560
+We do need to use some built
+in utilities from Java.
+
+25
+00:01:27,560 --> 00:01:30,400
+And so that's why the import
+method is up top there.
+
+26
+00:01:30,400 --> 00:01:36,320
+And then once we build a list of, for
+example, integers, then all we need to do
+
+27
+00:01:36,320 --> 00:01:41,830
+is call the sort method, collections.sort,
+on that list of integers.
+
+28
+00:01:41,830 --> 00:01:45,750
+And then low and behold if you run this,
+you'll see that our numbers are sorted.
+
+29
+00:01:45,750 --> 00:01:48,400
+And so it's this one line method
+
+30
+00:01:48,400 --> 00:01:52,620
+that is kind of a cheat because we
+haven't actually implemented sort method.
+
+31
+00:01:52,620 --> 00:01:57,540
+But if what we're focused on
+in the particular method that
+
+32
+00:01:57,540 --> 00:02:02,870
+we're writing is not the sort, but that's
+just sort of a helper piece of our code.
+
+33
+00:02:02,870 --> 00:02:07,910
+Then it's useful to go to the library and
+pick out that built-in method and
+
+34
+00:02:07,910 --> 00:02:10,010
+use that instead of having
+to implement it each time.
+
+35
+00:02:11,100 --> 00:02:12,660
+The reason it's useful,
+
+36
+00:02:12,660 --> 00:02:16,640
+is that we get the benefit of
+a lot of other people's hard work.
+
+37
+00:02:17,820 --> 00:02:21,670
+Turns out that in this built in method
+what's being implemented, is an algorithm
+
+38
+00:02:21,670 --> 00:02:26,329
+called merge sort, that's then been
+tweaked and optimized for various reasons.
+
+39
+00:02:27,580 --> 00:02:30,430
+In particular it's been
+made to be super fast, and
+
+40
+00:02:30,430 --> 00:02:35,780
+we'll talk again in the next course about
+what we mean by a fast algorithm and
+
+41
+00:02:35,780 --> 00:02:38,770
+how we can compare algorithm
+speeds to one another.
+
+42
+00:02:38,770 --> 00:02:43,657
+But merge sort is known to be provably
+faster than selection sort and
+
+43
+00:02:43,657 --> 00:02:47,184
+insertion sort in most
+cases that we care about.
+
+44
+00:02:47,184 --> 00:02:51,610
+And in particular it's really good for
+nearly sorted data.
+
+45
+00:02:51,610 --> 00:02:56,653
+If you think back to selection sort and
+insertion sort, trace through how
+
+46
+00:02:56,653 --> 00:03:01,469
+those algorithms would behave if
+our data was already almost sorted.
+
+47
+00:03:01,469 --> 00:03:06,061
+And what you'll see is that one of
+them does better than the other in
+
+48
+00:03:06,061 --> 00:03:11,310
+responding dynamically to the kind
+of data that's being presented.
+
+49
+00:03:11,310 --> 00:03:14,830
+And so it's really useful if we know that
+we're going to maintain, for example,
+
+50
+00:03:14,830 --> 00:03:16,020
+our list of airports.
+
+51
+00:03:16,020 --> 00:03:18,880
+And every so often a new airport
+is going to come up, and
+
+52
+00:03:18,880 --> 00:03:20,360
+we wanna add it to the list, and
+
+53
+00:03:20,360 --> 00:03:23,460
+then re-sort the list to make sure
+that it's in the correct location.
+
+54
+00:03:23,460 --> 00:03:29,330
+We want our algorithm to be able to be
+responsive to that, and be fast when our
+
+55
+00:03:29,330 --> 00:03:33,779
+data is almost sorted, and we just maybe
+have a couple of things out of place.
+
+56
+00:03:35,100 --> 00:03:40,220
+The optimized merge sort that is also
+built into Java has an additional property
+
+57
+00:03:40,220 --> 00:03:45,040
+in that it's stable so that means that if
+we run sort a bunch of times on the same
+
+58
+00:03:45,040 --> 00:03:50,140
+data and we have a couple of pieces of
+data that are duplicates in some sense,
+
+59
+00:03:50,140 --> 00:03:51,950
+they won't switch orders.
+
+60
+00:03:51,950 --> 00:03:54,470
+As we run sort again and again and again.
+
+61
+00:03:54,470 --> 00:03:56,850
+And that could be useful if we want to,
+for example,
+
+62
+00:03:56,850 --> 00:03:59,880
+sort the data on different dimensions.
+
+63
+00:03:59,880 --> 00:04:04,690
+So, what you'll see is in the project
+you'll be using some sorting and
+
+64
+00:04:04,690 --> 00:04:06,250
+searching techniques.
+
+65
+00:04:06,250 --> 00:04:09,710
+But what we encourage you to do
+is to use the built-in sort and
+
+66
+00:04:09,710 --> 00:04:14,820
+not have to rewrite sort on your own so
+that you can make use of these
+
+67
+00:04:14,820 --> 00:04:17,360
+great properties that
+the optimizations have given us.

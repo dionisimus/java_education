@@ -1,0 +1,410 @@
+1
+00:00:00,050 --> 00:00:06,332
+[NOISE] Hi and
+welcome back to our module on sorting.
+
+2
+00:00:06,332 --> 00:00:08,501
+It's time for
+another one of these concept challenges.
+
+3
+00:00:08,501 --> 00:00:10,475
+You've already gotten a good feel for
+these and
+
+4
+00:00:10,475 --> 00:00:13,090
+you know that you're gonna try
+to solve the problem yourself,
+
+5
+00:00:13,090 --> 00:00:15,853
+you're gonna discuss this if you
+have other learners around you,
+
+6
+00:00:15,853 --> 00:00:18,913
+you're gonna watch our UC San Diego
+learners talk about the problem, and
+
+7
+00:00:18,913 --> 00:00:21,160
+then you're gonna see my
+explanation of the answer.
+
+8
+00:00:22,720 --> 00:00:25,294
+So you've already seen
+the Selection Sort algorithm.
+
+9
+00:00:25,294 --> 00:00:28,586
+You know that Selection Sort goes
+through every element in the array, and
+
+10
+00:00:28,586 --> 00:00:31,402
+essentially looks through
+the unsorted portion of the array,
+
+11
+00:00:31,402 --> 00:00:34,905
+finds the smallest value, and adds that
+to the, the next smallest value, and
+
+12
+00:00:34,905 --> 00:00:36,850
+adds that into the array.
+
+13
+00:00:36,850 --> 00:00:42,931
+So, if I have two arrays,
+is sorting faster on one,
+
+14
+00:00:42,931 --> 00:00:46,122
+or the other, or neither?
+
+15
+00:00:46,122 --> 00:00:48,398
+Go ahead and think about this and
+we'll come back.
+
+16
+00:00:48,398 --> 00:00:49,198
+>> Hi, I'm Luis.
+
+17
+00:00:49,198 --> 00:00:49,815
+>> I'm Melissa.
+
+18
+00:00:49,815 --> 00:00:51,195
+>> I'm Gustavo.
+
+19
+00:00:51,195 --> 00:00:54,834
+>> Well I think that it would take the
+same amount of time because there is one
+
+20
+00:00:54,834 --> 00:00:57,233
+four loop that iterates
+over the entire thing.
+
+21
+00:00:57,233 --> 00:01:01,882
+>> For me I thought it would be answer
+A because why would you have to sort
+
+22
+00:01:01,882 --> 00:01:04,342
+something that is already sorted?
+
+23
+00:01:04,342 --> 00:01:07,136
+Wouldn't it take the least
+number of steps?
+
+24
+00:01:07,136 --> 00:01:09,120
+>> Yeah, I thought the same thing.
+
+25
+00:01:09,120 --> 00:01:11,712
+It's already sorted, but
+the computer doesn't know that, so
+
+26
+00:01:11,712 --> 00:01:13,996
+it has to go to the end.
+
+27
+00:01:13,996 --> 00:01:18,030
+>> Hi.I hope that you see
+San Diego Learner Video is helpful.
+
+28
+00:01:18,030 --> 00:01:21,775
+What we'll do now is just walk
+through both of these arrays and
+
+29
+00:01:21,775 --> 00:01:24,164
+apply a selection sort to each of them.
+
+30
+00:01:24,164 --> 00:01:28,320
+So in the first array,
+we're gonna do a pass.
+
+31
+00:01:28,320 --> 00:01:30,311
+We're gonna look at all the elements, and
+
+32
+00:01:30,311 --> 00:01:32,531
+we're gonna see what
+the smallest element is.
+
+33
+00:01:32,531 --> 00:01:35,350
+And this is going to require us to
+look at essentially six elements.
+
+34
+00:01:35,350 --> 00:01:36,770
+It's gonna require us to look at all six,
+
+35
+00:01:36,770 --> 00:01:39,645
+and we're gonna find that
+seven's the smallest one,
+
+36
+00:01:39,645 --> 00:01:42,820
+and we'll put 7 in the very first slot,
+which is where it is already.
+
+37
+00:01:42,820 --> 00:01:45,418
+In the next iteration in the array,
+
+38
+00:01:45,418 --> 00:01:49,324
+we're gonna look at the second
+element in the array.
+
+39
+00:01:49,324 --> 00:01:52,270
+And we're gonna see,
+what's the smallest element.
+
+40
+00:01:52,270 --> 00:01:54,960
+We're now gonna scan,
+we're gonna look at all five of these, and
+
+41
+00:01:54,960 --> 00:01:59,940
+we're gonna find that 16 is it smallest,
+and keep it there.
+
+42
+00:02:01,180 --> 00:02:05,354
+When we move to the next element in
+the array, we're gonna scan the remaining.
+
+43
+00:02:05,354 --> 00:02:10,228
+So I'm gonna have to look at
+all four elements here to find
+
+44
+00:02:10,228 --> 00:02:15,220
+that 43 is in fact the smallest and
+then I'll swap them.
+
+45
+00:02:15,220 --> 00:02:19,082
+So 43 now moves into
+the place that 66 was at.
+
+46
+00:02:19,082 --> 00:02:25,430
+And we'll move to the next element
+in the array, and I'm gonna look
+
+47
+00:02:25,430 --> 00:02:30,450
+at this element along with the remaining
+elements, to find the smallest element.
+
+48
+00:02:30,450 --> 00:02:34,458
+And it's gonna take me 3 steps
+to find 51 is the smallest, and
+
+49
+00:02:34,458 --> 00:02:36,698
+then I'm gonna swap 51 and 66.
+
+50
+00:02:41,216 --> 00:02:45,805
+In the next iteration of the array
+I'm now gonna be looking at 97,
+
+51
+00:02:45,805 --> 00:02:52,480
+I'm gonna have to look at 97 to 51 and
+66, to find out that 66 is the smallest.
+
+52
+00:02:52,480 --> 00:02:53,810
+That takes 2 steps.
+
+53
+00:02:53,810 --> 00:02:56,019
+And now I'm gonna swap 66 97.
+
+54
+00:03:01,081 --> 00:03:02,633
+And then the last of the array,
+
+55
+00:03:02,633 --> 00:03:06,346
+I'm going to look at 97 to see if it
+is the smallest element of the array.
+
+56
+00:03:06,346 --> 00:03:08,083
+It is, and we're done.
+
+57
+00:03:11,795 --> 00:03:14,897
+That did seem like it took number of
+steps because I was having to swap so
+
+58
+00:03:14,897 --> 00:03:17,859
+many elements, but what's going
+to happen with assorted array?
+
+59
+00:03:17,859 --> 00:03:20,070
+Is it going to behave that differently?
+
+60
+00:03:20,070 --> 00:03:22,430
+Well, with the assorted array,
+it's going to start at seven, and
+
+61
+00:03:22,430 --> 00:03:25,380
+it's going to see is seven
+the smallest element.
+
+62
+00:03:25,380 --> 00:03:27,410
+And it's going to look at
+all six elements again.
+
+63
+00:03:29,290 --> 00:03:32,980
+It's then going to move onto 16,
+it's going to find the smallest element.
+
+64
+00:03:32,980 --> 00:03:37,881
+It's going to have to look
+at five elements to do that.
+
+65
+00:03:37,881 --> 00:03:41,175
+It's then gonna look at 43 and it's gonna
+say is 43 the smallest, and it's gonna
+
+66
+00:03:41,175 --> 00:03:44,590
+have to look at all the remaining elements
+to find that 43 is, in fact, the smallest.
+
+67
+00:03:44,590 --> 00:03:47,647
+It's gonna move to 51, do the same thing.
+
+68
+00:03:47,647 --> 00:03:51,268
+It's gonna take three steps,
+it's gonna move to 66, take two steps.
+
+69
+00:03:51,268 --> 00:03:53,480
+It's gonna move to 97 and take one step.
+
+70
+00:03:54,800 --> 00:03:59,170
+So we haven't done as much swapping, but
+we've essentially taken as many steps.
+
+71
+00:03:59,170 --> 00:04:04,450
+What this really leads us now to thinking
+about is, how do we define faster?
+
+72
+00:04:05,480 --> 00:04:10,140
+So we can see that both of these arrays
+essentially took the same number of steps.
+
+73
+00:04:10,140 --> 00:04:11,520
+Is that how we define faster?
+
+74
+00:04:12,630 --> 00:04:14,820
+Well, If you're looking at a high level,
+
+75
+00:04:14,820 --> 00:04:17,970
+the same number of steps means they
+essentially take the same amount of time.
+
+76
+00:04:17,970 --> 00:04:20,980
+Now some of you may be thinking,
+well wait a second, I think if you look at
+
+77
+00:04:20,980 --> 00:04:24,920
+the really nitty gritty details, you can
+see that swapping only sometimes happens,
+
+78
+00:04:24,920 --> 00:04:28,290
+or maybe this if statement only executes
+sometimes, and it doesn't execute other
+
+79
+00:04:28,290 --> 00:04:32,019
+times, and now you're starting to argue
+about individual machine instructions.
+
+80
+00:04:33,140 --> 00:04:34,868
+But what view do we want to have?
+
+81
+00:04:34,868 --> 00:04:38,354
+Well, for the most part we tend to have
+a really high level view when we look at
+
+82
+00:04:38,354 --> 00:04:41,440
+algorithms to say whether or
+not one is faster than the other.
+
+83
+00:04:41,440 --> 00:04:45,400
+In this case, we actually say that
+theses are gonna run the same speed
+
+84
+00:04:45,400 --> 00:04:46,950
+regardless of the contents of the array.
+
+85
+00:04:48,030 --> 00:04:51,490
+But, we're gonna spend a whole bunch more
+time in the next module talking about
+
+86
+00:04:51,490 --> 00:04:56,640
+defining performance, defining how
+to compare different algorithms, and
+
+87
+00:04:56,640 --> 00:04:57,990
+we're looking forward to
+doing that with you then.

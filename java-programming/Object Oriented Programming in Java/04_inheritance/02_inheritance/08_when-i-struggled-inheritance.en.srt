@@ -1,0 +1,77 @@
+1
+00:00:00,707 --> 00:00:03,992
+[MUSIC]
+
+2
+00:00:03,992 --> 00:00:07,825
+So when I was working on a really
+large project in graduate school,
+
+3
+00:00:07,825 --> 00:00:10,835
+I hit this point where I was
+changing all of my code and
+
+4
+00:00:10,835 --> 00:00:13,720
+I knew the right thing to
+do was to do inheritance.
+
+5
+00:00:13,720 --> 00:00:15,521
+I was basically making three objects, but
+
+6
+00:00:15,521 --> 00:00:17,980
+I was a little bit lazy with
+the software infrastructure.
+
+7
+00:00:17,980 --> 00:00:19,595
+I was like you know what,
+I'm just gonna do this in one class.
+
+8
+00:00:19,595 --> 00:00:20,870
+I can make this work.
+
+9
+00:00:20,870 --> 00:00:22,750
+And it worked for little while.
+
+10
+00:00:22,750 --> 00:00:25,490
+So I worked on it for a few weeks,
+got the code working.
+
+11
+00:00:25,490 --> 00:00:27,340
+But over the next couple of months,
+
+12
+00:00:27,340 --> 00:00:30,050
+I kept running into bug after bug
+after bug related to this code.
+
+13
+00:00:30,050 --> 00:00:33,400
+And finally one day I had to go to
+a group meeting for a research group and
+
+14
+00:00:33,400 --> 00:00:36,570
+say, I'm gonna need to take two weeks and
+rewrite the code properly.
+
+15
+00:00:36,570 --> 00:00:37,910
+I did.
+
+16
+00:00:37,910 --> 00:00:42,690
+I lost two weeks of my life doing it, but
+it worked out after that, no more bugs.
+
+17
+00:00:42,690 --> 00:00:44,300
+So I learned inheritance the hard way.

@@ -1,0 +1,387 @@
+1
+00:00:00,025 --> 00:00:03,412
+[MUSIC]
+
+2
+00:00:03,412 --> 00:00:07,154
+In the previous video,
+we implemented selection sorting Java, and
+
+3
+00:00:07,154 --> 00:00:11,348
+then we stopped and thought about some
+questions to do with this algorithm and
+
+4
+00:00:11,348 --> 00:00:12,587
+how well it performs.
+
+5
+00:00:12,587 --> 00:00:17,128
+So, so far in this course we haven't
+really asked ourselves whether algorithms
+
+6
+00:00:17,128 --> 00:00:21,131
+are correct and how well they run,
+and so let's take a few minutes now to
+
+7
+00:00:21,131 --> 00:00:25,890
+think about how we might even
+formulate answers to these questions.
+
+8
+00:00:25,890 --> 00:00:28,270
+So let's think about correctness first.
+
+9
+00:00:28,270 --> 00:00:32,100
+We had a problem that of sorting an array,
+
+10
+00:00:32,100 --> 00:00:35,180
+meaning organizing
+the information in the array.
+
+11
+00:00:35,180 --> 00:00:40,110
+And then we had a candidate strategy,
+selection sort, that we think did
+
+12
+00:00:40,110 --> 00:00:44,550
+pretty well, and we think that it really
+does organize the elements in the array.
+
+13
+00:00:44,550 --> 00:00:50,640
+But if this was a really mission-critical
+problem that we are trying to solve here,
+
+14
+00:00:50,640 --> 00:00:54,170
+it's not enough for us to just sort of
+say hm, yeah, I guess it's gonna work.
+
+15
+00:00:54,170 --> 00:00:55,800
+Hopefully there won't be any bugs.
+
+16
+00:00:55,800 --> 00:00:58,130
+All right, we want to be certain and
+
+17
+00:00:58,130 --> 00:01:01,930
+convinced that our algorithm is really
+going to do what it's supposed to do,
+
+18
+00:01:01,930 --> 00:01:06,200
+no matter what edge case we throw at it or
+how big an array we give it.
+
+19
+00:01:06,200 --> 00:01:10,640
+And so let's think back to the high-level
+picture we have of selection sort, and
+
+20
+00:01:10,640 --> 00:01:13,760
+think about how that
+high-level picture can give us
+
+21
+00:01:13,760 --> 00:01:16,350
+confidence that the algorithm works.
+
+22
+00:01:16,350 --> 00:01:21,810
+So remember what we're doing in selection
+sort is, at each step through the for
+
+23
+00:01:21,810 --> 00:01:24,900
+loop, we're looking at a new
+position in the array and
+
+24
+00:01:24,900 --> 00:01:29,010
+we're swapping into that position in the
+array the element that's going to be there
+
+25
+00:01:29,010 --> 00:01:31,640
+when the array is really truly sorted.
+
+26
+00:01:31,640 --> 00:01:36,770
+And so what we have is some initial
+piece of the array that is sorted,
+
+27
+00:01:36,770 --> 00:01:39,203
+and it keeps growing each time.
+
+28
+00:01:39,203 --> 00:01:44,630
+And so as this sorted part of the array,
+the dark gray part of the array, grows
+
+29
+00:01:44,630 --> 00:01:50,326
+with each iteration of the foreloop, more
+and more of our array is in good shape.
+
+30
+00:01:50,326 --> 00:01:52,550
+It's organized and it's sorted.
+
+31
+00:01:52,550 --> 00:01:54,930
+And so,
+by the time we finish the foreloop and
+
+32
+00:01:54,930 --> 00:01:59,530
+have gone thought the entire length of the
+array, then our entire array is sorted.
+
+33
+00:01:59,530 --> 00:02:04,350
+And so, this argument that we just went
+through can be completely formalized and
+
+34
+00:02:04,350 --> 00:02:08,270
+can be used to prove
+the correctness of selection sort.
+
+35
+00:02:08,270 --> 00:02:12,590
+Okay, so we're convinced that it works,
+but how well does it work?
+
+36
+00:02:12,590 --> 00:02:14,230
+And what does that even mean?
+
+37
+00:02:14,230 --> 00:02:16,690
+And so the question of performance
+is a really tricky one but
+
+38
+00:02:16,690 --> 00:02:18,420
+a super critical one.
+
+39
+00:02:18,420 --> 00:02:23,250
+And it makes the difference
+between a very sluggish
+
+40
+00:02:23,250 --> 00:02:28,530
+computer that no one really ever wants to
+use because it takes seconds between when
+
+41
+00:02:28,530 --> 00:02:34,230
+you click a mouse and when it actually
+responds, to a super snappy computer that
+
+42
+00:02:34,230 --> 00:02:37,360
+everyone is really happy running
+apps on and maybe even multitasking.
+
+43
+00:02:37,360 --> 00:02:41,890
+Because performance we can measure with
+time, we can measure with resource use,
+
+44
+00:02:41,890 --> 00:02:48,160
+and the experience of how an algorithm
+runs makes a big difference to
+
+45
+00:02:48,160 --> 00:02:53,650
+how far we can push that algorithm and how
+big a dataset we can expect it to work on.
+
+46
+00:02:53,650 --> 00:02:57,970
+So it turns out that selection sort,
+even though it's correct, doesn't do so
+
+47
+00:02:57,970 --> 00:03:00,200
+well when we think about its performance.
+
+48
+00:03:00,200 --> 00:03:04,140
+It turns out to be a very
+slow sorting algorithm.
+
+49
+00:03:04,140 --> 00:03:06,460
+Now we won't talk about
+the details of what it means for
+
+50
+00:03:06,460 --> 00:03:10,640
+one algorithm to be slower than another,
+and how we can compare algorithms,
+
+51
+00:03:10,640 --> 00:03:15,300
+when their performance might depend
+on their input in this course.
+
+52
+00:03:15,300 --> 00:03:18,700
+But we will talk a lot more
+about it in the next course.
+
+53
+00:03:18,700 --> 00:03:23,770
+And so, stay tuned,
+it's a beautiful theory of computation and
+
+54
+00:03:23,770 --> 00:03:27,360
+complexity that we'll get
+to in a little while.
+
+55
+00:03:27,360 --> 00:03:32,930
+Now, what I wanted to mention though,
+is that aside from performance issues and
+
+56
+00:03:32,930 --> 00:03:36,930
+somewhat motivated by performance issues,
+we're always on the hunt for
+
+57
+00:03:36,930 --> 00:03:40,190
+other algorithms for
+solving even the same problem.
+
+58
+00:03:40,190 --> 00:03:43,470
+So we had this sorting problem,
+and we had one solution for
+
+59
+00:03:43,470 --> 00:03:45,380
+it, namely selection sort.
+
+60
+00:03:45,380 --> 00:03:49,150
+But, even if we did not know that it
+was kind of a slow one and maybe not so
+
+61
+00:03:49,150 --> 00:03:54,260
+great, we'd still be interested in finding
+other algorithms that solves sorting.
+
+62
+00:03:54,260 --> 00:03:56,160
+And that motivation for
+
+63
+00:03:56,160 --> 00:04:00,180
+finding other algorithms comes from
+recognizing that in the real world
+
+64
+00:04:00,180 --> 00:04:05,390
+different contexts might require
+different properties from our algorithms.
+
+65
+00:04:05,390 --> 00:04:08,450
+Sometimes, we might have
+a nearly sorted list,
+
+66
+00:04:08,450 --> 00:04:12,650
+a list that is usually pretty organized
+but occasionally we add on to it.
+
+67
+00:04:12,650 --> 00:04:18,280
+Maybe as new computers join a network or
+as new people join a team.
+
+68
+00:04:18,280 --> 00:04:22,851
+And so, we might want an algorithm that
+responds really well to almost sorted data
+
+69
+00:04:22,851 --> 00:04:24,983
+and is really fast in that situation.
+
+70
+00:04:24,983 --> 00:04:30,014
+On the other hand, we might have
+a context where our data is going
+
+71
+00:04:30,014 --> 00:04:34,949
+to be coming from all over the place and
+is not organized at all,
+
+72
+00:04:34,949 --> 00:04:38,327
+but maybe is not going
+to change too often.
+
+73
+00:04:38,327 --> 00:04:42,739
+And so maybe we have a different
+algorithm that doesn't respond so
+
+74
+00:04:42,739 --> 00:04:45,418
+well to dynamically changing data, but
+
+75
+00:04:45,418 --> 00:04:51,250
+does really well even if the incoming
+information is completely unorganized.
+
+76
+00:04:51,250 --> 00:04:56,100
+So, even if one algorithm is
+often slower than the other,
+
+77
+00:04:56,100 --> 00:04:59,320
+it might still be useful for
+other reasons if we know something
+
+78
+00:04:59,320 --> 00:05:02,250
+about the problem that we're solving and
+the real world contact that we live in.
+
+79
+00:05:03,280 --> 00:05:05,750
+In the next video series,
+what we're going to be doing
+
+80
+00:05:05,750 --> 00:05:09,130
+is thinking about other algorithms for
+sorting and foreshadowing
+
+81
+00:05:09,130 --> 00:05:12,520
+some of the other techniques that we'll
+be thinking about in the future courses.

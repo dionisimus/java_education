@@ -1,0 +1,718 @@
+1
+00:00:00,025 --> 00:00:04,807
+[SOUND] So welcome back.
+
+2
+00:00:04,807 --> 00:00:09,029
+Before we do the big reveal and say what
+actually happened, let's sift through and
+
+3
+00:00:09,029 --> 00:00:10,850
+see if we can predict it.
+
+4
+00:00:10,850 --> 00:00:11,630
+Okay, so
+
+5
+00:00:11,630 --> 00:00:15,390
+stepping through the code means we have
+to run together through the main method.
+
+6
+00:00:15,390 --> 00:00:18,930
+And we're gonna pretend to be
+the computers running this code.
+
+7
+00:00:18,930 --> 00:00:24,281
+Okay, so the first thing that we have to
+do is we're declaring the variable coords.
+
+8
+00:00:24,281 --> 00:00:29,353
+And so using our memory models,
+that means that we need to write
+
+9
+00:00:29,353 --> 00:00:34,700
+the word coords next to a box
+in the scope of the main method.
+
+10
+00:00:34,700 --> 00:00:40,270
+And what we want in that box
+is a reference to a new array
+
+11
+00:00:40,270 --> 00:00:47,680
+that is initialized to the values
+5.0 in index 0, and 0.0 in index 1.
+
+12
+00:00:47,680 --> 00:00:51,748
+Okay, so
+the coords variable is in Main's scope and
+
+13
+00:00:51,748 --> 00:00:55,455
+the array object that we
+created is in The Heap.
+
+14
+00:00:55,455 --> 00:00:59,443
+And so, what's stored in the box for
+
+15
+00:00:59,443 --> 00:01:03,311
+coords is a reference to the array.
+
+16
+00:01:03,311 --> 00:01:08,118
+Okay, what's important here,
+what's important to keep in mind is that
+
+17
+00:01:08,118 --> 00:01:11,774
+an array is not a primitive type,
+it's an object type.
+
+18
+00:01:11,774 --> 00:01:17,810
+Okay so, so far, here's our memory model
+and we've gone through one line of code.
+
+19
+00:01:17,810 --> 00:01:21,970
+Now we get to the line of code that
+we will spend the most time on, and
+
+20
+00:01:21,970 --> 00:01:25,990
+this is when we now declare
+the variable accra.
+
+21
+00:01:25,990 --> 00:01:30,676
+And this variable is going
+to be of type ArrayLocation,
+
+22
+00:01:30,676 --> 00:01:33,866
+which means that what we want to do is,
+
+23
+00:01:33,866 --> 00:01:38,167
+still in our Main's scope,
+draw a box with accra.
+
+24
+00:01:38,167 --> 00:01:41,720
+And what we're going to fill in
+there is a reference to an object.
+
+25
+00:01:41,720 --> 00:01:45,700
+But in order to refer to an object,
+an object needs to be constructed.
+
+26
+00:01:45,700 --> 00:01:48,170
+And that's what that keyword new is doing.
+
+27
+00:01:48,170 --> 00:01:51,570
+It's saying hey, I want a new object.
+
+28
+00:01:51,570 --> 00:01:56,030
+And the kind of object that I want
+is the ArrayLocations object.
+
+29
+00:01:56,030 --> 00:02:00,030
+And so I have to go to
+the ArrayLocation class and
+
+30
+00:02:00,030 --> 00:02:04,930
+see that in The Heap, I'm going to
+have an ArrayLocation instance.
+
+31
+00:02:04,930 --> 00:02:09,860
+And the instance variables associated
+with that ArrayLocation instance, while
+
+32
+00:02:09,860 --> 00:02:14,100
+they're listed right there in the class
+definition, and I need a coords variable.
+
+33
+00:02:14,100 --> 00:02:19,450
+And now I'm going to go ahead and
+follow the constructor to
+
+34
+00:02:19,450 --> 00:02:24,160
+initialize the variables
+in the instance that I have
+
+35
+00:02:24,160 --> 00:02:28,280
+of the object that I have
+of type ArrayLocation.
+
+36
+00:02:28,280 --> 00:02:33,191
+So in the constructor's scope, I have
+another variable that's called coords.
+
+37
+00:02:33,191 --> 00:02:35,049
+And that's my local variable for
+
+38
+00:02:35,049 --> 00:02:39,640
+the constructor method that is
+the parameter to that constructor method.
+
+39
+00:02:39,640 --> 00:02:42,480
+So, the constructor ArrayLocation has,
+
+40
+00:02:42,480 --> 00:02:46,930
+as a parameter,
+a variable that's called coords.
+
+41
+00:02:46,930 --> 00:02:49,250
+And what we do in this constructor.
+
+42
+00:02:49,250 --> 00:02:50,460
+Oh, sorry.
+
+43
+00:02:50,460 --> 00:02:52,080
+Going back.
+
+44
+00:02:52,080 --> 00:02:56,190
+Before we go ahead and
+see what's in the meat of the constructor,
+
+45
+00:02:56,190 --> 00:02:59,170
+we have to see what the value
+of that parameter is.
+
+46
+00:02:59,170 --> 00:03:03,086
+So let's think about what's
+passed into the ArrayLocation
+
+47
+00:03:03,086 --> 00:03:06,190
+constructor when we were
+in the main method.
+
+48
+00:03:06,190 --> 00:03:10,467
+When we were in the main method, what
+we passed into a relocation is coords.
+
+49
+00:03:10,467 --> 00:03:11,260
+Aah!
+
+50
+00:03:11,260 --> 00:03:12,680
+Too many coords.
+
+51
+00:03:12,680 --> 00:03:14,230
+We can take care of it.
+
+52
+00:03:14,230 --> 00:03:17,410
+We know what to do by
+looking at the memory models.
+
+53
+00:03:17,410 --> 00:03:20,370
+The coords that's a parameter
+to the constructor
+
+54
+00:03:20,370 --> 00:03:23,390
+is the variable in Main's scope.
+
+55
+00:03:23,390 --> 00:03:28,206
+And so the red arrow is what needs
+to be copied into the value of
+
+56
+00:03:28,206 --> 00:03:31,710
+the variable in the constructor's scope.
+
+57
+00:03:31,710 --> 00:03:36,043
+And so now the constructor's
+scope coords variable also
+
+58
+00:03:36,043 --> 00:03:40,655
+points to the variable,
+to the array that we had in The Heap.
+
+59
+00:03:40,655 --> 00:03:44,005
+All right, so when we call
+the ArrayLocation constructor,
+
+60
+00:03:44,005 --> 00:03:48,580
+what we're doing is we're creating
+a new scope for the constructor.
+
+61
+00:03:48,580 --> 00:03:51,905
+We've got a variable in there that
+is the parameter to that method.
+
+62
+00:03:51,905 --> 00:03:56,314
+And that variable is initialized
+to the value that was passed in,
+
+63
+00:03:56,314 --> 00:03:59,454
+which was a reference to
+the array in The Heap.
+
+64
+00:03:59,454 --> 00:04:05,431
+Okay, so now we need to remember one more
+thing when we have a constructor, and
+
+65
+00:04:05,431 --> 00:04:12,042
+that is that we want a variable as well
+in the constructor's scope called this.
+
+66
+00:04:12,042 --> 00:04:17,230
+And what this does is point
+to the location in The Heap
+
+67
+00:04:17,230 --> 00:04:21,170
+where we've allocated space for
+the object that we're creating.
+
+68
+00:04:21,170 --> 00:04:25,661
+And remember that when we finish with
+a constructor, what we'll be returning
+
+69
+00:04:25,661 --> 00:04:30,165
+to Main is that reference to the object
+that we've just made and initialized.
+
+70
+00:04:30,165 --> 00:04:33,262
+Okay, so here's our picture so far.
+
+71
+00:04:33,262 --> 00:04:37,234
+And now let's figure out what's happening
+when we actually execute the code in
+
+72
+00:04:37,234 --> 00:04:39,013
+the ArrayLocation constructor and
+
+73
+00:04:39,013 --> 00:04:42,400
+try to initialize the variables
+in the object that we've created.
+
+74
+00:04:43,590 --> 00:04:48,907
+So the one line of code in that
+constructor is an assignment,
+
+75
+00:04:48,907 --> 00:04:51,214
+this.coords = coords.
+
+76
+00:04:51,214 --> 00:04:54,441
+So what we're trying to do is,
+we're trying to assign the value on
+
+77
+00:04:54,441 --> 00:04:57,920
+the righthand side to the thing
+on the lefthand side.
+
+78
+00:04:57,920 --> 00:05:01,470
+And so,
+on the righthand side we just have coords.
+
+79
+00:05:01,470 --> 00:05:06,710
+But we're in the constructor's scope,
+so that variable is the circled variable
+
+80
+00:05:06,710 --> 00:05:12,410
+coords that has that red reference that's
+pointing to the array in The Heap.
+
+81
+00:05:12,410 --> 00:05:18,620
+And what we're doing is we're copying
+that reference to this.coords.
+
+82
+00:05:18,620 --> 00:05:20,570
+So remember when we have a dot,
+
+83
+00:05:20,570 --> 00:05:24,660
+that means that we can find
+the variable by following the arrows.
+
+84
+00:05:24,660 --> 00:05:28,460
+So we look at where this points to, and
+
+85
+00:05:28,460 --> 00:05:32,270
+this points to the object of
+type ArrayLocation in The Heap.
+
+86
+00:05:32,270 --> 00:05:35,990
+And what we're doing is we're setting
+the value of the variable coords
+
+87
+00:05:35,990 --> 00:05:38,120
+in that object scope.
+
+88
+00:05:38,120 --> 00:05:42,160
+So this.coords, that variable in The Heap
+
+89
+00:05:42,160 --> 00:05:47,320
+that belongs to the object
+is going to now point to
+
+90
+00:05:47,320 --> 00:05:52,750
+the array in The Heap that was pointed to
+also by coords in the constructor's scope.
+
+91
+00:05:52,750 --> 00:05:57,983
+So we have all of these arrows,
+references pointing to the same array.
+
+92
+00:05:57,983 --> 00:06:01,215
+But notice that we're still missing one.
+
+93
+00:06:01,215 --> 00:06:03,438
+We've got one box empty.
+
+94
+00:06:03,438 --> 00:06:06,960
+And so, we're going to want
+to fill in that box, but
+
+95
+00:06:06,960 --> 00:06:09,293
+we're going to be able to do that.
+
+96
+00:06:09,293 --> 00:06:11,997
+And let's think about how that happens.
+
+97
+00:06:11,997 --> 00:06:15,270
+So, let's think about what's gonna happen,
+now that we've executed
+
+98
+00:06:15,270 --> 00:06:18,662
+the one line of code in the constructor
+and finished with the constructor.
+
+99
+00:06:18,662 --> 00:06:24,182
+So we're done the constructor and
+what happens now is that the reference
+
+100
+00:06:24,182 --> 00:06:28,978
+that was contained in the this
+variable in the constructor gets
+
+101
+00:06:28,978 --> 00:06:33,613
+copied into the variable that
+gets assigned the new object.
+
+102
+00:06:33,613 --> 00:06:38,435
+Okay, so that yellow arrow is now
+allowing the variable accra to
+
+103
+00:06:38,435 --> 00:06:41,870
+point the object that
+we created in The Heap.
+
+104
+00:06:41,870 --> 00:06:48,390
+But also we have to do a couple of things
+when we finish executing the constructor.
+
+105
+00:06:48,390 --> 00:06:51,780
+We notice also that once
+the method finishes and
+
+106
+00:06:51,780 --> 00:06:55,210
+returns its value, its scope goes away.
+
+107
+00:06:55,210 --> 00:06:58,630
+And all variables associated
+with it just go away.
+
+108
+00:06:58,630 --> 00:07:02,190
+And so, we can erase it from our memory,
+erase it from our memory model.
+
+109
+00:07:02,190 --> 00:07:04,470
+We don't need to think about it anymore.
+
+110
+00:07:04,470 --> 00:07:07,470
+Okay, so we finished our constructor.
+
+111
+00:07:07,470 --> 00:07:11,950
+Our memory model is now a little bit
+cleaner and we have in our Main's
+
+112
+00:07:11,950 --> 00:07:15,200
+scope a couple of variables and they
+point to a couple of things in The Heap.
+
+113
+00:07:15,200 --> 00:07:20,620
+And so, now let's think about what happens
+as we continue executing the main method.
+
+114
+00:07:20,620 --> 00:07:26,570
+So we go ahead and
+we try to set the value at the first
+
+115
+00:07:26,570 --> 00:07:32,119
+position in the coords array,
+so at index 0.
+
+116
+00:07:32,119 --> 00:07:34,610
+And we're setting it to 32.9.
+
+117
+00:07:34,610 --> 00:07:41,290
+And so, what we're doing is we're saying,
+let's look at coords in Main's scope.
+
+118
+00:07:41,290 --> 00:07:45,139
+And we're setting the value at
+the first position there to 32.9.
+
+119
+00:07:45,139 --> 00:07:47,160
+Cool, we can do that.
+
+120
+00:07:47,160 --> 00:07:51,880
+Similarly, we look at that same
+reference to the same array and
+
+121
+00:07:51,880 --> 00:07:55,250
+we change its second position at index 1.
+
+122
+00:07:55,250 --> 00:07:56,937
+Cool, we did that.
+
+123
+00:07:56,937 --> 00:08:03,960
+But now, let's think about what
+happens when we print accra.coords.
+
+124
+00:08:03,960 --> 00:08:06,800
+Its value at its index is 0.
+
+125
+00:08:06,800 --> 00:08:10,280
+And so, when we think about that number,
+
+126
+00:08:10,280 --> 00:08:13,470
+well we need to find it
+by following the arrows.
+
+127
+00:08:13,470 --> 00:08:17,248
+So we go to the variable accra,
+and it's got a reference.
+
+128
+00:08:17,248 --> 00:08:19,792
+And so, when we say accra.coords,
+
+129
+00:08:19,792 --> 00:08:24,795
+we want to follow the reference from
+accra all the way over to its object,
+
+130
+00:08:24,795 --> 00:08:29,260
+and look at the variable in
+that object's scope coords.
+
+131
+00:08:29,260 --> 00:08:35,003
+And that coords is also pointing to
+the same array that we had in The Heap.
+
+132
+00:08:35,003 --> 00:08:41,160
+And so, notice what we get output is 32.9.
+
+133
+00:08:41,160 --> 00:08:44,280
+Okay, pause and think.
+
+134
+00:08:44,280 --> 00:08:46,358
+There's something weird happening.
+
+135
+00:08:46,358 --> 00:08:52,350
+Right, we wanted to store in the accra
+object the coordinates of accra.
+
+136
+00:08:53,670 --> 00:08:57,230
+But then, we were able to do
+something outside that object,
+
+137
+00:08:57,230 --> 00:09:04,180
+without any setter methods, without
+going into the variables of that object.
+
+138
+00:09:04,180 --> 00:09:05,998
+And without doing that,
+
+139
+00:09:05,998 --> 00:09:11,377
+we were able to change the value of
+the instance variables in that object.
+
+140
+00:09:11,377 --> 00:09:15,000
+And that is not a good thing.
+
+141
+00:09:15,000 --> 00:09:20,020
+So this is what happens
+when we're too loose
+
+142
+00:09:20,020 --> 00:09:24,670
+about using object type variables as
+opposed to primitive type variables.
+
+143
+00:09:24,670 --> 00:09:29,797
+They can change on us without us
+intending to have them change.
+
+144
+00:09:29,797 --> 00:09:34,004
+And so the moral of this example is a,
+memory models help us in actually tracing
+
+145
+00:09:34,004 --> 00:09:36,950
+through code and
+figuring out what happens.
+
+146
+00:09:36,950 --> 00:09:41,320
+And b, when we have objects, and
+
+147
+00:09:42,560 --> 00:09:47,240
+basically object types which include
+arrays, something that's not primitive,
+
+148
+00:09:47,240 --> 00:09:53,000
+then we really have to worry about what
+is allowed to refer to that object.
+
+149
+00:09:53,000 --> 00:09:57,527
+And how can its values change,
+in perhaps unintended ways.
+
+150
+00:09:57,527 --> 00:10:02,262
+Okay, so hopefully, you feel like you
+can do this yourself as well with any
+
+151
+00:10:02,262 --> 00:10:04,620
+example that's thrown at you.
+
+152
+00:10:04,620 --> 00:10:09,510
+This is a tricky one, so if you need
+to go back and look at it again, do.
+
+153
+00:10:09,510 --> 00:10:12,700
+But now you're ready to go,
+continuing on with this module and beyond.

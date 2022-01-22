@@ -1,0 +1,16 @@
+[MUSIC] So I remember first
+starting to write code. And at the beginning, I was told that
+documentation's really important and that we should comment everything. And not just the step by step,
+each line put a comment, but also, when we first define a method, that there
+should be a little description in Javadoc that other people might be able to use. And this other people notion was just
+sort of vaguely said by, oh by the way, someone might wanna use your method. I always thought it was kind of
+silly because if we do the other recommendations and name variables
+appropriately and the name of the method should maybe be something that's natural,
+then who would need the documentation? And then I started using
+other people's code, because I started writing more complicated
+programs, and using libraries. And all of a sudden, I was reading
+other people's documentation. And when they didn't put very much in
+there, other than the name of the method or the name of the variables,
+it would be really frustrating. I'd have to do a whole lot of testing and
+trial and error to try and figure out what these methods are doing. And so I learned the hard way that
+documentation's really important.

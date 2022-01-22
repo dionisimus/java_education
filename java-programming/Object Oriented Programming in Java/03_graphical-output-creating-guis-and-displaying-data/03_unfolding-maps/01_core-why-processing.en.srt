@@ -1,0 +1,89 @@
+1
+00:00:00,000 --> 00:00:03,833
+[MUSIC]
+
+2
+00:00:03,833 --> 00:00:07,620
+So the last lesson we talked a lot
+about the processing library, and
+
+3
+00:00:07,620 --> 00:00:12,610
+we've had some people ask us hey, is this
+a course about processing or about Java?
+
+4
+00:00:12,610 --> 00:00:13,770
+What's going on here?
+
+5
+00:00:13,770 --> 00:00:16,730
+Why do I need to know all these details
+about processing when really I want
+
+6
+00:00:16,730 --> 00:00:20,020
+to become a confident
+Java software engineer?
+
+7
+00:00:20,020 --> 00:00:22,280
+And there's a lot of merit to that.
+
+8
+00:00:22,280 --> 00:00:26,570
+But what we're hoping that you get
+out of this course is how to use
+
+9
+00:00:26,570 --> 00:00:30,930
+whichever tools are at your disposal to
+come up with a really exciting project or
+
+10
+00:00:30,930 --> 00:00:33,040
+product that you want to build.
+
+11
+00:00:33,040 --> 00:00:37,180
+And sometimes that means using
+libraries like processing.
+
+12
+00:00:37,180 --> 00:00:38,730
+And that's a good thing.
+
+13
+00:00:38,730 --> 00:00:43,020
+So as you use these libraries,
+as you develop your code,
+
+14
+00:00:43,020 --> 00:00:46,790
+you're not necessarily going to become
+an expert in one particular library, but
+
+15
+00:00:46,790 --> 00:00:49,910
+you want to become proficient and
+comfortable enough in figuring
+
+16
+00:00:49,910 --> 00:00:54,220
+out what pieces of those libraries
+are going to be useful for this project.
+
+17
+00:00:54,220 --> 00:00:59,200
+And so what we're doing now is building
+on our confidence and comfort level with
+
+18
+00:00:59,200 --> 00:01:03,570
+processing so we can apply that
+knowledge to building the graphical
+
+19
+00:01:03,570 --> 00:01:07,220
+application that displays geospatial
+data and earthquakes around the world.

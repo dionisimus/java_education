@@ -1,0 +1,248 @@
+1
+00:00:00,000 --> 00:00:04,811
+[SOUND] As we continue on in
+this module on Inheritance,
+
+2
+00:00:04,811 --> 00:00:10,574
+what we're gonna do next is look
+at object construction in Java.
+
+3
+00:00:10,574 --> 00:00:12,634
+Now, you've already reconstructed before,
+so you might say,
+
+4
+00:00:12,634 --> 00:00:14,180
+well, wait a second why
+are we revisiting this?
+
+5
+00:00:14,180 --> 00:00:18,580
+Well, the reason we're revisiting this
+is because now we know inheritance,
+
+6
+00:00:18,580 --> 00:00:21,820
+we now know some more details about
+how objects actually get constructed.
+
+7
+00:00:23,450 --> 00:00:26,970
+So the goals of this video
+is to recognize that
+
+8
+00:00:26,970 --> 00:00:30,080
+all objects actually are derived
+from the object class.
+
+9
+00:00:30,080 --> 00:00:32,870
+And you may already know that but
+we're gonna dive into
+
+10
+00:00:32,870 --> 00:00:35,530
+some details about how that actually works
+over the course of the next few videos.
+
+11
+00:00:36,810 --> 00:00:39,910
+And we're also gonna look at
+how Java actually constructs or
+
+12
+00:00:39,910 --> 00:00:43,690
+initializes its objects
+really from the inside out.
+
+13
+00:00:43,690 --> 00:00:45,240
+We'll talk about what we mean
+by that in just a moment.
+
+14
+00:00:46,980 --> 00:00:49,050
+We're gonna keep working with this
+in hierarchy that we've been working
+
+15
+00:00:49,050 --> 00:00:52,440
+with before, where we have a person class,
+a super class, and the student and
+
+16
+00:00:52,440 --> 00:00:54,050
+the faculty classes is drive classes.
+
+17
+00:00:54,050 --> 00:00:58,335
+And we're gonna focus in on
+essentially one line of code,
+
+18
+00:00:58,335 --> 00:01:02,180
+Student s = new Student();.
+
+19
+00:01:02,180 --> 00:01:06,000
+We know the new statement,
+new is actually an operator.
+
+20
+00:01:06,000 --> 00:01:08,020
+That operator means allocates space.
+
+21
+00:01:09,390 --> 00:01:13,450
+And a second piece to this
+is once given that space,
+
+22
+00:01:13,450 --> 00:01:17,319
+pass a reference to that space to
+the constructor for initialization.
+
+23
+00:01:18,800 --> 00:01:21,740
+In fact constructors really should
+be called Initializers, and
+
+24
+00:01:21,740 --> 00:01:25,080
+you'll see in other programming languages
+that they're actually called init.
+
+25
+00:01:26,210 --> 00:01:29,340
+So really what the student
+constructor does is just initialize
+
+26
+00:01:29,340 --> 00:01:30,760
+the variables associated with student.
+
+27
+00:01:30,760 --> 00:01:35,539
+And the way that's gonna do this is
+essentially from the inside out.
+
+28
+00:01:36,830 --> 00:01:40,140
+So you can go all the way up the
+hierarchy, all the way up to object and
+
+29
+00:01:40,140 --> 00:01:41,860
+then you can come back down.
+
+30
+00:01:41,860 --> 00:01:45,200
+As you come back down you're gonna
+initialize all those variables.
+
+31
+00:01:45,200 --> 00:01:48,826
+And what we're gonna do is step
+through this step by step to
+
+32
+00:01:48,826 --> 00:01:50,610
+understand how this works.
+
+33
+00:01:50,610 --> 00:01:52,572
+So first thing you do after you've new,
+
+34
+00:01:52,572 --> 00:01:56,800
+you've created the space object you've
+passed that space through the constructor.
+
+35
+00:01:56,800 --> 00:01:58,699
+The student constructor then,
+
+36
+00:01:58,699 --> 00:02:03,610
+it's very first line of code is gonna
+send you to the superclass constructor.
+
+37
+00:02:03,610 --> 00:02:04,790
+In this case, Person.
+
+38
+00:02:06,240 --> 00:02:09,170
+The very first line of code of
+the person constructor is gonna
+
+39
+00:02:09,170 --> 00:02:13,180
+immediately send you to it's indirect
+superclass or in this case, Object.
+
+40
+00:02:15,670 --> 00:02:21,030
+Now, the object constructor can initialize
+the variables associated with object,
+
+41
+00:02:22,390 --> 00:02:25,180
+essentially filling in
+that part of the object.
+
+42
+00:02:26,880 --> 00:02:29,560
+Once it's done, it returns back to Person.
+
+43
+00:02:29,560 --> 00:02:31,980
+Person now can initialize it's variables.
+
+44
+00:02:33,660 --> 00:02:36,090
+And then it's gonna
+return back to Student.
+
+45
+00:02:36,090 --> 00:02:40,250
+And Student now is gonna initialize
+the variables associated with Student.
+
+46
+00:02:40,250 --> 00:02:45,000
+And through this process we've essentially
+initialized all these variables,
+
+47
+00:02:45,000 --> 00:02:47,510
+went all the way up to object,
+and all the way back down.
+
+48
+00:02:47,510 --> 00:02:50,040
+And that's what we mean by
+initializing inside out.
+
+49
+00:02:51,620 --> 00:02:55,400
+What you may be thinking at this point is,
+Wait.
+
+50
+00:02:56,880 --> 00:03:00,560
+I don't remember ever extending
+from the object class.
+
+51
+00:03:00,560 --> 00:03:03,480
+And you may not have done so
+explicitly, but it still happens.
+
+52
+00:03:03,480 --> 00:03:05,950
+And we'll talk about how that
+happens in the next video.

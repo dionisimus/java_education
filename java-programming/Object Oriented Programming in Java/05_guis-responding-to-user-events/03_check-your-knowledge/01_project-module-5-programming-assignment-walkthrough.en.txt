@@ -1,0 +1,83 @@
+[MUSIC] All right,
+as you know in this part of the project, you'll be adding code to respond
+to mouse clicks and mouse hovers. So let's take a look at what you
+need to do to make that happen. So here's the project write up and
+I'll walk you through it a little bit and talk about the starter code. So what you're gonna do is of course you
+want your documentation pages open for the unfoldingmaps javadoc and
+the processing reference. And the first thing to do is to just
+find the starter code that's in module5. And again, we provide you with code that essentially
+implements the module4 functionality. Then you're actually going to, the first
+thing you're going to do is you're going to be changing the class hierarchy. And so in order to do that,
+do the step 2 here. You're gonna modify
+the header in CityMarker so that it extends this new class called
+CommonMarker instead of SimplePointMarker. And then we're gonna ask you to draw the
+UML diagram for the new class hierarchy. And part of your reflection and
+what we'll ask you about is why we made those changes and what
+changes we made to the class hierarchy. So spend some time really understanding
+the new code and a new class hierarchy. And when you do this change,
+you're going to get a compile error. So right here you'll see
+a compile error in CityMarker and we ask you to figure out why that compile
+error occurred and how you can fix it. And we've got some hints here and then a little description
+of what's really going on. All right so
+then your ready to start coding. And in order to add this interaction
+you're going to be implementing two methods in EarthquakeCityMap. One is mouse moved and
+the other is mouse clicked and both of those have a little
+bit of starter code in them. And you'll be implementing
+them to some degree. So the first thing you're gonna do is
+implement this selectifHover helper method and that's called from
+the mouseMoved() method. So let's go over here to the starter code
+to understand what's really going on here. So in EarthquakeCityMap that's where you'll find that
+selectMarkerIfHover method. So it's down here. And as I mentioned it's called up
+here from this mouseMoved() method. And really the goal of selectMarkerIfHover
+is to set the if selected to true on that marker that's under the cursor, and
+to only do it for one marker at a time. So the goal of the selectMarkerIfHover is
+to iterate through all the markers and see if they are under the mouse cursor
+at the moment that mouse X and mouse Y. And if they are then for
+the first one you find, you will set that marker to be selected. So how does that result in
+displaying the title that you see next to the marker when
+you hover over a marker? Well to understand that we need to go
+over here to the ColumnMarker class and look at its draw method. So if we go down here to the draw method. You can see that there is some
+logic here that basically says if that marker is selected,
+then you're gonna show the title. The showTitle is a method
+you're going to write as well to display that text next to the method. So that's how this all comes together. In EarthquakeCityMap we have this
+mouseMoved() method that basically clears the last selection and then finds
+if another marker has been selected. And again, just be careful to only ever
+have one marker be selected at a time. That's a little bit tricky. There are some hints in
+the project write-up. So that's what you have to do to get
+the hover functionality working. Going back to the project description, the next thing you'll wanna do is
+to implement that showTitle method. That's what, as we saw, is going to actually be drawing
+the text next to the earthquake marker. And you will have to look into that
+text method in the processing library. Using the processing documentation that
+you've seen in some of the support videos to understand how to display
+text next to each marker. You'll just be using those
+processing drawing methods. All right, then once you have
+your showTitle method working, you should see your mouse actually
+causing those titles to appear if your selectMarkerIfHover method and
+your showTitle method are both working. So you'll wanna test that out. The next piece is to implement
+the mouseClicked method in the EarthquakeCityMap so
+that your EarthquakeMarkers and your CityMarkers respond to clicks. And you can read the text here about
+what that's supposed to do, and then there are some hints
+about how to implement that. But to show you where
+this all is in the code, we can go down right here
+to the second TODO item. And just look at where you're gonna put
+your code that handles mouse clicks. This is not a totally trivial method and
+you'll want some helper methods to keep mouse click from getting
+too long or disorganized. But essentially, you need to iterate
+through the EarthquakeMarkers and the CityMarkers,
+see if any have been clicked. And then if they have, you'll need to do
+some additional iteration to hide what markers that aren't supposed
+to be displayed, or to show the markers that are supposed
+to be displayed at any given point. Again, one thing to note
+about the CommonMarker, since all of these are CommonMarkers, is
+that they have this property, getClicked. But also because they inherit from
+SimplePointMarker which inherits from this abstract marker class
+they have a hidden property. So you can set them to be hidden or
+not and that's how you're actually
+gonna do the hiding. Because you'll note here in draw,
+if this marker is not hidden, then you're going to draw it but if it
+is hidden, then it will not be drawn. And that's something that's set
+through the super classes, and you can check out the documentation. And we also give you some hints
+here in the hints for step 7. So that's it. You have an option of adding
+some additional functionality to your responsiveness,
+to your GUI if you like. But other than that once you get through
+step 7 you will finish the project for this module.

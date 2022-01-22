@@ -1,0 +1,38 @@
+[NOISE] What we get to do in this
+video is take the concepts that you talked about with Christine and
+apply them in an example so we can really work through them together
+and see how they help us step by step. So the key concept that we're
+gonna be developing and thinking about here is
+that of memory models. And we're going to see how they apply for this code snippet that
+we'll trace through now. So let's think about what happens
+in the first line of code. First things first. And in this first line of code,
+we both have a variable being declared and then a value being
+assigned to that variable. So in our memory model,
+whenever we have a new variable, we want to denote that by writing
+the name of that variable. [BLANK AUDIO] And then drawing a box where we'll
+record the value of the variable. Okay. So we've drawn Var1, we've drawn that in
+our memory model, we've got a box for it. And the value that's being assigned is
+the right hand side of the equals over there which is 17. And so we put that in the box, cool. Now we can move onto the second line, and in the second line while we're
+declaring a new variable. So we have to update our memory model
+which means that we need to write Var2, our new variable that we just declared and
+give it a box as well. And now we think about what
+goes into this box and we look at the right hand side
+of the assignment statement. And the right hand side of the assignment
+statement says we want the value of var1 + 1. But the value of var1 is
+recorded in our handy memory model right over here, it's 17. And so we add 1 to that, and the new
+value of var2 is 17 plus 1, which is 18. Cool, okay, two lines done. We go into the next line, and the next line is now just
+a pure assignment statement. And what we want to remember is that for
+this assignment statement, we're taking the value on the right
+hand side of the assignment statement. And what we'd like to do is assign that to be the new value of the variable
+on the left hand side. Okay, so on the right hand side,
+over here, we've got var2 + 1. And so
+we could look at our memory model for the current value of var2, which is 18. And so the value that's on the right
+hand side here is 18 + 1, or 19. So that's whats over here, this value. And what we do is we take this value and
+we copy it into the box for var1. That means that var1's
+new value Is that 19. Okay, and
+now we get to display our results, we get to display what
+we've done by printing out. So we've got
+the system.out.println command and what we're writing here is var1: and then the value of var1 which we
+read off our memory model and then we've got a comma, a space, var2. And then, I'm running off the screen but
+I'm gonna put the next value right over here and that's the value
+that we can read off of var2, 18. And we're done, yey.

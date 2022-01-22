@@ -1,0 +1,15 @@
+[MUSIC] All right.
+Something I struggled with when I was learning computer science, and also
+I still really kind of struggle with it today, is just simply compiling and
+running and testing my code. I'm not really sure why, but
+when I started out programming I was just terrified to compile, and
+I was terrified to run because I was so afraid of the errors that
+were going to be in my code. And, of course, we all have errors in our
+code, but it just, it was a visceral fear. And I always thought, oh, my God, like the
+computer is going to explode or something, and I would just not do it. So it would lead me to write
+these huge methods and these huge programs before I compiled or
+ran anything, and it was a big mistake. So I got over that just by
+kind of practicing more, hitting the compile button and the run
+button and realizing that nothing happens. Your code breaks and you fix it and
+it's not a big deal. So that's what I've learned, but,
+you know, it's still kind of scary for me sometimes.

@@ -1,0 +1,76 @@
+[MUSIC] In the last video we began to
+see the power of inheritance and polymorphism in Java. In this video,
+we're gonna start diving into the details. How do we make this work? The goal here is to use the keyword
+extends, and recognize what that does. We're gonna talk about the relationship
+between superclass and subclasses and what those terms mean. And we're gonna use UML Diagrams to
+design our first class hierarchy. We left off at the last video
+saying we want three key features. We wanna be able to keep
+common code in one class, we wanna be able to split out different
+code between different classes, and we want to be able to keep all
+the objects in one single data structure. In this video, we're gonna show how we can
+do one and two by designing our hierarchy. Item three will be in the next video. Where we left off was talking about
+three different classes Person class, a Student class and a Faculty class. And in a sense we want to have all
+the common code in the person class and we want to have our diverging code in
+the student and the faculty classes. To do this it would be great if we
+could have all the power of person and all the features of person get
+inherited into the student class. So let's focus on that one first. Now it might seem really powerful to
+inherit all the features of another class, and it is, but you can do it
+with just one keyword, extends. So if you say extends person,
+that means inherits from. It means the student class is
+gonna inherit from person, many of the features of the person class. So when you've used this
+before in previous modules, this was a really powerful thing to do,
+to say, extends. So what you get when you, before I say
+that, let's talk about some terminology. The Person class here is a base class,
+sometimes called a super class and sometimes called a Parent class. The Student class here is a derived
+class or a sub class or a child class. Now what features do you actually inherit? You inherit public instance variables,
+and that makes sense. You inherit the public methods. So the student's gonna get all
+the public methods of person. You're also gonna inherit the private
+instance variables, in a sense. So we'll talk about that
+in a little more detail. So since you're inheriting the private
+instance variables do you really still need to have that instance
+variable with student called name? No, in fact it's a really
+bad idea to do that. That would be called a hidden variable or
+shadow variable and it's hard to discern which variable,
+which name variable you're talking about. The one in student or the one in person. So you actually wouldn't have that, cuz you inherited it
+automatically from person. But there is one catch, because it's
+a private instance variable you can only access it through public methods so
+you'll have to use the getters and setters to access name. Now that we have an idea of
+how we can use inheritance, let's start talking about how we can
+design an inheritance hierarchy. Now if you're working on
+a whiteboard with a design team, you're not gonna wanna
+write out the whole class. You're gonna wanna have a very
+small representation of a class. The way to do this is
+known as a UML Diagram. I have an example of this on the right. Now there's a number of different
+variants of how you can display this. This is just one example. I have the person class name at the top. I have the instance variable string name,
+and then I have the method below that. So you have again, class name,
+instance variables and methods, all within this
+concise representation. Let's add in the student class
+which is a extending person. May add that in,
+you're gonna realize that's blank, and that's because there are no incidence
+variables and no methods within student. Now that keyword extends along
+with person is gonna say, student inherits from person. And to do that,
+all you have to do is draw that line. So, that line just says,
+student is inheriting from person. Let's start talking about
+our full hierarchy. Let's bring back in Faculty into to this. So, we have our Person class and
+I two derived classes, my Student class and my Faculty class. This alone is already an inheritance
+hierarchy, or a class hierarchy. What I want you to do is pause. Take a few seconds to think about
+what would belong in a Student class that wouldn't belong in
+a Faculty class and vice versa. Again take a few seconds,
+pause the video and we'll come back. All right,
+there are a number of good answers here. Let's just talk through
+a couple that I thought of. So students get grades in their classes. In the American education system,
+we use this thing called a GPA, which is essentially just an average
+of all the grades that you've gotten. Students would have these,
+Faculty would not. So in the Student class,
+I'd have an instance variable named GPA, and then I'd have an access or
+method called getGPA. What belongs in a Faculty class that
+wouldn't belong in a Student class? Well, maybe an office number or
+office phone, but also a salary. So, Faculty get paid,
+students generally do not. So I might have an instance
+variable called double salary, and I'm gonna have a method called
+getSalary to get access to this. We've already started designing
+our inheritance hierarchy. We have the code that's common
+up in the person class. We have the code that's divergent
+in the Student class and Faculty class is separately. This answers items 1 and
+2 from our desire list. But we haven't answered three yet and
+that's coming up in the next video.

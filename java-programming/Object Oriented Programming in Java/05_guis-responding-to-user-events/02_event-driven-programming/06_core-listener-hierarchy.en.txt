@@ -1,0 +1,39 @@
+[SOUND] In this video, we're going to
+tie together the notions of events and listening for
+user inputs with the inheritance hierarchy in class design
+in a close-knit way. So by the end of the video, what you'll
+be able to do is use the language of UML diagrams to talk about the classes
+that we're working with for the event driven programming. When we think about the PApplet listening
+for user input, like most clicks and keyboard input, what we're doing actually is saying
+the PApplet implements two interfaces. PApplet is a class. And it implements the interface which
+means that it implements the methods that are required by
+the interface MouseListener. And it also, implements the methods that
+are required by the interface KeyListener. It's fulfilling the promises
+made by those interfaces. So let's specifically think about
+MouseListener as an interface. The MouseListener makes a promise
+that methods like mousePressed, mouseClicked, and
+mouseReleased will be implemented. That we will specify what action we want
+our program to take on these events and when these methods are called. And so our PApplet class implements
+them in some default fashion. But then when we go ahead and
+create a MapWithButton class, then we can override some of
+these method implementations. And say, not only do we want
+a mouseReleased event to react in a default way like zooming the map,
+we also want to build in a functionality. So that if the mouse is released in
+a particular location in the map we do some additional steps. And so what we're doing here
+is we're building in yet another level of the class hierarchy. In a similar way, PApplet implements
+the KeyListener interface. And so that means that it has to
+fill in some default behaviour for each of the methods that are promised
+by the KeyListener interface. So, are there other events? We've been talking about mouse clicks. We've been talking about keyboard events. Is that all there is? Well, we know there's still
+a few other user interfaces. For example, there's multi touch
+now with touch screen displays. But so far, that's all about the users
+saying something to the program. There are also qualitatively
+different events and qualitatively different listeners. So for example, it turns out that, the Map
+object itself can act as a listener. Just slightly different kind of listener,
+there's this other interface called EventListener and
+the UnfoldingMap implements it. And what the UnfoldingMap listens for
+is for events to do with the map itself,
+like zoom and pan. The point of this is that
+the notion of event driven program can be used very generally, and
+can help us design programs that makes sense in the particular
+context that we're working with. Sometimes it's for UI, user interface,
+but other times, it's for interacting with more complicated objects.

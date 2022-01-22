@@ -1,0 +1,74 @@
+[MUSIC] So we're going to continue building our
+map application displaying earthquakes, and we're ready to start adding content
+to the map that we set up before. So then the question is how
+do we add that content? And we know that our map is, well, it's
+part of a class that extends p applet. And so,
+the two main methods that we've got where we're doing a lot of the hard work
+are the set up method and the draw method. And so, it's a question where
+do we put the definitions of all of these new objects that
+we want to create that will let us point ad various parts in the map and
+remember that the setup method gets executed exactly once at the beginning
+of when the p upload is launched. Whereas the draw method
+that gets executed over and over again,
+every time we want to refresh the view. And all of these objects that
+were creating the pointers to various milestones and
+features of the map we don't want to create a new object
+every time the screen gets refreshed, what we love to do is just have
+a single instance of those class that represents a particular
+point that we're thinking about. And have that point somehow
+associated with the map as a whole. And then every time we need to
+refresh the map we just say hey refresh every thing
+that we've already created. And so for
+that reason all of these definitions. All of the work that we're about to do
+will get put in the set up method and then when we execute the map.draw method. It within the p draw method,
+that mapped our draw method, will go through all the objects
+that are associated with or attached to a map object and
+will refresh them as well. So, let's think about,
+adding a specific marker, to denote a particularly significant
+earthquake that happened in Chile in 1960. And so, what we'd like to do perhaps,
+is indicate that location as something o note, and then put a dot on that
+location in our graphical representation. So let's think about some code
+that we could use to do that. In the first line of code, notice that
+we're working with coordinates, which should be a little bit familiar to you
+from what Christine was doing earlier so one of the great things about working
+with a library of methods and data types that were special built for a particular purpose is that a lot of the
+data types that we would naturally need have the defined focal ready and
+location is one of those examples. So in our earlier videos we actually
+defined a class called simple location and we tried to built in some of
+the functionalities that location ought to have but
+we see over here in the documentation for unfolding maps that we already
+have that in the location class. And so notice that there are a couple
+different constructors depending on which parameters we want to use and
+then some public methods that we can use to both access and modify some of
+the properties of the location objects. So the first thing that we would want
+to do when putting a marker on this significant earthquake on its
+location in the world is to create a location object and set its coordinates
+to be the coordinates of the epicenter. Now once we have that location object that
+still isn't associated with the map, and the way that we can associate or highlight a particular location
+on the map Is to create a marker. So, a marker is, well,
+it's what you think it might mean, and this is the beauty of having our Java
+objects mirror the, it'd be really models for the real life objects, so
+that our code is readable and intuitive. So a simple point marker
+represents a single location, and it represents it using a circle. Now, notice that there's something
+else in this documentation. Notice the documentation points out
+that the simple point marker implements something called a Marker, and
+it's an interface called a Marker. Now, an interface is something that indicates that we're
+dealing with an abstract data type. It's like a promise
+between the programmer and the person using the library's
+code that any data type that implements the abstract data type
+marker will have certain behaviors, will allow certain functionalities and what the interface let's us do is hide
+some of the details of the implementation of how those functionalities
+are actually put into practice. So in our particular application,
+we don't really care whether our marker is a SimplePointMarker
+or some other kind of marker. All we care about is that it's a way of
+denoting a specific location on the map. And so in our code what we might
+say is that the variable val of type marker gets assigned to
+the object of type SimplePointMarker. So when we're creating an object we
+have to give it a concrete data type. So that it can actually, you can actually use a specific details
+of the implementation of that class. But when we're going to be using or
+pointing to that object, all we'll need to know about it
+is that it's some kind of marker. And in particular, what we'll be doing
+with it is adding that market to our map so that it gets displayed, and so that then when we execute the draw method,
+that marker will show up on our map. And so, what we see is the map that
+displays the location of the Chile earthquake and coming up,
+we'll add richer data and more date.

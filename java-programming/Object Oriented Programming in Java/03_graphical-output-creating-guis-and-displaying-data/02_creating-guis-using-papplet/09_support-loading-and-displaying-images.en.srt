@@ -1,0 +1,512 @@
+1
+00:00:00,025 --> 00:00:05,175
+[APPLAUSE]
+>> All right, so now we're gonna
+
+2
+00:00:05,175 --> 00:00:09,218
+look at the example that Mia presented in
+her video on your introduction to GUIs.
+
+3
+00:00:09,218 --> 00:00:11,336
+And that example was to display an image,
+and
+
+4
+00:00:11,336 --> 00:00:14,520
+then put a sun on top of that
+image by putting an ellipse there.
+
+5
+00:00:14,520 --> 00:00:18,140
+And change the color of that ellipse
+depending on the time of day.
+
+6
+00:00:18,140 --> 00:00:21,250
+She talked about using hours
+to calculate the time of day.
+
+7
+00:00:21,250 --> 00:00:22,710
+But I'm a little too impatient to wait for
+
+8
+00:00:22,710 --> 00:00:25,120
+hours to go by to see
+the change in the sun.
+
+9
+00:00:25,120 --> 00:00:26,700
+So I've modified that example slightly.
+
+10
+00:00:26,700 --> 00:00:31,780
+So that the sun color is going to change
+based on the secant of the minute.
+
+11
+00:00:31,780 --> 00:00:36,000
+So you can see here, as I open up this
+application, I see my beach scene.
+
+12
+00:00:36,000 --> 00:00:37,826
+That already has a sun in it, but
+
+13
+00:00:37,826 --> 00:00:41,630
+my sun that I placed on top of it
+is now changing color every second.
+
+14
+00:00:41,630 --> 00:00:44,080
+So it's getting darker,
+and darker, and darker.
+
+15
+00:00:44,080 --> 00:00:46,711
+And in a minute you'll see it get lighter,
+and lighter, and
+
+16
+00:00:46,711 --> 00:00:49,410
+lighter as it goes back
+to its yellow color.
+
+17
+00:00:49,410 --> 00:00:51,170
+So let's take a look at the code
+that makes that happen.
+
+18
+00:00:52,170 --> 00:00:53,220
+Here it is.
+
+19
+00:00:53,220 --> 00:00:57,800
+Of course, it's a GUI, so my class
+needs to extend the PApplet class,
+
+20
+00:00:57,800 --> 00:01:01,590
+which is my base class for
+implementing all of my GUIs.
+
+21
+00:01:01,590 --> 00:01:04,280
+And I'm going to implement these
+two fundamental methods here,
+
+22
+00:01:04,280 --> 00:01:06,330
+the setup method, and the draw method.
+
+23
+00:01:06,330 --> 00:01:07,430
+I've got all the code written.
+
+24
+00:01:07,430 --> 00:01:09,250
+I'm just gonna walk you through it.
+
+25
+00:01:09,250 --> 00:01:12,240
+So the setup method is for
+all the codes that I want to run once,
+
+26
+00:01:12,240 --> 00:01:14,740
+only when this method
+first starts running.
+
+27
+00:01:14,740 --> 00:01:16,650
+So that involves setting
+the size of the window,
+
+28
+00:01:16,650 --> 00:01:21,190
+setting the background color,
+setting the stroke color to be black.
+
+29
+00:01:21,190 --> 00:01:24,150
+And then loading up my image and
+placing it into the background.
+
+30
+00:01:25,390 --> 00:01:29,170
+In my draw method, here's where I'm
+going to create and color the ellipse.
+
+31
+00:01:29,170 --> 00:01:32,600
+And the draw method is what's going to
+get called over and over and over again.
+
+32
+00:01:32,600 --> 00:01:35,780
+So it's going to change the color
+of that ellipse every second and
+
+33
+00:01:35,780 --> 00:01:38,990
+show me that change as you can see
+there on the right of the screen.
+
+34
+00:01:40,330 --> 00:01:44,180
+So it's actually not too complicated
+to understand how this is happening.
+
+35
+00:01:44,180 --> 00:01:45,210
+At the heart of this code,
+
+36
+00:01:45,210 --> 00:01:49,140
+all we are doing is calculating
+a custom color on this line.
+
+37
+00:01:49,140 --> 00:01:53,550
+And then we're filling the ellipse on
+that color that we're about to create.
+
+38
+00:01:53,550 --> 00:01:55,810
+And then we're going
+to create the ellipse.
+
+39
+00:01:55,810 --> 00:01:58,250
+So I'm gonna talk about
+created an ellipse first and
+
+40
+00:01:58,250 --> 00:02:00,740
+talk about how we create
+that custom color.
+
+41
+00:02:00,740 --> 00:02:05,080
+So we're creating the ellipse to be based
+on the width and the height of the window.
+
+42
+00:02:05,080 --> 00:02:09,540
+So we're taking the ratio of the width and
+the height of the window over four and
+
+43
+00:02:09,540 --> 00:02:12,790
+over five,
+to basically position the ellipse and
+
+44
+00:02:12,790 --> 00:02:15,220
+to size it according to
+the height of the window.
+
+45
+00:02:15,220 --> 00:02:17,950
+So if the window was bigger,
+that ellipse would be bigger.
+
+46
+00:02:17,950 --> 00:02:21,950
+And you have access to this width and
+height member variables.
+
+47
+00:02:21,950 --> 00:02:26,250
+Since you're working inside a class
+that extends the p applet class.
+
+48
+00:02:26,250 --> 00:02:29,960
+Those get set automatically for
+you when you call the size method.
+
+49
+00:02:29,960 --> 00:02:34,830
+So that's just a way we can make things
+a little bit more flexible in terms of how
+
+50
+00:02:34,830 --> 00:02:39,310
+big our window is, rather than setting
+the size of the ellipse directly.
+
+51
+00:02:40,520 --> 00:02:43,390
+But really the interesting thing
+here is how the color gets set.
+
+52
+00:02:43,390 --> 00:02:47,120
+So, the color gets set through this
+helper method called sunColorSec.
+
+53
+00:02:47,120 --> 00:02:50,430
+And so let's take a look
+at what sunColorSec does.
+
+54
+00:02:50,430 --> 00:02:54,090
+Well, the first thing it does, is it takes
+an argument in, and it takes the argument,
+
+55
+00:02:54,090 --> 00:02:57,680
+which is a call to this built
+in method called second.
+
+56
+00:02:57,680 --> 00:03:01,160
+And what this built in method called
+second does, is it returns the number of
+
+57
+00:03:01,160 --> 00:03:05,560
+seconds that have elapsed since the last
+minute according to your systems clock.
+
+58
+00:03:05,560 --> 00:03:06,710
+So that's built in for you.
+
+59
+00:03:06,710 --> 00:03:07,740
+You can use it.
+
+60
+00:03:07,740 --> 00:03:11,500
+There's a similar method called minute and
+another method called hour,
+
+61
+00:03:11,500 --> 00:03:13,840
+that do just what you would expect.
+
+62
+00:03:13,840 --> 00:03:18,030
+So based on the number of seconds that
+have elapsed since the last minute,
+
+63
+00:03:18,030 --> 00:03:22,390
+we can calculate a color,
+a version of yellow, either very dark or
+
+64
+00:03:22,390 --> 00:03:25,360
+very light depending on
+those number of seconds.
+
+65
+00:03:25,360 --> 00:03:29,130
+So what we're gonna do is we're gonna sort
+of base everything on how close to the,
+
+66
+00:03:29,130 --> 00:03:30,880
+sort of bottom of the minute we are.
+
+67
+00:03:30,880 --> 00:03:35,318
+So how close to 30 seconds are we in
+terms of the number of seconds that have
+
+68
+00:03:35,318 --> 00:03:35,960
+elapsed.
+
+69
+00:03:35,960 --> 00:03:38,090
+So the very first thing I'm
+going to do in this method.
+
+70
+00:03:38,090 --> 00:03:41,842
+Well first I'm going to create my integer
+array, that holds three integers and
+
+71
+00:03:41,842 --> 00:03:46,250
+that's going to the red, green, and
+blue values that I'll be returning.
+
+72
+00:03:46,250 --> 00:03:49,674
+And then I'm gonna calculate the
+difference between the seconds that have
+
+73
+00:03:49,674 --> 00:03:50,550
+elapsed and 30.
+
+74
+00:03:50,550 --> 00:03:52,540
+But I don't care if they are positive or
+negative.
+
+75
+00:03:52,540 --> 00:03:54,300
+I just want to know the distance.
+
+76
+00:03:54,300 --> 00:03:56,920
+So I'm going to call
+the math.abs function,
+
+77
+00:03:56,920 --> 00:04:00,800
+which is going to calculate
+the absolute value of that number.
+
+78
+00:04:00,800 --> 00:04:02,415
+And I'll store that in
+a variable called diffrom30.
+
+79
+00:04:04,130 --> 00:04:10,080
+Then I want to calculate a ratio in terms
+of how far around the minute are we.
+
+80
+00:04:10,080 --> 00:04:12,820
+So I'm going to divide difffrom30 by 30.
+
+81
+00:04:12,820 --> 00:04:17,050
+So if I'm exactly at 30
+then my difffrom30 is 0,
+
+82
+00:04:17,050 --> 00:04:20,590
+and I'll have 0 divided by 30 and
+my ratio will be 0.
+
+83
+00:04:20,590 --> 00:04:26,090
+If I'm all the way up at 30,
+then my difffrom 30 is going to be 30.
+
+84
+00:04:26,090 --> 00:04:29,140
+Sorry if I'm all the way up,
+far away from 30,
+
+85
+00:04:29,140 --> 00:04:33,420
+so either at 0 or at 60,
+then difffrom 30 is going to be 30.
+
+86
+00:04:33,420 --> 00:04:36,920
+And I'll have 30 divided by 30 which is 1.
+
+87
+00:04:36,920 --> 00:04:40,040
+So this is going to be
+a number between 0 and 1,
+
+88
+00:04:40,040 --> 00:04:42,704
+depending on how far away I am from 30.
+
+89
+00:04:43,760 --> 00:04:48,887
+Then I'll use that ratio to scale
+the red and the green values of
+
+90
+00:04:48,887 --> 00:04:54,130
+yellow to create a color that's
+either very dark or very light.
+
+91
+00:04:54,130 --> 00:04:55,991
+So if my ratio is very close to 1,
+
+92
+00:04:55,991 --> 00:05:00,050
+then I'm gonna be multiplying 255
+by something that's close to 1.
+
+93
+00:05:00,050 --> 00:05:02,900
+And I'm gonna get a very big number for
+my red and my green.
+
+94
+00:05:03,940 --> 00:05:09,180
+My blue is always going to be 0 because
+a pure yellow color would be 255 255 0.
+
+95
+00:05:09,180 --> 00:05:14,100
+So a bright yellow is going to happen
+when that ratio is very close to one.
+
+96
+00:05:14,100 --> 00:05:15,930
+And then a dark yellow or
+
+97
+00:05:15,930 --> 00:05:20,160
+a black is going to happen when
+that ratio is close to zero.
+
+98
+00:05:20,160 --> 00:05:23,630
+So when my ratio is very close to 0,
+it's going to multiply by 255,
+
+99
+00:05:23,630 --> 00:05:25,600
+giving me a very small number.
+
+100
+00:05:25,600 --> 00:05:28,970
+And I'll end up with a color that's very
+close to black, or even black itself, 000.
+
+101
+00:05:28,970 --> 00:05:34,020
+Now you'll notice that I'm
+also casting the result of
+
+102
+00:05:34,020 --> 00:05:39,370
+this multiplication to an int,
+because my array can only store integers.
+
+103
+00:05:39,370 --> 00:05:41,640
+So I have to do this cast
+to do the type conversion.
+
+104
+00:05:42,950 --> 00:05:48,960
+Once I've got all those three values set,
+I return my RGB array and
+
+105
+00:05:48,960 --> 00:05:55,100
+I use it to populate my fill method for
+color red, green, and blue.
+
+106
+00:05:55,100 --> 00:05:57,110
+Since this draw method
+is called continuously,
+
+107
+00:05:58,190 --> 00:06:01,400
+it will change the ellipse as it goes.

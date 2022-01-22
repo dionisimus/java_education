@@ -1,0 +1,506 @@
+1
+00:00:03,803 --> 00:00:06,660
+Hi, and
+welcome back to our module on Scope.
+
+2
+00:00:06,660 --> 00:00:08,470
+It's time for
+another one of these concept challenges.
+
+3
+00:00:09,560 --> 00:00:12,260
+Again, the flow for this is, you're gonna
+pause, think about the problem yourself.
+
+4
+00:00:12,260 --> 00:00:14,990
+You're gonna discuss this if you
+have other learners around you.
+
+5
+00:00:14,990 --> 00:00:19,120
+You're gonna watch the UC San Diego
+learners tackle the problem.
+
+6
+00:00:19,120 --> 00:00:21,099
+And then you're gonna
+hear our explanation.
+
+7
+00:00:22,500 --> 00:00:25,090
+So the question here is gonna
+involve essentially two classes.
+
+8
+00:00:25,090 --> 00:00:27,180
+You've been working a great
+deal with simple location,
+
+9
+00:00:27,180 --> 00:00:29,210
+and we're gonna keep using this class.
+
+10
+00:00:29,210 --> 00:00:30,770
+And that's the one on the left.
+
+11
+00:00:30,770 --> 00:00:35,080
+We've got a tester class on the right,
+and that tester class has a main method.
+
+12
+00:00:36,420 --> 00:00:40,840
+It's within this main method where you're
+gonna see a number of things get declared.
+
+13
+00:00:40,840 --> 00:00:41,740
+And something get printed.
+
+14
+00:00:41,740 --> 00:00:44,800
+The big question is, what gets printed?
+
+15
+00:00:48,550 --> 00:00:49,670
+>> Hi, I'm Tinky.
+
+16
+00:00:49,670 --> 00:00:50,350
+>> Hi, I'm Peter.
+
+17
+00:00:50,350 --> 00:00:50,860
+>> And I am Joe.
+
+18
+00:00:51,950 --> 00:00:56,300
+>> So what actually happens when
+we go back to our main method and
+
+19
+00:00:56,300 --> 00:00:59,150
+we look at lat gets negative 12.0.
+
+20
+00:00:59,150 --> 00:01:02,350
+Is that going to change
+lima's latitude value,
+
+21
+00:01:02,350 --> 00:01:05,080
+since that's what we
+took in as the variable?
+
+22
+00:01:05,080 --> 00:01:07,745
+>> Well I think since we were just
+working with a primitive data type.
+
+23
+00:01:07,745 --> 00:01:08,730
+>> Mm-hm.
+
+24
+00:01:08,730 --> 00:01:11,050
+>> Then it was just like
+getting a copy of it, right?
+
+25
+00:01:11,050 --> 00:01:14,660
+It wasn't doing the whole
+arrow thing like before.
+
+26
+00:01:14,660 --> 00:01:18,426
+We're not pointing to an old object,
+we're just getting a copy of it's data.
+
+27
+00:01:18,426 --> 00:01:20,460
+>> Uh-huh.
+>> Mm-hm, all right.
+
+28
+00:01:20,460 --> 00:01:25,310
+In regarding the scope, I think the double
+here is adjusting the main scope, so
+
+29
+00:01:25,310 --> 00:01:27,840
+it wont have any access
+to the object itself.
+
+30
+00:01:27,840 --> 00:01:28,370
+Right?
+
+31
+00:01:28,370 --> 00:01:33,210
+So you're changing the number here,
+you just change the number in this scope.
+
+32
+00:01:33,210 --> 00:01:34,040
+>> Oh, like locally?
+
+33
+00:01:34,040 --> 00:01:35,020
+>> Yeah, just like locally.
+
+34
+00:01:35,020 --> 00:01:36,010
+>> All right so.
+
+35
+00:01:37,510 --> 00:01:42,378
+So even we come back to the main method
+and we look at lat gets negative 12.0,
+
+36
+00:01:42,378 --> 00:01:45,740
+that's not gonna change
+the latitude in our lima.
+
+37
+00:01:45,740 --> 00:01:47,170
+>> Right, I see.
+
+38
+00:01:47,170 --> 00:01:51,080
+>> You just have the same name,
+but two different access, I think.
+
+39
+00:01:51,080 --> 00:01:55,130
+>> All right, okay, so in the end when
+we print out lima.lat, it's gonna
+
+40
+00:01:55,130 --> 00:01:59,164
+remain whatever we created it in
+the first place, which was negative 15.5.
+
+41
+00:01:59,164 --> 00:01:59,930
+>> Mm-hm.
+
+42
+00:01:59,930 --> 00:02:01,370
+All right, cool.
+
+43
+00:02:01,370 --> 00:02:03,090
+>> As you saw when
+the students were discussing,
+
+44
+00:02:03,090 --> 00:02:06,310
+the key to solving this problem
+is tracing through the code.
+
+45
+00:02:06,310 --> 00:02:07,860
+So what we're gonna do is exactly that.
+
+46
+00:02:09,130 --> 00:02:12,850
+Now with our code we're always gonna start
+with main, as we have in the past, and
+
+47
+00:02:12,850 --> 00:02:19,540
+we're gonna start with the very first line
+in code, which is that double lat = -15.5.
+
+48
+00:02:19,540 --> 00:02:20,970
+Just so
+we know with all the memory diagrams,
+
+49
+00:02:20,970 --> 00:02:23,492
+I'm gonna start by creating scope and
+main.
+
+50
+00:02:23,492 --> 00:02:28,340
+And I'm gonna declare space for
+a variable named lat.
+
+51
+00:02:32,550 --> 00:02:35,630
+The first thing I'm gonna do
+then is fill that with- 15.5.
+
+52
+00:02:35,630 --> 00:02:39,889
+And that does the first line of code.
+
+53
+00:02:41,230 --> 00:02:44,710
+Next step we're gonna create
+a new variable called lima.
+
+54
+00:02:44,710 --> 00:02:45,840
+Right over here.
+
+55
+00:02:48,550 --> 00:02:49,550
+And that's just a reference.
+
+56
+00:02:56,210 --> 00:03:02,010
+Then we call new SimpleLocation,
+pass it a lat and a -77.0.
+
+57
+00:03:02,010 --> 00:03:05,740
+That operation is now gonna
+call the constructor.
+
+58
+00:03:05,740 --> 00:03:07,910
+So let's move to the scope
+of the constructor.
+
+59
+00:03:09,070 --> 00:03:11,452
+Box this off as the scope of main, and
+
+60
+00:03:11,452 --> 00:03:14,870
+box off the scope of my
+constructor in simple location.
+
+61
+00:03:16,530 --> 00:03:18,050
+ctor stands for constructor.
+
+62
+00:03:18,050 --> 00:03:21,920
+And within that scope,
+I've passed now two parameters.
+
+63
+00:03:21,920 --> 00:03:24,676
+So it has two variables, both LatIn
+
+64
+00:03:28,046 --> 00:03:33,340
+and lonIn.
+
+65
+00:03:33,340 --> 00:03:37,039
+Each of those parameters just
+are now prefilled with the values
+
+66
+00:03:38,400 --> 00:03:40,230
+as defined at the time of the call.
+
+67
+00:03:40,230 --> 00:03:46,120
+So lat was -15.5 this is copy
+pass by value in Java so -15.5.
+
+68
+00:03:46,120 --> 00:03:50,966
+And lonIn is gonna be -77.0.
+
+69
+00:03:56,881 --> 00:04:00,420
+The other piece here is we
+said new simple location.
+
+70
+00:04:00,420 --> 00:04:04,130
+The act of saying new actually
+allocates space on the heap.
+
+71
+00:04:04,130 --> 00:04:10,101
+So what I'm gonna do down here,
+is create that space on the heap, for
+
+72
+00:04:10,101 --> 00:04:12,240
+a simple location object.
+
+73
+00:04:12,240 --> 00:04:16,720
+And that object is gonna have the private
+instance variables, lat and lon.
+
+74
+00:04:27,090 --> 00:04:29,885
+At this point we already see that we
+have a number of cases where we see
+
+75
+00:04:29,885 --> 00:04:31,620
+the variable lat.
+
+76
+00:04:31,620 --> 00:04:33,270
+And that's gonna be at
+the heart of this problem.
+
+77
+00:04:34,720 --> 00:04:36,189
+So let's continue walking
+through the code.
+
+78
+00:04:37,410 --> 00:04:39,400
+So we're right now in
+the middle of SimpleLocation.
+
+79
+00:04:39,400 --> 00:04:42,680
+We've already passed in
+these two perimeters, and
+
+80
+00:04:42,680 --> 00:04:45,470
+what we're gonna do now is
+actually do this line of code.
+
+81
+00:04:45,470 --> 00:04:49,280
+So this.lat refers to
+the object on the heap.
+
+82
+00:04:49,280 --> 00:04:51,875
+This is my SimpleLocation object.
+
+83
+00:04:51,875 --> 00:04:55,810
+And it's gonna be assigned
+the value of LatIn.
+
+84
+00:04:55,810 --> 00:04:57,530
+Which is minus 15.5.
+
+85
+00:04:57,530 --> 00:04:58,720
+So I'm gonna copy that value over.
+
+86
+00:05:02,010 --> 00:05:05,440
+The next line of code is gonna
+behave exactly the same way, right?
+
+87
+00:05:05,440 --> 00:05:09,840
+All it's gonna do is
+copy minus 77 into lon.
+
+88
+00:05:13,630 --> 00:05:15,850
+Now we finish this constructor.
+
+89
+00:05:15,850 --> 00:05:20,670
+And the end of any method, as we know,
+these variables essentially get destroyed.
+
+90
+00:05:20,670 --> 00:05:23,200
+So I'm just gonna do a quick line through
+it to say our constructor variables
+
+91
+00:05:23,200 --> 00:05:25,090
+are gone, and we're now back in main.
+
+92
+00:05:26,460 --> 00:05:29,584
+So within main, the very next line of code
+we're gonna execute is right down here.
+
+93
+00:05:29,584 --> 00:05:35,620
+It's gonna say lat =- 12,
+what lat are we referring to?
+
+94
+00:05:35,620 --> 00:05:39,630
+Well, I'm gonna look at my local scope,
+I have a variable named lat.
+
+95
+00:05:39,630 --> 00:05:43,260
+And I'm gonna change it to be -12.
+
+96
+00:05:47,295 --> 00:05:49,240
+Now I've already made one mistake here.
+
+97
+00:05:49,240 --> 00:05:51,980
+And that mistake is,
+when this constructor finished,
+
+98
+00:05:51,980 --> 00:05:54,690
+it would have returned a pointer to this.
+
+99
+00:05:54,690 --> 00:05:58,670
+And I failed to connect this
+to the object on the heap.
+
+100
+00:06:01,170 --> 00:06:03,606
+All right, now that's connected properly,
+
+101
+00:06:03,606 --> 00:06:06,450
+we now would have done
+the change to this to be -12.
+
+102
+00:06:06,450 --> 00:06:09,944
+And now, we're gonna try a print,
+lima.lat.
+
+103
+00:06:09,944 --> 00:06:14,540
+So I'm gonna follow my pointer,
+my reference out to lima,
+
+104
+00:06:14,540 --> 00:06:17,230
+and I'm gonna check what
+value does lat have?
+
+105
+00:06:18,330 --> 00:06:20,600
+Well, the value is- 15.5.
+
+106
+00:06:20,600 --> 00:06:26,428
+What's gonna be printed,
+then, is exactly that, -15.5.
+
+107
+00:06:26,428 --> 00:06:30,450
+What we see from this
+walking through this code,
+
+108
+00:06:30,450 --> 00:06:33,760
+is that as long as you trace through
+the code, you draw your memory diagrams,
+
+109
+00:06:33,760 --> 00:06:35,530
+you're gonna be able to
+solve this type of problem

@@ -1,0 +1,436 @@
+1
+00:00:04,907 --> 00:00:06,617
+As we can see working through this module,
+
+2
+00:00:06,617 --> 00:00:09,620
+it's important that we have
+this concept challenges.
+
+3
+00:00:09,620 --> 00:00:12,250
+So, the reason we're
+doing these again is that
+
+4
+00:00:12,250 --> 00:00:13,920
+it's important test on
+your own understanding.
+
+5
+00:00:15,160 --> 00:00:18,840
+You can listen to us talk about
+the material but till you really tried to
+
+6
+00:00:18,840 --> 00:00:22,360
+apply it, you don't know for sure
+whether your understanding it correctly.
+
+7
+00:00:22,360 --> 00:00:25,320
+So this is an opportunity for you to
+identify potential misconceptions in your
+
+8
+00:00:25,320 --> 00:00:28,970
+standard or to gain confidence in the fact
+that you're understanding it properly.
+
+9
+00:00:30,340 --> 00:00:33,550
+Process again, we're gonna pause,
+you're gonna try to solve it yourself.
+
+10
+00:00:33,550 --> 00:00:36,740
+You're gonna discuss it with
+potentially other learners around you.
+
+11
+00:00:36,740 --> 00:00:41,020
+You're gonna watch UCSD learners
+talk about the concepts and
+
+12
+00:00:41,020 --> 00:00:43,380
+then you're gonna confirm your
+understanding with our explanation.
+
+13
+00:00:44,640 --> 00:00:47,290
+So the problem for
+this one is to walk through this code.
+
+14
+00:00:47,290 --> 00:00:48,860
+Again, always start executing in main.
+
+15
+00:00:48,860 --> 00:00:51,250
+In the very end of main,
+there's going to be a print.
+
+16
+00:00:51,250 --> 00:00:53,409
+The question is what gets printed?
+
+17
+00:00:55,268 --> 00:00:56,080
+>> Hi, I'm Tenki.
+
+18
+00:00:56,080 --> 00:00:56,950
+>> Hi, I'm Peter.
+
+19
+00:00:56,950 --> 00:00:57,879
+>> Hi, I'm Joe.
+
+20
+00:00:57,879 --> 00:00:58,570
+>> All right.
+
+21
+00:00:58,570 --> 00:01:00,390
+So let's go ahead and get started.
+
+22
+00:01:00,390 --> 00:01:03,330
+So, I guess we can all agree.
+
+23
+00:01:03,330 --> 00:01:08,050
+So location one is going to create a new
+SimpleLocation with those values, and
+
+24
+00:01:08,050 --> 00:01:14,410
+location two is going to create another
+SimpleLocation with those values as well.
+
+25
+00:01:14,410 --> 00:01:16,410
+>> And
+we're talking about objects right here?
+
+26
+00:01:16,410 --> 00:01:19,530
+>> Yeah, so we're gonna have two different
+objects, location one and location two.
+
+27
+00:01:19,530 --> 00:01:24,960
+And what I got stuck at was when
+location one equals location two.
+
+28
+00:01:24,960 --> 00:01:28,820
+So what I was thinking was
+that the values inside loc2
+
+29
+00:01:28,820 --> 00:01:31,450
+are actually going to copy over into loc1.
+
+30
+00:01:31,450 --> 00:01:33,930
+>> Oh, like a whole new object?
+
+31
+00:01:33,930 --> 00:01:38,240
+>> Well, not exactly a whole new object,
+but just the values of the latitude and
+
+32
+00:01:38,240 --> 00:01:40,030
+the longitude into loc1.
+
+33
+00:01:40,030 --> 00:01:40,590
+So, currently.
+
+34
+00:01:40,590 --> 00:01:43,590
+>> So
+it would look like rewrite the object.
+
+35
+00:01:43,590 --> 00:01:46,620
+>> Yeah, yeah, so currently loc1 has 39.9.
+
+36
+00:01:46,620 --> 00:01:48,389
+For the latitude.
+
+37
+00:01:48,389 --> 00:01:51,246
+And well I was thinking that
+location two's latitude,
+
+38
+00:01:51,246 --> 00:01:53,081
+55.8, would overwrite that.
+
+39
+00:01:53,081 --> 00:01:54,449
+Am I right or?
+
+40
+00:01:54,449 --> 00:01:57,247
+>> I think those are like
+two objects right?
+
+41
+00:01:57,247 --> 00:01:58,200
+Like they're separate.
+
+42
+00:01:58,200 --> 00:02:01,625
+So I think the third eye is
+just change of reference here.
+
+43
+00:02:01,625 --> 00:02:09,240
+So it won't like overwrite like
+the every member variable here.
+
+44
+00:02:09,240 --> 00:02:11,528
+>> So rewrite the arrow?
+
+45
+00:02:11,528 --> 00:02:13,269
+Where location one is pointing?
+
+46
+00:02:13,269 --> 00:02:14,128
+>> Right.
+
+47
+00:02:14,128 --> 00:02:17,798
+>> So location one is now going to
+reference to the same object that location
+
+48
+00:02:17,798 --> 00:02:18,888
+two is referencing.
+
+49
+00:02:18,888 --> 00:02:21,141
+>> You just follow the arrow.
+
+50
+00:02:21,141 --> 00:02:25,580
+>> So that means that location
+one's values do change, but
+
+51
+00:02:25,580 --> 00:02:30,190
+it's just because it's
+referencing a new object.
+
+52
+00:02:30,190 --> 00:02:30,690
+>> Correct.
+>> Yeah.
+
+53
+00:02:31,730 --> 00:02:32,445
+>> Yeah.
+>> All right.
+
+54
+00:02:32,445 --> 00:02:36,850
+So when loc1.lat gets -8.3 that means that
+
+55
+00:02:36,850 --> 00:02:43,110
+the latitude of loc1 changes to -8.3 but
+
+56
+00:02:43,110 --> 00:02:47,550
+since that's the same object
+referenced by location two.
+
+57
+00:02:47,550 --> 00:02:50,870
+Does that mean location two's
+latitude changes to -8.3?
+
+58
+00:02:50,870 --> 00:02:52,181
+>> Yeah, I think so.
+
+59
+00:02:52,181 --> 00:02:54,410
+>> Yeah, because it's all just one object.
+
+60
+00:02:56,025 --> 00:02:58,265
+>> That was a great discussion
+by the UCSD learners.
+
+61
+00:02:58,265 --> 00:03:01,660
+Let's walk through the code
+again one more time.
+
+62
+00:03:01,660 --> 00:03:02,940
+So you're gonna start in main.
+
+63
+00:03:02,940 --> 00:03:05,570
+You're gonna create a simple
+location reference,
+
+64
+00:03:05,570 --> 00:03:07,710
+loc1 that's gonna point to an object.
+
+65
+00:03:07,710 --> 00:03:09,110
+And we just did those memory models so
+
+66
+00:03:09,110 --> 00:03:10,660
+we'll do this one a little
+bit more quickly.
+
+67
+00:03:10,660 --> 00:03:14,310
+We're gonna recognize that this is
+gonna create a reference loc1 pointing
+
+68
+00:03:14,310 --> 00:03:17,510
+to an object on the heap
+which has these values.
+
+69
+00:03:18,710 --> 00:03:21,750
+We're then gonna create a second object.
+
+70
+00:03:21,750 --> 00:03:24,900
+This one's going to be loc2, and
+
+71
+00:03:24,900 --> 00:03:27,990
+loc2 is pointing to
+a different object on the heap.
+
+72
+00:03:29,240 --> 00:03:33,370
+The key part of this problem is what
+happens in this next statement.
+
+73
+00:03:33,370 --> 00:03:36,730
+What happens when you assign
+loc1 to be equal to loc2?
+
+74
+00:03:36,730 --> 00:03:39,620
+What really happens there?
+
+75
+00:03:39,620 --> 00:03:40,170
+To understand that,
+
+76
+00:03:40,170 --> 00:03:42,760
+we're gonna have to think about
+what those references really mean.
+
+77
+00:03:43,960 --> 00:03:48,970
+So loc2 points to this object, and
+
+78
+00:03:48,970 --> 00:03:54,070
+what that really means is that
+loc2 has a numeric value,
+
+79
+00:03:54,070 --> 00:03:57,020
+which is an address for
+that object on the heap.
+
+80
+00:03:57,020 --> 00:03:59,750
+And that object on the heap
+actually has that address.
+
+81
+00:03:59,750 --> 00:04:00,540
+So you can think of loc1.
+
+82
+00:04:00,540 --> 00:04:03,520
+We're throwing in
+arbitrary addresses here.
+
+83
+00:04:03,520 --> 00:04:08,160
+But loc1 has address 1,
+it points to that object on the heap.
+
+84
+00:04:08,160 --> 00:04:11,390
+Loc2 has address 2, and
+it's pointing to that object on the heap.
+
+85
+00:04:12,790 --> 00:04:17,670
+When you do loc1 equals loc2, you're
+really copying essentially the reference.
+
+86
+00:04:19,150 --> 00:04:23,010
+That means is you're copying the address.
+
+87
+00:04:23,010 --> 00:04:29,480
+So loc1 is now gonna point to
+the exact same thing that loc2 does.
+
+88
+00:04:31,640 --> 00:04:35,740
+Now I'm gonna do loc1.lat
+equals this negative value.
+
+89
+00:04:35,740 --> 00:04:39,560
+And that really is loc1 points
+the same thing that loc2 points to.
+
+90
+00:04:39,560 --> 00:04:43,402
+And it's gonna change that
+object point2 by loc1.
+
+91
+00:04:47,128 --> 00:04:52,840
+Then we're gonna go to print this we're
+gonna print using the loc2 reference but
+
+92
+00:04:52,840 --> 00:04:57,722
+again loc2 and loc1 are pointing to
+the exact same thing on the heat so
+
+93
+00:04:57,722 --> 00:05:03,640
+when loc2 prints out its lat and
+lon it's gonna print out -8.3, and 37.6.
+
+94
+00:05:03,640 --> 00:05:08,093
+Again, drawing these memory models helps
+you understand how to work through these
+
+95
+00:05:08,093 --> 00:05:08,737
+problems.

@@ -1,0 +1,51 @@
+[MUSIC] So, in this video, we're going to look at
+a specific algorithm for sorting data. And throughout the examples, we're just
+going to use an array of integers, but the same ideas and principles translate
+whenever we have information that's all of the same type and we can compare
+pairs of information of that type. So by the end of this video, you'll
+be able to explain the selection sort algorithm and write code for it yourself. So let's get started and let's think
+of a toy example and it's always useful when developing algorithms to think
+of a specific concrete example that we can work through the steps of the
+algorithm with respect to this example and then afterwards think
+about generalizing it. So let's think about
+this array of integers. And there's only six
+elements in this array so we can probably do it in our head but let's think about it systematically how
+we would go about sorting these elements. And what we might do is, first of all, say at the end I want the smallest element
+to be in the first position of the array, the second smallest to be in the second
+position of the array, the third smallest to be in the third position of the array,
+and so on and so forth. And so let's look for
+the smallest element. So we're looking through our entire array, and we're looking for
+the smallest element. And lo and behold, we found it. It's 7, it's already in the first
+position, so we really don't need to do anything else to it,
+it's already where it's supposed to be. And so we don't need to
+ever think about it again. It's in place, it's done. And so
+now what we want to do is move forward and say, well what about the rest
+of the elements in the array? What's smallest among those? Because whatever's smallest in
+the rest of the array is going to be the second smallest out of everything. And so we should bring it into
+the second position in the array. Okay and so, we have now five elements
+to consider, one less then before and we're looking for the smallest element and
+oh my goodness we're lucky again, 16 is the smallest it's already at the
+beginning, we don't need to do anything, leave it in place. Okay, so
+our problem is reduced further yet. Now we need to find the third smallest
+element overall, but that's just the smallest element in the remaining
+unsorted elements that we haven't thought about yet, and so we've got four elements
+to consider and we want the smallest one. Now we see that it's 43, it's not the first one like we
+had in the previous two examples. And so what we need to do is to
+put it in it's correct location. And it's correct location as it would
+be in the sorted version of the array. And so we need to swap it with 66 in order
+to move 43 to it's correct location. Okay, and so we go ahead and do that. And now 43 is in it's correct location for
+the sorted array, we don't think about it anymore and we move on to look
+at the three remaining elements. Look for their smallest,
+oh, 51 and now we move 51 to it's correct location where it's
+going to be once the array is sorted. And so we have to swap it with 66, go ahead and do that and now 51 is done
+and it's in it's correct location, we don't need to think about it ever again
+and we look at the remaining two elements. Look for the smallest among those,
+that's 66. Swap it, and
+now we're actually done, because for the last item, while the only reason it's
+in the last position is because it wasn't the first smallest, it wasn't the second
+smallest, it wasn't the third smallest. It's already in it's correct position. We can't compare it to anything else. And so when we've got to our last position
+in the array, we're actually done. We don't need to do anything. Okay and so what that means is that we've
+got a algorithm, a series of steps that we can take algorithmically to perform
+this task, so we've got Selection Sort. Being described here as, first by the smallest element,
+then put in location zero in the array. Then find the next smallest,
+put it in location one, etc.

@@ -1,0 +1,67 @@
+1
+00:00:00,347 --> 00:00:11,000
+[MUSIC]
+
+2
+00:00:11,000 --> 00:00:12,310
+Hi there.
+My name is Liliana, and
+
+3
+00:00:12,310 --> 00:00:14,170
+I'm a software engineer for
+the shopping team
+
+4
+00:00:14,170 --> 00:00:15,830
+at Google in Mountain View.
+
+5
+00:00:15,830 --> 00:00:16,660
+>> Hi.
+
+6
+00:00:16,660 --> 00:00:22,170
+My name is Rosalie and I work on
+identity and authentication at Google.
+
+7
+00:00:22,170 --> 00:00:23,840
+>> Hi, I'm Landon Judkins.
+
+8
+00:00:23,840 --> 00:00:26,760
+And I'm a software engineer at
+Google's Pittsburgh office.
+
+9
+00:00:26,760 --> 00:00:29,230
+>> Hi, my name is Nina Yi.
+
+10
+00:00:29,230 --> 00:00:32,200
+I'm on the Google Fiber
+Software Engineering team.
+
+11
+00:00:32,200 --> 00:00:34,920
+>> I'm [Kabeche] and
+I'm an engineer on the Google Docs team.
+
+12
+00:00:36,180 --> 00:00:38,030
+>> Hi, I'm Matt Healy.
+
+13
+00:00:38,030 --> 00:00:40,710
+I'm a Google engineer working
+on conversational shopping
+
+14
+00:00:40,710 --> 00:00:42,280
+in our Pittsburgh office.
+
+15
+00:00:42,280 --> 00:00:45,150
+Welcome to the Intermediate
+Programming Specialization.

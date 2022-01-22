@@ -1,0 +1,254 @@
+1
+00:00:00,000 --> 00:00:04,363
+[MUSIC]
+
+2
+00:00:04,363 --> 00:00:07,140
+In this part of the project,
+you're gonna make your map interactive.
+
+3
+00:00:07,140 --> 00:00:11,100
+So I wanna show you the functionality
+that you'll be adding to your map.
+
+4
+00:00:11,100 --> 00:00:13,520
+Basically the ability to interact
+with these earthquake and
+
+5
+00:00:13,520 --> 00:00:15,800
+city markers using your mouse.
+
+6
+00:00:15,800 --> 00:00:16,860
+So I've zoomed in.
+
+7
+00:00:16,860 --> 00:00:19,560
+So I'm in an area of the world
+where there have been a lot of
+
+8
+00:00:19,560 --> 00:00:20,900
+small earthquakes lately.
+
+9
+00:00:20,900 --> 00:00:25,040
+And that's here near
+the Dominican Republic and Puerto Rico.
+
+10
+00:00:25,040 --> 00:00:29,660
+And what you're gonna be able to see
+is that when you hover your mouse
+
+11
+00:00:29,660 --> 00:00:31,130
+over the screen.
+
+12
+00:00:31,130 --> 00:00:33,670
+When you hover over an earthquake marker.
+
+13
+00:00:33,670 --> 00:00:36,660
+What you'll see is information
+about that earthquake pop up.
+
+14
+00:00:36,660 --> 00:00:41,560
+So I hover over this one, I can see
+that it's a magnitude 4.7 earthquake.
+
+15
+00:00:41,560 --> 00:00:46,480
+And it happened 37 kilometers north
+west of La Concepcion, Venezuela.
+
+16
+00:00:46,480 --> 00:00:49,050
+I could also hover my mouse
+over city markers and
+
+17
+00:00:49,050 --> 00:00:50,840
+see information about that city.
+
+18
+00:00:50,840 --> 00:00:54,700
+This is Caracas Venezuela and
+the population is 3.27 million.
+
+19
+00:00:54,700 --> 00:00:58,820
+So that's what you're going to be
+adding in terms of responding to mouse
+
+20
+00:00:58,820 --> 00:01:00,170
+hover events.
+
+21
+00:01:00,170 --> 00:01:02,510
+And you'll notice some
+little weird things like,
+
+22
+00:01:02,510 --> 00:01:05,250
+when I hover over this earthquake
+marker the text appears.
+
+23
+00:01:05,250 --> 00:01:08,050
+And the city marker is
+drawn on top of that text.
+
+24
+00:01:08,050 --> 00:01:12,200
+That's actually surprisingly hard to fix,
+and so don't worry about that for
+
+25
+00:01:12,200 --> 00:01:13,630
+the purpose of this assignment.
+
+26
+00:01:13,630 --> 00:01:15,470
+You're welcome to fix it if you want, but
+
+27
+00:01:15,470 --> 00:01:18,470
+if not, just go ahead and
+leave it like that.
+
+28
+00:01:18,470 --> 00:01:22,020
+Now one thing you'll wanna make sure of,
+is that when you have
+
+29
+00:01:22,020 --> 00:01:24,948
+multiple earthquake markers, or
+multiple markers in a small area.
+
+30
+00:01:24,948 --> 00:01:29,150
+You only wanna be showing information
+about one of the markers at a time.
+
+31
+00:01:29,150 --> 00:01:32,340
+So you'll wanna test this out to
+make sure that you're always showing
+
+32
+00:01:32,340 --> 00:01:33,570
+information about just one marker.
+
+33
+00:01:34,750 --> 00:01:38,490
+Now, the other thing that you're
+going to implement is click it.
+
+34
+00:01:38,490 --> 00:01:40,540
+So when I click on a marker,
+
+35
+00:01:40,540 --> 00:01:44,580
+I can see that basically everything
+else is going to go away.
+
+36
+00:01:44,580 --> 00:01:47,500
+So I click on that marker,
+everything else goes away.
+
+37
+00:01:47,500 --> 00:01:49,390
+I click on it again,
+everything else comes back.
+
+38
+00:01:49,390 --> 00:01:53,400
+Or in fact, if I click anywhere else,
+everything else should come back.
+
+39
+00:01:53,400 --> 00:01:56,330
+And except in certain circumstances.
+
+40
+00:01:56,330 --> 00:02:00,070
+So if a city is close to an earthquake,
+
+41
+00:02:00,070 --> 00:02:03,400
+if the city could potentially
+be effected by that earthquake.
+
+42
+00:02:03,400 --> 00:02:06,360
+By this definition of something called
+a threat circle which is explained in
+
+43
+00:02:06,360 --> 00:02:07,700
+the project write up.
+
+44
+00:02:07,700 --> 00:02:13,300
+Then we want to keep that city shown
+when I click on this earthquake.
+
+45
+00:02:13,300 --> 00:02:15,560
+So here I'll click on the earthquake.
+
+46
+00:02:15,560 --> 00:02:19,880
+And you can see that that city, Caracas,
+can be effected by that earthquake.
+
+47
+00:02:19,880 --> 00:02:21,660
+Click again, everything comes back.
+
+48
+00:02:21,660 --> 00:02:24,770
+Similarly, when I click on the city
+you can see the earthquakes that might
+
+49
+00:02:24,770 --> 00:02:25,960
+potentially effect it.
+
+50
+00:02:25,960 --> 00:02:29,405
+So I click on that city, and you can
+see that that earthquake stays around.
+
+51
+00:02:29,405 --> 00:02:33,630
+Cause that earthquake might have
+potentially effected people in Caracas.
+
+52
+00:02:34,700 --> 00:02:36,320
+All right.
+So that's the interactivity you'll be
+
+53
+00:02:36,320 --> 00:02:37,350
+adding to your map.
+
+54
+00:02:37,350 --> 00:02:38,880
+And in this module's lessons.
+
+55
+00:02:38,880 --> 00:02:41,810
+You'll learn how to respond to events
+in order to add that interactivity.

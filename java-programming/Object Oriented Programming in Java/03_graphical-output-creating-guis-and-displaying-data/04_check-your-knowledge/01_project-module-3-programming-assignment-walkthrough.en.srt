@@ -1,0 +1,733 @@
+1
+00:00:00,000 --> 00:00:00,810
+[MUSIC]
+
+2
+00:00:00,810 --> 00:00:05,667
+In this video, we'll walk through
+on how to accomplish the goals
+
+3
+00:00:05,667 --> 00:00:09,480
+of program assignment
+associated with Module 3.
+
+4
+00:00:09,480 --> 00:00:14,090
+Now how do we start
+working with a project?
+
+5
+00:00:15,228 --> 00:00:17,630
+Now this video's gonna be a little
+bit different from the last one.
+
+6
+00:00:17,630 --> 00:00:20,460
+Rather than diving straight into the
+source code I'm gonna try to walk through
+
+7
+00:00:20,460 --> 00:00:23,390
+how to get started with
+a project in general.
+
+8
+00:00:23,390 --> 00:00:24,040
+Now, for
+
+9
+00:00:24,040 --> 00:00:28,950
+this course the best thing to do is to
+start by watching the overview video.
+
+10
+00:00:28,950 --> 00:00:32,250
+So if you haven't watched the programming
+assignment overview video yet,
+
+11
+00:00:32,250 --> 00:00:33,750
+you'll wanna do that now.
+
+12
+00:00:33,750 --> 00:00:37,270
+Because the overview video
+gives you a clear idea
+
+13
+00:00:37,270 --> 00:00:40,470
+of what's gonna be required of
+you by the end of the project.
+
+14
+00:00:41,630 --> 00:00:43,650
+It's important to have
+that high level view.
+
+15
+00:00:43,650 --> 00:00:48,140
+In fact, from just that video, you know
+that for this project you're going to take
+
+16
+00:00:48,140 --> 00:00:52,929
+a map that's given to you and add recent
+earthquakes as markers onto that map.
+
+17
+00:00:53,980 --> 00:00:56,840
+Then you're gonna make
+the markers appear different
+
+18
+00:00:56,840 --> 00:00:58,910
+based on the magnitude of the earthquake.
+
+19
+00:00:59,960 --> 00:01:02,570
+And lastly, you're gonna add a legend so
+
+20
+00:01:02,570 --> 00:01:07,410
+if someone's looking at your map they
+know what, say a large red circle means.
+
+21
+00:01:07,410 --> 00:01:09,399
+Well, that means,
+it's this magnitude of earthquake.
+
+22
+00:01:10,720 --> 00:01:13,660
+So those are the three big pieces
+we know of the assignment.
+
+23
+00:01:13,660 --> 00:01:16,661
+Now if you didn't have an overview
+video like we just provided,
+
+24
+00:01:16,661 --> 00:01:20,730
+you'd wanna try to glean that same idea by
+reading through this project description.
+
+25
+00:01:22,360 --> 00:01:23,590
+Now after watching that video,
+
+26
+00:01:23,590 --> 00:01:27,130
+the next step is to really to read
+through the project description.
+
+27
+00:01:27,130 --> 00:01:29,890
+We put a fair amount of effort into
+making sure these project descriptions
+
+28
+00:01:29,890 --> 00:01:31,450
+are clear to you.
+
+29
+00:01:31,450 --> 00:01:36,660
+This also means though that this product
+description may change with time.
+
+30
+00:01:36,660 --> 00:01:41,440
+So it is not quite the same as you see in
+this video it's because we change it and
+
+31
+00:01:41,440 --> 00:01:43,280
+try to make it better for you.
+
+32
+00:01:43,280 --> 00:01:46,260
+So the first step is really to
+start reading top to bottom.
+
+33
+00:01:46,260 --> 00:01:48,030
+So what are the big learning outcomes?
+
+34
+00:01:48,030 --> 00:01:49,580
+What's expected of you for this?
+
+35
+00:01:50,890 --> 00:01:52,880
+We'll read through the introduction.
+
+36
+00:01:52,880 --> 00:01:54,562
+As you're reading though look for
+
+37
+00:01:54,562 --> 00:01:57,356
+things to keep in mind as you
+go forward with the project.
+
+38
+00:01:57,356 --> 00:02:00,584
+For example, when you read this it says,
+
+39
+00:02:00,584 --> 00:02:04,930
+that you're gonna be reading
+live data from a RSS feed.
+
+40
+00:02:04,930 --> 00:02:09,000
+You may not what a RSS feed is,
+you may not know how to parse length.
+
+41
+00:02:09,000 --> 00:02:10,450
+So there's kind of a question
+in your mind, then.
+
+42
+00:02:11,468 --> 00:02:15,020
+Are you gonna be required to
+write the code to read the RSS or
+
+43
+00:02:15,020 --> 00:02:16,300
+is that provided to you?
+
+44
+00:02:16,300 --> 00:02:19,820
+So we wanna look for
+that when we look at the code later.
+
+45
+00:02:19,820 --> 00:02:22,220
+Just keep reading through
+the introduction.
+
+46
+00:02:22,220 --> 00:02:26,947
+You'll notice that in a number of these,
+we're gonna tell you resources have open.
+
+47
+00:02:26,947 --> 00:02:29,759
+Now when you're working
+through a programming project,
+
+48
+00:02:29,759 --> 00:02:33,980
+it's almost always a good idea to have
+Java reference open on your computer.
+
+49
+00:02:33,980 --> 00:02:38,160
+Pull up Chrome tab, have that open right
+there, and then you can just start
+
+50
+00:02:38,160 --> 00:02:42,460
+looking for the features that you need and
+the references that you need.
+
+51
+00:02:42,460 --> 00:02:44,880
+This is true for
+essentially all program projects.
+
+52
+00:02:44,880 --> 00:02:46,030
+Though my own personal experience,
+
+53
+00:02:46,030 --> 00:02:48,810
+I found it absolutely essential
+in working with a GUI.
+
+54
+00:02:48,810 --> 00:02:51,660
+Because when you're working with a GUI,
+there are tons of libraries.
+
+55
+00:02:52,950 --> 00:02:58,500
+And it's not that important to memorize
+how to say write text on a GUI.
+
+56
+00:02:59,880 --> 00:03:03,570
+Because you just look upm how do I write
+text in the processing library with a GUI,
+
+57
+00:03:03,570 --> 00:03:07,090
+and you'll find there's
+a method called text.
+
+58
+00:03:07,090 --> 00:03:10,060
+So again, not important to memorize
+these kind of methods because you can
+
+59
+00:03:10,060 --> 00:03:11,530
+always look them up.
+
+60
+00:03:11,530 --> 00:03:16,890
+So right now open up another tab in
+Chrome and essentially open up these two.
+
+61
+00:03:19,950 --> 00:03:23,340
+After you have those open, it's important
+to walk through what you'll do.
+
+62
+00:03:23,340 --> 00:03:26,910
+Now, the overview video that I already
+provided gives you a pretty clear idea of
+
+63
+00:03:26,910 --> 00:03:28,750
+what's required for this assignment.
+
+64
+00:03:28,750 --> 00:03:31,790
+But if we didn't have that overview
+video you'd wanna read through this
+
+65
+00:03:31,790 --> 00:03:33,090
+fairly carefully.
+
+66
+00:03:33,090 --> 00:03:36,380
+And at the very least read kinda
+the bolded high level points.
+
+67
+00:03:36,380 --> 00:03:39,260
+You're gonna see that your first steps
+gonna be to open up the starter file for
+
+68
+00:03:39,260 --> 00:03:39,970
+this assignment.
+
+69
+00:03:39,970 --> 00:03:41,710
+To trace through the starter code and
+
+70
+00:03:41,710 --> 00:03:43,350
+predict what's gonna
+happen when you run it.
+
+71
+00:03:43,350 --> 00:03:46,520
+Since that's your second step, by the way,
+I'm going to make sure when we look at
+
+72
+00:03:46,520 --> 00:03:50,360
+the code not to run it, so that you can
+still walk through this step on your own.
+
+73
+00:03:51,660 --> 00:03:55,870
+Then you're going to want to
+add code to display markers for
+
+74
+00:03:55,870 --> 00:03:57,730
+each of the earthquakes.
+
+75
+00:03:57,730 --> 00:04:01,580
+Then you'll add code to style each of
+those markers based on the magnitude of
+
+76
+00:04:01,580 --> 00:04:04,982
+the earthquake and then you're
+gonna add the code to draw the key.
+
+77
+00:04:04,982 --> 00:04:07,920
+Now there's a whole bunch of
+details that I just skipped over.
+
+78
+00:04:07,920 --> 00:04:11,000
+You can always come back to these when
+you get to those steps in the project.
+
+79
+00:04:11,000 --> 00:04:15,640
+But right now you gotta really clear
+idea of what's required of you.
+
+80
+00:04:15,640 --> 00:04:18,070
+The next step is to figure
+out what we've given to you.
+
+81
+00:04:18,070 --> 00:04:19,650
+So, dive into your code.
+
+82
+00:04:19,650 --> 00:04:22,540
+This is really step one here and
+I'll walk through it with you.
+
+83
+00:04:22,540 --> 00:04:24,390
+Dive into your code and see what's there.
+
+84
+00:04:25,660 --> 00:04:31,860
+So what I have here is Eclipse open,
+I'm in Module 3 of our UCSD employee maps
+
+85
+00:04:31,860 --> 00:04:37,697
+collection and
+we have our earthquakecitymap.java file.
+
+86
+00:04:37,697 --> 00:04:39,439
+This is the code that we provide you.
+
+87
+00:04:40,528 --> 00:04:44,190
+Now, you're gonna see a number of
+things in common with the last project.
+
+88
+00:04:44,190 --> 00:04:48,280
+For example, there's still this boolean
+flag, which if you're working offline,
+
+89
+00:04:48,280 --> 00:04:51,110
+you need to set it to true.
+
+90
+00:04:51,110 --> 00:04:53,300
+If you're working online,
+you can just leave this alone.
+
+91
+00:04:54,890 --> 00:04:56,990
+You'll now notice there's
+two threshold values.
+
+92
+00:04:56,990 --> 00:05:00,765
+This is gonna be really useful when we
+start looking at changing the appearance
+
+93
+00:05:00,765 --> 00:05:03,239
+of the earthquake markers
+based on the magnitude.
+
+94
+00:05:05,970 --> 00:05:09,310
+We've got a map just like
+we had the last project.
+
+95
+00:05:09,310 --> 00:05:12,240
+We've got a URL,
+which looks like it's associated with
+
+96
+00:05:13,930 --> 00:05:18,210
+the RSS feeds, and
+then just like our last project we have
+
+97
+00:05:18,210 --> 00:05:21,820
+a setup method that's gonna
+create a p applet of this size.
+
+98
+00:05:21,820 --> 00:05:26,240
+We're gonna create a map,
+these two maps right here.
+
+99
+00:05:26,240 --> 00:05:28,870
+If you're offline,
+you're gonna use our local provider.
+
+100
+00:05:28,870 --> 00:05:31,390
+If you are online you can
+use a Google Map provider.
+
+101
+00:05:31,390 --> 00:05:35,128
+You're going to zoom at a certain
+level of the map, and then just
+
+102
+00:05:35,128 --> 00:05:39,440
+like in the last one, this is gonna
+make it so that the map is interactive.
+
+103
+00:05:40,740 --> 00:05:44,550
+We'll dive into the details again about
+how that's interactive in a later module.
+
+104
+00:05:44,550 --> 00:05:47,560
+As we scroll down,
+now we're into some really new stuff.
+
+105
+00:05:47,560 --> 00:05:49,420
+A list of markers.
+
+106
+00:05:49,420 --> 00:05:52,500
+This looks like this is where we're
+gonna keep, essentially markers for
+
+107
+00:05:52,500 --> 00:05:53,450
+all the earthquakes.
+
+108
+00:05:54,580 --> 00:05:57,900
+And down here, it looks like we've
+got a list of all the earthquakes,
+
+109
+00:05:57,900 --> 00:06:00,630
+which we're gonna get from the RSS feed.
+
+110
+00:06:00,630 --> 00:06:03,070
+In fact, wait this is good news, right?
+
+111
+00:06:03,070 --> 00:06:08,270
+We've got a parse feed class that has
+a method called parseearthquakes.
+
+112
+00:06:08,270 --> 00:06:11,055
+So remember what I said back when
+we we're looking at the RSS feed,
+
+113
+00:06:11,055 --> 00:06:12,260
+we should keep this in mind.
+
+114
+00:06:12,260 --> 00:06:15,150
+Is this something we're gonna have to do,
+or is this code provided to us?
+
+115
+00:06:15,150 --> 00:06:17,260
+Turns out,
+it's code that's provided to you.
+
+116
+00:06:17,260 --> 00:06:20,570
+If you're curious, though,
+about how to parse an RSS feed,
+
+117
+00:06:20,570 --> 00:06:26,060
+feel free to go into our parsing section,
+go into the parsefeed.java.
+
+118
+00:06:26,060 --> 00:06:27,120
+You can open that up.
+
+119
+00:06:27,120 --> 00:06:32,020
+You can see how we parse these RSS feeds.
+
+120
+00:06:32,020 --> 00:06:36,270
+But it's not critical and you can do this,
+essentially, if you want on the side.
+
+121
+00:06:38,360 --> 00:06:41,670
+Back to our code,
+you'll notice that the very next step has,
+
+122
+00:06:41,670 --> 00:06:46,750
+if we essentially have pulled in some
+earthquakes, do something with that.
+
+123
+00:06:46,750 --> 00:06:49,490
+You can work through this
+code kinda line by line, but
+
+124
+00:06:49,490 --> 00:06:54,970
+essentially at the high level, it's taking
+an object from this earthquakes list,
+
+125
+00:06:54,970 --> 00:06:58,080
+which is a point feature, and
+converting it into a magnitude.
+
+126
+00:06:59,500 --> 00:07:02,770
+That's fantastic,
+because we're gonna need magnitudes later,
+
+127
+00:07:02,770 --> 00:07:05,960
+when we're trying to decide how
+to display these earthquakes.
+
+128
+00:07:05,960 --> 00:07:08,310
+So let's keep this in mind as
+a useful thing going forward.
+
+129
+00:07:10,300 --> 00:07:12,640
+Looks like we also have
+a color yellow created for
+
+130
+00:07:12,640 --> 00:07:16,580
+us, because we're gonna want to
+make one of the markers yellow.
+
+131
+00:07:18,440 --> 00:07:19,920
+And now we're getting to our to-do's.
+
+132
+00:07:19,920 --> 00:07:24,532
+So, our first to-do is to say,
+create all the markers,
+
+133
+00:07:24,532 --> 00:07:27,040
+and now attach them to the map.
+
+134
+00:07:27,040 --> 00:07:31,660
+Now, it looks like we already have
+a list of all the earthquakes.
+
+135
+00:07:31,660 --> 00:07:35,010
+It's just a matter now of converting
+all our earthquakes into markers.
+
+136
+00:07:35,010 --> 00:07:40,160
+Now, if you're not quite sure how to
+do that, we give you a helper method,
+
+137
+00:07:40,160 --> 00:07:45,070
+which takes a point feature and
+converts it into SimplePointMarker.
+
+138
+00:07:45,070 --> 00:07:47,743
+This will help you get started for
+essentially creating all the markers and
+
+139
+00:07:47,743 --> 00:07:48,770
+then adding them to the map.
+
+140
+00:07:50,070 --> 00:07:51,918
+So this method isn't quite done yet.
+
+141
+00:07:51,918 --> 00:07:56,530
+You may wanna change the appearance of
+the markers based on the magnitude.
+
+142
+00:07:56,530 --> 00:07:58,310
+And this is probably
+the good place to do that.
+
+143
+00:08:00,485 --> 00:08:03,790
+You'll notice that we still have draw
+method, which draws the map, and
+
+144
+00:08:03,790 --> 00:08:06,940
+it also adds this thing called addKey.
+
+145
+00:08:06,940 --> 00:08:09,350
+You scroll down some more and you're
+gonna find that that's a helper method,
+
+146
+00:08:09,350 --> 00:08:12,910
+and it looks like we're gonna
+use this to draw the key or
+
+147
+00:08:12,910 --> 00:08:14,930
+the legend on the left hand side.
+
+148
+00:08:14,930 --> 00:08:17,820
+We're gonna draw this using
+the processing graphic methods.
+
+149
+00:08:19,570 --> 00:08:23,000
+At this point, we got a pretty good
+idea of what's required in this project.
+
+150
+00:08:23,000 --> 00:08:24,300
+You can really get started.
+
+151
+00:08:24,300 --> 00:08:27,290
+Now, if you run into any problems,
+
+152
+00:08:27,290 --> 00:08:30,000
+remember that there are a number
+of hints in the write-up.
+
+153
+00:08:30,000 --> 00:08:33,900
+So look at those hints first and
+then if you still have problems,
+
+154
+00:08:33,900 --> 00:08:38,280
+feel free to turn to the forums or
+other lectures from this module.
+
+155
+00:08:38,280 --> 00:08:40,050
+I hope you have fun, good luck.

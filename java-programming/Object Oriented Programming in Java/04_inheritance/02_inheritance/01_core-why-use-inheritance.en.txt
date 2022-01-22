@@ -1,0 +1,85 @@
+[MUSIC] In this module we're gonna begin looking
+at inheritance and polymorphism in Java. Inheritance and polymorphism
+are incredibly power features to any other oriented programing language but
+unlike lobes and conditionals you don't usually need to use inheritance
+and polymorphism for your code to work. When you first started programming, you probably could have put a lot of your
+code in main and gotten away with it. But as your code grew,
+you started using methods, and then later started using classes. Likewise, as the complexity
+of your project grows and you start working on large software
+design projects, you start having to use inheritance and polymorphism to be able
+to handle the complexity of the project. You've already worked with inheritance and
+polymorphism to some extent by having used the keyword
+extends in your previous modules. What we're going to do here is
+start working in more detail with inheritance and polymorphism. The goal here for this single video is to
+look at the value of inheritance and self. We're gonna do this by
+posing a potential problem. Imagine you're a software
+engineer at a university, and you've been working for
+some time on a Person class. You've actually tested the code, it's much
+longer than the code that you see here, and you're very happy with it. But your software design
+team comes back to you and says, we really can't just
+have one class anymore. This needs to start behaving
+differently for students or faculty. So you think about how
+are you gonna solve this, and there's a couple potential solutions. Neither of these are gonna be good
+solutions, so I'm not gonna dive into too much detail with them, but let's talk
+through what you might try to do. The first option is really to say, well, I'm gonna keep all this
+in the Person class. And I'm just gonna have it behave
+differently if you're a student or faculty member. And I'm gonna do this by having
+a boolean which just says whether or not you're a student. True if you're a student,
+false if you're faculty. I'm gonna add a constructor that
+handles it this way as well. And then in each of my methods,
+I can just do if student, do the code for the student,
+else do the code for the faculty. And at this point this doesn't
+seem like that bad of an idea. What's going to happen is your software
+design team is going to come back to you later and say, you know we can't
+have all students behave the same, undergrads and graduate students
+are going to behave differently. They have different needs,
+graduate students have thesis advisors, things like that. Then they come back to you and say well we need you to behave differently
+if you're a full time student or you're a part time student. So what you'll do is you'll add now
+boolean flags to say whether or not this is a graduate student or not and a boolean flag to keep track of
+whether you're full time or not. And now your methods gonna start looking
+something like if you're a student and you're a grad student and you're full time
+and if this sounds really ugly, it is. In fact, this kind of ugly code
+has a specific name for it. You may have heard of it before. It's called spaghetti code. Now I like spaghetti, but
+I don't like spaghetti code. Spaghetti code is code that you're gonna
+write, you're gonna realize how bad it is, you're gonna throw it away,
+and you're gonna start over. So this solution we're not happy with. Let me propose another potential solution. Let's just take my Person class and
+copy paste it into two files and we name one to be Student and
+the other to be Faculty. And then within the Student class
+I'm gonna change all the code to match the behavior of a student, and
+within the Faculty I'm gonna change all the code to match the behavior
+of a faculty member. At this point this seems like
+a pretty reasonable solution. This will actually work for
+a little while. But it's not going to work indefinitely. Take a few seconds to think
+where it might go wrong. All right. If your answer had anything to do with
+either consistency or the ability to store all the objects in one data structure,
+you're on the right track. So let's talk through it in both of those. What's gonna happen is your design team's
+gonna come back to you and they're gonna say at some point, you know having
+a single string name isn't sufficient. We really need you to break this
+out as first name and last name. And this isn't a major change,
+so you go into your code, you start changing all the instances
+of name to now work with first name and last name and
+you fix all of the Student class. And then you're gonna realize, wait,
+I had name in the Faculty class, too. And you can't just copy-paste the code
+that you just changed in Student into Faculty. You're gonna have to
+rewrite all the Faculty, do all the changes you just made
+in Student to the Faculty code. It's gonna be tedious and
+it's unnecessary. But more important,
+what if you make a mistake? What if you miss a change in
+Faculty that you made in Student? This is gonna be really
+hard to keep consistent. The other problem with this is that there is probably some code
+that has an array of persons right now. What's gonna happen if I now break this
+into two classes, only students and only faculty. Well I can't keep that single
+array of persons anymore. I'm gonna have to keep two arrays,
+one for students and one for faculty. I know there's no clean way to keep
+a single data structure for all persons. And you may say,
+well why is that important? Well, what if I just wanted to sort by
+the time that the person came on campus? That would be really hard to do. I could sort the students potentially,
+I could sort the faculty, but how do I merge those? It's gonna get ugly pretty quick. So, neither of these answers
+are things that we're happy with. What do we want then? Essentially, we figured out the goals
+by looking at these two examples. The goals here are 1, to keep all
+of our common code in one class. It'd be great if we could do that. We also would like it, so
+if we have different behaviors, I split that different behavior
+into different classes. And lastly,
+I wanna be able to keep all these objects in one single data structure. Now these are somewhat lofty goals, but the good news is,
+they all come to us with inheritance. We're gonna dive into the details about
+how to do this in the next video.

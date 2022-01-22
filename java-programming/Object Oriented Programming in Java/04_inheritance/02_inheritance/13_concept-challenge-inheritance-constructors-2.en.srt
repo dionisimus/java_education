@@ -1,0 +1,303 @@
+1
+00:00:00,025 --> 00:00:04,614
+[NOISE]
+>> Okay,
+
+2
+00:00:04,614 --> 00:00:07,931
+here's another concept challenge for
+you, all about constructors,
+
+3
+00:00:07,931 --> 00:00:10,930
+what happens when we call
+the constructor of the Student class?
+
+4
+00:00:10,930 --> 00:00:12,320
+We've got our familiar classes, here.
+
+5
+00:00:12,320 --> 00:00:15,460
+We've got our Person class, and
+we've got our Student class.
+
+6
+00:00:15,460 --> 00:00:18,200
+And the constructors, check them out,
+they're a little bit different.
+
+7
+00:00:18,200 --> 00:00:20,567
+We've got a one argument constructor for
+the Person class.
+
+8
+00:00:20,567 --> 00:00:22,080
+A no argument constructor for
+the Student class.
+
+9
+00:00:22,080 --> 00:00:26,380
+And then this additional method
+here in the Person class,
+
+10
+00:00:26,380 --> 00:00:30,330
+which is setName, which will set
+the name field inside the Person class.
+
+11
+00:00:30,330 --> 00:00:33,080
+So, we're gonna ask you to
+reason about what happens
+
+12
+00:00:33,080 --> 00:00:35,840
+when you call the Student constructor.
+
+13
+00:00:35,840 --> 00:00:37,620
+And, this is a concept challenge, so
+
+14
+00:00:37,620 --> 00:00:41,740
+we want you to do the same procedure that
+you're used to, just take that video quiz,
+
+15
+00:00:41,740 --> 00:00:46,860
+first by yourself, then find some people
+to chat about this question with,
+
+16
+00:00:46,860 --> 00:00:50,480
+and then watch our learner video, and
+come back and watch our explanation.
+
+17
+00:00:52,910 --> 00:00:53,920
+>> Hi, I'm Alicia.
+
+18
+00:00:53,920 --> 00:00:55,630
+>> Hi, I'm Joanna.
+
+19
+00:00:55,630 --> 00:00:56,610
+>> Hello, I'm Justin.
+
+20
+00:00:58,780 --> 00:01:00,910
+>> Okay, so what did you guys put?
+
+21
+00:01:00,910 --> 00:01:04,320
+>> I think it's a compiled time error,
+because Student doesn't have a name.
+
+22
+00:01:04,320 --> 00:01:08,220
+So how can you set a name it doesn't have?
+
+23
+00:01:08,220 --> 00:01:12,033
+>> Yeah, but I thought that
+since Student extends Person,
+
+24
+00:01:12,033 --> 00:01:14,980
+it actually inherits the name from Person.
+
+25
+00:01:14,980 --> 00:01:17,586
+>> Oh.
+>> So then, I actually put Student,
+
+26
+00:01:17,586 --> 00:01:21,994
+because I thought that now it
+goes into the constructive for
+
+27
+00:01:21,994 --> 00:01:24,740
+Person and sets the name to Student.
+
+28
+00:01:26,240 --> 00:01:27,850
+>> Yeah, I also thought the same.
+
+29
+00:01:27,850 --> 00:01:33,542
+One thing I did notice was that Student
+
+30
+00:01:33,542 --> 00:01:39,110
+calls Person, no argument constructor.
+
+31
+00:01:39,110 --> 00:01:44,760
+And I noticed that there was no
+argument constructed in Person,
+
+32
+00:01:44,760 --> 00:01:48,300
+so I think that's the reason why
+it causes the compile error.
+
+33
+00:01:48,300 --> 00:01:51,840
+>> Yeah, okay, so yeah,
+it's probably a compiled time error, then.
+
+34
+00:01:51,840 --> 00:01:52,830
+>> Yeah.
+>> All right,
+
+35
+00:01:52,830 --> 00:01:58,500
+now that you've worked through this
+yourself, let's work through it together.
+
+36
+00:01:58,500 --> 00:02:01,600
+All we're doing here is we're calling
+the Student default constructor.
+
+37
+00:02:01,600 --> 00:02:04,168
+So let's trace the code and
+see what happens.
+
+38
+00:02:04,168 --> 00:02:07,230
+So we go over here to the Student
+default constructor, and
+
+39
+00:02:07,230 --> 00:02:10,605
+you might be tempted to just directly
+go and execute this line that says
+
+40
+00:02:10,605 --> 00:02:15,660
+this.setName to the string Student,
+but the problem with that is, you'd
+
+41
+00:02:15,660 --> 00:02:20,230
+be forgetting that the compiler actually
+inserts some code into this constructor.
+
+42
+00:02:20,230 --> 00:02:24,020
+If the first line of the constructor
+is not either a call to the superclass
+
+43
+00:02:24,020 --> 00:02:25,260
+constructor or
+
+44
+00:02:25,260 --> 00:02:30,550
+a call to a constructor within the class,
+the compiler is going to insert a line
+
+45
+00:02:30,550 --> 00:02:34,200
+to the superclass constructor
+that takes no arguments for us.
+
+46
+00:02:34,200 --> 00:02:36,690
+So, in order to trace through this code,
+we need to insert that line so
+
+47
+00:02:36,690 --> 00:02:38,000
+we know exactly what's happening.
+
+48
+00:02:38,000 --> 00:02:38,531
+So let's do that now.
+
+49
+00:02:46,600 --> 00:02:50,862
+So now that we see this call to the
+superclass constructor, we know that we
+
+50
+00:02:50,862 --> 00:02:55,860
+have to go up to the Person class and
+find the constructor with no arguments.
+
+51
+00:02:55,860 --> 00:02:59,420
+So we go up to the Person class and we
+look for a constructor with no arguments.
+
+52
+00:03:02,470 --> 00:03:03,520
+I don't really see one, do you?
+
+53
+00:03:04,570 --> 00:03:08,710
+It's not there, and it turns out
+that Java will not insert one for
+
+54
+00:03:08,710 --> 00:03:13,210
+us if we already had a constructor
+that takes an argument.
+
+55
+00:03:13,210 --> 00:03:14,990
+So this is gonna cause a compile error.
+
+56
+00:03:16,140 --> 00:03:19,310
+So if you choose compile error,
+you'd be correct.
+
+57
+00:03:19,310 --> 00:03:21,450
+And the reason we're going
+through this example is,
+
+58
+00:03:21,450 --> 00:03:26,320
+it turns out it happens a lot that
+you have a situation like this.
+
+59
+00:03:26,320 --> 00:03:28,560
+I have it happen to me all the time and
+
+60
+00:03:28,560 --> 00:03:32,122
+the compile error that you're
+gonna get is very, very cryptic.
+
+61
+00:03:32,122 --> 00:03:34,640
+You're gonna read it and be like,
+what are you talking about,
+
+62
+00:03:34,640 --> 00:03:36,980
+there is no constructor with no arguments?
+
+63
+00:03:36,980 --> 00:03:39,570
+I didn't try to call
+a constructor with no arguments.
+
+64
+00:03:39,570 --> 00:03:41,190
+Well, you didn't.
+
+65
+00:03:41,190 --> 00:03:42,800
+But, Java did, and
+that's what's happening.

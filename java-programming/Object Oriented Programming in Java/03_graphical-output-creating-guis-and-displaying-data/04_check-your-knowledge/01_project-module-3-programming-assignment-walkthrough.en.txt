@@ -1,0 +1,115 @@
+[MUSIC] In this video, we'll walk through
+on how to accomplish the goals of program assignment
+associated with Module 3. Now how do we start
+working with a project? Now this video's gonna be a little
+bit different from the last one. Rather than diving straight into the
+source code I'm gonna try to walk through how to get started with
+a project in general. Now, for this course the best thing to do is to
+start by watching the overview video. So if you haven't watched the programming
+assignment overview video yet, you'll wanna do that now. Because the overview video
+gives you a clear idea of what's gonna be required of
+you by the end of the project. It's important to have
+that high level view. In fact, from just that video, you know
+that for this project you're going to take a map that's given to you and add recent
+earthquakes as markers onto that map. Then you're gonna make
+the markers appear different based on the magnitude of the earthquake. And lastly, you're gonna add a legend so if someone's looking at your map they
+know what, say a large red circle means. Well, that means,
+it's this magnitude of earthquake. So those are the three big pieces
+we know of the assignment. Now if you didn't have an overview
+video like we just provided, you'd wanna try to glean that same idea by
+reading through this project description. Now after watching that video, the next step is to really to read
+through the project description. We put a fair amount of effort into
+making sure these project descriptions are clear to you. This also means though that this product
+description may change with time. So it is not quite the same as you see in
+this video it's because we change it and try to make it better for you. So the first step is really to
+start reading top to bottom. So what are the big learning outcomes? What's expected of you for this? We'll read through the introduction. As you're reading though look for things to keep in mind as you
+go forward with the project. For example, when you read this it says, that you're gonna be reading
+live data from a RSS feed. You may not what a RSS feed is,
+you may not know how to parse length. So there's kind of a question
+in your mind, then. Are you gonna be required to
+write the code to read the RSS or is that provided to you? So we wanna look for
+that when we look at the code later. Just keep reading through
+the introduction. You'll notice that in a number of these,
+we're gonna tell you resources have open. Now when you're working
+through a programming project, it's almost always a good idea to have
+Java reference open on your computer. Pull up Chrome tab, have that open right
+there, and then you can just start looking for the features that you need and
+the references that you need. This is true for
+essentially all program projects. Though my own personal experience, I found it absolutely essential
+in working with a GUI. Because when you're working with a GUI,
+there are tons of libraries. And it's not that important to memorize
+how to say write text on a GUI. Because you just look upm how do I write
+text in the processing library with a GUI, and you'll find there's
+a method called text. So again, not important to memorize
+these kind of methods because you can always look them up. So right now open up another tab in
+Chrome and essentially open up these two. After you have those open, it's important
+to walk through what you'll do. Now, the overview video that I already
+provided gives you a pretty clear idea of what's required for this assignment. But if we didn't have that overview
+video you'd wanna read through this fairly carefully. And at the very least read kinda
+the bolded high level points. You're gonna see that your first steps
+gonna be to open up the starter file for this assignment. To trace through the starter code and predict what's gonna
+happen when you run it. Since that's your second step, by the way,
+I'm going to make sure when we look at the code not to run it, so that you can
+still walk through this step on your own. Then you're going to want to
+add code to display markers for each of the earthquakes. Then you'll add code to style each of
+those markers based on the magnitude of the earthquake and then you're
+gonna add the code to draw the key. Now there's a whole bunch of
+details that I just skipped over. You can always come back to these when
+you get to those steps in the project. But right now you gotta really clear
+idea of what's required of you. The next step is to figure
+out what we've given to you. So, dive into your code. This is really step one here and
+I'll walk through it with you. Dive into your code and see what's there. So what I have here is Eclipse open,
+I'm in Module 3 of our UCSD employee maps collection and
+we have our earthquakecitymap.java file. This is the code that we provide you. Now, you're gonna see a number of
+things in common with the last project. For example, there's still this boolean
+flag, which if you're working offline, you need to set it to true. If you're working online,
+you can just leave this alone. You'll now notice there's
+two threshold values. This is gonna be really useful when we
+start looking at changing the appearance of the earthquake markers
+based on the magnitude. We've got a map just like
+we had the last project. We've got a URL,
+which looks like it's associated with the RSS feeds, and
+then just like our last project we have a setup method that's gonna
+create a p applet of this size. We're gonna create a map,
+these two maps right here. If you're offline,
+you're gonna use our local provider. If you are online you can
+use a Google Map provider. You're going to zoom at a certain
+level of the map, and then just like in the last one, this is gonna
+make it so that the map is interactive. We'll dive into the details again about
+how that's interactive in a later module. As we scroll down,
+now we're into some really new stuff. A list of markers. This looks like this is where we're
+gonna keep, essentially markers for all the earthquakes. And down here, it looks like we've
+got a list of all the earthquakes, which we're gonna get from the RSS feed. In fact, wait this is good news, right? We've got a parse feed class that has
+a method called parseearthquakes. So remember what I said back when
+we we're looking at the RSS feed, we should keep this in mind. Is this something we're gonna have to do,
+or is this code provided to us? Turns out,
+it's code that's provided to you. If you're curious, though,
+about how to parse an RSS feed, feel free to go into our parsing section,
+go into the parsefeed.java. You can open that up. You can see how we parse these RSS feeds. But it's not critical and you can do this,
+essentially, if you want on the side. Back to our code,
+you'll notice that the very next step has, if we essentially have pulled in some
+earthquakes, do something with that. You can work through this
+code kinda line by line, but essentially at the high level, it's taking
+an object from this earthquakes list, which is a point feature, and
+converting it into a magnitude. That's fantastic,
+because we're gonna need magnitudes later, when we're trying to decide how
+to display these earthquakes. So let's keep this in mind as
+a useful thing going forward. Looks like we also have
+a color yellow created for us, because we're gonna want to
+make one of the markers yellow. And now we're getting to our to-do's. So, our first to-do is to say,
+create all the markers, and now attach them to the map. Now, it looks like we already have
+a list of all the earthquakes. It's just a matter now of converting
+all our earthquakes into markers. Now, if you're not quite sure how to
+do that, we give you a helper method, which takes a point feature and
+converts it into SimplePointMarker. This will help you get started for
+essentially creating all the markers and then adding them to the map. So this method isn't quite done yet. You may wanna change the appearance of
+the markers based on the magnitude. And this is probably
+the good place to do that. You'll notice that we still have draw
+method, which draws the map, and it also adds this thing called addKey. You scroll down some more and you're
+gonna find that that's a helper method, and it looks like we're gonna
+use this to draw the key or the legend on the left hand side. We're gonna draw this using
+the processing graphic methods. At this point, we got a pretty good
+idea of what's required in this project. You can really get started. Now, if you run into any problems, remember that there are a number
+of hints in the write-up. So look at those hints first and
+then if you still have problems, feel free to turn to the forums or
+other lectures from this module. I hope you have fun, good luck.

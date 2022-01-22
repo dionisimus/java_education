@@ -1,0 +1,49 @@
+1
+00:00:00,000 --> 00:00:03,415
+[MUSIC]
+
+2
+00:00:03,415 --> 00:00:07,477
+So one thing I really struggled with,
+when I was learning arrays and
+
+3
+00:00:07,477 --> 00:00:10,660
+sorting algorithms, was array bounds.
+
+4
+00:00:10,660 --> 00:00:13,010
+I was getting exceptions everywhere,
+
+5
+00:00:13,010 --> 00:00:17,350
+I didn't know what to do,
+cuz I was getting so many exceptions.
+
+6
+00:00:17,350 --> 00:00:22,929
+And one thing that really helped me was
+when I talked to one of my professors.
+
+7
+00:00:24,130 --> 00:00:30,970
+He told me to draw, simply draw the array
+and make the numbers and everything.
+
+8
+00:00:30,970 --> 00:00:34,240
+And go through each step of the algorithm,
+and
+
+9
+00:00:34,240 --> 00:00:39,320
+doing the sorting, putting the indexes.
+
+10
+00:00:39,320 --> 00:00:41,360
+And it was one thing that after that,
+
+11
+00:00:41,360 --> 00:00:46,260
+I didn't get any array bound exceptions,
+and it was perfect.

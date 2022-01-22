@@ -1,0 +1,19 @@
+[MUSIC] In the programming assignment for
+Module 3, we'll be overlaying information
+about events onto a world map. For our assignment we've
+chosen earthquake data. But you could use the same principles
+to map out rates of disease, social network activity, Internet
+connectivity, and really much more. There are three major
+components to this assignment. The first is creating marks in
+the world for recent earthquakes. The second is to customize
+those marks on the map, based on the magnitude of the earthquake. And the last step is to create the legend,
+over here on the left, to help someone understand
+the markers on the map. Some of these steps may
+seem daunting right now but we'll provide you code and
+support to help you succeed. Along these lines the next videos will
+teach you how to create graphical user interfaces or
+sometimes called GUIs in Java. We'll work through some examples with
+unfolding maps in the processing libraries as well. Now if you're already familiar
+with designing GUIs and these libraries, feel free to skip ahead
+to the project walk-through video so you can get up and
+running with the project. We hope you have fun.

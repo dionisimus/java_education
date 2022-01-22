@@ -1,0 +1,65 @@
+[MUSIC] In the previous video,
+we implemented selection sorting Java, and then we stopped and thought about some
+questions to do with this algorithm and how well it performs. So, so far in this course we haven't
+really asked ourselves whether algorithms are correct and how well they run,
+and so let's take a few minutes now to think about how we might even
+formulate answers to these questions. So let's think about correctness first. We had a problem that of sorting an array, meaning organizing
+the information in the array. And then we had a candidate strategy,
+selection sort, that we think did pretty well, and we think that it really
+does organize the elements in the array. But if this was a really mission-critical
+problem that we are trying to solve here, it's not enough for us to just sort of
+say hm, yeah, I guess it's gonna work. Hopefully there won't be any bugs. All right, we want to be certain and convinced that our algorithm is really
+going to do what it's supposed to do, no matter what edge case we throw at it or
+how big an array we give it. And so let's think back to the high-level
+picture we have of selection sort, and think about how that
+high-level picture can give us confidence that the algorithm works. So remember what we're doing in selection
+sort is, at each step through the for loop, we're looking at a new
+position in the array and we're swapping into that position in the
+array the element that's going to be there when the array is really truly sorted. And so what we have is some initial
+piece of the array that is sorted, and it keeps growing each time. And so as this sorted part of the array,
+the dark gray part of the array, grows with each iteration of the foreloop, more
+and more of our array is in good shape. It's organized and it's sorted. And so,
+by the time we finish the foreloop and have gone thought the entire length of the
+array, then our entire array is sorted. And so, this argument that we just went
+through can be completely formalized and can be used to prove
+the correctness of selection sort. Okay, so we're convinced that it works,
+but how well does it work? And what does that even mean? And so the question of performance
+is a really tricky one but a super critical one. And it makes the difference
+between a very sluggish computer that no one really ever wants to
+use because it takes seconds between when you click a mouse and when it actually
+responds, to a super snappy computer that everyone is really happy running
+apps on and maybe even multitasking. Because performance we can measure with
+time, we can measure with resource use, and the experience of how an algorithm
+runs makes a big difference to how far we can push that algorithm and how
+big a dataset we can expect it to work on. So it turns out that selection sort,
+even though it's correct, doesn't do so well when we think about its performance. It turns out to be a very
+slow sorting algorithm. Now we won't talk about
+the details of what it means for one algorithm to be slower than another,
+and how we can compare algorithms, when their performance might depend
+on their input in this course. But we will talk a lot more
+about it in the next course. And so, stay tuned,
+it's a beautiful theory of computation and complexity that we'll get
+to in a little while. Now, what I wanted to mention though,
+is that aside from performance issues and somewhat motivated by performance issues,
+we're always on the hunt for other algorithms for
+solving even the same problem. So we had this sorting problem,
+and we had one solution for it, namely selection sort. But, even if we did not know that it
+was kind of a slow one and maybe not so great, we'd still be interested in finding
+other algorithms that solves sorting. And that motivation for finding other algorithms comes from
+recognizing that in the real world different contexts might require
+different properties from our algorithms. Sometimes, we might have
+a nearly sorted list, a list that is usually pretty organized
+but occasionally we add on to it. Maybe as new computers join a network or
+as new people join a team. And so, we might want an algorithm that
+responds really well to almost sorted data and is really fast in that situation. On the other hand, we might have
+a context where our data is going to be coming from all over the place and
+is not organized at all, but maybe is not going
+to change too often. And so maybe we have a different
+algorithm that doesn't respond so well to dynamically changing data, but does really well even if the incoming
+information is completely unorganized. So, even if one algorithm is
+often slower than the other, it might still be useful for
+other reasons if we know something about the problem that we're solving and
+the real world contact that we live in. In the next video series,
+what we're going to be doing is thinking about other algorithms for
+sorting and foreshadowing some of the other techniques that we'll
+be thinking about in the future courses.

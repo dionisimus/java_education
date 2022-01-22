@@ -1,0 +1,392 @@
+1
+00:00:00,025 --> 00:00:04,427
+[SOUND] In the last video,
+we saw how objects
+
+2
+00:00:04,427 --> 00:00:09,083
+are constructed from
+the inside out in Java.
+
+3
+00:00:09,083 --> 00:00:12,030
+And the way this happens is
+really through compiler rules.
+
+4
+00:00:12,030 --> 00:00:16,210
+We're gonna talk about what those compiler
+rules are and how those compiler rules
+
+5
+00:00:16,210 --> 00:00:20,586
+work, in order to ensure, again, that
+the object is created from the inside out.
+
+6
+00:00:23,390 --> 00:00:25,990
+Where we left off in the last
+video is we'd seen the process,
+
+7
+00:00:25,990 --> 00:00:29,750
+we'd seen how student calls
+person which calls object.
+
+8
+00:00:29,750 --> 00:00:31,560
+And those constructors return back and
+
+9
+00:00:31,560 --> 00:00:35,010
+in the process of returning back they
+actually initialize the variables.
+
+10
+00:00:35,010 --> 00:00:38,780
+But you've said at the end but wait,
+I don't remember extending object.
+
+11
+00:00:40,210 --> 00:00:42,050
+Where did we do this?
+
+12
+00:00:42,050 --> 00:00:44,700
+This introduces our first rule
+associated with a compiler.
+
+13
+00:00:44,700 --> 00:00:47,820
+So let's revisit where the compiler
+plays a role in our process.
+
+14
+00:00:49,000 --> 00:00:52,550
+You write code, human-readable Java code,
+
+15
+00:00:52,550 --> 00:00:54,590
+and that gets sent off
+to the Java compiler.
+
+16
+00:00:54,590 --> 00:00:57,110
+The Java compiler's going
+to do a number of passes.
+
+17
+00:00:57,110 --> 00:01:00,756
+In fact, there's a number of potential
+specializations you could write instead of
+
+18
+00:01:00,756 --> 00:01:03,060
+just on how the compiler works.
+
+19
+00:01:03,060 --> 00:01:05,310
+What we're going to focus in on
+is essentially a couple of passes
+
+20
+00:01:05,310 --> 00:01:07,290
+the compiler does as
+terms of inserting code.
+
+21
+00:01:07,290 --> 00:01:11,140
+When the compiler is all said and
+done we know it produces
+
+22
+00:01:11,140 --> 00:01:14,030
+the Bytecode which we then
+run our java virtual machine.
+
+23
+00:01:15,530 --> 00:01:17,910
+So what is a Java compiler doing and
+what are these rules?
+
+24
+00:01:20,560 --> 00:01:23,410
+What it does is its going
+to change the code.
+
+25
+00:01:23,410 --> 00:01:27,530
+So, if you wrote this class, public
+class Person, and you just have your
+
+26
+00:01:27,530 --> 00:01:30,320
+single instance variable, and
+I've done away with any other code,
+
+27
+00:01:30,320 --> 00:01:35,050
+it's just this class,
+is this actually what gets compiled?
+
+28
+00:01:36,090 --> 00:01:36,590
+In a sense,
+
+29
+00:01:36,590 --> 00:01:40,890
+no, cuz the compiler takes this code and
+it's gonna change the code a bit.
+
+30
+00:01:42,120 --> 00:01:44,970
+What it's gonna do is follow three rules
+that we're gonna talk about in this video.
+
+31
+00:01:46,120 --> 00:01:49,300
+First rule is,
+if you don't have a superclass,
+
+32
+00:01:49,300 --> 00:01:50,830
+the compiler's gonna give you one.
+
+33
+00:01:50,830 --> 00:01:52,830
+It's gonna give you Object.
+
+34
+00:01:52,830 --> 00:01:55,510
+So even though you wrote
+public class Person,
+
+35
+00:01:55,510 --> 00:01:58,339
+the compiler's gonna insert the terms,
+extends Object.
+
+36
+00:02:00,050 --> 00:02:04,310
+By doing this, now you see how
+person inherits from object
+
+37
+00:02:04,310 --> 00:02:07,330
+just because it inserts those
+lines of code implicitly.
+
+38
+00:02:10,730 --> 00:02:15,240
+But where then, do we call the person
+constructor, or the object constructor?
+
+39
+00:02:15,240 --> 00:02:18,850
+We know now that object inherits, or
+sorry person inherits from objects,
+
+40
+00:02:18,850 --> 00:02:20,729
+but we don't know where those
+constructors are getting called?
+
+41
+00:02:22,220 --> 00:02:23,670
+That's where the next set of rules come.
+
+42
+00:02:24,740 --> 00:02:27,120
+So first off,
+if you don't have a constructor,
+
+43
+00:02:27,120 --> 00:02:28,750
+Java's gonna give one for you.
+
+44
+00:02:29,820 --> 00:02:32,130
+It's gonna give you a default
+constructor so no arguments.
+
+45
+00:02:33,910 --> 00:02:36,420
+And then it's gonna apply
+another set of rules
+
+46
+00:02:36,420 --> 00:02:37,909
+which are associated
+with all constructors.
+
+47
+00:02:39,350 --> 00:02:44,510
+This set of rules or Rule #3 is
+that the 1st line of a constructor
+
+48
+00:02:44,510 --> 00:02:49,480
+has to say either this,
+and then some arguments.
+
+49
+00:02:49,480 --> 00:02:52,320
+So call another constructor
+within the same class.
+
+50
+00:02:53,910 --> 00:02:58,920
+Or it has to call one of
+the parent class instructors,
+
+51
+00:02:58,920 --> 00:03:00,640
+a super class constructor call.
+
+52
+00:03:00,640 --> 00:03:02,650
+It has to do one of those things.
+
+53
+00:03:02,650 --> 00:03:06,390
+And if you don't do it,
+Java is gonna insert super.
+
+54
+00:03:06,390 --> 00:03:07,560
+So it's gonna call,
+
+55
+00:03:07,560 --> 00:03:11,300
+It's gonna insert a call to the default
+constructor of your super class.
+
+56
+00:03:13,680 --> 00:03:16,510
+So now we see that we've added this
+line to the person constructor.
+
+57
+00:03:17,560 --> 00:03:21,497
+In a sense you've the code on the left but
+the compiler is gonna insert all those
+
+58
+00:03:21,497 --> 00:03:25,391
+elements on blue on the right and
+that's what's really gonna get compiled.
+
+59
+00:03:27,109 --> 00:03:29,690
+So now we have an idea of
+how this work for person.
+
+60
+00:03:29,690 --> 00:03:32,609
+I want you to pause and think about
+what would happen to the Student class
+
+61
+00:03:33,630 --> 00:03:35,000
+On the first pass by that compiler.
+
+62
+00:03:37,552 --> 00:03:40,220
+All right, if you were thinking
+we should add a very similar
+
+63
+00:03:40,220 --> 00:03:45,050
+constructor to student that we did to
+person, you're on the right track.
+
+64
+00:03:45,050 --> 00:03:47,900
+It already extends from person,
+so we can't extend from object.
+
+65
+00:03:47,900 --> 00:03:51,470
+It already has a super class so
+there's no need to do that first rule.
+
+66
+00:03:52,530 --> 00:03:54,710
+The second rule applies,
+it has no constructor so
+
+67
+00:03:54,710 --> 00:03:56,310
+we have to insert a default constructor.
+
+68
+00:03:57,490 --> 00:04:01,480
+And then the third rule applies of I
+have to make sure I call the default
+
+69
+00:04:01,480 --> 00:04:06,320
+constructor of my super class as the very
+first line of my default constructor here.
+
+70
+00:04:06,320 --> 00:04:09,850
+So you're gonna take that
+code in black above and
+
+71
+00:04:09,850 --> 00:04:12,000
+it's gonna get transformed
+into the code in blue below.
+
+72
+00:04:14,620 --> 00:04:17,770
+So when we were curious how is
+the compiler making sure that
+
+73
+00:04:17,770 --> 00:04:20,970
+this construction and the initialization
+of our variables happens
+
+74
+00:04:20,970 --> 00:04:24,620
+essentially from the highest level of
+the hierarchy all the way back down.
+
+75
+00:04:24,620 --> 00:04:26,020
+So it is the compiler makes it happen.
+
+76
+00:04:27,210 --> 00:04:30,540
+Now there's still one leftover problem and
+that is,
+
+77
+00:04:30,540 --> 00:04:32,590
+we haven't actually initialized anything.
+
+78
+00:04:32,590 --> 00:04:35,180
+Right all of our default constructors
+have done no initialization.
+
+79
+00:04:35,180 --> 00:04:37,620
+They've just made sure they go
+all over the up to object and
+
+80
+00:04:37,620 --> 00:04:39,050
+all the way back down.
+
+81
+00:04:39,050 --> 00:04:43,360
+We had at least one variable and that was
+name, the instance variable with Person.
+
+82
+00:04:43,360 --> 00:04:45,350
+In our next video we're gonna
+see how to initialize that.

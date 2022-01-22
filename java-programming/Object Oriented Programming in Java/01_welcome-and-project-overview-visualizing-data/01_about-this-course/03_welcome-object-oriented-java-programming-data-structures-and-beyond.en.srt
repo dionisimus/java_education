@@ -1,0 +1,287 @@
+1
+00:00:00,000 --> 00:00:01,550
+>> Hi, I am Christine Alvarado.
+
+2
+00:00:01,550 --> 00:00:02,560
+>> I'm Mia Minnes.
+
+3
+00:00:02,560 --> 00:00:04,800
+>> I'm Leo Porter and we're all professors of
+
+4
+00:00:04,800 --> 00:00:07,845
+Computer Science here the University of California San Diego.
+
+5
+00:00:07,845 --> 00:00:10,270
+Welcome to our specialization on Java programming,
+
+6
+00:00:10,270 --> 00:00:12,385
+object-oriented design, and data structures.
+
+7
+00:00:12,385 --> 00:00:15,090
+But before we start talking about our specialization, I will tell you a brief story.
+
+8
+00:00:15,090 --> 00:00:18,285
+Back in 2008, Google unveiled Flu Trends which is
+
+9
+00:00:18,285 --> 00:00:21,820
+a really neat idea that you could predict flu outbreaks based on search terms.
+
+10
+00:00:21,820 --> 00:00:24,152
+What it really just meant was a bunch of people in San Diego start
+
+11
+00:00:24,152 --> 00:00:26,865
+searching for terms like fever or chills,
+
+12
+00:00:26,865 --> 00:00:29,340
+you predict an outbreak is coming to San Diego soon.
+
+13
+00:00:29,340 --> 00:00:30,895
+What really made this exciting was you can
+
+14
+00:00:30,895 --> 00:00:32,880
+predict it long before traditional measurements,
+
+15
+00:00:32,880 --> 00:00:36,630
+which relied on folks going to the hospital or to a medical center.
+
+16
+00:00:36,630 --> 00:00:38,955
+>> So that's really cool. But why are we talking about the flu
+
+17
+00:00:38,955 --> 00:00:41,555
+in a specialization on programming and data structures?
+
+18
+00:00:41,555 --> 00:00:43,830
+Well there are two connections between that story and
+
+19
+00:00:43,830 --> 00:00:46,305
+the specialization. And the first is data.
+
+20
+00:00:46,305 --> 00:00:47,760
+In order to make those predictions,
+
+21
+00:00:47,760 --> 00:00:50,105
+Google needed lots and lots of data.
+
+22
+00:00:50,105 --> 00:00:51,765
+And that's something we have today,
+
+23
+00:00:51,765 --> 00:00:54,060
+all around us from weather sensors,
+
+24
+00:00:54,060 --> 00:00:56,230
+to social networks, to the human genome.
+
+25
+00:00:56,230 --> 00:00:58,015
+We're practically swimming in data.
+
+26
+00:00:58,015 --> 00:01:00,360
+But it's not enough just to have that data.
+
+27
+00:01:00,360 --> 00:01:04,525
+We need to be able to process it efficiently and effectively.
+
+28
+00:01:04,525 --> 00:01:07,785
+And that idea of processing data efficiently and effectively
+
+29
+00:01:07,785 --> 00:01:11,805
+is really at the heart of software development and computer science.
+
+30
+00:01:11,805 --> 00:01:13,160
+>> And it's what you'll be doing in
+
+31
+00:01:13,160 --> 00:01:17,400
+these four courses and the Capstone Project of the specialization.
+
+32
+00:01:17,400 --> 00:01:19,920
+So we'll be talking about object-oriented programming.
+
+33
+00:01:19,920 --> 00:01:23,640
+We'll be talking about both basic and advanced data structures and then we'll be
+
+34
+00:01:23,640 --> 00:01:27,750
+talking about analyzing the algorithms and thinking about correctness and efficiency.
+
+35
+00:01:27,750 --> 00:01:30,525
+Once we've got the technical background in place,
+
+36
+00:01:30,525 --> 00:01:32,855
+we'll also bring that to the workplace.
+
+37
+00:01:32,855 --> 00:01:36,570
+We'll think about interview skills and we'll think about avenues for
+
+38
+00:01:36,570 --> 00:01:40,935
+success when you're working in a software engineering or related job.
+
+39
+00:01:40,935 --> 00:01:42,705
+In an academic setting,
+
+40
+00:01:42,705 --> 00:01:44,040
+like on campus here,
+
+41
+00:01:44,040 --> 00:01:46,440
+we would call this course a gateway course.
+
+42
+00:01:46,440 --> 00:01:50,125
+A gateway to what? Well, to Computer Science as a field.
+
+43
+00:01:50,125 --> 00:01:51,855
+Once you've mastered the foundations,
+
+44
+00:01:51,855 --> 00:01:54,720
+you're ready to delve into whatever you're interested in.
+
+45
+00:01:54,720 --> 00:01:57,900
+Whether that be artificial intelligence, cryptography,
+
+46
+00:01:57,900 --> 00:02:03,150
+security, bioinformatics, the world is open to you.
+
+47
+00:02:03,150 --> 00:02:08,465
+>> Welcome to this first course on object-oriented programming and user interfaces.
+
+48
+00:02:08,465 --> 00:02:10,350
+In this course, you're going to get to learn how to
+
+49
+00:02:10,350 --> 00:02:12,750
+design graphical interfaces, handle user input,
+
+50
+00:02:12,750 --> 00:02:15,090
+design class hierarchies including inheritance and
+
+51
+00:02:15,090 --> 00:02:17,610
+polymorphism and begin thinking about program efficiency.
+
+52
+00:02:17,610 --> 00:02:22,080
+>> And you'll be doing all of this in the context of a really cool project.
+
+53
+00:02:22,080 --> 00:02:25,230
+So, you'll be reading an earthquake data from around the world in
+
+54
+00:02:25,230 --> 00:02:29,970
+real time and then mapping that data onto a picture of the real world map.
+
+55
+00:02:29,970 --> 00:02:33,915
+And then what you'll do is make this map interactive, customize it,
+
+56
+00:02:33,915 --> 00:02:38,130
+personalize it, and share it with your fellow learners and the world.
+
+57
+00:02:38,130 --> 00:02:40,260
+>> Speaking of personalization,
+
+58
+00:02:40,260 --> 00:02:42,750
+we recognize that you're coming to us with different backgrounds
+
+59
+00:02:42,750 --> 00:02:46,010
+and different comfort levels with programming and computer science.
+
+60
+00:02:46,010 --> 00:02:49,405
+We expect that you've all had some basic course in Java programming
+
+61
+00:02:49,405 --> 00:02:51,030
+but that doesn't mean that you'll work through
+
+62
+00:02:51,030 --> 00:02:53,670
+this course or the specialization at the same speed.
+
+63
+00:02:53,670 --> 00:02:56,535
+If you're more comfortable and you've had more experience,
+
+64
+00:02:56,535 --> 00:03:00,435
+you'll be able to work through the courses faster and focus on that project.
+
+65
+00:03:00,435 --> 00:03:03,000
+If you need a little more support, that's also fine.
+
+66
+00:03:03,000 --> 00:03:06,180
+There's a path that will provide you with that extra support.
+
+67
+00:03:06,180 --> 00:03:07,875
+Most MOOCs are self-paced,
+
+68
+00:03:07,875 --> 00:03:10,650
+but we're here to provide you with some guidance to
+
+69
+00:03:10,650 --> 00:03:14,665
+find the path through this course and the specialization that's right for you.
+
+70
+00:03:14,665 --> 00:03:16,410
+So without further ado,
+
+71
+00:03:16,410 --> 00:03:20,335
+this first module's going to dive right into that project that Mia just told you about.
+
+72
+00:03:20,335 --> 00:03:23,000
+It's going to be a lot of fun. So let's get started.

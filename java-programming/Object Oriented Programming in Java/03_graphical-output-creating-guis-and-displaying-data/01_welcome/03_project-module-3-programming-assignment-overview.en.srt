@@ -1,0 +1,105 @@
+1
+00:00:00,000 --> 00:00:04,270
+[MUSIC]
+
+2
+00:00:04,270 --> 00:00:06,427
+In the programming assignment for
+Module 3,
+
+3
+00:00:06,427 --> 00:00:09,480
+we'll be overlaying information
+about events onto a world map.
+
+4
+00:00:10,500 --> 00:00:13,180
+For our assignment we've
+chosen earthquake data.
+
+5
+00:00:13,180 --> 00:00:16,470
+But you could use the same principles
+to map out rates of disease,
+
+6
+00:00:16,470 --> 00:00:20,540
+social network activity, Internet
+connectivity, and really much more.
+
+7
+00:00:21,950 --> 00:00:25,200
+There are three major
+components to this assignment.
+
+8
+00:00:25,200 --> 00:00:28,740
+The first is creating marks in
+the world for recent earthquakes.
+
+9
+00:00:28,740 --> 00:00:31,891
+The second is to customize
+those marks on the map,
+
+10
+00:00:31,891 --> 00:00:34,600
+based on the magnitude of the earthquake.
+
+11
+00:00:34,600 --> 00:00:37,367
+And the last step is to create the legend,
+over here on the left,
+
+12
+00:00:37,367 --> 00:00:39,590
+to help someone understand
+the markers on the map.
+
+13
+00:00:40,910 --> 00:00:43,040
+Some of these steps may
+seem daunting right now but
+
+14
+00:00:43,040 --> 00:00:46,200
+we'll provide you code and
+support to help you succeed.
+
+15
+00:00:47,300 --> 00:00:51,493
+Along these lines the next videos will
+teach you how to create graphical user
+
+16
+00:00:51,493 --> 00:00:54,060
+interfaces or
+sometimes called GUIs in Java.
+
+17
+00:00:54,060 --> 00:00:57,087
+We'll work through some examples with
+unfolding maps in the processing
+
+18
+00:00:57,087 --> 00:00:57,940
+libraries as well.
+
+19
+00:00:59,110 --> 00:01:01,750
+Now if you're already familiar
+with designing GUIs and
+
+20
+00:01:01,750 --> 00:01:05,870
+these libraries, feel free to skip ahead
+to the project walk-through video so
+
+21
+00:01:05,870 --> 00:01:08,130
+you can get up and
+running with the project.
+
+22
+00:01:08,130 --> 00:01:08,760
+We hope you have fun.

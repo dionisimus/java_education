@@ -1,0 +1,357 @@
+1
+00:00:00,000 --> 00:00:04,561
+[MUSIC]
+
+2
+00:00:04,561 --> 00:00:07,378
+In this video, we're going to show
+you how to get the starter code for
+
+3
+00:00:07,378 --> 00:00:10,030
+the project and get it set up in Eclipse.
+
+4
+00:00:10,030 --> 00:00:14,270
+So you've probably already found this
+setup document which is week one,
+
+5
+00:00:14,270 --> 00:00:15,920
+getting started with the project.
+
+6
+00:00:15,920 --> 00:00:19,350
+It's talking about how to setup
+a Java Eclipse and the starter code.
+
+7
+00:00:19,350 --> 00:00:21,310
+And I'm going to assume that
+you've completed part one,
+
+8
+00:00:21,310 --> 00:00:22,910
+which is setup Eclipse and Java.
+
+9
+00:00:22,910 --> 00:00:24,990
+And we're going to jump down to Part 2.
+
+10
+00:00:24,990 --> 00:00:30,090
+So about halfway down the document,
+this is the part that we'll be going over,
+
+11
+00:00:30,090 --> 00:00:32,130
+getting and setting up the starter code.
+
+12
+00:00:32,130 --> 00:00:35,600
+So you can download the starter
+code from this link here and
+
+13
+00:00:35,600 --> 00:00:39,470
+what you want to do is download it and
+unzip it somewhere on your system.
+
+14
+00:00:39,470 --> 00:00:43,840
+And the only restriction is we want you to
+put at somewhere that is not inside your
+
+15
+00:00:43,840 --> 00:00:45,090
+Eclipse workspace folder.
+
+16
+00:00:46,870 --> 00:00:48,870
+So, once you've downloaded and
+unzipped the code,
+
+17
+00:00:48,870 --> 00:00:52,250
+you'll go over here into Eclipse,
+and you should see a blank
+
+18
+00:00:52,250 --> 00:00:56,370
+workspace if you haven't done
+any other coding yet in Eclipse.
+
+19
+00:00:56,370 --> 00:00:58,795
+So, what you'll want to do is
+to get the starter code set up,
+
+20
+00:00:58,795 --> 00:01:00,370
+you go to the File menu and
+
+21
+00:01:00,370 --> 00:01:04,180
+then in the File menu, you'll click
+Import and that'll open up a new window.
+
+22
+00:01:04,180 --> 00:01:07,113
+And what we want to do is we
+want to import an existing project
+
+23
+00:01:07,113 --> 00:01:08,220
+into our workspace.
+
+24
+00:01:08,220 --> 00:01:12,320
+So that's under General, so I expand the
+General tab if it's not opened already,
+
+25
+00:01:12,320 --> 00:01:15,973
+then I'm going to click on
+ExistingProjects into WorkSpace,
+
+26
+00:01:15,973 --> 00:01:16,880
+click Next.
+
+27
+00:01:16,880 --> 00:01:20,442
+And then what I have to do is tell Eclipse
+where to find the code that I want to
+
+28
+00:01:20,442 --> 00:01:21,020
+import.
+
+29
+00:01:21,020 --> 00:01:23,048
+So I go over here and I browse and
+
+30
+00:01:23,048 --> 00:01:28,042
+then I'm going to browse back to where
+I saved and unzipped that starter code.
+
+31
+00:01:28,042 --> 00:01:32,962
+And I just put it on my desktop, so
+I'll go up here and find my desktop and
+
+32
+00:01:32,962 --> 00:01:35,700
+here it is down here at the bottom.
+
+33
+00:01:35,700 --> 00:01:41,110
+So I select the UCSDUnfoldingMaps
+directory, and then I click OK.
+
+34
+00:01:41,110 --> 00:01:46,540
+And you can see that it
+imported this project or
+
+35
+00:01:46,540 --> 00:01:50,460
+it gave me the option to import
+this product in this window here.
+
+36
+00:01:50,460 --> 00:01:52,950
+So the only other really important
+thing that you need to do is
+
+37
+00:01:52,950 --> 00:01:57,870
+make sure that this Copy projects
+into workspace option is selected.
+
+38
+00:01:57,870 --> 00:02:00,710
+We actually want to copy the files,
+the source code and
+
+39
+00:02:00,710 --> 00:02:05,070
+everything else, from wherever we
+saved it into our workspace directory.
+
+40
+00:02:05,070 --> 00:02:07,710
+So just make sure that's checked,
+and then you click Finish.
+
+41
+00:02:09,610 --> 00:02:12,410
+And then what you're going
+to see is that our code and
+
+42
+00:02:12,410 --> 00:02:17,090
+everything else has been successfully
+imported into our workspace.
+
+43
+00:02:17,090 --> 00:02:20,760
+So you can see that now I have
+the starter code, if I expand it out,
+
+44
+00:02:20,760 --> 00:02:24,610
+you can see that there's a whole bunch
+of files associated with this project.
+
+45
+00:02:24,610 --> 00:02:28,610
+And if I open up the source code,
+I can see this divided into
+
+46
+00:02:28,610 --> 00:02:32,970
+these organizational modules
+basically called packages.
+
+47
+00:02:32,970 --> 00:02:36,240
+So there's one package for every module
+that has a programming assignment.
+
+48
+00:02:36,240 --> 00:02:40,920
+So module1, 3, 4, 5, and 6 and
+that's where you'll find a starter code.
+
+49
+00:02:40,920 --> 00:02:44,890
+So here we can see the starter code for
+module1 in a file called HelloWorld.java.
+
+50
+00:02:44,890 --> 00:02:50,670
+And I can open by double clicking on
+it and I can even run this starter code
+
+51
+00:02:50,670 --> 00:02:55,760
+by clicking this button here and
+selecting Run As Java Applet.
+
+52
+00:02:55,760 --> 00:02:59,680
+You might have multiple choices there,
+if you do, just select Java Applet.
+
+53
+00:02:59,680 --> 00:03:02,410
+I won't run it right now, because I
+don't want to give away what it does.
+
+54
+00:03:02,410 --> 00:03:06,080
+I'll let you wait until you start on a
+project to figure out what that does, but
+
+55
+00:03:06,080 --> 00:03:07,760
+that's how you would run it.
+
+56
+00:03:07,760 --> 00:03:12,100
+And then the other thing to notice is
+that there's this package called Demos.
+
+57
+00:03:12,100 --> 00:03:14,570
+And if you look at that,
+that's going to have a bunch of
+
+58
+00:03:14,570 --> 00:03:18,100
+demos that we're going to be working with
+throughout the course in the videos.
+
+59
+00:03:18,100 --> 00:03:21,330
+So if you want to run some of the code
+that we talk about in the videos,
+
+60
+00:03:21,330 --> 00:03:22,740
+look here in this Demos folder.
+
+61
+00:03:22,740 --> 00:03:25,060
+We don't have all of it here,
+but we do have some of it, so
+
+62
+00:03:25,060 --> 00:03:25,890
+you might find it here.
+
+63
+00:03:27,600 --> 00:03:30,460
+All right, and for
+the last thing I want to tell you about
+
+64
+00:03:30,460 --> 00:03:34,195
+is where do you actually find all
+of these files on your file system.
+
+65
+00:03:34,195 --> 00:03:38,980
+So remember when we checked that
+Import into workspace button,
+
+66
+00:03:38,980 --> 00:03:42,015
+that option when we
+imported the whole package?
+
+67
+00:03:42,015 --> 00:03:46,395
+Well what that did was it actually copied
+all of our files into our workspace.
+
+68
+00:03:46,395 --> 00:03:50,565
+So if you go over here into our file
+
+69
+00:03:50,565 --> 00:03:55,707
+finder you can see that this folder here,
+UCSDUnfoldingMaps,
+
+70
+00:03:55,707 --> 00:03:59,967
+that's where we can find all the actual
+files associated with our project.
+
+71
+00:03:59,967 --> 00:04:02,097
+And you can see here in
+the source folder and
+
+72
+00:04:02,097 --> 00:04:06,747
+for example module1, this is where
+my actual .java file resides.
+
+73
+00:04:06,747 --> 00:04:08,577
+But you'll be editing it through Eclipse,
+but
+
+74
+00:04:08,577 --> 00:04:11,527
+if you want to know where it actually is,
+here it is.
+
+75
+00:04:11,527 --> 00:04:14,467
+Okay, now you're all set up and
+ready to go, so have fun with the project.

@@ -1,0 +1,296 @@
+1
+00:00:00,253 --> 00:00:04,143
+[MUSIC]
+
+2
+00:00:04,143 --> 00:00:09,006
+In the last video we began using
+the keyword extends to unlock the power of
+
+3
+00:00:09,006 --> 00:00:11,480
+Inheritance in JAVA.
+
+4
+00:00:11,480 --> 00:00:13,990
+We also designed our
+first class hierarchy and
+
+5
+00:00:13,990 --> 00:00:15,380
+we're gonna continue
+with that in this video.
+
+6
+00:00:17,150 --> 00:00:20,499
+The goal here is to understand
+what the term is a means.
+
+7
+00:00:22,370 --> 00:00:27,390
+And how it defines a relationship
+necessarily between classes.
+
+8
+00:00:27,390 --> 00:00:30,486
+In the last video, we saw how
+designing our class hierarchy and
+
+9
+00:00:30,486 --> 00:00:34,060
+using the keyboard extends gives us
+the first two features on this list.
+
+10
+00:00:34,060 --> 00:00:37,594
+It allows us to keep all the common code
+in one class, allows us to split out
+
+11
+00:00:37,594 --> 00:00:41,704
+the different behavior between separate
+classes, but what we didn't answer was how
+
+12
+00:00:41,704 --> 00:00:45,090
+can we keep all the objects
+in one single data structure.
+
+13
+00:00:45,090 --> 00:00:48,950
+And to figure this out,
+let's play an old fashioned matching game.
+
+14
+00:00:48,950 --> 00:00:51,330
+What I have here on
+the left is a Reference and
+
+15
+00:00:51,330 --> 00:00:52,980
+on the right I have an Object.
+
+16
+00:00:52,980 --> 00:00:54,835
+What we're gonna do is
+essentially play a matching game.
+
+17
+00:00:54,835 --> 00:00:58,560
+We're gonna try and figure out, can you
+have this Reference point to this Object.
+
+18
+00:00:59,610 --> 00:01:03,130
+Let's start off with
+Person p = new Person ();.
+
+19
+00:01:03,130 --> 00:01:07,140
+You've done this a whole bunch,
+is this legal, absolutely.
+
+20
+00:01:07,140 --> 00:01:11,360
+The reason this is legal is
+because A Person is-a Person.
+
+21
+00:01:11,360 --> 00:01:13,300
+Somewhat reflective we
+kind of recognize that.
+
+22
+00:01:13,300 --> 00:01:15,400
+We'll use this term though,
+again as we go forward.
+
+23
+00:01:16,550 --> 00:01:20,310
+Likewise, is a Student a Student,
+absolutely.
+
+24
+00:01:20,310 --> 00:01:22,470
+A Student is-a Student.
+
+25
+00:01:22,470 --> 00:01:25,158
+Where this gets interesting is,
+
+26
+00:01:25,158 --> 00:01:30,060
+can you have a Reference,
+Person point to a Student Object?
+
+27
+00:01:30,060 --> 00:01:32,470
+What I want you to do is think about this,
+just for a few seconds.
+
+28
+00:01:32,470 --> 00:01:34,020
+Do you think this should be allowed?
+
+29
+00:01:38,010 --> 00:01:39,589
+I hope you said yes.
+
+30
+00:01:40,810 --> 00:01:41,910
+This should be allowed.
+
+31
+00:01:41,910 --> 00:01:42,680
+Now, this is new.
+
+32
+00:01:42,680 --> 00:01:47,053
+You've likely always ran code where
+the Reference was the exact same thing as
+
+33
+00:01:47,053 --> 00:01:50,160
+the Object, but
+you're actually allowed to do this.
+
+34
+00:01:50,160 --> 00:01:53,930
+And the reason you're allowed to do
+this is because a Student is a Person.
+
+35
+00:01:55,070 --> 00:01:58,230
+All the capabilities that a Person has,
+a Student has to have,
+
+36
+00:01:58,230 --> 00:02:00,259
+because it's derived from Person.
+
+37
+00:02:01,370 --> 00:02:05,301
+This is fantastic,
+because what this allows us to do now,
+
+38
+00:02:05,301 --> 00:02:09,170
+is keep one single array of Student and
+Faculty objects.
+
+39
+00:02:09,170 --> 00:02:15,300
+So this code where I create a array
+of Persons, a references to Persons.
+
+40
+00:02:15,300 --> 00:02:18,948
+And then I can fill it with
+references to a Person object,
+
+41
+00:02:18,948 --> 00:02:22,180
+to a Student object, and
+to a Faculty object.
+
+42
+00:02:22,180 --> 00:02:24,690
+This code compiles and
+will work just fine.
+
+43
+00:02:24,690 --> 00:02:26,950
+So we can now keep,
+whether your person is Student or
+
+44
+00:02:26,950 --> 00:02:29,130
+Faculty, all in one data structure.
+
+45
+00:02:29,130 --> 00:02:29,960
+This is fantastic.
+
+46
+00:02:31,290 --> 00:02:34,380
+And we haven't finished
+our matching game yet.
+
+47
+00:02:34,380 --> 00:02:37,720
+Can you have a Student Reference
+point to a Person Object?
+
+48
+00:02:37,720 --> 00:02:39,570
+The answer here is, no.
+
+49
+00:02:41,540 --> 00:02:42,870
+Why?
+
+50
+00:02:42,870 --> 00:02:47,070
+Well, not all the features of a Student
+are necessarily within a Person.
+
+51
+00:02:47,070 --> 00:02:49,480
+And you could think about it kind
+of loosely as an analogy of,
+
+52
+00:02:49,480 --> 00:02:53,670
+if you walked up to a random person on the
+street and asked them what their GPA is.
+
+53
+00:02:53,670 --> 00:02:56,010
+Well, that's probably not a very polite
+question to ask in the first place,
+
+54
+00:02:56,010 --> 00:03:00,480
+but if you were to ask it,
+most people would say, I'm not a student.
+
+55
+00:03:00,480 --> 00:03:01,860
+What are you asking me?
+
+56
+00:03:01,860 --> 00:03:02,890
+This is why you can't do this.
+
+57
+00:03:04,530 --> 00:03:07,090
+Now, why I brought up this example
+
+58
+00:03:07,090 --> 00:03:09,920
+is because we get to polymorphism
+in just a few videos.
+
+59
+00:03:10,930 --> 00:03:14,660
+References and
+Objects are gonna become front and center.
+
+60
+00:03:14,660 --> 00:03:17,800
+We're gonna talk about what decisions are
+made of compile time, based on reference
+
+61
+00:03:17,800 --> 00:03:22,740
+type and what decisions are made at
+run time based on object actual type.
+
+62
+00:03:22,740 --> 00:03:23,778
+But before we can get there,
+
+63
+00:03:23,778 --> 00:03:26,470
+we have a few more details to work out
+with inheritance in the next videos.

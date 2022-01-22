@@ -1,0 +1,74 @@
+[SOUND] In this support video, we'll be practicing two
+really important skills. First we'll be tracing code using
+the memory models that we've been talking about before, for
+both object and primitive data. But we'll also be developing a skill
+of tracing code and talking about it in high level terms, beyond step
+by step what each statement does. Now you want to make sure that
+you are ready to participate. Get a pencil out and
+work with me through this. You'll learn much better if you're
+working through it yourself as well. So let's start with a piece of code
+that we'll be thinking about and take a few seconds to read it carefully
+and try to explain, in your own words, what this piece of code does. All right, welcome back. It's very useful to try to
+think about how the code and the syntax that we have in
+Java translate to steps and procedures that we can understand
+as high level human beings. So for example,
+if we're thinking about this in words. What we might say is that we
+create a couple of objects and then we try to assign those
+objects to one another. When we say assign objects to one another,
+that's very imprecise and so this gives us an added perspective
+on the benefit of tracing code and on the benefit of the precision
+that comes with memory model. All right, so let's see what
+we do when we trace the code. We remember that in order to declare
+SimpleLocation type objects, what we need is to think about
+the SimpleLocation class. And we're using the class definition
+that you've seen in the core videos for this module. So you'll be fairly familiar
+with this definition, but you can look at it here as well. The first line of code that we have is
+a declaration and an assignment statement. We're reserving some space and
+memory, we're labeling it ucsd, and what we would like to have there
+is a reference to a new object. That new object is of type SimpleLocation,
+and it's initialized using
+the constructor to some values. So what that means is we have
+a box in our memory model. It's labeled by the name
+of the variable UCSD and we point to this new object that we've
+created whose instance variables, latitude and longitude are set to 32.9 and
+negative 117.2 respectively. And that's all there
+is to that first line. Shall we go on to the next line, and
+that next line has exactly the same form. We're declaring a variable,
+that variable is of type SimpleLocation, and so
+we have a reference to a new object. That object is being created
+by the constructor and those instance variables
+have their own values. And notice that those instance variables
+for this new object are completely separate from the variables that
+we had for the previous object. We've constructed completely
+new copies of these objects. All right, now we get to the third line. In this third line we're not
+creating any new objects, we're not declaring any new variables. What we're going is we're
+doing an assignment statement. And an assignment statement, what we
+would like to do is to assign the value on the right-hand side to
+the variable on the left-hand side. And so let's think a little bit
+more about what's actually stored inside these variables. So UCSD, that box in our memory model,
+has an arrow to an object but remember that arrow to the object
+is our visual shorthand for saying we have stored the address
+in memory of that object. So something like @15. 15 is a made up number here,
+it's to indicate some address, the address of the object
+that we created before. Similarly, the box associated with
+the variable kumamoto stores an address, which is the address that the reference
+to a new object of type SimpleLocation. So it's got a different address,
+because we've got two different objects. Now what we need to do in this
+assignment statement is we need to copy the contents of the box
+kumamoto to the box ucsd. And so that means that the @34 reference
+gets copied into the ucsd box. And so if we think that in
+terms of our memory model, what's happening here is that now both of
+these variables refer to the same object. The object of the address @34. Okay.
+So that's what we've done with this assignment statement. But now what happens when we go to
+the last statement in this code snippet? Here what we're trying to do is,
+we're trying to assign the value that's stored in the variable
+ucsd to the variable kumamoto. But if we look at that value that's stored
+at the variable ucsd, it's the address of the object that we had before that
+was also pointed to by kumamoto. So actually executing this
+assignment does nothing at all. It's saying copy @34 to kumamoto and that was the previous value
+of kumamoto before as well. So at the end of executing this
+line of code, if we were to test it using the strategy we talked about
+before by throwing it into a class and executing into the main method of class
+and then running that piece of code. Then we see both UCSD and Kumamoto both of those variables
+pointed to the same object. With the latitude and longitude variables set as we did when
+we constructed the Koumoto object.

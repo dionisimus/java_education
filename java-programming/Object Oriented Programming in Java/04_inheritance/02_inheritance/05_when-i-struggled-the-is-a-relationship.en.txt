@@ -1,0 +1,11 @@
+[MUSIC] So one of the problems I had when learning
+about inheritance is relationship. And my professor used some analogy
+along the lines of animals, and like a lion is an animal. And for whatever reason that
+went right over my head and it really frustrated me because I felt
+like all my peers quickly picked it up. And so
+I reached out to my professor after class. And, he just twisted
+the analogy to be cars. And he asked me what kinda car I drove,
+and I answered, I drove a Toyota. And he just relayed that same analogy,
+but back to cars and Toyotas. And he said, a Toyota is a car,
+but not all cars are Toyotas. And for whatever reason, that really
+clicked with me, and that's what it took.

@@ -1,0 +1,106 @@
+[MUSIC] We are almost done so
+remember what we've done up until now. We are working towards building an
+application that has a background image of the beach, and then has a visual clock
+that is represented by a second sun. And at this point we've defined
+the setup method of our class MyPApplet that customizes the PApplet
+class provided by processing. And then we've started
+working on the draw method. And our draw method so
+far has brought in and displayed the background image but
+we're still missing the sun. So let's think back to where
+we want the sun to be. And think about where that location is in
+that grid of coordinates that we have for specifying positions on our canvass. And so we want the sun to be somewhere
+in the top left of our picture. And before talked about how that's roughly
+about 50, x equals 50, y equals 50. Which is about a quarter of the way across
+and maybe a quarter of the way down. And maybe we wanna tweak it so
+it's a little bit higher up. And so
+we want maybe a fifth of the way down. And so what we wanna think about
+is how to specify the location of the center of the sun in this x and
+y space. And we're going to do it dynamically so
+that the sun stays in that top left corner and visible, even as the user of our
+application might resize the window. And so we're not going to use fixed
+numbers like 50 pixels across or 50 pixels down,
+we're going to use relative coordinates relative to those variables,
+width or height of the canvas. All right, so let's think about
+where we might want to put it, and about a quarter of the way across and a fifth of the way down seems like
+about right position for the sun. So now we need to go ahead and
+place sun there. And we use a library method
+ellipse to draw an ellipse in the locations x and
+y so the coordinates of the center of the ellipse are the first
+two parameters of the method. But then we have two
+other parameters as well. And, so the second two parameters
+are the actual width of the ellipse and the height of the ellipse. So if those two parameters happen to be
+equal, then we're going to get a circle. And if those type of
+parameters are unequal, then we'll get an ellipse
+that's maybe flatter or longer. Okay, and so a thought question,
+something to keep in mind. With this particular method, will what
+we're drawing always be a true circle, or can you think of a situation
+where what we've specified over here will actually look like a flattened
+ellipse or a tall ellipse? All right so
+that's something to keep in mind. But let's keep going with our example,
+with our application. And if we run the code as it is right now, we see we get our circle
+in the top left corner. But it's what? Okay and so, here is where we get to
+the dynamic part that we want to change as this application runs. And what we'd like to change
+is the color of the sun. So now we're getting to the nitty gritty
+of how we want the color to change, now that we've displayed the shapes. Okay, so let's think about how
+we're going to specify the sun. And this is a super common way of
+coding colors in programming languages. It's used in web development, it's used
+in Java, it's used all over the place. What we're going to do is
+we're going to specify a color by specifying three values
+that describe a color. The amount of red in it, the amount of
+green in it, and the amount of blue in it. So we think of a color as being
+decomposed into three channels rgb. Okay and so
+we want that sunny yellow color and so we need to talk about how
+much red will be in there, how much green will be in there,
+how much blue will be in there. And the smallest amount of
+a color that we can specify is 0, we can say we don't want any for example,
+blue or we don't want any green and the maximum amount is going to be 255. And that 255 is, there's a reason for it. It seems like a random number. There's a reason for it, you can look
+it up, but it's there for a reason. And it's the maximum value for
+a color channel in the RGB coding. Okay, so for
+the particular color that we care about, it turns out that we're going to get that
+warm sunny shade of yellow if we have the red set to it's maximum value 255, the
+blue set to it's minimum value 0, because blue's kind of a cold color, we don't want
+it in this particular shade, and the green is helping that red go off to yellow so
+the green is pretty high as well. Now, you don't need to
+know how to design colors. It's kind of fun. You can play around with
+these three values and see what colors you can create,
+but you can use Google and just put in the search string,
+HTML color selector or RGB codes. Color selectors and you'll get lots of
+these palettes where you can click on the particular shade that
+you're interested in and out will come the rgb code for it. So it's a handy tool and
+you should feel free to use that. Okay, so if we set the fill or the pen color, you could think of,
+of the drawing to be 255, 209, 0, i.e., the color specified by the RGB code, where R level is 255,
+G level is 209, and B level is 0, And then draw the ellipse then
+the ellipse is filled with that color. And so then we get our beautiful sun just
+like we wanted in the top left corner of Lahoya Shores Beach okay. Well that's great for
+the static version but now we want that sun to
+change color over time. So at 7:00 when it's beautiful sunset
+we want maybe a pinker sun and then as dusk comes we want it gray. And the way that we can get our
+application to change is by remembering that crucial fact that
+when we have the methods set up and draw in a class that extends p applet,
+the draw method loops and updates the drawing over and
+over and over again. And so what we're going to do is
+in our draw method we're going to set the color of the sun based on the hour
+of the current time stamp of the clock. So I'm going to leave that as a tease for
+you. I want you to try and implement it. And in one of the support videos that we
+have coming up Christina is going to work through how to draw a similar method,
+and then we'll be right back at you from tweaking the example that she shows you
+to getting this application to work. And you can do it. But I want you to keep in mind
+that central paradigm of setup being run once and then draw anything
+dynamic, that changes, it's gonna be in that draw method because it gets
+executed over and over and over again. So that's one big central
+message from this example. The second really important message
+that I want you to get from these videos is documentation is our friend. So when we are writing code, think of yourself as joining
+this wonderful brotherhood and sisterhood of programmers all around
+the world developing code together. Developing libraries together and
+we want to use each others experience, expertise, and draw from the work
+that we've all done together and the way we can do that is by describing
+what methods we have and what they do. And so the API for
+libraries are what tell us what methods are available in a library,
+so that's like our index to the library. But also, what we can use those methods
+to do and what functionality that have. So for the processing library, for the library that we've been using
+up until now to create applets and to draw shapes on them the documentation
+is on your screen right now. And in the next lesson of this module,
+we'll be taking it one step further and thinking about how processing
+can be used as the backbone for some more sophisticated
+visual applications that also involve real-time
+data coming from the Internet.

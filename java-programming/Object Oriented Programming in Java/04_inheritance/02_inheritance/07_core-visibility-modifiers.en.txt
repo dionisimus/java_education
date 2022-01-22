@@ -1,0 +1,49 @@
+[MUSIC] Welcome back. At this point we've been
+talking about what's inherited? We've used the terms private and
+public and those visibility modifiers impact what
+gets inherited from one class to another. What we're gonna do now is spend
+a little more time looking at the different visibility modifiers and
+how they impact us. Particularly in relation to inheritance. By the end of this video, you should be
+able to use the appropriate visibility modifiers when you're writing your class. Up to this point,
+your comfortable probably with public which is less restrictive and
+private which is more restrictive. So public gives access to any other class. Where as private gives
+access only the same class. Well there's two, well at this point you
+likely have learned this rule of thumb. Make all your instance variables private,
+you should make your public interface, you're public methods public. You can also have private methods,
+those are your helper methods. This rule of thumb is
+actually still gonna apply. Even if we talk about the other
+visibility modifiers, it's important to know how they apply. The other visibility modifiers
+are protected and package. So protected gives you access to any,
+so within the same class, anything within the same package can access it,
+and any sub class can access it. Package, also sometimes called default, you have access from the same class, and
+you have access from the same package. The only difference really
+between package and protected is that package
+loses access by any sub class. So, sub-classes that are still in the same
+package, you still have access to. The sub-classes outside your
+package you're gonna lose. To really understand this
+it helps to see an example. What I have here is a sample class. And that sample class has a pubic
+variable, a protected variable, a package variable or
+default variable and then a private room. Let's add a whole bunch of other classes. Some within the same package,
+the dotted line denotes package, and then some are sub classes. We have sub-class one in the same package, we have sub-class two,
+which is outside of the package. We have Other1, which just happens to be another
+class in the same package as Sample. Then we have Other2,
+which is a class not in the same package, it has no relationship in terms
+of inheritance with Sample. If you have the public visibility, so w. W is accessible from anyone else. And notice that I'm just saying public w, I'm not putting the public int,
+you can fill in the value there yourself. So, public anyone can access. Protected, you only essentially
+take away access to Other2. Things within the same package, as well
+as sub-classes, can access this variable. Now, What I'm concerned about here, is why
+does Other1 have access to my variable X? Is it because it's in the same package? Does that really make sense, is that who
+we want to have access to our variables? In general,
+this is not a very good idea, and this is why we don't
+recommend using protected. If we look at package access,
+what you see is that we've now taken away access to the sub-class 2, and
+what we had from protected. Which you'll notice that
+Other1 still has access to y. And why is some other class in
+the same package happen to have access to my variable? It doesn't make much sense and this is why
+we don't recommend package access, either. Lastly, we have private access,
+which you're comfortable with, just means within this class
+you can access this variable. Now that we've walked through
+the different levels of access, you see that public is the least restrictive and
+private is the most restrictive. But we still are gonna apply
+the same rule of thumb. Always use public or private, there's only rare cases that you'll
+ever wanna use protected or packaged.

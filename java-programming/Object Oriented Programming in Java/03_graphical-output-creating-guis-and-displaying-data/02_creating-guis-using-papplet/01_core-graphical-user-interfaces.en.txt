@@ -1,0 +1,59 @@
+[MUSIC] Think back to the programs that
+you've written up until now. And if you think back to them, especially
+if you've had to start from scratch, their functionality may have
+been a little bit limited. Maybe you're interacting with files,
+text files, or command lines. Maybe you're letting your user
+type in a couple of things, in order to determine what the program
+does, or ask questions to the program. But what we'd like to do in this project,
+and then in this course and specialization as a whole, is ramp you right up to
+medium and large scale programs, to get you really experiencing what it's
+like to develop code in the real world. And so, by the end of this video
+you'll be able to create one kind of pretty sophisticated application, a GUI. And, in order to do that you'll be
+reading and using other people's code and libraries, and in particular you'll
+be using the Processing Library. I wanna step back and
+think about what we'll be doing, and then we'll talk about how to do it. So by the end of this video, you'll
+have the tools to create a really cool application, where for this particular
+example, we have in the background an image one of my favorite beaches here
+in San Diego, La Jolla Shores Beach. And what we're going to do,
+is we're going to add a second sun. It's sunny enough in San Diego, but
+we're going to add a second one. And that second sun is going to
+be like a visual clock for us. And so what we're going to do is have
+the color of the second sun that we've drawn on change depending on
+the actual time of day around us. And so for example at noon, we want it to
+be a bright yellowy, a bright yellow sun. And then as the day gets closer to sunset,
+the color maybe will be pinky red, and then at dusk we'll go to gray, and
+at nighttime it will black out, and then at sunrise again,
+we're going to have the sunshine. So that's what you'll be
+able to do by the end. And this is really an example of a GUI, which is a funny way of saying
+Graphical User Interface. It's an acronym. And when you think about
+graphical user interfaces, maybe that sounds a little bit
+complicated, but you can't use a computer these days without interacting
+with a graphical user interface. They're really the programs that
+we work with all around us, from maps to development environments
+like Eclipse, to browsers. Everything around us has
+elements like menus, or icons, or response to mouse clicks,
+has text boxes. All of these elements that
+we can draw on the screen, display data to the user, invite
+the user to interact with the program by manipulating something on the screen. Those are all graphical user interfaces. So the application that we are working
+on is a particular graphical example and it's one that's displaying information. In a couple of modules, you'll also be
+able to incorporate interactivity and have your graphical interface
+respond to user input. That's coming soon. But for now, let's think about how we might go about
+coding some graphical user interfaces. And we don't want to start from scratch. What we'd like to do is think about
+what other people have done before us, stand on the shoulder of
+giants as people say. And there's all sorts of libraries
+available to do GUIs in Java. So you might have heard of some of
+these names as you're Googling around, seeing how to program in Java. And everyone's got their favorite. Some are older, some are newer. In this course, we're going to be
+using the processing library, but something I want you to keep in mind
+throughout this whole process is, that it doesn't really matter
+which library you end up choosing. There are odds and
+quirks about each one of them. There's little tricks to do with how you
+might choose one rather than the other. But at the end of the day, the design
+of the GUI is a high-level process and it's a really important process, because
+it will determine a lot of the usability and the user experience of people who
+are customers to your application. So it's really crucial, not the focus of
+this course, but when it comes down to implementing a design, you can use
+all sorts of different libraries and they'll all provide
+the similar functionality, and the way that they'll provide that
+functionality is through documentation. And so what we'll be talking about
+in the rest of the videos that come, is how to use that documentation in order
+to create this really cool application.

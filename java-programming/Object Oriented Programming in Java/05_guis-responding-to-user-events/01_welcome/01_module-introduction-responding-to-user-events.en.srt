@@ -1,0 +1,13 @@
+1
+00:00:00,070 --> 00:00:06,162
+[MUSIC].
+
+2
+00:00:06,162 --> 00:00:09,011
+In this module,
+we'll be talking about events and
+
+3
+00:00:09,011 --> 00:00:12,134
+increase the complexity of
+the programs that we build.

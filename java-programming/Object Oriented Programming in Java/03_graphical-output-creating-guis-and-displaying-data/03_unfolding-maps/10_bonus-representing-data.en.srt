@@ -1,0 +1,809 @@
+1
+00:00:00,053 --> 00:00:03,803
+[MUSIC]
+
+2
+00:00:03,803 --> 00:00:08,565
+All right, we're in step three of three
+of this project to visualize average life
+
+3
+00:00:08,565 --> 00:00:10,567
+expectancy around the world, and
+
+4
+00:00:10,567 --> 00:00:14,930
+in this video we're going to build on
+what we've done in the previous two.
+
+5
+00:00:14,930 --> 00:00:19,584
+So we've already set up the map, and
+we've already read in the data from
+
+6
+00:00:19,584 --> 00:00:24,469
+the CSV file, which tells us the average
+life expectancy for each country,
+
+7
+00:00:24,469 --> 00:00:29,480
+and now we want to translate that
+data into the colors of this map.
+
+8
+00:00:29,480 --> 00:00:33,920
+And so hopefully you've implemented
+everything that we've done so
+
+9
+00:00:33,920 --> 00:00:38,780
+far in Eclipse, and you're ready to get
+going and do this last piece with us.
+
+10
+00:00:38,780 --> 00:00:44,500
+So the data we need in order to annotate
+the map with this information is not only
+
+11
+00:00:44,500 --> 00:00:49,840
+the life expectancy for each country, but
+also how the countries look on the global
+
+12
+00:00:49,840 --> 00:00:56,100
+map itself, what their coordinates are and
+how they occupy space in the map.
+
+13
+00:00:56,100 --> 00:00:59,928
+So that information is located
+in a file in the data directory
+
+14
+00:00:59,928 --> 00:01:04,670
+of the unfolding maps library, and
+it's called countries.geo.json.
+
+15
+00:01:04,670 --> 00:01:08,630
+Json is an extension that indicates
+we've got formatted text.
+
+16
+00:01:08,630 --> 00:01:12,778
+Now in order to pull all of this
+information together, the geographical
+
+17
+00:01:12,778 --> 00:01:16,994
+information about the countries as
+well as their life expectancy's, we
+
+18
+00:01:16,994 --> 00:01:21,822
+want to design some objects, or use some
+predefined objects, that help us organize
+
+19
+00:01:21,822 --> 00:01:26,590
+both geographical locations and features,
+or properties, of these locations.
+
+20
+00:01:26,590 --> 00:01:31,630
+So what we're going to think about are the
+underlying groupings of the properties and
+
+21
+00:01:31,630 --> 00:01:35,760
+locations as distinct from their
+visual representations on the map.
+
+22
+00:01:35,760 --> 00:01:38,132
+And in fact unfolding as a library,
+
+23
+00:01:38,132 --> 00:01:42,840
+has some classes that are able to
+manage that distinction for us.
+
+24
+00:01:42,840 --> 00:01:46,080
+So when we're just thinking about
+a particular location in the world and
+
+25
+00:01:46,080 --> 00:01:51,240
+it's associated properties,
+we wanted to find or use the type feature.
+
+26
+00:01:51,240 --> 00:01:56,420
+So use objective type feature for
+talking about locations with properties.
+
+27
+00:01:56,420 --> 00:01:59,820
+But then when we want to translate those
+into some sort of visual representation on
+
+28
+00:01:59,820 --> 00:02:04,550
+the map, then we could use the marker
+class in the unfolding library, which then
+
+29
+00:02:04,550 --> 00:02:10,020
+lets us style how these properties might
+impact what we display on the map.
+
+30
+00:02:11,100 --> 00:02:15,090
+So let's think about how we are going
+to store all of this information,
+
+31
+00:02:15,090 --> 00:02:17,730
+because we have a lot of countries, and so
+
+32
+00:02:17,730 --> 00:02:22,960
+we want to have a list of features,
+and also a list of markers.
+
+33
+00:02:22,960 --> 00:02:26,600
+So this is another example
+of an abstract data type.
+
+34
+00:02:26,600 --> 00:02:32,070
+In the previous video, we saw the abstract
+data type math, which let us store
+
+35
+00:02:32,070 --> 00:02:37,440
+pairs of pieces of information,
+pairs of objects, and now we've got lists.
+
+36
+00:02:37,440 --> 00:02:39,870
+And lists are relevant whenever we want
+
+37
+00:02:39,870 --> 00:02:43,560
+a collection of objects that
+are ordered in some way.
+
+38
+00:02:43,560 --> 00:02:46,420
+Okay, so we've already seen
+other examples of lists.
+
+39
+00:02:46,420 --> 00:02:49,099
+For example,
+when you think about ArrayLists,
+
+40
+00:02:49,099 --> 00:02:52,050
+then that's a particular
+implementation of a list.
+
+41
+00:02:52,050 --> 00:02:56,898
+And we'll talk more about this data
+type and its implementations later,
+
+42
+00:02:56,898 --> 00:03:00,492
+but for now,
+we want to think about a list of features,
+
+43
+00:03:00,492 --> 00:03:03,400
+each one associated with a country.
+
+44
+00:03:03,400 --> 00:03:09,060
+So, in our output we're going to
+think about all of the countries,
+
+45
+00:03:09,060 --> 00:03:13,690
+each of the countries has associated
+its life expectancy in some
+
+46
+00:03:13,690 --> 00:03:16,990
+other pieces of information, and so
+each of that is going to be a feature.
+
+47
+00:03:16,990 --> 00:03:20,132
+We're going to have a feature object for
+each country, and
+
+48
+00:03:20,132 --> 00:03:23,880
+we'll store them all,
+all of those feature objects in a list.
+
+49
+00:03:25,700 --> 00:03:30,390
+Similarly, we'll have an marker object,
+a different marker object for
+
+50
+00:03:30,390 --> 00:03:35,600
+each one of our markers, for
+each one of our countries, and so,
+
+51
+00:03:35,600 --> 00:03:40,260
+in our class we need to
+declare a list of features and
+
+52
+00:03:40,260 --> 00:03:42,670
+a list of markers, and
+this is how we do it.
+
+53
+00:03:44,250 --> 00:03:48,870
+Now, instead of just declaring
+that's not good enough,
+
+54
+00:03:48,870 --> 00:03:53,130
+if we want to work with these objects,
+we've declared them but now we need to
+
+55
+00:03:53,130 --> 00:03:58,170
+build them, and so we need to create
+one feature and one marker per country.
+
+56
+00:03:59,230 --> 00:04:03,050
+So here's the code that we might
+include in our setup method to do so.
+
+57
+00:04:03,050 --> 00:04:05,670
+We're not gonna go into the details
+of how this goes about.
+
+58
+00:04:05,670 --> 00:04:10,450
+We're using helper methods that are
+provided by the UnfoldingMaps library, and
+
+59
+00:04:10,450 --> 00:04:15,022
+these are standard methods that you will
+use in your project and thread when you
+
+60
+00:04:15,022 --> 00:04:20,650
+want to create features and markers for
+a list of countries that you already have.
+
+61
+00:04:20,650 --> 00:04:25,670
+Once we have these features and markers,
+we want to add them to the map,
+
+62
+00:04:25,670 --> 00:04:28,200
+which means that we display the markers,
+but
+
+63
+00:04:28,200 --> 00:04:32,030
+not only do we want to add them to the
+map, we want to manipulate them, and what
+
+64
+00:04:32,030 --> 00:04:38,640
+we'd like to do is shade them based on
+the colors, based on the life expectancy.
+
+65
+00:04:38,640 --> 00:04:42,440
+Okay, so let's dig deeper into what
+this shading will look like, and
+
+66
+00:04:42,440 --> 00:04:46,640
+we've defined a new helper method that
+will let us do that in some detail.
+
+67
+00:04:47,740 --> 00:04:49,160
+Okay so this is our helper method,
+
+68
+00:04:49,160 --> 00:04:52,280
+remember that our rule of thumb is that
+they are private unless there's a reason
+
+69
+00:04:52,280 --> 00:04:55,270
+to open it up to the world,
+we're going to keep it private.
+
+70
+00:04:56,460 --> 00:04:59,170
+And what we're going to do is go through
+all of the markers that we created,
+
+71
+00:04:59,170 --> 00:05:02,380
+remember there's one marker for
+each country.
+
+72
+00:05:02,380 --> 00:05:06,970
+And what we'd like to do is for each of
+the markers, for each of the countries and
+
+73
+00:05:06,970 --> 00:05:11,920
+their associated markers, we're going
+to decide how to color the marker, and
+
+74
+00:05:11,920 --> 00:05:15,650
+the coloring is going to
+depend on the life expectancy.
+
+75
+00:05:15,650 --> 00:05:18,130
+Now, that life expectancy is a number.
+
+76
+00:05:18,130 --> 00:05:21,300
+The number's typically between 45 and
+90, and
+
+77
+00:05:21,300 --> 00:05:25,170
+that number is stored in
+the map data structure, right?
+
+78
+00:05:25,170 --> 00:05:27,645
+We can access it by saying, hey map,
+
+79
+00:05:27,645 --> 00:05:31,055
+I would like the value
+associated with a key country.
+
+80
+00:05:31,055 --> 00:05:36,065
+And so if we pass as
+an argument to the get method
+
+81
+00:05:36,065 --> 00:05:42,255
+of the map the countryID, or the string
+that has that countryID, and then the map
+
+82
+00:05:42,255 --> 00:05:46,695
+object gives us back the value associated
+with that key and that's a float.
+
+83
+00:05:47,890 --> 00:05:53,537
+Once we have that number, well we'd like
+to translate that number to a color,
+
+84
+00:05:53,537 --> 00:05:58,843
+and this is where I apologize, because
+not only do we have two ways of using
+
+85
+00:05:58,843 --> 00:06:03,920
+the word map in this sequence of videos,
+we now are including a third.
+
+86
+00:06:03,920 --> 00:06:06,920
+So let's think back to all
+of the maps that we've used.
+
+87
+00:06:06,920 --> 00:06:10,590
+We've got the global map,
+the picture, the map of the world.
+
+88
+00:06:10,590 --> 00:06:15,320
+We've got maps of data structure,
+which associates keys with values.
+
+89
+00:06:15,320 --> 00:06:17,110
+And now we've got map the method, and
+
+90
+00:06:17,110 --> 00:06:21,820
+this is a built in method in the library
+and it's a really useful one.
+
+91
+00:06:21,820 --> 00:06:28,300
+So this method map lets us take
+a number in a predefined range,
+
+92
+00:06:28,300 --> 00:06:34,100
+and map it into its comparable location
+in a different range of values.
+
+93
+00:06:34,100 --> 00:06:37,030
+So in this particular instance,
+we're taking
+
+94
+00:06:37,030 --> 00:06:40,720
+the number which is life expectancy of the
+country that we're currently focusing on.
+
+95
+00:06:40,720 --> 00:06:45,620
+And we know that the life expectancy
+ranges from between 40 in countries
+
+96
+00:06:45,620 --> 00:06:50,680
+with the lowest average life
+expectancy to 90 at the top end, and
+
+97
+00:06:50,680 --> 00:06:53,850
+we'd like to translate that to
+something to do with color.
+
+98
+00:06:53,850 --> 00:06:56,910
+And if you think back to
+a couple of videos ago,
+
+99
+00:06:56,910 --> 00:07:01,670
+when we first introduced colors and
+the RGB codes for colors,
+
+100
+00:07:01,670 --> 00:07:07,790
+remember that those RGB channels had
+minimum value zero and maximum value 255.
+
+101
+00:07:07,790 --> 00:07:13,320
+So we'd like to translate the range 40
+to 90 over to the range of zero to 255,
+
+102
+00:07:13,320 --> 00:07:18,180
+so we're in a range of numbers that's
+more compatible with color codes,
+
+103
+00:07:18,180 --> 00:07:20,120
+and this map method lets us do just that.
+
+104
+00:07:21,270 --> 00:07:23,420
+Okay, so we invoke it.
+
+105
+00:07:23,420 --> 00:07:28,440
+What we get back from it is a float, and
+we're going to cast it to an integer,
+
+106
+00:07:28,440 --> 00:07:32,400
+because for the RGB colors,
+we just deal with integers.
+
+107
+00:07:32,400 --> 00:07:38,450
+So in the RGB coding of
+colors we want an integer
+
+108
+00:07:38,450 --> 00:07:43,220
+between zero and 255 for each of the three
+color channels, red green and blue.
+
+109
+00:07:43,220 --> 00:07:47,730
+All right so, we've translated the life
+expectancy of the country that
+
+110
+00:07:47,730 --> 00:07:52,205
+we're focusing on to some
+integer value between zero and
+
+111
+00:07:52,205 --> 00:07:57,340
+255, and what we'd like to do is,
+countries that have really
+
+112
+00:07:57,340 --> 00:08:02,050
+low life expectancy relatively speaking
+are going to be colored bright red.
+
+113
+00:08:02,050 --> 00:08:06,840
+So bright red means that the red
+channel should be at highest possible,
+
+114
+00:08:06,840 --> 00:08:08,490
+somewhere around 255.
+
+115
+00:08:08,490 --> 00:08:12,970
+And if we want the countries
+that have very high life
+
+116
+00:08:12,970 --> 00:08:17,550
+expectancy to be colored bright blue, then
+for those the blue should be high, 255,
+
+117
+00:08:17,550 --> 00:08:21,170
+and all the other channels
+should be pretty low, and so
+
+118
+00:08:21,170 --> 00:08:25,880
+we can define the color of
+the marker appropriately.
+
+119
+00:08:25,880 --> 00:08:31,040
+So the red channel is going to be
+the first argument of the color method,
+
+120
+00:08:32,170 --> 00:08:36,270
+and it's going to be 255 minus
+the number that we just calculated.
+
+121
+00:08:36,270 --> 00:08:40,980
+So if the color level that we calculated
+is zero, then the color that we're setting
+
+122
+00:08:40,980 --> 00:08:45,108
+our marker to is going to be very
+close to 255, it's gonna be 255.
+
+123
+00:08:45,108 --> 00:08:49,940
+So it's gonna be a very, very red marker,
+and the other two arguments are going to
+
+124
+00:08:49,940 --> 00:08:53,650
+be very low, and so
+we'll see that bright red color.
+
+125
+00:08:53,650 --> 00:08:59,100
+And on the other side,
+if the color level that we calculated
+
+126
+00:08:59,100 --> 00:09:03,580
+corresponds to a really high life
+expectancy, then we're gonna get a large
+
+127
+00:09:03,580 --> 00:09:08,440
+number, which means that the red channel,
+that first argument to the color method,
+
+128
+00:09:08,440 --> 00:09:11,950
+will be very low, and so
+our marker will be a bright blue.
+
+129
+00:09:13,100 --> 00:09:17,950
+Now, think back about this logic
+that you see in this code,
+
+130
+00:09:17,950 --> 00:09:20,830
+and we have an if else in there, and
+
+131
+00:09:20,830 --> 00:09:27,310
+if that if else is dependent
+on the conditional statement
+
+132
+00:09:27,310 --> 00:09:33,370
+if lifeExpMap.containsKey(countryId),
+well what on Earth does that mean?
+
+133
+00:09:33,370 --> 00:09:39,280
+It could be that the marker that
+we're looking at currently has
+
+134
+00:09:39,280 --> 00:09:44,670
+a country ID that doesn't show up
+in the file of life expectancy's.
+
+135
+00:09:44,670 --> 00:09:48,904
+It could be that when the World Bank
+put together all of their data on life
+
+136
+00:09:48,904 --> 00:09:52,859
+expectancy's, they weren't able
+to reach the statistics of one
+
+137
+00:09:52,859 --> 00:09:57,732
+particular country and we don't want our
+code to crash just because we don't have
+
+138
+00:09:57,732 --> 00:10:00,300
+information about a particular country.
+
+139
+00:10:00,300 --> 00:10:04,153
+So what we're going to do is check,
+we're gonna ask our map,
+
+140
+00:10:04,153 --> 00:10:08,969
+the map that associates countries with
+life expectancy if they actually have
+
+141
+00:10:08,969 --> 00:10:12,840
+a value of life expectancy for
+the country that we care about.
+
+142
+00:10:12,840 --> 00:10:16,359
+And if there is such a life expectancy for
+the country we care about,
+
+143
+00:10:16,359 --> 00:10:19,445
+then we go ahead and
+do our calculation that we just did, and
+
+144
+00:10:19,445 --> 00:10:21,630
+we color the marker appropriately.
+
+145
+00:10:21,630 --> 00:10:25,230
+But if we don't, then we want to have
+some sort of default setting for
+
+146
+00:10:25,230 --> 00:10:27,000
+what that color's going to be, and
+
+147
+00:10:27,000 --> 00:10:32,700
+remember when Christine was talking in her
+supplementary video about color codes,
+
+148
+00:10:32,700 --> 00:10:37,130
+she mentioned that if we set
+all three colors, R, G, and
+
+149
+00:10:37,130 --> 00:10:40,400
+B to the same value,
+then what we get is a shade of grey.
+
+150
+00:10:40,400 --> 00:10:43,970
+So our default color for the marker is
+just going to be a shade of grey if we
+
+151
+00:10:43,970 --> 00:10:48,170
+don't happen to have information about the
+life expectancy of a particular country.
+
+152
+00:10:50,030 --> 00:10:52,020
+All right, we've done it.
+
+153
+00:10:52,020 --> 00:10:55,440
+What we've done now is we've
+colored the whole world
+
+154
+00:10:55,440 --> 00:10:58,020
+based on the data in
+the life expectancy file.
+
+155
+00:10:58,020 --> 00:11:02,085
+And what's really powerful about
+the techniques that we've gone through in
+
+156
+00:11:02,085 --> 00:11:06,588
+these three videos, is that really most of
+what we're talking about doesn't depend
+
+157
+00:11:06,588 --> 00:11:09,670
+on the fact that we're talking
+about life expectancies.
+
+158
+00:11:09,670 --> 00:11:15,300
+Any time we have a data file that tells us
+some values associated with country IDs.
+
+159
+00:11:15,300 --> 00:11:17,812
+We could do exactly the same process and
+
+160
+00:11:17,812 --> 00:11:22,010
+color the world based on all sorts
+of other information and data.
+
+161
+00:11:22,010 --> 00:11:26,170
+So I hope now you're excited about
+doing these kinds of projects.
+
+162
+00:11:26,170 --> 00:11:27,694
+What you might wanna do is look for
+
+163
+00:11:27,694 --> 00:11:30,259
+additional data sets about
+things that you care about.
+
+164
+00:11:31,460 --> 00:11:34,244
+Or, you could also punch right
+back into your project and
+
+165
+00:11:34,244 --> 00:11:38,248
+think about how to use these techniques
+when you're customizing your markers and
+
+166
+00:11:38,248 --> 00:11:41,340
+displaying the data that you're
+working with in the project.

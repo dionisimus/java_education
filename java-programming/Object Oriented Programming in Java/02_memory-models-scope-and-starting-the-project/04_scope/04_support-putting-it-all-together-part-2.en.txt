@@ -1,0 +1,108 @@
+[SOUND] So welcome back. Before we do the big reveal and say what
+actually happened, let's sift through and see if we can predict it. Okay, so stepping through the code means we have
+to run together through the main method. And we're gonna pretend to be
+the computers running this code. Okay, so the first thing that we have to
+do is we're declaring the variable coords. And so using our memory models,
+that means that we need to write the word coords next to a box
+in the scope of the main method. And what we want in that box
+is a reference to a new array that is initialized to the values
+5.0 in index 0, and 0.0 in index 1. Okay, so
+the coords variable is in Main's scope and the array object that we
+created is in The Heap. And so, what's stored in the box for coords is a reference to the array. Okay, what's important here,
+what's important to keep in mind is that an array is not a primitive type,
+it's an object type. Okay so, so far, here's our memory model
+and we've gone through one line of code. Now we get to the line of code that
+we will spend the most time on, and this is when we now declare
+the variable accra. And this variable is going
+to be of type ArrayLocation, which means that what we want to do is, still in our Main's scope,
+draw a box with accra. And what we're going to fill in
+there is a reference to an object. But in order to refer to an object,
+an object needs to be constructed. And that's what that keyword new is doing. It's saying hey, I want a new object. And the kind of object that I want
+is the ArrayLocations object. And so I have to go to
+the ArrayLocation class and see that in The Heap, I'm going to
+have an ArrayLocation instance. And the instance variables associated
+with that ArrayLocation instance, while they're listed right there in the class
+definition, and I need a coords variable. And now I'm going to go ahead and
+follow the constructor to initialize the variables
+in the instance that I have of the object that I have
+of type ArrayLocation. So in the constructor's scope, I have
+another variable that's called coords. And that's my local variable for the constructor method that is
+the parameter to that constructor method. So, the constructor ArrayLocation has, as a parameter,
+a variable that's called coords. And what we do in this constructor. Oh, sorry. Going back. Before we go ahead and
+see what's in the meat of the constructor, we have to see what the value
+of that parameter is. So let's think about what's
+passed into the ArrayLocation constructor when we were
+in the main method. When we were in the main method, what
+we passed into a relocation is coords. Aah! Too many coords. We can take care of it. We know what to do by
+looking at the memory models. The coords that's a parameter
+to the constructor is the variable in Main's scope. And so the red arrow is what needs
+to be copied into the value of the variable in the constructor's scope. And so now the constructor's
+scope coords variable also points to the variable,
+to the array that we had in The Heap. All right, so when we call
+the ArrayLocation constructor, what we're doing is we're creating
+a new scope for the constructor. We've got a variable in there that
+is the parameter to that method. And that variable is initialized
+to the value that was passed in, which was a reference to
+the array in The Heap. Okay, so now we need to remember one more
+thing when we have a constructor, and that is that we want a variable as well
+in the constructor's scope called this. And what this does is point
+to the location in The Heap where we've allocated space for
+the object that we're creating. And remember that when we finish with
+a constructor, what we'll be returning to Main is that reference to the object
+that we've just made and initialized. Okay, so here's our picture so far. And now let's figure out what's happening
+when we actually execute the code in the ArrayLocation constructor and try to initialize the variables
+in the object that we've created. So the one line of code in that
+constructor is an assignment, this.coords = coords. So what we're trying to do is,
+we're trying to assign the value on the righthand side to the thing
+on the lefthand side. And so,
+on the righthand side we just have coords. But we're in the constructor's scope,
+so that variable is the circled variable coords that has that red reference that's
+pointing to the array in The Heap. And what we're doing is we're copying
+that reference to this.coords. So remember when we have a dot, that means that we can find
+the variable by following the arrows. So we look at where this points to, and this points to the object of
+type ArrayLocation in The Heap. And what we're doing is we're setting
+the value of the variable coords in that object scope. So this.coords, that variable in The Heap that belongs to the object
+is going to now point to the array in The Heap that was pointed to
+also by coords in the constructor's scope. So we have all of these arrows,
+references pointing to the same array. But notice that we're still missing one. We've got one box empty. And so, we're going to want
+to fill in that box, but we're going to be able to do that. And let's think about how that happens. So, let's think about what's gonna happen,
+now that we've executed the one line of code in the constructor
+and finished with the constructor. So we're done the constructor and
+what happens now is that the reference that was contained in the this
+variable in the constructor gets copied into the variable that
+gets assigned the new object. Okay, so that yellow arrow is now
+allowing the variable accra to point the object that
+we created in The Heap. But also we have to do a couple of things
+when we finish executing the constructor. We notice also that once
+the method finishes and returns its value, its scope goes away. And all variables associated
+with it just go away. And so, we can erase it from our memory,
+erase it from our memory model. We don't need to think about it anymore. Okay, so we finished our constructor. Our memory model is now a little bit
+cleaner and we have in our Main's scope a couple of variables and they
+point to a couple of things in The Heap. And so, now let's think about what happens
+as we continue executing the main method. So we go ahead and
+we try to set the value at the first position in the coords array,
+so at index 0. And we're setting it to 32.9. And so, what we're doing is we're saying,
+let's look at coords in Main's scope. And we're setting the value at
+the first position there to 32.9. Cool, we can do that. Similarly, we look at that same
+reference to the same array and we change its second position at index 1. Cool, we did that. But now, let's think about what
+happens when we print accra.coords. Its value at its index is 0. And so, when we think about that number, well we need to find it
+by following the arrows. So we go to the variable accra,
+and it's got a reference. And so, when we say accra.coords, we want to follow the reference from
+accra all the way over to its object, and look at the variable in
+that object's scope coords. And that coords is also pointing to
+the same array that we had in The Heap. And so, notice what we get output is 32.9. Okay, pause and think. There's something weird happening. Right, we wanted to store in the accra
+object the coordinates of accra. But then, we were able to do
+something outside that object, without any setter methods, without
+going into the variables of that object. And without doing that, we were able to change the value of
+the instance variables in that object. And that is not a good thing. So this is what happens
+when we're too loose about using object type variables as
+opposed to primitive type variables. They can change on us without us
+intending to have them change. And so the moral of this example is a,
+memory models help us in actually tracing through code and
+figuring out what happens. And b, when we have objects, and basically object types which include
+arrays, something that's not primitive, then we really have to worry about what
+is allowed to refer to that object. And how can its values change,
+in perhaps unintended ways. Okay, so hopefully, you feel like you
+can do this yourself as well with any example that's thrown at you. This is a tricky one, so if you need
+to go back and look at it again, do. But now you're ready to go,
+continuing on with this module and beyond.

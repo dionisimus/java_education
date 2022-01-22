@@ -1,0 +1,29 @@
+[APPLAUSE]
+So in this support video, we're going to take our work from the
+previous one, we've traced through some code, and right now what we'd like to do
+is test it and test our understanding. So by the end of this video
+you'll be able to write testeing code to verify the output of your
+trace of some Java code execution, and you'll be able to use
+Eclipse to run that code. So make sure that you got Eclipse open and we can work together as we're
+developing the testing code. So we start with an example and
+this is a piece of code that we used in the previous video and
+we've used memory models to understand and to conjecture what's going to happen
+at the end of running this code. So doing that,
+if you think back to the previous video, you saw that we used memory models
+to expect that the system will print var1: 19, var2: 18. Okay, great, we've made this guess. We're pretty confident. We know how to use memory models. But we'd still like to check. And when we get to more complicated code
+that we've traced through it's good to have another way of
+checking our understanding. And so a very good technique to doing so would be to put the code into
+a program that we can actually run. All right, so what that means is that
+our code needs to be in a class, because in Java everything is in classes. And so we can create a new file in
+Eclipse and call that file, for example, IntAssignmentTester.java. Tester is indicating to ourselves
+that this is a testing class. And so we define a new class,
+public class IntAssignmentTester. Remember that the class name
+has to match the file name, and then, in the main method for that class,
+we stick the code that we want to test, because when we run the code for this class, we know that the main method
+is going to be what's being executed. Okay, so we've defined this new file. We've put the code that we want
+to test into the main method. And now in Eclipse we can run the code. And so remember that in order to run code
+in Eclipse we have at least two choices. We can use the icon that has the white
+triangle and the green circle. Or you can go into the Run menu and
+run the code in that way. And then in the window right
+underneath where we put in the code, we'll be able to see the output. And be really happy,
+because it matches what we expected.

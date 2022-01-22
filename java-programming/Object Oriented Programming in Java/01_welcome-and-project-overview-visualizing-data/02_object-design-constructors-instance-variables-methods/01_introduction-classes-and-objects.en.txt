@@ -1,0 +1,7 @@
+[MUSIC] Now that we've given you an overview
+of the various features of our course, what we're going to do now is
+just dive straight into objects. Now, for some of you, this may be a bit of
+a review, and we're providing this just so that we're all on the same
+page going forward. But if you feel like it's
+too much of a review, feel free to skip ahead to the practice
+quiz at the end of the week.

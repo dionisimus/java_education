@@ -1,0 +1,69 @@
+[MUSIC] Hi, and welcome back to our module
+on Polymorphism Inheritance in Java. Today we'll be talking about method
+overriding and you've already used method overriding when you did draw and
+set up methods back when you designed your GUI but here we're gonna dive into
+method overriding in a bit more detail. So goal here today is where the create
+methods are override from superclass methods and will the contrast
+overloading from method overriding. Back when we first started talking
+about inheritance we had three goals. And overriding really
+helps us has all three. So we wanna have common
+code in one pairing class. We do this if we don't override a method. So if a method just exists in
+the superclass we get back common code. But if we want our subclasses
+to behave differently all we have to do is override a method and
+now we get that different behavior. And because polymorphism which we'll
+get to in the next set of videos we'll see that this allows us to have
+all of our object in one structure and still be able to call
+the appropriate method. It's really common for
+new learners to mix up overloading and overriding so I want to talk just real
+quickly about overloading and overriding. Overloading is the same class that has the
+same method name but different parameters. So this is a different method signature,
+within the same class. This is different then method overriding,
+where you have a subclass that has same method signature, which means same name,
+same parameters as a super class. So now let's start looking at some
+more detail with a few examples. So first example is to look
+at the object class itself. So we have a method in the outer
+class called toString. And the odds are you probably already
+ran toString method before, but if you haven't,
+toString prints the contents or string representation of an object. Because it's in the object class,
+all objects in Java can override it. So let's do this for our hierarchy. So we have our person class at the top,
+It has a name and a getName and we're going to
+add the toString method to it. To do so we're going to override the that
+object method's toString method. Now, a really basic way to do this would
+be to just return the name and since we already have right now in our person class
+is name, this is really all we can do. And then in our code that calls it,
+we're gonna create a Person p, we're gonna create a person that has the name Tim and
+then we're gonna call this method. So you just do System.out.println and
+put p.toString and that will return a string and
+that is what we want. And it doesn't call
+the object two string method, it's going to call the person two
+string method because of override. Now it turns out that two string here
+in this context is unnecessary because print line actually automatically
+calls toString if you ever pass an object as a parameter to print line. So I'm gonna just display
+it this way from here on. Now if we run this code, what's going to
+happen is it's just going to print Tim. All right, well let's add to
+our inheritance hierarchy. Now I'm gonna go to my student class
+where we've already added a student ID. And I get student ID and now we're
+going to add the method toString. Here's the code to essentially
+have that student ID and the ability to get access to it. And now what I want, is I wanna be
+able to print a student ID number followed by the information
+about the person. And my first version of this code
+will look something like this. So return this getSID then a colon,
+and then this.getName. And the concern I would have here
+is what if the person changes. So the only reason I wrote this dot
+getName right now is because I know that's person does. So if you try to call toString on person,
+it prints the name. But Person could change. So this really isn't
+the right way to do it. What I want to do instead is call
+the toString method within Person and to do that I wanna use that super keyword, just like we saw from the constructors to
+say, I want the method from my superclass. So now, if we walk through this code
+I'm gonna use Student s = new Student. I'm gonna print out that which is
+gonna call the toString method. A question is what do we
+expect to see happen. Well, we expect to see the student
+ID number now followed by the name, which is exactly what we
+wanted to have happen. What happens now if I
+change the referencing? What if I make the reference
+a Person instead of a Student? And I still pass, I still try to
+call s.toString, on that Person. Is it gonna call the Student
+to string method or is it gonna call the person
+to string method? Well what do we want to have happen? We want to have it print out
+the student information, which is exactly what it does. Why is it gonna print the student method? Because of polymorphism, and
+we'll get into that in the next lesson.

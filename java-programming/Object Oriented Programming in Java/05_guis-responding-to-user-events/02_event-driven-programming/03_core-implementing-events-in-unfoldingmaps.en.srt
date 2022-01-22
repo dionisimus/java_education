@@ -1,0 +1,354 @@
+1
+00:00:03,990 --> 00:00:07,310
+[SOUND] In the previous video we
+introduced event driven programming.
+
+2
+00:00:07,310 --> 00:00:11,860
+And what we'll do now is trace
+through some code that uses events.
+
+3
+00:00:11,860 --> 00:00:16,790
+So by the end of this video you will have
+experience at tracing the execution of
+
+4
+00:00:16,790 --> 00:00:20,020
+a piece of code that has both some
+procedural elements to it and
+
+5
+00:00:20,020 --> 00:00:21,359
+also some event driven code.
+
+6
+00:00:22,860 --> 00:00:25,800
+Well I'd like to start with an example
+that should be completely familiar
+
+7
+00:00:25,800 --> 00:00:26,800
+at this point.
+
+8
+00:00:26,800 --> 00:00:30,900
+We've been playing a lot with maps and
+setting them up and displaying them.
+
+9
+00:00:30,900 --> 00:00:35,050
+And so when we have this piece of
+code remember that what we see is
+
+10
+00:00:35,050 --> 00:00:38,380
+a map with a border around
+it of grey in the canvas.
+
+11
+00:00:38,380 --> 00:00:42,260
+And when we think about how this
+piece of code is being executed,
+
+12
+00:00:42,260 --> 00:00:47,490
+we set up our canvas once, as so the setup
+method is executed once, and then
+
+13
+00:00:47,490 --> 00:00:51,060
+what our applet does is it continuously
+loops and runs the draw method.
+
+14
+00:00:52,090 --> 00:00:55,680
+Okay, now let's try to jazz
+it up a little bit and
+
+15
+00:00:55,680 --> 00:00:58,850
+add an additional method to our class.
+
+16
+00:00:58,850 --> 00:01:01,376
+So right after we've
+defined the draw method,
+
+17
+00:01:01,376 --> 00:01:05,102
+we're going to stick in these four
+lines of code and pause the video for
+
+18
+00:01:05,102 --> 00:01:08,970
+a second and think about what the impact
+of this new method is going to be.
+
+19
+00:01:12,050 --> 00:01:15,654
+One thing to think about is,
+when this method will be executed,
+
+20
+00:01:15,654 --> 00:01:20,690
+and the second thing to think about is
+what the effect of that execution will be.
+
+21
+00:01:20,690 --> 00:01:23,680
+So let's start with the second question
+because it's a little bit easier.
+
+22
+00:01:23,680 --> 00:01:28,580
+Let's think about what will happen if we
+were to run this method and what we notice
+
+23
+00:01:28,580 --> 00:01:34,340
+here is that the key part is
+the background color guest change.
+
+24
+00:01:34,340 --> 00:01:38,350
+So remember that the background method
+that we're calling inside key pressed.
+
+25
+00:01:38,350 --> 00:01:42,850
+Is the way that we have through processing
+to change the background color of our
+
+26
+00:01:42,850 --> 00:01:43,860
+canvas.
+
+27
+00:01:43,860 --> 00:01:47,680
+And what we're doing here is setting that
+background color to 255, 255 ,255 and
+
+28
+00:01:47,680 --> 00:01:52,090
+that's our code for all white.
+
+29
+00:01:52,090 --> 00:01:55,400
+Because the three color channels
+are set to their maximum.
+
+30
+00:01:55,400 --> 00:01:57,920
+R, G, and
+B are all at their maximum value, and
+
+31
+00:01:57,920 --> 00:02:00,400
+that means that we have
+a pure white color.
+
+32
+00:02:00,400 --> 00:02:02,870
+And so, if this method is executed,
+
+33
+00:02:02,870 --> 00:02:06,940
+what we expect to see is that
+the background of the canvas is all white.
+
+34
+00:02:06,940 --> 00:02:09,510
+Something like this
+picture that you see now.
+
+35
+00:02:09,510 --> 00:02:14,200
+But then we go back to the question of
+when this method actually gets executed.
+
+36
+00:02:14,200 --> 00:02:18,430
+And if we think back about our
+model of the setup method being run
+
+37
+00:02:18,430 --> 00:02:20,410
+once at the beginning of
+running the applet, and
+
+38
+00:02:20,410 --> 00:02:23,510
+then the drama method
+being continuously run.
+
+39
+00:02:23,510 --> 00:02:28,080
+Then it's not clear if keyPressed will
+ever be executed because we don't
+
+40
+00:02:28,080 --> 00:02:32,420
+call keyPressed explicitly from
+anywhere else in our application.
+
+41
+00:02:32,420 --> 00:02:35,760
+We don't call keyPressed for
+example from the draw method.
+
+42
+00:02:36,910 --> 00:02:41,420
+The thing is though that our
+application is acting as a listener.
+
+43
+00:02:41,420 --> 00:02:45,470
+Not only is it doing that flow of
+execution of running setup and
+
+44
+00:02:45,470 --> 00:02:49,620
+then continuously leaping through drop but
+it's also in the background listening for
+
+45
+00:02:49,620 --> 00:02:50,810
+user effects.
+
+46
+00:02:50,810 --> 00:02:55,900
+So it's trying to see if the user's trying
+to interact with the program in some way.
+
+47
+00:02:55,900 --> 00:02:59,180
+And the kind of events that it's
+looking for are keyboard presses,
+
+48
+00:02:59,180 --> 00:03:03,530
+mouse clicks, multi-touch actions.
+
+49
+00:03:03,530 --> 00:03:08,730
+And so the program is going to be able to
+react to any of those kinds of events.
+
+50
+00:03:10,760 --> 00:03:16,230
+However, we don't need to worry about
+handling all of those events ourselves.
+
+51
+00:03:16,230 --> 00:03:22,940
+In our unfolding maps library we
+already have a default EventDispatcher.
+
+52
+00:03:22,940 --> 00:03:27,180
+So just by including this line
+of code in our setup method what
+
+53
+00:03:27,180 --> 00:03:32,110
+we're telling our application is we'd like
+our application to be interactive and
+
+54
+00:03:32,110 --> 00:03:33,370
+so, do what I'm telling you.
+
+55
+00:03:33,370 --> 00:03:37,640
+Set up the canvas the way I'm saying,
+draw what I want, but also listen for
+
+56
+00:03:37,640 --> 00:03:40,210
+any of the default events
+that you have in mind.
+
+57
+00:03:40,210 --> 00:03:46,360
+And the default event functionality
+that the PApplet already works with and
+
+58
+00:03:46,360 --> 00:03:47,760
+UnfoldingMaps does.
+
+59
+00:03:47,760 --> 00:03:52,730
+Is for example if the user double-clicks
+somewhere inside our map we're going to
+
+60
+00:03:52,730 --> 00:03:54,460
+increase their zoom level by one and
+
+61
+00:03:54,460 --> 00:03:58,080
+so focus in on whatever is
+at the center of the map.
+
+62
+00:03:58,080 --> 00:04:02,440
+And we can also accomplish that zoom
+level changes by hitting some plus and
+
+63
+00:04:02,440 --> 00:04:03,830
+minus buttons.
+
+64
+00:04:03,830 --> 00:04:07,010
+So that means the map that we're drawing,
+
+65
+00:04:07,010 --> 00:04:10,990
+the application that we're running, is
+going to respond to certain user inputs,
+
+66
+00:04:10,990 --> 00:04:15,780
+but we could always customize the
+interactivity by adding additional methods
+
+67
+00:04:15,780 --> 00:04:20,790
+or modifying the methods like keypress,
+that we had before.
+
+68
+00:04:20,790 --> 00:04:26,430
+What we're doing when we're writing public
+void keypress It like we did before,
+
+69
+00:04:26,430 --> 00:04:32,010
+is we're overriding the key press
+method from the super class, PApplet.
+
+70
+00:04:32,010 --> 00:04:34,910
+And so, we're using the power of
+inheritance that you talked about
+
+71
+00:04:34,910 --> 00:04:37,400
+already with Leo in the previous module.
+
+72
+00:04:39,010 --> 00:04:43,280
+Well, what we'll do in the future videos
+is think about further interactivity and
+
+73
+00:04:43,280 --> 00:04:47,530
+how we want to indicate to the user
+what they can tell the map to do and
+
+74
+00:04:47,530 --> 00:04:49,670
+how to design a good user interface.

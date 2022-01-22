@@ -1,0 +1,13 @@
+1
+00:00:00,000 --> 00:00:06,349
+[MUSIC]
+
+2
+00:00:06,349 --> 00:00:10,221
+Let's continue on to this next
+module on graphical user interfaces.
+
+3
+00:00:10,221 --> 00:00:12,932
+We'll really dive into the project and
+start building.

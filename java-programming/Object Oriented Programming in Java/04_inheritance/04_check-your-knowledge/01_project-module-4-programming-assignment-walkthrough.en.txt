@@ -1,0 +1,102 @@
+[MUSIC] As in the previous walk throughs,
+it's a good idea to make sure you watch the overview video before
+you walk through this one. The review video, again, gives you the high-level picture of what
+is being asked of you for this project. So let's just dive right
+into the write up. In this programming exam, we're gonna be
+adding new features just like we did for module three. It's a good idea to make sure you
+read through the learning outcomes, as well as the introduction. Again, just like in the last module, make sure you have these two
+references open when you're working. So what are you gonna do for
+this assignment? First is you're gonna make sure you
+find and open up the starter code. So here's our starter code for
+module four right over here. And you're gonna notice we
+have five classes in here. So that's kind of your first step. Open up these files and you may wanna check to see what
+the relationship is between them. So for example, EarthquakeCityMap. It sends p applet,
+just like it did before. But you'll notice that city marker
+is gonna extend simple point marker and so on. It's a good idea to walk through those, so
+you can figure out the class hierarchy. In the next step, you're gonna
+want a trace to the store code, predict what happens when you run it and
+then run it. Now, notice that we've made some changes
+to the code from the previous assignment. So you're gonna wanna make sure that
+you identify what those changes are. The next major step is
+implement the IsLand method in the EarthquakeCityMap class. So let's go to EarthquakeCityMap,
+you scroll down for awhile. You're gonna find there is
+a earthquake surround even more, your gonna find the IsLand method. The reason we're gonna use this is for
+this next step in the assignment, where you're trying to
+figure out whether or not an earthquake occurred in land or
+under the oceans. And if it did occur in the land, you're
+going to know what country it occurred in. And the good news is
+we've given you a method, a little bit further
+down called IsInCountry. So this is gonna allow you to essentially
+check is my earthquake occurring in this country in the process of checking that, it's actually gonna set that property
+of the country that it's part of. So if it is actually inside that country, it'll set that earthquake to be
+attached essentially to that country. You'll wanna use that in a future step. So you wanna use this method IsInCountry within your IsLand method. The next step is to implement
+your printQuakes method. The idea for the printQuakes method is
+to print out all the earthquakes that occurred in each country, as long as
+there's at least one earthquake in that country and then also print out how
+many earthquakes occurred in the ocean. You're gonna wanna use that
+country property that's attached to earthquakes
+to help solve this. The next step after you have coded
+these is just like any piece of code, you're going to test it to make
+sure it's working properly. So the way to test this is we have
+given you two tester input files called testonediadem and testtwodiadem and you
+can essentially just use those test cases to make sure you get the right output. I'm giving you the test1.out.text and text2.out.text is essentially
+the right answers to verify against. If your printQuake method and your IsLand method are working properly,
+this should work just fine. Your next step is to draw
+a UML class hierarchy. As I was showing you just before,
+you can always look in say, EarthquakeMarker to figure out. Go back to your code, look in
+EarthquakeMarker and see where it extends. So this extends a simple point marker. And we know a simple point marker, if you look in the documentation
+extends for marker. So this is the way you're essentially
+going to piece this all together with the class you'll know
+hierarchy looks like. The next step is to complete
+the method definition for the draw method within
+your CityMarker class. We're gonna wanna add all
+of the cities to the map. So this is essentially
+our goal at this point. And to do this, you're gonna
+go into your CityMarker class. You're gonna find the draw method and you're gonna find that there's
+a big TODO which says, this is where you're gonna want to draw
+a triangle to represent the CityMarker. To draw a triangle and then you have to
+think about where is the center location, which is denoted by this x and this y? And how will I draw a triangle
+essentially around that? Your next step in the project is gonna
+be completing the method definitions for drawEarthquake in
+the LandQuakeMarker class and drawEarthquake in
+the OceanQuakeMarker class. Notice that if you go
+into EarthQuakeMarker, there is a drawEarthquake method,
+that's an abstract method. So this is a method that you're gonna have
+to override within the derived classes. So both LandQuakeMarker and OceanQuakeMarker have
+to have these methods. They already have them, but
+they're essentially stubs. They don't do anything yet. So if you want to drawEarthquakes, you're
+gonna add the code to draw a circle, if you're in the LandQuakeMarker class. For the OceanQuakeMarker class,
+you wanna add the code to draw a square. Your next step is going to be
+completing the color determine method within the EarthquakeMarker class. Let's look real quickly though, at where
+that's called and then what it's gonna do. So if we pull-up our code for
+EarthquakeMarker, we have a method called draw. So this is what the EarthquakeMarker
+is gonna look like and it essentially does a few steps. It's going to call this
+colorDetermine method, which we know we have to write for
+this step. And then it calls it drawEarthquake
+method, which we wrote for the previous step. So let's look in
+the colorDetermine method. Within the colorDetermine method,
+we don't have any code yet. So what we wanna do here is figure out
+whether or not it should be red, blue or yellow and these are the colors we suggest
+based on the depth of the earthquake. If you're curious to figure
+out how to figure out depth, notice there's a bunch of helper methods
+within EarthquakeMarker class that are gonna be useful to you from getting
+the magnitude, to getting the depths. Now we're gonna talk real quickly
+about why we laid this out this way? So you have your draw method
+in the EarthquakeMarker class, which is the parent class of both
+LandQuakeMarker and OceanQuakeMarker. Because you're gonna mark and determine
+the color to be red, green or blue regardless of whether or not, it's a Land
+or an OceanQuakeMarker, it actually makes sense to put this color determination call
+in the parent class and define it there. If you try to put it in the subclasses,
+LandQuakeMarker or OceanQuakeMarker, you just write the same code twice and
+that doesn't make any sense. Back to our steps. We are almost done at this point. If you want,
+you can add this extra feature, which is a check to see if
+the earthquake has occurred recently. And if it has, then you will
+want to draw these kind of Xs. And the place you will wanna do that
+is actually, we scrolled right past it. If you wanna check to see right here,
+right after drawEarthquake, whether or not it's occurred in the last day. If it has occurred within the past day,
+you'll wanna put an X. I hope these steps help you get started. As always with these projects, you'll
+wanna work through this step by step. So go right back up to step one and
+start working through. You wanna read this fairly carefully,
+because we've tried to give you the necessary details to solve that
+part of the problem in text right here. If you do run into problems though,
+feel free to review the videos, check the forums. And again, try to have fun.

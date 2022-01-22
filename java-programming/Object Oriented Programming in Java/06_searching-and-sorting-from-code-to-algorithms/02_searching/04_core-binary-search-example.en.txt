@@ -1,0 +1,104 @@
+[MUSIC] So let's trace through an example of
+a city that's not actually in this list to see when we should
+stop the while loop and conclude that the city is not
+actually in the list at all. And the city I'm going to use is Istanbul. So let's go ahead and run the algorithm
+looking for that city, Istanbul. I start with a low of zero, high of seven,
+and that midpoint is three. So I look in position three. I see the city Essen, not Istanbul. Istanbul comes alphabetically after Essen. So I look in the greater half of the list,
+by moving my low up to be mid plus one. I'm gonna calculate a new mid value,
+look in the middle of that list. I see Montreal. Montreal is not equal to Istanbul. Istanbul is alphabetically
+less than Montreal. So I will again adjust
+my range appropriately. Now I am down to just one element. I have a range that includes only one
+element so high and low are the same. But that's okay, that's no problem. This is still a valid
+element that we can look at. This element is Lagos. And it is not equal to Istanbul, so I again conclude that I
+need to move my range. And in this case Istanbul is
+alphabetically before Lagos, so I'll change my high value to be one less
+than mid, in this case making it three. But now I'm kind of stuck. If you look at the array,
+all the elements are grayed out, so I've effectively ruled out every
+single element in this array. So how can the computer know this? Well, let's look down at our low and
+our high values. And something kind of funny has happened. Low is four, but high is three. So our low has actually gotten to
+be greater than our high value, which indicates to our algorithm,
+essentially, that we've exhausted all of
+the range that we can look at. So we've squeezed our range so
+tightly, the high and low have actually switched places and
+we're out of places to look. So at that point, we can conclude that
+the element that we're looking for is not actually in the array and
+we can simply return this null value, indicating we didn't find it. Now it's your turn again. Go ahead and finish off this code. I'm showing you a skeleton code here for
+that binary search algorithm, and you can go back to the algorithm and
+compare it to this code. One thing I'll point out is this method, compareTo, that you might
+not have seen before. What compareTo does is, it compares
+a parameter object to a calling object. In this case, it will compare
+the city name that we're looking at in that airport object
+to the toFind city name. And it will return negative
+one if the calling object, so in this case toFind or
+Istanbul is less than, alphabetically less than the city object
+in the airport, so the parameter object. And we'll return zero if
+they're the same string and it will return positive one if the city
+we're looking for, the toFind is alphabetically greater than the city
+that we passed in as the parameter. So we can use that to make our
+choice about whether we should go look at the smaller end of the array or the larger end of the array, or
+If in fact were actually done. So use that information
+to complete this code, pause the video and I'll pick up
+with you again in just a minute. All right, welcome back. Let's fill in this code. There's not too much you have to write,
+just have to write what happens in those three conditions, depending on where
+the thing you're trying to find is, relative to that mid location
+that you're looking at. So, in the first case there,
+that if compares less then zero. What that's saying is that the element
+we're trying to find, the city name we're trying to find is alphabetically less then
+the element we're looking at in our array. So we need to adjust our range, so it's in the lower half of the range
+we were previously looking at. That means we need to bring high down. So let's change our variable high so
+that it's down at mid. But not just at mid, it actually needs to be one less than
+mid because we already looked at mid. So we'll subtract one from mid and
+that's our new value of high, and then the loop's ready to start again. But if compare is greater than zero, that
+means the thing we're trying to find is alphabetically greater than
+the thing we're looking at at mid. So we need to adjust our range up. In that case,
+we need to change our low variable. So we'll change it to be equal to mid + 1. And if neither those things are true that
+means that compare is equal to zero. Which means we've found th
+element that we're looking for. In which case, we can just return
+that three letter airport code. That's all we need to do here
+in the else statement is return airports[mid].getcode(). And that's it. That's the complete code, and there you
+can see it a little bit cleaned up. Now I just want to make one
+small comment about this code. Most people if you show them this code
+if they're sophisticated programmers, they kind of cringe. They'd say, ooh,
+there's kind of a problem here. It's not really a functional problem. It's going to work correctly most of
+the time except when your data is very, very large and your numbers for
+high and low get very, very large if your array is really,
+really big. What's gonna happen is
+when you add high and low together,
+it's gonna do something called overflow. You're gonna get a number that's so big
+that you can't represent it, essentially, in Java in an integer value. So we can help guard against that
+situation by instead of adding high and low together and then dividing by two,
+what we really should be doing instead is subtracting low from high to get the
+range we're talking about, dividing that value by two and then adding it to our low
+to get it back into the correct range. So that's a better way to write this code. The other way will work as long as
+your numbers don't get too big but, to be a sophisticated programmer
+start getting in the habit of thinking about things like this. You don't ever want your integer values
+to get too big, when you can help it. So let's end going back to
+these same thought questions. So, we said before,
+in a linear search if we get unlucky we're gonna have to look through
+every single element in our array and if there are a lot of elements in
+our array, like there are a lot of words in the dictionary, that can be
+a very, very slow, cumbersome process. So, binary search is going
+to improve on that a lot. So, you notice when we were
+tracing through the algorithm, and when I was looking through the dictionary,
+that I could eliminate essentially half of the remaining choices,
+without even looking at them. Every step through the loop,
+that was great. And if I do this process repeatedly, what
+I'm doing is I'm dividing the number of things I have to look
+at in half every time. So I divide my original numbers in half,
+I have half as many. I divide that in half, half as many again. And half and half and half and half until I get down to just
+a single element that I'm looking at. And, it turns that the way
+the function that expresses, that half-half-half-half
+function is the logarithm. It's the logarithm base two. So, if I compare the function that
+represents the number of elements that I have to look at in linear search
+which is just equal to n, the number of elements that I have in
+my ray to that log base to n function. I can see that these two
+functions behave very differently. So when my n is fairly small, say two,
+32, 1024 my log is also quite small. But you know the two values
+aren't horribly different. But as n gets very, very large, you can see that a huge difference
+emerges between these two values. N grows, and it can get pretty darn big. So it can get into the billions. There are about 7.2, 7.4, depending on when you're watching this
+video, billion people on the planet. So, if you think about that in terms of N,
+7.2 billion. And log N, which really isn't that much
+more than 30, that's a huge difference. And so, these numbers are really gonna
+make a difference when we're talking about extremely large data. So that's our first taste of comparing
+basically how long these algorithms take to run, and you're gonna see much more of that in
+the next couple lessons on sorting.

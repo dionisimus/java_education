@@ -1,0 +1,420 @@
+1
+00:00:00,025 --> 00:00:04,080
+[MUSIC]
+
+2
+00:00:04,080 --> 00:00:08,340
+All right, welcome back to our module on
+inheritance and polymorphism in Java.
+
+3
+00:00:08,340 --> 00:00:11,350
+In this video, we're gonna be discussing
+abstract classes and interfaces.
+
+4
+00:00:11,350 --> 00:00:13,990
+Specifically, we're gonna be talking about
+what it means to be an abstract class or
+
+5
+00:00:13,990 --> 00:00:18,590
+an interface, and how to use
+keywords like abstract or interface.
+
+6
+00:00:18,590 --> 00:00:21,950
+We're gonna be comparing inheritance of
+
+7
+00:00:21,950 --> 00:00:24,210
+implementation against
+inheritance of interface.
+
+8
+00:00:24,210 --> 00:00:27,720
+And we're gonna give you the tools to
+help decide between abstract class, or
+
+9
+00:00:27,720 --> 00:00:30,320
+an interface,
+when designing your class hierarchy.
+
+10
+00:00:31,550 --> 00:00:35,390
+To get started, let's look at our
+hypothetical with our Person class.
+
+11
+00:00:35,390 --> 00:00:38,321
+So now we're still working in the
+university, but let's change things a bit.
+
+12
+00:00:38,321 --> 00:00:40,656
+Let's change it so we're working for
+the accounting department.
+
+13
+00:00:40,656 --> 00:00:45,752
+And here we're essentially responsible for
+handling bills and paychecks.
+
+14
+00:00:45,752 --> 00:00:46,670
+Now in this context,
+
+15
+00:00:46,670 --> 00:00:49,730
+it doesn't really make sense to have
+a generic Person object any more.
+
+16
+00:00:49,730 --> 00:00:52,440
+Right, we're only gonna be working
+either with students or faculty.
+
+17
+00:00:53,490 --> 00:00:55,960
+And we're also going to change the context
+in the sense that I want to be able to
+
+18
+00:00:55,960 --> 00:00:57,520
+send out monthly statements.
+
+19
+00:00:57,520 --> 00:01:01,020
+So, essentially,
+I wanna a method in the Person class,
+
+20
+00:01:01,020 --> 00:01:03,880
+which sends out a monthly statement
+to either students or faculty.
+
+21
+00:01:06,810 --> 00:01:10,860
+The features I'd like to have here is I'd
+like to be able to force my subclasses,
+
+22
+00:01:10,860 --> 00:01:16,360
+both my student and my faculty class,
+to override this method.
+
+23
+00:01:17,790 --> 00:01:20,320
+I'd like to stop having
+actual Person objects,
+
+24
+00:01:20,320 --> 00:01:23,060
+because they don't make sense
+in this context anymore.
+
+25
+00:01:23,060 --> 00:01:25,680
+But I'd like to keep
+having Person references.
+
+26
+00:01:25,680 --> 00:01:30,390
+And I'd also like to keep that common
+code we had, like the name of the person.
+
+27
+00:01:30,390 --> 00:01:33,500
+If I want to do all these things
+I want to use an abstract class.
+
+28
+00:01:34,570 --> 00:01:37,210
+The way to define an abstract
+class is essentially
+
+29
+00:01:37,210 --> 00:01:39,210
+just to use the keyword abstract.
+
+30
+00:01:39,210 --> 00:01:41,340
+So if I say public abstract class Person,
+
+31
+00:01:41,340 --> 00:01:46,239
+it means this class, you cannot create
+instances of objects of this type.
+
+32
+00:01:47,510 --> 00:01:50,710
+So I can't actually create
+an object of type Person, but
+
+33
+00:01:50,710 --> 00:01:53,870
+I now can create an objects of, say,
+derived classes, which are concrete.
+
+34
+00:01:57,030 --> 00:01:59,560
+If I have any method within this class,
+
+35
+00:01:59,560 --> 00:02:03,490
+be abstract then I have to make
+it the whole class abstract.
+
+36
+00:02:03,490 --> 00:02:08,620
+But what I can do then is say, have
+a public abstract void monthlyStatement.
+
+37
+00:02:08,620 --> 00:02:12,724
+I can say, my derived classes
+have to override this method.
+
+38
+00:02:12,724 --> 00:02:15,910
+It's a nice way of forcing
+the subclasses to have methods.
+
+39
+00:02:19,050 --> 00:02:21,100
+With an abstract class,
+you get two things.
+
+40
+00:02:21,100 --> 00:02:24,970
+You get to inherit both implementation and
+interface.
+
+41
+00:02:24,970 --> 00:02:27,660
+And what I mean by that is that with
+an implementation you get instance
+
+42
+00:02:27,660 --> 00:02:29,380
+variables or methods,
+
+43
+00:02:29,380 --> 00:02:33,630
+which essentially define that common
+behavior that any person should have.
+
+44
+00:02:33,630 --> 00:02:35,160
+And you also get an interface.
+
+45
+00:02:35,160 --> 00:02:39,310
+You say what methods and interests have
+to be overridden in my subclasses.
+
+46
+00:02:40,710 --> 00:02:43,830
+Now, there's gonna be times when
+you don't necessarily want both.
+
+47
+00:02:43,830 --> 00:02:46,360
+You may just want the interface.
+
+48
+00:02:47,630 --> 00:02:50,430
+If you want just the interface,
+then you're gonna use interfaces.
+
+49
+00:02:52,230 --> 00:02:55,370
+And if we go back to our example,
+I really believe an abstract class is
+
+50
+00:02:55,370 --> 00:02:58,380
+appropriate for the hypothetical
+that we were just talking about.
+
+51
+00:02:58,380 --> 00:03:01,090
+But let's say that you had no
+common code in the Person class.
+
+52
+00:03:01,090 --> 00:03:04,950
+If there's something common there,
+then you just use an interface.
+
+53
+00:03:04,950 --> 00:03:09,966
+And an interface will give us the ability
+to force subclasses to have a method,
+
+54
+00:03:09,966 --> 00:03:12,474
+to stop having actual Person objects,
+
+55
+00:03:12,474 --> 00:03:15,823
+and will allow us to keep
+having Person references.
+
+56
+00:03:18,797 --> 00:03:22,631
+Now interfaces only define
+the methods that are required, and
+
+57
+00:03:22,631 --> 00:03:26,610
+classes can inherit actually
+from multiple interfaces.
+
+58
+00:03:26,610 --> 00:03:29,900
+So you can inherit from
+an abstract class and
+
+59
+00:03:29,900 --> 00:03:33,440
+also inherit from multiple interfaces,
+all within one class.
+
+60
+00:03:35,340 --> 00:03:37,140
+So let's look at an example
+of an interface.
+
+61
+00:03:37,140 --> 00:03:41,040
+So the most common one discussed
+is the comparable interface.
+
+62
+00:03:41,040 --> 00:03:44,680
+Now comparable gives you
+the ability to compare an object
+
+63
+00:03:44,680 --> 00:03:46,198
+to another object of that same type.
+
+64
+00:03:46,198 --> 00:03:48,220
+You're gonna notice some terminology here,
+
+65
+00:03:48,220 --> 00:03:51,790
+those brackets with the E,
+that refers to Generics.
+
+66
+00:03:51,790 --> 00:03:53,880
+We'll discuss those a bit more later.
+
+67
+00:03:53,880 --> 00:03:56,420
+This allows us to compare two objects.
+
+68
+00:03:56,420 --> 00:03:58,540
+Now why would I want
+an interface like this?
+
+69
+00:03:58,540 --> 00:04:00,421
+Take a few seconds to think about it,
+I'll come back.
+
+70
+00:04:03,252 --> 00:04:04,036
+All right.
+
+71
+00:04:04,036 --> 00:04:07,400
+If you're thinking it's useful to be able
+to compare objects in case you, say,
+
+72
+00:04:07,400 --> 00:04:11,080
+wanna sort them, that's exactly
+the purpose for having Comparable.
+
+73
+00:04:11,080 --> 00:04:13,780
+So if you wanna have a data structure and
+know some way of storing and
+
+74
+00:04:13,780 --> 00:04:17,580
+ordering among those objects, comparable's
+exactly what you wanna do for the objects.
+
+75
+00:04:17,580 --> 00:04:21,210
+And the way that we would do this for
+say the Person class,
+
+76
+00:04:21,210 --> 00:04:25,880
+is to say, have the Person class
+implement a Comparable interface.
+
+77
+00:04:25,880 --> 00:04:29,470
+And then within that all I have to do
+is override that one method, compareTo,
+
+78
+00:04:29,470 --> 00:04:31,990
+and then define the behavior I want.
+
+79
+00:04:31,990 --> 00:04:32,510
+In this case,
+
+80
+00:04:32,510 --> 00:04:37,620
+I define the behavior to be a comparison
+of the strings using the compareTo method
+
+81
+00:04:37,620 --> 00:04:41,169
+in the string class, because the string
+class implements the Comparable interface.
+
+82
+00:04:44,660 --> 00:04:49,150
+So if you're trying to design a class
+hierarchy, you're often gonna be
+
+83
+00:04:49,150 --> 00:04:52,620
+wondering, should I be making this
+an interface or an abstract class?
+
+84
+00:04:52,620 --> 00:04:54,110
+And the general rule of thumb is,
+
+85
+00:04:54,110 --> 00:04:57,910
+if you just want to require methods,
+that's an interface.
+
+86
+00:04:57,910 --> 00:05:00,810
+If you want to potentially require
+methods, you don't have to, but
+
+87
+00:05:00,810 --> 00:05:04,560
+if you potentially want
+to require methods, and
+
+88
+00:05:04,560 --> 00:05:07,740
+you wanna require a common behavior,
+that's where an abstract class comes in.

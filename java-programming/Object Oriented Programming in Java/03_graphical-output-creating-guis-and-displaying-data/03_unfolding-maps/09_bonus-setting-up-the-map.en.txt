@@ -1,0 +1,112 @@
+[SOUND] Welcome back to this
+second of three videos. Where we'll be developing
+a project together. We're going to build a map that visualizes
+life expectancy around the world and we've broken up that
+task into three pieces. In the first video we talked
+about setting up the map. And I hoped that you've
+opened up the clips and tried out that beginning setup procedure. And that now you're ready to work
+with me to read in the data file from the world bank with
+the life expectancy data. And then we'll display
+the map in that third video. So, this is our end goal what we'd like
+to see when we finish this project is the range of colors from bright red to
+indicates countries with a very low average life expectancy at birth to
+a bright blue color for countries with a very relatively high life expectancy,
+average life expectancy at birth. And all of that data is encapsulated
+in this data file that we can read in from the World Bank, and this file is
+formatted as a whole bunch of rows, and each row contains data
+about a single country. So there's some header
+information in the file and then we see that each of the fields
+is going to be separated by commas. And so understanding how to read files and manipulate files where
+we have formated data. Rows each with a similar format and
+each row containing fields separated by commas will be very powerful because lots
+of data is passed around in this way. So what we'd like to do is
+to store data's associated, associating countries with
+average live expectancy at birth. And a really powerful data structure for
+doing so is the Map data structure. Now take a minute, we're gonna use Map
+in two different ways in this video. And so you want to make sure to keep
+straight which Map we're talking about. And so at this point, when we say Map,
+we mean an association or a function that relates something that you wanna
+think of input values to output values. So a map is going to associate keys like countries with values,
+their average life expectancy at birth. And so, we're going to take the data
+from that file, that CSV file, and store it in a data structure in our class
+and that data structure is going to keep track of what life expectancy
+belongs to each country. So this is an example of a general data
+type, an abstract data type called Map. And you can keep in mind this image
+of keys being associated with values. And what's important here is that every
+key is associated with exactly one value. You're not going to have one country. With two different values
+associated with it. And so in our particular example,
+the keys are the country identifiers. And the values that we want to store for each country is that
+average life expectancy. And both the keys and the values have
+types, and those types are going to be different because they're
+different kinds of objects. But there is some
+relationship between them, which is why we're storing
+them as Ordered pairs. So there is that word abstract. We're talking about
+abstract data types and we haven't talked about
+those in this lesson yet. Or nor in this course. We will talk about those. Stay tuned in an upcoming module. In our application, we'd like to create
+a map with country IDs as the keys. And the life expectancy as the values. Now, it's a little bit complicated
+to read in the data from a file and create this data structure and then put the information from the data
+file into the data structure. And we don't want to
+clutter up our setup method that talks about setting up the applet
+that we're displaying to the user. We don't want to clutter up that method
+with all of this code that's very detailed and maybe isn't so hard to follow,
+it is pretty hard to follow. And so what we're going to do is
+carve it out of the setup method and create a new helper method that
+we can follow through separately. And so
+in the setup all we say is that the map, lifeExpByCountry is going to be created
+by invoking this helper method. Now in terms of class design,
+a good rule of thumb, to extend what Christine earlier said
+is that when we have helper methods that are really for this organization
+purpose, we want to keep them private. We don't need to send
+them out into the world. Okay so, we want to have
+a private helper method and let's think about how we're specifying
+what it takes in is the filename. That's going to lead us to the data and
+then what we want to return after executing this method is the Map
+that associates countries with expected. With life expectancy. Okay, so we can go ahead and
+think about what we to have in there, and the first thing we need to
+do is to construct the map. Just construct that object that's gonna
+hold the counties and the life expectancy. Now there's something a little funky here,
+and you'll notice that the data type of the map that
+we're declaring here is just map. But when we invoke a constructor,
+we're saying we want a new HashMap. And that's different from other
+times that we've used constructors. Other times that we've used constructors
+when we've created a new object, the type of the object that we're creating
+matches the constructor that we're using. Now this is a subtle point and it comes. You'll see a lot more details about that
+one when we talk about abstract classes tying into that abstract data type. But for now the way that you can think
+about this is that we want a map and the kind of map,
+the way it's being implemented, the details of it is going to be
+a HashMap, but the functionality that we care about is that it's a map
+that it has keys and values. Okay, so that's the first thing we do. We construct it. Once we have the map declared,
+what we'd like to do is populate it. And we're populating it
+from fields in the file. And so we'd like to read in all the files
+and we're going to do that taking it one row at a time and sticking the contents
+of a single row into an array of strings. Now we iterate through all of
+the strings that we've just read in. So each row one at a time. And we can use the for each row in
+the array of strings rows construct. So it's a special for loop that lets
+us iterate over an entire array. And what we're going to do is for each row, we'd like to parse away
+just the relevant information. If you remember in
+the data file each row had some beginning junk columns that told
+us the title of the data series and then it had that relevant
+piece that we cared about. The country and then also the average
+life expectancy at birth. And so what we'd like to do is parse
+the string that comes to us from the file, the entire row, and
+pick off just the important parts. And so
+what we can do is take a single String, which is that entire row, and
+split it based on a separating character. And so we know that in a comma
+separated values file, a CSV file, every time there's
+a comma we have a new field. And so we're going to split the rows
+String into an array of strings, each of the elements in the array of
+strings is another string that is a field. Okay, but now what we'd like to do is just
+read off the fields in particular values and so we have some logic to pick out
+exactly the columns that we need okay? So looking in a little bit
+deeper into what we're doing, what we'd like is the country ID and
+the life expectancy. Now the country ID is a string,
+will be a string forever and after. We don't need to worry about that. But we are doing something
+in that the first line that is highlighted in that box. And that is we want to read off a float,
+a number type for the life expectancy, but in the data file we just read it in as a
+string, and so we're casting this string. We're converting the string to a float,
+and so we have a method that lets us do that. So now that we've read all of the rows
+from the data file into our map, we have access to all of the information
+that pairs the country ID with its average life expectancy at birth,
+and we are ready to move to the next part of the big picture of our project,
+which is to display the data that we've just read in and convert it
+into some visualization on the map.

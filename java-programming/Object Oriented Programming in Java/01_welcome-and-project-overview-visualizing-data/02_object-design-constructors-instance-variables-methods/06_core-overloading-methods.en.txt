@@ -1,0 +1,97 @@
+Okay, now that you know the basics
+of creating classes and objects in Java, let's talk about
+overloading methods which is another thing that you're going to do and work with a
+lot as you work with classes and objects. So by the end of this video you'll be
+able to give examples of what overloading methods is in Java. You'll be able to explain how to overload
+methods, and how not to overload methods in Java, and you'll be able to explain
+why it's useful and why we wanna do it. Let's go back to our simple location
+class that we worked with last video. So we saw this class, here it is,
+it has a couple of member variables. It has a constructor, and
+it has a method called, distance. Of course, you know by now that it must
+be in a file called, SimpleLocation.java. Now let's say right now we have one
+constrictor, it allows the user to create objects of type simple location
+by passing in a latitude and longitude. But let's say that the user doesn't want
+to always have to pass in a latitude and longitude and, they want to be
+able to create SimpleLocation objects without passing in any parameters. Right now,
+the user of our class can't do that because there's no constructor
+defined that takes no parameters. But we can fix that. We can create a new constructor
+that takes no parameters, and create still a new simple location object. Now, you might wonder, well where
+should this simple location object be if the user doesn't
+give us any parameters. And since I'm here at UC San Diego, I'm gonna create my class that will always
+create simple location objects here at my location at UC San Diego unless the user
+tells me to create it somewhere else. So what I've done is I've added a new
+constructor that takes no arguments which, by the way,
+is called the default constructor. It's just the constructor that you can
+invoke without passing in any data at all. And it will give my parameters, a sorry, it will give my number variables,
+latitude and longitude, these default values, which is the
+location of where I'm standing right now. I still have my other constructor,
+which takes the two arguments, latitude and longitude, lat and lon, and those two constructors can exist
+happily together in the same class. This is exactly what I'm talking about
+when I talk about overloading methods. So I've now created a class where
+my constructor has been overloaded. There are two different copies of the
+constructor that take different numbers and types of arguments. They both do the same thing more or less
+in that they both create a new object, but how they assign values to latitude and
+longitude differ slightly. So I can not only overload constructors, I
+can also overload the methods in my class. So before I had one method
+called distance, and it took in as a parameter
+another SimpleLocation object. And, that was fine, but maybe I don't want
+to force the user of my class to have to create a whole SimpleLocation object just
+to find the distance to another location. So, I can overload the distance method
+by creating another version of it that takes in two parameters other lat and
+other lon. So instead of having to create a whole new
+SimpleLocation object just to pass it into the distance function, the user of my
+class can now call my distance method by passing in two parameters,
+representing the latitude and longitude of the place that they're
+trying to find the distance to. So two examples of overloading. Why do we care about overloading? Why is this useful? Let's take a look at how you're gonna
+use it extensively in your project. So this is a little snippet of code that
+we looked at back in module one that uses this UnfoldingMaps library to create
+a new map and display it to the user. And what it does is it creates
+a window of size 800 by 600 and then puts a new map inside that window. And when I run it I see
+something like this. I've also created, I've added a line
+of code that zooms in on San Diego so you see San Diego rather
+than the whole world. So that's what I see when I run this code. But what if I decide that I don't
+really like the fact that the map takes up the whole window, I'd like
+to shrink the map down slightly so there's a nice border
+around the edge of the map. I can do that. And I can do that by invoking a different
+version of the UnfoldingMaps constructor. So this is an overloaded version
+of the UnfoldingMap constructor that takes four additional parameters. So my original call to UnfoldingMap
+just took two parameters. Now I'm calling the, the UnfoldingMap constructor
+that takes six parameters total. And these four additional parameters
+I've added specify the x and y position of where the map should appear
+in the window, as well as the width and height of the map. So when I run this code, what I see
+is a window that has a nice border around the map that it displays, because
+the map is smaller than the window size. So this is pretty useful, but
+you might wonder, well how do I even know? How do I know what constructors
+are available to me? That's where the Java
+documentation comes in. So you can go to the UnfoldingMap Java doc
+just like we showed you in module one and you'll see all the constructors
+detailed there. So here's the first constructor we
+called that took two parameters and you can see what it does and
+what those parameters are. And here's that second constructor that we
+called that took those six parameters and you can see that the second
+parameter's the x position of the map, the third parameter's the y position
+of the map, and so on and so forth. And if you do go to
+the unfolding map documentation, which I encourage you to do right now,
+you'll see that there are actually like eight or nine different overloaded
+constructors for UnfoldingMap. So you can create unfolding map objects
+by passing it a wide variety of information and each of those constructors
+will do something slightly different. So before we end this video,
+I want to caution you against something that seems really useful
+but is actually not possible in Java. So you might think that it's a good
+idea to overload the distance method instead of by changing the parameter list,
+by changing the return type. So let's say you want a distance method
+that returns a double type, but you also want a distance method that's slightly
+less precise and returns an integer type. So you say, oh,
+I'll just overload the distance method and make the other one return an integer. Unfortunately that is not allowed,
+you can't do that, java will complain. You have to have some difference in the
+parameter list when you overload a method. You're not allowed to have
+a method with the same name, and the same parameter list,
+and a different return type. And the reason for that is a little bit
+beyond the scope of this course, but it has to do with how the compiler works. At compile time, Java C,
+the compiler, has to decide which version of the overloaded method
+you're actually trying to call. And it does that by using
+the parameter list. It can't do that by using
+the return type alone. So Java doesn't let you do
+this type of overloading. So that's all for overloading and
+in the next video, we'll talk about a few more
+details of objects and classes.

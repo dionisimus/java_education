@@ -1,0 +1,111 @@
+[MUSIC] All right, in this lesson we're
+gonna learn some core algorithms for searching for data. Searching for data you probably
+do every day, many times a day. And so we're gonna focus on some of the
+fundamentals of how to search for data and how to do that quickly. So by the end of this video, you're going to be able to motivate
+why we want to search for data. As well as to be able to write
+code to perform linear search, and then we'll build on this
+in subsequent videos. So let's start off with
+a motivating example. Say I'm going on a trip, which I am. I'm going on a trip and I wanna plan my
+airline travel, and in order to do so, if you've booked airline tickets online, you probably know that those
+airline ticket booking sites use a three letter code for the airport
+that you're trying to book from. So I'm coming from my
+hometown of San Diego and I wanna figure out what is the three
+letter code for the airport in San Diego. So there's a lot of ways I
+can find this information. And probably one of the most popular ways
+is I can go to my favorite search engine like Google and
+type in this query into Google and Google will go off and
+search the information that's on the web to find me a page that will
+hopefully answer my question. Now, this is an example of search. In fact an Internet search
+is a fairly complex search. So there's a lot going on here in
+order to organize all the data and return me results quickly. Results that I find useful and
+so on and so forth. So this kind of search is a little
+bit beyond the scope of this course. But the idea is the same. We have a big repository of data and
+I wanna find some information in that data in order to answer
+some questions about it. This is kind of fundamental to almost
+everything that we do in Computer Science. So, let's simplify the problem slightly. Instead of searching the entire Internet, I'm gonna take a subset of the data
+on the Internet, a very small subset. That I can find in a file
+called airports.dat, which is on the website,
+whose url that you see here. And, this file has information about, almost, 7,000 different
+airports around the world. And it's represented in terms
+of a number of different fields. So each line in the file has a number
+of different comma separated fields. Those fields include a unique ID inside
+this database, the name of the airport, the name of the city that the airport is
+located in, the name of the country, and that three letter airport code. And a bunch of other information
+as well which you can find out by going to that URL. So I'm gonna be searching within
+this lesson in only this data, not on the whole Internet. So, what I'm going to do is, I'm going
+to read in all of this data into my Java program, and then I'll search for
+a particular city that I care about, in order to find out some information about
+its airport, like its three letter code. So here's the first step that I
+need in order to read in this data into my program. I need some way to represent this data. So we know how to do that. We know how to write classes and
+create instances of those classes, so let's do that. Let's write a class called Airport. And it's going to have a field for each piece of information we wanna
+represent about a particular airport. In this case, we'll represent a city,
+a country, and that three-letter code, as well as whatever information we
+want to keep about our airport. Each of these fields is
+going to be private. As I mentioned, a rule of thumb is
+to keep all of our data private, but we'll provide getters, so we can access
+each of those pieces of information. They'll get set in the constructor when
+I read in the data from this file. And then I have access to all of
+these pieces of information for each airport that's stored in my program. So let's imagine that I've done that. I've written some code that reads in this
+file that has all this information about these airports into my
+Java program by creating one instance of this airport class for
+each airport in that file. I'm gonna simplify things a lot. And I'm gonna imagine that my entire
+file only had eight airports in it. So I'll read those all into, each into an individual airport object
+which I'm going to store in an array. So my array is going
+to be called airports. It's an array of references
+to airport objects. So one object for each airport. And what's stored in the array again, is a reference to this object which you
+see depicted here in the blue boxes. And those objects exist somewhere in your
+computers memory, somewhere in the heap. And again, what could store in the array
+is the references to those objects. But this diagram is a little bit too
+complicated for my needs for this lesson. So I'm gonna simplify things a little bit
+by writing all of the information from each object directly in the box for
+the array itself. So this is going to be my representation
+of the data that I've now read into my computers memory from
+that big airports.dat file. And again, there's a very simplified
+version for the purpose of illustration. So now, I've got all the data about all
+my airports right into my array and now, I can write a program to answer questions
+about the airports in that array. And in order to answer a question
+about a particular city's airport, I have to find that airport object first. So, let's look at how to do that. So let's say I'm looking for
+information about the Beijing airport. And I wanna find out what is the three
+letter city code of that airport Beijing. So, how am I gonna do this? Well, first I need to find it. One way I can do that is just basically by
+starting at the beginning of my array and looking at each element in my array, one after the next until I come
+across the airport I'm looking for. Or I get to the end of my array and
+I haven't found it. And that's an algorithm
+called Linear Search, which we're going to look at right now. The way it works, is I start at
+the beginning of my array, so I start at index position zero,
+which is the fist index in my array. And then I'm gonna look at
+the element in that index. And I'm gonna ask is this a match for
+the thing that I'm looking for? In this case I'll ask is the string to
+find which is the name of the city I'm trying to find, equal to the city field in the objects
+that's located in that array position? And in this case I'll see that Montreal is
+city in the object at position zero and Beijing is the city I'm looking for,
+those two strings are not the same, so there's no match. I'll go on to the next element in my
+array by incrementing index by one, so now I look at the element in position one,
+is that a match? Compare the cities, again I find
+that's not a match, so I'll continue. Here's the index position two. Match? Nope.
+Still not a match. Index position three. Still not match. Index position four. Finally, I look index position four and
+I see that its city is Beijing, which exactly matches the city
+that I'm looking for. So now I've found the airport
+object in question. And I can use it to answer the question of
+what is a three letter code for Beijing? So I read that out of the entry and
+I can return it to my user. So this is a match and we're done. That in a nutshell is
+the algorithm called LinearSearch. And here's how it looks
+like in Pseudocode. So in the beginning we initialize the
+index variable to the start of our array, and then we're gonna have a loop that
+keeps going as long as we haven't found what we're looking for,
+in which case we'd just return it. Or we get to the end of the array in which
+case we conclude that the element is not in our array. So while our index is not equal
+to the length of our array, while it's less than
+the length of our array. We'll look at the element in
+the particular position where index is referencing, where index
+says we should look, see if the city in that element
+matches the city we're trying to find. If it does, we'll return the three-letter
+code, thus breaking the loop and breaking the whole method,
+basically returning out of that method. Otherwise we'll keep going by incrementing
+our index variable by one and going back to the top of the loop. When the loop ends we can conclude that
+the city we were looking for was not in the array at all and we return some value
+to indicate that we didn't find it. Okay. So now it's your turn. This is an interactive piece of the video. I want you to pause the video. And I want you to get out either
+a piece of paper and a pencil, or better yet, just open up a clips and
+go ahead and write the code for LinearSearch before you unpause the video. Once you unpause the video,
+we'll go back over it. But I really do want you to take a shot
+at going back to the algorithm that you just saw, going back to
+the example and writing out this code. See if you can do it. I bet you can.

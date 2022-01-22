@@ -1,0 +1,22 @@
+[MUSIC] So one of the ways that Google is
+able to tell some new application or a service that you have successfully
+logged in, is by issuing tokens. And there are many different
+reasons that an application or website can ask for tokens. From an identity provider like Google. But when we started out,
+they were far fewer. And the different flows that determine
+what kind of token you will get back are determined by say
+a parameter called grant type. So I can ask for
+a token with a grant type device or with a grant type access token or
+with a grant type code. Or the grant type assertion. Now as the years grew on, we got more and more grant types that we
+added to this same endpoint. So whenever someone goes to
+Googleapis.com/33/token and asks for a particular grant type, they all make
+a call to the same class in our code base. Now obviously over the past two years, that particular class has grown really,
+really large. But there is a lot of similarities between
+each of the different grant types or what needs to be done. The overall processing of the request,
+the validation of the various other parameters
+that are sent in to the request. And the eventual creation of a response
+that needs to be sent back to the user, all of which will always contain a token. So it's possible to pull out each
+of these aspects, or to pull out each of these into a separate method,
+and put them into an abstract class. So that each grant type can
+be processed separately, and they all get to do the same thing,
+which is to create a token response. And that's my project for this quarter,
+and essentially that's inheritance.

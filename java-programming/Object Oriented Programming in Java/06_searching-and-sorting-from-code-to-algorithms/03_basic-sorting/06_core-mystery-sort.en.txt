@@ -1,0 +1,171 @@
+[MUSIC] >> So in the previous video we
+talked about selection sort which is one algorithm for sorting data. By the end of this video, you'll have
+seen another algorithm for sorting data. And we're going to play a little game. Instead of talking with
+the algorithm at a high level, what we're going to do
+is present some code. That I promise you will sort the data,
+but what I'd like to do is work with you to figure out how to describe
+that code in high-level terms. And this are really useful skill that
+helps with reverse engineering code and also working in big teams, when other people are implementing
+different pieces of the code. And so then, once we'll have traced
+the code and figured out what it does. We'll be able to describe alternate
+algorithms for sorting and compare their relative merits. So let's start with a code, and
+let's see what we have here. So we're gonna call this method
+mysterySort until we solve the mystery together. And at this point there aren't
+a lot of comments to help guide us, we're just seeing some Java statements and
+so let's see what we've got here and we'll
+step through with a particular example. So we see that we've got
+a variable being declared and we've got a for loop that does something
+and has an inner while loop, okay. Doesn't help us so much so far,
+but let's work through an example. And again, it's really useful to
+work through some concrete examples when we're working through these questions
+to help guide our understanding. And then later, we wana generalize. We wanna think about the full generality. But first, let's make sure that we understand
+what's happening at a small scale. Okay, so we're working with the array of integers
+that we talked about last video as well. So we've got six elements and
+we're going to trace through and step through the execution of our
+mystery method to see what happens. Okay, so at the beginning in our for loop,
+we are initializing the value pos to one. And what's going to happen the first
+time we run through this for loop is that currInd. Which you might guess means current index, is going to be initialized
+to the same values position. And so what we see on the left of the code
+here, is that we've got a memory model. So think way back to the earlier module,
+one of the first modules that we did in this course where we talked about
+using memory models to help us reason through the change in values of
+variables as we run through code. And so we've got boxes for each variables
+and at the beginning each of those contains the values of the initial
+values of the variables namely, one. Okay, now what happens is,
+we look into the condition for the while loop and we see, do we have
+to execute the body of the while loop? While we're checking whether the current
+index is greater than zero, so yes, it's 1. And we wanna check whether the array
+element at position currIndex is less than the array element
+at position currIndex-1. So, currIndex is 1,
+currIndex minus 1 is 0. So we're comparing the numbers 7 and
+16, and we're checking whether 16 is less than 7? It's not, and so we don't need to
+execute the body of the while loop. We go right back up to the top of the for loop, after incrementing the pos
+variable or position variable. Okay, so now position is two and the currIndex is initialized at the top
+of the body of the for loop to be two. And again, we have to check the condition
+for the while loop and we look, is the current index positive? Yes, okay and now we wanna compare
+the value of the array element at position 2 and compare that to the value of
+the array element at position 1. And basically look at
+what's happening here, we're asking whether they're in the
+correct relative position to one another. We're asking whether 66 is less than 16? Or 16 is less than 66? And in the array as it stands right now,
+16 and 66 are the correct relative positions,
+so we don't need to do anything. All right, so
+far we haven't done much except for updating our helper variables, pos and
+currInd and we do that once more. Okay, we step up to the next execution
+of the body of the for loop and so now the pos variable has value of 3 and the current index has the same value
+of that at that the beginning. And now we check whether
+the array element at 43, i'm sorry at position 3
+which is 43 is less than the array element at position 2,
+which is 66 and it is. So 43 is less than 66, which means that
+these two array elements are out of order. They need to be swapped in order
+to be in the correct location relative to one another. And so that's what's happening
+in the body of the while loop, we're swapping these two positions. And we also need to update
+the current index variable. Okay, so we've swapped the two positions,
+now we have 43 in position 2. We have 66 in position 3, and
+the current index is two. And we go back to the top of the while
+loop and we check whether 16 and 43 are in the correct relative positions? They are, so we don't need to do a thing in this
+execution of the body of the for loop. We increment, pos. We update currInd, and we go again and now we're checking whether 66 and
+97 are in the correct relative position? They are, awesome, keep going,
+update pos, update currIndex. And we check whether 97 and 51,
+the elements at position 4 and 5 are in the correct relative position and
+they're not. 97 is greater than 51, and so what we
+need to do is we need to swap them. We update the current index,
+and now we check again. And what we're checking is whether 66 and
+51 are in the correct relative positions? They're not, so we need to swap them and
+update current index. Okay current index is now three, 51 and
+66 are in the correct relative positions. And now we check whether 43 and
+51 are in the correct relative positions? And they are, so sweet, we're done. Okay, so what that means is, at each
+point of the execution of the for loop. At each time we've gone through the for
+loop, what we know is that we've guaranteed that an increasing part of
+the array is going to be in sorted order. So, if you think about what happens and
+what the array looks like at the end of the body of the for
+loop when pos equals one. What we have here is that 7 and
+16 are in their correct final locations. Okay, at the end of position 2, we have 7,
+16, and 66 at the head of our array. Now these are not going to be the correct
+final locations of each of these elements. At the end when we finish
+sorting the array, 66 is not gonna be in that third position. But, what we do know, is that the first
+three elements of the array at this point. Are in the correct relative order,
+with respect to one another. And so what we're doing is we're
+growing an array that is sorted, even though there might need to
+be some elements that get put in, into that array later on as we go
+through the rest of the algorithm. Okay, so at the end of position,
+at the end of the for loop when we've got position equals 3. What we have is, that we have a list of
+four elements of incorrect sorted order, then we have two elements that
+we haven't worried about yet. And they may need to go somewhere and
+nudge some of these sorted elements around, but these four elements will never
+switch position relative to one another. Okay. So, what we have here is. A beginning of a description in higher
+level terms of what this code is doing. And this transition between looking
+at code and being able to trace it's execution one step at a time, to being
+able to describe it in higher level terms is a really really hard cognitive leap but
+that is really important. And so it takes practice, keep at it. Work on it and
+you can see you'll get much better at it. And the one of the key strategies for doing it is tot take it
+little pieces at a time. Okay, and so what we're thinking about
+is we're thinking about this for loop. Where we're growing a piece of the array
+that is in relative sorted order. So it's sorted, and even though
+the elements in this part of the array may not be in the correct final location. Which is different from what we saw
+in the previous video by the way, they are still always going to be in
+the same relative order to one another. And then we're increasing the amount of
+the array that is in this relative sorted order each time. Okay, and so what's happening here is,
+in order to increase the piece of the array that's sorted each
+time within the body of the for loop. We're finding the correct location
+of the next element that we haven't thought about up until now relative
+to the first i-1 elements. And so then we want to nudge it into the
+sorted part of the array, nudge, nudge, nudge, nudge, nudge, until it gets into its correct
+relative location, leave it there. And then all of a sudden we have a nice,
+bigger part of the array that is sorted and we can go look at the next
+element that we haven't looked at yet. So this is actually a well
+known sorting algorithm. It's a mystery no longer. It's called Insertion Sort and
+that's because we keep inserting new elements into a previously sorted array,
+into the correct position relative to the other elements and
+then this sorted part grows and grows. All right, notice that this
+algorithm is quite different from the previous algorithm
+that we talked about, the selection sort algorithm that we
+talked about in the previous video. And that's because in the insertion
+sort algorithm, we have the elements that were taken care of,
+they get taken care of in a different way. We don't immediately put them
+where they're going to be. And they stay in that
+position forever after, and we know their location in the complete
+array from that point on. Rather, we're looking at relative
+locations and relative ordering and so we have two different algorithms. But they share some features and so
+with each algorithm, as we go through it. We ask similar questions about
+correctness, and performance, and similarly we would want to compare that
+selection sort algorithm to the insertion sort algorithms and
+other algorithms as well as they come. So, with insertion sort, the mystery sort
+that we were working through just now, how do we know that it's correct? Well, the argument that we were making
+before about the part of the array that is in relative sorted order, growing and growing and growing until we
+get to all of the elements in the array. Well, if we were able
+to make that precise, that would be a convincing argument
+that this algorithm is correct. Because no matter what we start with,
+at the end we get all of the elements in the array in
+sorted order and that's what we want. So then theres the question
+of can we do better? And when it comes to algorithms,
+we always want to do better but what is that even mean? And so the question of goodness of
+an algorithm has a few levels to it and has a lot of complexity to it. So the baseline, lowest bar of
+goodness that we want is that algorithm does what it's supposed to,
+that it's correct. Okay, both selection sort and
+insertion sort have met that bar. But then, we might want more. So for example, we want to be able
+to tackle huge reams of data and so we might want our algorithms
+to be really fast. And so
+we want to be able to process billions and trillions of pieces of information,
+very efficiently. And so we need to think about, how do
+we measure the speed of an algorithm? How do we talk about its performance
+in terms of time in general? When we don't a priori know
+what our data looks like. We wanted to be good for
+all sorts of pieces of data. And so, that will lead us to things
+like worst case analysis and asymptotic analysis that you'll see lots more about
+in the next course of this specialization. I want to also mention that there
+are other measures of goodness of an algorithm. For example, we might not want
+to waste a lot of memory while performing the execution of an algorithm. And so, we might want you to
+be very resource sensitive and not use up a lot of space. And so, there's a notion of space
+complexity that we would want to think about as well. And then we also might want to think about other properties that the algorithm
+could preserve or not preserve. So for example, if we want to
+sort a lot of data on dimensions. So you can think back about
+the airport data, we want to sort. First by name of country,
+and then by name of city. Then we would want our
+algorithm to behave in a way that's compatible with doing
+multiple task sorting. And so we might want to restrict
+which algorithms we consider, based on only those that have
+properties amenable to our use case. So goodness and can we do better? Are always relative questions, relative
+to how we plan to use the algorithms. Algorithms are actual living,
+breathing objects you can think about. And they don't exist in a vacuum,
+we want to use them and the measure of their goodness is only in terms of how we
+can use them and what they can tell us.

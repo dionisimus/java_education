@@ -1,0 +1,58 @@
+As we can see working through this module, it's important that we have
+this concept challenges. So, the reason we're
+doing these again is that it's important test on
+your own understanding. You can listen to us talk about
+the material but till you really tried to apply it, you don't know for sure
+whether your understanding it correctly. So this is an opportunity for you to
+identify potential misconceptions in your standard or to gain confidence in the fact
+that you're understanding it properly. Process again, we're gonna pause,
+you're gonna try to solve it yourself. You're gonna discuss it with
+potentially other learners around you. You're gonna watch UCSD learners
+talk about the concepts and then you're gonna confirm your
+understanding with our explanation. So the problem for
+this one is to walk through this code. Again, always start executing in main. In the very end of main,
+there's going to be a print. The question is what gets printed? >> Hi, I'm Tenki. >> Hi, I'm Peter. >> Hi, I'm Joe. >> All right. So let's go ahead and get started. So, I guess we can all agree. So location one is going to create a new
+SimpleLocation with those values, and location two is going to create another
+SimpleLocation with those values as well. >> And
+we're talking about objects right here? >> Yeah, so we're gonna have two different
+objects, location one and location two. And what I got stuck at was when
+location one equals location two. So what I was thinking was
+that the values inside loc2 are actually going to copy over into loc1. >> Oh, like a whole new object? >> Well, not exactly a whole new object,
+but just the values of the latitude and the longitude into loc1. So, currently. >> So
+it would look like rewrite the object. >> Yeah, yeah, so currently loc1 has 39.9. For the latitude. And well I was thinking that
+location two's latitude, 55.8, would overwrite that. Am I right or? >> I think those are like
+two objects right? Like they're separate. So I think the third eye is
+just change of reference here. So it won't like overwrite like
+the every member variable here. >> So rewrite the arrow? Where location one is pointing? >> Right. >> So location one is now going to
+reference to the same object that location two is referencing. >> You just follow the arrow. >> So that means that location
+one's values do change, but it's just because it's
+referencing a new object. >> Correct.
+>> Yeah. >> Yeah.
+>> All right. So when loc1.lat gets -8.3 that means that the latitude of loc1 changes to -8.3 but since that's the same object
+referenced by location two. Does that mean location two's
+latitude changes to -8.3? >> Yeah, I think so. >> Yeah, because it's all just one object. >> That was a great discussion
+by the UCSD learners. Let's walk through the code
+again one more time. So you're gonna start in main. You're gonna create a simple
+location reference, loc1 that's gonna point to an object. And we just did those memory models so we'll do this one a little
+bit more quickly. We're gonna recognize that this is
+gonna create a reference loc1 pointing to an object on the heap
+which has these values. We're then gonna create a second object. This one's going to be loc2, and loc2 is pointing to
+a different object on the heap. The key part of this problem is what
+happens in this next statement. What happens when you assign
+loc1 to be equal to loc2? What really happens there? To understand that, we're gonna have to think about
+what those references really mean. So loc2 points to this object, and what that really means is that
+loc2 has a numeric value, which is an address for
+that object on the heap. And that object on the heap
+actually has that address. So you can think of loc1. We're throwing in
+arbitrary addresses here. But loc1 has address 1,
+it points to that object on the heap. Loc2 has address 2, and
+it's pointing to that object on the heap. When you do loc1 equals loc2, you're
+really copying essentially the reference. That means is you're copying the address. So loc1 is now gonna point to
+the exact same thing that loc2 does. Now I'm gonna do loc1.lat
+equals this negative value. And that really is loc1 points
+the same thing that loc2 points to. And it's gonna change that
+object point2 by loc1. Then we're gonna go to print this we're
+gonna print using the loc2 reference but again loc2 and loc1 are pointing to
+the exact same thing on the heat so when loc2 prints out its lat and
+lon it's gonna print out -8.3, and 37.6. Again, drawing these memory models helps
+you understand how to work through these problems.

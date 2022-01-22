@@ -1,0 +1,100 @@
+1
+00:00:00,000 --> 00:00:03,643
+[MUSIC]
+
+2
+00:00:03,643 --> 00:00:06,977
+All right, so when I was first learning
+about objects, I was taking this class and
+
+3
+00:00:06,977 --> 00:00:09,843
+the professor was at the front of
+the room talking to us about objects.
+
+4
+00:00:09,843 --> 00:00:12,639
+And he kept saying objects this and
+objects that, and
+
+5
+00:00:12,639 --> 00:00:14,950
+I just kept getting more and
+more confused.
+
+6
+00:00:14,950 --> 00:00:17,969
+I'm sitting there thinking,
+objects, they're like things.
+
+7
+00:00:17,969 --> 00:00:20,070
+But, what the heck is an object?
+
+8
+00:00:20,070 --> 00:00:24,649
+And finally, I got up the nerve to
+raise my hand and ask the professor,
+
+9
+00:00:24,649 --> 00:00:26,620
+what is an object?
+
+10
+00:00:26,620 --> 00:00:30,760
+And he kind of looked at me with this look
+on his face like, oh dear, where have I
+
+11
+00:00:30,760 --> 00:00:34,970
+gone wrong with this poor student that
+she doesn't know what an object is?
+
+12
+00:00:34,970 --> 00:00:39,610
+But he was very patient with me,
+explained what an object is, and after he
+
+13
+00:00:39,610 --> 00:00:42,958
+explained it, I realized that I actually
+knew more about objects than I thought.
+
+14
+00:00:42,958 --> 00:00:47,412
+I just hadn't necessarily associated
+the word object with the concept that I
+
+15
+00:00:47,412 --> 00:00:49,412
+already knew a fair amount about.
+
+16
+00:00:49,412 --> 00:00:52,639
+So that was kind of an example
+of vocabulary tripping me up.
+
+17
+00:00:52,639 --> 00:00:57,364
+And as I learned a little bit more, and
+got more sophisticated with designing and
+
+18
+00:00:57,364 --> 00:01:00,230
+implementing objects,
+it all made more sense.
+
+19
+00:01:00,230 --> 00:01:03,180
+I look back now, and I wonder how
+I could have possibly struggled
+
+20
+00:01:03,180 --> 00:01:05,480
+with something that seems so
+simple to me now.
+
+21
+00:01:05,480 --> 00:01:07,410
+But that's how it is when
+you're first starting out.

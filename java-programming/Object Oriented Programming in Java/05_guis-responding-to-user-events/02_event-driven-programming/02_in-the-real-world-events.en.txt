@@ -1,0 +1,26 @@
+[MUSIC] Event processing is really common, and you probably interact with
+it more often than you realize. So one real world example would be,
+have you ever gone to a website and then all of a sudden it just started
+running really, really slow? And it's just grinding to a halt,
+the user experience is awful and then all of a sudden the browser pops up a warning
+and says the page is not responding. So you have to ask yourself,
+what does that even mean? What does it mean for
+the page to be responding? And usually what the browser
+means by this is that the JavaScript on the page
+isn't handling events properly. So, like a lot of things,
+JavaScript is essentially handling events. So the browser's sending
+something like a keystroke and expected it to finish dealing
+with it pretty quickly. Now if the page isn't responding,
+an event came in and the JavaScript never finished handling it. It's probably caught in
+an infinite loop some place. Now, the browser doesn't need to know
+exactly what the JavaScript's trying to do with that event. It just needs to notice that it
+never finished running on it. And this is kind of a running
+theme with event processing, is that you should be able to
+handle an event pretty quickly. You may have to generate things that'll
+come back to you down the road, like go get that image that you want
+to get when a user clicks on it, but that'll come in as an event too. So there's no reason that your program
+needs to wait around forever to process the event, and the browser knows that,
+and relies on this. So if it ever notices that some JavaScript
+code isn't finishing with an event quickly, it can go ahead and
+warn the user, because this is probably
+a programmer error.

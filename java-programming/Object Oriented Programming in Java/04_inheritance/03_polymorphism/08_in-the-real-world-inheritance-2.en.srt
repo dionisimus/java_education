@@ -1,0 +1,136 @@
+1
+00:00:00,000 --> 00:00:03,366
+[MUSIC]
+
+2
+00:00:06,871 --> 00:00:11,477
+So one of the ways that Google is
+able to tell some new application or
+
+3
+00:00:11,477 --> 00:00:16,430
+a service that you have successfully
+logged in, is by issuing tokens.
+
+4
+00:00:16,430 --> 00:00:20,400
+And there are many different
+reasons that an application or
+
+5
+00:00:20,400 --> 00:00:22,380
+website can ask for tokens.
+
+6
+00:00:22,380 --> 00:00:24,500
+From an identity provider like Google.
+
+7
+00:00:24,500 --> 00:00:27,630
+But when we started out,
+they were far fewer.
+
+8
+00:00:27,630 --> 00:00:32,260
+And the different flows that determine
+what kind of token you will get back
+
+9
+00:00:32,260 --> 00:00:36,480
+are determined by say
+a parameter called grant type.
+
+10
+00:00:36,480 --> 00:00:41,670
+So I can ask for
+a token with a grant type device or
+
+11
+00:00:41,670 --> 00:00:45,660
+with a grant type access token or
+with a grant type code.
+
+12
+00:00:45,660 --> 00:00:47,520
+Or the grant type assertion.
+
+13
+00:00:47,520 --> 00:00:49,890
+Now as the years grew on, we got more and
+
+14
+00:00:49,890 --> 00:00:53,040
+more grant types that we
+added to this same endpoint.
+
+15
+00:00:53,040 --> 00:00:58,120
+So whenever someone goes to
+Googleapis.com/33/token and asks for
+
+16
+00:00:58,120 --> 00:01:04,580
+a particular grant type, they all make
+a call to the same class in our code base.
+
+17
+00:01:04,580 --> 00:01:07,130
+Now obviously over the past two years,
+
+18
+00:01:07,130 --> 00:01:10,840
+that particular class has grown really,
+really large.
+
+19
+00:01:10,840 --> 00:01:15,000
+But there is a lot of similarities between
+each of the different grant types or
+
+20
+00:01:15,000 --> 00:01:16,320
+what needs to be done.
+
+21
+00:01:16,320 --> 00:01:20,670
+The overall processing of the request,
+the validation
+
+22
+00:01:20,670 --> 00:01:24,450
+of the various other parameters
+that are sent in to the request.
+
+23
+00:01:24,450 --> 00:01:28,410
+And the eventual creation of a response
+that needs to be sent back to the user,
+
+24
+00:01:28,410 --> 00:01:31,370
+all of which will always contain a token.
+
+25
+00:01:31,370 --> 00:01:36,420
+So it's possible to pull out each
+of these aspects, or to pull
+
+26
+00:01:36,420 --> 00:01:41,550
+out each of these into a separate method,
+and put them into an abstract class.
+
+27
+00:01:41,550 --> 00:01:45,540
+So that each grant type can
+be processed separately, and
+
+28
+00:01:45,540 --> 00:01:49,810
+they all get to do the same thing,
+which is to create a token response.
+
+29
+00:01:49,810 --> 00:01:53,530
+And that's my project for this quarter,
+and essentially that's inheritance.

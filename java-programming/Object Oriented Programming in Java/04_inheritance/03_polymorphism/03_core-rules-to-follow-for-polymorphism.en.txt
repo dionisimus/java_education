@@ -1,0 +1,50 @@
+[MUSIC] Hi, welcome back to our
+lessons on polymorphism. So with the lessons today, we're gonna focus on compile
+time rules versus runtime rules. And once you understand that, all the magic that might appear to be
+associated with polymorphism goes away. There's a saying here in our
+integral classes at UCSD, which is think like a compiler,
+act like a runtime environment. That phrase comes from one of our really
+popular lecturers here, Rick Ord. And why I like that saying so much is that there are two pieces that
+happen whenever you execute code. The first step is a compiler has
+to interpret the code you wrote. In the second step, that's when the runtime environment
+gets to execute that interpreted quote. So you have to be able to
+see your code in two lights. You have to do this especially when
+we're thinking about Polymorphism. The truth is you've already started to
+wear these two hats when we started talking about constructors. So let's continue with this by
+looking at the compile time rules and the runtime rules when it
+comes to polymorphism. So what this is gonna allow us to do then, is to step through the decisions made
+both at compile time and runtime. So the rules, first off, compiler rules. Compiler can only know the reference type. Doesn't know the runtime
+type of the object. It only knows the reference type. Which means when you try
+call a method on object, it can only look in that reference
+type class for that method. The goal of the compiler is
+to output a method signature, which will then be executed at runtime. So let's walk through this
+in detail with our example. So we have our Person class,
+we have our Student class. I've got a Person reference
+point to the Student object, and I'm gonna call the toString
+method on that Student object. The compiler only knows that
+this is a Person reference. So when you try call toString it's
+gonna look in the Person class, and find that toString method. Then it's gonna emit a compile time,
+a method signature. A compile time,
+which is a no parameter toString method, which is to be executed at runtime. That leads us, then, to our runtime rules. At runtime,
+you have to follow the exact runtime type of the object to find that method. So what you're gonna do is match
+the method signature, which was emitted at compile time, to the appropriate method
+within the actual runtime class. Let's walk through that. Where we left off was the compiler had
+already emitted a method signature, which was toString with no arguments. And when we attempt to do s.toString, now at runtime, it knows that s
+is actually a Student object. So it's gonna find the toString
+method in Student, and that's what's gonna be
+executed at runtime. So, now that we know these rules,
+let's look at a couple more examples. So first,
+let's say I have a Person reference, s, pointing to a Student object. And what I want do is call
+the getSID method on my Student. What I want you to do is take
+a few seconds to think about this. What do you think's gonna happen? All right if you said this was
+gonna cause problems, you're right. The reason it's gonna cause problems
+is because the compiler can only know that s is a Person reference. So the compiler can only look in
+the Person class for that method. It's gonna look there and
+it's not gonna find a getSID method. Which means the compiler is
+gonna give you an error and say, I can't find this method
+in the Person class. Now you might say, well wait a second,
+I know that this is always gonna be a Student object,
+it should be allowed to call SID. Well, we're going to be able to do that,
+but we're going to have to do that
+through explicit casting. We're going to cover
+casting in the next video.

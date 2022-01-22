@@ -1,0 +1,66 @@
+[SOUND] In the last video,
+we saw how objects are constructed from
+the inside out in Java. And the way this happens is
+really through compiler rules. We're gonna talk about what those compiler
+rules are and how those compiler rules work, in order to ensure, again, that
+the object is created from the inside out. Where we left off in the last
+video is we'd seen the process, we'd seen how student calls
+person which calls object. And those constructors return back and in the process of returning back they
+actually initialize the variables. But you've said at the end but wait,
+I don't remember extending object. Where did we do this? This introduces our first rule
+associated with a compiler. So let's revisit where the compiler
+plays a role in our process. You write code, human-readable Java code, and that gets sent off
+to the Java compiler. The Java compiler's going
+to do a number of passes. In fact, there's a number of potential
+specializations you could write instead of just on how the compiler works. What we're going to focus in on
+is essentially a couple of passes the compiler does as
+terms of inserting code. When the compiler is all said and
+done we know it produces the Bytecode which we then
+run our java virtual machine. So what is a Java compiler doing and
+what are these rules? What it does is its going
+to change the code. So, if you wrote this class, public
+class Person, and you just have your single instance variable, and
+I've done away with any other code, it's just this class,
+is this actually what gets compiled? In a sense, no, cuz the compiler takes this code and
+it's gonna change the code a bit. What it's gonna do is follow three rules
+that we're gonna talk about in this video. First rule is,
+if you don't have a superclass, the compiler's gonna give you one. It's gonna give you Object. So even though you wrote
+public class Person, the compiler's gonna insert the terms,
+extends Object. By doing this, now you see how
+person inherits from object just because it inserts those
+lines of code implicitly. But where then, do we call the person
+constructor, or the object constructor? We know now that object inherits, or
+sorry person inherits from objects, but we don't know where those
+constructors are getting called? That's where the next set of rules come. So first off,
+if you don't have a constructor, Java's gonna give one for you. It's gonna give you a default
+constructor so no arguments. And then it's gonna apply
+another set of rules which are associated
+with all constructors. This set of rules or Rule #3 is
+that the 1st line of a constructor has to say either this,
+and then some arguments. So call another constructor
+within the same class. Or it has to call one of
+the parent class instructors, a super class constructor call. It has to do one of those things. And if you don't do it,
+Java is gonna insert super. So it's gonna call, It's gonna insert a call to the default
+constructor of your super class. So now we see that we've added this
+line to the person constructor. In a sense you've the code on the left but
+the compiler is gonna insert all those elements on blue on the right and
+that's what's really gonna get compiled. So now we have an idea of
+how this work for person. I want you to pause and think about
+what would happen to the Student class On the first pass by that compiler. All right, if you were thinking
+we should add a very similar constructor to student that we did to
+person, you're on the right track. It already extends from person,
+so we can't extend from object. It already has a super class so
+there's no need to do that first rule. The second rule applies,
+it has no constructor so we have to insert a default constructor. And then the third rule applies of I
+have to make sure I call the default constructor of my super class as the very
+first line of my default constructor here. So you're gonna take that
+code in black above and it's gonna get transformed
+into the code in blue below. So when we were curious how is
+the compiler making sure that this construction and the initialization
+of our variables happens essentially from the highest level of
+the hierarchy all the way back down. So it is the compiler makes it happen. Now there's still one leftover problem and
+that is, we haven't actually initialized anything. Right all of our default constructors
+have done no initialization. They've just made sure they go
+all over the up to object and all the way back down. We had at least one variable and that was
+name, the instance variable with Person. In our next video we're gonna
+see how to initialize that.

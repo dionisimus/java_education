@@ -1,0 +1,50 @@
+1
+00:00:00,000 --> 00:00:01,818
+[MUSIC]
+
+2
+00:00:06,410 --> 00:00:09,332
+For example, I work with Google Docs, and
+
+3
+00:00:09,332 --> 00:00:14,135
+what we do is we'll use a base class for
+representing format buttons.
+
+4
+00:00:14,135 --> 00:00:20,925
+So every button has a specific style,
+an image, an action that the button does.
+
+5
+00:00:20,925 --> 00:00:25,474
+And we'll use that and we'll extend it
+to make things like the bold button,
+
+6
+00:00:25,474 --> 00:00:28,605
+the italic button, the underline button.
+
+7
+00:00:28,605 --> 00:00:34,190
+Another example of Google APIs that use
+
+8
+00:00:34,190 --> 00:00:40,030
+inheritance is actually found in Android,
+where we will extend the Activity class.
+
+9
+00:00:40,030 --> 00:00:45,050
+So an activity is a single focused thing
+that the user can do within an app.
+
+10
+00:00:45,050 --> 00:00:47,283
+And an app can be made of
+several activities and
+
+11
+00:00:47,283 --> 00:00:51,410
+we use an inheritance to
+prevent us from repeating code.

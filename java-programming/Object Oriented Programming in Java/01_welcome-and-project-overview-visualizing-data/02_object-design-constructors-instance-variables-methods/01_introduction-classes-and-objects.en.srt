@@ -1,0 +1,33 @@
+1
+00:00:00,000 --> 00:00:06,321
+[MUSIC]
+
+2
+00:00:06,321 --> 00:00:10,009
+Now that we've given you an overview
+of the various features of our course,
+
+3
+00:00:10,009 --> 00:00:13,580
+what we're going to do now is
+just dive straight into objects.
+
+4
+00:00:13,580 --> 00:00:17,150
+Now, for some of you, this may be a bit of
+a review, and we're providing this just so
+
+5
+00:00:17,150 --> 00:00:19,340
+that we're all on the same
+page going forward.
+
+6
+00:00:19,340 --> 00:00:21,005
+But if you feel like it's
+too much of a review,
+
+7
+00:00:21,005 --> 00:00:23,378
+feel free to skip ahead to the practice
+quiz at the end of the week.

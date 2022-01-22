@@ -1,0 +1,60 @@
+1
+00:00:00,169 --> 00:00:03,539
+[MUSIC]
+
+2
+00:00:03,539 --> 00:00:05,830
+Congratulations on completing our course.
+
+3
+00:00:05,830 --> 00:00:09,030
+You've created a large project and
+I hope you enjoyed it.
+
+4
+00:00:09,030 --> 00:00:11,016
+>> Think back to everything
+you've learned in this course.
+
+5
+00:00:11,016 --> 00:00:12,808
+You've learned about object
+oriented programming.
+
+6
+00:00:12,808 --> 00:00:16,212
+You've worked with class hierarchies,
+inheritance, and polymorphism.
+
+7
+00:00:16,212 --> 00:00:19,650
+And you've created an interactive
+graphical user interface.
+
+8
+00:00:19,650 --> 00:00:21,910
+We hope you're really
+proud of your project.
+
+9
+00:00:21,910 --> 00:00:24,590
+>> And we hope you'll join us for
+the second course as well.
+
+10
+00:00:24,590 --> 00:00:27,050
+We'll be thinking about the performance
+of the programs that we build.
+
+11
+00:00:27,050 --> 00:00:31,590
+And we'll be incorporating data structures
+as the programs get even more complicated
+
+12
+00:00:31,590 --> 00:00:32,520
+and interesting.
+
+13
+00:00:32,520 --> 00:00:33,800
+So we hope to see you there.

@@ -1,0 +1,293 @@
+1
+00:00:00,120 --> 00:00:03,626
+[MUSIC]
+
+2
+00:00:03,626 --> 00:00:05,298
+Hi again, I'm Leo Porter.
+
+3
+00:00:05,298 --> 00:00:07,992
+I'm a computer science
+professor here at UC San Diego.
+
+4
+00:00:07,992 --> 00:00:10,826
+One of my areas of research is
+computer science education.
+
+5
+00:00:10,826 --> 00:00:14,669
+What we like to do in that area of
+research is look at the best practices for
+
+6
+00:00:14,669 --> 00:00:16,631
+student learning in the classroom.
+
+7
+00:00:16,631 --> 00:00:21,250
+One of the best practices we know about
+in computer science is peer instruction.
+
+8
+00:00:21,250 --> 00:00:22,679
+With peer instruction,
+
+9
+00:00:22,679 --> 00:00:26,827
+students get to tackle hard problems,
+discuss it with their peers, and
+
+10
+00:00:26,827 --> 00:00:30,922
+then participate in a large classwide
+discussion with the professor.
+
+11
+00:00:30,922 --> 00:00:33,928
+We do this in a number of the courses
+here at UC San Diego, and
+
+12
+00:00:33,928 --> 00:00:35,566
+we'd like to bring this to you.
+
+13
+00:00:35,566 --> 00:00:40,866
+And we're gonna do this through a series
+of videos known as the Concept Challenges,
+
+14
+00:00:40,866 --> 00:00:43,345
+so let me walk through an example here.
+
+15
+00:00:43,345 --> 00:00:47,765
+So here we have you watching a video,
+now let's assume this is from a previous
+
+16
+00:00:47,765 --> 00:00:52,400
+class in Java that you've taken before
+where you learned first about for loops.
+
+17
+00:00:53,620 --> 00:00:57,915
+So, you watch the video on for loops,
+and then you get done with the video and
+
+18
+00:00:57,915 --> 00:01:00,553
+the question becomes well,
+did you learn it?
+
+19
+00:01:00,553 --> 00:01:02,944
+I mean, there's certainly areas of the
+video that you probably understood well.
+
+20
+00:01:02,944 --> 00:01:05,313
+But there may be some areas that
+you didn't understand as well.
+
+21
+00:01:05,313 --> 00:01:06,874
+So the best way to find out whether or
+
+22
+00:01:06,874 --> 00:01:09,595
+not you really understood
+the material is to solve problems.
+
+23
+00:01:09,595 --> 00:01:13,660
+So we're gonna ask you questions to help
+elucidate what areas you're strongest in
+
+24
+00:01:13,660 --> 00:01:15,121
+and which areas you're not.
+
+25
+00:01:17,327 --> 00:01:19,829
+So a question might look
+something like this, so
+
+26
+00:01:19,829 --> 00:01:23,805
+you've just watched a video on for
+loops and here's an example of for loops.
+
+27
+00:01:23,805 --> 00:01:29,190
+And the question here is asking,
+how many times does i<10 execute?
+
+28
+00:01:29,190 --> 00:01:32,934
+Now the reason we ask a question like this
+is because we expect a number of folks
+
+29
+00:01:32,934 --> 00:01:33,983
+will get this wrong.
+
+30
+00:01:33,983 --> 00:01:36,872
+In fact, we want you to get a number of
+these question wrong because that means
+
+31
+00:01:36,872 --> 00:01:38,255
+it's an opportunity for learning.
+
+32
+00:01:38,255 --> 00:01:42,249
+What we expect is a lot of novice
+learners would answer B here.
+
+33
+00:01:42,249 --> 00:01:47,868
+They would say that the loop executes ten
+times, so i<10 will execute ten times.
+
+34
+00:01:47,868 --> 00:01:51,606
+But the condition i<10
+actually executes 11 times.
+
+35
+00:01:51,606 --> 00:01:54,137
+And we'll talk more about
+that as we go forward.
+
+36
+00:01:54,137 --> 00:01:56,359
+So after you solve
+the problem on your own,
+
+37
+00:01:56,359 --> 00:02:00,437
+after you've tackled the problem yourself,
+what you're gonna then see, or
+
+38
+00:02:00,437 --> 00:02:04,250
+what we hope you can do,
+is work with other learners around you.
+
+39
+00:02:04,250 --> 00:02:07,227
+So if you have anyone else in your
+neighborhood, or friends who have taken
+
+40
+00:02:07,227 --> 00:02:10,460
+the same course, this is a great time to
+get together and discuss the question.
+
+41
+00:02:10,460 --> 00:02:13,708
+And by discussing it with your friends,
+you're gonna find out one of you may say,
+
+42
+00:02:13,708 --> 00:02:15,893
+well, wait a second,
+does it execute that last time?
+
+43
+00:02:15,893 --> 00:02:20,049
+And then you realize, oh, shoot,
+it does actually execute 11 times.
+
+44
+00:02:20,049 --> 00:02:22,741
+But if you don't have
+some friends around you,
+
+45
+00:02:22,741 --> 00:02:27,520
+what we're gonna give you is also a series
+of videos where you're seeing UC San Diego
+
+46
+00:02:27,520 --> 00:02:30,160
+learners discussing the question.
+
+47
+00:02:30,160 --> 00:02:32,030
+And there you'll hear them
+say things like, well,
+
+48
+00:02:32,030 --> 00:02:34,170
+wait a second, it's really easy
+to forget that last check.
+
+49
+00:02:34,170 --> 00:02:36,549
+Oh, yeah, so the answer must have been 11.
+
+50
+00:02:37,940 --> 00:02:41,300
+And then, after you hear
+the UC San Diego learners discussing it,
+
+51
+00:02:41,300 --> 00:02:43,300
+you're gonna hear one of our explanations.
+
+52
+00:02:44,880 --> 00:02:47,590
+So the full course of one of
+these questions is gonna look
+
+53
+00:02:47,590 --> 00:02:48,830
+something like this.
+
+54
+00:02:48,830 --> 00:02:50,790
+You're gonna pause,
+try solving the problem yourself,
+
+55
+00:02:50,790 --> 00:02:54,440
+you're gonna discuss the question with
+other learners around you if you can,
+
+56
+00:02:54,440 --> 00:02:59,090
+you're either then gonna watch a video of
+the UC San Diego learners discussing it.
+
+57
+00:02:59,090 --> 00:03:01,530
+And then you're gonna confirm your
+understanding by listening to our
+
+58
+00:03:01,530 --> 00:03:02,130
+explanation.
+
+59
+00:03:03,590 --> 00:03:05,620
+By solving these kind of hard problems,
+
+60
+00:03:05,620 --> 00:03:07,800
+you're gonna understand
+your material much better.
+
+61
+00:03:07,800 --> 00:03:10,386
+You're also gonna identify areas
+that you might need improvement.
+
+62
+00:03:10,386 --> 00:03:13,567
+And that's where more support videos and
+the forums come in.

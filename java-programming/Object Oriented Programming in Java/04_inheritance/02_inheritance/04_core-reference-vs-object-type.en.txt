@@ -1,0 +1,46 @@
+[MUSIC] In the last video we began using
+the keyword extends to unlock the power of Inheritance in JAVA. We also designed our
+first class hierarchy and we're gonna continue
+with that in this video. The goal here is to understand
+what the term is a means. And how it defines a relationship
+necessarily between classes. In the last video, we saw how
+designing our class hierarchy and using the keyboard extends gives us
+the first two features on this list. It allows us to keep all the common code
+in one class, allows us to split out the different behavior between separate
+classes, but what we didn't answer was how can we keep all the objects
+in one single data structure. And to figure this out,
+let's play an old fashioned matching game. What I have here on
+the left is a Reference and on the right I have an Object. What we're gonna do is
+essentially play a matching game. We're gonna try and figure out, can you
+have this Reference point to this Object. Let's start off with
+Person p = new Person ();. You've done this a whole bunch,
+is this legal, absolutely. The reason this is legal is
+because A Person is-a Person. Somewhat reflective we
+kind of recognize that. We'll use this term though,
+again as we go forward. Likewise, is a Student a Student,
+absolutely. A Student is-a Student. Where this gets interesting is, can you have a Reference,
+Person point to a Student Object? What I want you to do is think about this,
+just for a few seconds. Do you think this should be allowed? I hope you said yes. This should be allowed. Now, this is new. You've likely always ran code where
+the Reference was the exact same thing as the Object, but
+you're actually allowed to do this. And the reason you're allowed to do
+this is because a Student is a Person. All the capabilities that a Person has,
+a Student has to have, because it's derived from Person. This is fantastic,
+because what this allows us to do now, is keep one single array of Student and
+Faculty objects. So this code where I create a array
+of Persons, a references to Persons. And then I can fill it with
+references to a Person object, to a Student object, and
+to a Faculty object. This code compiles and
+will work just fine. So we can now keep,
+whether your person is Student or Faculty, all in one data structure. This is fantastic. And we haven't finished
+our matching game yet. Can you have a Student Reference
+point to a Person Object? The answer here is, no. Why? Well, not all the features of a Student
+are necessarily within a Person. And you could think about it kind
+of loosely as an analogy of, if you walked up to a random person on the
+street and asked them what their GPA is. Well, that's probably not a very polite
+question to ask in the first place, but if you were to ask it,
+most people would say, I'm not a student. What are you asking me? This is why you can't do this. Now, why I brought up this example is because we get to polymorphism
+in just a few videos. References and
+Objects are gonna become front and center. We're gonna talk about what decisions are
+made of compile time, based on reference type and what decisions are made at
+run time based on object actual type. But before we can get there, we have a few more details to work out
+with inheritance in the next videos.

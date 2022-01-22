@@ -1,0 +1,601 @@
+1
+00:00:00,025 --> 00:00:04,003
+[SOUND] In this support video, I'm gonna
+talk to you a little bit more about
+
+2
+00:00:04,003 --> 00:00:07,724
+documentation and how you'll be
+using it throughout this course and
+
+3
+00:00:07,724 --> 00:00:10,099
+particularly in the homework assignment,
+
+4
+00:00:10,099 --> 00:00:14,678
+in the programming assignment that you'll
+get started on at the end of this module.
+
+5
+00:00:14,678 --> 00:00:19,460
+So in the last lesson, I showed you this
+page for the processing documentation.
+
+6
+00:00:19,460 --> 00:00:23,510
+And it has a bunch of methods that
+you'll find really useful when
+
+7
+00:00:23,510 --> 00:00:28,100
+you're trying to draw shapes and
+change the colors of your GUI display.
+
+8
+00:00:28,100 --> 00:00:30,670
+So let me just highlight a few,
+it's a pretty big page.
+
+9
+00:00:30,670 --> 00:00:31,840
+The few that we looked at.
+
+10
+00:00:31,840 --> 00:00:33,680
+So we're here in this 2D Primitives.
+
+11
+00:00:33,680 --> 00:00:38,770
+We wanna look at ellipses, lines,
+points, rectangles, so on and so forth.
+
+12
+00:00:38,770 --> 00:00:40,710
+We've got the color methods over here.
+
+13
+00:00:40,710 --> 00:00:44,949
+You can change the background color,
+you can change the stroke color,
+
+14
+00:00:44,949 --> 00:00:47,640
+the fill color of shapes,
+so on and so forth.
+
+15
+00:00:47,640 --> 00:00:50,662
+And you can play with any of
+these methods if you want but
+
+16
+00:00:50,662 --> 00:00:53,760
+let me give you a couple more
+that you might find useful.
+
+17
+00:00:53,760 --> 00:00:58,560
+Particularly implementing the key of
+that map which is these typography
+
+18
+00:00:58,560 --> 00:01:00,480
+functions down here.
+
+19
+00:01:00,480 --> 00:01:04,792
+So these are methods that you can
+use to draw text on your GUI.
+
+20
+00:01:04,792 --> 00:01:08,030
+So in particular this method here text(),
+that's what's gonna create a little
+
+21
+00:01:08,030 --> 00:01:10,980
+box where you can put
+some text on the display.
+
+22
+00:01:10,980 --> 00:01:14,350
+And then down here are a bunch of methods
+that allow you to change the attributes
+
+23
+00:01:14,350 --> 00:01:15,550
+of that text.
+
+24
+00:01:15,550 --> 00:01:16,990
+And again, with any of these methods,
+
+25
+00:01:16,990 --> 00:01:19,442
+the best way to get to know how
+to use them is to click on them.
+
+26
+00:01:19,442 --> 00:01:22,530
+And it'll take you to a page that
+gives you a whole bunch of examples
+
+27
+00:01:22,530 --> 00:01:25,510
+on how to call that method and what visual
+
+28
+00:01:25,510 --> 00:01:28,730
+implications that will have when you pass
+different arguments into the method.
+
+29
+00:01:30,240 --> 00:01:34,380
+The other thing I want to talk
+about is the documentation for
+
+30
+00:01:34,380 --> 00:01:36,400
+the unfolding maps library.
+
+31
+00:01:36,400 --> 00:01:39,690
+So this is at this URL that
+you'll open up when you're
+
+32
+00:01:39,690 --> 00:01:41,654
+doing your programming assignment.
+
+33
+00:01:41,654 --> 00:01:46,533
+unfoldingmaps.org/javadoc/ and it gives
+you information about all of the classes
+
+34
+00:01:46,533 --> 00:01:50,405
+and methods that are built in to
+the unfolding maps library and this is
+
+35
+00:01:50,405 --> 00:01:54,840
+a library that you've downloaded as part
+of that starter code that you set up.
+
+36
+00:01:54,840 --> 00:02:00,050
+But it can be pretty overwhelming because
+it seems to have a lot going on here.
+
+37
+00:02:00,050 --> 00:02:01,850
+So, let me help you navigate.
+
+38
+00:02:01,850 --> 00:02:07,530
+What you see up here in this corner
+right here, this is all of the classes,
+
+39
+00:02:07,530 --> 00:02:12,470
+or sorry, all of the packages that
+are defined in the unfolding maps library.
+
+40
+00:02:12,470 --> 00:02:16,070
+And as you know, from looking at the
+Eclipse starter code, packages are just
+
+41
+00:02:16,070 --> 00:02:20,990
+little ways to organize your classes, so
+that they're a little bit more organized.
+
+42
+00:02:20,990 --> 00:02:25,560
+And this windows's only really useful if
+you know what package your looking in.
+
+43
+00:02:25,560 --> 00:02:29,000
+If you just know the name of the class,
+you don't necessarily want to look here.
+
+44
+00:02:29,000 --> 00:02:32,860
+But if, for example you know that you
+only care about the map providers,
+
+45
+00:02:32,860 --> 00:02:37,140
+which is this package right here, you
+could click on this and what it will do
+
+46
+00:02:37,140 --> 00:02:41,830
+is it will limit this display down here,
+which is where you see all the classes.
+
+47
+00:02:42,840 --> 00:02:47,600
+So if I click providers up here then what
+I see down here are only the classes
+
+48
+00:02:47,600 --> 00:02:48,660
+that are part of that package.
+
+49
+00:02:48,660 --> 00:02:52,530
+And that can be useful because this can
+give you all the different possibilities
+
+50
+00:02:52,530 --> 00:02:55,130
+for what map providers you can use.
+
+51
+00:02:55,130 --> 00:02:56,640
+So here's the Google map provider,
+
+52
+00:02:56,640 --> 00:02:58,630
+here's a whole bunch of
+different Google map providers.
+
+53
+00:02:58,630 --> 00:03:02,680
+There's a bunch of different other,
+there's some Microsoft map providers,
+
+54
+00:03:02,680 --> 00:03:04,560
+there's an open map surfer provider.
+
+55
+00:03:04,560 --> 00:03:07,700
+So there's a lot of different
+map providers that you can
+
+56
+00:03:07,700 --> 00:03:11,830
+play around with and perhaps you already
+played around with in that first module.
+
+57
+00:03:11,830 --> 00:03:14,600
+But if you don't know what
+package you're looking in,
+
+58
+00:03:14,600 --> 00:03:17,170
+then you can just click
+here to All Classes, and
+
+59
+00:03:17,170 --> 00:03:21,940
+this will give you a list of all the
+classes that are provided by this library.
+
+60
+00:03:21,940 --> 00:03:26,190
+All right, so let me go to some classes
+in particular that you'll find useful for
+
+61
+00:03:26,190 --> 00:03:27,810
+this part of the project.
+
+62
+00:03:27,810 --> 00:03:28,850
+The first one is down here.
+
+63
+00:03:28,850 --> 00:03:30,530
+It's called SimplePointMarker.
+
+64
+00:03:30,530 --> 00:03:32,340
+This is the class that you're
+gonna be implementing.
+
+65
+00:03:32,340 --> 00:03:36,510
+You're gonna be creating instances of this
+class to create those markers on your map.
+
+66
+00:03:36,510 --> 00:03:41,330
+So you can click on it, and
+what you're gonna see on the right hand
+
+67
+00:03:41,330 --> 00:03:46,580
+side is all of the different methods and
+fields that this class has.
+
+68
+00:03:46,580 --> 00:03:49,412
+So you can see that it has a few
+different constructors and
+
+69
+00:03:49,412 --> 00:03:52,660
+we recommend using this constructor
+here that takes a location.
+
+70
+00:03:52,660 --> 00:03:56,090
+That will just create a simple
+point marker at a given location.
+
+71
+00:03:56,090 --> 00:03:59,361
+And if you want a little more information
+about this constructor you can
+
+72
+00:03:59,361 --> 00:03:59,970
+click on it.
+
+73
+00:03:59,970 --> 00:04:04,764
+It gives you a slightly expanded
+view of the documentation so
+
+74
+00:04:04,764 --> 00:04:08,090
+you can learn more about it that way.
+
+75
+00:04:08,090 --> 00:04:12,390
+And then there's a whole bunch
+of different methods that you
+
+76
+00:04:12,390 --> 00:04:15,910
+can use that are already implemented here.
+
+77
+00:04:15,910 --> 00:04:17,970
+Now just a caution
+against this draw method.
+
+78
+00:04:19,130 --> 00:04:21,820
+This draw method,
+you should not call explicitly.
+
+79
+00:04:21,820 --> 00:04:27,430
+This is called automatically for you, so
+do not call the draw method explicitly.
+
+80
+00:04:27,430 --> 00:04:30,100
+We're gonna learn more about
+that in the next module, but for
+
+81
+00:04:30,100 --> 00:04:34,400
+now just know, don't call draw
+on the simple point marker.
+
+82
+00:04:34,400 --> 00:04:37,020
+So then that might raise the question
+of how are you going to draw the simple
+
+83
+00:04:37,020 --> 00:04:38,090
+point markers?
+
+84
+00:04:38,090 --> 00:04:40,710
+Well, it all goes back
+to the unfolding map.
+
+85
+00:04:40,710 --> 00:04:44,940
+So here's the other class that you'll want
+to rely on this Java documentation for,
+
+86
+00:04:44,940 --> 00:04:49,860
+which is the sort of main class that your
+adding everything to to visualize the map.
+
+87
+00:04:49,860 --> 00:04:52,570
+And so this unfolding map class
+you can see we've already
+
+88
+00:04:52,570 --> 00:04:55,400
+looked a little bit at the various
+constructors that is has.
+
+89
+00:04:55,400 --> 00:04:58,400
+But you can see that it has a whole
+bunch of different constructors.
+
+90
+00:04:58,400 --> 00:05:01,400
+So you can play around with
+constructing these unfolding
+
+91
+00:05:01,400 --> 00:05:05,490
+map objects using different
+parameters as you like.
+
+92
+00:05:05,490 --> 00:05:08,220
+And then, you can see that
+it has a bunch of methods.
+
+93
+00:05:08,220 --> 00:05:09,280
+It has a lot of methods.
+
+94
+00:05:09,280 --> 00:05:10,440
+And in particular, for this assignment,
+
+95
+00:05:10,440 --> 00:05:15,390
+some of the methods that you're going to
+find useful are things like addMarkers.
+
+96
+00:05:15,390 --> 00:05:19,060
+For example, this method here takes a list
+of markers and adds them to the map.
+
+97
+00:05:19,060 --> 00:05:22,740
+And once those markers are added to
+the map, you'll see them appear.
+
+98
+00:05:22,740 --> 00:05:26,570
+This is, once they get added to the map
+that's what causes Java to automatically
+
+99
+00:05:26,570 --> 00:05:31,020
+call the draw methods in the markers,
+and displays those markers for you.
+
+100
+00:05:31,020 --> 00:05:33,250
+So those are just a few useful classes and
+
+101
+00:05:33,250 --> 00:05:38,775
+methods that you'll want to use on your
+programming assignment for this module.
+
+102
+00:05:38,775 --> 00:05:40,955
+So in addition to the documentation for
+processing and
+
+103
+00:05:40,955 --> 00:05:44,755
+for unfolding maps, Java itself
+actually provides documentation for
+
+104
+00:05:44,755 --> 00:05:48,415
+all of its libraries and classes and
+all the methods on those classes.
+
+105
+00:05:48,415 --> 00:05:51,647
+And you can find that at this URL here and
+
+106
+00:05:51,647 --> 00:05:54,247
+you can do a Google search for
+Java documentation.
+
+107
+00:05:54,247 --> 00:05:58,807
+One thing to note is that if you're
+working in Java version 7, you'll wanna
+
+108
+00:05:58,807 --> 00:06:03,380
+change that 8 to a 7 so that you match the
+version of Java that you're working with.
+
+109
+00:06:03,380 --> 00:06:07,900
+But what you can see basically here is
+every single class that Java implements.
+
+110
+00:06:07,900 --> 00:06:10,572
+And this can be really useful when you're
+working with a class that you don't really
+
+111
+00:06:10,572 --> 00:06:13,170
+know that well or
+that you've forgotten a little bit about.
+
+112
+00:06:13,170 --> 00:06:17,490
+So we encourage you to also use
+the standard Java documentation as well.
+
+113
+00:06:17,490 --> 00:06:21,690
+In general it's really to your
+benefit to start to get comfortable
+
+114
+00:06:21,690 --> 00:06:25,210
+playing around with this documentation and
+using this documentation.
+
+115
+00:06:25,210 --> 00:06:30,440
+Because in the real world, and
+even in this class, we're not gonna tell
+
+116
+00:06:30,440 --> 00:06:35,810
+you every single thing you need to know
+in order to use some library code.
+
+117
+00:06:35,810 --> 00:06:37,710
+Using library code is extremely common.
+
+118
+00:06:37,710 --> 00:06:39,800
+And there's no instructor sitting there,
+telling you, oh,
+
+119
+00:06:39,800 --> 00:06:42,280
+you should use this class and
+you should use this method.
+
+120
+00:06:42,280 --> 00:06:45,960
+It's up to you to read
+the documentation for that library, and
+
+121
+00:06:45,960 --> 00:06:47,440
+hopefully it's good documentation,
+
+122
+00:06:47,440 --> 00:06:53,520
+so that you can figure out how to use
+those classes and those methods yourself.
+
+123
+00:06:53,520 --> 00:06:57,525
+This will also drive home the importance
+of documenting your own code.
+
+124
+00:06:57,525 --> 00:07:00,705
+When you start writing code that
+you will provide to others to use,
+
+125
+00:07:00,705 --> 00:07:04,605
+all they're gonna have is this
+documentation to go by, so
+
+126
+00:07:04,605 --> 00:07:07,905
+it a really good idea to make it as
+complete and as useful as possible.

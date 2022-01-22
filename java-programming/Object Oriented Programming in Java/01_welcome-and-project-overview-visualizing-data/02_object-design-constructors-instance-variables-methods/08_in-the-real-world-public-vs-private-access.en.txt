@@ -1,0 +1,5 @@
+[MUSIC] As a software engineer, I use
+the words private and public everyday. Even though it might sound trivial, it's
+extremely important to get those right. You make everything private and you end up with code that cannot
+interact with anything else. You make everything public and you end up with code that's extremely
+vulnerable, maybe even useless.

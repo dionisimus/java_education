@@ -1,0 +1,81 @@
+1
+00:00:00,090 --> 00:00:03,918
+[MUSIC]
+
+2
+00:00:03,918 --> 00:00:05,949
+All right.
+Something I struggled with when I
+
+3
+00:00:05,949 --> 00:00:10,356
+was learning computer science, and also
+I still really kind of struggle with it
+
+4
+00:00:10,356 --> 00:00:14,635
+today, is just simply compiling and
+running and testing my code.
+
+5
+00:00:14,635 --> 00:00:17,465
+I'm not really sure why, but
+when I started out programming
+
+6
+00:00:17,465 --> 00:00:21,285
+I was just terrified to compile, and
+I was terrified to run because I was so
+
+7
+00:00:21,285 --> 00:00:23,705
+afraid of the errors that
+were going to be in my code.
+
+8
+00:00:23,705 --> 00:00:28,945
+And, of course, we all have errors in our
+code, but it just, it was a visceral fear.
+
+9
+00:00:28,945 --> 00:00:32,165
+And I always thought, oh, my God, like the
+computer is going to explode or something,
+
+10
+00:00:32,165 --> 00:00:33,383
+and I would just not do it.
+
+11
+00:00:33,383 --> 00:00:36,150
+So it would lead me to write
+these huge methods and
+
+12
+00:00:36,150 --> 00:00:40,970
+these huge programs before I compiled or
+ran anything, and it was a big mistake.
+
+13
+00:00:40,970 --> 00:00:44,430
+So I got over that just by
+kind of practicing more,
+
+14
+00:00:44,430 --> 00:00:48,660
+hitting the compile button and the run
+button and realizing that nothing happens.
+
+15
+00:00:48,660 --> 00:00:51,700
+Your code breaks and you fix it and
+it's not a big deal.
+
+16
+00:00:51,700 --> 00:00:54,080
+So that's what I've learned, but,
+you know, it's still kind of scary for
+
+17
+00:00:54,080 --> 00:00:54,740
+me sometimes.

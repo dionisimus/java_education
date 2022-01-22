@@ -1,0 +1,17 @@
+[MUSIC] Hi, my name is Nina Ye. I'm on the Google Fiber
+software engineering team. Search and sort are both used very
+commonly in the work I do at Google Fiber. Actually, don't some people use the word
+Google and search interchangeably? Let me Google this movie. Can you Google that recipe? On fiber.google.com,
+which my team works on, one of the most used features by our
+users is the check address button. It lets our users enter an address and
+check whether Google Fiber is coming to or if it's already available
+in that location. Once user enters an address, the system searches through
+an address database of millions and millions of records to find a Google Fiber
+readiness status for that entered address. And the result is expected to come back
+almost instantaneously to the user. For that, we need a variable bust and
+high performing searching algorithm. Sorting is used in day
+to day programming too. For instance, to show investors choices
+of something in an organized format, we sort the list before
+displaying them to the user. In Google Fiber's sign up web pages,
+the sports TV packages, available for customers to chose from,
+are displayed in alphabetical order.

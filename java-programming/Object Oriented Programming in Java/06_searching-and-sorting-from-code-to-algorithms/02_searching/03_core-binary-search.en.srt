@@ -1,0 +1,976 @@
+1
+00:00:00,000 --> 00:00:04,033
+[MUSIC]
+
+2
+00:00:04,033 --> 00:00:04,570
+All right.
+
+3
+00:00:04,570 --> 00:00:07,810
+In this video, we are going to improve
+on that linear searching algorithm
+
+4
+00:00:07,810 --> 00:00:09,130
+that we looked at in the last video,
+
+5
+00:00:09,130 --> 00:00:13,200
+and we are going to talk about
+an algorithm called binary search.
+
+6
+00:00:13,200 --> 00:00:16,390
+So by the end of this video, you will be
+able to explain what binary search is.
+
+7
+00:00:16,390 --> 00:00:19,510
+You will be able to write code
+to implement binary search.
+
+8
+00:00:19,510 --> 00:00:22,230
+And you'll also be able to explain
+what conditions need to be true for
+
+9
+00:00:22,230 --> 00:00:24,740
+binary search,
+as well as explain why binary search is so
+
+10
+00:00:24,740 --> 00:00:26,300
+much better than linear search.
+
+11
+00:00:27,530 --> 00:00:29,180
+All right, to motivate the need for
+
+12
+00:00:29,180 --> 00:00:31,830
+binary search, let's go back to
+our linear search algorithm.
+
+13
+00:00:31,830 --> 00:00:35,920
+We were looking for airport objects
+that had particular city names so
+
+14
+00:00:35,920 --> 00:00:37,710
+we could answer questions
+about those airports,
+
+15
+00:00:37,710 --> 00:00:41,800
+like what are their three digit airport
+codes, three letter airport codes.
+
+16
+00:00:41,800 --> 00:00:44,650
+And what we did was we started at the
+beginning of our array at index position
+
+17
+00:00:44,650 --> 00:00:47,600
+zero and we just marched through
+this array element by element,
+
+18
+00:00:47,600 --> 00:00:51,570
+until we either found the city we were
+looking for or didn't find it, but reached
+
+19
+00:00:51,570 --> 00:00:54,490
+the end of the array, in which case we
+concluded that the city wasn't there.
+
+20
+00:00:54,490 --> 00:00:58,890
+And it worked, but I asked you this
+thought question at the end of the video.
+
+21
+00:00:58,890 --> 00:01:03,670
+I said, if we're very unlucky,
+how many elements do we have to
+
+22
+00:01:03,670 --> 00:01:07,070
+look at in order to, either find the city
+or conclude that it's not there?
+
+23
+00:01:07,070 --> 00:01:11,850
+And then the second part of that
+thought question is, can we do better?
+
+24
+00:01:11,850 --> 00:01:16,366
+So, to answer this question, I'm going
+to step over into the real world.
+
+25
+00:01:19,141 --> 00:01:21,960
+So, I'm gonna use a dictionary for
+this example.
+
+26
+00:01:21,960 --> 00:01:23,740
+And this is a physical dictionary,
+
+27
+00:01:23,740 --> 00:01:26,740
+which some of you maybe have
+never used in your lives.
+
+28
+00:01:26,740 --> 00:01:27,870
+But this is what it looks like.
+
+29
+00:01:27,870 --> 00:01:29,340
+It's an enormous book.
+
+30
+00:01:29,340 --> 00:01:34,750
+It has basically every word in,
+in this case, the English language in it.
+
+31
+00:01:34,750 --> 00:01:36,440
+And I can find definitions of the word,
+
+32
+00:01:36,440 --> 00:01:41,070
+I can find their origins,
+the spelling, so on and so forth.
+
+33
+00:01:41,070 --> 00:01:44,190
+And so if I was gonna find
+a word in this dictionary,
+
+34
+00:01:44,190 --> 00:01:47,730
+here's an example of how I might use
+linear search to find that word.
+
+35
+00:01:47,730 --> 00:01:50,090
+Let's say I'm looking for the word, shark.
+
+36
+00:01:50,090 --> 00:01:52,370
+So I open up my dictionary
+to the beginning.
+
+37
+00:01:53,510 --> 00:01:54,750
+Let's see, okay.
+
+38
+00:01:54,750 --> 00:01:56,150
+Acrobatics, let's see.
+
+39
+00:01:56,150 --> 00:01:57,530
+All right, not on this page.
+
+40
+00:01:58,740 --> 00:02:01,420
+And over here, not here, not there.
+
+41
+00:02:01,420 --> 00:02:03,440
+Acupuncture, nope, still not there.
+
+42
+00:02:03,440 --> 00:02:05,850
+I'm looking, I'm looking,
+I'm looking, I'm looking.
+
+43
+00:02:05,850 --> 00:02:07,480
+Are you getting bored yet?
+
+44
+00:02:07,480 --> 00:02:08,580
+I'm getting very bored.
+
+45
+00:02:08,580 --> 00:02:13,240
+I'm not gonna make you watch me page
+through this dictionary page after page
+
+46
+00:02:13,240 --> 00:02:14,290
+to find the work shark.
+
+47
+00:02:14,290 --> 00:02:16,400
+It's way back here at the Ss.
+
+48
+00:02:16,400 --> 00:02:19,190
+This is gonna take a really long time.
+
+49
+00:02:19,190 --> 00:02:21,960
+But this is effectively what we
+were doing with linear search.
+
+50
+00:02:21,960 --> 00:02:26,540
+We are starting the beginning, looking
+all the way through in a row, our array.
+
+51
+00:02:26,540 --> 00:02:29,320
+So what's a better approach
+to approach this problem?
+
+52
+00:02:29,320 --> 00:02:33,260
+Well, it's an intuitive parse that we all
+use when we're opening a dictionary and
+
+53
+00:02:33,260 --> 00:02:34,880
+trying to find a particular word.
+
+54
+00:02:34,880 --> 00:02:36,010
+I don't open to the beginning,
+
+55
+00:02:36,010 --> 00:02:40,470
+because I know us is sort of in the middle
+towards the end of the alphabet.
+
+56
+00:02:40,470 --> 00:02:44,410
+So I'm going to open to about sort
+of halfway, maybe a little bit more.
+
+57
+00:02:44,410 --> 00:02:46,460
+And I found myself in the Rs.
+
+58
+00:02:46,460 --> 00:02:47,620
+Okay.
+
+59
+00:02:47,620 --> 00:02:48,730
+R S, S comes after R.
+
+60
+00:02:48,730 --> 00:02:50,240
+So I need to go a little bit further, so
+
+61
+00:02:50,240 --> 00:02:53,290
+I'll take another chunk of
+the dictionary and flip it over.
+
+62
+00:02:53,290 --> 00:02:55,990
+Oh, I've gone way too far,
+I'm now in the Ys.
+
+63
+00:02:55,990 --> 00:02:58,420
+So let me flip back a little bit, okay.
+
+64
+00:02:58,420 --> 00:03:01,570
+Now I find myself in the Ts,
+keep going back.
+
+65
+00:03:01,570 --> 00:03:05,030
+Great, I'm in the Ss, S O,
+I need to go back a little bit more.
+
+66
+00:03:05,030 --> 00:03:08,280
+So on and so forth until I
+find the word I'm looking for.
+
+67
+00:03:08,280 --> 00:03:12,370
+And already, after only about three or
+four flips, I'm much closer to shark.
+
+68
+00:03:12,370 --> 00:03:16,200
+The word I'm currently looking at is
+shirt, Than I was when I started the As
+
+69
+00:03:16,200 --> 00:03:19,270
+and was just flipping through
+one page after another.
+
+70
+00:03:19,270 --> 00:03:23,210
+So this is an example of
+the binary search algorithm.
+
+71
+00:03:23,210 --> 00:03:27,800
+What I'm doing is is I'm starting with
+my entire pool of data, in this case,
+
+72
+00:03:27,800 --> 00:03:31,310
+it's the dictionary, and
+then I'm going to go half way and
+
+73
+00:03:31,310 --> 00:03:35,070
+I'm going to reassess where I am to see
+if I've found the thing I'm looking at.
+
+74
+00:03:35,070 --> 00:03:36,820
+And if I haven't found
+the thing I'm looking at,
+
+75
+00:03:36,820 --> 00:03:41,650
+I'm going to use some information to
+decide whether I should go to the second
+
+76
+00:03:41,650 --> 00:03:46,670
+half or go back to the first half,
+and then I just have a smaller
+
+77
+00:03:46,670 --> 00:03:51,600
+version of the same problem, where I'll
+again flip the book open about halfway.
+
+78
+00:03:51,600 --> 00:03:56,950
+So notice each time I flip,
+my pages are getting smaller and
+
+79
+00:03:56,950 --> 00:03:59,570
+smaller and smaller,
+the number of pages that I flip.
+
+80
+00:03:59,570 --> 00:04:02,770
+And that's the exact same
+intuition behind binary search.
+
+81
+00:04:02,770 --> 00:04:06,590
+So lets step back over now into the code,
+so
+
+82
+00:04:06,590 --> 00:04:09,380
+we can figure out how to write
+this algorithm on the computer.
+
+83
+00:04:09,380 --> 00:04:13,440
+So we're going to need to implement this
+algorithm by taking our data in our array
+
+84
+00:04:13,440 --> 00:04:17,020
+and what we want to do is to
+cut the list in half each time.
+
+85
+00:04:17,020 --> 00:04:19,290
+But if you look at the list
+as it stands right now,
+
+86
+00:04:19,290 --> 00:04:22,330
+you'll notice a really important
+difference between the data that's
+
+87
+00:04:22,330 --> 00:04:26,330
+in this list currently and the data
+that we had over here in our dictionary.
+
+88
+00:04:26,330 --> 00:04:28,790
+So think about it for a second,
+maybe pause the video,
+
+89
+00:04:28,790 --> 00:04:30,890
+see if you can identify the issue
+that we have right now.
+
+90
+00:04:33,590 --> 00:04:35,780
+All right hopefully you saw it.
+
+91
+00:04:35,780 --> 00:04:37,750
+The list has to be sorted.
+
+92
+00:04:37,750 --> 00:04:41,810
+The reason that we can eliminate half the
+data in the dictionary is that the list
+
+93
+00:04:41,810 --> 00:04:46,190
+of words is in sorted order, so if I'm
+looking for a word that starts with S.
+
+94
+00:04:46,190 --> 00:04:49,770
+I know that nothing that starts with P or
+before matters to me and
+
+95
+00:04:49,770 --> 00:04:51,090
+I can just get rid of it.
+
+96
+00:04:51,090 --> 00:04:55,740
+So the same has to be true in order to do
+binary search of the data in an array.
+
+97
+00:04:55,740 --> 00:04:59,060
+It has to be sorted on the element
+that you're looking for.
+
+98
+00:04:59,060 --> 00:05:01,200
+So in this case,
+it's sorted now by city name.
+
+99
+00:05:02,330 --> 00:05:04,580
+And here's how the binary search
+algorithm is going to work.
+
+100
+00:05:04,580 --> 00:05:07,330
+I'm going to start by identifying
+the string I'm looking for.
+
+101
+00:05:07,330 --> 00:05:08,840
+Let's look for Beijing again.
+
+102
+00:05:08,840 --> 00:05:10,410
+Notice Beijing is now at the beginning,
+
+103
+00:05:10,410 --> 00:05:14,610
+towards the beginning of the list
+because it starts with B.
+
+104
+00:05:14,610 --> 00:05:17,590
+What I want to do now,
+is I want to keep track of what
+
+105
+00:05:17,590 --> 00:05:21,650
+range of the array is currently
+active to be searched.
+
+106
+00:05:21,650 --> 00:05:24,580
+Versus the part of the array
+that's kind of been ruled out.
+
+107
+00:05:24,580 --> 00:05:28,500
+So, I'll keep track of the active
+range of the array with two variables.
+
+108
+00:05:28,500 --> 00:05:30,840
+A low index and a high index.
+
+109
+00:05:30,840 --> 00:05:35,720
+And these are just gonna indicate where in
+my array I'm allowed to look for my data.
+
+110
+00:05:35,720 --> 00:05:36,850
+Outside of this range,
+
+111
+00:05:36,850 --> 00:05:41,660
+I've already eliminated all
+the possible data outside of the range.
+
+112
+00:05:41,660 --> 00:05:43,870
+So my range starts with the whole array.
+
+113
+00:05:43,870 --> 00:05:47,690
+So, low starts at 0 and
+high is length minus 1, in this case 7.
+
+114
+00:05:47,690 --> 00:05:50,670
+And now I want to go to
+that middle element,
+
+115
+00:05:50,670 --> 00:05:52,480
+just like I did in the dictionary.
+
+116
+00:05:52,480 --> 00:05:54,350
+So I calculate the midpoint.
+
+117
+00:05:54,350 --> 00:05:59,960
+I calculate the midpoint by taking the low
+plus the high and then dividing by 2.
+
+118
+00:05:59,960 --> 00:06:02,730
+In this case, it's 0 plus 7 divided by 2.
+
+119
+00:06:02,730 --> 00:06:05,990
+Now, you might be thinking okay,
+the midpoint is 3.5.
+
+120
+00:06:05,990 --> 00:06:11,000
+But the problem is that there's
+no position 3.5 in my array.
+
+121
+00:06:12,030 --> 00:06:14,990
+Luckily, we're doing
+integer division here.
+
+122
+00:06:14,990 --> 00:06:17,910
+And so we don't need to worry
+about decimal points or
+
+123
+00:06:17,910 --> 00:06:22,100
+anything like that because Java will
+automatically truncate that 0.5 and
+
+124
+00:06:22,100 --> 00:06:24,535
+give me the value 3 as my middle position.
+
+125
+00:06:24,535 --> 00:06:29,860
+So (0 + 7) / 2 is 3,
+and that'll be my mid.
+
+126
+00:06:29,860 --> 00:06:33,070
+Now I am going to look at the element
+that's at that mid point .in
+
+127
+00:06:33,070 --> 00:06:37,322
+this case it's the element Essen,
+representing the city Essen in Germany.
+
+128
+00:06:37,322 --> 00:06:40,340
+And I am going to compare it to
+the string that I'm looking for.
+
+129
+00:06:40,340 --> 00:06:41,760
+I am going to say, does it match?
+
+130
+00:06:41,760 --> 00:06:43,590
+Because maybe I've found
+the thing I am looking for.
+
+131
+00:06:43,590 --> 00:06:46,170
+In this case, no it doesn't match.
+
+132
+00:06:46,170 --> 00:06:47,860
+But instead of just giving up,
+
+133
+00:06:47,860 --> 00:06:51,910
+now I need to get some more
+information out of this element.
+
+134
+00:06:51,910 --> 00:06:55,280
+Now I want to know which half
+of my array can I discard?
+
+135
+00:06:55,280 --> 00:06:57,220
+Should I discard the lower half?
+
+136
+00:06:57,220 --> 00:06:59,630
+Or should I discard the greater half?
+
+137
+00:06:59,630 --> 00:07:02,430
+So I'm going to compare
+Beijing to Essen and
+
+138
+00:07:02,430 --> 00:07:06,530
+see whether Beijing is smaller or
+larger than Essen, and
+
+139
+00:07:06,530 --> 00:07:11,010
+I'm doing this alphabetically, so Beijing
+comes before Essen in the alphabet.
+
+140
+00:07:11,010 --> 00:07:14,550
+So Beijing is alphabetically
+smaller than Essen.
+
+141
+00:07:14,550 --> 00:07:18,450
+Which means that everything that's
+larger than Essen in my array
+
+142
+00:07:18,450 --> 00:07:21,580
+couldn't possibly be the string I'm
+looking for, so I can eliminate it.
+
+143
+00:07:21,580 --> 00:07:25,710
+And the way I eliminate it
+is by adjusting my range
+
+144
+00:07:25,710 --> 00:07:27,760
+to no longer include those elements.
+
+145
+00:07:27,760 --> 00:07:30,500
+So I'm gonna move the high
+point in my range
+
+146
+00:07:30,500 --> 00:07:34,490
+to be one less than that middle
+element that I've just ruled out.
+
+147
+00:07:34,490 --> 00:07:36,086
+So this is what it looks like.
+
+148
+00:07:36,086 --> 00:07:42,040
+I will change my high to be mid- 1,
+which in this case is 2,
+
+149
+00:07:42,040 --> 00:07:48,050
+and that effectively rules out
+everything that's either 3 or greater.
+
+150
+00:07:48,050 --> 00:07:51,110
+So now I have another version
+of the exact same problem.
+
+151
+00:07:51,110 --> 00:07:54,910
+I have a low value, which is still 0, and
+a high value of my range, which is now 2.
+
+152
+00:07:54,910 --> 00:07:57,720
+So I only need to look in
+this range of the array,
+
+153
+00:07:57,720 --> 00:08:00,520
+and I'll do it the exact
+same way I did it before.
+
+154
+00:08:00,520 --> 00:08:04,790
+I calculate a mid value so (0 + 2)/2,
+
+155
+00:08:04,790 --> 00:08:09,340
+which is 1, and then I'll look at
+the element that's at that position,
+
+156
+00:08:09,340 --> 00:08:11,650
+in which in this case it's Beijing.
+
+157
+00:08:11,650 --> 00:08:15,540
+I compare the city I'm looking for,
+Beijing, to the city that I see.
+
+158
+00:08:15,540 --> 00:08:17,090
+Which is also Beijing.
+
+159
+00:08:17,090 --> 00:08:18,670
+And I see that I found a match.
+
+160
+00:08:19,950 --> 00:08:20,670
+So that's great.
+
+161
+00:08:20,670 --> 00:08:23,280
+I'm done.
+I can just return that three letter
+
+162
+00:08:23,280 --> 00:08:23,850
+city code.
+
+163
+00:08:25,380 --> 00:08:30,230
+And you can see that this was a lot faster
+than my algorithm before which had to look
+
+164
+00:08:30,230 --> 00:08:33,480
+through about five different
+cities before it found Beijing.
+
+165
+00:08:33,480 --> 00:08:37,780
+Now I recognize that Beijing moved now,
+so it's further towards the beginning.
+
+166
+00:08:37,780 --> 00:08:43,080
+But in general, this is going to be a lot
+faster than our linear search algorithm,
+
+167
+00:08:43,080 --> 00:08:46,386
+and we'll look at just how much faster
+a little bit later in this lesson.
+
+168
+00:08:47,995 --> 00:08:51,205
+So here's our algorithm in that
+same pseudocode we used before to
+
+169
+00:08:51,205 --> 00:08:53,173
+look at the linear search algorithm.
+
+170
+00:08:53,173 --> 00:08:56,055
+We're going to now need to initialize
+two variables, which are the low and
+
+171
+00:08:56,055 --> 00:08:57,155
+high end of our range.
+
+172
+00:08:57,155 --> 00:09:01,465
+And again we initialize low to be zero and
+high to be the length of the array minus
+
+173
+00:09:01,465 --> 00:09:03,315
+one, which is the last
+position in our array.
+
+174
+00:09:03,315 --> 00:09:05,860
+So we've got the whole array in our range.
+
+175
+00:09:05,860 --> 00:09:07,690
+Now we're gonna enter a loop.
+
+176
+00:09:07,690 --> 00:09:11,340
+And it's a little bit unclear yet
+when our loop is gonna stop.
+
+177
+00:09:11,340 --> 00:09:13,620
+So let's leave that as a question mark for
+the future.
+
+178
+00:09:13,620 --> 00:09:16,100
+That'll be for
+you to think about in just a second.
+
+179
+00:09:16,100 --> 00:09:18,380
+But inside the loop here's
+what we're gonna do.
+
+180
+00:09:18,380 --> 00:09:21,456
+We're gonna calculate that
+midpoint of the array and
+
+181
+00:09:21,456 --> 00:09:25,088
+then look at the element that's
+in that midpoint of the array.
+
+182
+00:09:25,088 --> 00:09:28,332
+If that element matches the city
+that we're looking for,
+
+183
+00:09:28,332 --> 00:09:31,720
+then we're done we just return
+that three letter city code.
+
+184
+00:09:31,720 --> 00:09:35,265
+Otherwise, if the city
+that we're looking for
+
+185
+00:09:35,265 --> 00:09:39,784
+is alphabetically less than
+the city element that we found,
+
+186
+00:09:39,784 --> 00:09:44,657
+we want to update our range so
+that we're only looking at the small
+
+187
+00:09:44,657 --> 00:09:48,759
+half of the array by moving
+high to be equal to mid- 1.
+
+188
+00:09:50,010 --> 00:09:51,760
+Otherwise, we know the city
+that we're looking for
+
+189
+00:09:51,760 --> 00:09:54,080
+is in the larger half of the array.
+
+190
+00:09:54,080 --> 00:09:58,740
+In which case we update our low
+value to be equal to mid + 1.
+
+191
+00:09:58,740 --> 00:10:00,590
+That's what the loop does.
+
+192
+00:10:00,590 --> 00:10:02,420
+Again, we don't quite know when it stops.
+
+193
+00:10:02,420 --> 00:10:07,200
+But if it stops, what that means is we
+haven't found the thing we're looking for.
+
+194
+00:10:07,200 --> 00:10:09,464
+In which case we can
+conclude it's not there, and
+
+195
+00:10:09,464 --> 00:10:12,440
+we'll just return that value that
+indicates that it's not there.
+
+196
+00:10:12,440 --> 00:10:13,420
+For example, the value null.
+
+197
+00:10:13,420 --> 00:10:15,388
+So that's pretty much it and
+
+198
+00:10:15,388 --> 00:10:20,481
+the only thing that we have to figure
+out is when do we stop that while loop.
+
+199
+00:10:20,481 --> 00:10:22,361
+This is a question I'm
+going to give to you.
+
+200
+00:10:22,361 --> 00:10:26,184
+So I want you to spend some time thinking
+about what should the while loop
+
+201
+00:10:26,184 --> 00:10:27,560
+condition be?
+
+202
+00:10:27,560 --> 00:10:31,590
+And there's gonna be a quiz that is
+gonna ask you a bunch of choices and
+
+203
+00:10:31,590 --> 00:10:34,340
+you're gonna wanna select
+the correct choice.
+
+204
+00:10:34,340 --> 00:10:37,630
+And in order to do that what I recommend
+is that you work through on your own
+
+205
+00:10:37,630 --> 00:10:40,880
+several examples of cities
+that aren't in this list.
+
+206
+00:10:40,880 --> 00:10:45,400
+So trace through that algorithm
+using the loop that never ends, yet.
+
+207
+00:10:45,400 --> 00:10:47,660
+To figure out what the algorithm does and
+
+208
+00:10:47,660 --> 00:10:50,680
+figure out when it makes
+sense to stop that loop.

@@ -1,0 +1,205 @@
+1
+00:00:00,000 --> 00:00:03,734
+[MUSIC]
+
+2
+00:00:03,734 --> 00:00:07,310
+In this video, we'll be talking about
+two different programming paradigms.
+
+3
+00:00:07,310 --> 00:00:09,240
+We'll be talking about
+procedural programming.
+
+4
+00:00:09,240 --> 00:00:11,960
+And we'll also be talking about
+event driven programming.
+
+5
+00:00:11,960 --> 00:00:13,800
+And I'd like to start with an analogy.
+
+6
+00:00:13,800 --> 00:00:16,070
+So think about how you start your day and
+
+7
+00:00:16,070 --> 00:00:19,340
+try to make sure that you have
+a great day feeling well and healthy.
+
+8
+00:00:19,340 --> 00:00:21,620
+So when I get up, I brush my teeth.
+
+9
+00:00:21,620 --> 00:00:23,790
+Then, I may take some vitamins.
+
+10
+00:00:23,790 --> 00:00:28,290
+Brush my hair, get organized, and I have
+a sequence of events that I go through,
+
+11
+00:00:28,290 --> 00:00:32,700
+one at a time, at the beginning of my
+day to start feeling fresh and healthy.
+
+12
+00:00:32,700 --> 00:00:34,530
+But some days that's not quite enough.
+
+13
+00:00:34,530 --> 00:00:35,470
+Maybe, I have a headache.
+
+14
+00:00:35,470 --> 00:00:38,720
+Maybe, I need to drink some extra water,
+it's really hot out.
+
+15
+00:00:38,720 --> 00:00:41,570
+Maybe, I need to even take
+some pain medication.
+
+16
+00:00:41,570 --> 00:00:46,460
+And so there's a qualitative difference
+between the events that are procedural
+
+17
+00:00:46,460 --> 00:00:51,500
+that follow a sequence that's predictable
+and happen everyday on a regular basis.
+
+18
+00:00:51,500 --> 00:00:57,170
+And then, the actions that I take in
+response to events that are maybe, not
+
+19
+00:00:57,170 --> 00:01:01,569
+as predictable that happen every so often
+based on some sort of external stimulus.
+
+20
+00:01:02,680 --> 00:01:04,560
+And so now, back in programming,
+
+21
+00:01:04,560 --> 00:01:08,020
+we have an analogy to both
+of these kinds of behaviors.
+
+22
+00:01:08,020 --> 00:01:10,610
+So when we think about
+procedural programming,
+
+23
+00:01:10,610 --> 00:01:13,140
+we think about code that's
+executed line by line,
+
+24
+00:01:13,140 --> 00:01:17,360
+one statement after another potentially,
+with some predictable control flow.
+
+25
+00:01:17,360 --> 00:01:20,720
+So this is akin to all of the programs
+that we've been writing in this course
+
+26
+00:01:20,720 --> 00:01:23,960
+up until now and
+the code that you probably written before.
+
+27
+00:01:23,960 --> 00:01:25,430
+So we'd execute one statement.
+
+28
+00:01:25,430 --> 00:01:28,280
+And then we come to a foreloop and
+we'd go through that foreloop and
+
+29
+00:01:28,280 --> 00:01:29,180
+execute one at a time.
+
+30
+00:01:29,180 --> 00:01:33,620
+And what that means is that even though
+the execution might be a little bit
+
+31
+00:01:33,620 --> 00:01:36,440
+different, depending on the values
+of variables that we're using.
+
+32
+00:01:36,440 --> 00:01:38,610
+We still can trace through the code and
+
+33
+00:01:38,610 --> 00:01:43,500
+understand what is going to happen at each
+moment based on the state of the program.
+
+34
+00:01:43,500 --> 00:01:44,680
+On the other hand,
+
+35
+00:01:44,680 --> 00:01:48,450
+what we'll be developing in this
+module is event driven programming.
+
+36
+00:01:48,450 --> 00:01:53,090
+And what this allows us to do,
+is incorporate the power of interactivity.
+
+37
+00:01:53,090 --> 00:01:56,980
+So, we'd like to be able for our programs
+to respond to stimulus, from users,
+
+38
+00:01:56,980 --> 00:01:58,150
+from sensors.
+
+39
+00:01:58,150 --> 00:02:02,776
+We'd like it to be able to respond
+to interfaces like mouses or mice,
+
+40
+00:02:02,776 --> 00:02:06,150
+keyboards, multi touch technology.
+
+41
+00:02:06,150 --> 00:02:09,520
+But also,
+things like thermometers or timers,
+
+42
+00:02:09,520 --> 00:02:14,560
+if we're thinking about programs powering
+remote devices or wearable sensors.
+
+43
+00:02:14,560 --> 00:02:17,690
+So event driven programming
+is incredibly useful.
+
+44
+00:02:17,690 --> 00:02:20,590
+And we'll talk about more of how
+to implement it in the next video.

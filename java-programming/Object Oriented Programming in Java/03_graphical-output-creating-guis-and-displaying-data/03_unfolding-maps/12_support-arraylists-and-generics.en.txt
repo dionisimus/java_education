@@ -1,0 +1,125 @@
+[APPLAUSE]
+>> All right, in this support video,
+we're gonna look at Java's List Interface, the ArrayList class, as well as how to use
+generics, which are these different types. You've already seen Mia working with
+lists and ArrayLists, and using generics. And you're gonna be using these
+classes and generics in your project. But if you're feeling like you need
+a little bit more review or overview of what these classes, and what generics are,
+then watch the support video. So by the end of this video,
+you'll be able to comfortably work with ArrayLists and Lists in Java,
+which are both built in to Java. And you'll also be able to create these
+objects to work with Java generics. So let's go back to one of the examples
+that Mia used in her video. She created this list countries
+that stored an ArrayList object. So for now in this example, I just want you to ignore this piece
+right here inside the angle brackets. That's the generics part of this, and
+we're gonna talk about that later. But for now what I want you to focus
+on is the types of the variable as well as the object that gets created. So the variable that gets created
+countries is of type list. And you can see over here that the object
+that gets created is type ArrayList. So you might be kind of
+worried at this point. And you might be thinking what's going on? These two types are not the same. Is that even allowed? And the answer is that yes,
+this is absolutely allowed in Java. And we're gonna explain
+briefly what's going on here. So a List, as Mia mentioned in her video
+is what's called an abstract data type. And what it i, is a Java interface which we're going
+to get into more in the next module. But what that means is it implements,
+it specifies, some behavior that this
+object has to have, but doesn't talk about exactly how that
+behavior is going to be implemented. So you can use that as the type
+of a particular variable. On the other hand, over here when we actually create
+the object itself, that's an actual class. So the ArrayList is an actual
+class that's built into Java. And it implements all of the behavior
+that's specified by the list interface. This class can be instantiated. And it's perfectly okay to have an
+interface as the type of the variable, and the actual class as the type of
+the thing that you instantiate. That's done a lot. And again, don't worry too
+much about the details here. We're going to get more into this in the
+next module as well as in future courses in this specialization. For now let's just ask the question. Okay we've got anArrayList object,
+let's think about what can it do? Well if I wanna know what a class
+that's built into java can do, where should I look? How about the Javadocs? That's your go-to place to figure out
+what can my classes built into Java actually do? Here's the URL for
+the Javadocs for version 8. If you're using a different
+version of Java, you'll need to change that 8 to a 7 or
+whatever version you happen to be using. Or my favorite is I just google for
+javadoc documentation and then whatever version of
+java I happen to be using. And this link will come right up. So if I click on this link, it's going
+to take me to this page here and that's the overview for
+the Java documentation. And now the question is,
+where the heck is ArrayList? How are you gonna find it. Well there's a couple ways. You can either look down here. This is this full list of all the classes
+and libraries that are built into Java. So you will find ArrayList in this
+big long list, but it's pretty long. So a faster way to get yourself to
+ArrayList is to know what package it's in. So the packages are listed up here. And if you know that ArrayList is in
+java.util, which I'm telling you now, so know you know, you can look in this package list
+to find the java.util package. Then you can click on java.util
+in that package list. And that will narrow down the list
+of classes to only the classes and interfaces that are in java.util. So then you can go down here to
+the list of classes that are shown. Click on the ArrayList class and up will
+come the documentation for the ArrayList. Okay, so now you've got the documentation
+page for the ArrayList. And it's pretty long, and it talks about
+a lot of things the ArrayList can do. And I just wanna call out a few different
+methods that you're going to find useful. Okay, now let's talk about setting an
+element in an array and in an ArrayLists. To set an element in an array, you just
+use that square bracket notation and you put it on the left hand side
+of your assignment statement. So, in this case, we're taking a feature
+that stored in the variable f and were putting it into the 0 index
+position in our array, countryArray. To do this in an ArrayList,
+we're going to use the method called set. Set takes two arguments,
+a index location, in this case, 0, and
+the thing we're trying to put there. And again, countries is our ArrayList and we can call the set method on our
+countries variable, passing in 0 for index position, and
+f the feature we want to store there. Now again, our ArrayList in both cases,
+our Array and our ArrayList, have to have at least one
+element in them, space for one element. Otherwise we're gonna get another
+index out of bounds exception. Again if you wanna see the Java
+documentation, it looks like that. Finally, let's talk about how to get
+the length, or the size, of an ArrayList. So with an array, you know that you
+can just call that length field. So I say countryArray.length, that will give me back the number
+of elements in my array. But for an ArrayList it's
+just a little bit different. Instead of calling a length field,
+we're going to call the size method. So down here, we can see a method called size which
+is just like length in an array. It returns the number of elements
+that are in the ArrayList. Now notice one important thing,
+that size is actually a method. So we have to have these parentheses
+even though they're empty. It takes no parameters. It just returns the size
+of the ArrayLists. So, we can see that arrays and
+ArrayLists are very very similar, just some minor differences in
+how you interact with them. But arrays, it turns out,
+are actually a bit more powerful. Sorry, ArrayLists are more powerful than
+arrays, because arrays, as you know, once you create them and
+set their size, they're fixed. But ArrayLists can expand to
+incorporate more elements. So there are these two
+methods of ArrayLists add, they take different numbers of parameters. And what they do is they actually
+append the new element onto the end of the list increasing the size
+of the ArrayList as necessary. So that's kind of cool. Of course, it doesn't force you to specify
+how big you want your array beforehand. Java will automatically
+resize the ArrayList for you. So that's one of the reasons
+we often use ArrayList instead of arrays cuz they provide for
+this extra flexibility. Okay. So now let's go back to
+this issue of generics. So now we're gonna talk about the code
+that's inside those angle brackets. Notice that we're creating
+here two different lists. There's countries and countryMarkers. And they're both lists, but the difference
+is that countries stores features. And markers store, oh sorry,
+the country markers, store markers. So this is what this generics
+capability allows us to specify. What we put in the angle
+brackets is the type of object that we want Java to store inside
+the container that we're creating. So in this case we're creating a list. The first list is allowed
+to store features. And the second list is
+allowed to store Markers. Now, when we go to create these objects
+that are referenced by these variables, we again have to say what kind of
+thing goes into the container object. So we can see over here
+on the left hand side, we've said the first list
+is going to store Features. The second list is going to store Markers. And so on the right hand side
+the first ArrayList stores Features. The second ArrayList stores markers,
+and these types have to match. Now what this allows us to do if we
+add a bit more code, let's say we've got some code here that will put some
+elements into both of these lists,. The cool part about generics is now
+when we get elements out of the list, when we get elements out of country. Say we get the element at position zero. We know that countries stores Features. So we can get back
+a Feature type reference. On the other hand, countryMarkers,
+we declared was going to store Markers. So when we get an element
+back from countryMarkers, it's going to be of Marker type. So it's the same exact method, this
+getmethod, is gonna return a different type depending on what we
+declared the container to store. So that's really cool. We don't have to use any casts,
+or anything like that. It just happens automatically for us. And bringing this back around to the Java
+docs, if you look at that getMethod in the Javadocs, you'll see that
+it lists the return type as E. And what that means is that it's
+this generic type that's gonna take on whatever type you declare
+the container to hold. So, generics are really useful,
+ArrayLists and lists, really useful. You're gonna work with them in
+the project which is coming up next.

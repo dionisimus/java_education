@@ -1,0 +1,146 @@
+[MUSIC] All right. In this video, we are going to improve
+on that linear searching algorithm that we looked at in the last video, and we are going to talk about
+an algorithm called binary search. So by the end of this video, you will be
+able to explain what binary search is. You will be able to write code
+to implement binary search. And you'll also be able to explain
+what conditions need to be true for binary search,
+as well as explain why binary search is so much better than linear search. All right, to motivate the need for binary search, let's go back to
+our linear search algorithm. We were looking for airport objects
+that had particular city names so we could answer questions
+about those airports, like what are their three digit airport
+codes, three letter airport codes. And what we did was we started at the
+beginning of our array at index position zero and we just marched through
+this array element by element, until we either found the city we were
+looking for or didn't find it, but reached the end of the array, in which case we
+concluded that the city wasn't there. And it worked, but I asked you this
+thought question at the end of the video. I said, if we're very unlucky,
+how many elements do we have to look at in order to, either find the city
+or conclude that it's not there? And then the second part of that
+thought question is, can we do better? So, to answer this question, I'm going
+to step over into the real world. So, I'm gonna use a dictionary for
+this example. And this is a physical dictionary, which some of you maybe have
+never used in your lives. But this is what it looks like. It's an enormous book. It has basically every word in,
+in this case, the English language in it. And I can find definitions of the word, I can find their origins,
+the spelling, so on and so forth. And so if I was gonna find
+a word in this dictionary, here's an example of how I might use
+linear search to find that word. Let's say I'm looking for the word, shark. So I open up my dictionary
+to the beginning. Let's see, okay. Acrobatics, let's see. All right, not on this page. And over here, not here, not there. Acupuncture, nope, still not there. I'm looking, I'm looking,
+I'm looking, I'm looking. Are you getting bored yet? I'm getting very bored. I'm not gonna make you watch me page
+through this dictionary page after page to find the work shark. It's way back here at the Ss. This is gonna take a really long time. But this is effectively what we
+were doing with linear search. We are starting the beginning, looking
+all the way through in a row, our array. So what's a better approach
+to approach this problem? Well, it's an intuitive parse that we all
+use when we're opening a dictionary and trying to find a particular word. I don't open to the beginning, because I know us is sort of in the middle
+towards the end of the alphabet. So I'm going to open to about sort
+of halfway, maybe a little bit more. And I found myself in the Rs. Okay. R S, S comes after R. So I need to go a little bit further, so I'll take another chunk of
+the dictionary and flip it over. Oh, I've gone way too far,
+I'm now in the Ys. So let me flip back a little bit, okay. Now I find myself in the Ts,
+keep going back. Great, I'm in the Ss, S O,
+I need to go back a little bit more. So on and so forth until I
+find the word I'm looking for. And already, after only about three or
+four flips, I'm much closer to shark. The word I'm currently looking at is
+shirt, Than I was when I started the As and was just flipping through
+one page after another. So this is an example of
+the binary search algorithm. What I'm doing is is I'm starting with
+my entire pool of data, in this case, it's the dictionary, and
+then I'm going to go half way and I'm going to reassess where I am to see
+if I've found the thing I'm looking at. And if I haven't found
+the thing I'm looking at, I'm going to use some information to
+decide whether I should go to the second half or go back to the first half,
+and then I just have a smaller version of the same problem, where I'll
+again flip the book open about halfway. So notice each time I flip,
+my pages are getting smaller and smaller and smaller,
+the number of pages that I flip. And that's the exact same
+intuition behind binary search. So lets step back over now into the code,
+so we can figure out how to write
+this algorithm on the computer. So we're going to need to implement this
+algorithm by taking our data in our array and what we want to do is to
+cut the list in half each time. But if you look at the list
+as it stands right now, you'll notice a really important
+difference between the data that's in this list currently and the data
+that we had over here in our dictionary. So think about it for a second,
+maybe pause the video, see if you can identify the issue
+that we have right now. All right hopefully you saw it. The list has to be sorted. The reason that we can eliminate half the
+data in the dictionary is that the list of words is in sorted order, so if I'm
+looking for a word that starts with S. I know that nothing that starts with P or
+before matters to me and I can just get rid of it. So the same has to be true in order to do
+binary search of the data in an array. It has to be sorted on the element
+that you're looking for. So in this case,
+it's sorted now by city name. And here's how the binary search
+algorithm is going to work. I'm going to start by identifying
+the string I'm looking for. Let's look for Beijing again. Notice Beijing is now at the beginning, towards the beginning of the list
+because it starts with B. What I want to do now,
+is I want to keep track of what range of the array is currently
+active to be searched. Versus the part of the array
+that's kind of been ruled out. So, I'll keep track of the active
+range of the array with two variables. A low index and a high index. And these are just gonna indicate where in
+my array I'm allowed to look for my data. Outside of this range, I've already eliminated all
+the possible data outside of the range. So my range starts with the whole array. So, low starts at 0 and
+high is length minus 1, in this case 7. And now I want to go to
+that middle element, just like I did in the dictionary. So I calculate the midpoint. I calculate the midpoint by taking the low
+plus the high and then dividing by 2. In this case, it's 0 plus 7 divided by 2. Now, you might be thinking okay,
+the midpoint is 3.5. But the problem is that there's
+no position 3.5 in my array. Luckily, we're doing
+integer division here. And so we don't need to worry
+about decimal points or anything like that because Java will
+automatically truncate that 0.5 and give me the value 3 as my middle position. So (0 + 7) / 2 is 3,
+and that'll be my mid. Now I am going to look at the element
+that's at that mid point .in this case it's the element Essen,
+representing the city Essen in Germany. And I am going to compare it to
+the string that I'm looking for. I am going to say, does it match? Because maybe I've found
+the thing I am looking for. In this case, no it doesn't match. But instead of just giving up, now I need to get some more
+information out of this element. Now I want to know which half
+of my array can I discard? Should I discard the lower half? Or should I discard the greater half? So I'm going to compare
+Beijing to Essen and see whether Beijing is smaller or
+larger than Essen, and I'm doing this alphabetically, so Beijing
+comes before Essen in the alphabet. So Beijing is alphabetically
+smaller than Essen. Which means that everything that's
+larger than Essen in my array couldn't possibly be the string I'm
+looking for, so I can eliminate it. And the way I eliminate it
+is by adjusting my range to no longer include those elements. So I'm gonna move the high
+point in my range to be one less than that middle
+element that I've just ruled out. So this is what it looks like. I will change my high to be mid- 1,
+which in this case is 2, and that effectively rules out
+everything that's either 3 or greater. So now I have another version
+of the exact same problem. I have a low value, which is still 0, and
+a high value of my range, which is now 2. So I only need to look in
+this range of the array, and I'll do it the exact
+same way I did it before. I calculate a mid value so (0 + 2)/2, which is 1, and then I'll look at
+the element that's at that position, in which in this case it's Beijing. I compare the city I'm looking for,
+Beijing, to the city that I see. Which is also Beijing. And I see that I found a match. So that's great. I'm done.
+I can just return that three letter city code. And you can see that this was a lot faster
+than my algorithm before which had to look through about five different
+cities before it found Beijing. Now I recognize that Beijing moved now,
+so it's further towards the beginning. But in general, this is going to be a lot
+faster than our linear search algorithm, and we'll look at just how much faster
+a little bit later in this lesson. So here's our algorithm in that
+same pseudocode we used before to look at the linear search algorithm. We're going to now need to initialize
+two variables, which are the low and high end of our range. And again we initialize low to be zero and
+high to be the length of the array minus one, which is the last
+position in our array. So we've got the whole array in our range. Now we're gonna enter a loop. And it's a little bit unclear yet
+when our loop is gonna stop. So let's leave that as a question mark for
+the future. That'll be for
+you to think about in just a second. But inside the loop here's
+what we're gonna do. We're gonna calculate that
+midpoint of the array and then look at the element that's
+in that midpoint of the array. If that element matches the city
+that we're looking for, then we're done we just return
+that three letter city code. Otherwise, if the city
+that we're looking for is alphabetically less than
+the city element that we found, we want to update our range so
+that we're only looking at the small half of the array by moving
+high to be equal to mid- 1. Otherwise, we know the city
+that we're looking for is in the larger half of the array. In which case we update our low
+value to be equal to mid + 1. That's what the loop does. Again, we don't quite know when it stops. But if it stops, what that means is we
+haven't found the thing we're looking for. In which case we can
+conclude it's not there, and we'll just return that value that
+indicates that it's not there. For example, the value null. So that's pretty much it and the only thing that we have to figure
+out is when do we stop that while loop. This is a question I'm
+going to give to you. So I want you to spend some time thinking
+about what should the while loop condition be? And there's gonna be a quiz that is
+gonna ask you a bunch of choices and you're gonna wanna select
+the correct choice. And in order to do that what I recommend
+is that you work through on your own several examples of cities
+that aren't in this list. So trace through that algorithm
+using the loop that never ends, yet. To figure out what the algorithm does and figure out when it makes
+sense to stop that loop.

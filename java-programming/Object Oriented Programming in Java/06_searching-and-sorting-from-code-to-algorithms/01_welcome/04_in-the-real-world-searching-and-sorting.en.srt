@@ -1,0 +1,99 @@
+1
+00:00:00,150 --> 00:00:03,284
+[MUSIC]
+
+2
+00:00:06,592 --> 00:00:08,450
+Hi, my name is Nina Ye.
+
+3
+00:00:08,450 --> 00:00:11,086
+I'm on the Google Fiber
+software engineering team.
+
+4
+00:00:11,086 --> 00:00:17,750
+Search and sort are both used very
+commonly in the work I do at Google Fiber.
+
+5
+00:00:17,750 --> 00:00:21,140
+Actually, don't some people use the word
+Google and search interchangeably?
+
+6
+00:00:21,140 --> 00:00:23,000
+Let me Google this movie.
+
+7
+00:00:24,240 --> 00:00:25,980
+Can you Google that recipe?
+
+8
+00:00:25,980 --> 00:00:29,340
+On fiber.google.com,
+which my team works on,
+
+9
+00:00:30,390 --> 00:00:35,460
+one of the most used features by our
+users is the check address button.
+
+10
+00:00:35,460 --> 00:00:40,430
+It lets our users enter an address and
+check whether Google Fiber is coming to or
+
+11
+00:00:40,430 --> 00:00:42,410
+if it's already available
+in that location.
+
+12
+00:00:44,250 --> 00:00:46,380
+Once user enters an address,
+
+13
+00:00:46,380 --> 00:00:50,230
+the system searches through
+an address database of millions and
+
+14
+00:00:50,230 --> 00:00:55,970
+millions of records to find a Google Fiber
+readiness status for that entered address.
+
+15
+00:00:55,970 --> 00:01:00,490
+And the result is expected to come back
+almost instantaneously to the user.
+
+16
+00:01:00,490 --> 00:01:04,010
+For that, we need a variable bust and
+high performing searching algorithm.
+
+17
+00:01:05,480 --> 00:01:08,390
+Sorting is used in day
+to day programming too.
+
+18
+00:01:08,390 --> 00:01:13,830
+For instance, to show investors choices
+of something in an organized format,
+
+19
+00:01:13,830 --> 00:01:16,260
+we sort the list before
+displaying them to the user.
+
+20
+00:01:17,830 --> 00:01:22,780
+In Google Fiber's sign up web pages,
+the sports TV packages, available for
+
+21
+00:01:22,780 --> 00:01:26,390
+customers to chose from,
+are displayed in alphabetical order.

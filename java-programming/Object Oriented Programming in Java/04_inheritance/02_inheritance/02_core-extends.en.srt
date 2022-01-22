@@ -1,0 +1,466 @@
+1
+00:00:00,213 --> 00:00:04,803
+[MUSIC]
+
+2
+00:00:04,803 --> 00:00:07,638
+In the last video we began to
+see the power of inheritance and
+
+3
+00:00:07,638 --> 00:00:08,780
+polymorphism in Java.
+
+4
+00:00:09,950 --> 00:00:11,970
+In this video,
+we're gonna start diving into the details.
+
+5
+00:00:11,970 --> 00:00:13,980
+How do we make this work?
+
+6
+00:00:13,980 --> 00:00:18,770
+The goal here is to use the keyword
+extends, and recognize what that does.
+
+7
+00:00:18,770 --> 00:00:22,150
+We're gonna talk about the relationship
+between superclass and subclasses and
+
+8
+00:00:22,150 --> 00:00:23,430
+what those terms mean.
+
+9
+00:00:23,430 --> 00:00:27,050
+And we're gonna use UML Diagrams to
+design our first class hierarchy.
+
+10
+00:00:29,380 --> 00:00:32,982
+We left off at the last video
+saying we want three key features.
+
+11
+00:00:32,982 --> 00:00:35,150
+We wanna be able to keep
+common code in one class,
+
+12
+00:00:35,150 --> 00:00:38,620
+we wanna be able to split out different
+code between different classes,
+
+13
+00:00:38,620 --> 00:00:41,950
+and we want to be able to keep all
+the objects in one single data structure.
+
+14
+00:00:41,950 --> 00:00:45,390
+In this video, we're gonna show how we can
+do one and two by designing our hierarchy.
+
+15
+00:00:46,990 --> 00:00:48,270
+Item three will be in the next video.
+
+16
+00:00:51,310 --> 00:00:54,390
+Where we left off was talking about
+three different classes Person class,
+
+17
+00:00:54,390 --> 00:00:56,060
+a Student class and a Faculty class.
+
+18
+00:00:56,060 --> 00:00:59,770
+And in a sense we want to have all
+the common code in the person class and
+
+19
+00:00:59,770 --> 00:01:03,640
+we want to have our diverging code in
+the student and the faculty classes.
+
+20
+00:01:03,640 --> 00:01:08,240
+To do this it would be great if we
+could have all the power of person and
+
+21
+00:01:08,240 --> 00:01:12,350
+all the features of person get
+inherited into the student class.
+
+22
+00:01:12,350 --> 00:01:13,579
+So let's focus on that one first.
+
+23
+00:01:15,410 --> 00:01:18,990
+Now it might seem really powerful to
+inherit all the features of another class,
+
+24
+00:01:18,990 --> 00:01:22,900
+and it is, but you can do it
+with just one keyword, extends.
+
+25
+00:01:24,080 --> 00:01:26,890
+So if you say extends person,
+that means inherits from.
+
+26
+00:01:26,890 --> 00:01:29,830
+It means the student class is
+gonna inherit from person,
+
+27
+00:01:29,830 --> 00:01:31,430
+many of the features of the person class.
+
+28
+00:01:32,960 --> 00:01:35,690
+So when you've used this
+before in previous modules,
+
+29
+00:01:35,690 --> 00:01:37,940
+this was a really powerful thing to do,
+to say, extends.
+
+30
+00:01:39,670 --> 00:01:45,160
+So what you get when you, before I say
+that, let's talk about some terminology.
+
+31
+00:01:46,200 --> 00:01:49,800
+The Person class here is a base class,
+sometimes called a super class and
+
+32
+00:01:49,800 --> 00:01:50,760
+sometimes called a Parent class.
+
+33
+00:01:50,760 --> 00:01:55,100
+The Student class here is a derived
+class or a sub class or a child class.
+
+34
+00:01:56,510 --> 00:01:57,880
+Now what features do you actually inherit?
+
+35
+00:01:59,720 --> 00:02:02,990
+You inherit public instance variables,
+and that makes sense.
+
+36
+00:02:02,990 --> 00:02:04,370
+You inherit the public methods.
+
+37
+00:02:04,370 --> 00:02:06,580
+So the student's gonna get all
+the public methods of person.
+
+38
+00:02:07,960 --> 00:02:11,170
+You're also gonna inherit the private
+instance variables, in a sense.
+
+39
+00:02:11,170 --> 00:02:13,340
+So we'll talk about that
+in a little more detail.
+
+40
+00:02:13,340 --> 00:02:16,510
+So since you're inheriting the private
+instance variables do you really still
+
+41
+00:02:16,510 --> 00:02:20,470
+need to have that instance
+variable with student called name?
+
+42
+00:02:20,470 --> 00:02:22,430
+No, in fact it's a really
+bad idea to do that.
+
+43
+00:02:22,430 --> 00:02:24,720
+That would be called a hidden variable or
+shadow variable and
+
+44
+00:02:24,720 --> 00:02:28,240
+it's hard to discern which variable,
+which name variable you're talking about.
+
+45
+00:02:28,240 --> 00:02:30,190
+The one in student or the one in person.
+
+46
+00:02:30,190 --> 00:02:31,530
+So you actually wouldn't have that,
+
+47
+00:02:31,530 --> 00:02:33,690
+cuz you inherited it
+automatically from person.
+
+48
+00:02:33,690 --> 00:02:37,367
+But there is one catch, because it's
+a private instance variable you can only
+
+49
+00:02:37,367 --> 00:02:40,652
+access it through public methods so
+you'll have to use the getters and
+
+50
+00:02:40,652 --> 00:02:41,840
+setters to access name.
+
+51
+00:02:45,880 --> 00:02:48,341
+Now that we have an idea of
+how we can use inheritance,
+
+52
+00:02:48,341 --> 00:02:51,760
+let's start talking about how we can
+design an inheritance hierarchy.
+
+53
+00:02:51,760 --> 00:02:54,790
+Now if you're working on
+a whiteboard with a design team,
+
+54
+00:02:54,790 --> 00:02:57,230
+you're not gonna wanna
+write out the whole class.
+
+55
+00:02:57,230 --> 00:03:00,580
+You're gonna wanna have a very
+small representation of a class.
+
+56
+00:03:01,830 --> 00:03:04,950
+The way to do this is
+known as a UML Diagram.
+
+57
+00:03:04,950 --> 00:03:06,870
+I have an example of this on the right.
+
+58
+00:03:06,870 --> 00:03:09,650
+Now there's a number of different
+variants of how you can display this.
+
+59
+00:03:09,650 --> 00:03:10,720
+This is just one example.
+
+60
+00:03:10,720 --> 00:03:14,150
+I have the person class name at the top.
+
+61
+00:03:14,150 --> 00:03:20,830
+I have the instance variable string name,
+and then I have the method below that.
+
+62
+00:03:20,830 --> 00:03:24,640
+So you have again, class name,
+instance variables and
+
+63
+00:03:24,640 --> 00:03:27,420
+methods, all within this
+concise representation.
+
+64
+00:03:28,790 --> 00:03:31,410
+Let's add in the student class
+which is a extending person.
+
+65
+00:03:32,540 --> 00:03:34,190
+May add that in,
+you're gonna realize that's blank,
+
+66
+00:03:34,190 --> 00:03:36,930
+and that's because there are no incidence
+variables and no methods within student.
+
+67
+00:03:37,990 --> 00:03:42,910
+Now that keyword extends along
+with person is gonna say,
+
+68
+00:03:42,910 --> 00:03:44,730
+student inherits from person.
+
+69
+00:03:44,730 --> 00:03:47,700
+And to do that,
+all you have to do is draw that line.
+
+70
+00:03:47,700 --> 00:03:49,829
+So, that line just says,
+student is inheriting from person.
+
+71
+00:03:52,400 --> 00:03:53,830
+Let's start talking about
+our full hierarchy.
+
+72
+00:03:53,830 --> 00:03:55,960
+Let's bring back in Faculty into to this.
+
+73
+00:03:55,960 --> 00:04:00,480
+So, we have our Person class and
+I two derived classes,
+
+74
+00:04:00,480 --> 00:04:02,410
+my Student class and my Faculty class.
+
+75
+00:04:02,410 --> 00:04:05,440
+This alone is already an inheritance
+hierarchy, or a class hierarchy.
+
+76
+00:04:06,950 --> 00:04:09,430
+What I want you to do is pause.
+
+77
+00:04:09,430 --> 00:04:13,610
+Take a few seconds to think about
+what would belong in a Student class
+
+78
+00:04:13,610 --> 00:04:16,640
+that wouldn't belong in
+a Faculty class and vice versa.
+
+79
+00:04:16,640 --> 00:04:18,960
+Again take a few seconds,
+pause the video and we'll come back.
+
+80
+00:04:21,670 --> 00:04:24,020
+All right,
+there are a number of good answers here.
+
+81
+00:04:25,660 --> 00:04:28,120
+Let's just talk through
+a couple that I thought of.
+
+82
+00:04:28,120 --> 00:04:31,420
+So students get grades in their classes.
+
+83
+00:04:31,420 --> 00:04:34,850
+In the American education system,
+we use this thing called a GPA,
+
+84
+00:04:34,850 --> 00:04:37,700
+which is essentially just an average
+of all the grades that you've gotten.
+
+85
+00:04:37,700 --> 00:04:40,320
+Students would have these,
+Faculty would not.
+
+86
+00:04:41,500 --> 00:04:44,070
+So in the Student class,
+I'd have an instance variable named GPA,
+
+87
+00:04:44,070 --> 00:04:46,440
+and then I'd have an access or
+method called getGPA.
+
+88
+00:04:48,670 --> 00:04:51,640
+What belongs in a Faculty class that
+wouldn't belong in a Student class?
+
+89
+00:04:51,640 --> 00:04:57,070
+Well, maybe an office number or
+office phone, but also a salary.
+
+90
+00:04:57,070 --> 00:04:58,680
+So, Faculty get paid,
+students generally do not.
+
+91
+00:04:59,690 --> 00:05:02,790
+So I might have an instance
+variable called double salary, and
+
+92
+00:05:02,790 --> 00:05:06,790
+I'm gonna have a method called
+getSalary to get access to this.
+
+93
+00:05:06,790 --> 00:05:10,710
+We've already started designing
+our inheritance hierarchy.
+
+94
+00:05:10,710 --> 00:05:13,470
+We have the code that's common
+up in the person class.
+
+95
+00:05:13,470 --> 00:05:16,470
+We have the code that's divergent
+in the Student class and
+
+96
+00:05:16,470 --> 00:05:18,440
+Faculty class is separately.
+
+97
+00:05:18,440 --> 00:05:22,540
+This answers items 1 and
+2 from our desire list.
+
+98
+00:05:22,540 --> 00:05:26,160
+But we haven't answered three yet and
+that's coming up in the next video.

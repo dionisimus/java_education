@@ -1,0 +1,420 @@
+1
+00:00:00,025 --> 00:00:02,825
+[SOUND] In this support video,
+
+2
+00:00:02,825 --> 00:00:07,760
+we'll be practicing two
+really important skills.
+
+3
+00:00:07,760 --> 00:00:11,725
+First we'll be tracing code using
+the memory models that we've been talking
+
+4
+00:00:11,725 --> 00:00:14,940
+about before, for
+both object and primitive data.
+
+5
+00:00:14,940 --> 00:00:18,730
+But we'll also be developing a skill
+of tracing code and talking about
+
+6
+00:00:18,730 --> 00:00:22,919
+it in high level terms, beyond step
+by step what each statement does.
+
+7
+00:00:24,160 --> 00:00:27,050
+Now you want to make sure that
+you are ready to participate.
+
+8
+00:00:27,050 --> 00:00:30,420
+Get a pencil out and
+work with me through this.
+
+9
+00:00:30,420 --> 00:00:32,730
+You'll learn much better if you're
+working through it yourself as well.
+
+10
+00:00:33,760 --> 00:00:37,180
+So let's start with a piece of code
+that we'll be thinking about and
+
+11
+00:00:37,180 --> 00:00:41,080
+take a few seconds to read it carefully
+and try to explain, in your own words,
+
+12
+00:00:41,080 --> 00:00:42,590
+what this piece of code does.
+
+13
+00:00:45,800 --> 00:00:47,490
+All right, welcome back.
+
+14
+00:00:47,490 --> 00:00:51,570
+It's very useful to try to
+think about how the code and
+
+15
+00:00:51,570 --> 00:00:54,780
+the syntax that we have in
+Java translate to steps and
+
+16
+00:00:54,780 --> 00:00:58,600
+procedures that we can understand
+as high level human beings.
+
+17
+00:00:58,600 --> 00:01:01,490
+So for example,
+if we're thinking about this in words.
+
+18
+00:01:01,490 --> 00:01:05,730
+What we might say is that we
+create a couple of objects and
+
+19
+00:01:05,730 --> 00:01:08,020
+then we try to assign those
+objects to one another.
+
+20
+00:01:09,090 --> 00:01:13,970
+When we say assign objects to one another,
+that's very imprecise and so
+
+21
+00:01:13,970 --> 00:01:18,420
+this gives us an added perspective
+on the benefit of tracing code and
+
+22
+00:01:18,420 --> 00:01:21,300
+on the benefit of the precision
+that comes with memory model.
+
+23
+00:01:21,300 --> 00:01:25,850
+All right, so let's see what
+we do when we trace the code.
+
+24
+00:01:27,470 --> 00:01:33,260
+We remember that in order to declare
+SimpleLocation type objects,
+
+25
+00:01:33,260 --> 00:01:36,100
+what we need is to think about
+the SimpleLocation class.
+
+26
+00:01:36,100 --> 00:01:39,460
+And we're using the class definition
+that you've seen in the core videos for
+
+27
+00:01:39,460 --> 00:01:40,460
+this module.
+
+28
+00:01:40,460 --> 00:01:43,110
+So you'll be fairly familiar
+with this definition, but
+
+29
+00:01:43,110 --> 00:01:44,430
+you can look at it here as well.
+
+30
+00:01:45,760 --> 00:01:50,549
+The first line of code that we have is
+a declaration and an assignment statement.
+
+31
+00:01:50,549 --> 00:01:54,810
+We're reserving some space and
+memory, we're labeling it ucsd, and
+
+32
+00:01:54,810 --> 00:01:58,890
+what we would like to have there
+is a reference to a new object.
+
+33
+00:01:58,890 --> 00:02:01,800
+That new object is of type SimpleLocation,
+and
+
+34
+00:02:01,800 --> 00:02:05,640
+it's initialized using
+the constructor to some values.
+
+35
+00:02:05,640 --> 00:02:09,420
+So what that means is we have
+a box in our memory model.
+
+36
+00:02:09,420 --> 00:02:12,460
+It's labeled by the name
+of the variable UCSD and
+
+37
+00:02:12,460 --> 00:02:18,040
+we point to this new object that we've
+created whose instance variables,
+
+38
+00:02:18,040 --> 00:02:22,430
+latitude and longitude are set to 32.9 and
+negative 117.2 respectively.
+
+39
+00:02:22,430 --> 00:02:26,190
+And that's all there
+is to that first line.
+
+40
+00:02:26,190 --> 00:02:30,360
+Shall we go on to the next line, and
+that next line has exactly the same form.
+
+41
+00:02:30,360 --> 00:02:34,730
+We're declaring a variable,
+that variable is of type SimpleLocation,
+
+42
+00:02:34,730 --> 00:02:37,950
+and so
+we have a reference to a new object.
+
+43
+00:02:37,950 --> 00:02:40,630
+That object is being created
+by the constructor and
+
+44
+00:02:40,630 --> 00:02:45,290
+those instance variables
+have their own values.
+
+45
+00:02:45,290 --> 00:02:49,570
+And notice that those instance variables
+for this new object are completely
+
+46
+00:02:49,570 --> 00:02:53,250
+separate from the variables that
+we had for the previous object.
+
+47
+00:02:53,250 --> 00:02:56,100
+We've constructed completely
+new copies of these objects.
+
+48
+00:02:57,150 --> 00:02:59,850
+All right, now we get to the third line.
+
+49
+00:02:59,850 --> 00:03:04,600
+In this third line we're not
+creating any new objects,
+
+50
+00:03:04,600 --> 00:03:06,700
+we're not declaring any new variables.
+
+51
+00:03:06,700 --> 00:03:11,040
+What we're going is we're
+doing an assignment statement.
+
+52
+00:03:11,040 --> 00:03:14,240
+And an assignment statement, what we
+would like to do is to assign the value
+
+53
+00:03:14,240 --> 00:03:17,898
+on the right-hand side to
+the variable on the left-hand side.
+
+54
+00:03:17,898 --> 00:03:20,860
+And so let's think a little bit
+more about what's actually stored
+
+55
+00:03:20,860 --> 00:03:23,020
+inside these variables.
+
+56
+00:03:23,020 --> 00:03:28,520
+So UCSD, that box in our memory model,
+has an arrow to an object but
+
+57
+00:03:28,520 --> 00:03:32,390
+remember that arrow to the object
+is our visual shorthand for
+
+58
+00:03:32,390 --> 00:03:36,946
+saying we have stored the address
+in memory of that object.
+
+59
+00:03:36,946 --> 00:03:40,370
+So something like @15.
+
+60
+00:03:40,370 --> 00:03:43,448
+15 is a made up number here,
+it's to indicate some address,
+
+61
+00:03:43,448 --> 00:03:46,790
+the address of the object
+that we created before.
+
+62
+00:03:46,790 --> 00:03:53,160
+Similarly, the box associated with
+the variable kumamoto stores an address,
+
+63
+00:03:53,160 --> 00:03:58,420
+which is the address that the reference
+to a new object of type SimpleLocation.
+
+64
+00:03:58,420 --> 00:04:02,250
+So it's got a different address,
+because we've got two different objects.
+
+65
+00:04:02,250 --> 00:04:06,500
+Now what we need to do in this
+assignment statement is we need to copy
+
+66
+00:04:06,500 --> 00:04:10,850
+the contents of the box
+kumamoto to the box ucsd.
+
+67
+00:04:10,850 --> 00:04:17,370
+And so that means that the @34 reference
+gets copied into the ucsd box.
+
+68
+00:04:17,370 --> 00:04:19,980
+And so if we think that in
+terms of our memory model,
+
+69
+00:04:19,980 --> 00:04:25,140
+what's happening here is that now both of
+these variables refer to the same object.
+
+70
+00:04:25,140 --> 00:04:26,610
+The object of the address @34.
+
+71
+00:04:26,610 --> 00:04:27,540
+Okay.
+So that's what
+
+72
+00:04:28,930 --> 00:04:32,070
+we've done with this assignment statement.
+
+73
+00:04:32,070 --> 00:04:36,860
+But now what happens when we go to
+the last statement in this code snippet?
+
+74
+00:04:36,860 --> 00:04:39,670
+Here what we're trying to do is,
+we're trying to assign the value
+
+75
+00:04:39,670 --> 00:04:43,620
+that's stored in the variable
+ucsd to the variable kumamoto.
+
+76
+00:04:44,860 --> 00:04:50,110
+But if we look at that value that's stored
+at the variable ucsd, it's the address
+
+77
+00:04:50,110 --> 00:04:55,220
+of the object that we had before that
+was also pointed to by kumamoto.
+
+78
+00:04:55,220 --> 00:04:58,850
+So actually executing this
+assignment does nothing at all.
+
+79
+00:04:58,850 --> 00:05:02,560
+It's saying copy @34 to kumamoto and
+
+80
+00:05:02,560 --> 00:05:05,210
+that was the previous value
+of kumamoto before as well.
+
+81
+00:05:06,700 --> 00:05:10,020
+So at the end of executing this
+line of code, if we were to
+
+82
+00:05:10,020 --> 00:05:14,900
+test it using the strategy we talked about
+before by throwing it into a class and
+
+83
+00:05:14,900 --> 00:05:19,750
+executing into the main method of class
+and then running that piece of code.
+
+84
+00:05:19,750 --> 00:05:21,890
+Then we see both UCSD and
+
+85
+00:05:21,890 --> 00:05:25,340
+Kumamoto both of those variables
+pointed to the same object.
+
+86
+00:05:25,340 --> 00:05:26,130
+With the latitude and
+
+87
+00:05:26,130 --> 00:05:29,890
+longitude variables set as we did when
+we constructed the Koumoto object.

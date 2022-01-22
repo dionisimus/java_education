@@ -1,0 +1,54 @@
+All right, welcome back. I hope you had a good time writing
+this program, writing this method. And I'm now gonna write it out,
+step by step on my tablet PC. If you really think you've gotten no
+problems, just go ahead and zoom ahead. You can see my solution,
+just check it against yours. But I encourage you to also follow
+me through the thought process, as I write this code. So thinking back to that algorithm,
+the first thing that we need to do is we need to declare
+a new variable called index. Which is going to be the variable
+that steps us through the array. So I'm gonna do that,
+I'm gonna declare a new variable. It's type integer, called index and
+its initial value is 0. So now I'm ready for my loop. And my loop is gonna be a while loop. And it's going to run as
+long as that variable index is less than the length of my array. So airports.length, okay. So now inside the loop, remember what we
+wanna do is we wanna look at the Airport object that's in the cell
+indicated by that index variable. So we're going to get that
+Airport object out first and store it in its own separate variable just
+to make the code a little bit cleaner. So I'll declare new variable Airport a = airports at position index. Now I'm ready to work with that Airport
+object and I can compare the string that I'm trying to find,
+the name of the city I'm trying to find. To the name of the Airport that's in that
+object, pointed to by the variable a. So I do that with an if statement, because
+if they're equal, I wanna do something. So if my toFind equals a.getCity. Now notice that I've used the .equals
+method here instead of the == operator and that's pretty important. Because what .equals is saying to Java is,
+I want to compare the string representations in these two
+objects by essentially their characters. I wanna know, are they the same string?. I don't care if their the exact same
+object in memory, I just wanna know, is it the same string of characters? And the .equals method will do that. On the other hand,
+the == operator, that's just gonna compare the references that are stored
+in two particular variables. And so that will only be true
+if those are actually the same literal object in Java's memory. So in this case, and almost always
+when you're working with objects, the .equals method is the appropriate way
+to compare those two different objects. So if I find that the string that I'm
+looking for is equal to the object's City that's stored in a,
+then I'm going to return the AirportCode. So return a.getCode. Otherwise, I need to keep looking. So there's nothing really more to do
+except to go on to the next location, so I can say index++. Notice I don't need
+an else statement here, because if the if statement was true,
+then I just return out of the function and there's nothing more to be done. But if that if statement is not true,
+then I increment my index and I'll go back to the top of my
+while loop and repeat the process. Now if my while loop completes, that means
+my index has gotten all the way to the end of my array and I still haven't
+found the city that I'm looking for. So now I need to return some value that
+indicates that the city is not there. And in this case,
+I'll just return the value null. And that's appropriate, because my
+method is suppose to return a string. So null is a good value to indicate hey,
+we couldn't find it. It wasn't there. So that's it. That's it for the code. I wanna leave you, oh, there's the code
+a little bit more cleaned up for you. But I do, after you're done sort of
+looking at and digesting the code. What I wanna leave you with
+is a thought question. Actually, two thought questions. I wanna ask the question of,
+if we're really unlucky. So if we're looking for some airport and it's very unluckily way at the end of the
+list or it's not even in the list at all. How many Airport objects are we
+going to have to look at to figure out either the AirportCode
+of this particular airport. Or to figure out that airport
+is not in the list at all? So try to think of how you would
+answer that question in terms of some number of airports in the list. And then, the more important question is,
+can we do better than that? Is there a way to answer
+this question faster? And that's what we're
+going to look at next.

@@ -1,0 +1,319 @@
+1
+00:00:00,000 --> 00:00:03,360
+[MUSIC]
+
+2
+00:00:04,798 --> 00:00:05,830
+Welcome back.
+
+3
+00:00:05,830 --> 00:00:09,010
+At this point we've been
+talking about what's inherited?
+
+4
+00:00:09,010 --> 00:00:11,310
+We've used the terms private and
+public and
+
+5
+00:00:11,310 --> 00:00:14,860
+those visibility modifiers impact what
+gets inherited from one class to another.
+
+6
+00:00:14,860 --> 00:00:17,620
+What we're gonna do now is spend
+a little more time looking
+
+7
+00:00:17,620 --> 00:00:20,570
+at the different visibility modifiers and
+how they impact us.
+
+8
+00:00:20,570 --> 00:00:21,930
+Particularly in relation to inheritance.
+
+9
+00:00:23,555 --> 00:00:26,120
+By the end of this video, you should be
+able to use the appropriate visibility
+
+10
+00:00:26,120 --> 00:00:28,220
+modifiers when you're writing your class.
+
+11
+00:00:30,000 --> 00:00:32,920
+Up to this point,
+your comfortable probably with public
+
+12
+00:00:32,920 --> 00:00:36,560
+which is less restrictive and
+private which is more restrictive.
+
+13
+00:00:36,560 --> 00:00:39,650
+So public gives access to any other class.
+
+14
+00:00:40,770 --> 00:00:45,506
+Where as private gives
+access only the same class.
+
+15
+00:00:45,506 --> 00:00:50,309
+Well there's two, well at this point you
+likely have learned this rule of thumb.
+
+16
+00:00:50,309 --> 00:00:55,117
+Make all your instance variables private,
+you should make your public interface,
+
+17
+00:00:55,117 --> 00:00:57,020
+you're public methods public.
+
+18
+00:00:58,180 --> 00:01:01,260
+You can also have private methods,
+those are your helper methods.
+
+19
+00:01:01,260 --> 00:01:03,160
+This rule of thumb is
+actually still gonna apply.
+
+20
+00:01:03,160 --> 00:01:05,570
+Even if we talk about the other
+visibility modifiers,
+
+21
+00:01:05,570 --> 00:01:07,510
+it's important to know how they apply.
+
+22
+00:01:07,510 --> 00:01:12,750
+The other visibility modifiers
+are protected and package.
+
+23
+00:01:13,810 --> 00:01:19,400
+So protected gives you access to any,
+so within the same class, anything
+
+24
+00:01:19,400 --> 00:01:22,920
+within the same package can access it,
+and any sub class can access it.
+
+25
+00:01:24,870 --> 00:01:27,450
+Package, also sometimes called default,
+
+26
+00:01:28,940 --> 00:01:32,280
+you have access from the same class, and
+you have access from the same package.
+
+27
+00:01:32,280 --> 00:01:35,190
+The only difference really
+between package and
+
+28
+00:01:35,190 --> 00:01:39,372
+protected is that package
+loses access by any sub class.
+
+29
+00:01:39,372 --> 00:01:42,630
+So, sub-classes that are still in the same
+package, you still have access to.
+
+30
+00:01:42,630 --> 00:01:44,560
+The sub-classes outside your
+package you're gonna lose.
+
+31
+00:01:45,780 --> 00:01:47,830
+To really understand this
+it helps to see an example.
+
+32
+00:01:49,720 --> 00:01:50,900
+What I have here is a sample class.
+
+33
+00:01:50,900 --> 00:01:54,909
+And that sample class has a pubic
+variable, a protected variable,
+
+34
+00:01:54,909 --> 00:01:58,720
+a package variable or
+default variable and then a private room.
+
+35
+00:02:00,320 --> 00:02:01,770
+Let's add a whole bunch of other classes.
+
+36
+00:02:02,930 --> 00:02:07,120
+Some within the same package,
+the dotted line denotes package, and
+
+37
+00:02:07,120 --> 00:02:08,938
+then some are sub classes.
+
+38
+00:02:08,938 --> 00:02:11,910
+We have sub-class one in the same package,
+
+39
+00:02:11,910 --> 00:02:15,420
+we have sub-class two,
+which is outside of the package.
+
+40
+00:02:15,420 --> 00:02:16,050
+We have Other1,
+
+41
+00:02:16,050 --> 00:02:20,740
+which just happens to be another
+class in the same package as Sample.
+
+42
+00:02:20,740 --> 00:02:23,710
+Then we have Other2,
+which is a class not in the same package,
+
+43
+00:02:23,710 --> 00:02:26,590
+it has no relationship in terms
+of inheritance with Sample.
+
+44
+00:02:28,460 --> 00:02:31,290
+If you have the public visibility, so w.
+
+45
+00:02:31,290 --> 00:02:33,240
+W is accessible from anyone else.
+
+46
+00:02:34,510 --> 00:02:36,290
+And notice that I'm just saying public w,
+
+47
+00:02:36,290 --> 00:02:40,910
+I'm not putting the public int,
+you can fill in the value there yourself.
+
+48
+00:02:42,320 --> 00:02:46,825
+So, public anyone can access.
+
+49
+00:02:46,825 --> 00:02:51,580
+Protected, you only essentially
+take away access to Other2.
+
+50
+00:02:52,630 --> 00:02:57,970
+Things within the same package, as well
+as sub-classes, can access this variable.
+
+51
+00:02:57,970 --> 00:03:04,380
+Now, What I'm concerned about here, is why
+does Other1 have access to my variable X?
+
+52
+00:03:04,380 --> 00:03:07,580
+Is it because it's in the same package?
+
+53
+00:03:07,580 --> 00:03:12,740
+Does that really make sense, is that who
+we want to have access to our variables?
+
+54
+00:03:12,740 --> 00:03:15,260
+In general,
+this is not a very good idea, and
+
+55
+00:03:15,260 --> 00:03:17,190
+this is why we don't
+recommend using protected.
+
+56
+00:03:19,190 --> 00:03:23,500
+If we look at package access,
+what you see is that we've now taken away
+
+57
+00:03:23,500 --> 00:03:27,080
+access to the sub-class 2, and
+what we had from protected.
+
+58
+00:03:27,080 --> 00:03:30,400
+Which you'll notice that
+Other1 still has access to y.
+
+59
+00:03:31,430 --> 00:03:34,270
+And why is some other class in
+the same package happen to have access
+
+60
+00:03:34,270 --> 00:03:34,790
+to my variable?
+
+61
+00:03:34,790 --> 00:03:39,750
+It doesn't make much sense and this is why
+we don't recommend package access, either.
+
+62
+00:03:40,940 --> 00:03:43,800
+Lastly, we have private access,
+which you're comfortable with,
+
+63
+00:03:43,800 --> 00:03:46,810
+just means within this class
+you can access this variable.
+
+64
+00:03:46,810 --> 00:03:51,440
+Now that we've walked through
+the different levels of access, you see
+
+65
+00:03:51,440 --> 00:03:56,170
+that public is the least restrictive and
+private is the most restrictive.
+
+66
+00:03:56,170 --> 00:03:59,210
+But we still are gonna apply
+the same rule of thumb.
+
+67
+00:03:59,210 --> 00:04:00,829
+Always use public or private,
+
+68
+00:04:00,829 --> 00:04:04,887
+there's only rare cases that you'll
+ever wanna use protected or packaged.

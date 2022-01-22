@@ -1,0 +1,45 @@
+[MUSIC] Continuing working with
+Polymorphism in Java. Specifically, continuing with
+the compile-time decisions and the runtime decisions that are made. To help aid a compiler,
+we can sometimes use the term casting. So the goal of this video is to be able to
+walk through those decisions that compile time and runtime and
+also be able to cast objects. Where we left off in the last video,
+was we had just done this example. Where we attempted a call to
+getSID method on a Student object, but we were unable to because
+s is a person reference. What we'd like to be able to do is tell
+the compiler, hey I know this is gonna be a student at runtime,
+could you let me call this method? The way you do that is casting. Now casting of objects works
+very similarly to the way it works with primitive types. So we always have automatic
+type promotions, so you can always go from int to a double. And likewise, you can always go from
+a Subclass up to a Superclass reference. This technique is
+sometimes called widening. Likewise, we can explicitly narrow. So we can explicitly cast
+from a double to an int. And likewise, we can take a Superclass and
+explicitly cast it down to be a Subclass. This again is known as narrowing. Now I can't stress this enough. You have to be careful when you narrow. The reason why is because you're
+telling the compiler to trust you. You're saying trust me, compiler, I know this is gonna be
+a Subclass reference at runtime. And then the compilers
+gonna believe you and then you're gonna try
+to do this at runtime. So let's walk through this again now,
+let's fix this with casting. So I've got my Person reference,
+Student object. I can't call getSID,
+because it's not in Person. But the way I can fix this is by
+casting it to be a Student reference. And by doing so, now the compiler
+will look in Student, find getSID. And it will let you execute this code. This is gonna work just fine. But what if I change this and I make it so that it's a Person reference
+pointing to a Person object. I'm still gonna cast to Student and
+I'm gonna try a call getSID. And I want you to do is pause for
+a second and think what do you think
+should happen here? If you're thinking that this is gonna
+cause problems, you're on the right track. There is no getSID method in Person. How could it possibly call that? And the problem's really gonna come
+about at the point of the cast. If you try and do this,
+you're gonna get a runtime error. And it's gonna say ClassCastException. What it tried to do is it tried to
+cast your Person to a Student and it couldn't because its a Person object. In a sense you've broken
+the compiler's trust at this point. Again you told the compiler, I know this is gonna be a student and
+it didn't turn out to be. What would be really great is
+if we could just test this. Say, is this a student? Before I do the cast. And the way we can do this is
+using an operator instanceof. So this performs a runtime check of
+whether or not there is a relationship. So if you say s instanceof Student, what it's gonna do is gonna check,
+is s an instance of a Student. Or does s is a relationship
+with Student at runtime? Now if you do this check
+with a conditional, you'll then be able to only execute this
+when it actually is a Student object. At this point, with the Compile Time
+Decisions we've discussed and the Runtime decisions we've discussed, polymorphism
+should make a great deal of more sense.

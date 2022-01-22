@@ -1,0 +1,73 @@
+[SOUND] All right. Welcome back to our sequence of videos
+where we're building an application that's going to indicate the hour of the day
+based on the color of the sun that we've added to the picture. And up until now we've figured
+out how to use a PApplet class from the processing library, and we've
+set up our canvas using the setup method. And so now what we'd like to do is
+fill in the draw method which is going to let us display the content. Okay, so what we'd like to do is display the background image
+that we brought into memory. And so
+we can do that by using the image method. Okay, so let's do just that. We say image and
+then (backgroundImg, 0,0). And what does that do? Well it seems to us like it's gonna have
+something to do with background image but the 0,0 at the end of that
+are the coordinates that we want for the position of the top
+left corner of the image. So in this method what we're doing is
+we're saying we would like to draw a particular image, and we'd like that
+image to be located in our canvas so that its top left corner is at 0,0, and
+0,0 is the top left corner of the canvas. And so that means that we're going to want
+to have our canvas be at the very top and very left. Okay. So lets see what happens if we do that. [SOUND] Is that what you expected? Remember that image that we
+want is all of the beach. And we're getting a bunch of blue but
+it's familiar blue. That blue is a sky blue,
+and the reason for that is that we're actually getting
+just a tiny piece of the sky. The image is way, way, way too big. Our canvas is just 200
+pixels by 200 pixels and our image was, well it's a high-def
+image we took with a modern camera. So it's much more than that, if you think
+about resolutions of images these days. And so what we need to do in order to
+display the whole image is to resize it. So what we're going to need to do is
+to figure out how to take a really big image and cram it into the canvas
+that we're working with. And so we look up our handy documentation. There's a theme here, right? Keep looking at the documentation. And we see that we have a resize
+method that we can call, and we can specify the width and the height that we
+would like our image to be compressed to. Now, our image already came
+at a specified size, but what we're doing in the resized image,
+is we're saying, move, change it. We want a new size, okay? So let's try and say, maybe we want to
+have our image just go 50 pixels across, so it's only gonna go a quarter of the way
+across our canvas, which was 200 by 200, and it's gonna go half the way down,
+so it's gonna be 100 pixels long. And so we resize our image in memory,
+and then we go ahead and display it. Okay so it went a quarter of the way
+across and half way down, so that did it, but notice how
+warped the picture looks because the ratio of width to
+height is totally off. It's totally not what the original image
+looked like and so we see the trees look like they're reaching like
+skyscrapers or something in this image, and it's not really giving us the kind
+of image that we'd like to do. And so what we'd like to do is be
+a little bit, maybe more careful, maybe we wanna use up the whole canvas,
+and so we could say let's use all 200 pixels
+across and all 200 pixels down. And so now we see the full image,
+and we see it a little bit bigger. But it's still not the right proportions. The trees are still way too big, it doesn't look like
+the original image that we had. And so maybe we do something
+a little bit tricky, okay. So what we've done here
+is tricky in two ways. Let's start with the 0
+that we've got there. And the 0 that we've got is the first
+parameter of the resize method, says I don't want to specify width,
+I want to be lazy. And the reason I want to be lazy is that
+I want the proportions of my picture to match the original, and so I only want
+to specify one of the coordinates. Just the y, just the height coordinate. I want my picture to be
+the full height of the canvas. And then, Java,
+you calculate the right width. You calculate the right width so
+that the aspect ratio, the ratio between the width and the height, is maintained
+to be the same as the original image. Okay, so
+if we put a 0 in one of the parameters, that means that we don't want to
+calculate both of the parameters. Java is gonna do it for us, so that
+the original proportions are maintained. The second tricky thing that we've done,
+is instead of writing an actual number in the second parameter,
+we've written the word height. And the advantage of doing that is
+that height is an instance variable in the PApplet class. Which tells us the height of the canvas. It tells us how many pixels
+high the current canvas is, and if you think about taking our canvas and
+dragging it so it's bigger, or smaller,
+the height of the canvas is gonna change. And this height variable will
+change right along with it. So what this does when we say that
+the background image will have the size, so that its height is
+the height of the canvas, it means that our image will
+change right along with the canvas as the user plays around
+with the size of the canvas. So we've made our picture dynamic. We've put our background
+image that we wanted in the right proportions
+in the background. But we're still missing the sun. So in the next video, we'll wrap
+things up by putting the sun in.

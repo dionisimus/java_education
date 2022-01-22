@@ -1,0 +1,94 @@
+1
+00:00:00,000 --> 00:00:03,887
+[MUSIC]
+
+2
+00:00:03,887 --> 00:00:06,470
+So I remember first
+starting to write code.
+
+3
+00:00:06,470 --> 00:00:10,580
+And at the beginning, I was told that
+documentation's really important and
+
+4
+00:00:10,580 --> 00:00:12,600
+that we should comment everything.
+
+5
+00:00:12,600 --> 00:00:16,103
+And not just the step by step,
+each line put a comment, but also,
+
+6
+00:00:16,103 --> 00:00:20,567
+when we first define a method, that there
+should be a little description in Javadoc
+
+7
+00:00:20,567 --> 00:00:22,702
+that other people might be able to use.
+
+8
+00:00:22,702 --> 00:00:26,844
+And this other people notion was just
+sort of vaguely said by, oh by the way,
+
+9
+00:00:26,844 --> 00:00:29,420
+someone might wanna use your method.
+
+10
+00:00:29,420 --> 00:00:33,670
+I always thought it was kind of
+silly because if we do the other
+
+11
+00:00:33,670 --> 00:00:38,530
+recommendations and name variables
+appropriately and the name of the method
+
+12
+00:00:38,530 --> 00:00:44,380
+should maybe be something that's natural,
+then who would need the documentation?
+
+13
+00:00:44,380 --> 00:00:46,420
+And then I started using
+other people's code,
+
+14
+00:00:46,420 --> 00:00:50,060
+because I started writing more complicated
+programs, and using libraries.
+
+15
+00:00:50,060 --> 00:00:53,500
+And all of a sudden, I was reading
+other people's documentation.
+
+16
+00:00:53,500 --> 00:00:56,850
+And when they didn't put very much in
+there, other than the name of the method
+
+17
+00:00:56,850 --> 00:00:59,520
+or the name of the variables,
+it would be really frustrating.
+
+18
+00:00:59,520 --> 00:01:01,770
+I'd have to do a whole lot of testing and
+trial and error to try and
+
+19
+00:01:01,770 --> 00:01:04,170
+figure out what these methods are doing.
+
+20
+00:01:04,170 --> 00:01:06,640
+And so I learned the hard way that
+documentation's really important.

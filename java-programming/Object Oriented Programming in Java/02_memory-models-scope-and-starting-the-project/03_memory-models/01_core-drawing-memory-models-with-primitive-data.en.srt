@@ -1,0 +1,419 @@
+1
+00:00:00,000 --> 00:00:03,839
+[MUSIC]
+
+2
+00:00:03,839 --> 00:00:07,877
+Okay, so now that you've learned how to
+create classes and objects, in this video
+
+3
+00:00:07,877 --> 00:00:11,167
+we're gonna show you a powerful way
+of reasoning about your code and
+
+4
+00:00:11,167 --> 00:00:15,040
+the variables in your code that's
+called drawing memory models.
+
+5
+00:00:15,040 --> 00:00:18,740
+So by the end of this video,
+you'll be able to draw memory models for
+
+6
+00:00:18,740 --> 00:00:22,880
+variables that contain primitive type
+data like ints and double and floats.
+
+7
+00:00:22,880 --> 00:00:26,640
+And you'll be able to update those memory
+models to reason about the values of those
+
+8
+00:00:26,640 --> 00:00:29,000
+variables in your code as your code runs,
+to try and
+
+9
+00:00:29,000 --> 00:00:31,310
+figure out what is your
+code actually doing.
+
+10
+00:00:31,310 --> 00:00:33,760
+Now this is a really interactive lesson.
+
+11
+00:00:33,760 --> 00:00:37,130
+So we want you to get out your pencil,
+get out your paper, and
+
+12
+00:00:37,130 --> 00:00:39,650
+draw these memory models
+right along with us.
+
+13
+00:00:39,650 --> 00:00:43,510
+Now, when I ask my students to get
+out pencil and paper in class,
+
+14
+00:00:43,510 --> 00:00:44,900
+they kind of look at me like I'm crazy.
+
+15
+00:00:44,900 --> 00:00:46,630
+Like, this is computer science.
+
+16
+00:00:46,630 --> 00:00:48,900
+Why do I need a pencil and
+a piece of paper?
+
+17
+00:00:48,900 --> 00:00:52,430
+And I actually usually walk around the
+room and say, hey, get out your pencil.
+
+18
+00:00:52,430 --> 00:00:53,530
+Get out your paper.
+
+19
+00:00:53,530 --> 00:00:57,850
+Now obviously I can't do that with you,
+but, you know, if it helps, imagine me
+
+20
+00:00:57,850 --> 00:01:01,350
+kind of knocking on your door, knocking
+on your car window, asking you to get out
+
+21
+00:01:01,350 --> 00:01:05,030
+your paper and your pencil, to draw
+these memory models right along with us.
+
+22
+00:01:05,030 --> 00:01:07,770
+It will be a lot more interesting, and
+you'll learn the concepts a lot better.
+
+23
+00:01:09,080 --> 00:01:12,260
+So, to warm us up let's
+look at this piece of code.
+
+24
+00:01:12,260 --> 00:01:15,910
+And what I'd like you to do is just
+trace through this code and tell me what
+
+25
+00:01:15,910 --> 00:01:20,170
+are the values of the variables var1 and
+var2 at the end of this code.
+
+26
+00:01:20,170 --> 00:01:21,861
+In other words, what does this code print?
+
+27
+00:01:25,720 --> 00:01:29,145
+All right, so
+if you got that example right, great job.
+
+28
+00:01:29,145 --> 00:01:31,895
+This actually turns out to
+be a somewhat tricky example
+
+29
+00:01:31,895 --> 00:01:33,435
+that a lot of people have trouble with.
+
+30
+00:01:33,435 --> 00:01:35,085
+So if you did have a lot
+of trouble with it,
+
+31
+00:01:35,085 --> 00:01:39,605
+don't worry because what we're going to
+do now is we're going to use this example
+
+32
+00:01:39,605 --> 00:01:42,230
+in order to illustrate this
+idea of drawing memory models.
+
+33
+00:01:42,230 --> 00:01:46,620
+So that you'll be able to get questions
+like this right forever, so for
+
+34
+00:01:46,620 --> 00:01:48,180
+all of the future.
+
+35
+00:01:48,180 --> 00:01:51,160
+And why is it important to be able
+to reason about code like this,
+
+36
+00:01:51,160 --> 00:01:52,640
+rather than just write code?
+
+37
+00:01:52,640 --> 00:01:57,290
+Well it turns out that people who are
+better at writing code are also better at
+
+38
+00:01:57,290 --> 00:01:59,510
+reasoning about their code and vice versa.
+
+39
+00:01:59,510 --> 00:02:02,740
+So practicing reasoning about
+code is a really important skill
+
+40
+00:02:02,740 --> 00:02:05,410
+in order to become a better coder and
+software developer.
+
+41
+00:02:07,450 --> 00:02:11,650
+So, let's step through this code,
+line by line and draw the memory model for
+
+42
+00:02:11,650 --> 00:02:13,880
+this code as it runs.
+
+43
+00:02:13,880 --> 00:02:15,480
+Let's start here on the first one.
+
+44
+00:02:15,480 --> 00:02:18,040
+That first line is a variable declaration.
+
+45
+00:02:18,040 --> 00:02:19,680
+What we're actually telling Java is hey,
+
+46
+00:02:19,680 --> 00:02:24,310
+Java, I want some new space to
+store a value of type integer.
+
+47
+00:02:24,310 --> 00:02:27,430
+And that space I'm gonna
+label with the label var1.
+
+48
+00:02:27,430 --> 00:02:30,380
+So in my memory model what I'm going
+to do is I'm gonna draw a box.
+
+49
+00:02:32,300 --> 00:02:35,870
+That represents the space that I'm gonna
+have to represent this variable and
+
+50
+00:02:35,870 --> 00:02:39,620
+label it with the name of the variable.
+
+51
+00:02:39,620 --> 00:02:40,290
+So there we go.
+
+52
+00:02:40,290 --> 00:02:42,160
+And you should do the same
+on your piece of paper.
+
+53
+00:02:43,840 --> 00:02:46,600
+The next line of code here
+is an assignment statement.
+
+54
+00:02:46,600 --> 00:02:48,370
+So what that's telling Java is,
+
+55
+00:02:48,370 --> 00:02:52,420
+hey Java take the value on the right
+hand side which in this case is 52 and
+
+56
+00:02:52,420 --> 00:02:56,420
+place it into the variable in the left
+hand side which in this case is var1.
+
+57
+00:02:56,420 --> 00:03:00,354
+So in our memory model, we'll take that
+52 and we'll put it in the box for
+
+58
+00:03:00,354 --> 00:03:02,804
+var1 which is where var1 sorts it's value.
+
+59
+00:03:06,445 --> 00:03:08,970
+All right, next line.
+
+60
+00:03:08,970 --> 00:03:10,665
+Another variable declaration, so
+
+61
+00:03:10,665 --> 00:03:14,003
+we need another box labeled with
+the new variable name which is var2.
+
+62
+00:03:20,172 --> 00:03:23,020
+The next line is another
+assignment statement.
+
+63
+00:03:23,020 --> 00:03:26,510
+Now this is slightly more complicated than
+the last assignment statement because
+
+64
+00:03:26,510 --> 00:03:29,560
+the thing on the right hand side
+is not just a number like 52,
+
+65
+00:03:29,560 --> 00:03:31,310
+it's another variable.
+
+66
+00:03:31,310 --> 00:03:35,540
+So what we need to do is we need
+to get the value out of var1 so
+
+67
+00:03:35,540 --> 00:03:38,930
+we can then place that value
+into the variable var2.
+
+68
+00:03:38,930 --> 00:03:42,670
+So we look in the box for var1,
+we see the value there is 52.
+
+69
+00:03:42,670 --> 00:03:49,860
+So what we'll do is we'll copy that
+value over here into the variable var2.
+
+70
+00:03:50,880 --> 00:03:53,850
+So now var1 and
+var2 both store the value 52.
+
+71
+00:03:53,850 --> 00:03:58,120
+Now this is a really
+important point that var1 and
+
+72
+00:03:58,120 --> 00:04:03,010
+var2 are not the same variable,
+they're not tied together in any way.
+
+73
+00:04:03,010 --> 00:04:06,030
+They just temporarily
+store the same value.
+
+74
+00:04:06,030 --> 00:04:09,820
+Because its assignment statement told
+Java to take the value that's in var1 and
+
+75
+00:04:09,820 --> 00:04:14,010
+put it into var2, but there's no
+connection between these two variables,
+
+76
+00:04:14,010 --> 00:04:15,399
+which you can see in
+the memory model diagram.
+
+77
+00:04:17,370 --> 00:04:21,920
+So now when we go onto the next slide,
+which is another assignment statement, and
+
+78
+00:04:21,920 --> 00:04:24,390
+take the value 127 and put it into var1,
+
+79
+00:04:24,390 --> 00:04:28,970
+you'll see that only the value
+of variable var1 will change.
+
+80
+00:04:28,970 --> 00:04:34,480
+So I'll take that 127,
+replace the 52 that was already there,
+
+81
+00:04:34,480 --> 00:04:36,734
+and the new value of var1 is 127.
+
+82
+00:04:38,670 --> 00:04:41,800
+Now we're down here at the last line,
+which is this print statement.
+
+83
+00:04:41,800 --> 00:04:45,580
+And, all that's left to do is read
+the values out of those boxes for
+
+84
+00:04:45,580 --> 00:04:46,530
+the variables.
+
+85
+00:04:46,530 --> 00:04:50,230
+So, when I print out var one and var two
+they'll have the values that you see in
+
+86
+00:04:50,230 --> 00:04:55,640
+the boxes of 127 for
+var one and 52 for var two.
+
+87
+00:04:55,640 --> 00:04:56,569
+And, this is what prints.
+
+88
+00:04:57,670 --> 00:05:00,840
+So those are some simple memory models
+using just primitive type data,
+
+89
+00:05:00,840 --> 00:05:05,850
+and in the next video we're gonna show you
+how to get more complicated using objects.

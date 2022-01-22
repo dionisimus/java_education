@@ -1,0 +1,83 @@
+[APPLAUSE]
+All right, so we've got our canvass all set up, and
+we're ready to draw something on it. And as I've mentioned,
+I wanna put a happy face on the screen, because I like happy faces. So what I'm gonna need is some shapes,
+to draw with. And the first thing I'll need is a head. So I need to draw a head on my canvass,
+and I want my head to be a circle. So I don't know how to draw a circle,
+I don't remember, so I'm gonna go back over to my
+processing documentation. And if I go back to that overview screen, I see that processing provides me
+with a whole bunch of methods for drawing shapes, and I've got some built
+in what are called 2D primitives here. And I can see that one of those
+primitives allows me to draw an ellipse. So I click on that. And I see that, okay, it's pretty easy. I just call the ellipse method,
+I pass it in, four values. And those values are the X and
+Y coordinates of the ellipse, and then, the width and height of the ellipse. So let me go back over to my code and
+try that out. So ellipse,
+I'll put it at position 50, 100. And then, I'll have it be not too big,
+I'll do it 75 by 75. So there, I need my semicolon, and
+let's see what that looks like. All right, so when I put my ellipse on
+there, I see that by default I get white ellipse or circle in this case,
+since the height and width are the same. And it's appearing at exposition 50, so
+it's 50 over from the left hand side, and you can see thats it's actually 50
+over to the center of that ellipse. And then, it's, well, this is weird,
+it's 100, but the whole window is 400. And, normally,
+you'd think about positive Y, starting from this lower left hand corner,
+and going up. But if you remember back to me
+as video and computer graphics, positive Y is actually facing down. And the 0, 0 points to the 0,
+Y coordinate is way up here, at the top left corner of my document, so
+it's the top that's the 0, Y coordinate. And then, Y gets bigger, as you go down. So with the Y value of 100 it's only about
+a quarter of the way down my window. If i want to bring it further down,
+if i wanted at the bottom, near the bottom window, I'd have to make the Y
+value very big, so I'd make it, say 300. And you can see that that ellipse
+moves all the way down the page. All right, so I want a big happy face, and
+I want the background of my happy face, not to be white but to be yellow. So lets look at how to do that. So one thing I'm gonna do is,
+I'm gonna make my ellipse much bigger, and I'm gonna center it in my window. So my window is 400 by 400. I'm gonna put it at 200, 200, and I'm gonna make it 390 by 390,
+so it's gonna be nice and big. And then, the other thing I'm gonna do is,
+before I draw my ellipse, I'm gonna change the color that
+it's going to be filled with. And the way I do that is
+using the fill method. So I fill it, and this time I'm
+again gonna pass in an RGB value. And I happen to remember that
+yellow is made by doing red, 255, green, 255, and then, blue is 0. At least I think so, so
+let's try that out, and see what happens. There we go, I've got a nice yellow
+head that I can draw my face onto. Great, so let's continue. I now need some eyes, so let's think
+about where these eyes are gonna go. They're gonna go roughly, here, so let's
+work on putting the first eye on our face. So I want it to be kind of somewhere
+in this upper left corner, of this GUI. So let's try it out. It's also gonna be an ellipse, but this
+time it's gonna be a black ellipse, so let's change the fill color to be black. And then, Im gonna put another ellipse at position 75,75, and I'll make my ellipse 50 wide, 70 high. Lets just see how that looks. I could sit down, and I could do all
+the geometry to make it look perfect, but I'm just gonna try it out. Oh dear, I'm way off,
+that eye is way off the face. So let me try to correct that,
+I need to move it down, and a little bit to the right. So 75 isn't quite right,
+let's try a much bigger value, a somewhat bigger value for the width. Let's try 100 for the X position, and then, let's try 130 in the Y position, let's see what that looks like. Okay, that's getting better. I'll maybe move it in a little
+bit more and try that out, so 100, I'll make that 120,
+and see what happens. Okay, that's not a bad place for the eye. So lets go ahead and
+put another eye on my happy face, and I want this one to be the same height,
+the same position down the canvas, but equally far in from the other side. So let's just reason about what
+the coordinates should be, ellipse, let's see, so I want it to be
+120 in from the right hand side. And we know the canvas is 400 wide, so I'll put it at position 280,
+and the X direction, and then, it needs to be the same in the Y
+direction, and the same size, so 50 by 70. And I'll try that out. All right, look at that. I've got eyes, and all that's left to
+do is give this a guy a happy face, so I need a shape that
+it is going to do that. So, let's go back to the shapes list here. And I see that I have
+a shape here called an arc, that's gonna come in quite handy for
+that smile. So an arc allows me to, basically,
+trace the edge of an ellipse. And the way I specify an arc is by
+specifying the ellipse that I'm tracing. So here's the X and
+Y position of the ellipse that I trace. And then, the width and
+height of the ellipse that's being traced. And then, over here I have
+the angle that I want to trace out. So the 0 angle is right here, and then, it
+goes around clockwise, all the way around. And these angles are measured in radians. So halfway around is going to be pi. All the way around is going to be 2pi. And they've got built in constants
+that we can use for those values. So let's go ahead and just try this out. So I want to do an arc, and
+I want the ellipse for my arc. Let me just take a guess. I'll put it at about 3, not 300,
+200, it needs to be centered, and about 280, so
+down towards the bottom of my face. And then, I will make it,
+let's try 75 by 75. And I'm gonna start it at angle 0 and
+go through angle pi, which will bring me a half circle arc,
+and let's try that. Okay, look at that. [LAUGH] It looks pretty good, actually. That's pretty cute. I can make some tweaks,
+if I wanna make some tweaks. One tweak that i'll show you is that I
+don't want this little face to have a full mouth, I want the mouth to be open,
+so there's this method called, no fill, that will cause that
+ellipse arc not to be filled in. And if I run it, I can see that he
+now smiles withnot such a full grin. And I can change the parameters
+to make the smile wider or to reposition it, but that looks like
+a pretty, happy, little face to me. So I'm gonna stop there. I hope you'll play around with this. Now that you've got basic methods, that you can play around with,
+you can have a lot of fun. So go ahead,
+make something really interesting, and just have fun playing with it.

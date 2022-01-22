@@ -1,0 +1,67 @@
+[SOUND] Welcome back. We're gonna do a challenge
+question at this point. Now, you've learned a great
+deal about memory models. Let's see if we really understand it well. What we're going to do in this video, is
+we're going to walk through two questions. The first one of which will be a question
+where we just stop, come back. And the second question is where we're
+actually gonna walk through the full concept challenge procedure. Again, the procedure is you're gonna
+pause, think about the problem, solve it yourself, discuss it, potentially,
+with other learners, watch a video of UCSD learners discussing it, then confirm
+your understanding with our explanation. So first, to get things started, what I
+wanna give you is an example is a code. I have the SimpleLocation class
+we've already been working with. And then I'm just going to create
+a main example of one of those objects. So what I want you to do is pull
+out your pencils and paper. Pause, draw the memory model as it
+stands right now, and then come back. So if this was the model that you drew,
+you were spot on. And this gives us a good starting
+point now for our next question. We're gonna scale the question a bit. We've got a single
+variable now within main, we've also got two objects that
+we're creating within main. The question here is,
+what memory model is gonna result? Again, pull out a piece of paper and
+a pencil, draw this yourself, and then we'll come back together. >> Hi. My name is Aziel. >> Hi, I'm Julia. >> And I'm Monica.
+>> And let's just get started. Okay, so far, looking at this,
+I notice that there are two objects. So, we can immediately cross out c. >> So how are there two objects? >> But why? >> They're both simple location objects, so wouldn't they point to a simple
+location inside the heap? >> Yeah, but
+each one is a new simple location so they don't point to
+the same area in the heap. They point to different areas
+because they're both new objects. >> So Washington DC gets it's own place? >> Washington DC gets it's own place. >> So there are two objects
+because there's two news, right? >> Right.
+There's two news. >> So that means C is not the answer. >> Yeah, that's what I thought. >> Okay. >> But
+the part where I got a bit confused on, was when I tried to look at each of
+the different locations in memory. And I understand why latitude is -12 for
+each one of these, but I don't really get why d
+doesn't point to -77, or whether it actually is
+just -77 in the box. >> So we know that d is primitive, which
+means that it's just a constant number. >> Right, so-
+>> So, primitive types, which are constant numbers,
+do not need an arrow, that's what I think. >> Why don't we need an arrow though? I mean,
+it's inside the object's memory area. >> But, the item itself, is not an object. >> Oh, okay, I see. >> So, then you just write it
+directly into the box for both cases. >> All right, now that you've heard
+an explanation about this for our UCSD learners,
+you're already seeing how this works. And really, the only way to do this is
+to trace the code just as they did. I'm going to do that for us here. We will start at the very top of main,
+as we always do. And we're gonna have a double-variable
+d that is assigned the value -77. And you can see that's within the scope
+of main in the drawing below. And when I create a reference for lima,
+and just like we did at the very start here, is I'm gonna actually
+now create this object. So when I call new simple location
+that allocates space on the heap, you can see that on the right. And then I'm going to pass in
+as parameters, -12, and -77. That's the value of d at the time
+that is passing as a parameter. Perfect. All right, now we can do the second piece. Now we can create a second object, or
+sorry we're creating a reference for a second object, which is called washDC. And now I'm actually create the object
+by calling that new simple locations. Again, new simple location allocates
+based on the heap for a new object. And I'm now gonna call this method,
+passing in these two parameters. And the key part to this problem is
+really what happens with lima.lon. When you call a constructor and
+you're passing these values as parameters, parameters in Java
+are always passed by value. So 38.9 is gonna be copied
+over as exactly 38.9, and lima.lon is gonna be evaluated
+to be the minus 77 that it is. And then that minus 77 is
+what's passed to lonIn. Now we're gonna copy the values
+over just like we did before. We're gonna copy into this.lat. We're gonna copy into this.lon. And then at the very end of this
+constructor, and we're going to hook up washDC to that lat and that lon. Or that object that contains the lat and
+the lon. So, this is our memory
+module at this point. Is this close to what you got? I hope it was. It's worthwhile walking through a couple
+more of these memory model problems. Keep in mind that when we
+are drawing memory models, the purpose of this is to
+really understand your code. It's difficult to reason and debug code if you are not drawing
+the memory model associated with it.

@@ -1,0 +1,72 @@
+Hi, and
+welcome back to our module on Scope. It's time for
+another one of these concept challenges. Again, the flow for this is, you're gonna
+pause, think about the problem yourself. You're gonna discuss this if you
+have other learners around you. You're gonna watch the UC San Diego
+learners tackle the problem. And then you're gonna
+hear our explanation. So the question here is gonna
+involve essentially two classes. You've been working a great
+deal with simple location, and we're gonna keep using this class. And that's the one on the left. We've got a tester class on the right,
+and that tester class has a main method. It's within this main method where you're
+gonna see a number of things get declared. And something get printed. The big question is, what gets printed? >> Hi, I'm Tinky. >> Hi, I'm Peter. >> And I am Joe. >> So what actually happens when
+we go back to our main method and we look at lat gets negative 12.0. Is that going to change
+lima's latitude value, since that's what we
+took in as the variable? >> Well I think since we were just
+working with a primitive data type. >> Mm-hm. >> Then it was just like
+getting a copy of it, right? It wasn't doing the whole
+arrow thing like before. We're not pointing to an old object,
+we're just getting a copy of it's data. >> Uh-huh.
+>> Mm-hm, all right. In regarding the scope, I think the double
+here is adjusting the main scope, so it wont have any access
+to the object itself. Right? So you're changing the number here,
+you just change the number in this scope. >> Oh, like locally? >> Yeah, just like locally. >> All right so. So even we come back to the main method
+and we look at lat gets negative 12.0, that's not gonna change
+the latitude in our lima. >> Right, I see. >> You just have the same name,
+but two different access, I think. >> All right, okay, so in the end when
+we print out lima.lat, it's gonna remain whatever we created it in
+the first place, which was negative 15.5. >> Mm-hm. All right, cool. >> As you saw when
+the students were discussing, the key to solving this problem
+is tracing through the code. So what we're gonna do is exactly that. Now with our code we're always gonna start
+with main, as we have in the past, and we're gonna start with the very first line
+in code, which is that double lat = -15.5. Just so
+we know with all the memory diagrams, I'm gonna start by creating scope and
+main. And I'm gonna declare space for
+a variable named lat. The first thing I'm gonna do
+then is fill that with- 15.5. And that does the first line of code. Next step we're gonna create
+a new variable called lima. Right over here. And that's just a reference. Then we call new SimpleLocation,
+pass it a lat and a -77.0. That operation is now gonna
+call the constructor. So let's move to the scope
+of the constructor. Box this off as the scope of main, and box off the scope of my
+constructor in simple location. ctor stands for constructor. And within that scope,
+I've passed now two parameters. So it has two variables, both LatIn and lonIn. Each of those parameters just
+are now prefilled with the values as defined at the time of the call. So lat was -15.5 this is copy
+pass by value in Java so -15.5. And lonIn is gonna be -77.0. The other piece here is we
+said new simple location. The act of saying new actually
+allocates space on the heap. So what I'm gonna do down here,
+is create that space on the heap, for a simple location object. And that object is gonna have the private
+instance variables, lat and lon. At this point we already see that we
+have a number of cases where we see the variable lat. And that's gonna be at
+the heart of this problem. So let's continue walking
+through the code. So we're right now in
+the middle of SimpleLocation. We've already passed in
+these two perimeters, and what we're gonna do now is
+actually do this line of code. So this.lat refers to
+the object on the heap. This is my SimpleLocation object. And it's gonna be assigned
+the value of LatIn. Which is minus 15.5. So I'm gonna copy that value over. The next line of code is gonna
+behave exactly the same way, right? All it's gonna do is
+copy minus 77 into lon. Now we finish this constructor. And the end of any method, as we know,
+these variables essentially get destroyed. So I'm just gonna do a quick line through
+it to say our constructor variables are gone, and we're now back in main. So within main, the very next line of code
+we're gonna execute is right down here. It's gonna say lat =- 12,
+what lat are we referring to? Well, I'm gonna look at my local scope,
+I have a variable named lat. And I'm gonna change it to be -12. Now I've already made one mistake here. And that mistake is,
+when this constructor finished, it would have returned a pointer to this. And I failed to connect this
+to the object on the heap. All right, now that's connected properly, we now would have done
+the change to this to be -12. And now, we're gonna try a print,
+lima.lat. So I'm gonna follow my pointer,
+my reference out to lima, and I'm gonna check what
+value does lat have? Well, the value is- 15.5. What's gonna be printed,
+then, is exactly that, -15.5. What we see from this
+walking through this code, is that as long as you trace through
+the code, you draw your memory diagrams, you're gonna be able to
+solve this type of problem

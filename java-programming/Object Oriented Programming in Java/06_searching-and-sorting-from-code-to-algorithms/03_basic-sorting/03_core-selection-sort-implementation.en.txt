@@ -1,0 +1,93 @@
+[MUSIC] In the previous video, we developed
+an algorithm for sorting a bunch of pieces of data and organizing them in some
+order from smallest to biggest. What we'd like to do in this video
+is translate that algorithm, or high-level description of the strategy,
+into Java. So, what we're going to do is think
+step by step about how to go from natural language descriptions
+of the strategy to actual code. And so let's start by thinking
+about what that strategy even was. And so we talked about Selection Sort. So Selection Sort has as its
+general approach, first of all, we think about the smallest element
+overall in the entire array. And we look for that smallest element and
+we try to put it first. Because that's where it's going
+to need to be at the end. And then we move on to
+the rest of the array and try to find the smallest element among
+those elements and then put it in the second position overall because
+that's its correct location at the end. And we keep going, and we keep going, etc. So, let's think about how we
+can translate this approach, the constructs that we
+know from programming. And so, let's start by thinking
+about the big picture. And what we're doing in Selection Sort is we're looping through all of
+the positions in the array and for each one of those positions, we try to
+find the true value in the sorted array. So, for each position i from the very
+beginning of the array all the way until the end, we are trying to find
+the right element to put in that position. But actually,
+not all the way until the end. Remember from the previous video, we talked about a small optimization
+that once we've sorted the first all but last elements of the array, then the last
+element is going to be in the correct position because there's really
+nowhere else for it to go. Okay, so we've got that little tweak and
+the big picture here, what's important, is that we've got a for-loop that looks
+over each position in the array and tries to find the right element there. And, it's also useful to keep in mind,
+that as we're going through this algorithm, we have an invariant property,
+a property that never changes. And that's the, once we've worked on
+position zero, position one, position two, then the elements in those
+positions are sorted, and they're never gonna change, at all. No matter how many more steps we
+have to go or how big the array is. Those positions are done and the correct elements in the sorted
+array are already there. And so what we have is this array
+where slowly, slowly, slowly, we're organizing the first bit of it and then
+we're focusing on the very next position, say position i, and looking for
+what element to put there. So, let's think about
+the body of the for-loop and what we need to do in that
+body of the for-loop. And so
+a way to think about that is to look for the smallest element in the not yet
+organized piece of the array. And whatever is the smallest element among the elements of the array that we
+haven't put in their correct position, that's the one that's going
+to need to be in position i. So we need to find the smallest element
+in all of the elements that remain, and then swap it with the element
+that's in position i so that that element is in
+its correct location. Okay, so let's formalize a little bit what
+it means to be in the still unorganized or unsorted part of the array. Well, those are all of the elements in
+position i through the end of the array, length- 1. All right, so as you can tell we're getting a little
+bit closer to coding up the solution. And what I like you to do now is pause
+the video, and try to write the code. Welcome back. Let's work through it together, and see if the code that we developed is
+similar to what you did on your own. So, you probably declared a method that
+is going to be called something like selectionSort, and takes as input the
+array of values that we wanted to sort. Now, in this method, the way that I've designed it,
+were not going to return any values. So the return is listed as void. Because what we're going to do is sort
+the elements of the array in place. So we're going to move them around
+in the array that we're given. And now, remember that we have the outer
+for-loop and that outer for-loop is looking at all positions i from the very
+beginning until the second last element. Okay, now for each of those positions
+we have to find the correct element to put in that position. And so now we have to implement
+that piece of the algorithm. And so what we are going to do is try to
+find the smallest element that has not yet been put in its correct location. And so we want to keep track of
+the index of that smallest element. The location of where that
+smallest element is in the list. So, at the beginning, we think well, maybe the smallest element is already
+in its correct location in i. So our first guess is that the smallest
+element is in the first place that we look at, namely position i. And then we want to step through all
+possible positions in that unsorted part of the array and compare the elements
+in those positions with the value of the element at our current best guess for
+where the smallest element is located. So, we're comparing the element at
+position indexMin with the element at position j. And if it so happens that the element
+at position, j, is smaller than the element at the position which is
+supposed to record the smallest element, well, we need to update
+what we think is going on. Now, in this case, we think that the smallest element
+is actually in position j. And now we have to keep on going, and keep on checking all of the elements to
+make sure that indexMin really records the position of the smallest element
+in that remaining piece of the array. So once we've gone through
+this inner for-loop, what we have is indexMin
+recording the position of the smallest element in
+the remaining part of the array. And then the last piece of our algorithm
+is to put that smallest element in its correct location,
+namely, in position i. And so we might have a helper method
+swap that we define somewhere else, and that's what method looks
+at the array vals, and it swaps the element at position
+indexMin with the element at position i. And so what that would do, is take the element that supposed to be
+in position i, and really put it there. Okay. And so, what we've done here is we've
+gone from the high level description of selection sort and we've now gone
+ahead and implemented it using Java. All right, so,
+before we leave this algorithm and say hoo, we've done it, pat on our back,
+we can stop thinking about it now. It's useful to probe further and
+always ask ourselves some questions. How do we know that this algorithm and this implementation always works,
+no matter what array we give it? And if we believe that it does work,
+how well does it work? And of course, as good engineers and scientists, we always want
+to do better and can we? So, in the next video we'll talk
+about some of these questions.

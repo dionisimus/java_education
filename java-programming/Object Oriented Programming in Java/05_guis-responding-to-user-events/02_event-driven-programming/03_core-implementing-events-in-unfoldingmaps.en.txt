@@ -1,0 +1,60 @@
+[SOUND] In the previous video we
+introduced event driven programming. And what we'll do now is trace
+through some code that uses events. So by the end of this video you will have
+experience at tracing the execution of a piece of code that has both some
+procedural elements to it and also some event driven code. Well I'd like to start with an example
+that should be completely familiar at this point. We've been playing a lot with maps and
+setting them up and displaying them. And so when we have this piece of
+code remember that what we see is a map with a border around
+it of grey in the canvas. And when we think about how this
+piece of code is being executed, we set up our canvas once, as so the setup
+method is executed once, and then what our applet does is it continuously
+loops and runs the draw method. Okay, now let's try to jazz
+it up a little bit and add an additional method to our class. So right after we've
+defined the draw method, we're going to stick in these four
+lines of code and pause the video for a second and think about what the impact
+of this new method is going to be. One thing to think about is,
+when this method will be executed, and the second thing to think about is
+what the effect of that execution will be. So let's start with the second question
+because it's a little bit easier. Let's think about what will happen if we
+were to run this method and what we notice here is that the key part is
+the background color guest change. So remember that the background method
+that we're calling inside key pressed. Is the way that we have through processing
+to change the background color of our canvas. And what we're doing here is setting that
+background color to 255, 255 ,255 and that's our code for all white. Because the three color channels
+are set to their maximum. R, G, and
+B are all at their maximum value, and that means that we have
+a pure white color. And so, if this method is executed, what we expect to see is that
+the background of the canvas is all white. Something like this
+picture that you see now. But then we go back to the question of
+when this method actually gets executed. And if we think back about our
+model of the setup method being run once at the beginning of
+running the applet, and then the drama method
+being continuously run. Then it's not clear if keyPressed will
+ever be executed because we don't call keyPressed explicitly from
+anywhere else in our application. We don't call keyPressed for
+example from the draw method. The thing is though that our
+application is acting as a listener. Not only is it doing that flow of
+execution of running setup and then continuously leaping through drop but
+it's also in the background listening for user effects. So it's trying to see if the user's trying
+to interact with the program in some way. And the kind of events that it's
+looking for are keyboard presses, mouse clicks, multi-touch actions. And so the program is going to be able to
+react to any of those kinds of events. However, we don't need to worry about
+handling all of those events ourselves. In our unfolding maps library we
+already have a default EventDispatcher. So just by including this line
+of code in our setup method what we're telling our application is we'd like
+our application to be interactive and so, do what I'm telling you. Set up the canvas the way I'm saying,
+draw what I want, but also listen for any of the default events
+that you have in mind. And the default event functionality
+that the PApplet already works with and UnfoldingMaps does. Is for example if the user double-clicks
+somewhere inside our map we're going to increase their zoom level by one and so focus in on whatever is
+at the center of the map. And we can also accomplish that zoom
+level changes by hitting some plus and minus buttons. So that means the map that we're drawing, the application that we're running, is
+going to respond to certain user inputs, but we could always customize the
+interactivity by adding additional methods or modifying the methods like keypress,
+that we had before. What we're doing when we're writing public
+void keypress It like we did before, is we're overriding the key press
+method from the super class, PApplet. And so, we're using the power of
+inheritance that you talked about already with Leo in the previous module. Well, what we'll do in the future videos
+is think about further interactivity and how we want to indicate to the user
+what they can tell the map to do and how to design a good user interface.

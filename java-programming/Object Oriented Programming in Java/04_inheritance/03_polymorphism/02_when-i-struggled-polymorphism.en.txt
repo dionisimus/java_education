@@ -1,0 +1,13 @@
+[MUSIC] Hello, I'm Ken. One time when I struggled during
+a program assignment was with, it was based on polymorphism and
+inheritance. What you had to do was create
+classes of different animals and connect them through inheritance and
+polymorphism. And what was hard about it when
+I first opened the assignment, it was just a blank screen, a blank
+text editor, and I was overwhelmed. I didn't know where to start. What really helped was
+the online posting and everyone conversating on Piazza and
+that forum. What also helped was just really stepping
+away from it just a little bit and giving it some time just because I was so
+overwhelmed by it at that moment, just really calming down and
+taking a break from the material. And then revisiting it allowed me to,
+I think, get it done.

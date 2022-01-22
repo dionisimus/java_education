@@ -1,0 +1,447 @@
+1
+00:00:00,025 --> 00:00:04,520
+[SOUND] All right.
+
+2
+00:00:04,520 --> 00:00:09,150
+Welcome back to our sequence of videos
+where we're building an application that's
+
+3
+00:00:09,150 --> 00:00:12,862
+going to indicate the hour of the day
+based on the color of the sun that
+
+4
+00:00:12,862 --> 00:00:15,060
+we've added to the picture.
+
+5
+00:00:15,060 --> 00:00:19,670
+And up until now we've figured
+out how to use a PApplet class
+
+6
+00:00:19,670 --> 00:00:24,328
+from the processing library, and we've
+set up our canvas using the setup method.
+
+7
+00:00:24,328 --> 00:00:28,570
+And so now what we'd like to do is
+fill in the draw method which is
+
+8
+00:00:28,570 --> 00:00:31,080
+going to let us display the content.
+
+9
+00:00:31,080 --> 00:00:33,680
+Okay, so what we'd like to do
+
+10
+00:00:33,680 --> 00:00:37,422
+is display the background image
+that we brought into memory.
+
+11
+00:00:37,422 --> 00:00:41,240
+And so
+we can do that by using the image method.
+
+12
+00:00:41,240 --> 00:00:43,560
+Okay, so let's do just that.
+
+13
+00:00:43,560 --> 00:00:47,588
+We say image and
+then (backgroundImg, 0,0).
+
+14
+00:00:47,588 --> 00:00:49,780
+And what does that do?
+
+15
+00:00:49,780 --> 00:00:54,390
+Well it seems to us like it's gonna have
+something to do with background image but
+
+16
+00:00:54,390 --> 00:00:57,780
+the 0,0 at the end of that
+are the coordinates that we want for
+
+17
+00:00:57,780 --> 00:01:00,830
+the position of the top
+left corner of the image.
+
+18
+00:01:00,830 --> 00:01:04,470
+So in this method what we're doing is
+we're saying we would like to draw
+
+19
+00:01:04,470 --> 00:01:08,940
+a particular image, and we'd like that
+image to be located in our canvas so
+
+20
+00:01:08,940 --> 00:01:14,690
+that its top left corner is at 0,0, and
+0,0 is the top left corner of the canvas.
+
+21
+00:01:14,690 --> 00:01:18,541
+And so that means that we're going to want
+to have our canvas be at the very top and
+
+22
+00:01:18,541 --> 00:01:19,130
+very left.
+
+23
+00:01:19,130 --> 00:01:20,310
+Okay.
+
+24
+00:01:20,310 --> 00:01:22,190
+So lets see what happens if we do that.
+
+25
+00:01:22,190 --> 00:01:25,330
+[SOUND] Is that what you expected?
+
+26
+00:01:25,330 --> 00:01:29,280
+Remember that image that we
+want is all of the beach.
+
+27
+00:01:29,280 --> 00:01:31,880
+And we're getting a bunch of blue but
+it's familiar blue.
+
+28
+00:01:31,880 --> 00:01:36,010
+That blue is a sky blue,
+and the reason for
+
+29
+00:01:36,010 --> 00:01:39,850
+that is that we're actually getting
+just a tiny piece of the sky.
+
+30
+00:01:39,850 --> 00:01:42,100
+The image is way, way, way too big.
+
+31
+00:01:42,100 --> 00:01:45,670
+Our canvas is just 200
+pixels by 200 pixels and
+
+32
+00:01:45,670 --> 00:01:49,370
+our image was, well it's a high-def
+image we took with a modern camera.
+
+33
+00:01:49,370 --> 00:01:53,290
+So it's much more than that, if you think
+about resolutions of images these days.
+
+34
+00:01:53,290 --> 00:01:58,470
+And so what we need to do in order to
+display the whole image is to resize it.
+
+35
+00:01:58,470 --> 00:02:01,690
+So what we're going to need to do is
+to figure out how to take a really big
+
+36
+00:02:01,690 --> 00:02:05,020
+image and cram it into the canvas
+that we're working with.
+
+37
+00:02:05,020 --> 00:02:08,010
+And so we look up our handy documentation.
+
+38
+00:02:08,010 --> 00:02:09,140
+There's a theme here, right?
+
+39
+00:02:09,140 --> 00:02:11,010
+Keep looking at the documentation.
+
+40
+00:02:11,010 --> 00:02:15,760
+And we see that we have a resize
+method that we can call, and we can
+
+41
+00:02:15,760 --> 00:02:20,900
+specify the width and the height that we
+would like our image to be compressed to.
+
+42
+00:02:21,960 --> 00:02:27,150
+Now, our image already came
+at a specified size, but
+
+43
+00:02:27,150 --> 00:02:31,930
+what we're doing in the resized image,
+is we're saying, move, change it.
+
+44
+00:02:31,930 --> 00:02:33,450
+We want a new size, okay?
+
+45
+00:02:33,450 --> 00:02:39,460
+So let's try and say, maybe we want to
+have our image just go 50 pixels across,
+
+46
+00:02:39,460 --> 00:02:43,220
+so it's only gonna go a quarter of the way
+across our canvas, which was 200 by 200,
+
+47
+00:02:43,220 --> 00:02:47,970
+and it's gonna go half the way down,
+so it's gonna be 100 pixels long.
+
+48
+00:02:47,970 --> 00:02:53,230
+And so we resize our image in memory,
+and then we go ahead and display it.
+
+49
+00:02:53,230 --> 00:02:57,651
+Okay so it went a quarter of the way
+across and half way down, so
+
+50
+00:02:57,651 --> 00:03:01,988
+that did it, but notice how
+warped the picture looks because
+
+51
+00:03:01,988 --> 00:03:05,150
+the ratio of width to
+height is totally off.
+
+52
+00:03:05,150 --> 00:03:09,151
+It's totally not what the original image
+looked like and so we see the trees
+
+53
+00:03:09,151 --> 00:03:13,156
+look like they're reaching like
+skyscrapers or something in this image,
+
+54
+00:03:13,156 --> 00:03:17,240
+and it's not really giving us the kind
+of image that we'd like to do.
+
+55
+00:03:17,240 --> 00:03:22,000
+And so what we'd like to do is be
+a little bit, maybe more careful,
+
+56
+00:03:22,000 --> 00:03:24,570
+maybe we wanna use up the whole canvas,
+and so
+
+57
+00:03:24,570 --> 00:03:29,550
+we could say let's use all 200 pixels
+across and all 200 pixels down.
+
+58
+00:03:29,550 --> 00:03:34,160
+And so now we see the full image,
+and we see it a little bit bigger.
+
+59
+00:03:34,160 --> 00:03:36,670
+But it's still not the right proportions.
+
+60
+00:03:36,670 --> 00:03:40,210
+The trees are still way too big,
+
+61
+00:03:40,210 --> 00:03:43,360
+it doesn't look like
+the original image that we had.
+
+62
+00:03:43,360 --> 00:03:48,210
+And so maybe we do something
+a little bit tricky, okay.
+
+63
+00:03:48,210 --> 00:03:52,030
+So what we've done here
+is tricky in two ways.
+
+64
+00:03:52,030 --> 00:03:55,110
+Let's start with the 0
+that we've got there.
+
+65
+00:03:55,110 --> 00:04:00,730
+And the 0 that we've got is the first
+parameter of the resize method,
+
+66
+00:04:00,730 --> 00:04:06,060
+says I don't want to specify width,
+I want to be lazy.
+
+67
+00:04:07,090 --> 00:04:12,060
+And the reason I want to be lazy is that
+I want the proportions of my picture to
+
+68
+00:04:12,060 --> 00:04:17,780
+match the original, and so I only want
+to specify one of the coordinates.
+
+69
+00:04:17,780 --> 00:04:20,710
+Just the y, just the height coordinate.
+
+70
+00:04:20,710 --> 00:04:25,340
+I want my picture to be
+the full height of the canvas.
+
+71
+00:04:25,340 --> 00:04:28,610
+And then, Java,
+you calculate the right width.
+
+72
+00:04:28,610 --> 00:04:32,990
+You calculate the right width so
+that the aspect ratio, the ratio between
+
+73
+00:04:32,990 --> 00:04:37,460
+the width and the height, is maintained
+to be the same as the original image.
+
+74
+00:04:37,460 --> 00:04:40,230
+Okay, so
+if we put a 0 in one of the parameters,
+
+75
+00:04:40,230 --> 00:04:43,768
+that means that we don't want to
+calculate both of the parameters.
+
+76
+00:04:43,768 --> 00:04:48,340
+Java is gonna do it for us, so that
+the original proportions are maintained.
+
+77
+00:04:48,340 --> 00:04:53,350
+The second tricky thing that we've done,
+is instead of writing an actual number
+
+78
+00:04:53,350 --> 00:04:55,890
+in the second parameter,
+we've written the word height.
+
+79
+00:04:57,040 --> 00:05:01,730
+And the advantage of doing that is
+that height is an instance variable
+
+80
+00:05:01,730 --> 00:05:03,600
+in the PApplet class.
+
+81
+00:05:03,600 --> 00:05:05,350
+Which tells us the height of the canvas.
+
+82
+00:05:05,350 --> 00:05:10,130
+It tells us how many pixels
+high the current canvas is, and
+
+83
+00:05:10,130 --> 00:05:13,050
+if you think about taking our canvas and
+dragging it so
+
+84
+00:05:13,050 --> 00:05:17,610
+it's bigger, or smaller,
+the height of the canvas is gonna change.
+
+85
+00:05:17,610 --> 00:05:20,810
+And this height variable will
+change right along with it.
+
+86
+00:05:20,810 --> 00:05:25,389
+So what this does when we say that
+the background image will have the size,
+
+87
+00:05:26,460 --> 00:05:29,260
+so that its height is
+the height of the canvas,
+
+88
+00:05:29,260 --> 00:05:33,410
+it means that our image will
+change right along with
+
+89
+00:05:33,410 --> 00:05:37,370
+the canvas as the user plays around
+with the size of the canvas.
+
+90
+00:05:37,370 --> 00:05:39,220
+So we've made our picture dynamic.
+
+91
+00:05:39,220 --> 00:05:42,110
+We've put our background
+image that we wanted
+
+92
+00:05:42,110 --> 00:05:44,780
+in the right proportions
+in the background.
+
+93
+00:05:44,780 --> 00:05:46,250
+But we're still missing the sun.
+
+94
+00:05:46,250 --> 00:05:49,250
+So in the next video, we'll wrap
+things up by putting the sun in.

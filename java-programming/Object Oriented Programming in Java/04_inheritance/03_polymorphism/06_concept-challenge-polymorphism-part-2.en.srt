@@ -1,0 +1,521 @@
+1
+00:00:04,860 --> 00:00:06,974
+All right.
+If you thought that last Polymorphism
+
+2
+00:00:06,974 --> 00:00:10,040
+concept challenge was fun,
+you are gonna love this one.
+
+3
+00:00:10,040 --> 00:00:11,870
+This one is gonna bring
+it to a whole new level.
+
+4
+00:00:11,870 --> 00:00:14,680
+It's more challenging than the last one,
+that we just gave you.
+
+5
+00:00:14,680 --> 00:00:18,200
+In fact, it's beyond what we've
+even explicitly taught you.
+
+6
+00:00:18,200 --> 00:00:22,150
+So, we want you to really push the bounds
+of your reasoning and, understanding.
+
+7
+00:00:23,870 --> 00:00:27,120
+You know the drill, do it yourself,
+discuss it with your friends,
+
+8
+00:00:27,120 --> 00:00:29,130
+watch our videos,
+confirm your understanding.
+
+9
+00:00:30,940 --> 00:00:36,450
+So, here's the challenge, we now have
+three classes in an inheritance hierarchy.
+
+10
+00:00:36,450 --> 00:00:39,280
+So, base class that we're
+working with here, is a Person.
+
+11
+00:00:39,280 --> 00:00:41,449
+And, it has two methods,
+method1 and method2.
+
+12
+00:00:42,620 --> 00:00:46,240
+We have a class that extends the Person
+class, which is the Student class.
+
+13
+00:00:46,240 --> 00:00:48,990
+It overrides both method1 and method2.
+
+14
+00:00:50,040 --> 00:00:54,120
+And then we have the Undergrad class,
+which extends the Student class and
+
+15
+00:00:54,120 --> 00:01:00,000
+it inherits the method1 method, but
+it overrides the method2 method.
+
+16
+00:01:01,060 --> 00:01:02,570
+So, that's in a nutshell
+what we're working with.
+
+17
+00:01:03,910 --> 00:01:06,840
+Here's the code in more detail, and you're
+gonna need to work through this code and
+
+18
+00:01:06,840 --> 00:01:09,450
+look at it carefully as you
+work through this challenge.
+
+19
+00:01:09,450 --> 00:01:13,760
+And, what the challenge is, is when
+we create a new undergraduate object,
+
+20
+00:01:13,760 --> 00:01:16,790
+refer to it as a reference of type person,
+and
+
+21
+00:01:16,790 --> 00:01:21,380
+we call method1 on that
+newly created object.
+
+22
+00:01:21,380 --> 00:01:22,647
+What gets printed out?
+
+23
+00:01:30,831 --> 00:01:32,150
+>> Hi, I'm Steven.
+
+24
+00:01:32,150 --> 00:01:33,390
+>> Hi, I'm Joanna.
+
+25
+00:01:33,390 --> 00:01:34,700
+>> Hi, I'm Justin.
+
+26
+00:01:34,700 --> 00:01:36,260
+>> So, what do you think?
+
+27
+00:01:36,260 --> 00:01:40,060
+>> I don't know,
+I was getting caught up on this first one.
+
+28
+00:01:40,060 --> 00:01:42,870
+So, it says it calls for method1.
+
+29
+00:01:42,870 --> 00:01:45,300
+But I don't see a method1 in Undergrad.
+
+30
+00:01:45,300 --> 00:01:48,870
+So I think it would be a compile error.
+
+31
+00:01:48,870 --> 00:01:51,924
+>> I don't think it would
+be a compile error.
+
+32
+00:01:51,924 --> 00:01:56,742
+If you notice Undergrad extends Student.
+
+33
+00:01:56,742 --> 00:02:01,072
+So, in the Student class
+there is a method1, so
+
+34
+00:02:01,072 --> 00:02:04,040
+I think it inherits that method.
+
+35
+00:02:05,080 --> 00:02:06,280
+Yeah, I agree, so.
+
+36
+00:02:06,280 --> 00:02:08,150
+>> Yeah.
+>> It does print Student 1.
+
+37
+00:02:08,150 --> 00:02:12,848
+What I got a little bit tripped up on was,
+I wasn't sure which,
+
+38
+00:02:12,848 --> 00:02:17,994
+when it calls super.method1 in
+the method1 of the Student class,
+
+39
+00:02:17,994 --> 00:02:21,384
+I wasn't sure which method1 it would call.
+
+40
+00:02:21,384 --> 00:02:25,342
+Because isn't it in Undergrad?
+
+41
+00:02:25,342 --> 00:02:29,401
+So wouldn't the super.method1,
+it might just call Student and
+
+42
+00:02:29,401 --> 00:02:32,889
+go into an infinite,
+like calling itself over and over.
+
+43
+00:02:32,889 --> 00:02:33,841
+Right?
+
+44
+00:02:33,841 --> 00:02:35,768
+>> Yeah, I can see how you
+could get caught up on that.
+
+45
+00:02:35,768 --> 00:02:38,705
+But I think when super, it's always
+talking about the class above it.
+
+46
+00:02:38,705 --> 00:02:41,780
+So I think it actually would be calling
+the method1 and the person class.
+
+47
+00:02:42,990 --> 00:02:44,160
+>> Okay.
+
+48
+00:02:44,160 --> 00:02:45,690
+>> What about method2?
+
+49
+00:02:45,690 --> 00:02:52,062
+Does it call Students method2 or
+
+50
+00:02:52,062 --> 00:02:58,440
+which method2 does it refer to?
+
+51
+00:02:58,440 --> 00:03:03,811
+>> I think that since it is in Undergrad?
+
+52
+00:03:03,811 --> 00:03:10,951
+It will call Undergrad's method2 and
+it'll print undergrad 2.
+
+53
+00:03:10,951 --> 00:03:16,188
+So, if it doesn't go infinitely,
+like you said, then it should be D.
+
+54
+00:03:19,125 --> 00:03:21,680
+>> All right, let's trace this together,
+because it's non-trivial.
+
+55
+00:03:21,680 --> 00:03:26,180
+We're gonna start our tracing up here,
+where the method is originally called.
+
+56
+00:03:26,180 --> 00:03:30,030
+So the type of the object referred
+to by you is an Undergraduate.
+
+57
+00:03:30,030 --> 00:03:33,350
+So at runtime, that's where Java is
+going to look for this method, method1.
+
+58
+00:03:33,350 --> 00:03:38,360
+When we look down here in
+the undergraduate, in the Undergrad class.
+
+59
+00:03:38,360 --> 00:03:40,950
+Class, we don't see a method1.
+
+60
+00:03:40,950 --> 00:03:44,980
+But luckily we can see that
+Undergrad extends Student.
+
+61
+00:03:44,980 --> 00:03:48,390
+So Java is gonna go look in
+the Student class for method1.
+
+62
+00:03:48,390 --> 00:03:51,590
+So looking up here in Student class,
+it finds method1.
+
+63
+00:03:51,590 --> 00:03:52,170
+Great.
+
+64
+00:03:52,170 --> 00:03:53,960
+So now I can start executing.
+
+65
+00:03:53,960 --> 00:03:58,284
+So the first thing it's going to do is
+execute that first line which prints
+
+66
+00:03:58,284 --> 00:03:59,058
+Student 1.
+
+67
+00:03:59,058 --> 00:04:01,078
+So what gets printed so far?
+
+68
+00:04:01,078 --> 00:04:02,620
+It's Student 1.
+
+69
+00:04:02,620 --> 00:04:05,750
+Now we keep going to the next line.
+
+70
+00:04:05,750 --> 00:04:09,550
+The next line says super.method1.
+
+71
+00:04:09,550 --> 00:04:12,930
+So what is the super class
+of the Student class?
+
+72
+00:04:12,930 --> 00:04:14,700
+Well, it's the Person class.
+
+73
+00:04:14,700 --> 00:04:19,910
+So this happens at compile time.
+
+74
+00:04:19,910 --> 00:04:21,830
+When this code is compiled,
+
+75
+00:04:21,830 --> 00:04:26,200
+Java notices that there's a call to
+the super class inside this method and so
+
+76
+00:04:26,200 --> 00:04:28,820
+it looks and sees well what
+is the superclass of student?
+
+77
+00:04:28,820 --> 00:04:29,800
+It's Person.
+
+78
+00:04:29,800 --> 00:04:33,300
+So it's going to bind to the method1
+inside the Person class.
+
+79
+00:04:33,300 --> 00:04:35,420
+And that's where we'll go now.
+
+80
+00:04:35,420 --> 00:04:38,600
+So we go up here to method1 and
+we execute it's code.
+
+81
+00:04:39,830 --> 00:04:40,610
+It's code sized.
+
+82
+00:04:40,610 --> 00:04:44,450
+It should print out Person 1, so
+that's what gets printed next.
+
+83
+00:04:44,450 --> 00:04:48,340
+So, so far we've printed Student
+1 first and then Person 1.
+
+84
+00:04:48,340 --> 00:04:50,110
+But let's continue.
+
+85
+00:04:50,110 --> 00:04:55,200
+We now return back to where we were,
+which was inside the method1 method
+
+86
+00:04:55,200 --> 00:05:00,290
+in the student class and
+we say call method2.
+
+87
+00:05:00,290 --> 00:05:02,210
+All right, well where are we going to now?
+
+88
+00:05:02,210 --> 00:05:04,630
+Which method2 are we talking about?
+
+89
+00:05:04,630 --> 00:05:05,760
+In order to answer this question,
+
+90
+00:05:05,760 --> 00:05:10,030
+we first need to notice that since we
+don't have a calling object at this point,
+
+91
+00:05:10,030 --> 00:05:13,660
+what Java is going to do is
+to insert the keyword this.
+
+92
+00:05:13,660 --> 00:05:16,570
+So, we're calling method2
+on the calling object.
+
+93
+00:05:17,900 --> 00:05:21,590
+Now, as you saw from the last
+concept challenge on Polymorphism,
+
+94
+00:05:21,590 --> 00:05:24,128
+this is going to bind at runtime.
+
+95
+00:05:24,128 --> 00:05:29,310
+So, we're gonna look at the actual
+type of the object disc at runtime.
+
+96
+00:05:29,310 --> 00:05:30,940
+This is what's tricky about this example.
+
+97
+00:05:32,380 --> 00:05:36,080
+So, the actual type of this
+object at runtime, as you recall,
+
+98
+00:05:36,080 --> 00:05:38,218
+was an Undergrad object.
+
+99
+00:05:38,218 --> 00:05:41,750
+So we're gonna go down here
+into the Undergrad class and
+
+100
+00:05:41,750 --> 00:05:44,920
+call the method2 inside
+the Undergrad class.
+
+101
+00:05:46,250 --> 00:05:49,118
+So that's going to print out,
+Undergrad 2, and
+
+102
+00:05:49,118 --> 00:05:51,520
+we have the following that gets printed.
+
+103
+00:05:51,520 --> 00:05:56,152
+First, Student 1, then Person 1,
+and then finally Undergrad 2.
+
+104
+00:05:58,253 --> 00:06:02,243
+So the purpose of this example was
+to show you the difference between
+
+105
+00:06:02,243 --> 00:06:07,620
+what happens with a call to super and then
+a method and a call to this and a method.
+
+106
+00:06:07,620 --> 00:06:11,720
+Those calls to super and
+then a method get bound to compile time.
+
+107
+00:06:11,720 --> 00:06:15,030
+So in compile time,
+Java is going to look at the code and
+
+108
+00:06:15,030 --> 00:06:20,800
+figure out what class it's in and
+what the super class of that class is.
+
+109
+00:06:20,800 --> 00:06:24,720
+But when we call this and then a method
+name, that's gonna happen at runtime.
+
+110
+00:06:24,720 --> 00:06:28,570
+So Java is gonna use the actual
+type of the object at runtime.
+
+111
+00:06:28,570 --> 00:06:33,440
+It's a little confusing but, understanding
+these details can help you debug some
+
+112
+00:06:33,440 --> 00:06:37,170
+nasty bugs that you might
+otherwise encounter in your code.
+
+113
+00:06:37,170 --> 00:06:39,582
+So, good Luck.

@@ -1,0 +1,593 @@
+1
+00:00:00,050 --> 00:00:04,210
+[APPLAUSE]
+All right, so
+
+2
+00:00:04,210 --> 00:00:07,710
+we've got our canvass all set up, and
+we're ready to draw something on it.
+
+3
+00:00:07,710 --> 00:00:10,880
+And as I've mentioned,
+I wanna put a happy face on the screen,
+
+4
+00:00:10,880 --> 00:00:12,900
+because I like happy faces.
+
+5
+00:00:12,900 --> 00:00:16,320
+So what I'm gonna need is some shapes,
+to draw with.
+
+6
+00:00:16,320 --> 00:00:18,140
+And the first thing I'll need is a head.
+
+7
+00:00:18,140 --> 00:00:22,130
+So I need to draw a head on my canvass,
+and I want my head to be a circle.
+
+8
+00:00:22,130 --> 00:00:24,910
+So I don't know how to draw a circle,
+I don't remember, so
+
+9
+00:00:24,910 --> 00:00:28,460
+I'm gonna go back over to my
+processing documentation.
+
+10
+00:00:28,460 --> 00:00:30,870
+And if I go back to that overview screen,
+
+11
+00:00:30,870 --> 00:00:34,350
+I see that processing provides me
+with a whole bunch of methods for
+
+12
+00:00:34,350 --> 00:00:38,420
+drawing shapes, and I've got some built
+in what are called 2D primitives here.
+
+13
+00:00:38,420 --> 00:00:41,710
+And I can see that one of those
+primitives allows me to draw an ellipse.
+
+14
+00:00:41,710 --> 00:00:43,400
+So I click on that.
+
+15
+00:00:43,400 --> 00:00:45,220
+And I see that, okay, it's pretty easy.
+
+16
+00:00:45,220 --> 00:00:49,060
+I just call the ellipse method,
+I pass it in, four values.
+
+17
+00:00:49,060 --> 00:00:52,740
+And those values are the X and
+Y coordinates of the ellipse, and then,
+
+18
+00:00:52,740 --> 00:00:54,870
+the width and height of the ellipse.
+
+19
+00:00:54,870 --> 00:00:58,183
+So let me go back over to my code and
+try that out.
+
+20
+00:00:58,183 --> 00:01:03,744
+So ellipse,
+I'll put it at position 50, 100.
+
+21
+00:01:03,744 --> 00:01:09,468
+And then, I'll have it be not too big,
+I'll do it 75 by 75.
+
+22
+00:01:09,468 --> 00:01:13,690
+So there, I need my semicolon, and
+let's see what that looks like.
+
+23
+00:01:16,080 --> 00:01:20,130
+All right, so when I put my ellipse on
+there, I see that by default I get white
+
+24
+00:01:20,130 --> 00:01:23,540
+ellipse or circle in this case,
+since the height and width are the same.
+
+25
+00:01:23,540 --> 00:01:29,640
+And it's appearing at exposition 50, so
+it's 50 over from the left hand side,
+
+26
+00:01:29,640 --> 00:01:33,780
+and you can see thats it's actually 50
+over to the center of that ellipse.
+
+27
+00:01:33,780 --> 00:01:40,650
+And then, it's, well, this is weird,
+it's 100, but the whole window is 400.
+
+28
+00:01:40,650 --> 00:01:43,110
+And, normally,
+you'd think about positive Y,
+
+29
+00:01:43,110 --> 00:01:46,690
+starting from this lower left hand corner,
+and going up.
+
+30
+00:01:46,690 --> 00:01:51,229
+But if you remember back to me
+as video and computer graphics,
+
+31
+00:01:51,229 --> 00:01:53,945
+positive Y is actually facing down.
+
+32
+00:01:53,945 --> 00:01:58,029
+And the 0, 0 points to the 0,
+Y coordinate is way up here,
+
+33
+00:01:58,029 --> 00:02:03,817
+at the top left corner of my document, so
+it's the top that's the 0, Y coordinate.
+
+34
+00:02:03,817 --> 00:02:06,515
+And then, Y gets bigger, as you go down.
+
+35
+00:02:06,515 --> 00:02:11,378
+So with the Y value of 100 it's only about
+a quarter of the way down my window.
+
+36
+00:02:11,378 --> 00:02:14,924
+If i want to bring it further down,
+if i wanted at the bottom, near
+
+37
+00:02:14,924 --> 00:02:19,708
+the bottom window, I'd have to make the Y
+value very big, so I'd make it, say 300.
+
+38
+00:02:19,708 --> 00:02:24,070
+And you can see that that ellipse
+moves all the way down the page.
+
+39
+00:02:25,170 --> 00:02:29,010
+All right, so I want a big happy face, and
+I want the background of my happy face,
+
+40
+00:02:29,010 --> 00:02:30,670
+not to be white but to be yellow.
+
+41
+00:02:30,670 --> 00:02:32,550
+So lets look at how to do that.
+
+42
+00:02:32,550 --> 00:02:35,070
+So one thing I'm gonna do is,
+I'm gonna make my ellipse much bigger, and
+
+43
+00:02:35,070 --> 00:02:36,510
+I'm gonna center it in my window.
+
+44
+00:02:36,510 --> 00:02:37,606
+So my window is 400 by 400.
+
+45
+00:02:37,606 --> 00:02:41,640
+I'm gonna put it at 200, 200, and
+
+46
+00:02:41,640 --> 00:02:48,224
+I'm gonna make it 390 by 390,
+so it's gonna be nice and big.
+
+47
+00:02:48,224 --> 00:02:51,090
+And then, the other thing I'm gonna do is,
+before I draw my ellipse,
+
+48
+00:02:51,090 --> 00:02:53,880
+I'm gonna change the color that
+it's going to be filled with.
+
+49
+00:02:53,880 --> 00:02:56,170
+And the way I do that is
+using the fill method.
+
+50
+00:02:56,170 --> 00:03:01,110
+So I fill it, and this time I'm
+again gonna pass in an RGB value.
+
+51
+00:03:01,110 --> 00:03:05,570
+And I happen to remember that
+yellow is made by doing red,
+
+52
+00:03:05,570 --> 00:03:08,580
+255, green, 255, and then, blue is 0.
+
+53
+00:03:08,580 --> 00:03:12,670
+At least I think so, so
+let's try that out, and see what happens.
+
+54
+00:03:14,190 --> 00:03:19,370
+There we go, I've got a nice yellow
+head that I can draw my face onto.
+
+55
+00:03:19,370 --> 00:03:21,330
+Great, so let's continue.
+
+56
+00:03:21,330 --> 00:03:24,180
+I now need some eyes, so let's think
+about where these eyes are gonna go.
+
+57
+00:03:24,180 --> 00:03:29,370
+They're gonna go roughly, here, so let's
+work on putting the first eye on our face.
+
+58
+00:03:29,370 --> 00:03:34,200
+So I want it to be kind of somewhere
+in this upper left corner, of this GUI.
+
+59
+00:03:34,200 --> 00:03:35,290
+So let's try it out.
+
+60
+00:03:35,290 --> 00:03:40,161
+It's also gonna be an ellipse, but this
+time it's gonna be a black ellipse, so
+
+61
+00:03:40,161 --> 00:03:42,718
+let's change the fill color to be black.
+
+62
+00:03:42,718 --> 00:03:46,698
+And then, Im gonna put another
+
+63
+00:03:46,698 --> 00:03:51,598
+ellipse at position 75,75, and
+
+64
+00:03:51,598 --> 00:03:57,429
+I'll make my ellipse 50 wide, 70 high.
+
+65
+00:03:57,429 --> 00:03:58,868
+Lets just see how that looks.
+
+66
+00:03:58,868 --> 00:04:02,671
+I could sit down, and I could do all
+the geometry to make it look perfect, but
+
+67
+00:04:02,671 --> 00:04:04,050
+I'm just gonna try it out.
+
+68
+00:04:04,050 --> 00:04:07,440
+Oh dear, I'm way off,
+that eye is way off the face.
+
+69
+00:04:07,440 --> 00:04:10,030
+So let me try to correct that,
+I need to move it down, and
+
+70
+00:04:10,030 --> 00:04:11,520
+a little bit to the right.
+
+71
+00:04:11,520 --> 00:04:15,600
+So 75 isn't quite right,
+let's try a much bigger value,
+
+72
+00:04:15,600 --> 00:04:17,070
+a somewhat bigger value for the width.
+
+73
+00:04:17,070 --> 00:04:21,611
+Let's try 100 for the X position, and
+
+74
+00:04:21,611 --> 00:04:26,411
+then, let's try 130 in the Y position,
+
+75
+00:04:26,411 --> 00:04:30,062
+let's see what that looks like.
+
+76
+00:04:30,062 --> 00:04:31,306
+Okay, that's getting better.
+
+77
+00:04:31,306 --> 00:04:37,284
+I'll maybe move it in a little
+bit more and try that out, so
+
+78
+00:04:37,284 --> 00:04:43,430
+100, I'll make that 120,
+and see what happens.
+
+79
+00:04:43,430 --> 00:04:45,344
+Okay, that's not a bad place for the eye.
+
+80
+00:04:45,344 --> 00:04:48,835
+So lets go ahead and
+put another eye on my happy face, and
+
+81
+00:04:48,835 --> 00:04:53,588
+I want this one to be the same height,
+the same position down the canvas, but
+
+82
+00:04:53,588 --> 00:04:55,842
+equally far in from the other side.
+
+83
+00:04:55,842 --> 00:05:01,429
+So let's just reason about what
+the coordinates should be, ellipse,
+
+84
+00:05:01,429 --> 00:05:06,468
+let's see, so I want it to be
+120 in from the right hand side.
+
+85
+00:05:06,468 --> 00:05:09,496
+And we know the canvas is 400 wide, so
+
+86
+00:05:09,496 --> 00:05:14,394
+I'll put it at position 280,
+and the X direction, and then,
+
+87
+00:05:14,394 --> 00:05:20,200
+it needs to be the same in the Y
+direction, and the same size, so 50 by 70.
+
+88
+00:05:20,200 --> 00:05:21,178
+And I'll try that out.
+
+89
+00:05:23,559 --> 00:05:25,110
+All right, look at that.
+
+90
+00:05:25,110 --> 00:05:29,930
+I've got eyes, and all that's left to
+do is give this a guy a happy face,
+
+91
+00:05:29,930 --> 00:05:33,480
+so I need a shape that
+it is going to do that.
+
+92
+00:05:33,480 --> 00:05:37,330
+So, let's go back to the shapes list here.
+
+93
+00:05:37,330 --> 00:05:39,540
+And I see that I have
+a shape here called an arc,
+
+94
+00:05:39,540 --> 00:05:42,200
+that's gonna come in quite handy for
+that smile.
+
+95
+00:05:42,200 --> 00:05:46,680
+So an arc allows me to, basically,
+trace the edge of an ellipse.
+
+96
+00:05:46,680 --> 00:05:51,780
+And the way I specify an arc is by
+specifying the ellipse that I'm tracing.
+
+97
+00:05:51,780 --> 00:05:56,970
+So here's the X and
+Y position of the ellipse that I trace.
+
+98
+00:05:56,970 --> 00:06:00,281
+And then, the width and
+height of the ellipse that's being traced.
+
+99
+00:06:00,281 --> 00:06:05,016
+And then, over here I have
+the angle that I want to trace out.
+
+100
+00:06:05,016 --> 00:06:11,790
+So the 0 angle is right here, and then, it
+goes around clockwise, all the way around.
+
+101
+00:06:11,790 --> 00:06:14,200
+And these angles are measured in radians.
+
+102
+00:06:14,200 --> 00:06:16,570
+So halfway around is going to be pi.
+
+103
+00:06:16,570 --> 00:06:18,570
+All the way around is going to be 2pi.
+
+104
+00:06:18,570 --> 00:06:24,230
+And they've got built in constants
+that we can use for those values.
+
+105
+00:06:24,230 --> 00:06:26,520
+So let's go ahead and just try this out.
+
+106
+00:06:26,520 --> 00:06:31,890
+So I want to do an arc, and
+I want the ellipse for my arc.
+
+107
+00:06:31,890 --> 00:06:33,050
+Let me just take a guess.
+
+108
+00:06:33,050 --> 00:06:38,470
+I'll put it at about 3, not 300,
+200, it needs to be centered,
+
+109
+00:06:38,470 --> 00:06:44,750
+and about 280, so
+down towards the bottom of my face.
+
+110
+00:06:44,750 --> 00:06:52,089
+And then, I will make it,
+let's try 75 by 75.
+
+111
+00:06:53,670 --> 00:06:58,157
+And I'm gonna start it at angle 0 and
+go through angle pi,
+
+112
+00:06:58,157 --> 00:07:02,745
+which will bring me a half circle arc,
+and let's try that.
+
+113
+00:07:07,388 --> 00:07:08,478
+Okay, look at that.
+
+114
+00:07:08,478 --> 00:07:10,320
+[LAUGH] It looks pretty good, actually.
+
+115
+00:07:10,320 --> 00:07:11,840
+That's pretty cute.
+
+116
+00:07:11,840 --> 00:07:14,320
+I can make some tweaks,
+if I wanna make some tweaks.
+
+117
+00:07:14,320 --> 00:07:19,010
+One tweak that i'll show you is that I
+don't want this little face to have a full
+
+118
+00:07:19,010 --> 00:07:23,390
+mouth, I want the mouth to be open,
+so there's this method called,
+
+119
+00:07:23,390 --> 00:07:28,450
+no fill, that will cause that
+ellipse arc not to be filled in.
+
+120
+00:07:28,450 --> 00:07:33,190
+And if I run it, I can see that he
+now smiles withnot such a full grin.
+
+121
+00:07:33,190 --> 00:07:37,015
+And I can change the parameters
+to make the smile wider or
+
+122
+00:07:37,015 --> 00:07:40,340
+to reposition it, but that looks like
+a pretty, happy, little face to me.
+
+123
+00:07:40,340 --> 00:07:41,260
+So I'm gonna stop there.
+
+124
+00:07:42,560 --> 00:07:44,250
+I hope you'll play around with this.
+
+125
+00:07:44,250 --> 00:07:45,780
+Now that you've got basic methods,
+
+126
+00:07:45,780 --> 00:07:47,900
+that you can play around with,
+you can have a lot of fun.
+
+127
+00:07:47,900 --> 00:07:50,810
+So go ahead,
+make something really interesting, and
+
+128
+00:07:50,810 --> 00:07:52,000
+just have fun playing with it.

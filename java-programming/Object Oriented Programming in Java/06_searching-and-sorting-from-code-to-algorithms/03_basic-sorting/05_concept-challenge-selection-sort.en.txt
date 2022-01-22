@@ -1,0 +1,64 @@
+[NOISE] Hi and
+welcome back to our module on sorting. It's time for
+another one of these concept challenges. You've already gotten a good feel for
+these and you know that you're gonna try
+to solve the problem yourself, you're gonna discuss this if you
+have other learners around you, you're gonna watch our UC San Diego
+learners talk about the problem, and then you're gonna see my
+explanation of the answer. So you've already seen
+the Selection Sort algorithm. You know that Selection Sort goes
+through every element in the array, and essentially looks through
+the unsorted portion of the array, finds the smallest value, and adds that
+to the, the next smallest value, and adds that into the array. So, if I have two arrays,
+is sorting faster on one, or the other, or neither? Go ahead and think about this and
+we'll come back. >> Hi, I'm Luis. >> I'm Melissa. >> I'm Gustavo. >> Well I think that it would take the
+same amount of time because there is one four loop that iterates
+over the entire thing. >> For me I thought it would be answer
+A because why would you have to sort something that is already sorted? Wouldn't it take the least
+number of steps? >> Yeah, I thought the same thing. It's already sorted, but
+the computer doesn't know that, so it has to go to the end. >> Hi.I hope that you see
+San Diego Learner Video is helpful. What we'll do now is just walk
+through both of these arrays and apply a selection sort to each of them. So in the first array,
+we're gonna do a pass. We're gonna look at all the elements, and we're gonna see what
+the smallest element is. And this is going to require us to
+look at essentially six elements. It's gonna require us to look at all six, and we're gonna find that
+seven's the smallest one, and we'll put 7 in the very first slot,
+which is where it is already. In the next iteration in the array, we're gonna look at the second
+element in the array. And we're gonna see,
+what's the smallest element. We're now gonna scan,
+we're gonna look at all five of these, and we're gonna find that 16 is it smallest,
+and keep it there. When we move to the next element in
+the array, we're gonna scan the remaining. So I'm gonna have to look at
+all four elements here to find that 43 is in fact the smallest and
+then I'll swap them. So 43 now moves into
+the place that 66 was at. And we'll move to the next element
+in the array, and I'm gonna look at this element along with the remaining
+elements, to find the smallest element. And it's gonna take me 3 steps
+to find 51 is the smallest, and then I'm gonna swap 51 and 66. In the next iteration of the array
+I'm now gonna be looking at 97, I'm gonna have to look at 97 to 51 and
+66, to find out that 66 is the smallest. That takes 2 steps. And now I'm gonna swap 66 97. And then the last of the array, I'm going to look at 97 to see if it
+is the smallest element of the array. It is, and we're done. That did seem like it took number of
+steps because I was having to swap so many elements, but what's going
+to happen with assorted array? Is it going to behave that differently? Well, with the assorted array,
+it's going to start at seven, and it's going to see is seven
+the smallest element. And it's going to look at
+all six elements again. It's then going to move onto 16,
+it's going to find the smallest element. It's going to have to look
+at five elements to do that. It's then gonna look at 43 and it's gonna
+say is 43 the smallest, and it's gonna have to look at all the remaining elements
+to find that 43 is, in fact, the smallest. It's gonna move to 51, do the same thing. It's gonna take three steps,
+it's gonna move to 66, take two steps. It's gonna move to 97 and take one step. So we haven't done as much swapping, but
+we've essentially taken as many steps. What this really leads us now to thinking
+about is, how do we define faster? So we can see that both of these arrays
+essentially took the same number of steps. Is that how we define faster? Well, If you're looking at a high level, the same number of steps means they
+essentially take the same amount of time. Now some of you may be thinking,
+well wait a second, I think if you look at the really nitty gritty details, you can
+see that swapping only sometimes happens, or maybe this if statement only executes
+sometimes, and it doesn't execute other times, and now you're starting to argue
+about individual machine instructions. But what view do we want to have? Well, for the most part we tend to have
+a really high level view when we look at algorithms to say whether or
+not one is faster than the other. In this case, we actually say that
+theses are gonna run the same speed regardless of the contents of the array. But, we're gonna spend a whole bunch more
+time in the next module talking about defining performance, defining how
+to compare different algorithms, and we're looking forward to
+doing that with you then.

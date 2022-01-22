@@ -1,0 +1,64 @@
+[MUSIC] Hello again, I'm Mia Minnes and I'm
+a Professor of Computer Science here at UC San Diego, and my background and
+my research is at the intersection between mathematics and computer science,
+between theory and applications. And what I really like to think
+about is the power of algorithms. I like to think about abstract ways of
+organizing and structuring data, and then applying them to really interesting real
+world problems and solving those problems. And you'll have the opportunity to do
+just that in the project in this course. And so what this video is about is showing
+you a prototype of the project and getting you really excited to jump right
+in and get started developing yourself. So, if you take a look
+at this map over here you'll get a picture of what you'll
+be developing in the project. And I'd like to start off by saying that
+the machine, the engine under the hood that helps us do the visualizations on
+this map that you're seeing is really thanks to Till Nagel and his team at the
+University of Applied Sciences in Potsdam, and all of the other contributors
+to the Unfolding Maps Library. Part of what we're thinking about and
+developing in this course is the ability to build large scale
+projects using existing libraries. And we're really fortunate to have this
+library as the foundation for the project. So let's take a look at the project and
+see what we're doing. You'll see,
+we have a map of the world in front of us. And there's all sorts of markers,
+and features, and stuff on this map. Now, don't worry. We will walk you through
+the project step by step so don't be intimidated by the amount of
+information that's being displayed. I hope that you're inspired by
+the amount of information, and this information is real live data. And so, it's really interesting
+that by the end of this process, you'll have a way of
+interacting with live data, and the data that we have in this project
+is from earthquakes around the world. It's put together by the USGS,
+taking seismic information from all over. And what we're doing in this visualization
+is depicting each earthquake as either a square or a circle on this map,
+and then coloring that square or circle on the map based on attributes
+like magnitude, like depth and like time. So, how long ago the earthquake happened. So, all of that is encoded in this key. And you will be able to create and style
+your own legend as well and what that key tells us is for example that this red
+square marker over here is an earthquake that happened in the middle of the ocean,
+sort of south, close to Antarctica. And it was a relatively
+shallow earthquake. And the fact that the square's not too
+big, not too small means it was maybe an average size in terms
+of magnitude earthquake. And then we also have interactivity built
+into this project, which is really cool. So, for example, if we have
+hover on top of that red square, we see a little pop-up that says that
+this earthquake was magnitude 5.1. Now, that's not the only interactivity. So, for example, we notice that there's a fair amount
+of activity going over in Asia. We can double-click on that part of
+the world, and see that Japan, for example, has a lot of markers around it. And so, we could look around and see that some of these earthquake
+markers have xs on them. And we look at the key and notice that
+means they occurred in the past day. And we might zero in on Tokyo,
+for example. And when we click on the triangle,
+which depicts the city Tokyo, notice that a bunch of earthquake markers
+disappeared and only a few remained. And so, in this project, you'll be able
+to implement this interactive feature that when we just wanna focus in on
+a particular city, only earthquakes that are close to that city stay visible,
+and all the others disappear. And then if we click on Tokyo again,
+everything comes back into view. So, that's a taste for the project
+that you're developing in this course. It may seem somewhat complicated, like
+it has a lot of features, and it does. But what we'll be demonstrating throughout
+this course is a really good approach for dealing with large scale projects, which is to break them up
+into manageable pieces. And the way we've done that follows
+along with the modules of the course. So, at the end of each module, the end
+of module assessment will typically be a part of the project that you'll be
+implementing that uses the concepts and the ideas that you're thinking about and
+learning in that module. And so you'll see how each time you
+acquire a new piece of information, or knowledge, or
+skill to do with programming, you'll be able to immediately
+apply it in this project. So, I hope you're as excited about this
+project as I am, and let's get started.

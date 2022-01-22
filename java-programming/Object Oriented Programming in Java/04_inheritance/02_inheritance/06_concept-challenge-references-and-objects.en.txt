@@ -1,0 +1,107 @@
+[NOISE] All right, you've learned
+a little bit about inheritance. And you've played that matching game
+with Leo where you learned what kinds of references can refer to
+what kinds of objects. It turns out that is a really,
+really tricky idea to get. So, we've got a concept challenge for you that's gonna exercise your
+ability to make those matches. Don't worry if this is
+a little bit tricky. It takes a while to get it. So work through it, you know the drill. Work through it on your own, answer
+the end video quiz, discuss with others, watch our learner videos, and
+then watch our explanation. Here's your challenge. You've got three classes. There's a Person class,
+it has a name, member variable. And it has a getName, method. There's a Student class
+which extends person. It has an ID member variable that's
+an integer, and it has a getID method, it returns an integer, and there's
+a Faculty class which also extends Person. It also has an ID variable, but
+this time it's a string, and it has a getID method
+that returns a string. We have five statements over there on
+the right that create new objects and assign references to refer
+to those new objects. All of those statements compile and
+run just fine. Your question is going to be to answer
+questions about which of an additional series of statements work, and which cause
+errors at either compile time or run time. >> Okay, my name is Linda. >> My name's Mustafa. >> My name is Jason. So how did you guys answer question one. >> I seem to think that question
+one didn't have any issues. S is a student, and they're trying to get the name from the student, and-
+>> Well I thought there was a problem with that
+because when I look at the class of Student I realize there is
+no method called getName. >> That's true, but
+Student extends from Person. >> So it will inherit all
+the parent class methods. >> Yeah, it's a public method. >> Oh so, it will inherit
+the Persons getName method. >> Right, yeah. >> Oh okay, I see. What about the second p = s? >> For the second one,
+I also thought it was fine. >> That's fine? >> Cuz Person p is a new Person. And if you change the reference
+of p to become the object created from Student s equals new Student,
+then every Student is a Person. >> Okay, so that's the part that I missed. I was thinking it would be a problem cuz
+Student and Person are not the same type, so I wasn't sure if you
+could cast it that way. >> Oh, right.
+>> So too much p instead of referencing to Person,
+I was referencing to Students. >> Mm-hm.
+>> Okay. >> If that makes sense? >> Yeah, okay.
+>> Now look at the next line of- >> I don't think that would work because Person doesn't have a getID method-
+>> Right. >> So
+where would it be looking to get that? >> I thought that during compile time
+error since p is still a Person, it'll go into the Person class and then
+look at, oh, where's the getID method? >> But didn't we just updated a Person
+class with pointing to a Student class? >> Mm-hm.
+>> The compiler doesn't know that. The compiler still sees it as a Person
+object because it was originally set up that way. >> It's only at run time that the compiler
+will see that p is actually a Student. >> Oh, okay.
+Even that I believe we have to cast it I guess. >> Right.
+>> Mm-hm. >> How about the third line of code,
+faculty equals Person? >> Person? >> Well person isn't
+necessarily a Faculty member. So like he was saying that
+if you go around and ask a random person on the street, they might
+not have the information for faculty. So I'm not sure if you can cast
+the faculty as a broad term person. >> Right, not every person is faculty. >> Right.
+>> Yeah that makes sense. And then the last one,
+o equals a Student, or object class equals Student class. >> I think we've previously learned that
+every object inherits from the object class, right? >> Yeah. >> Oh, I see. >> So s is a Student. >> Okay, I like,
+every class would inherit object meaning. There's implicit extent. >> Yeah, yeah exactly. >> Perfect. >> All right let's step through these
+lines one at a time to figure out which ones work and which ones cause errors. This first line here,
+it's pretty straightforward. It creates a new variable
+of type String called n, and it's gonna set it
+equal to s.getName(). Well first we need to
+figure out what is s. Well s is a Student reference,
+it's a reference to a Student. And it actually does refer
+to a Student object. And you can see that right here,
+when we created that Student object and assigned the reference s to point to. So now we can look in the Student class
+and see if there's a getName method. We look here, no getName method, but that doesn't concern us too much,
+because Student extends Person. So now we can go up in person and
+look at those getName method there. And sure enough, there is. It returns a string. So this will run just fine, again,
+because this getName method is public. So everything is good. This line will work just fine. The next line says that the reference
+p should be set to refer to the same location as
+the reference s refers to. Now s refers to a Student object. What we're saying is that now p
+should refer to a Student object, and we have to figure out if that's okay. Is it okay for a Person reference to refer
+to an object that's actually a student? So you ask the question
+are all students people? Is a student always a person? And I hope the answer is always yes. So that should be just fine. That line works as well. Next line here says that int
+m gets the value of p.getID. Now, we have to think about
+things a little more carefully. So what we're asking, assuming that
+this line has already completely, and p now refers to a Student object, we
+wanna know is it okay to call p a getID. There is a getID method
+inside the student class, but the problem is that p
+is a Person reference. So the compiler doesn't know that p
+actually refers to a Student object. The compiler is gonna complain
+about this statement here. It's gonna say it's a piece of reference
+to a Person, I don't know about this getID method, there's no getID method in Person
+class, and so I'm gonna cause an error. We can fix this with a cast. So if we wanted to fix this problem,
+we would just insert a cast here. We could cast p, so
+instead of just p, we'd say Student, and then p right there, and then .getID. Because we know that object
+is actually a Student. So that's fine to do, but again,
+be a little careful with your cast because your compiler will trust
+you no matter what you say. We can do this in this case
+cuz we know that's the term. All right, so the next statement there, so
+going back actually to the last statement, this statement right here. This statement right there
+does not work as written, but it will work if we add that cast. Let's consider the next line,
+where it says f gets the value of q. So what is f? F is a Faculty reference. It's a reference to some
+sort of Faculty object. And what is q? Well, q is a reference to a Person. So now we need to figure out if a Faculty
+reference can point to a person object. And again we will ask the question,
+are all people faculty? And the answer to that
+question is of course no. So we can't set a Faculty reference
+equal to a Person object. That will cause an error. And there's nothing that we
+can do to make that work. If we try to cast q to a faculty,
+compiler might accept it, but at run time we're going to get
+what is called a class cast exception, because it's illegal to cast
+a Person object to a Faculty type. That line will not work. What about this next
+line where we say o = s. So o is an Object type reference,
+and s is a Student object, up here. Well, that should work, right? Because everything in Java is an Object. The Object text references
+are allowed to point to any kind of Object that they want. So that one's pretty straightforward. That works. So now we're done. And to summarize what we found was
+this first line here was just fine. The next line here was also just fine,
+because all students are people. The next line is not okay. But we could make it okay with a cast. The next line was there not okay and there is nothing we could
+do to make that line work. And finally this last
+line here was just fine.

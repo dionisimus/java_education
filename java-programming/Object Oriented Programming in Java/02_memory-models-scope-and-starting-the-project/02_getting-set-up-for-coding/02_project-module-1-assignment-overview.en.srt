@@ -1,0 +1,171 @@
+1
+00:00:00,000 --> 00:00:03,930
+[MUSIC]
+
+2
+00:00:03,930 --> 00:00:08,007
+The programming assignment for the first
+course module is really aimed at just
+
+3
+00:00:08,007 --> 00:00:10,920
+getting us up to speed and
+running with Unfolding Maps.
+
+4
+00:00:12,310 --> 00:00:15,770
+I know that many of you are eager to get
+programming, but before we can get there,
+
+5
+00:00:15,770 --> 00:00:20,180
+you're gonna have to get Unfolding Maps
+set up and running in Eclipse first.
+
+6
+00:00:20,180 --> 00:00:21,510
+So please follow through our texts and
+
+7
+00:00:21,510 --> 00:00:25,240
+our video guides to helping setting up,
+help setup Unfolding Maps for your system,
+
+8
+00:00:25,240 --> 00:00:27,250
+and then turn to the forums
+if you run into problems.
+
+9
+00:00:28,430 --> 00:00:31,200
+Before we get there,
+what I wanted to show you is an example
+
+10
+00:00:31,200 --> 00:00:33,010
+of a finished programming assignment for
+this first module.
+
+11
+00:00:34,430 --> 00:00:37,880
+We'll give you the code to create the map
+on the left, which is centered on us,
+
+12
+00:00:37,880 --> 00:00:39,640
+here at UC San Diego.
+
+13
+00:00:39,640 --> 00:00:41,570
+Specifically, we're
+really right about here.
+
+14
+00:00:44,090 --> 00:00:46,890
+Notice that on this map I'm
+able to zoom in and out.
+
+15
+00:00:46,890 --> 00:00:48,780
+So zoomed out, I'm able to zoom in.
+
+16
+00:00:48,780 --> 00:00:51,440
+I'm able to zoom in toward UC San Diego.
+
+17
+00:00:52,830 --> 00:00:53,740
+And we're really right over here.
+
+18
+00:00:53,740 --> 00:00:58,520
+Now being able to zoom like
+this is pretty amazing.
+
+19
+00:00:58,520 --> 00:01:01,488
+A lot of work goes into making
+something like that happen,
+
+20
+00:01:01,488 --> 00:01:05,487
+including getting the map data from
+Google Maps, so the handling of my mouse,
+
+21
+00:01:05,487 --> 00:01:06,653
+scrolling in and out.
+
+22
+00:01:06,653 --> 00:01:10,962
+These amazing features are really just
+part of the libraries and Unfolding Maps
+
+23
+00:01:10,962 --> 00:01:15,221
+and processing, which is why we're
+using these libraries for this project.
+
+24
+00:01:15,221 --> 00:01:17,288
+All right, back to our assignment.
+
+25
+00:01:17,288 --> 00:01:21,645
+We're gonna give you the code
+to produce the map on the left,
+
+26
+00:01:21,645 --> 00:01:24,950
+which is zoomed into San Diego.
+
+27
+00:01:24,950 --> 00:01:27,450
+What we want you to do is to
+create the map on the right,
+
+28
+00:01:27,450 --> 00:01:29,070
+which we zoomed in to where you live.
+
+29
+00:01:30,170 --> 00:01:32,050
+Now I live in San Diego these days, but
+
+30
+00:01:32,050 --> 00:01:34,960
+I grew up in Pullman, Washington, which
+is on the east side of Washington State,
+
+31
+00:01:34,960 --> 00:01:37,610
+and Washington state's on
+the West Coast of the United States.
+
+32
+00:01:39,180 --> 00:01:41,620
+So this is really just
+a small program assignment,
+
+33
+00:01:41,620 --> 00:01:43,370
+just to get started with Unfolding Maps.
+
+34
+00:01:44,910 --> 00:01:48,245
+The big step is really just scanning
+Unfolding Maps and working on your system.
+
+35
+00:01:48,245 --> 00:01:52,765
+So select the right video guide for
+installing Unfolding Maps, Java,
+
+36
+00:01:52,765 --> 00:01:55,845
+and Eclipse on your personal system.
+
+37
+00:01:55,845 --> 00:01:58,595
+And I'll see you again for
+the assignment walkthrough.

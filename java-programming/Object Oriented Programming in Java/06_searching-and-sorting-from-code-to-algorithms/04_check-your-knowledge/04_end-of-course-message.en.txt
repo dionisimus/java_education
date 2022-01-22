@@ -1,0 +1,10 @@
+[MUSIC] Congratulations on completing our course. You've created a large project and
+I hope you enjoyed it. >> Think back to everything
+you've learned in this course. You've learned about object
+oriented programming. You've worked with class hierarchies,
+inheritance, and polymorphism. And you've created an interactive
+graphical user interface. We hope you're really
+proud of your project. >> And we hope you'll join us for
+the second course as well. We'll be thinking about the performance
+of the programs that we build. And we'll be incorporating data structures
+as the programs get even more complicated and interesting. So we hope to see you there.

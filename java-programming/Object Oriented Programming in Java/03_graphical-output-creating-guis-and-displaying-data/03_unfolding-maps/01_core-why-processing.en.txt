@@ -1,0 +1,15 @@
+[MUSIC] So the last lesson we talked a lot
+about the processing library, and we've had some people ask us hey, is this
+a course about processing or about Java? What's going on here? Why do I need to know all these details
+about processing when really I want to become a confident
+Java software engineer? And there's a lot of merit to that. But what we're hoping that you get
+out of this course is how to use whichever tools are at your disposal to
+come up with a really exciting project or product that you want to build. And sometimes that means using
+libraries like processing. And that's a good thing. So as you use these libraries,
+as you develop your code, you're not necessarily going to become
+an expert in one particular library, but you want to become proficient and
+comfortable enough in figuring out what pieces of those libraries
+are going to be useful for this project. And so what we're doing now is building
+on our confidence and comfort level with processing so we can apply that
+knowledge to building the graphical application that displays geospatial
+data and earthquakes around the world.

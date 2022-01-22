@@ -1,0 +1,112 @@
+<meta charset="utf-8"/>
+<co-content>
+ <h1 level="1">
+  The main method in Java
+ </h1>
+ <p>
+  In order to understand the content in the next few lessons, you need to be familiar with Java's "main" method.  If you are already familiar with running Java from the command line and/or with Java's flow of execution starting from the main method, you can safely skip this reading.  However, if you have programmed only in an IDE such as BlueJ that hides the main method, keep reading.
+ </p>
+ <h2 level="2">
+  How does a Java program know where to begin execution?
+ </h2>
+ <p>
+  Every program needs a place where it starts.  Java begins execution with the first line of a "main" method which must have the following signature:
+ </p>
+ <p>
+  public static void main(String[] args)
+ </p>
+ <p>
+  This method can be defined in any class, usually public.  When a class has a main method, it can be "run," and Java will begin execution with the first line of the main method in the class that is run.  For example, you can run a Java class from the command line by typing:
+ </p>
+ <p>
+  java MyClass
+ </p>
+ <p>
+  Assuming MyClass is already compiled, and contains a main method, Java will begin by executing in the main method in MyClass.
+ </p>
+ <p>
+  Many IDEs, including Eclipse, allow you to run a class by selecting it in the GUI, and then clicking a "run" button.  This process will also attempt to find the main method in the selected class, and then start executing with the first line of main.
+ </p>
+ <h2 level="2">
+  What if you try to execute a class that has no main method?
+ </h2>
+ <p>
+  You will get an error.  Java must have a main method to run a (normal) program.  Note that running Applets and GUIs is different, and we'll see examples of this later in the course.  Here we are talking about executing "plain" Java classes.
+ </p>
+ <h2 level="2">
+  Can you have a main method in more than one class?  Does the main method always execute?
+ </h2>
+ <p>
+  Yes, you can have a main method in more than one class, but only the main method in the class that is "run" will execute.  For example if Class1 and Class2 both define a main method, then:
+ </p>
+ <p>
+  java Class1
+ </p>
+ <p>
+  will run the main method in Class1 (and not the main method in Class2) and
+ </p>
+ <p>
+  java Class2
+ </p>
+ <p>
+  will run the main method in Class2.  This is true even if Class1 and Class2 create objects of the other class and call methods on them.
+ </p>
+ <h2 level="2">
+  What does the "static" mean in main's signature?
+ </h2>
+ <p>
+  The keyword static, when applied to a method or a member variable, simply means that this method (or member variable) is defined for the class, but not for particular objects in the class.  Thus, main is a general method.  There is no "calling object" inside main.  If you want to call instance methods from main, you must create objects and then call the instance methods on those objects.  You can, however, call other static methods directly.
+ </p>
+ <p>
+ </p>
+ <p>
+ </p>
+</co-content>
+<style>
+ body {
+    padding: 50px 85px 50px 85px;
+}
+
+table th, table td {
+    border: 1px solid #e0e0e0;
+    padding: 5px 20px;
+    text-align: left;
+}
+input {
+    margin: 10px;
+}
+}
+th {
+    font-weight: bold;
+}
+td, th {
+    display: table-cell;
+    vertical-align: inherit;
+}
+img {
+    height: auto;
+    max-width: 100%;
+}
+pre {
+    display: block;
+    margin: 20px;
+    background: #424242;
+    color: #fff;
+    font-size: 13px;
+    white-space: pre-wrap;
+    padding: 9.5px;
+    margin: 0 0 10px;
+    border: 1px solid #ccc;
+}
+</style>
+<script async="" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript">
+</script>
+<script type="text/x-mathjax-config">
+ MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$$','$$'], ['$','$'] ],
+      displayMath: [ ["\\[","\\]"] ],
+      processEscapes: true
+    }
+  });
+</script>

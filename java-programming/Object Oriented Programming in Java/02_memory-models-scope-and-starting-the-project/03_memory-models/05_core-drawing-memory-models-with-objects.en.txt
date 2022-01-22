@@ -1,0 +1,108 @@
+[MUSIC] So the last video, we drew memory
+models using only primitive type data. In our case, last time it was integers. But this time we're gonna add
+objects into our memory models. So our goals for this video are the same
+basically as the last time, only this time you will be able to draw
+memory models using object type data and primitive type data, and reason about code
+that uses both primitives and objects. So before we begin, let's just give an example of
+the two different types of data. You're probably already familiar with this
+from your earlier courses in Java, or course, or courses in Java, that Java has
+two fundamentally different kinds of data. It has primitive kinds of data,
+which consists of only eight types, so boolean, byte, short, int,
+long, float, double, and char. Those are the eight primitive
+types of data in Java. Everything else is an object, whether
+it's an array or a user-defined class, or a class that you find in a library,
+everything else is an object. So obviously, learning how to add objects
+into our memory models is going to be really important to reasoning about code. So here's a short snippet of
+code right there, just two lines that show an example of both a primitive
+type, the integer and an object type, which is our class SimpleLocation,
+which we defined in the last lesson. We're gonna reason through a short snippet
+of code that combines both integers, primitives and
+these objects of type SimpleLocation. We're gonna step through this code
+the same way we did in the last video and draw the memory model as we go. So to get this started, we've got a nice, easy variable declaration and
+assignment statement. And you already know
+how to handle this one. This is just an integer just
+like we looked at before, var1. We create a box. We put the value of
+the variable in the box. In this case, it's 52. So, that was easy. No problem. Let's go onto the next line. The next line turns out
+as pretty easy as well. All it is is a variable declaration. So, we handle this in the same way, regardless of the fact that it's
+actually an object type variable. That doesn't matter for
+our variable declaration. So, we're gonna make a box and
+label it with the variable's name. There it is. It's this next line where
+things get interesting. This is an assignment statement. And what we're doing is we're
+creating a new instance, or new object of type SimpleLocation. And then we're setting
+the value ucsd equal to whatever happens when we
+create that new object. So now to understand what's going on here
+and how it's going to effect our memory model, we need to look a little more
+closely at what happens when we create a new object in Java and
+what's going on in your computer's memory. So when we say new SimpleLocation, what Java's doing is it's creating
+a new object, which means it's allocating some space in your
+computer's memory to store that object. So let's take a closer look. What it's doing is creating that object,
+which is allocating some space, and it's doing that in a part of your
+computer's memory called the heap. It creates the new object in the heap,
+and then what it does is, it puts that object at some location
+in the heap that has some address. It's not necessarily, we don't know where
+Java chooses to create that object, so we'll just represent that address
+where Java creates that object with this little at sign 34. So that object is at location 34. It's just a random number that I
+picked off the top of my head. It's wherever Java happened to
+create that object in the heap. So now, what happens is,
+when we've created that new object, and Java creates it at location 34,
+what it actually does is, it doesn't place the whole
+object inside the box for ucsd. It places a reference to that
+object in the box for ucsd. In other words, it places
+the location of the object wherever it's stored in the heap into the box for
+ucsd and that's called a reference. So now I said 34 is just kind of a made up
+number, I don't necessarily know that this SimpleLocation object
+exists in location 34. So typically in my memory and location,
+sorry my memory model diagrams, rather than making up arbitrary
+locations for all of my objects, what I'm going to do is I'm going
+to draw an arrow from the box for the variable ucsd to the object
+that's created in the heap. But remember that this arrow really
+just represents this reference, this number that represents the address or something like an address of where to find
+this newly created object in the heap. So it's actually a number in the box, but that number effectively represents
+the location of the object in memory so we draw an arrow from the box
+to that location in memory. And that arrow is actually
+the value of the variable, ucsd. All right, so now we've got our
+new object, we've got the value of ucsd which is a reference to that
+newly created object in memory. Now let's look a little bit closer
+at what that object looks like over there in memory. So this class SimpleLocation
+has two member variables and both of these member variables
+are stored inside the object. So we can open up that object,
+look inside, and we can see that inside we actually
+have two variable declarations. There's latitude and longitude. So we're gonna draw boxes, just like
+we did before, with that integer var1. We'll create a box for latitude and
+a box for longitude, and label them both with their names. Those boxes are going to store
+the values of latitude and longitude when that object is created. And where do they get their values? Well they get them from the constructor. Those values that get passed in are the
+values that go into the latitude and longitude variables inside that object
+which is over there in the heap. So this is the complete memory model
+after these first three lines of code. We've got our primitive variable,
+var1, storing the value 52. We got our object type variable ucsd which
+stores a reference, which is essentially just a number representing the location
+of this newly created object in memory, which we represent in our memory
+model diagram as an arrow. And then we have our object, which has
+two variables inside of it, latitude and longitude. The next line down,
+creates another new variable, and it creates another new object, and
+then will create a link between the two by storing the reference to the new
+object in the new variable. So let's take that down piece by piece,
+in order to draw this part of the memory model, what you would do is you
+would handle the declaration first. Draw that box. Label it with the variable's name,
+which is lima. Draw the new object over here in memory. Put the two member variables
+that are inside that object as boxes labeled with their
+names inside the object. And then link the variable lima to
+the newly created object by placing a reference inside the box for lima, which
+again is the value of the variable lima. All right, so we're almost there. This is the last line. Let's look at this last line of code which
+actually changes the value of latitude inside the variable lima. So let's say, for example, we wanna tweak
+the value of the latitude variable, make it a little more precise. What happens in our memory model when we
+make this change to the variable latitude inside the object lima? Well, what Java says, when it sees
+a statement like this, lima.latitude, what that means is it wants us to
+follow the arrow from lima into memory to the object to finds there and find
+the variable latitude inside that object. So that's how that we know we're
+not talking about latitude up there in the ucsd object, we're talking about latitude down in the
+lima object because we say lima.latitude. So we go to the box for lima. We follow the arrow and then look in that
+object to find the variable latitude. We find it and that's where that
+value -12.04 is going to go. So, we change the value of the variable
+latitude inside that object and that's all there is for this code. And here we have the final memory model,
+representing the state of all the variables and all the memory in this
+code, when the code is finished running. So now that you've mastered
+these memory models, you should be able to reason about lots
+of different examples involving both primitive variables and
+object type variables. So we've got a sequence of challenges and
+practice videos for you to try out your new skills.

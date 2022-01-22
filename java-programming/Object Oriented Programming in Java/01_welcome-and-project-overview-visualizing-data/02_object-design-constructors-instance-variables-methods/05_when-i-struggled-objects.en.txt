@@ -1,0 +1,18 @@
+[MUSIC] All right, so when I was first learning
+about objects, I was taking this class and the professor was at the front of
+the room talking to us about objects. And he kept saying objects this and
+objects that, and I just kept getting more and
+more confused. I'm sitting there thinking,
+objects, they're like things. But, what the heck is an object? And finally, I got up the nerve to
+raise my hand and ask the professor, what is an object? And he kind of looked at me with this look
+on his face like, oh dear, where have I gone wrong with this poor student that
+she doesn't know what an object is? But he was very patient with me,
+explained what an object is, and after he explained it, I realized that I actually
+knew more about objects than I thought. I just hadn't necessarily associated
+the word object with the concept that I already knew a fair amount about. So that was kind of an example
+of vocabulary tripping me up. And as I learned a little bit more, and
+got more sophisticated with designing and implementing objects,
+it all made more sense. I look back now, and I wonder how
+I could have possibly struggled with something that seems so
+simple to me now. But that's how it is when
+you're first starting out.

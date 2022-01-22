@@ -1,0 +1,98 @@
+[MUSIC] In the previous videos,
+Christine talked about some algorithms for finding information in
+large collections of data. What you saw is, if the data is organized, then it's
+easier to do some of these algorithms. So in this video, we'll talk about
+ways of organizing data, and in particular,
+how to sort it in some order. And then you'll see some
+advantages of having it sorted. So let's think back to binary search,
+which is one of those algorithms for searching that Christine presented. Remember that when we do binary search,
+at each step of the algorithm we reduce the number of elements
+that we need to look at by half. And so, all in all we look at
+about log n number of steps if n is the size of the list of
+elements that we started. Okay, so what we remember now is that
+in order for binary search to work, the data in our list of elements has to
+be sorted by what we are searching at. So for example, if we're looking for. The country code,
+the airport code of Essen. Then what we do with this particular
+list is we looked about halfway through our list of elements, and
+oh, we found it, excellent. Essen is right in the middle. All right, so that's kind of silly. Let's look for another element. Maybe let's look for Beijing. Let's look for
+the airport code of Beijing. And so, again, we start by looking in
+the middle of our list of elements. And then we compare Beijing with Essen and we see that Beijing is
+alphabetically earlier than Essen. And so we only need to look at the first
+half of the list because we have the list sorted in alphabetical order. So the order is really
+helping us out here. Now, think about this order. Sorting, means that we list our element
+in some order that we decide ahead of time and is compatible with the search
+algorithm that we're trying to do, if the sorting is done as
+a first step towards searching. So in particular, for this example, what we're trying to do is find a city
+name, and so we're sorting our data. Based on the first letter and
+then the second letter of the city, so we're sorting the city names
+in alphabetical order. Now, when you think about airports, the city is not the only piece of
+data associated with the airport. We also have a country that the airport is
+located in, and so it's conceivable that instead of sorting by city, we would want
+to sort our airports by, say, country. And so we'd want to organize the airports
+alphabetically according to country. There's nothing stopping
+us from doing that, but we have to think about
+why we wanna do that. And so if we're looking for
+an airport in a given country, then it would make sense to sort all
+the airports based on the country name. And so that's why the sorting has to
+be compatible with the searching. Binary search, when Christine presented it, she showed
+you how it was absolutely necessary for the list to be organized in order,
+in order for binary search to at all work. But before she talked about binary search,
+she already talked about linear search, which was the sort of
+simpler algorithm for looking through a collection of pieces of
+data, to try to find one particular item. And with linear search, we didn't have to make any assumptions
+about how the data was organized. Remember that in linear search, we start
+at the beginning and we flip through, one at at time keep on going,
+keep on going. Looking for our particularly desired
+piece of information or piece of data. And that's fine. But actually, what happen is if we happen
+to know that our information is sorted, then we get a performance payoff. So let's think about the array of
+airports in cities and countries and let's think about trying to find the
+airport code for Istanbul, for example. What we might do in linear search is start
+with the first element of our array, Agra in India, and see,
+okay, that's not Istanbul. We have to keep on going. Then we go to Beijing, so that's not
+Istanbul, we have to keep on going. Chicago, Essen, Lagos, well If we were just doing linear search,
+we'd have to keep on going. Montreal, Quito, Sydney. And then only once we got to
+the end of the array, we would say, okay, Istanbul wasn't there,
+it's missing from our array. We can't do anything, we return null. But if we know that our array is sorted, we actually could have stopped
+a little earlier when I paused. Right as soon as we got to
+Lagos we noticed that Lagos starts with L which is alphabetically
+after I in the alphabet and so if Istanbul was in our array it
+would have to happen before Lagos. And so we don't have to look at
+the rest of the elements in the array to know that Istanbul is missing
+from this collection of data. And so what we get here is that
+if we do some up front work, if we sort our array, if we sort our list. Then in certain cases our
+algorithm can run much faster and we can have some logic built in to our
+algorithm that says If we're sure that our element that we're looking for is missing,
+we don't have to keep on going, we can stop right here and say. We've reached somewhere past the
+alphabetical location of where our element would be, we don't need to keep going. Okay. So, so far we've seen that sorting, which means arranging in order can help us
+in both binary search and linear search. And there's actually another algorithm
+that is helped by having our data sorted. And so let's think about the problem
+of having a huge amount of information. And we want to look for duplicates, that you can imagine
+all sorts of use cases for this. But for that let's abstract away all
+the applications and just think about. How we would approach this question. And so if we're given a whole bunch of
+unorganized data this might be kind of hard and we might have to leap
+through the list a few times. And figure out if there's any two
+pairs in the list that are the same. But what if we were willing
+to pay some upfront cost and sort the information first, well then. We just need to do one pass over
+the information after it's sorted, and look at consecutive pairs of elements,
+and see if they're equal, because the duplicates would show up
+right after another in the sorted list. And so in the data that we started with,
+we see that it's pretty quick to find that 84 appears twice,
+once we've sorted the list. Alright, so I'd like to leave
+you with a few questions, what we've done in this video, is given
+a taste for the algorithmic questions we think about when we're developing
+new strategies for solving problems. So when we have an algorithm
+like binary search or like linear search,
+we like to ask ourselves. For particular cases,
+how fast will this algorithm run? How slow will it run? How many steps do we need to take and
+how lucky can we be? So can the data or its organization, the input from the outside world, have an
+impact on the run time of the algorithm? What's it going to be
+like in the worst case? What's it going to be
+like in the best case? And also,
+when we're developing algorithms, sometimes we're willing to spend
+a lot of energy at the beginning, if we're going to be able to reap
+the benefits from that upfront cost. By having the later algorithms,
+that maybe we do a lot of times, be much more efficient,
+because we did some overhead initial work. So in the next few videos we're gonna
+be talking about algorithms for sorting, and hopefully now you
+understand why they're so important, because having sorted data could really
+help all sorts of follow on algorithms.

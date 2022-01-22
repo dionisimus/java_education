@@ -1,0 +1,110 @@
+1
+00:00:00,000 --> 00:00:04,469
+[MUSIC]
+
+2
+00:00:04,469 --> 00:00:08,240
+All right, here's your overview
+of the last part of the project.
+
+3
+00:00:08,240 --> 00:00:11,936
+I'm actually only gonna demo part
+of the last part of the project,
+
+4
+00:00:11,936 --> 00:00:16,700
+because the very last part of the project
+is an open-ended extension of your choice.
+
+5
+00:00:16,700 --> 00:00:20,551
+So, you'll get to have some freedom and
+some creativity with that.
+
+6
+00:00:20,551 --> 00:00:22,020
+Really, anything goes.
+
+7
+00:00:22,020 --> 00:00:22,640
+It's up to you.
+
+8
+00:00:23,890 --> 00:00:26,330
+But for the first part of
+the project that everybody will do,
+
+9
+00:00:26,330 --> 00:00:30,820
+what we are asking you to do is actually
+make no changes to the map at all.
+
+10
+00:00:30,820 --> 00:00:33,590
+So your map is going to behave
+basically just like it did
+
+11
+00:00:33,590 --> 00:00:36,510
+in the last part of
+the programming assignment.
+
+12
+00:00:36,510 --> 00:00:39,360
+But what you are going to add is,
+you are going to add code
+
+13
+00:00:39,360 --> 00:00:44,560
+that will sort the earthquakes in
+descending order of magnitude.
+
+14
+00:00:44,560 --> 00:00:48,840
+So when you run the program now,
+in addition to printing out the number of
+
+15
+00:00:48,840 --> 00:00:53,380
+earthquakes per country,
+they will also print out a list
+
+16
+00:00:53,380 --> 00:00:58,440
+of the earthquakes in the RSP that
+you read sorted in reverse order.
+
+17
+00:00:58,440 --> 00:01:01,880
+So, strongest magnitude first,
+and then a descending order.
+
+18
+00:01:01,880 --> 00:01:04,740
+And you'll write a function
+that allows you to
+
+19
+00:01:04,740 --> 00:01:07,960
+control the number of earthquakes
+that get printed out here.
+
+20
+00:01:07,960 --> 00:01:12,370
+So that's really it, and then you'll get
+to work on that open ended extension, so
+
+21
+00:01:12,370 --> 00:01:13,830
+have fun with it.
+
+22
+00:01:13,830 --> 00:01:16,850
+You're gonna get to learn about some
+searching and sorting algorithms to write
+
+23
+00:01:16,850 --> 00:01:20,310
+this part of the project and
+then dive into that open ended extension.

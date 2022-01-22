@@ -1,0 +1,55 @@
+[MUSIC] In the previous two videos, we've seen two
+different algorithms for sorting data. Now, that's just the beginning,
+the tip of the iceberg. There are many, many,
+many algorithms for sorting. We're not gonna cover all of them. What you do want to keep in mind is that
+it's possible to optimize these algorithms tremendously depending on the application. And that takes a lot of work, but
+if you actually just want to use sorting, you don't need to write
+the sorting algorithm yourself. So by the end of this video you'll be
+able to use the predefined Java method to sort and you'll be able to explain
+the properties of this built in method. Because whenever we use a tool we wanna be
+able to know both it's functionality and it's limitations. So it's useful to be aware of what
+the built in method is actually doing. As a reminder, we've talked both about
+selection sort and insertion sort. We talked about why each of these give
+correct algorithms for sorting data. And we also talked bout some potential
+limitations in terms of the time that it would take for the sorting algorithms
+to actually work through a lot of data. And we've talked about how to
+write the code for these for these sorting algorithms. But we don't want to write
+that code each time, and so here's this code snippet of how we
+might be able to sort some data as part of a larger method without
+actually writing the sorting ourselves. We do need to use some built
+in utilities from Java. And so that's why the import
+method is up top there. And then once we build a list of, for
+example, integers, then all we need to do is call the sort method, collections.sort,
+on that list of integers. And then low and behold if you run this,
+you'll see that our numbers are sorted. And so it's this one line method that is kind of a cheat because we
+haven't actually implemented sort method. But if what we're focused on
+in the particular method that we're writing is not the sort, but that's
+just sort of a helper piece of our code. Then it's useful to go to the library and
+pick out that built-in method and use that instead of having
+to implement it each time. The reason it's useful, is that we get the benefit of
+a lot of other people's hard work. Turns out that in this built in method
+what's being implemented, is an algorithm called merge sort, that's then been
+tweaked and optimized for various reasons. In particular it's been
+made to be super fast, and we'll talk again in the next course about
+what we mean by a fast algorithm and how we can compare algorithm
+speeds to one another. But merge sort is known to be provably
+faster than selection sort and insertion sort in most
+cases that we care about. And in particular it's really good for
+nearly sorted data. If you think back to selection sort and
+insertion sort, trace through how those algorithms would behave if
+our data was already almost sorted. And what you'll see is that one of
+them does better than the other in responding dynamically to the kind
+of data that's being presented. And so it's really useful if we know that
+we're going to maintain, for example, our list of airports. And every so often a new airport
+is going to come up, and we wanna add it to the list, and then re-sort the list to make sure
+that it's in the correct location. We want our algorithm to be able to be
+responsive to that, and be fast when our data is almost sorted, and we just maybe
+have a couple of things out of place. The optimized merge sort that is also
+built into Java has an additional property in that it's stable so that means that if
+we run sort a bunch of times on the same data and we have a couple of pieces of
+data that are duplicates in some sense, they won't switch orders. As we run sort again and again and again. And that could be useful if we want to,
+for example, sort the data on different dimensions. So, what you'll see is in the project
+you'll be using some sorting and searching techniques. But what we encourage you to do
+is to use the built-in sort and not have to rewrite sort on your own so
+that you can make use of these great properties that
+the optimizations have given us.

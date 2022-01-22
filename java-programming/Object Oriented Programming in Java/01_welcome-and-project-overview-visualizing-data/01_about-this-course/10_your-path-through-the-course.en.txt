@@ -1,0 +1,73 @@
+[MUSIC] Hi again, I'm Christine Alvarado and
+in this video I'm gonna give you some information that will help you choose
+your own path through this course. So, when I'm not teaching, what I like
+to do is, I like to build programs and curriculum that help bring in
+a diverse set of learners to study and work in the field of computer science. And one thing I've learned about
+reaching a diverse audience is that you need diverse courses
+with diverse support structures. So we've engineered this
+diversity into our course and into the whole specialization. We know that you're coming to us with lots
+of different motivations, backgrounds, experience levels, so one size fits
+all is not gonna work for this course. And, that's okay, that's actually great. We love that you're coming from
+all these different backgrounds. And what we want, is for each of you
+to feel challenged, because otherwise, what's the point? But also never to feel overwhelmed. We want it to be the case where when
+you feel like you're starting to get overwhelmed, you can always have some more
+support, to help you with your learning. What we've designed is a course where
+we have different video styles, different video series
+to help meet that goal. So you're not going to want to take
+this course by just sitting down and watching the videos one after another. What you're going to
+want to do is pick and choose a path through the videos
+that's right for you. And to help you do that, I'm gonna tell
+you about our different video series. But first I wanna say that at the end of
+the day, it's all about what you can do. Mia described this really cool project
+that you're gonna be doing throughout this course. And that's really what we
+want you to be able to do. So what we care most about, are these
+end of module assessments which are, a lot of the time, going to have you
+building a piece of that project. So if you're feeling really advanced, really good about the material,
+always feel free to race ahead and just start working on that project or
+do the end of module assessment. But if you want a little instruction, which most of you will,
+you'll wanna watch some of the videos. So the first video series that I'm gonna
+tell you about is our core content series. So these are the videos that
+we expect everybody to watch. They're mostly lecture style and they're
+gonna introduce you to the core concepts and skills that you're going to need
+to do the end of module assessments. Once you've watched those videos, we're gonna probe your knowledge a bit
+more with our concept challenge series. Again we encourage most
+learners to watch these videos. And what they're going to do is they're
+going to ask you to think about the material you just
+learned in a new way. And Leah is gonna tell you more about
+these concept challenges in just a minute. The next series that we have for
+you are additional support videos. Now, we don't expect everybody
+to watch these videos. These videos are designed for if,
+after watching the core content, and doing this concept challenges, you don't
+quite feel ready to tackle the end of module assessments, you might want to
+watch these additional support videos. The last two video series that we have,
+we're really excited about. These are series that aren't
+designed to deliver content, so much as to put the content that
+you're learning in context. So, the first of these series is called,
+In the Real World. And we've got a team of real life
+Google engineers talking about why what you're learning is important,
+in their work at Google and in general in the software industry. So that'll be a really good opportunity
+for you to learn, not only why what you're learning is important, but how it's
+important to these individual engineers. And then the last series that we have for
+you is called, When I struggled. And what you're going to see in this
+series is a number of UC San Diego learners as well as us,
+talking about our own experience learning the material that you're
+gonna be learning during this course. We'll talk about a time where we struggled
+with the material that we're presenting, and then we'll talk about how
+we overcame these struggles. So we hope you'll watch
+both of those series and that it'll enrich your
+experience in this course. So again, to summarize, the standard
+path we imagine a learner taking to this course, is that you would watch
+this introduction with the Google engineers talking about why these
+concepts are important in the real world. You would go through and
+watch the Core Concept videos and perform these concept challenges, maybe watching some videos about when some
+learners struggled with these concepts. Along the way, and then perform
+the module-level assessment, and you would repeat that for each module. But if you're feeling more advanced, you
+might just wanna race right through those core concept videos and get to that
+end of module assessment faster and get developing on those projects. And we encourage you to do that,
+if you're feeling comfortable. And again, if you feel like you
+need a little more support, you've got those support
+videos available to you. So any time you feel like you don't
+quite understand what's going on, you need a little more help, go ahead and
+pull out those support videos and we hope that you'll find
+the support that you need. So choose the path that's right for
+you, challenge yourself, and have fun.

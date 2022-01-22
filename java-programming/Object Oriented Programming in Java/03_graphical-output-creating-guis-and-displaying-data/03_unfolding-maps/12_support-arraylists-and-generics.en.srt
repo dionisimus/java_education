@@ -1,0 +1,767 @@
+1
+00:00:00,025 --> 00:00:04,457
+[APPLAUSE]
+>> All right,
+
+2
+00:00:04,457 --> 00:00:07,703
+in this support video,
+we're gonna look at Java's List Interface,
+
+3
+00:00:07,703 --> 00:00:12,550
+the ArrayList class, as well as how to use
+generics, which are these different types.
+
+4
+00:00:12,550 --> 00:00:15,847
+You've already seen Mia working with
+lists and ArrayLists, and using generics.
+
+5
+00:00:15,847 --> 00:00:19,475
+And you're gonna be using these
+classes and generics in your project.
+
+6
+00:00:19,475 --> 00:00:23,521
+But if you're feeling like you need
+a little bit more review or overview of
+
+7
+00:00:23,521 --> 00:00:28,480
+what these classes, and what generics are,
+then watch the support video.
+
+8
+00:00:28,480 --> 00:00:31,501
+So by the end of this video,
+you'll be able to comfortably work with
+
+9
+00:00:31,501 --> 00:00:34,319
+ArrayLists and Lists in Java,
+which are both built in to Java.
+
+10
+00:00:34,319 --> 00:00:38,579
+And you'll also be able to create these
+objects to work with Java generics.
+
+11
+00:00:39,800 --> 00:00:42,880
+So let's go back to one of the examples
+that Mia used in her video.
+
+12
+00:00:42,880 --> 00:00:48,360
+She created this list countries
+that stored an ArrayList object.
+
+13
+00:00:48,360 --> 00:00:49,700
+So for now in this example,
+
+14
+00:00:49,700 --> 00:00:54,550
+I just want you to ignore this piece
+right here inside the angle brackets.
+
+15
+00:00:54,550 --> 00:00:57,750
+That's the generics part of this, and
+we're gonna talk about that later.
+
+16
+00:00:57,750 --> 00:01:01,250
+But for now what I want you to focus
+on is the types of the variable
+
+17
+00:01:01,250 --> 00:01:03,630
+as well as the object that gets created.
+
+18
+00:01:03,630 --> 00:01:07,790
+So the variable that gets created
+countries is of type list.
+
+19
+00:01:07,790 --> 00:01:12,672
+And you can see over here that the object
+that gets created is type ArrayList.
+
+20
+00:01:12,672 --> 00:01:14,855
+So you might be kind of
+worried at this point.
+
+21
+00:01:14,855 --> 00:01:16,600
+And you might be thinking what's going on?
+
+22
+00:01:16,600 --> 00:01:18,620
+These two types are not the same.
+
+23
+00:01:18,620 --> 00:01:20,440
+Is that even allowed?
+
+24
+00:01:20,440 --> 00:01:23,628
+And the answer is that yes,
+this is absolutely allowed in Java.
+
+25
+00:01:23,628 --> 00:01:25,580
+And we're gonna explain
+briefly what's going on here.
+
+26
+00:01:26,720 --> 00:01:31,990
+So a List, as Mia mentioned in her video
+is what's called an abstract data type.
+
+27
+00:01:31,990 --> 00:01:32,780
+And what it i,
+
+28
+00:01:32,780 --> 00:01:37,110
+is a Java interface which we're going
+to get into more in the next module.
+
+29
+00:01:37,110 --> 00:01:39,640
+But what that means is it implements,
+it specifies,
+
+30
+00:01:39,640 --> 00:01:42,780
+some behavior that this
+object has to have, but
+
+31
+00:01:42,780 --> 00:01:46,210
+doesn't talk about exactly how that
+behavior is going to be implemented.
+
+32
+00:01:46,210 --> 00:01:48,780
+So you can use that as the type
+of a particular variable.
+
+33
+00:01:49,950 --> 00:01:50,480
+On the other hand,
+
+34
+00:01:50,480 --> 00:01:55,140
+over here when we actually create
+the object itself, that's an actual class.
+
+35
+00:01:55,140 --> 00:01:58,570
+So the ArrayList is an actual
+class that's built into Java.
+
+36
+00:01:58,570 --> 00:02:03,410
+And it implements all of the behavior
+that's specified by the list interface.
+
+37
+00:02:03,410 --> 00:02:05,860
+This class can be instantiated.
+
+38
+00:02:05,860 --> 00:02:10,640
+And it's perfectly okay to have an
+interface as the type of the variable, and
+
+39
+00:02:10,640 --> 00:02:13,630
+the actual class as the type of
+the thing that you instantiate.
+
+40
+00:02:13,630 --> 00:02:15,550
+That's done a lot.
+
+41
+00:02:15,550 --> 00:02:17,720
+And again, don't worry too
+much about the details here.
+
+42
+00:02:17,720 --> 00:02:21,330
+We're going to get more into this in the
+next module as well as in future courses
+
+43
+00:02:21,330 --> 00:02:22,210
+in this specialization.
+
+44
+00:02:23,580 --> 00:02:25,158
+For now let's just ask the question.
+
+45
+00:02:25,158 --> 00:02:29,430
+Okay we've got anArrayList object,
+let's think about what can it do?
+
+46
+00:02:29,430 --> 00:02:32,510
+Well if I wanna know what a class
+that's built into java can do,
+
+47
+00:02:32,510 --> 00:02:34,120
+where should I look?
+
+48
+00:02:34,120 --> 00:02:36,120
+How about the Javadocs?
+
+49
+00:02:36,120 --> 00:02:40,170
+That's your go-to place to figure out
+what can my classes built into Java
+
+50
+00:02:40,170 --> 00:02:41,520
+actually do?
+
+51
+00:02:41,520 --> 00:02:44,325
+Here's the URL for
+the Javadocs for version 8.
+
+52
+00:02:44,325 --> 00:02:46,261
+If you're using a different
+version of Java,
+
+53
+00:02:46,261 --> 00:02:49,970
+you'll need to change that 8 to a 7 or
+whatever version you happen to be using.
+
+54
+00:02:49,970 --> 00:02:53,960
+Or my favorite is I just google for
+javadoc documentation and
+
+55
+00:02:53,960 --> 00:02:56,190
+then whatever version of
+java I happen to be using.
+
+56
+00:02:56,190 --> 00:02:58,060
+And this link will come right up.
+
+57
+00:02:58,060 --> 00:03:01,050
+So if I click on this link, it's going
+to take me to this page here and
+
+58
+00:03:01,050 --> 00:03:03,790
+that's the overview for
+the Java documentation.
+
+59
+00:03:03,790 --> 00:03:06,130
+And now the question is,
+where the heck is ArrayList?
+
+60
+00:03:06,130 --> 00:03:07,500
+How are you gonna find it.
+
+61
+00:03:07,500 --> 00:03:08,680
+Well there's a couple ways.
+
+62
+00:03:08,680 --> 00:03:10,170
+You can either look down here.
+
+63
+00:03:10,170 --> 00:03:14,750
+This is this full list of all the classes
+and libraries that are built into Java.
+
+64
+00:03:14,750 --> 00:03:18,950
+So you will find ArrayList in this
+big long list, but it's pretty long.
+
+65
+00:03:18,950 --> 00:03:23,230
+So a faster way to get yourself to
+ArrayList is to know what package it's in.
+
+66
+00:03:23,230 --> 00:03:25,720
+So the packages are listed up here.
+
+67
+00:03:25,720 --> 00:03:30,520
+And if you know that ArrayList is in
+java.util, which I'm telling you now, so
+
+68
+00:03:30,520 --> 00:03:31,640
+know you know,
+
+69
+00:03:31,640 --> 00:03:35,460
+you can look in this package list
+to find the java.util package.
+
+70
+00:03:36,580 --> 00:03:39,832
+Then you can click on java.util
+in that package list.
+
+71
+00:03:39,832 --> 00:03:43,360
+And that will narrow down the list
+of classes to only the classes and
+
+72
+00:03:43,360 --> 00:03:45,340
+interfaces that are in java.util.
+
+73
+00:03:45,340 --> 00:03:48,200
+So then you can go down here to
+the list of classes that are shown.
+
+74
+00:03:48,200 --> 00:03:52,870
+Click on the ArrayList class and up will
+come the documentation for the ArrayList.
+
+75
+00:03:53,890 --> 00:03:56,700
+Okay, so now you've got the documentation
+page for the ArrayList.
+
+76
+00:03:56,700 --> 00:04:00,280
+And it's pretty long, and it talks about
+a lot of things the ArrayList can do.
+
+77
+00:04:00,280 --> 00:04:04,955
+And I just wanna call out a few different
+methods that you're going to find useful.
+
+78
+00:04:04,955 --> 00:04:08,900
+Okay, now let's talk about setting an
+element in an array and in an ArrayLists.
+
+79
+00:04:08,900 --> 00:04:12,260
+To set an element in an array, you just
+use that square bracket notation and
+
+80
+00:04:12,260 --> 00:04:14,475
+you put it on the left hand side
+of your assignment statement.
+
+81
+00:04:14,475 --> 00:04:17,750
+So, in this case, we're taking a feature
+that stored in the variable f and
+
+82
+00:04:17,750 --> 00:04:23,630
+were putting it into the 0 index
+position in our array, countryArray.
+
+83
+00:04:23,630 --> 00:04:27,700
+To do this in an ArrayList,
+we're going to use the method called set.
+
+84
+00:04:27,700 --> 00:04:31,770
+Set takes two arguments,
+a index location, in this case,
+
+85
+00:04:31,770 --> 00:04:34,300
+0, and
+the thing we're trying to put there.
+
+86
+00:04:34,300 --> 00:04:37,040
+And again, countries is our ArrayList and
+
+87
+00:04:37,040 --> 00:04:40,790
+we can call the set method on our
+countries variable, passing in 0 for
+
+88
+00:04:40,790 --> 00:04:43,420
+index position, and
+f the feature we want to store there.
+
+89
+00:04:45,030 --> 00:04:48,100
+Now again, our ArrayList in both cases,
+our Array and
+
+90
+00:04:48,100 --> 00:04:53,080
+our ArrayList, have to have at least one
+element in them, space for one element.
+
+91
+00:04:53,080 --> 00:04:55,390
+Otherwise we're gonna get another
+index out of bounds exception.
+
+92
+00:04:57,090 --> 00:04:59,870
+Again if you wanna see the Java
+documentation, it looks like that.
+
+93
+00:05:02,842 --> 00:05:07,510
+Finally, let's talk about how to get
+the length, or the size, of an ArrayList.
+
+94
+00:05:07,510 --> 00:05:11,380
+So with an array, you know that you
+can just call that length field.
+
+95
+00:05:11,380 --> 00:05:13,660
+So I say countryArray.length,
+
+96
+00:05:13,660 --> 00:05:16,410
+that will give me back the number
+of elements in my array.
+
+97
+00:05:18,110 --> 00:05:20,400
+But for an ArrayList it's
+just a little bit different.
+
+98
+00:05:20,400 --> 00:05:24,390
+Instead of calling a length field,
+we're going to call the size method.
+
+99
+00:05:24,390 --> 00:05:25,590
+So down here,
+
+100
+00:05:25,590 --> 00:05:29,590
+we can see a method called size which
+is just like length in an array.
+
+101
+00:05:29,590 --> 00:05:32,870
+It returns the number of elements
+that are in the ArrayList.
+
+102
+00:05:32,870 --> 00:05:35,930
+Now notice one important thing,
+that size is actually a method.
+
+103
+00:05:35,930 --> 00:05:40,400
+So we have to have these parentheses
+even though they're empty.
+
+104
+00:05:40,400 --> 00:05:41,500
+It takes no parameters.
+
+105
+00:05:41,500 --> 00:05:45,230
+It just returns the size
+of the ArrayLists.
+
+106
+00:05:45,230 --> 00:05:48,510
+So, we can see that arrays and
+ArrayLists are very very similar,
+
+107
+00:05:48,510 --> 00:05:51,290
+just some minor differences in
+how you interact with them.
+
+108
+00:05:51,290 --> 00:05:53,832
+But arrays, it turns out,
+are actually a bit more powerful.
+
+109
+00:05:53,832 --> 00:05:58,780
+Sorry, ArrayLists are more powerful than
+arrays, because arrays, as you know,
+
+110
+00:05:58,780 --> 00:06:01,422
+once you create them and
+set their size, they're fixed.
+
+111
+00:06:01,422 --> 00:06:06,100
+But ArrayLists can expand to
+incorporate more elements.
+
+112
+00:06:06,100 --> 00:06:08,848
+So there are these two
+methods of ArrayLists add,
+
+113
+00:06:08,848 --> 00:06:11,343
+they take different numbers of parameters.
+
+114
+00:06:11,343 --> 00:06:15,907
+And what they do is they actually
+append the new element onto the end of
+
+115
+00:06:15,907 --> 00:06:20,140
+the list increasing the size
+of the ArrayList as necessary.
+
+116
+00:06:20,140 --> 00:06:21,440
+So that's kind of cool.
+
+117
+00:06:21,440 --> 00:06:25,000
+Of course, it doesn't force you to specify
+how big you want your array beforehand.
+
+118
+00:06:25,000 --> 00:06:27,730
+Java will automatically
+resize the ArrayList for you.
+
+119
+00:06:27,730 --> 00:06:31,410
+So that's one of the reasons
+we often use ArrayList
+
+120
+00:06:31,410 --> 00:06:33,910
+instead of arrays cuz they provide for
+this extra flexibility.
+
+121
+00:06:35,760 --> 00:06:36,340
+Okay.
+
+122
+00:06:36,340 --> 00:06:39,280
+So now let's go back to
+this issue of generics.
+
+123
+00:06:39,280 --> 00:06:42,710
+So now we're gonna talk about the code
+that's inside those angle brackets.
+
+124
+00:06:42,710 --> 00:06:45,460
+Notice that we're creating
+here two different lists.
+
+125
+00:06:45,460 --> 00:06:48,291
+There's countries and countryMarkers.
+
+126
+00:06:48,291 --> 00:06:54,050
+And they're both lists, but the difference
+is that countries stores features.
+
+127
+00:06:54,050 --> 00:06:59,680
+And markers store, oh sorry,
+the country markers, store markers.
+
+128
+00:06:59,680 --> 00:07:04,100
+So this is what this generics
+capability allows us to specify.
+
+129
+00:07:04,100 --> 00:07:08,060
+What we put in the angle
+brackets is the type of object
+
+130
+00:07:08,060 --> 00:07:12,350
+that we want Java to store inside
+the container that we're creating.
+
+131
+00:07:12,350 --> 00:07:13,970
+So in this case we're creating a list.
+
+132
+00:07:13,970 --> 00:07:16,390
+The first list is allowed
+to store features.
+
+133
+00:07:16,390 --> 00:07:18,490
+And the second list is
+allowed to store Markers.
+
+134
+00:07:20,100 --> 00:07:24,360
+Now, when we go to create these objects
+that are referenced by these variables,
+
+135
+00:07:24,360 --> 00:07:28,830
+we again have to say what kind of
+thing goes into the container object.
+
+136
+00:07:28,830 --> 00:07:30,990
+So we can see over here
+on the left hand side,
+
+137
+00:07:30,990 --> 00:07:34,440
+we've said the first list
+is going to store Features.
+
+138
+00:07:34,440 --> 00:07:36,620
+The second list is going to store Markers.
+
+139
+00:07:36,620 --> 00:07:40,330
+And so on the right hand side
+the first ArrayList stores Features.
+
+140
+00:07:40,330 --> 00:07:43,680
+The second ArrayList stores markers,
+and these types have to match.
+
+141
+00:07:45,290 --> 00:07:48,590
+Now what this allows us to do if we
+add a bit more code, let's say we've
+
+142
+00:07:48,590 --> 00:07:52,910
+got some code here that will put some
+elements into both of these lists,.
+
+143
+00:07:52,910 --> 00:07:57,220
+The cool part about generics is now
+when we get elements out of the list,
+
+144
+00:07:57,220 --> 00:07:59,900
+when we get elements out of country.
+
+145
+00:07:59,900 --> 00:08:02,000
+Say we get the element at position zero.
+
+146
+00:08:02,000 --> 00:08:04,970
+We know that countries stores Features.
+
+147
+00:08:04,970 --> 00:08:08,940
+So we can get back
+a Feature type reference.
+
+148
+00:08:08,940 --> 00:08:13,620
+On the other hand, countryMarkers,
+we declared was going to store Markers.
+
+149
+00:08:13,620 --> 00:08:16,110
+So when we get an element
+back from countryMarkers,
+
+150
+00:08:16,110 --> 00:08:17,840
+it's going to be of Marker type.
+
+151
+00:08:17,840 --> 00:08:22,210
+So it's the same exact method, this
+getmethod, is gonna return a different
+
+152
+00:08:22,210 --> 00:08:27,270
+type depending on what we
+declared the container to store.
+
+153
+00:08:27,270 --> 00:08:28,610
+So that's really cool.
+
+154
+00:08:28,610 --> 00:08:30,600
+We don't have to use any casts,
+or anything like that.
+
+155
+00:08:30,600 --> 00:08:32,220
+It just happens automatically for us.
+
+156
+00:08:32,220 --> 00:08:37,060
+And bringing this back around to the Java
+docs, if you look at that getMethod
+
+157
+00:08:37,060 --> 00:08:40,940
+in the Javadocs, you'll see that
+it lists the return type as E.
+
+158
+00:08:40,940 --> 00:08:44,040
+And what that means is that it's
+this generic type that's gonna take
+
+159
+00:08:44,040 --> 00:08:46,230
+on whatever type you declare
+the container to hold.
+
+160
+00:08:47,420 --> 00:08:51,283
+So, generics are really useful,
+ArrayLists and lists, really useful.
+
+161
+00:08:51,283 --> 00:08:53,950
+You're gonna work with them in
+the project which is coming up next.

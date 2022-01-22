@@ -1,0 +1,71 @@
+1
+00:00:00,000 --> 00:00:03,578
+[MUSIC]
+
+2
+00:00:03,578 --> 00:00:04,850
+Hello, I'm Ken.
+
+3
+00:00:06,540 --> 00:00:11,330
+One time when I struggled during
+a program assignment was with,
+
+4
+00:00:11,330 --> 00:00:14,810
+it was based on polymorphism and
+inheritance.
+
+5
+00:00:14,810 --> 00:00:19,140
+What you had to do was create
+classes of different animals and
+
+6
+00:00:19,140 --> 00:00:21,996
+connect them through inheritance and
+polymorphism.
+
+7
+00:00:21,996 --> 00:00:25,520
+And what was hard about it when
+I first opened the assignment,
+
+8
+00:00:25,520 --> 00:00:29,650
+it was just a blank screen, a blank
+text editor, and I was overwhelmed.
+
+9
+00:00:29,650 --> 00:00:31,030
+I didn't know where to start.
+
+10
+00:00:31,030 --> 00:00:33,560
+What really helped was
+the online posting and
+
+11
+00:00:33,560 --> 00:00:39,290
+everyone conversating on Piazza and
+that forum.
+
+12
+00:00:39,290 --> 00:00:45,210
+What also helped was just really stepping
+away from it just a little bit and
+
+13
+00:00:45,210 --> 00:00:50,110
+giving it some time just because I was so
+overwhelmed by it at that moment,
+
+14
+00:00:50,110 --> 00:00:53,060
+just really calming down and
+taking a break from the material.
+
+15
+00:00:53,060 --> 00:00:56,659
+And then revisiting it allowed me to,
+I think, get it done.

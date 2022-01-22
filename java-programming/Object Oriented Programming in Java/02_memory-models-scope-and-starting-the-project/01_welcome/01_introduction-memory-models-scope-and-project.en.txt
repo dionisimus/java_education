@@ -1,0 +1,9 @@
+[MUSIC] Congratulations on completing
+the first week of the course. We're going to continue
+right where you left off and we'll start diving into memory models and
+scope. Again, this may be a review for
+some of you. If you feel like it's
+too much of a review, feel free to skip ahead to
+the graded quiz at the end of scope. After completing scope, you can get
+started with the programming project and you'll build your first application and
+folding maps.

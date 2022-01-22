@@ -1,0 +1,41 @@
+[MUSIC] People always say that it's important to
+document your code, but we don't always talk about why, and there's a couple
+different reasons we do it. One is because you want your code
+to be usable by other people. If you've written the world's best
+library for string parsing or other stuff like that, but no one can
+figure out how to use it, it's no good. And so there's one reason right there. Documentation might be in the form of
+an external document, a how-to guide, a design document or something like that. Or it might be in the form of something as
+simple as documents inside of your code saying, here's how you use this function,
+these are what we're looking for, for these parameters, and stuff like that. There's other reasons for
+documenting your code too, though. Somebody once said, you should always code
+as if the person who ends up maintaining your code will be a violent
+psychopath who knows where you live. That's a little extreme, I haven't run
+into too many violent psychopaths in my professional career, but
+it is something to bear in mind. You're writing code that other people
+are gonna have to maintain, and so this means not just writing documentation
+for the parts that other folks will use, here's how you use my object or
+here's how you call this function. But it's also writing documentation for
+the people who will have to go in and fix your code, or extend it to do
+different things or other stuff like that, as needs or the environment changes. And sometimes that violent
+psychopath might be you. There have been times when, as
+a professional, I've had to go back in and revisit code that no one has looked at for
+years. And I go in there, I'm like, wow, who's the idiot who wrote
+this stuff in the first place? Oh, wait, that's my name on this file,
+I'm the idiot, yeah, okay. It's not always somebody else,
+or from a different perspective, that somebody else might be
+an earlier version of you. And so leaving a trail of breadcrumbs for
+yourself or for others that'd help to understand
+what the code was supposed to do, how it was supposed to work, and
+maybe why you made the choices you did. It can be very helpful, sometimes
+that last one is the most important. It may be that you come up against a case
+where this mechanism over here seems like the right way to do it, and then you find
+out it's just not gonna work for some way. Maybe, recursion is the right way to
+do this and then you find out, well, okay but it's running on hardware
+where you can't have more than six functions calling each other or
+you run out of space on your stack. So okay, fine, we gotta do it differently. You make choices like that,
+you make design decisions. And leaving those documented for other people later on, can help them
+understand why you did what you did. And to help avoid making mistakes
+that maybe you made along the way. So it's important, do it. And the best time to get in
+the habit of doing it is early on. Even when you know you're the only
+one who is gonna write the code and you don't expect to look
+at it three weeks from now.

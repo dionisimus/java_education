@@ -1,0 +1,28 @@
+Hi, I'm Christine Alvarado. >> I'm Leo Porter. >> And I'm Mia Minnes. >> Welcome. We're so glad you're joining us for
+the third course in the specialization. We hope you enjoyed learning Java
+programming from our excellent colleagues at Duke and that you're ready
+to extend your skills further. We'll start where you left off by
+looking at the details of designing and implementing classes in Java. We'll start by refreshing some of
+the basics and then move on to core object oriented concepts like class hierarchies,
+inheritance and polymorphism. >> Just like in the Duke courses, you'll be building projects
+with real world relevance. You'll notice though,
+as your programming skills are ramping up, the projects get more ambitious. In this class you'll be visualizing
+earthquake data live on a map. You'll be able to build a core project,
+and then customize and personalize it, and then have the opportunity to share it
+with a broader learning community. Throughout the course you'll also hear
+from industry professionals about how they use object oriented programming,
+like you're learning in this class, in their career. >> You'll also find a number of new
+elements in our courses, as well. First, we're going to be switching
+from BlueJ to Eclipse as the preferred programming environment. If you don't have any experience
+in Eclipse, that's totally fine, we'll give you the help
+you need when you need it. Secondly, we're going to be introducing
+a number of new video series. The first of these is
+called concept challenges. In concept challenge videos you'll be
+learning alongside UC San Diego students as you tackle challenging problems. We'll give you more details about these
+new video series in the upcoming videos. Lastly, we know you come to us with
+different programming backgrounds. Those of you who are more comfortable
+with programming, feel free to move more quickly through the course focusing
+on the programming assignments. To those of you with less experience, we'll give you the help
+you need when you need it. Many of the courses on Coursera allow you
+to pick the pace that's right for you. We're helping you find the path
+that's right for you as well. So let's get started.

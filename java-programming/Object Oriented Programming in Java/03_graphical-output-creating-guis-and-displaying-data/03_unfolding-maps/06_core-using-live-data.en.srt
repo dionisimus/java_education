@@ -1,0 +1,865 @@
+1
+00:00:04,750 --> 00:00:08,500
+So right now what we had was a map
+with a single gray dot on it to
+
+2
+00:00:08,500 --> 00:00:10,950
+indicate the epicenter
+of the Chile earthquake.
+
+3
+00:00:10,950 --> 00:00:14,810
+But really where our map
+comes to life is when we add
+
+4
+00:00:14,810 --> 00:00:18,720
+changing data based on the current
+earthquake data from around the world.
+
+5
+00:00:18,720 --> 00:00:22,910
+And what we'd like to do that
+then is think about handling and
+
+6
+00:00:22,910 --> 00:00:24,930
+displaying multiple markers and
+
+7
+00:00:24,930 --> 00:00:28,780
+having those markers be customized
+based on properties of the earthquakes.
+
+8
+00:00:28,780 --> 00:00:32,370
+And so, let's think about how
+we can get to that level.
+
+9
+00:00:32,370 --> 00:00:37,010
+So, in order to deal with more complicated
+data and more complicated displays on our
+
+10
+00:00:37,010 --> 00:00:42,050
+maps, it can be useful to
+separate two aspects of the data.
+
+11
+00:00:42,050 --> 00:00:46,790
+We can separate out the properties
+that we're thinking of defining
+
+12
+00:00:46,790 --> 00:00:50,800
+an earthquake from how we might want to
+represent visually those properties, or
+
+13
+00:00:50,800 --> 00:00:52,090
+that earthquake.
+
+14
+00:00:52,090 --> 00:00:55,450
+And unfolding maps actually let's
+us do that in a very clean way,
+
+15
+00:00:55,450 --> 00:00:57,060
+using different data types.
+
+16
+00:00:57,060 --> 00:01:01,390
+So, one of these data types we're more
+familiar with the marker interface,
+
+17
+00:01:01,390 --> 00:01:06,450
+that tells us about how to place dots
+on particular locations in the map.
+
+18
+00:01:06,450 --> 00:01:10,870
+And then how to style those dots, and
+so we've already talked about that.
+
+19
+00:01:10,870 --> 00:01:15,080
+But the new piece that we're going
+to add in now is the feature class.
+
+20
+00:01:15,080 --> 00:01:19,560
+And this feature class is a way of
+grouping together certain properties and
+
+21
+00:01:19,560 --> 00:01:25,120
+saying, this collection of
+information is somehow connected.
+
+22
+00:01:25,120 --> 00:01:28,900
+And I want to encapsulate
+it in a single object.
+
+23
+00:01:28,900 --> 00:01:33,280
+And so what we might do if we're thinking
+a little bit further about that important
+
+24
+00:01:33,280 --> 00:01:38,060
+Chilean earthquake is we might want to
+add properties about that earthquake,
+
+25
+00:01:38,060 --> 00:01:39,930
+like what was it's magnitude?
+
+26
+00:01:39,930 --> 00:01:40,910
+When did it occur?
+
+27
+00:01:41,960 --> 00:01:43,960
+Where was it's epicenter?
+
+28
+00:01:43,960 --> 00:01:46,550
+Which is the only
+the information we had before.
+
+29
+00:01:46,550 --> 00:01:51,120
+And so what we might do
+now is create a feature or
+
+30
+00:01:51,120 --> 00:01:55,590
+a variable of type feature that points
+to an object of type PointFeature.
+
+31
+00:01:55,590 --> 00:02:01,200
+And that PointFeature says that it's
+associated with some location in a map,
+
+32
+00:02:01,200 --> 00:02:04,010
+and then we can add
+properties to that object.
+
+33
+00:02:04,010 --> 00:02:06,260
+And we get to decide what
+those properties are.
+
+34
+00:02:06,260 --> 00:02:10,930
+So every time we'd like to add some
+attribute or some property to this object,
+
+35
+00:02:10,930 --> 00:02:14,280
+to this collection of information
+about some location in our map,
+
+36
+00:02:14,280 --> 00:02:18,010
+what we can do is use the add
+property method that's supplied to us
+
+37
+00:02:18,010 --> 00:02:20,780
+by the data types that
+built into the library.
+
+38
+00:02:20,780 --> 00:02:24,059
+And this method takes in two parameters.
+
+39
+00:02:24,059 --> 00:02:28,259
+One is the a string that represents
+the title of the the title
+
+40
+00:02:28,259 --> 00:02:31,199
+of the property that we're about to set,
+
+41
+00:02:31,199 --> 00:02:35,406
+and then the second argument
+is the value of that property.
+
+42
+00:02:35,406 --> 00:02:38,708
+And so, we can see here that we've
+added properties for the title, for
+
+43
+00:02:38,708 --> 00:02:41,670
+the magnitude, for the date,
+and then for the year.
+
+44
+00:02:41,670 --> 00:02:44,450
+Now, once we have all of this
+information bunched into
+
+45
+00:02:44,450 --> 00:02:48,040
+a nice tidy object of type hoit feature,
+
+46
+00:02:48,040 --> 00:02:52,970
+what we can do is create a marker that
+uses that information and for example
+
+47
+00:02:52,970 --> 00:02:57,050
+we can feed into this marker all of the
+properties that we had bundled together.
+
+48
+00:02:57,050 --> 00:03:02,110
+And then add the marker to our map and
+so at this point, when we
+
+49
+00:03:02,110 --> 00:03:05,280
+run this in Eclipse, we won't see anything
+different from what we did before.
+
+50
+00:03:05,280 --> 00:03:09,550
+The end result of what we've just
+done is still just to add a marker
+
+51
+00:03:09,550 --> 00:03:14,540
+in the location of the epicenter of
+this Chilean earthquake from 1960.
+
+52
+00:03:14,540 --> 00:03:19,160
+But in the background, under the hood,
+there's actually a lot more that we could
+
+53
+00:03:19,160 --> 00:03:23,500
+access about that marker if we then
+wanted to style it in various ways.
+
+54
+00:03:23,500 --> 00:03:25,160
+And we'll see that in a minute.
+
+55
+00:03:25,160 --> 00:03:28,060
+So that's what we wanted to do if we had
+
+56
+00:03:28,060 --> 00:03:31,210
+just a single marker that had some
+rich data associated with it.
+
+57
+00:03:31,210 --> 00:03:35,600
+But maybe we want to think about not
+just the worst earthquake that was ever
+
+58
+00:03:35,600 --> 00:03:38,390
+recorded but maybe about,
+say, the top five.
+
+59
+00:03:38,390 --> 00:03:43,030
+And so we can look up some of the most
+significant earthquake events
+
+60
+00:03:43,030 --> 00:03:46,980
+that have happened in the world and
+say we wanted to add those into our map.
+
+61
+00:03:46,980 --> 00:03:49,710
+And so we want to translate this data
+
+62
+00:03:49,710 --> 00:03:52,570
+into objects that then we
+can manipulate in our map.
+
+63
+00:03:52,570 --> 00:03:55,210
+And so we can go ahead and
+do that in our code, and so
+
+64
+00:03:55,210 --> 00:03:59,010
+we could create feature objects for
+each one of these earthquakes.
+
+65
+00:03:59,010 --> 00:04:03,080
+And what we'd like to do now is instead
+of having to deal with each one of these
+
+66
+00:04:03,080 --> 00:04:06,410
+individually every time, and remember
+the names of all the variables that we've
+
+67
+00:04:06,410 --> 00:04:09,780
+associated with it, et cetera,
+we'd like to somehow group them together
+
+68
+00:04:09,780 --> 00:04:12,790
+into some data type that
+we can iterate over.
+
+69
+00:04:12,790 --> 00:04:14,940
+And lists are fantastic for that.
+
+70
+00:04:14,940 --> 00:04:20,050
+So what we might do is, we might declare
+a list that contains point features.
+
+71
+00:04:20,050 --> 00:04:26,870
+And it's going to point to a new array
+list that will contain point features.
+
+72
+00:04:26,870 --> 00:04:30,930
+And so, notice that in this
+declaration we're doing two things
+
+73
+00:04:30,930 --> 00:04:33,190
+that seem a little bit sophisticated.
+
+74
+00:04:33,190 --> 00:04:37,300
+One is that we're using
+that inter play between and
+
+75
+00:04:37,300 --> 00:04:41,110
+interface and
+a class that implements that interface.
+
+76
+00:04:41,110 --> 00:04:43,540
+And so
+notice the variable here is of type list.
+
+77
+00:04:43,540 --> 00:04:46,770
+Where as the object we created
+is of type array list.
+
+78
+00:04:46,770 --> 00:04:50,180
+Which is a data type that implemented
+that abstract data type of list.
+
+79
+00:04:50,180 --> 00:04:54,620
+And We have a support video coming up that
+will talk through some of those details.
+
+80
+00:04:54,620 --> 00:04:58,050
+And we'll also in a lot of
+detail about interfaces, and
+
+81
+00:04:58,050 --> 00:05:00,210
+abstract data types, next week.
+
+82
+00:05:00,210 --> 00:05:02,270
+So there's more coming to that,
+
+83
+00:05:02,270 --> 00:05:07,075
+but for now we want you to be comfortable
+using some of these constructs.
+
+84
+00:05:07,075 --> 00:05:10,795
+The other piece here that we'll go
+into more depth in the support video
+
+85
+00:05:10,795 --> 00:05:12,675
+is the fact that we're using generics.
+
+86
+00:05:12,675 --> 00:05:15,165
+So we're not just defining any old list,
+but we're also
+
+87
+00:05:15,165 --> 00:05:20,640
+telling Java What kind of objects
+are being stored in this iterable list.
+
+88
+00:05:20,640 --> 00:05:23,440
+We're saying that in particular
+each one of the elements
+
+89
+00:05:23,440 --> 00:05:25,690
+in this list is a point feature.
+
+90
+00:05:25,690 --> 00:05:29,560
+And the advantage of that then is
+that when we go through the list and
+
+91
+00:05:29,560 --> 00:05:31,880
+read off the objects one by one,
+
+92
+00:05:31,880 --> 00:05:34,700
+we'll know that what we're getting
+back is a point feature, and so
+
+93
+00:05:34,700 --> 00:05:38,060
+we'll be using all the methods that
+are associated with those point features.
+
+94
+00:05:38,060 --> 00:05:41,450
+So once we've declared and
+created this object,
+
+95
+00:05:41,450 --> 00:05:44,640
+now we can add elements to that list.
+
+96
+00:05:44,640 --> 00:05:48,390
+And so we can go ahead and add those five
+significant earthquakes to that list.
+
+97
+00:05:48,390 --> 00:05:52,990
+And the big advantage comes now when
+we want to represent those features
+
+98
+00:05:52,990 --> 00:05:53,840
+on in our map.
+
+99
+00:05:53,840 --> 00:05:57,680
+And so we want to create markers for
+each of those features.
+
+100
+00:05:57,680 --> 00:06:02,420
+Now because we put all of those
+earthquake features in a list.
+
+101
+00:06:02,420 --> 00:06:06,280
+In order to create the markers what we
+could do is iterate through that list and
+
+102
+00:06:06,280 --> 00:06:10,300
+we could say for each point feature
+in the list that we just created.
+
+103
+00:06:10,300 --> 00:06:15,800
+What we're going to do is add a new
+marker to a list of markers and that new
+
+104
+00:06:15,800 --> 00:06:20,760
+marker is going to be constructed
+from the information that
+
+105
+00:06:20,760 --> 00:06:24,960
+we get from the particular PointFeature
+that we got back from this list.
+
+106
+00:06:24,960 --> 00:06:29,520
+So every time we create a new marker,
+what we're doing is we're giving it
+
+107
+00:06:29,520 --> 00:06:33,870
+a particular location and
+particular collection of properties.
+
+108
+00:06:33,870 --> 00:06:37,870
+That are read off from one of these
+features that we created before.
+
+109
+00:06:37,870 --> 00:06:42,670
+So the effect of having this for
+each point feature in this list of
+
+110
+00:06:42,670 --> 00:06:47,250
+point features loop is
+that our markers list
+
+111
+00:06:47,250 --> 00:06:51,590
+will be populated with a single marker for
+each one of these significant earthquakes.
+
+112
+00:06:51,590 --> 00:06:56,340
+And then we can go ahead and add those
+markers to the map that's nice and
+
+113
+00:06:56,340 --> 00:07:00,300
+all but at that point,
+all of those markers look the same.
+
+114
+00:07:00,300 --> 00:07:01,440
+And so we have dots.
+
+115
+00:07:01,440 --> 00:07:03,560
+We have five different dots on our map.
+
+116
+00:07:03,560 --> 00:07:06,910
+But maybe we want to distinguish them,
+one from the other.
+
+117
+00:07:06,910 --> 00:07:10,510
+And so we could do it different for
+each loop and
+
+118
+00:07:10,510 --> 00:07:15,160
+look perhaps through our list of markers
+and customer the markers that we have.
+
+119
+00:07:15,160 --> 00:07:19,840
+And in the documentation for the folding
+maps library is a bit of a theme here.
+
+120
+00:07:19,840 --> 00:07:22,540
+If you want to look at that documentation
+we want to make sure that we understand
+
+121
+00:07:22,540 --> 00:07:26,390
+what functionality is available to us
+as we use these different data types.
+
+122
+00:07:26,390 --> 00:07:30,340
+One of the things that we can do to
+customize a marker is to change its color.
+
+123
+00:07:30,340 --> 00:07:34,900
+And so we can go ahead and check for
+each of the markers in our list.
+
+124
+00:07:34,900 --> 00:07:39,660
+Is it relatively recent, the event
+that is associated with this marker?
+
+125
+00:07:39,660 --> 00:07:42,435
+Or is its event older, more historic?
+
+126
+00:07:42,435 --> 00:07:45,405
+Vertical and so we could set
+some thresholds for ourselves.
+
+127
+00:07:45,405 --> 00:07:48,135
+For example, we could decide to style
+
+128
+00:07:48,135 --> 00:07:52,535
+the more recent IE after 2000
+earthquakes to be yellow.
+
+129
+00:07:52,535 --> 00:07:55,665
+We could style the older ones,
+the more historical ones to be gray.
+
+130
+00:07:55,665 --> 00:07:58,505
+And there's lots of opportunities for
+customization here.
+
+131
+00:07:58,505 --> 00:08:02,355
+We'll invite you to do that as part of
+your project when you're working through
+
+132
+00:08:02,355 --> 00:08:03,760
+the real live data.
+
+133
+00:08:03,760 --> 00:08:05,790
+Now, as we're doing this,
+
+134
+00:08:05,790 --> 00:08:09,980
+you might have noticed that we had
+to type in all of the features for
+
+135
+00:08:09,980 --> 00:08:13,156
+each of these five earthquakes,
+that we wanted to represent on our map.
+
+136
+00:08:13,156 --> 00:08:16,477
+And that's cumbersome.
+
+137
+00:08:16,477 --> 00:08:20,660
+It's time consuming,
+and it's not scalable.
+
+138
+00:08:20,660 --> 00:08:22,790
+And it's also not very dynamic.
+
+139
+00:08:22,790 --> 00:08:28,630
+So If an earthquake happened today or
+tomorrow, and I want to
+
+140
+00:08:28,630 --> 00:08:33,610
+depict it in my map, I would need to sit
+down and write down all of its attributes.
+
+141
+00:08:33,610 --> 00:08:38,315
+And create a new object and feed it
+into And I feed it into the list and
+
+142
+00:08:38,315 --> 00:08:42,175
+do everything I've just done with
+every earthquake that came in.
+
+143
+00:08:42,175 --> 00:08:43,755
+And so what we'd like to think about is,
+
+144
+00:08:43,755 --> 00:08:48,575
+is there a way to dynamically update this
+list of feature and then the list of
+
+145
+00:08:48,575 --> 00:08:53,405
+markers that are associated with
+them that will be more scalable?
+
+146
+00:08:53,405 --> 00:08:55,285
+And one thing that we've provided for
+
+147
+00:08:55,285 --> 00:08:59,850
+you in the starter code that we hope
+you will find interesting is a parser.
+
+148
+00:08:59,850 --> 00:09:07,510
+And that parser is designed to
+read in data from the USGS and
+
+149
+00:09:07,510 --> 00:09:13,440
+what the USGS provides to anyone who is
+interest in this data is an RSS feed.
+
+150
+00:09:13,440 --> 00:09:17,740
+Which is basically bulletin
+that get's send out As
+
+151
+00:09:17,740 --> 00:09:22,990
+a text stream with updated information
+about earthquakes from around the world.
+
+152
+00:09:22,990 --> 00:09:27,600
+And so we can download the current
+version of this text file, and
+
+153
+00:09:27,600 --> 00:09:29,850
+you'll be doing that as
+part of your project.
+
+154
+00:09:29,850 --> 00:09:35,130
+And if we feed that through the parse
+feed library that we've provided for
+
+155
+00:09:35,130 --> 00:09:39,350
+you What we could do is translate all
+of the earthquakes that are depicted
+
+156
+00:09:39,350 --> 00:09:42,970
+in this text file to a list of features.
+
+157
+00:09:42,970 --> 00:09:47,200
+And so, we invite you to read
+through the ParseFeed class.
+
+158
+00:09:47,200 --> 00:09:49,910
+It will be a bit of an exercise
+in tracing Java code,
+
+159
+00:09:49,910 --> 00:09:54,190
+there's some complicated
+Constructs that we use there, and
+
+160
+00:09:54,190 --> 00:09:57,260
+as you work your way through
+the various courses and specialization
+
+161
+00:09:57,260 --> 00:10:00,160
+you may feel more comfortable with
+some of the methods that we use.
+
+162
+00:10:00,160 --> 00:10:03,730
+It's not required for you to understand
+all the details of the parser for
+
+163
+00:10:03,730 --> 00:10:05,820
+this project or for this course.
+
+164
+00:10:05,820 --> 00:10:10,910
+But that's part of the beauty of extending
+libraries as you're building code.
+
+165
+00:10:10,910 --> 00:10:16,560
+The focus of your developments time and
+energy is to design and build
+
+166
+00:10:16,560 --> 00:10:20,470
+the project that you want, and you can
+use any tool at your disposal for that.
+
+167
+00:10:20,470 --> 00:10:24,260
+And some of those tools may be
+written with techniques that you're
+
+168
+00:10:24,260 --> 00:10:29,160
+not comfortable with, or that you don't
+have mastery over but that's okay so
+
+169
+00:10:29,160 --> 00:10:32,580
+long as you know how to incorporate
+the end results of those techniques, and
+
+170
+00:10:32,580 --> 00:10:35,670
+the end results of those tools into
+the work that you're trying to do.
+
+171
+00:10:35,670 --> 00:10:40,380
+So in particular you'll notice that in
+the parse feed class we have a method
+
+172
+00:10:40,380 --> 00:10:45,170
+that will return to us a list of point
+features but then we can reiterate over,
+
+173
+00:10:45,170 --> 00:10:51,080
+just like we did before and create a list
+of markers but then we can add two r nap.
+
+174
+00:10:51,080 --> 00:10:55,040
+So At the end of all this
+what we create is this
+
+175
+00:10:55,040 --> 00:10:59,610
+beautiful map of the world where
+we've got the markers corresponding
+
+176
+00:10:59,610 --> 00:11:03,900
+to the most up-to-date information
+that we have from this RSS feed.
+
+177
+00:11:03,900 --> 00:11:06,440
+And then we can go through the list
+of markers that we create,
+
+178
+00:11:06,440 --> 00:11:10,890
+iterate over it, and customize
+the display of each of these markers
+
+179
+00:11:10,890 --> 00:11:15,060
+Based on whichever features you find
+most interesting and most important.
+
+180
+00:11:15,060 --> 00:11:16,400
+So good luck and I hope you enjoy that.

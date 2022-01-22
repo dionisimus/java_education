@@ -1,0 +1,317 @@
+1
+00:00:00,000 --> 00:00:03,745
+[MUSIC]
+
+2
+00:00:03,745 --> 00:00:07,490
+So, in this video, we're going to look at
+a specific algorithm for sorting data.
+
+3
+00:00:07,490 --> 00:00:11,840
+And throughout the examples, we're just
+going to use an array of integers, but
+
+4
+00:00:11,840 --> 00:00:15,970
+the same ideas and principles translate
+whenever we have information that's
+
+5
+00:00:15,970 --> 00:00:21,140
+all of the same type and we can compare
+pairs of information of that type.
+
+6
+00:00:21,140 --> 00:00:25,130
+So by the end of this video, you'll
+be able to explain the selection sort
+
+7
+00:00:25,130 --> 00:00:28,050
+algorithm and write code for it yourself.
+
+8
+00:00:28,050 --> 00:00:32,150
+So let's get started and let's think
+of a toy example and it's always useful
+
+9
+00:00:32,150 --> 00:00:35,430
+when developing algorithms to think
+of a specific concrete example
+
+10
+00:00:35,430 --> 00:00:39,560
+that we can work through the steps of the
+algorithm with respect to this example and
+
+11
+00:00:39,560 --> 00:00:41,720
+then afterwards think
+about generalizing it.
+
+12
+00:00:41,720 --> 00:00:44,440
+So let's think about
+this array of integers.
+
+13
+00:00:44,440 --> 00:00:46,460
+And there's only six
+elements in this array so
+
+14
+00:00:46,460 --> 00:00:48,260
+we can probably do it in our head but
+
+15
+00:00:48,260 --> 00:00:53,560
+let's think about it systematically how
+we would go about sorting these elements.
+
+16
+00:00:53,560 --> 00:00:55,330
+And what we might do is, first of all,
+
+17
+00:00:55,330 --> 00:01:00,460
+say at the end I want the smallest element
+to be in the first position of the array,
+
+18
+00:01:00,460 --> 00:01:03,540
+the second smallest to be in the second
+position of the array, the third smallest
+
+19
+00:01:03,540 --> 00:01:06,490
+to be in the third position of the array,
+and so on and so forth.
+
+20
+00:01:06,490 --> 00:01:08,970
+And so let's look for
+the smallest element.
+
+21
+00:01:08,970 --> 00:01:10,450
+So we're looking through our entire array,
+
+22
+00:01:10,450 --> 00:01:12,870
+and we're looking for
+the smallest element.
+
+23
+00:01:12,870 --> 00:01:14,850
+And lo and behold, we found it.
+
+24
+00:01:14,850 --> 00:01:18,370
+It's 7, it's already in the first
+position, so we really don't need to do
+
+25
+00:01:18,370 --> 00:01:21,600
+anything else to it,
+it's already where it's supposed to be.
+
+26
+00:01:21,600 --> 00:01:24,610
+And so we don't need to
+ever think about it again.
+
+27
+00:01:24,610 --> 00:01:26,630
+It's in place, it's done.
+
+28
+00:01:26,630 --> 00:01:28,540
+And so
+now what we want to do is move forward and
+
+29
+00:01:28,540 --> 00:01:32,190
+say, well what about the rest
+of the elements in the array?
+
+30
+00:01:32,190 --> 00:01:33,840
+What's smallest among those?
+
+31
+00:01:33,840 --> 00:01:37,180
+Because whatever's smallest in
+the rest of the array is going to be
+
+32
+00:01:37,180 --> 00:01:39,070
+the second smallest out of everything.
+
+33
+00:01:39,070 --> 00:01:42,500
+And so we should bring it into
+the second position in the array.
+
+34
+00:01:42,500 --> 00:01:46,870
+Okay and so, we have now five elements
+to consider, one less then before and
+
+35
+00:01:46,870 --> 00:01:50,575
+we're looking for the smallest element and
+oh my goodness we're lucky again,
+
+36
+00:01:50,575 --> 00:01:55,390
+16 is the smallest it's already at the
+beginning, we don't need to do anything,
+
+37
+00:01:55,390 --> 00:01:56,920
+leave it in place.
+
+38
+00:01:56,920 --> 00:01:59,940
+Okay, so
+our problem is reduced further yet.
+
+39
+00:01:59,940 --> 00:02:03,910
+Now we need to find the third smallest
+element overall, but that's just
+
+40
+00:02:03,910 --> 00:02:08,950
+the smallest element in the remaining
+unsorted elements that we haven't thought
+
+41
+00:02:08,950 --> 00:02:14,140
+about yet, and so we've got four elements
+to consider and we want the smallest one.
+
+42
+00:02:14,140 --> 00:02:15,770
+Now we see that it's 43,
+
+43
+00:02:15,770 --> 00:02:19,530
+it's not the first one like we
+had in the previous two examples.
+
+44
+00:02:19,530 --> 00:02:22,980
+And so what we need to do is to
+put it in it's correct location.
+
+45
+00:02:22,980 --> 00:02:26,960
+And it's correct location as it would
+be in the sorted version of the array.
+
+46
+00:02:26,960 --> 00:02:33,090
+And so we need to swap it with 66 in order
+to move 43 to it's correct location.
+
+47
+00:02:33,090 --> 00:02:35,120
+Okay, and so we go ahead and do that.
+
+48
+00:02:35,120 --> 00:02:39,480
+And now 43 is in it's correct location for
+the sorted array, we don't think about it
+
+49
+00:02:39,480 --> 00:02:43,160
+anymore and we move on to look
+at the three remaining elements.
+
+50
+00:02:43,160 --> 00:02:47,290
+Look for their smallest,
+oh, 51 and now we move 51
+
+51
+00:02:47,290 --> 00:02:51,630
+to it's correct location where it's
+going to be once the array is sorted.
+
+52
+00:02:51,630 --> 00:02:54,460
+And so we have to swap it with 66,
+
+53
+00:02:54,460 --> 00:02:59,320
+go ahead and do that and now 51 is done
+and it's in it's correct location,
+
+54
+00:02:59,320 --> 00:03:03,640
+we don't need to think about it ever again
+and we look at the remaining two elements.
+
+55
+00:03:03,640 --> 00:03:06,830
+Look for the smallest among those,
+that's 66.
+
+56
+00:03:06,830 --> 00:03:11,720
+Swap it, and
+now we're actually done, because for
+
+57
+00:03:11,720 --> 00:03:17,210
+the last item, while the only reason it's
+in the last position is because it wasn't
+
+58
+00:03:17,210 --> 00:03:20,720
+the first smallest, it wasn't the second
+smallest, it wasn't the third smallest.
+
+59
+00:03:20,720 --> 00:03:23,180
+It's already in it's correct position.
+
+60
+00:03:23,180 --> 00:03:25,060
+We can't compare it to anything else.
+
+61
+00:03:25,060 --> 00:03:29,110
+And so when we've got to our last position
+in the array, we're actually done.
+
+62
+00:03:29,110 --> 00:03:31,100
+We don't need to do anything.
+
+63
+00:03:31,100 --> 00:03:36,570
+Okay and so what that means is that we've
+got a algorithm, a series of steps that we
+
+64
+00:03:36,570 --> 00:03:42,230
+can take algorithmically to perform
+this task, so we've got Selection Sort.
+
+65
+00:03:42,230 --> 00:03:43,670
+Being described here as,
+
+66
+00:03:43,670 --> 00:03:48,190
+first by the smallest element,
+then put in location zero in the array.
+
+67
+00:03:48,190 --> 00:03:51,640
+Then find the next smallest,
+put it in location one, etc.

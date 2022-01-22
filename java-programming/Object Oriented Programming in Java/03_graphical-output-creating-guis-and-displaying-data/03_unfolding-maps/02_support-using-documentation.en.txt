@@ -1,0 +1,99 @@
+[SOUND] In this support video, I'm gonna
+talk to you a little bit more about documentation and how you'll be
+using it throughout this course and particularly in the homework assignment, in the programming assignment that you'll
+get started on at the end of this module. So in the last lesson, I showed you this
+page for the processing documentation. And it has a bunch of methods that
+you'll find really useful when you're trying to draw shapes and
+change the colors of your GUI display. So let me just highlight a few,
+it's a pretty big page. The few that we looked at. So we're here in this 2D Primitives. We wanna look at ellipses, lines,
+points, rectangles, so on and so forth. We've got the color methods over here. You can change the background color,
+you can change the stroke color, the fill color of shapes,
+so on and so forth. And you can play with any of
+these methods if you want but let me give you a couple more
+that you might find useful. Particularly implementing the key of
+that map which is these typography functions down here. So these are methods that you can
+use to draw text on your GUI. So in particular this method here text(),
+that's what's gonna create a little box where you can put
+some text on the display. And then down here are a bunch of methods
+that allow you to change the attributes of that text. And again, with any of these methods, the best way to get to know how
+to use them is to click on them. And it'll take you to a page that
+gives you a whole bunch of examples on how to call that method and what visual implications that will have when you pass
+different arguments into the method. The other thing I want to talk
+about is the documentation for the unfolding maps library. So this is at this URL that
+you'll open up when you're doing your programming assignment. unfoldingmaps.org/javadoc/ and it gives
+you information about all of the classes and methods that are built in to
+the unfolding maps library and this is a library that you've downloaded as part
+of that starter code that you set up. But it can be pretty overwhelming because
+it seems to have a lot going on here. So, let me help you navigate. What you see up here in this corner
+right here, this is all of the classes, or sorry, all of the packages that
+are defined in the unfolding maps library. And as you know, from looking at the
+Eclipse starter code, packages are just little ways to organize your classes, so
+that they're a little bit more organized. And this windows's only really useful if
+you know what package your looking in. If you just know the name of the class,
+you don't necessarily want to look here. But if, for example you know that you
+only care about the map providers, which is this package right here, you
+could click on this and what it will do is it will limit this display down here,
+which is where you see all the classes. So if I click providers up here then what
+I see down here are only the classes that are part of that package. And that can be useful because this can
+give you all the different possibilities for what map providers you can use. So here's the Google map provider, here's a whole bunch of
+different Google map providers. There's a bunch of different other,
+there's some Microsoft map providers, there's an open map surfer provider. So there's a lot of different
+map providers that you can play around with and perhaps you already
+played around with in that first module. But if you don't know what
+package you're looking in, then you can just click
+here to All Classes, and this will give you a list of all the
+classes that are provided by this library. All right, so let me go to some classes
+in particular that you'll find useful for this part of the project. The first one is down here. It's called SimplePointMarker. This is the class that you're
+gonna be implementing. You're gonna be creating instances of this
+class to create those markers on your map. So you can click on it, and
+what you're gonna see on the right hand side is all of the different methods and
+fields that this class has. So you can see that it has a few
+different constructors and we recommend using this constructor
+here that takes a location. That will just create a simple
+point marker at a given location. And if you want a little more information
+about this constructor you can click on it. It gives you a slightly expanded
+view of the documentation so you can learn more about it that way. And then there's a whole bunch
+of different methods that you can use that are already implemented here. Now just a caution
+against this draw method. This draw method,
+you should not call explicitly. This is called automatically for you, so
+do not call the draw method explicitly. We're gonna learn more about
+that in the next module, but for now just know, don't call draw
+on the simple point marker. So then that might raise the question
+of how are you going to draw the simple point markers? Well, it all goes back
+to the unfolding map. So here's the other class that you'll want
+to rely on this Java documentation for, which is the sort of main class that your
+adding everything to to visualize the map. And so this unfolding map class
+you can see we've already looked a little bit at the various
+constructors that is has. But you can see that it has a whole
+bunch of different constructors. So you can play around with
+constructing these unfolding map objects using different
+parameters as you like. And then, you can see that
+it has a bunch of methods. It has a lot of methods. And in particular, for this assignment, some of the methods that you're going to
+find useful are things like addMarkers. For example, this method here takes a list
+of markers and adds them to the map. And once those markers are added to
+the map, you'll see them appear. This is, once they get added to the map
+that's what causes Java to automatically call the draw methods in the markers,
+and displays those markers for you. So those are just a few useful classes and methods that you'll want to use on your
+programming assignment for this module. So in addition to the documentation for
+processing and for unfolding maps, Java itself
+actually provides documentation for all of its libraries and classes and
+all the methods on those classes. And you can find that at this URL here and you can do a Google search for
+Java documentation. One thing to note is that if you're
+working in Java version 7, you'll wanna change that 8 to a 7 so that you match the
+version of Java that you're working with. But what you can see basically here is
+every single class that Java implements. And this can be really useful when you're
+working with a class that you don't really know that well or
+that you've forgotten a little bit about. So we encourage you to also use
+the standard Java documentation as well. In general it's really to your
+benefit to start to get comfortable playing around with this documentation and
+using this documentation. Because in the real world, and
+even in this class, we're not gonna tell you every single thing you need to know
+in order to use some library code. Using library code is extremely common. And there's no instructor sitting there,
+telling you, oh, you should use this class and
+you should use this method. It's up to you to read
+the documentation for that library, and hopefully it's good documentation, so that you can figure out how to use
+those classes and those methods yourself. This will also drive home the importance
+of documenting your own code. When you start writing code that
+you will provide to others to use, all they're gonna have is this
+documentation to go by, so it a really good idea to make it as
+complete and as useful as possible.

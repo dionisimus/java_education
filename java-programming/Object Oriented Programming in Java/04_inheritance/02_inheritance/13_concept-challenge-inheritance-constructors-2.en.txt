@@ -1,0 +1,45 @@
+[NOISE]
+>> Okay, here's another concept challenge for
+you, all about constructors, what happens when we call
+the constructor of the Student class? We've got our familiar classes, here. We've got our Person class, and
+we've got our Student class. And the constructors, check them out,
+they're a little bit different. We've got a one argument constructor for
+the Person class. A no argument constructor for
+the Student class. And then this additional method
+here in the Person class, which is setName, which will set
+the name field inside the Person class. So, we're gonna ask you to
+reason about what happens when you call the Student constructor. And, this is a concept challenge, so we want you to do the same procedure that
+you're used to, just take that video quiz, first by yourself, then find some people
+to chat about this question with, and then watch our learner video, and
+come back and watch our explanation. >> Hi, I'm Alicia. >> Hi, I'm Joanna. >> Hello, I'm Justin. >> Okay, so what did you guys put? >> I think it's a compiled time error,
+because Student doesn't have a name. So how can you set a name it doesn't have? >> Yeah, but I thought that
+since Student extends Person, it actually inherits the name from Person. >> Oh.
+>> So then, I actually put Student, because I thought that now it
+goes into the constructive for Person and sets the name to Student. >> Yeah, I also thought the same. One thing I did notice was that Student calls Person, no argument constructor. And I noticed that there was no
+argument constructed in Person, so I think that's the reason why
+it causes the compile error. >> Yeah, okay, so yeah,
+it's probably a compiled time error, then. >> Yeah.
+>> All right, now that you've worked through this
+yourself, let's work through it together. All we're doing here is we're calling
+the Student default constructor. So let's trace the code and
+see what happens. So we go over here to the Student
+default constructor, and you might be tempted to just directly
+go and execute this line that says this.setName to the string Student,
+but the problem with that is, you'd be forgetting that the compiler actually
+inserts some code into this constructor. If the first line of the constructor
+is not either a call to the superclass constructor or a call to a constructor within the class,
+the compiler is going to insert a line to the superclass constructor
+that takes no arguments for us. So, in order to trace through this code,
+we need to insert that line so we know exactly what's happening. So let's do that now. So now that we see this call to the
+superclass constructor, we know that we have to go up to the Person class and
+find the constructor with no arguments. So we go up to the Person class and we
+look for a constructor with no arguments. I don't really see one, do you? It's not there, and it turns out
+that Java will not insert one for us if we already had a constructor
+that takes an argument. So this is gonna cause a compile error. So if you choose compile error,
+you'd be correct. And the reason we're going
+through this example is, it turns out it happens a lot that
+you have a situation like this. I have it happen to me all the time and the compile error that you're
+gonna get is very, very cryptic. You're gonna read it and be like,
+what are you talking about, there is no constructor with no arguments? I didn't try to call
+a constructor with no arguments. Well, you didn't. But, Java did, and
+that's what's happening.

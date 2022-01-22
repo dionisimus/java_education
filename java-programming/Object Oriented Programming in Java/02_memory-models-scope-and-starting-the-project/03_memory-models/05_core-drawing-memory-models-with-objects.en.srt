@@ -1,0 +1,694 @@
+1
+00:00:00,000 --> 00:00:03,884
+[MUSIC]
+
+2
+00:00:03,884 --> 00:00:07,760
+So the last video, we drew memory
+models using only primitive type data.
+
+3
+00:00:07,760 --> 00:00:10,420
+In our case, last time it was integers.
+
+4
+00:00:10,420 --> 00:00:13,635
+But this time we're gonna add
+objects into our memory models.
+
+5
+00:00:13,635 --> 00:00:16,995
+So our goals for this video are the same
+basically as the last time,
+
+6
+00:00:16,995 --> 00:00:21,225
+only this time you will be able to draw
+memory models using object type data and
+
+7
+00:00:21,225 --> 00:00:25,555
+primitive type data, and reason about code
+that uses both primitives and objects.
+
+8
+00:00:26,915 --> 00:00:27,755
+So before we begin,
+
+9
+00:00:27,755 --> 00:00:31,100
+let's just give an example of
+the two different types of data.
+
+10
+00:00:31,100 --> 00:00:35,710
+You're probably already familiar with this
+from your earlier courses in Java, or
+
+11
+00:00:35,710 --> 00:00:40,730
+course, or courses in Java, that Java has
+two fundamentally different kinds of data.
+
+12
+00:00:40,730 --> 00:00:44,700
+It has primitive kinds of data,
+which consists of only eight types,
+
+13
+00:00:44,700 --> 00:00:49,240
+so boolean, byte, short, int,
+long, float, double, and char.
+
+14
+00:00:49,240 --> 00:00:52,660
+Those are the eight primitive
+types of data in Java.
+
+15
+00:00:52,660 --> 00:00:57,400
+Everything else is an object, whether
+it's an array or a user-defined class,
+
+16
+00:00:57,400 --> 00:01:01,150
+or a class that you find in a library,
+everything else is an object.
+
+17
+00:01:01,150 --> 00:01:04,467
+So obviously, learning how to add objects
+into our memory models is going to be
+
+18
+00:01:04,467 --> 00:01:07,200
+really important to reasoning about code.
+
+19
+00:01:07,200 --> 00:01:09,980
+So here's a short snippet of
+code right there, just two lines
+
+20
+00:01:09,980 --> 00:01:14,790
+that show an example of both a primitive
+type, the integer and an object type,
+
+21
+00:01:14,790 --> 00:01:19,150
+which is our class SimpleLocation,
+which we defined in the last lesson.
+
+22
+00:01:20,920 --> 00:01:25,470
+We're gonna reason through a short snippet
+of code that combines both integers,
+
+23
+00:01:25,470 --> 00:01:29,610
+primitives and
+these objects of type SimpleLocation.
+
+24
+00:01:29,610 --> 00:01:33,280
+We're gonna step through this code
+the same way we did in the last video and
+
+25
+00:01:33,280 --> 00:01:35,480
+draw the memory model as we go.
+
+26
+00:01:35,480 --> 00:01:37,570
+So to get this started, we've got a nice,
+
+27
+00:01:37,570 --> 00:01:39,850
+easy variable declaration and
+assignment statement.
+
+28
+00:01:39,850 --> 00:01:42,020
+And you already know
+how to handle this one.
+
+29
+00:01:42,020 --> 00:01:45,110
+This is just an integer just
+like we looked at before, var1.
+
+30
+00:01:45,110 --> 00:01:46,940
+We create a box.
+
+31
+00:01:46,940 --> 00:01:49,430
+We put the value of
+the variable in the box.
+
+32
+00:01:49,430 --> 00:01:51,180
+In this case, it's 52.
+
+33
+00:01:51,180 --> 00:01:52,230
+So, that was easy.
+
+34
+00:01:52,230 --> 00:01:53,610
+No problem.
+
+35
+00:01:53,610 --> 00:01:54,630
+Let's go onto the next line.
+
+36
+00:01:54,630 --> 00:01:57,350
+The next line turns out
+as pretty easy as well.
+
+37
+00:01:57,350 --> 00:01:59,350
+All it is is a variable declaration.
+
+38
+00:01:59,350 --> 00:02:01,190
+So, we handle this in the same way,
+
+39
+00:02:01,190 --> 00:02:04,070
+regardless of the fact that it's
+actually an object type variable.
+
+40
+00:02:04,070 --> 00:02:06,620
+That doesn't matter for
+our variable declaration.
+
+41
+00:02:06,620 --> 00:02:09,640
+So, we're gonna make a box and
+label it with the variable's name.
+
+42
+00:02:09,640 --> 00:02:10,290
+There it is.
+
+43
+00:02:11,390 --> 00:02:14,010
+It's this next line where
+things get interesting.
+
+44
+00:02:14,010 --> 00:02:15,900
+This is an assignment statement.
+
+45
+00:02:15,900 --> 00:02:18,670
+And what we're doing is we're
+creating a new instance, or
+
+46
+00:02:18,670 --> 00:02:21,360
+new object of type SimpleLocation.
+
+47
+00:02:21,360 --> 00:02:25,290
+And then we're setting
+the value ucsd equal to
+
+48
+00:02:25,290 --> 00:02:28,430
+whatever happens when we
+create that new object.
+
+49
+00:02:28,430 --> 00:02:31,480
+So now to understand what's going on here
+and how it's going to effect our memory
+
+50
+00:02:31,480 --> 00:02:35,230
+model, we need to look a little more
+closely at what happens when we
+
+51
+00:02:35,230 --> 00:02:39,650
+create a new object in Java and
+what's going on in your computer's memory.
+
+52
+00:02:39,650 --> 00:02:42,960
+So when we say new SimpleLocation,
+
+53
+00:02:42,960 --> 00:02:46,560
+what Java's doing is it's creating
+a new object, which means it's
+
+54
+00:02:46,560 --> 00:02:49,920
+allocating some space in your
+computer's memory to store that object.
+
+55
+00:02:51,210 --> 00:02:53,430
+So let's take a closer look.
+
+56
+00:02:53,430 --> 00:02:57,040
+What it's doing is creating that object,
+which is allocating some space, and
+
+57
+00:02:57,040 --> 00:03:00,808
+it's doing that in a part of your
+computer's memory called the heap.
+
+58
+00:03:00,808 --> 00:03:05,460
+It creates the new object in the heap,
+and then what it does is,
+
+59
+00:03:05,460 --> 00:03:10,610
+it puts that object at some location
+in the heap that has some address.
+
+60
+00:03:10,610 --> 00:03:15,793
+It's not necessarily, we don't know where
+Java chooses to create that object,
+
+61
+00:03:15,793 --> 00:03:20,450
+so we'll just represent that address
+where Java creates that object with
+
+62
+00:03:20,450 --> 00:03:22,121
+this little at sign 34.
+
+63
+00:03:22,121 --> 00:03:25,266
+So that object is at location 34.
+
+64
+00:03:25,266 --> 00:03:28,150
+It's just a random number that I
+picked off the top of my head.
+
+65
+00:03:28,150 --> 00:03:31,455
+It's wherever Java happened to
+create that object in the heap.
+
+66
+00:03:33,020 --> 00:03:36,380
+So now, what happens is,
+when we've created that new object, and
+
+67
+00:03:36,380 --> 00:03:39,710
+Java creates it at location 34,
+what it actually does is,
+
+68
+00:03:39,710 --> 00:03:43,760
+it doesn't place the whole
+object inside the box for ucsd.
+
+69
+00:03:43,760 --> 00:03:48,150
+It places a reference to that
+object in the box for ucsd.
+
+70
+00:03:48,150 --> 00:03:53,040
+In other words, it places
+the location of the object wherever
+
+71
+00:03:53,040 --> 00:03:58,860
+it's stored in the heap into the box for
+ucsd and that's called a reference.
+
+72
+00:03:58,860 --> 00:04:03,488
+So now I said 34 is just kind of a made up
+number, I don't necessarily know that this
+
+73
+00:04:03,488 --> 00:04:06,240
+SimpleLocation object
+exists in location 34.
+
+74
+00:04:06,240 --> 00:04:10,501
+So typically in my memory and location,
+sorry my memory model diagrams,
+
+75
+00:04:10,501 --> 00:04:14,282
+rather than making up arbitrary
+locations for all of my objects,
+
+76
+00:04:14,282 --> 00:04:17,992
+what I'm going to do is I'm going
+to draw an arrow from the box for
+
+77
+00:04:17,992 --> 00:04:22,490
+the variable ucsd to the object
+that's created in the heap.
+
+78
+00:04:22,490 --> 00:04:26,940
+But remember that this arrow really
+just represents this reference,
+
+79
+00:04:26,940 --> 00:04:29,620
+this number that represents the address or
+
+80
+00:04:29,620 --> 00:04:34,710
+something like an address of where to find
+this newly created object in the heap.
+
+81
+00:04:34,710 --> 00:04:37,990
+So it's actually a number in the box, but
+
+82
+00:04:37,990 --> 00:04:42,190
+that number effectively represents
+the location of the object in memory so
+
+83
+00:04:42,190 --> 00:04:45,770
+we draw an arrow from the box
+to that location in memory.
+
+84
+00:04:45,770 --> 00:04:48,890
+And that arrow is actually
+the value of the variable, ucsd.
+
+85
+00:04:50,730 --> 00:04:53,830
+All right, so now we've got our
+new object, we've got the value
+
+86
+00:04:53,830 --> 00:04:57,520
+of ucsd which is a reference to that
+newly created object in memory.
+
+87
+00:04:58,740 --> 00:05:01,650
+Now let's look a little bit closer
+at what that object looks like
+
+88
+00:05:01,650 --> 00:05:03,060
+over there in memory.
+
+89
+00:05:03,060 --> 00:05:06,360
+So this class SimpleLocation
+has two member variables and
+
+90
+00:05:06,360 --> 00:05:09,640
+both of these member variables
+are stored inside the object.
+
+91
+00:05:09,640 --> 00:05:12,170
+So we can open up that object,
+look inside, and
+
+92
+00:05:12,170 --> 00:05:15,250
+we can see that inside we actually
+have two variable declarations.
+
+93
+00:05:15,250 --> 00:05:17,280
+There's latitude and longitude.
+
+94
+00:05:17,280 --> 00:05:20,970
+So we're gonna draw boxes, just like
+we did before, with that integer var1.
+
+95
+00:05:20,970 --> 00:05:25,160
+We'll create a box for latitude and
+a box for longitude, and
+
+96
+00:05:25,160 --> 00:05:26,940
+label them both with their names.
+
+97
+00:05:26,940 --> 00:05:29,610
+Those boxes are going to store
+the values of latitude and
+
+98
+00:05:29,610 --> 00:05:32,520
+longitude when that object is created.
+
+99
+00:05:32,520 --> 00:05:34,120
+And where do they get their values?
+
+100
+00:05:34,120 --> 00:05:35,630
+Well they get them from the constructor.
+
+101
+00:05:35,630 --> 00:05:39,740
+Those values that get passed in are the
+values that go into the latitude and
+
+102
+00:05:39,740 --> 00:05:43,340
+longitude variables inside that object
+which is over there in the heap.
+
+103
+00:05:44,400 --> 00:05:48,570
+So this is the complete memory model
+after these first three lines of code.
+
+104
+00:05:48,570 --> 00:05:52,200
+We've got our primitive variable,
+var1, storing the value 52.
+
+105
+00:05:52,200 --> 00:05:56,930
+We got our object type variable ucsd which
+stores a reference, which is essentially
+
+106
+00:05:56,930 --> 00:06:01,830
+just a number representing the location
+of this newly created object in memory,
+
+107
+00:06:01,830 --> 00:06:04,390
+which we represent in our memory
+model diagram as an arrow.
+
+108
+00:06:04,390 --> 00:06:08,747
+And then we have our object, which has
+two variables inside of it, latitude and
+
+109
+00:06:08,747 --> 00:06:09,471
+longitude.
+
+110
+00:06:12,072 --> 00:06:14,831
+The next line down,
+creates another new variable, and
+
+111
+00:06:14,831 --> 00:06:18,586
+it creates another new object, and
+then will create a link between the two by
+
+112
+00:06:18,586 --> 00:06:22,090
+storing the reference to the new
+object in the new variable.
+
+113
+00:06:22,090 --> 00:06:25,370
+So let's take that down piece by piece,
+in order to draw this part of the memory
+
+114
+00:06:25,370 --> 00:06:28,900
+model, what you would do is you
+would handle the declaration first.
+
+115
+00:06:28,900 --> 00:06:29,930
+Draw that box.
+
+116
+00:06:29,930 --> 00:06:31,770
+Label it with the variable's name,
+which is lima.
+
+117
+00:06:33,100 --> 00:06:35,890
+Draw the new object over here in memory.
+
+118
+00:06:35,890 --> 00:06:38,880
+Put the two member variables
+that are inside that object
+
+119
+00:06:38,880 --> 00:06:42,815
+as boxes labeled with their
+names inside the object.
+
+120
+00:06:42,815 --> 00:06:47,315
+And then link the variable lima to
+the newly created object by placing
+
+121
+00:06:47,315 --> 00:06:52,761
+a reference inside the box for lima, which
+again is the value of the variable lima.
+
+122
+00:06:55,223 --> 00:06:57,095
+All right, so we're almost there.
+
+123
+00:06:57,095 --> 00:06:58,515
+This is the last line.
+
+124
+00:06:58,515 --> 00:07:03,040
+Let's look at this last line of code which
+actually changes the value of latitude
+
+125
+00:07:03,040 --> 00:07:04,960
+inside the variable lima.
+
+126
+00:07:04,960 --> 00:07:08,972
+So let's say, for example, we wanna tweak
+the value of the latitude variable,
+
+127
+00:07:08,972 --> 00:07:10,517
+make it a little more precise.
+
+128
+00:07:10,517 --> 00:07:14,922
+What happens in our memory model when we
+make this change to the variable latitude
+
+129
+00:07:14,922 --> 00:07:16,300
+inside the object lima?
+
+130
+00:07:17,760 --> 00:07:22,430
+Well, what Java says, when it sees
+a statement like this, lima.latitude,
+
+131
+00:07:22,430 --> 00:07:29,880
+what that means is it wants us to
+follow the arrow from lima into memory
+
+132
+00:07:29,880 --> 00:07:34,990
+to the object to finds there and find
+the variable latitude inside that object.
+
+133
+00:07:34,990 --> 00:07:37,720
+So that's how that we know we're
+not talking about latitude up
+
+134
+00:07:37,720 --> 00:07:39,480
+there in the ucsd object,
+
+135
+00:07:39,480 --> 00:07:44,260
+we're talking about latitude down in the
+lima object because we say lima.latitude.
+
+136
+00:07:44,260 --> 00:07:45,970
+So we go to the box for lima.
+
+137
+00:07:45,970 --> 00:07:50,970
+We follow the arrow and then look in that
+object to find the variable latitude.
+
+138
+00:07:50,970 --> 00:07:56,350
+We find it and that's where that
+value -12.04 is going to go.
+
+139
+00:07:56,350 --> 00:08:01,050
+So, we change the value of the variable
+latitude inside that object and
+
+140
+00:08:01,050 --> 00:08:02,970
+that's all there is for this code.
+
+141
+00:08:02,970 --> 00:08:06,550
+And here we have the final memory model,
+representing the state of all
+
+142
+00:08:06,550 --> 00:08:10,080
+the variables and all the memory in this
+code, when the code is finished running.
+
+143
+00:08:11,610 --> 00:08:13,840
+So now that you've mastered
+these memory models,
+
+144
+00:08:13,840 --> 00:08:18,930
+you should be able to reason about lots
+of different examples involving both
+
+145
+00:08:18,930 --> 00:08:22,290
+primitive variables and
+object type variables.
+
+146
+00:08:22,290 --> 00:08:25,750
+So we've got a sequence of challenges and
+practice videos for
+
+147
+00:08:25,750 --> 00:08:27,260
+you to try out your new skills.

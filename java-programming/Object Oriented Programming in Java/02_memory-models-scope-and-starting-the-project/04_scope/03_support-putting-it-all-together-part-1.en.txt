@@ -1,0 +1,42 @@
+[SOUND] So
+you've now heard a lot about objects. You've heard a lot about memory models. You've heard a lot about scope. You've worked through
+some concept challenges. And, now we have an opportunity
+to put it all together. So, buckle in, get ready,
+this is gonna be a tricky example, but we're gonna get through it together. So what we're going to do here is
+take the simple location class that you've talked about a lot with Christine
+and we're going to change it a bit. So remember the simple location we
+want to encode the latitude and the longitude and so far we've been
+encoding them as two instance variables, each of them is a number type
+of primitive type double. But now we're going to twist things up
+a bit and we're gonna define a new class, a different class, called a ray location. And we're still going to want to record
+the coordinates of that location, but we're gonna try to implement
+this by recording them in an array. So it's an array that
+were called quarts and the kind of information that's stored in
+that array are still gonna be doubles. All right, so, let's think about how we
+might define this class ArrayLocation and then try to use it in the main method. Okay, so, for our class definition
+we defined the instance variable coords of type array that's
+going to contain doubles. And then we're going to need
+to define the constructor. And the constructor when it receives
+a parameter that's specifying an array that indicates the coordinates,
+we're going to say this.coords = coords. That's going to be the definition
+of our constructor. And then we might go ahead and
+want to try to use these objects. And so in our main method you can
+imagine a situation where we start us off by defining a new array and
+initializing it to 5.0 and 0.0. And if you'll look on a map, you'll see that those are roughly
+the coordinates of accra in Africa. And so then we might want to create
+a location and label the variable that's pointing to that object, that array
+location object, call it accra and say. That variable accra is going to
+point to a new array location with the coordinates as specified
+in that previous array. And then we might want to go ahead and
+get ready to think about a different location and so
+we might want to use our coords array and store the value 32.9 in the zeroth
+index and -117.2 in the index 1. And if you recognize those, those
+are the coordinates for UC San Diego. And then, oh just to check that we haven't
+messed anything up, we might debug our code by printing out the coordinates
+pointed to by the accra variable. And so what I'd like to do now
+is pause and I want you to first of all think through what you
+think will happen when we do this. And second of all, open up Eclipse, type in this code, remember that you're
+file name is going to have to be ArrayLocation.java to
+match with the class name. And see what happens and
+see if you can explain what happens. And when we come back together,
+we'll work through the memory models and figure out together what happens and why.

@@ -1,0 +1,191 @@
+1
+00:00:00,025 --> 00:00:05,530
+[APPLAUSE]
+So in this support video,
+
+2
+00:00:05,530 --> 00:00:09,320
+we're going to take our work from the
+previous one, we've traced through some
+
+3
+00:00:09,320 --> 00:00:13,290
+code, and right now what we'd like to do
+is test it and test our understanding.
+
+4
+00:00:13,290 --> 00:00:15,960
+So by the end of this video
+you'll be able to write testeing
+
+5
+00:00:15,960 --> 00:00:19,760
+code to verify the output of your
+trace of some Java code execution,
+
+6
+00:00:19,760 --> 00:00:22,930
+and you'll be able to use
+Eclipse to run that code.
+
+7
+00:00:22,930 --> 00:00:24,590
+So make sure that you got Eclipse open and
+
+8
+00:00:24,590 --> 00:00:27,292
+we can work together as we're
+developing the testing code.
+
+9
+00:00:28,390 --> 00:00:31,675
+So we start with an example and
+this is a piece of code that we
+
+10
+00:00:31,675 --> 00:00:36,460
+used in the previous video and
+we've used memory models to understand and
+
+11
+00:00:36,460 --> 00:00:40,250
+to conjecture what's going to happen
+at the end of running this code.
+
+12
+00:00:40,250 --> 00:00:43,040
+So doing that,
+if you think back to the previous video,
+
+13
+00:00:43,040 --> 00:00:48,076
+you saw that we used memory models
+to expect that the system will
+
+14
+00:00:48,076 --> 00:00:53,223
+print var1: 19, var2: 18.
+
+15
+00:00:53,223 --> 00:00:55,500
+Okay, great, we've made this guess.
+
+16
+00:00:55,500 --> 00:00:56,970
+We're pretty confident.
+
+17
+00:00:56,970 --> 00:00:59,100
+We know how to use memory models.
+
+18
+00:00:59,100 --> 00:01:00,130
+But we'd still like to check.
+
+19
+00:01:00,130 --> 00:01:03,720
+And when we get to more complicated code
+that we've traced through it's good to
+
+20
+00:01:03,720 --> 00:01:06,230
+have another way of
+checking our understanding.
+
+21
+00:01:06,230 --> 00:01:08,840
+And so a very good technique to doing so
+
+22
+00:01:08,840 --> 00:01:14,060
+would be to put the code into
+a program that we can actually run.
+
+23
+00:01:14,060 --> 00:01:18,820
+All right, so what that means is that
+our code needs to be in a class,
+
+24
+00:01:18,820 --> 00:01:21,530
+because in Java everything is in classes.
+
+25
+00:01:21,530 --> 00:01:26,370
+And so we can create a new file in
+Eclipse and call that file, for
+
+26
+00:01:26,370 --> 00:01:30,170
+example, IntAssignmentTester.java.
+
+27
+00:01:30,170 --> 00:01:33,640
+Tester is indicating to ourselves
+that this is a testing class.
+
+28
+00:01:33,640 --> 00:01:38,770
+And so we define a new class,
+public class IntAssignmentTester.
+
+29
+00:01:38,770 --> 00:01:41,880
+Remember that the class name
+has to match the file name, and
+
+30
+00:01:41,880 --> 00:01:46,940
+then, in the main method for that class,
+we stick the code that we want to test,
+
+31
+00:01:46,940 --> 00:01:49,620
+because when we run the code for
+
+32
+00:01:49,620 --> 00:01:54,410
+this class, we know that the main method
+is going to be what's being executed.
+
+33
+00:01:54,410 --> 00:01:56,510
+Okay, so we've defined this new file.
+
+34
+00:01:56,510 --> 00:01:59,520
+We've put the code that we want
+to test into the main method.
+
+35
+00:01:59,520 --> 00:02:03,010
+And now in Eclipse we can run the code.
+
+36
+00:02:03,010 --> 00:02:07,290
+And so remember that in order to run code
+in Eclipse we have at least two choices.
+
+37
+00:02:07,290 --> 00:02:11,590
+We can use the icon that has the white
+triangle and the green circle.
+
+38
+00:02:11,590 --> 00:02:15,850
+Or you can go into the Run menu and
+run the code in that way.
+
+39
+00:02:15,850 --> 00:02:19,420
+And then in the window right
+underneath where we put in the code,
+
+40
+00:02:19,420 --> 00:02:21,080
+we'll be able to see the output.
+
+41
+00:02:21,080 --> 00:02:23,490
+And be really happy,
+because it matches what we expected.

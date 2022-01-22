@@ -1,0 +1,31 @@
+1
+00:00:00,000 --> 00:00:03,145
+[MUSIC]
+
+2
+00:00:06,988 --> 00:00:11,770
+As a software engineer, I use
+the words private and public everyday.
+
+3
+00:00:11,770 --> 00:00:15,870
+Even though it might sound trivial, it's
+extremely important to get those right.
+
+4
+00:00:15,870 --> 00:00:17,240
+You make everything private and
+
+5
+00:00:17,240 --> 00:00:21,250
+you end up with code that cannot
+interact with anything else.
+
+6
+00:00:21,250 --> 00:00:23,151
+You make everything public and
+
+7
+00:00:23,151 --> 00:00:27,694
+you end up with code that's extremely
+vulnerable, maybe even useless.

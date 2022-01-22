@@ -1,0 +1,147 @@
+[MUSIC] All right, we're in step three of three
+of this project to visualize average life expectancy around the world, and in this video we're going to build on
+what we've done in the previous two. So we've already set up the map, and
+we've already read in the data from the CSV file, which tells us the average
+life expectancy for each country, and now we want to translate that
+data into the colors of this map. And so hopefully you've implemented
+everything that we've done so far in Eclipse, and you're ready to get
+going and do this last piece with us. So the data we need in order to annotate
+the map with this information is not only the life expectancy for each country, but
+also how the countries look on the global map itself, what their coordinates are and
+how they occupy space in the map. So that information is located
+in a file in the data directory of the unfolding maps library, and
+it's called countries.geo.json. Json is an extension that indicates
+we've got formatted text. Now in order to pull all of this
+information together, the geographical information about the countries as
+well as their life expectancy's, we want to design some objects, or use some
+predefined objects, that help us organize both geographical locations and features,
+or properties, of these locations. So what we're going to think about are the
+underlying groupings of the properties and locations as distinct from their
+visual representations on the map. And in fact unfolding as a library, has some classes that are able to
+manage that distinction for us. So when we're just thinking about
+a particular location in the world and it's associated properties,
+we wanted to find or use the type feature. So use objective type feature for
+talking about locations with properties. But then when we want to translate those
+into some sort of visual representation on the map, then we could use the marker
+class in the unfolding library, which then lets us style how these properties might
+impact what we display on the map. So let's think about how we are going
+to store all of this information, because we have a lot of countries, and so we want to have a list of features,
+and also a list of markers. So this is another example
+of an abstract data type. In the previous video, we saw the abstract
+data type math, which let us store pairs of pieces of information,
+pairs of objects, and now we've got lists. And lists are relevant whenever we want a collection of objects that
+are ordered in some way. Okay, so we've already seen
+other examples of lists. For example,
+when you think about ArrayLists, then that's a particular
+implementation of a list. And we'll talk more about this data
+type and its implementations later, but for now,
+we want to think about a list of features, each one associated with a country. So, in our output we're going to
+think about all of the countries, each of the countries has associated
+its life expectancy in some other pieces of information, and so
+each of that is going to be a feature. We're going to have a feature object for
+each country, and we'll store them all,
+all of those feature objects in a list. Similarly, we'll have an marker object,
+a different marker object for each one of our markers, for
+each one of our countries, and so, in our class we need to
+declare a list of features and a list of markers, and
+this is how we do it. Now, instead of just declaring
+that's not good enough, if we want to work with these objects,
+we've declared them but now we need to build them, and so we need to create
+one feature and one marker per country. So here's the code that we might
+include in our setup method to do so. We're not gonna go into the details
+of how this goes about. We're using helper methods that are
+provided by the UnfoldingMaps library, and these are standard methods that you will
+use in your project and thread when you want to create features and markers for
+a list of countries that you already have. Once we have these features and markers,
+we want to add them to the map, which means that we display the markers,
+but not only do we want to add them to the
+map, we want to manipulate them, and what we'd like to do is shade them based on
+the colors, based on the life expectancy. Okay, so let's dig deeper into what
+this shading will look like, and we've defined a new helper method that
+will let us do that in some detail. Okay so this is our helper method, remember that our rule of thumb is that
+they are private unless there's a reason to open it up to the world,
+we're going to keep it private. And what we're going to do is go through
+all of the markers that we created, remember there's one marker for
+each country. And what we'd like to do is for each of
+the markers, for each of the countries and their associated markers, we're going
+to decide how to color the marker, and the coloring is going to
+depend on the life expectancy. Now, that life expectancy is a number. The number's typically between 45 and
+90, and that number is stored in
+the map data structure, right? We can access it by saying, hey map, I would like the value
+associated with a key country. And so if we pass as
+an argument to the get method of the map the countryID, or the string
+that has that countryID, and then the map object gives us back the value associated
+with that key and that's a float. Once we have that number, well we'd like
+to translate that number to a color, and this is where I apologize, because
+not only do we have two ways of using the word map in this sequence of videos,
+we now are including a third. So let's think back to all
+of the maps that we've used. We've got the global map,
+the picture, the map of the world. We've got maps of data structure,
+which associates keys with values. And now we've got map the method, and this is a built in method in the library
+and it's a really useful one. So this method map lets us take
+a number in a predefined range, and map it into its comparable location
+in a different range of values. So in this particular instance,
+we're taking the number which is life expectancy of the
+country that we're currently focusing on. And we know that the life expectancy
+ranges from between 40 in countries with the lowest average life
+expectancy to 90 at the top end, and we'd like to translate that to
+something to do with color. And if you think back to
+a couple of videos ago, when we first introduced colors and
+the RGB codes for colors, remember that those RGB channels had
+minimum value zero and maximum value 255. So we'd like to translate the range 40
+to 90 over to the range of zero to 255, so we're in a range of numbers that's
+more compatible with color codes, and this map method lets us do just that. Okay, so we invoke it. What we get back from it is a float, and
+we're going to cast it to an integer, because for the RGB colors,
+we just deal with integers. So in the RGB coding of
+colors we want an integer between zero and 255 for each of the three
+color channels, red green and blue. All right so, we've translated the life
+expectancy of the country that we're focusing on to some
+integer value between zero and 255, and what we'd like to do is,
+countries that have really low life expectancy relatively speaking
+are going to be colored bright red. So bright red means that the red
+channel should be at highest possible, somewhere around 255. And if we want the countries
+that have very high life expectancy to be colored bright blue, then
+for those the blue should be high, 255, and all the other channels
+should be pretty low, and so we can define the color of
+the marker appropriately. So the red channel is going to be
+the first argument of the color method, and it's going to be 255 minus
+the number that we just calculated. So if the color level that we calculated
+is zero, then the color that we're setting our marker to is going to be very
+close to 255, it's gonna be 255. So it's gonna be a very, very red marker,
+and the other two arguments are going to be very low, and so
+we'll see that bright red color. And on the other side,
+if the color level that we calculated corresponds to a really high life
+expectancy, then we're gonna get a large number, which means that the red channel,
+that first argument to the color method, will be very low, and so
+our marker will be a bright blue. Now, think back about this logic
+that you see in this code, and we have an if else in there, and if that if else is dependent
+on the conditional statement if lifeExpMap.containsKey(countryId),
+well what on Earth does that mean? It could be that the marker that
+we're looking at currently has a country ID that doesn't show up
+in the file of life expectancy's. It could be that when the World Bank
+put together all of their data on life expectancy's, they weren't able
+to reach the statistics of one particular country and we don't want our
+code to crash just because we don't have information about a particular country. So what we're going to do is check,
+we're gonna ask our map, the map that associates countries with
+life expectancy if they actually have a value of life expectancy for
+the country that we care about. And if there is such a life expectancy for
+the country we care about, then we go ahead and
+do our calculation that we just did, and we color the marker appropriately. But if we don't, then we want to have
+some sort of default setting for what that color's going to be, and remember when Christine was talking in her
+supplementary video about color codes, she mentioned that if we set
+all three colors, R, G, and B to the same value,
+then what we get is a shade of grey. So our default color for the marker is
+just going to be a shade of grey if we don't happen to have information about the
+life expectancy of a particular country. All right, we've done it. What we've done now is we've
+colored the whole world based on the data in
+the life expectancy file. And what's really powerful about
+the techniques that we've gone through in these three videos, is that really most of
+what we're talking about doesn't depend on the fact that we're talking
+about life expectancies. Any time we have a data file that tells us
+some values associated with country IDs. We could do exactly the same process and color the world based on all sorts
+of other information and data. So I hope now you're excited about
+doing these kinds of projects. What you might wanna do is look for additional data sets about
+things that you care about. Or, you could also punch right
+back into your project and think about how to use these techniques
+when you're customizing your markers and displaying the data that you're
+working with in the project.

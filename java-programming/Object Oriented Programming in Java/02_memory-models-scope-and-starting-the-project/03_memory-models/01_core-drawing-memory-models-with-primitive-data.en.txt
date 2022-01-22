@@ -1,0 +1,65 @@
+[MUSIC] Okay, so now that you've learned how to
+create classes and objects, in this video we're gonna show you a powerful way
+of reasoning about your code and the variables in your code that's
+called drawing memory models. So by the end of this video,
+you'll be able to draw memory models for variables that contain primitive type
+data like ints and double and floats. And you'll be able to update those memory
+models to reason about the values of those variables in your code as your code runs,
+to try and figure out what is your
+code actually doing. Now this is a really interactive lesson. So we want you to get out your pencil,
+get out your paper, and draw these memory models
+right along with us. Now, when I ask my students to get
+out pencil and paper in class, they kind of look at me like I'm crazy. Like, this is computer science. Why do I need a pencil and
+a piece of paper? And I actually usually walk around the
+room and say, hey, get out your pencil. Get out your paper. Now obviously I can't do that with you,
+but, you know, if it helps, imagine me kind of knocking on your door, knocking
+on your car window, asking you to get out your paper and your pencil, to draw
+these memory models right along with us. It will be a lot more interesting, and
+you'll learn the concepts a lot better. So, to warm us up let's
+look at this piece of code. And what I'd like you to do is just
+trace through this code and tell me what are the values of the variables var1 and
+var2 at the end of this code. In other words, what does this code print? All right, so
+if you got that example right, great job. This actually turns out to
+be a somewhat tricky example that a lot of people have trouble with. So if you did have a lot
+of trouble with it, don't worry because what we're going to
+do now is we're going to use this example in order to illustrate this
+idea of drawing memory models. So that you'll be able to get questions
+like this right forever, so for all of the future. And why is it important to be able
+to reason about code like this, rather than just write code? Well it turns out that people who are
+better at writing code are also better at reasoning about their code and vice versa. So practicing reasoning about
+code is a really important skill in order to become a better coder and
+software developer. So, let's step through this code,
+line by line and draw the memory model for this code as it runs. Let's start here on the first one. That first line is a variable declaration. What we're actually telling Java is hey, Java, I want some new space to
+store a value of type integer. And that space I'm gonna
+label with the label var1. So in my memory model what I'm going
+to do is I'm gonna draw a box. That represents the space that I'm gonna
+have to represent this variable and label it with the name of the variable. So there we go. And you should do the same
+on your piece of paper. The next line of code here
+is an assignment statement. So what that's telling Java is, hey Java take the value on the right
+hand side which in this case is 52 and place it into the variable in the left
+hand side which in this case is var1. So in our memory model, we'll take that
+52 and we'll put it in the box for var1 which is where var1 sorts it's value. All right, next line. Another variable declaration, so we need another box labeled with
+the new variable name which is var2. The next line is another
+assignment statement. Now this is slightly more complicated than
+the last assignment statement because the thing on the right hand side
+is not just a number like 52, it's another variable. So what we need to do is we need
+to get the value out of var1 so we can then place that value
+into the variable var2. So we look in the box for var1,
+we see the value there is 52. So what we'll do is we'll copy that
+value over here into the variable var2. So now var1 and
+var2 both store the value 52. Now this is a really
+important point that var1 and var2 are not the same variable,
+they're not tied together in any way. They just temporarily
+store the same value. Because its assignment statement told
+Java to take the value that's in var1 and put it into var2, but there's no
+connection between these two variables, which you can see in
+the memory model diagram. So now when we go onto the next slide,
+which is another assignment statement, and take the value 127 and put it into var1, you'll see that only the value
+of variable var1 will change. So I'll take that 127,
+replace the 52 that was already there, and the new value of var1 is 127. Now we're down here at the last line,
+which is this print statement. And, all that's left to do is read
+the values out of those boxes for the variables. So, when I print out var one and var two
+they'll have the values that you see in the boxes of 127 for
+var one and 52 for var two. And, this is what prints. So those are some simple memory models
+using just primitive type data, and in the next video we're gonna show you
+how to get more complicated using objects.

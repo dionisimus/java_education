@@ -1,0 +1,59 @@
+All right in Leo's videos you learned how
+objects are created from the inside out. So in this concept challenge you're
+going to be tracing through some code that calls some constructors. And the goal is to figure out what gets
+printed as these constructors run. So you know the drill. You've done these before. What you're gonna need
+to do is you're going to go be somewhere where you can spend
+a little time on this and pause the video. Answer the quiz by yourself first. And then find some friends. Find some people you're taking
+the class with ether in person or on the online forums. Try to discuss this question. See if you all agree. And then watch our learner video. And finally watch our explanation. So if you're ready to go
+here's the challenge. You can see over here that
+we've got two classes. There's a person class and
+a student class. And those classes have
+a number of constructors. The person class has a single constructor. It takes one argument, a string. And the student class has
+two different constructors. A no argument constructor and then public
+constructor that takes one argument. So what we're gonna do is we're gonna make
+a single call to the Student constructor to the default constructor right up here. And it's gonna create a Student object. And the question for you is what
+gets printed when we make that call? So go ahead and pause the video and
+take the online quiz that's coming up. I'm Linda. >> I'm Mustafa. >> Hello, I'm Jason. >> Okay, so for this first question,
+I was a little unclear on the answer. My instinct was to go for E for
+lets just say #2, because the new student is the the no-argument constructor in
+the student class, it just prints out #2. >> I'm not,
+I was really confused about this too. >> My first system was like,
+probably three, two, one. Because when you have a class and it goes through constructor it goes
+from inner one into most other one. >> Right. >> But
+then I look at it more carefully and I realized
+>> When you go to students there's a super implicitly inserted. >> I was confused cuz the no
+argument constructor, the first cold and the other this
+constructor with the student. So I didn't know if it went
+first to the super class or to the other constructor
+within the one class. >> Cuz it would construct within the one
+class called super, as well, so. >> All right, so now that you've had an opportunity to
+work through this problem yourself and hopefully discuss it with some people,
+let me go through our explanation. So what we're doing is creating
+a Student object right up here, Student s = new Student. And you can see that we're
+calling the default constructor. So we're gonna jump right over here to the
+defunct constructor for the Student class. So public Student,
+no argument constructor. But if you look at the first
+line of this constructor, you can see what it immediately does is
+it calls the one argument constructor for the Student class, which has one argument,
+which is the string Student. So we're gonna jump down here to
+the one argument constructor and start executing there. We start executing there but again,
+the first line in that constructor says to call the constructor of
+the super class which is Person. We pass in an argument, which is what
+it requires qnd we go up here and start executing the constructor for
+the person class. We haven't printed anything yet. We haven't really executed
+any lines at all. We're just sort of getting ready
+to call these constructors. So, we're gonna go over here. Get ready to call the one argument
+constructor for the person class and the first thing that it says
+is that it sets this.name. So, the name field in this object
+we're creating equal to n, the string we pass in. That's fine, and then the next
+line here is a print statement. So System.out.print("#1 "). This is the first print
+statement we've encountered. So we're gonna print #1. That's the first thing that gets printed. So where does it go now? Well, we're finished
+with this constructor. Here's the end of it. So we have to remember where we came from. Well where did we come from? Well we came from down here,
+the one argument constructor for the student class. And we just finished calling the
+constructor for the super class and we're now here on this line that says to print
+out #3, so that's what we'll do next. Print number #3, so
+that's the second thing that gets printed. Finally, this constructor ends. I will go back to where we came from,
+which was the first constructor, the default constructor for
+the student class. We just finished the call
+to the one constructor. We're down here at this print statement
+and we're going to print out the #2. And that's all there is to it. So this is what gets printed, #1, #2, #3.

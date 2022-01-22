@@ -1,0 +1,437 @@
+1
+00:00:03,831 --> 00:00:08,210
+All right in Leo's videos you learned how
+objects are created from the inside out.
+
+2
+00:00:08,210 --> 00:00:11,480
+So in this concept challenge you're
+going to be tracing through some code
+
+3
+00:00:11,480 --> 00:00:12,660
+that calls some constructors.
+
+4
+00:00:12,660 --> 00:00:16,900
+And the goal is to figure out what gets
+printed as these constructors run.
+
+5
+00:00:16,900 --> 00:00:17,550
+So you know the drill.
+
+6
+00:00:17,550 --> 00:00:18,368
+You've done these before.
+
+7
+00:00:18,368 --> 00:00:19,820
+What you're gonna need
+to do is you're going to
+
+8
+00:00:19,820 --> 00:00:23,700
+go be somewhere where you can spend
+a little time on this and pause the video.
+
+9
+00:00:23,700 --> 00:00:26,700
+Answer the quiz by yourself first.
+
+10
+00:00:26,700 --> 00:00:27,770
+And then find some friends.
+
+11
+00:00:27,770 --> 00:00:30,760
+Find some people you're taking
+the class with ether in person or
+
+12
+00:00:30,760 --> 00:00:32,130
+on the online forums.
+
+13
+00:00:32,130 --> 00:00:33,890
+Try to discuss this question.
+
+14
+00:00:33,890 --> 00:00:35,630
+See if you all agree.
+
+15
+00:00:35,630 --> 00:00:37,960
+And then watch our learner video.
+
+16
+00:00:37,960 --> 00:00:40,810
+And finally watch our explanation.
+
+17
+00:00:40,810 --> 00:00:43,380
+So if you're ready to go
+here's the challenge.
+
+18
+00:00:43,380 --> 00:00:45,490
+You can see over here that
+we've got two classes.
+
+19
+00:00:45,490 --> 00:00:48,650
+There's a person class and
+a student class.
+
+20
+00:00:48,650 --> 00:00:50,910
+And those classes have
+a number of constructors.
+
+21
+00:00:50,910 --> 00:00:52,500
+The person class has a single constructor.
+
+22
+00:00:52,500 --> 00:00:54,490
+It takes one argument, a string.
+
+23
+00:00:54,490 --> 00:00:56,430
+And the student class has
+two different constructors.
+
+24
+00:00:56,430 --> 00:01:00,410
+A no argument constructor and then public
+constructor that takes one argument.
+
+25
+00:01:01,410 --> 00:01:05,000
+So what we're gonna do is we're gonna make
+a single call to the Student constructor
+
+26
+00:01:05,000 --> 00:01:07,090
+to the default constructor right up here.
+
+27
+00:01:07,090 --> 00:01:10,190
+And it's gonna create a Student object.
+
+28
+00:01:10,190 --> 00:01:13,470
+And the question for you is what
+gets printed when we make that call?
+
+29
+00:01:14,660 --> 00:01:17,686
+So go ahead and pause the video and
+take the online quiz that's coming up.
+
+30
+00:01:17,686 --> 00:01:19,763
+I'm Linda.
+
+31
+00:01:19,763 --> 00:01:22,300
+>> I'm Mustafa.
+
+32
+00:01:22,300 --> 00:01:22,910
+>> Hello, I'm Jason.
+
+33
+00:01:23,930 --> 00:01:28,970
+>> Okay, so for this first question,
+I was a little unclear on the answer.
+
+34
+00:01:28,970 --> 00:01:35,640
+My instinct was to go for E for
+lets just say #2, because the new student
+
+35
+00:01:35,640 --> 00:01:40,520
+is the the no-argument constructor in
+the student class, it just prints out #2.
+
+36
+00:01:40,520 --> 00:01:45,790
+>> I'm not,
+I was really confused about this too.
+
+37
+00:01:45,790 --> 00:01:49,140
+>> My first system was like,
+probably three, two, one.
+
+38
+00:01:49,140 --> 00:01:51,550
+Because when you have a class and
+
+39
+00:01:51,550 --> 00:01:55,840
+it goes through constructor it goes
+from inner one into most other one.
+
+40
+00:01:55,840 --> 00:01:56,540
+>> Right.
+
+41
+00:01:56,540 --> 00:01:58,460
+>> But
+then I look at it more carefully and
+
+42
+00:01:58,460 --> 00:02:02,190
+I realized
+>> When you go to students
+
+43
+00:02:02,190 --> 00:02:05,340
+there's a super implicitly inserted.
+
+44
+00:02:05,340 --> 00:02:08,860
+>> I was confused cuz the no
+argument constructor,
+
+45
+00:02:08,860 --> 00:02:12,240
+the first cold and the other this
+constructor with the student.
+
+46
+00:02:12,240 --> 00:02:14,870
+So I didn't know if it went
+first to the super class or
+
+47
+00:02:14,870 --> 00:02:18,480
+to the other constructor
+within the one class.
+
+48
+00:02:18,480 --> 00:02:21,080
+>> Cuz it would construct within the one
+class called super, as well, so.
+
+49
+00:02:21,080 --> 00:02:23,290
+>> All right, so
+
+50
+00:02:23,290 --> 00:02:25,770
+now that you've had an opportunity to
+work through this problem yourself and
+
+51
+00:02:25,770 --> 00:02:29,670
+hopefully discuss it with some people,
+let me go through our explanation.
+
+52
+00:02:29,670 --> 00:02:32,896
+So what we're doing is creating
+a Student object right up here,
+
+53
+00:02:32,896 --> 00:02:34,760
+Student s = new Student.
+
+54
+00:02:34,760 --> 00:02:37,220
+And you can see that we're
+calling the default constructor.
+
+55
+00:02:37,220 --> 00:02:40,600
+So we're gonna jump right over here to the
+defunct constructor for the Student class.
+
+56
+00:02:40,600 --> 00:02:43,710
+So public Student,
+no argument constructor.
+
+57
+00:02:43,710 --> 00:02:45,530
+But if you look at the first
+line of this constructor,
+
+58
+00:02:45,530 --> 00:02:49,750
+you can see what it immediately does is
+it calls the one argument constructor for
+
+59
+00:02:49,750 --> 00:02:53,700
+the Student class, which has one argument,
+which is the string Student.
+
+60
+00:02:53,700 --> 00:02:56,770
+So we're gonna jump down here to
+the one argument constructor and
+
+61
+00:02:56,770 --> 00:02:57,760
+start executing there.
+
+62
+00:02:59,060 --> 00:03:02,630
+We start executing there but again,
+the first line in that constructor says to
+
+63
+00:03:02,630 --> 00:03:06,120
+call the constructor of
+the super class which is Person.
+
+64
+00:03:06,120 --> 00:03:10,170
+We pass in an argument, which is what
+it requires qnd we go up here and
+
+65
+00:03:10,170 --> 00:03:12,100
+start executing the constructor for
+the person class.
+
+66
+00:03:12,100 --> 00:03:13,440
+We haven't printed anything yet.
+
+67
+00:03:13,440 --> 00:03:16,030
+We haven't really executed
+any lines at all.
+
+68
+00:03:16,030 --> 00:03:19,320
+We're just sort of getting ready
+to call these constructors.
+
+69
+00:03:19,320 --> 00:03:20,670
+So, we're gonna go over here.
+
+70
+00:03:20,670 --> 00:03:24,040
+Get ready to call the one argument
+constructor for the person class and
+
+71
+00:03:24,040 --> 00:03:27,080
+the first thing that it says
+is that it sets this.name.
+
+72
+00:03:27,080 --> 00:03:30,890
+So, the name field in this object
+we're creating equal to n,
+
+73
+00:03:30,890 --> 00:03:32,620
+the string we pass in.
+
+74
+00:03:32,620 --> 00:03:35,850
+That's fine, and then the next
+line here is a print statement.
+
+75
+00:03:35,850 --> 00:03:38,480
+So System.out.print("#1 ").
+
+76
+00:03:38,480 --> 00:03:41,118
+This is the first print
+statement we've encountered.
+
+77
+00:03:41,118 --> 00:03:45,878
+So we're gonna print #1.
+
+78
+00:03:45,878 --> 00:03:48,180
+That's the first thing that gets printed.
+
+79
+00:03:48,180 --> 00:03:49,860
+So where does it go now?
+
+80
+00:03:49,860 --> 00:03:52,420
+Well, we're finished
+with this constructor.
+
+81
+00:03:52,420 --> 00:03:53,220
+Here's the end of it.
+
+82
+00:03:53,220 --> 00:03:55,400
+So we have to remember where we came from.
+
+83
+00:03:55,400 --> 00:03:56,610
+Well where did we come from?
+
+84
+00:03:56,610 --> 00:03:59,370
+Well we came from down here,
+the one argument constructor for
+
+85
+00:03:59,370 --> 00:04:01,180
+the student class.
+
+86
+00:04:01,180 --> 00:04:06,050
+And we just finished calling the
+constructor for the super class and we're
+
+87
+00:04:06,050 --> 00:04:12,140
+now here on this line that says to print
+out #3, so that's what we'll do next.
+
+88
+00:04:12,140 --> 00:04:16,630
+Print number #3, so
+that's the second thing that gets printed.
+
+89
+00:04:17,800 --> 00:04:19,690
+Finally, this constructor ends.
+
+90
+00:04:19,690 --> 00:04:22,810
+I will go back to where we came from,
+which was the first constructor,
+
+91
+00:04:22,810 --> 00:04:25,080
+the default constructor for
+the student class.
+
+92
+00:04:25,080 --> 00:04:27,640
+We just finished the call
+to the one constructor.
+
+93
+00:04:27,640 --> 00:04:31,791
+We're down here at this print statement
+and we're going to print out the #2.
+
+94
+00:04:33,922 --> 00:04:35,230
+And that's all there is to it.
+
+95
+00:04:35,230 --> 00:04:39,070
+So this is what gets printed, #1, #2, #3.

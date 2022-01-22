@@ -1,0 +1,25 @@
+[MUSIC] The programming assignment for the first
+course module is really aimed at just getting us up to speed and
+running with Unfolding Maps. I know that many of you are eager to get
+programming, but before we can get there, you're gonna have to get Unfolding Maps
+set up and running in Eclipse first. So please follow through our texts and our video guides to helping setting up,
+help setup Unfolding Maps for your system, and then turn to the forums
+if you run into problems. Before we get there,
+what I wanted to show you is an example of a finished programming assignment for
+this first module. We'll give you the code to create the map
+on the left, which is centered on us, here at UC San Diego. Specifically, we're
+really right about here. Notice that on this map I'm
+able to zoom in and out. So zoomed out, I'm able to zoom in. I'm able to zoom in toward UC San Diego. And we're really right over here. Now being able to zoom like
+this is pretty amazing. A lot of work goes into making
+something like that happen, including getting the map data from
+Google Maps, so the handling of my mouse, scrolling in and out. These amazing features are really just
+part of the libraries and Unfolding Maps and processing, which is why we're
+using these libraries for this project. All right, back to our assignment. We're gonna give you the code
+to produce the map on the left, which is zoomed into San Diego. What we want you to do is to
+create the map on the right, which we zoomed in to where you live. Now I live in San Diego these days, but I grew up in Pullman, Washington, which
+is on the east side of Washington State, and Washington state's on
+the West Coast of the United States. So this is really just
+a small program assignment, just to get started with Unfolding Maps. The big step is really just scanning
+Unfolding Maps and working on your system. So select the right video guide for
+installing Unfolding Maps, Java, and Eclipse on your personal system. And I'll see you again for
+the assignment walkthrough.

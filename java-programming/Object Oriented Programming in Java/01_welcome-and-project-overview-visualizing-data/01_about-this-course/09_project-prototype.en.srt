@@ -1,0 +1,354 @@
+1
+00:00:00,000 --> 00:00:03,880
+[MUSIC]
+
+2
+00:00:03,880 --> 00:00:08,025
+Hello again, I'm Mia Minnes and I'm
+a Professor of Computer Science here at
+
+3
+00:00:08,025 --> 00:00:12,234
+UC San Diego, and my background and
+my research is at the intersection between
+
+4
+00:00:12,234 --> 00:00:16,600
+mathematics and computer science,
+between theory and applications.
+
+5
+00:00:16,600 --> 00:00:20,410
+And what I really like to think
+about is the power of algorithms.
+
+6
+00:00:20,410 --> 00:00:25,030
+I like to think about abstract ways of
+organizing and structuring data, and then
+
+7
+00:00:25,030 --> 00:00:30,750
+applying them to really interesting real
+world problems and solving those problems.
+
+8
+00:00:30,750 --> 00:00:35,020
+And you'll have the opportunity to do
+just that in the project in this course.
+
+9
+00:00:35,020 --> 00:00:39,210
+And so what this video is about is showing
+you a prototype of the project and
+
+10
+00:00:39,210 --> 00:00:43,350
+getting you really excited to jump right
+in and get started developing yourself.
+
+11
+00:00:43,350 --> 00:00:46,960
+So, if you take a look
+at this map over here
+
+12
+00:00:46,960 --> 00:00:50,220
+you'll get a picture of what you'll
+be developing in the project.
+
+13
+00:00:50,220 --> 00:00:54,940
+And I'd like to start off by saying that
+the machine, the engine under the hood
+
+14
+00:00:54,940 --> 00:00:59,160
+that helps us do the visualizations on
+this map that you're seeing is really
+
+15
+00:00:59,160 --> 00:01:05,100
+thanks to Till Nagel and his team at the
+University of Applied Sciences in Potsdam,
+
+16
+00:01:05,100 --> 00:01:08,620
+and all of the other contributors
+to the Unfolding Maps Library.
+
+17
+00:01:08,620 --> 00:01:12,220
+Part of what we're thinking about and
+developing in this course
+
+18
+00:01:12,220 --> 00:01:16,330
+is the ability to build large scale
+projects using existing libraries.
+
+19
+00:01:16,330 --> 00:01:20,860
+And we're really fortunate to have this
+library as the foundation for the project.
+
+20
+00:01:20,860 --> 00:01:23,567
+So let's take a look at the project and
+see what we're doing.
+
+21
+00:01:23,567 --> 00:01:26,340
+You'll see,
+we have a map of the world in front of us.
+
+22
+00:01:26,340 --> 00:01:32,130
+And there's all sorts of markers,
+and features, and stuff on this map.
+
+23
+00:01:33,150 --> 00:01:34,570
+Now, don't worry.
+
+24
+00:01:34,570 --> 00:01:38,480
+We will walk you through
+the project step by step so
+
+25
+00:01:38,480 --> 00:01:41,980
+don't be intimidated by the amount of
+information that's being displayed.
+
+26
+00:01:41,980 --> 00:01:45,440
+I hope that you're inspired by
+the amount of information, and
+
+27
+00:01:45,440 --> 00:01:47,660
+this information is real live data.
+
+28
+00:01:47,660 --> 00:01:51,480
+And so, it's really interesting
+that by the end of this process,
+
+29
+00:01:51,480 --> 00:01:54,970
+you'll have a way of
+interacting with live data, and
+
+30
+00:01:54,970 --> 00:01:59,490
+the data that we have in this project
+is from earthquakes around the world.
+
+31
+00:01:59,490 --> 00:02:05,161
+It's put together by the USGS,
+taking seismic information from all over.
+
+32
+00:02:05,161 --> 00:02:10,640
+And what we're doing in this visualization
+is depicting each earthquake as
+
+33
+00:02:11,940 --> 00:02:16,310
+either a square or a circle on this map,
+and then coloring that square or
+
+34
+00:02:16,310 --> 00:02:22,460
+circle on the map based on attributes
+like magnitude, like depth and like time.
+
+35
+00:02:22,460 --> 00:02:25,220
+So, how long ago the earthquake happened.
+
+36
+00:02:25,220 --> 00:02:28,320
+So, all of that is encoded in this key.
+
+37
+00:02:28,320 --> 00:02:32,790
+And you will be able to create and style
+your own legend as well and what that key
+
+38
+00:02:32,790 --> 00:02:39,170
+tells us is for example that this red
+square marker over here is an earthquake
+
+39
+00:02:39,170 --> 00:02:43,240
+that happened in the middle of the ocean,
+sort of south, close to Antarctica.
+
+40
+00:02:43,240 --> 00:02:45,170
+And it was a relatively
+shallow earthquake.
+
+41
+00:02:45,170 --> 00:02:49,499
+And the fact that the square's not too
+big, not too small means it was maybe
+
+42
+00:02:49,499 --> 00:02:53,090
+an average size in terms
+of magnitude earthquake.
+
+43
+00:02:53,090 --> 00:02:57,290
+And then we also have interactivity built
+into this project, which is really cool.
+
+44
+00:02:57,290 --> 00:03:00,782
+So, for example, if we have
+hover on top of that red square,
+
+45
+00:03:00,782 --> 00:03:05,270
+we see a little pop-up that says that
+this earthquake was magnitude 5.1.
+
+46
+00:03:05,270 --> 00:03:07,810
+Now, that's not the only interactivity.
+
+47
+00:03:07,810 --> 00:03:08,789
+So, for example,
+
+48
+00:03:08,789 --> 00:03:12,358
+we notice that there's a fair amount
+of activity going over in Asia.
+
+49
+00:03:12,358 --> 00:03:17,270
+We can double-click on that part of
+the world, and see that Japan, for
+
+50
+00:03:17,270 --> 00:03:20,610
+example, has a lot of markers around it.
+
+51
+00:03:20,610 --> 00:03:22,010
+And so, we could look around and
+
+52
+00:03:22,010 --> 00:03:25,490
+see that some of these earthquake
+markers have xs on them.
+
+53
+00:03:25,490 --> 00:03:29,300
+And we look at the key and notice that
+means they occurred in the past day.
+
+54
+00:03:29,300 --> 00:03:33,010
+And we might zero in on Tokyo,
+for example.
+
+55
+00:03:33,010 --> 00:03:38,060
+And when we click on the triangle,
+which depicts the city Tokyo,
+
+56
+00:03:38,060 --> 00:03:42,340
+notice that a bunch of earthquake markers
+disappeared and only a few remained.
+
+57
+00:03:42,340 --> 00:03:47,220
+And so, in this project, you'll be able
+to implement this interactive feature
+
+58
+00:03:47,220 --> 00:03:50,970
+that when we just wanna focus in on
+a particular city, only earthquakes that
+
+59
+00:03:50,970 --> 00:03:54,740
+are close to that city stay visible,
+and all the others disappear.
+
+60
+00:03:54,740 --> 00:04:00,300
+And then if we click on Tokyo again,
+everything comes back into view.
+
+61
+00:04:00,300 --> 00:04:05,290
+So, that's a taste for the project
+that you're developing in this course.
+
+62
+00:04:05,290 --> 00:04:09,950
+It may seem somewhat complicated, like
+it has a lot of features, and it does.
+
+63
+00:04:09,950 --> 00:04:15,120
+But what we'll be demonstrating throughout
+this course is a really good approach for
+
+64
+00:04:15,120 --> 00:04:16,970
+dealing with large scale projects,
+
+65
+00:04:16,970 --> 00:04:19,510
+which is to break them up
+into manageable pieces.
+
+66
+00:04:19,510 --> 00:04:23,660
+And the way we've done that follows
+along with the modules of the course.
+
+67
+00:04:23,660 --> 00:04:28,330
+So, at the end of each module, the end
+of module assessment will typically
+
+68
+00:04:28,330 --> 00:04:32,680
+be a part of the project that you'll be
+implementing that uses the concepts and
+
+69
+00:04:32,680 --> 00:04:35,530
+the ideas that you're thinking about and
+learning in that module.
+
+70
+00:04:35,530 --> 00:04:39,850
+And so you'll see how each time you
+acquire a new piece of information, or
+
+71
+00:04:39,850 --> 00:04:42,440
+knowledge, or
+skill to do with programming,
+
+72
+00:04:42,440 --> 00:04:45,630
+you'll be able to immediately
+apply it in this project.
+
+73
+00:04:45,630 --> 00:04:49,010
+So, I hope you're as excited about this
+project as I am, and let's get started.

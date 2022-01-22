@@ -1,0 +1,303 @@
+1
+00:00:00,000 --> 00:00:04,423
+[MUSIC]
+
+2
+00:00:04,423 --> 00:00:07,840
+Continuing working with
+Polymorphism in Java.
+
+3
+00:00:07,840 --> 00:00:10,770
+Specifically, continuing with
+the compile-time decisions and
+
+4
+00:00:10,770 --> 00:00:12,650
+the runtime decisions that are made.
+
+5
+00:00:13,700 --> 00:00:17,830
+To help aid a compiler,
+we can sometimes use the term casting.
+
+6
+00:00:17,830 --> 00:00:21,050
+So the goal of this video is to be able to
+walk through those decisions that compile
+
+7
+00:00:21,050 --> 00:00:23,450
+time and runtime and
+also be able to cast objects.
+
+8
+00:00:25,700 --> 00:00:28,390
+Where we left off in the last video,
+was we had just done this example.
+
+9
+00:00:28,390 --> 00:00:32,220
+Where we attempted a call to
+getSID method on a Student object,
+
+10
+00:00:32,220 --> 00:00:36,209
+but we were unable to because
+s is a person reference.
+
+11
+00:00:37,270 --> 00:00:40,360
+What we'd like to be able to do is tell
+the compiler, hey I know this is gonna
+
+12
+00:00:40,360 --> 00:00:43,680
+be a student at runtime,
+could you let me call this method?
+
+13
+00:00:43,680 --> 00:00:45,190
+The way you do that is casting.
+
+14
+00:00:46,490 --> 00:00:49,630
+Now casting of objects works
+very similarly to the way it
+
+15
+00:00:49,630 --> 00:00:51,600
+works with primitive types.
+
+16
+00:00:51,600 --> 00:00:53,500
+So we always have automatic
+type promotions, so
+
+17
+00:00:53,500 --> 00:00:55,430
+you can always go from int to a double.
+
+18
+00:00:55,430 --> 00:00:59,760
+And likewise, you can always go from
+a Subclass up to a Superclass reference.
+
+19
+00:00:59,760 --> 00:01:01,530
+This technique is
+sometimes called widening.
+
+20
+00:01:03,160 --> 00:01:05,960
+Likewise, we can explicitly narrow.
+
+21
+00:01:05,960 --> 00:01:09,400
+So we can explicitly cast
+from a double to an int.
+
+22
+00:01:09,400 --> 00:01:14,080
+And likewise, we can take a Superclass and
+explicitly cast it down to be a Subclass.
+
+23
+00:01:14,080 --> 00:01:15,690
+This again is known as narrowing.
+
+24
+00:01:18,250 --> 00:01:19,630
+Now I can't stress this enough.
+
+25
+00:01:19,630 --> 00:01:21,840
+You have to be careful when you narrow.
+
+26
+00:01:21,840 --> 00:01:25,310
+The reason why is because you're
+telling the compiler to trust you.
+
+27
+00:01:25,310 --> 00:01:27,343
+You're saying trust me, compiler,
+
+28
+00:01:27,343 --> 00:01:30,336
+I know this is gonna be
+a Subclass reference at runtime.
+
+29
+00:01:30,336 --> 00:01:32,801
+And then the compilers
+gonna believe you and
+
+30
+00:01:32,801 --> 00:01:35,336
+then you're gonna try
+to do this at runtime.
+
+31
+00:01:35,336 --> 00:01:38,590
+So let's walk through this again now,
+let's fix this with casting.
+
+32
+00:01:38,590 --> 00:01:41,950
+So I've got my Person reference,
+Student object.
+
+33
+00:01:41,950 --> 00:01:44,570
+I can't call getSID,
+because it's not in Person.
+
+34
+00:01:44,570 --> 00:01:48,650
+But the way I can fix this is by
+casting it to be a Student reference.
+
+35
+00:01:48,650 --> 00:01:53,600
+And by doing so, now the compiler
+will look in Student, find getSID.
+
+36
+00:01:53,600 --> 00:01:55,470
+And it will let you execute this code.
+
+37
+00:01:55,470 --> 00:01:56,450
+This is gonna work just fine.
+
+38
+00:01:58,140 --> 00:01:59,970
+But what if I change this and I make it so
+
+39
+00:01:59,970 --> 00:02:03,380
+that it's a Person reference
+pointing to a Person object.
+
+40
+00:02:04,650 --> 00:02:07,920
+I'm still gonna cast to Student and
+I'm gonna try a call getSID.
+
+41
+00:02:07,920 --> 00:02:09,929
+And I want you to do is pause for
+a second and
+
+42
+00:02:09,929 --> 00:02:12,060
+think what do you think
+should happen here?
+
+43
+00:02:15,670 --> 00:02:19,830
+If you're thinking that this is gonna
+cause problems, you're on the right track.
+
+44
+00:02:21,090 --> 00:02:23,840
+There is no getSID method in Person.
+
+45
+00:02:23,840 --> 00:02:25,910
+How could it possibly call that?
+
+46
+00:02:25,910 --> 00:02:28,690
+And the problem's really gonna come
+about at the point of the cast.
+
+47
+00:02:28,690 --> 00:02:31,540
+If you try and do this,
+you're gonna get a runtime error.
+
+48
+00:02:31,540 --> 00:02:33,940
+And it's gonna say ClassCastException.
+
+49
+00:02:34,980 --> 00:02:38,860
+What it tried to do is it tried to
+cast your Person to a Student and
+
+50
+00:02:38,860 --> 00:02:40,270
+it couldn't because its a Person object.
+
+51
+00:02:41,530 --> 00:02:44,260
+In a sense you've broken
+the compiler's trust at this point.
+
+52
+00:02:44,260 --> 00:02:45,410
+Again you told the compiler,
+
+53
+00:02:45,410 --> 00:02:47,780
+I know this is gonna be a student and
+it didn't turn out to be.
+
+54
+00:02:49,280 --> 00:02:51,670
+What would be really great is
+if we could just test this.
+
+55
+00:02:51,670 --> 00:02:53,830
+Say, is this a student?
+
+56
+00:02:53,830 --> 00:02:55,270
+Before I do the cast.
+
+57
+00:02:55,270 --> 00:02:59,580
+And the way we can do this is
+using an operator instanceof.
+
+58
+00:02:59,580 --> 00:03:03,415
+So this performs a runtime check of
+whether or not there is a relationship.
+
+59
+00:03:03,415 --> 00:03:07,800
+So if you say s instanceof Student,
+
+60
+00:03:07,800 --> 00:03:12,630
+what it's gonna do is gonna check,
+is s an instance of a Student.
+
+61
+00:03:12,630 --> 00:03:17,410
+Or does s is a relationship
+with Student at runtime?
+
+62
+00:03:17,410 --> 00:03:19,583
+Now if you do this check
+with a conditional,
+
+63
+00:03:19,583 --> 00:03:23,480
+you'll then be able to only execute this
+when it actually is a Student object.
+
+64
+00:03:25,390 --> 00:03:29,406
+At this point, with the Compile Time
+Decisions we've discussed and the Runtime
+
+65
+00:03:29,406 --> 00:03:33,612
+decisions we've discussed, polymorphism
+should make a great deal of more sense.

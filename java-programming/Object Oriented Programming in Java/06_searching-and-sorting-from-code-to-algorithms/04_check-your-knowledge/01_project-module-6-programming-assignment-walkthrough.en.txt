@@ -1,0 +1,90 @@
+[MUSIC] All right, so
+it's time to get started on your project. In this project, there are two parts. The first, you're gonna write some
+code to sort the earthquake data. And the second part, where we think you're
+gonna have a lot of fun, is to add your own extension to this whole project that
+you've created throughout this course. So before we talk about what
+you're actually going to do for the programming assignment, let me say a
+few words about how you're going to submit this programming assignment. It's a little bit different
+from previous modules. So if you go over here to
+Week View on Coursera, these are the things you're learning this
+week, and down here at the bottom is, of course, the Check Your Knowledge
+lesson, which is the last lesson. Just like it is in every assignment, and right now you're watching
+the Programming Assignment Walkthrough. Of course coming next,
+the Programming Assignment Instructions, which I'm going over in this video, but let me talk to you about how you're
+going to submit the assignment. So as usual, what you'll do is, you'll do
+a quiz, just like in previous modules, to check your understanding
+of the concepts. And to make sure you've actually done
+the programming assignment correctly. But in this module,
+you're gonna have an extra piece. Rather than just taking a quiz,
+we're actually going to ask you to submit a peer-review assignment talking about
+part of your programming assignment for this module. So, what's a little weird is you're going
+to see two peer-review assignments, and they're right next to each other. So you can see one right here and
+the other right there. One of them has a due date, meaning that's
+the one that's actually due for a grade. The other one that you see right
+before it, this one is just basically a non-graded,
+an optional peer review assignment, and it's actually identical to the graded
+version of the peer-review assignment. Now, you may be wondering, why do we have
+an optional version of the assignment that's identical to the sort of
+required version of the assignment? And the reason for this is that we
+want you to be able to get preliminary feedback from your peers
+in a quick turnaround. So that you can get some feedback to
+incorporate into the submission that you ultimately submit for a grade. So this version, this ungraded
+peer assignment, is optional. But you can use it to submit
+your peer-review assignment and get some quick feedback from your peers,
+make some improvements on your peer-review assignment, and then
+submit it for a grade by the due date. So now that we've looked at how you're
+going to submit your programming assignment in this module,
+let's go back and take a look at what you're
+actually going to do. So, the first steps are the usual steps. We want you to find
+an open starter code and take a look at it, then we're asking you
+to compare our implementation to yours, and this is really more
+of a reflective question. How does what we did in the module five
+implementation compare to your module five implementation? Be ready to reflect on that in the quiz. The next part, you're going to be
+implementing the code to sort. So the first step says to implement the
+comparable interface in Earthquake Marker. So we go over here to
+the Earthquake Marker file, and you can see that there's a to-do in here that
+says, implement the comparable interface. And so
+you need to figure out what that means, how do we change the class header so that
+it implements the comparable interface? And then, of course, there's a second part
+to implement to the comparable interface which is to implement all
+the methods in the interface. In this case it's just this one method,
+compareTo. And you'll see a TODO down here as well. And remember the compareTo compares
+the calling object Earthquake Marker, to the parameter EarthquakeMarker. And returns either a negative value,
+zero, or a positive value depending on the
+relationship between those two objects. And it's gonna be up to you to figure
+out how to do the comparison and return the correct value so that you get
+your earthquakes sorted in reverse order. All right, and then the second half of
+that piece is to implement this method in EarthquakeCityMap, so we go back
+over here to EarthquakeCityMap, and you'll be implementing a method. You can click here to this little TODO. We're gonna implement this
+method sortAndPrint, and that takes a parameter, the number
+of earthquakes we want to print, and it's going to print out the earthquakes
+in reverse order of their magnitude. So it's gonna be strongest magnitude
+first and then weaker and weaker. So you're gonna implement
+that method here, and then you'll wanna call it
+from the setup method. So you'll be adding your call
+somewhere in here in the setup method. Then you can see here that the second part
+of the project, the main second part, is to add your own extension. So this is where we want you to get
+creative, have a lot of fun, and in case you don't have any ideas, we hope you have
+some ideas, but if you don't, that's okay. We have some ideas to
+seed your creativity. So there are two kind of major
+directions you could take this in. You could extend the functionality
+of your earthquake application, so continue to work with the earthquake data. And you're all set up for that. And we've got a number of
+different suggestions here that you might choose to implement. And then the other direction
+you could take is you could incorporate new data sources. So we have a couple of new kinds
+of data already prepared for you. So one is airport and
+airline root data that you can find over here if you go here into the data
+directory back in Eclipse you can see that we've got this airports.dat,
+and then we have a routes.dat file. And we're also providing you with some
+code that will give you a demo of this, so we've got this AirportMap and
+AirportMarker so you can get a sense of how
+to use those data files. So you can work with that data source or you can work with data
+from the World Bank. We've got the life expectancy data that
+Mia showed you way back in module, the first module on GUIs. And we've got some sample code
+that implements, basically, the example that she implemented
+from that module, and you'll find that over here in
+the lifeexpectancy.java file. So, decide which direction you wanna take,
+decide what you wanna do, play around, have a lot of fun, and then after this, what you're gonna do is you're
+going to be submitting this. In addition to taking the quiz, you'll be submitting this as
+a graded peer review assignment. So you can see, you'll get to see what all your fellow
+MOOC mates have done with this project. So have fun and we really look
+forward to seeing your extensions.

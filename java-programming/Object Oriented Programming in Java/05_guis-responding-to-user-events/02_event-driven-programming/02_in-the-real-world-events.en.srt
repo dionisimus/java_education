@@ -1,0 +1,144 @@
+1
+00:00:00,242 --> 00:00:03,064
+[MUSIC]
+
+2
+00:00:07,789 --> 00:00:09,440
+Event processing is really common,
+
+3
+00:00:09,440 --> 00:00:13,130
+and you probably interact with
+it more often than you realize.
+
+4
+00:00:13,130 --> 00:00:17,338
+So one real world example would be,
+have you ever gone to a website and
+
+5
+00:00:17,338 --> 00:00:21,417
+then all of a sudden it just started
+running really, really slow?
+
+6
+00:00:21,417 --> 00:00:26,362
+And it's just grinding to a halt,
+the user experience is awful and then all
+
+7
+00:00:26,362 --> 00:00:31,402
+of a sudden the browser pops up a warning
+and says the page is not responding.
+
+8
+00:00:31,402 --> 00:00:34,480
+So you have to ask yourself,
+what does that even mean?
+
+9
+00:00:34,480 --> 00:00:36,510
+What does it mean for
+the page to be responding?
+
+10
+00:00:37,910 --> 00:00:42,180
+And usually what the browser
+means by this is that
+
+11
+00:00:42,180 --> 00:00:47,290
+the JavaScript on the page
+isn't handling events properly.
+
+12
+00:00:47,290 --> 00:00:51,818
+So, like a lot of things,
+JavaScript is essentially handling events.
+
+13
+00:00:51,818 --> 00:00:55,230
+So the browser's sending
+something like a keystroke and
+
+14
+00:00:55,230 --> 00:00:59,190
+expected it to finish dealing
+with it pretty quickly.
+
+15
+00:00:59,190 --> 00:01:03,406
+Now if the page isn't responding,
+an event came in and
+
+16
+00:01:03,406 --> 00:01:06,898
+the JavaScript never finished handling it.
+
+17
+00:01:06,898 --> 00:01:09,990
+It's probably caught in
+an infinite loop some place.
+
+18
+00:01:09,990 --> 00:01:13,790
+Now, the browser doesn't need to know
+exactly what the JavaScript's trying to do
+
+19
+00:01:13,790 --> 00:01:15,020
+with that event.
+
+20
+00:01:15,020 --> 00:01:18,610
+It just needs to notice that it
+never finished running on it.
+
+21
+00:01:18,610 --> 00:01:21,870
+And this is kind of a running
+theme with event processing,
+
+22
+00:01:21,870 --> 00:01:25,540
+is that you should be able to
+handle an event pretty quickly.
+
+23
+00:01:25,540 --> 00:01:28,750
+You may have to generate things that'll
+come back to you down the road,
+
+24
+00:01:28,750 --> 00:01:32,990
+like go get that image that you want
+to get when a user clicks on it,
+
+25
+00:01:32,990 --> 00:01:35,730
+but that'll come in as an event too.
+
+26
+00:01:35,730 --> 00:01:40,351
+So there's no reason that your program
+needs to wait around forever to process
+
+27
+00:01:40,351 --> 00:01:43,936
+the event, and the browser knows that,
+and relies on this.
+
+28
+00:01:43,936 --> 00:01:48,356
+So if it ever notices that some JavaScript
+code isn't finishing with an event
+
+29
+00:01:48,356 --> 00:01:50,872
+quickly, it can go ahead and
+warn the user,
+
+30
+00:01:50,872 --> 00:01:53,530
+because this is probably
+a programmer error.

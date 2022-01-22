@@ -1,0 +1,96 @@
+[MUSIC] Okay, in this next video we'll layer on
+some more details of building classes in Java. We're gonna talk about the keywords public
+and private and protecting your data and methods inside your classes. So by the end of this video you'll be able
+to describe what those keywords mean and their effect on who can access the data
+and methods inside your classes. And you'll be able to also talk
+about how to use getters and setters to allow customized access
+to the data inside of your classes. So as usual, we're gonna go back to the SimpleLocation
+class that we've been developing. So these class, as you know, has two
+member variables, latitude and longitude. And we originally declared
+them both to be public. So let's take a closer
+look at what that means. What that means is that anyone can
+access these member variables from any class at all. So when I create a new object
+of type SimpleLocation, I can get at the member
+variable latitude or the member variable longitude to read
+its value or to change its value. So if I go over here into
+the LocationTester class, I see that I've created two
+new SimpleLocation objects. I can change the value of latitude
+inside the object stored in lima. That's totally okay, because that member
+variable is declared to be public. So I can access it from anywhere. Similarly for methods, I've declared
+my method distance to be public. Which means that I can
+access that method anywhere. So over here, back in my LocationTester
+class I'm calling the distance method, which is also totally allowed because
+again, that method is public. On the other hand, if I were to
+declare my member variables private, what that would mean is that those
+variables would only be accessible from within the SimpleLocation
+class itself. So only inside this class definition. Nowhere else. No one else has access to either read or
+write those variables. Same thing goes for methods. If I make a method private, I can only call that method within
+the class I'm defining, and nowhere else. So, if we look at what that means, if we look at this constructor,
+these two lines of code are just fine. I'm using this.latitude to access
+the member variable latitude and this.longitude to access
+the member variable longitude. Perfectly okay because I'm
+inside the class SimpleLocation. However, if I go back to that
+class LocationTester, and look at this line here that's trying
+to change the value of latitude in the SimpleLocation stored in the variable
+lima, that's no longer allowed. Because now I've said that that
+latitude variable is private. It can only be accessed from
+within the SimpleLocation class. And we're no longer in
+the SimpleLocation class. We're now over here in the main method,
+inside LocationTester. So that would cause an error. So, it's actually,
+despite this error that just got caused, it's actually a good idea to make
+your member variables private. Because you as the class designer
+want to really have ultimate control over who gets to see and change the data that's stored in each
+object of the class that you're creating. So as a rule of thumb,
+always make your member variables private. Now methods can either be public or private, depending on whether they're for
+world use, like the distance method. Or whether they're maybe just helper
+methods that are designed to be used only within that class itself. We'll talk more about that as we start
+talking about more sophisticated class design. But, for now, let's focus on this rule
+of thumb that we should make our member variables private. So, if our member variables are private,
+nobody else can access them. They can't see their values,
+they can't change them. So, that seems like a bit of a problem. We probably sometimes want to
+give a little bit more access to the member variables
+in our class than that. So the way we get around that problem is
+through the use of what are called getters and setters. So this is an example right here of a
+getter, and the purpose of a getter is to take the value of a member
+variable that's private and expose it outside of that class. So you can see this getter here gets
+the value of the member variable latitude, which is private, and
+returns it to the outside world. So the variable itself
+is still private but now I can gain access to that
+variable by calling this getter. So if we go back over here to the code,
+we can see that if I try to access the variable directly say,
+print it out I get an error, but when I call that getter method,
+that's perfectly fine. So I can actually get access to
+the value of that latitude variable through the getter. And now notice that in this code so far,
+going back here, I haven't provided my user of my class with any way to actually
+set or change the value of latitude. And that may be what I intend as the class
+designer, that once that latitude variable gets set in the constructor, I may
+never want anybody to change it again. And in that case,
+I would just simply provide a getter and not provide any way for the user to
+change the value of the variable. But, let's say I actually do
+want to allow somebody to change the value of the variable. In that case I would provide
+what's called a setter. So, here's my setter. What it does is it takes in a value, lat,
+and it changes the value of the private member variable to the value
+that was passed in by the user. So a setter sets the value
+of our member variable, usually a private member variable. So now I've got a getter and
+a setter for my latitude variable. And you might be thinking,
+I would be thinking if I were you, why didn't we just make that
+member variable public? If we're exposing
+the ability to change it and read it, we might as well
+just make it public, right? So here's why, having the getter and the setter allows us more
+control as class designers. So let's say we want to allow the user
+to change the value of the latitude. But we're little bit unsure that the user
+of our class will know what they're doing when it comes to legal latitude values. So we can put some precautions in place
+that allow the user to change the value of that latitude, but only to values
+that are legal latitude values. So the way we would do this is we would
+modify our setter to rather than just blindly accepting whatever argument was
+passed in, we would have some checks, some logic inside of that method
+that said okay, if it's out of range of -180 to 180 then
+that's not a legal value. So we're gonna print out an error,
+inform the user of our class that, hey, you tried to set your latitude
+variable to an illegal value. That's probably some bug in your code, so
+you should probably go check that out. And not change the value that's
+stored in the latitude variable. Otherwise, we can happily accept the value
+because it's within the legal range and change the value of that variable. All right, so that's it for
+the details of classes and objects. You now know all the basics of
+creating classes and objects. Next you'll take a short practice quiz and
+then move on to the next module.

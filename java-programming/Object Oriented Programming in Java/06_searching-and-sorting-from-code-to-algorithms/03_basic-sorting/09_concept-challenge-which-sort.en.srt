@@ -1,0 +1,309 @@
+1
+00:00:04,110 --> 00:00:06,800
+Hi again and
+welcome back to our module on sorting.
+
+2
+00:00:06,800 --> 00:00:08,970
+At this point, you've seen two
+different sorting techniques, so
+
+3
+00:00:08,970 --> 00:00:11,440
+we're gonna see how well do you
+really understand both of them.
+
+4
+00:00:13,580 --> 00:00:15,400
+You're very familiar with the concept
+challenges at this point.
+
+5
+00:00:15,400 --> 00:00:18,199
+You know the approach is you're gonna
+pause, think about the questions,
+
+6
+00:00:18,199 --> 00:00:20,922
+answer it yourself, discuss it with
+people if you have them around you.
+
+7
+00:00:20,922 --> 00:00:25,304
+Watch a video of UCSD, UC San Diego
+learners, learning about the material, and
+
+8
+00:00:25,304 --> 00:00:28,279
+then confirm your explanation
+with our explanation.
+
+9
+00:00:28,279 --> 00:00:31,326
+So without further ado,
+if you look at these two arrays,
+
+10
+00:00:31,326 --> 00:00:34,751
+in the top array we have the initial
+setup, and in the array below
+
+11
+00:00:34,751 --> 00:00:38,870
+that we've got the state of the array
+after three loop iterations.
+
+12
+00:00:38,870 --> 00:00:42,552
+Which sorting algorithm could've
+been applied to reach this state.
+
+13
+00:00:47,438 --> 00:00:48,518
+>> Hi, I'm Melissa.
+
+14
+00:00:48,518 --> 00:00:49,458
+>> Hi, I'm Ken.
+
+15
+00:00:49,458 --> 00:00:51,155
+>> Hi, I'm Michael.
+
+16
+00:00:51,155 --> 00:00:55,216
+>> So for this one, I thought it
+definitely can't be selection sort because
+
+17
+00:00:55,216 --> 00:00:57,583
+the one would be at the beginning, right?
+
+18
+00:00:57,583 --> 00:01:01,069
+>> I was actually kinda confused on this
+question because I actually picked D.
+
+19
+00:01:01,069 --> 00:01:04,475
+I thought it was both of them since like
+the first couple of elements are already
+
+20
+00:01:04,475 --> 00:01:07,950
+sorted and we're sorting the elements,
+shouldn't that be correct for both?
+
+21
+00:01:09,180 --> 00:01:14,580
+>> I'm actually pretty sure it's insertion
+sort because what happens is through
+
+22
+00:01:14,580 --> 00:01:19,950
+the first iterations or the first loop, it
+checks the four and the seven, no switch.
+
+23
+00:01:19,950 --> 00:01:24,522
+Goes to the next two elements, seven and
+two, switches the seven and two.
+
+24
+00:01:24,522 --> 00:01:26,366
+>> Okay.
+>> And then actually goes back and
+
+25
+00:01:26,366 --> 00:01:29,670
+checks the two and the four, the four and
+the two, and makes that switch.
+
+26
+00:01:29,670 --> 00:01:32,180
+And that would be three loop iterations,
+and
+
+27
+00:01:32,180 --> 00:01:35,930
+that would be exactly
+what the bottom array is.
+
+28
+00:01:35,930 --> 00:01:37,762
+And what she said,
+it can't be selection sort,
+
+29
+00:01:37,762 --> 00:01:40,097
+because the one would be at
+the beginning for selection sort.
+
+30
+00:01:40,097 --> 00:01:41,120
+>> Oh, right.
+
+31
+00:01:41,120 --> 00:01:43,209
+>> Insertion sort never
+made it to the one.
+
+32
+00:01:43,209 --> 00:01:44,730
+>> To reach this state.
+
+33
+00:01:44,730 --> 00:01:48,515
+Hi, I hope this video with
+the UC San Diego learners was helpful.
+
+34
+00:01:48,515 --> 00:01:51,652
+We're going to just walkthrough both
+insertion sort and selection sort, and
+
+35
+00:01:51,652 --> 00:01:53,900
+see the state of the array
+after three loop iterations.
+
+36
+00:01:54,920 --> 00:01:58,160
+With insertion sort, the key idea here
+is that you always keep the left side of
+
+37
+00:01:58,160 --> 00:02:02,950
+the array sorted, but you're only looking
+at essentially, the left elements.
+
+38
+00:02:02,950 --> 00:02:07,400
+So the first pass, all you're gonna
+do is look at element four and say,
+
+39
+00:02:07,400 --> 00:02:08,970
+is four sorted?
+
+40
+00:02:08,970 --> 00:02:10,420
+It sure is.
+
+41
+00:02:10,420 --> 00:02:12,110
+Next iterational loop
+is gonna look at seven,
+
+42
+00:02:12,110 --> 00:02:15,830
+and it's gonna say where should
+seven be in relation to four.
+
+43
+00:02:15,830 --> 00:02:16,930
+Well, it belongs in the same place.
+
+44
+00:02:18,170 --> 00:02:21,970
+So the third iterational loop is where
+it gets interesting because it's gonna
+
+45
+00:02:21,970 --> 00:02:22,608
+look at two.
+
+46
+00:02:22,608 --> 00:02:25,659
+I was gonna say, where does two
+belong relative to four and seven?
+
+47
+00:02:25,659 --> 00:02:30,641
+And it's gonna move two down all
+the way to the first place, and
+
+48
+00:02:30,641 --> 00:02:32,718
+then four and then seven.
+
+49
+00:02:32,718 --> 00:02:36,390
+So after three iterations of the loop,
+this would be the state of insertion sort.
+
+50
+00:02:36,390 --> 00:02:37,920
+And this is what
+the question was asking for.
+
+51
+00:02:37,920 --> 00:02:39,660
+So the right answer
+here is insertion sort.
+
+52
+00:02:40,840 --> 00:02:43,209
+But let's talk through what
+selection sort would have done.
+
+53
+00:02:44,670 --> 00:02:49,140
+Selection Sort is always gonna be looking
+to the remaining part of the array to find
+
+54
+00:02:49,140 --> 00:02:52,740
+the smallest value and
+put that where we're currently looking.
+
+55
+00:02:52,740 --> 00:02:56,060
+So a selection sort, you're gonna be
+looking to the entire array at the start
+
+56
+00:02:56,060 --> 00:02:58,820
+and you're gonna look to see that
+one is the smallest element and
+
+57
+00:02:58,820 --> 00:03:00,150
+then you place one right at the start.
+
+58
+00:03:01,180 --> 00:03:03,340
+And you're gonna look through
+the remaining part of the array, and
+
+59
+00:03:03,340 --> 00:03:05,280
+you're gonna find that two is
+the next smallest element,
+
+60
+00:03:05,280 --> 00:03:06,330
+you're gonna place that next.
+
+61
+00:03:06,330 --> 00:03:09,210
+And then you're gonna look through
+the main part of the array again.
+
+62
+00:03:09,210 --> 00:03:11,340
+You're gonna find that four
+is the next smallest element.
+
+63
+00:03:11,340 --> 00:03:12,970
+You're gonna swap that in.
+
+64
+00:03:12,970 --> 00:03:14,370
+And this will be the state of the array
+
+65
+00:03:14,370 --> 00:03:15,940
+after three durations
+of selection sorting.

@@ -1,0 +1,387 @@
+1
+00:00:00,000 --> 00:00:04,464
+[MUSIC]
+
+2
+00:00:04,464 --> 00:00:08,750
+Hi, and welcome back to our module
+on Polymorphism Inheritance in Java.
+
+3
+00:00:08,750 --> 00:00:12,700
+Today we'll be talking about method
+overriding and you've already used method
+
+4
+00:00:12,700 --> 00:00:16,450
+overriding when you did draw and
+set up methods back when you designed
+
+5
+00:00:16,450 --> 00:00:20,069
+your GUI but here we're gonna dive into
+method overriding in a bit more detail.
+
+6
+00:00:21,570 --> 00:00:24,360
+So goal here today is where the create
+methods are override from superclass
+
+7
+00:00:24,360 --> 00:00:28,240
+methods and will the contrast
+overloading from method overriding.
+
+8
+00:00:30,270 --> 00:00:34,270
+Back when we first started talking
+about inheritance we had three goals.
+
+9
+00:00:34,270 --> 00:00:36,390
+And overriding really
+helps us has all three.
+
+10
+00:00:37,460 --> 00:00:40,660
+So we wanna have common
+code in one pairing class.
+
+11
+00:00:40,660 --> 00:00:42,690
+We do this if we don't override a method.
+
+12
+00:00:42,690 --> 00:00:47,340
+So if a method just exists in
+the superclass we get back common code.
+
+13
+00:00:47,340 --> 00:00:49,830
+But if we want our subclasses
+to behave differently
+
+14
+00:00:49,830 --> 00:00:53,065
+all we have to do is override a method and
+now we get that different behavior.
+
+15
+00:00:54,090 --> 00:00:57,010
+And because polymorphism which we'll
+get to in the next set of videos
+
+16
+00:00:57,010 --> 00:01:01,030
+we'll see that this allows us to have
+all of our object in one structure and
+
+17
+00:01:01,030 --> 00:01:02,550
+still be able to call
+the appropriate method.
+
+18
+00:01:05,180 --> 00:01:08,620
+It's really common for
+new learners to mix up overloading and
+
+19
+00:01:08,620 --> 00:01:13,500
+overriding so I want to talk just real
+quickly about overloading and overriding.
+
+20
+00:01:13,500 --> 00:01:20,100
+Overloading is the same class that has the
+same method name but different parameters.
+
+21
+00:01:20,100 --> 00:01:23,700
+So this is a different method signature,
+within the same class.
+
+22
+00:01:23,700 --> 00:01:27,910
+This is different then method overriding,
+where you have a subclass that has same
+
+23
+00:01:27,910 --> 00:01:33,840
+method signature, which means same name,
+same parameters as a super class.
+
+24
+00:01:35,970 --> 00:01:38,610
+So now let's start looking at some
+more detail with a few examples.
+
+25
+00:01:41,060 --> 00:01:44,420
+So first example is to look
+at the object class itself.
+
+26
+00:01:44,420 --> 00:01:46,640
+So we have a method in the outer
+class called toString.
+
+27
+00:01:46,640 --> 00:01:48,840
+And the odds are you probably already
+ran toString method before, but
+
+28
+00:01:48,840 --> 00:01:52,250
+if you haven't,
+toString prints the contents or
+
+29
+00:01:52,250 --> 00:01:55,020
+string representation of an object.
+
+30
+00:01:55,020 --> 00:01:58,620
+Because it's in the object class,
+all objects in Java can override it.
+
+31
+00:02:01,190 --> 00:02:03,160
+So let's do this for our hierarchy.
+
+32
+00:02:03,160 --> 00:02:06,450
+So we have our person class at the top,
+It has a name and
+
+33
+00:02:06,450 --> 00:02:09,620
+a getName and we're going to
+add the toString method to it.
+
+34
+00:02:09,620 --> 00:02:12,780
+To do so we're going to override the that
+object method's toString method.
+
+35
+00:02:14,800 --> 00:02:18,685
+Now, a really basic way to do this would
+be to just return the name and since we
+
+36
+00:02:18,685 --> 00:02:22,789
+already have right now in our person class
+is name, this is really all we can do.
+
+37
+00:02:25,304 --> 00:02:30,128
+And then in our code that calls it,
+we're gonna create a Person p, we're gonna
+
+38
+00:02:30,128 --> 00:02:34,740
+create a person that has the name Tim and
+then we're gonna call this method.
+
+39
+00:02:35,940 --> 00:02:38,560
+So you just do System.out.println and
+put p.toString and
+
+40
+00:02:38,560 --> 00:02:40,539
+that will return a string and
+that is what we want.
+
+41
+00:02:41,690 --> 00:02:43,530
+And it doesn't call
+the object two string method,
+
+42
+00:02:43,530 --> 00:02:46,760
+it's going to call the person two
+string method because of override.
+
+43
+00:02:49,000 --> 00:02:52,610
+Now it turns out that two string here
+in this context is unnecessary because
+
+44
+00:02:52,610 --> 00:02:56,960
+print line actually automatically
+calls toString if you ever pass
+
+45
+00:02:56,960 --> 00:02:59,900
+an object as a parameter to print line.
+
+46
+00:02:59,900 --> 00:03:01,560
+So I'm gonna just display
+it this way from here on.
+
+47
+00:03:03,370 --> 00:03:06,110
+Now if we run this code, what's going to
+happen is it's just going to print Tim.
+
+48
+00:03:07,532 --> 00:03:09,958
+All right, well let's add to
+our inheritance hierarchy.
+
+49
+00:03:09,958 --> 00:03:13,010
+Now I'm gonna go to my student class
+where we've already added a student ID.
+
+50
+00:03:13,010 --> 00:03:17,160
+And I get student ID and now we're
+going to add the method toString.
+
+51
+00:03:18,770 --> 00:03:20,640
+Here's the code to essentially
+have that student ID and
+
+52
+00:03:20,640 --> 00:03:21,929
+the ability to get access to it.
+
+53
+00:03:23,560 --> 00:03:27,020
+And now what I want, is I wanna be
+able to print a student ID number
+
+54
+00:03:27,020 --> 00:03:29,630
+followed by the information
+about the person.
+
+55
+00:03:31,200 --> 00:03:33,596
+And my first version of this code
+will look something like this.
+
+56
+00:03:33,596 --> 00:03:39,760
+So return this getSID then a colon,
+and then this.getName.
+
+57
+00:03:42,600 --> 00:03:46,350
+And the concern I would have here
+is what if the person changes.
+
+58
+00:03:46,350 --> 00:03:50,290
+So the only reason I wrote this dot
+getName right now is because I know
+
+59
+00:03:50,290 --> 00:03:52,290
+that's person does.
+
+60
+00:03:52,290 --> 00:03:54,910
+So if you try to call toString on person,
+it prints the name.
+
+61
+00:03:56,170 --> 00:03:57,390
+But Person could change.
+
+62
+00:03:57,390 --> 00:03:58,850
+So this really isn't
+the right way to do it.
+
+63
+00:03:58,850 --> 00:04:03,263
+What I want to do instead is call
+the toString method within Person and
+
+64
+00:04:03,263 --> 00:04:05,926
+to do that I wanna use that super keyword,
+
+65
+00:04:05,926 --> 00:04:11,354
+just like we saw from the constructors to
+say, I want the method from my superclass.
+
+66
+00:04:14,203 --> 00:04:17,920
+So now, if we walk through this code
+I'm gonna use Student s = new Student.
+
+67
+00:04:17,920 --> 00:04:21,000
+I'm gonna print out that which is
+gonna call the toString method.
+
+68
+00:04:22,170 --> 00:04:24,600
+A question is what do we
+expect to see happen.
+
+69
+00:04:24,600 --> 00:04:27,630
+Well, we expect to see the student
+ID number now followed by the name,
+
+70
+00:04:27,630 --> 00:04:29,750
+which is exactly what we
+wanted to have happen.
+
+71
+00:04:33,160 --> 00:04:35,097
+What happens now if I
+change the referencing?
+
+72
+00:04:35,097 --> 00:04:38,336
+What if I make the reference
+a Person instead of a Student?
+
+73
+00:04:38,336 --> 00:04:42,920
+And I still pass, I still try to
+call s.toString, on that Person.
+
+74
+00:04:44,140 --> 00:04:47,850
+Is it gonna call the Student
+to string method or
+
+75
+00:04:47,850 --> 00:04:49,890
+is it gonna call the person
+to string method?
+
+76
+00:04:50,920 --> 00:04:52,680
+Well what do we want to have happen?
+
+77
+00:04:52,680 --> 00:04:56,110
+We want to have it print out
+the student information,
+
+78
+00:04:56,110 --> 00:04:57,290
+which is exactly what it does.
+
+79
+00:04:59,660 --> 00:05:01,650
+Why is it gonna print the student method?
+
+80
+00:05:01,650 --> 00:05:04,510
+Because of polymorphism, and
+we'll get into that in the next lesson.

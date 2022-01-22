@@ -1,0 +1,71 @@
+All right.
+If you thought that last Polymorphism concept challenge was fun,
+you are gonna love this one. This one is gonna bring
+it to a whole new level. It's more challenging than the last one,
+that we just gave you. In fact, it's beyond what we've
+even explicitly taught you. So, we want you to really push the bounds
+of your reasoning and, understanding. You know the drill, do it yourself,
+discuss it with your friends, watch our videos,
+confirm your understanding. So, here's the challenge, we now have
+three classes in an inheritance hierarchy. So, base class that we're
+working with here, is a Person. And, it has two methods,
+method1 and method2. We have a class that extends the Person
+class, which is the Student class. It overrides both method1 and method2. And then we have the Undergrad class,
+which extends the Student class and it inherits the method1 method, but
+it overrides the method2 method. So, that's in a nutshell
+what we're working with. Here's the code in more detail, and you're
+gonna need to work through this code and look at it carefully as you
+work through this challenge. And, what the challenge is, is when
+we create a new undergraduate object, refer to it as a reference of type person,
+and we call method1 on that
+newly created object. What gets printed out? >> Hi, I'm Steven. >> Hi, I'm Joanna. >> Hi, I'm Justin. >> So, what do you think? >> I don't know,
+I was getting caught up on this first one. So, it says it calls for method1. But I don't see a method1 in Undergrad. So I think it would be a compile error. >> I don't think it would
+be a compile error. If you notice Undergrad extends Student. So, in the Student class
+there is a method1, so I think it inherits that method. Yeah, I agree, so. >> Yeah.
+>> It does print Student 1. What I got a little bit tripped up on was,
+I wasn't sure which, when it calls super.method1 in
+the method1 of the Student class, I wasn't sure which method1 it would call. Because isn't it in Undergrad? So wouldn't the super.method1,
+it might just call Student and go into an infinite,
+like calling itself over and over. Right? >> Yeah, I can see how you
+could get caught up on that. But I think when super, it's always
+talking about the class above it. So I think it actually would be calling
+the method1 and the person class. >> Okay. >> What about method2? Does it call Students method2 or which method2 does it refer to? >> I think that since it is in Undergrad? It will call Undergrad's method2 and
+it'll print undergrad 2. So, if it doesn't go infinitely,
+like you said, then it should be D. >> All right, let's trace this together,
+because it's non-trivial. We're gonna start our tracing up here,
+where the method is originally called. So the type of the object referred
+to by you is an Undergraduate. So at runtime, that's where Java is
+going to look for this method, method1. When we look down here in
+the undergraduate, in the Undergrad class. Class, we don't see a method1. But luckily we can see that
+Undergrad extends Student. So Java is gonna go look in
+the Student class for method1. So looking up here in Student class,
+it finds method1. Great. So now I can start executing. So the first thing it's going to do is
+execute that first line which prints Student 1. So what gets printed so far? It's Student 1. Now we keep going to the next line. The next line says super.method1. So what is the super class
+of the Student class? Well, it's the Person class. So this happens at compile time. When this code is compiled, Java notices that there's a call to
+the super class inside this method and so it looks and sees well what
+is the superclass of student? It's Person. So it's going to bind to the method1
+inside the Person class. And that's where we'll go now. So we go up here to method1 and
+we execute it's code. It's code sized. It should print out Person 1, so
+that's what gets printed next. So, so far we've printed Student
+1 first and then Person 1. But let's continue. We now return back to where we were,
+which was inside the method1 method in the student class and
+we say call method2. All right, well where are we going to now? Which method2 are we talking about? In order to answer this question, we first need to notice that since we
+don't have a calling object at this point, what Java is going to do is
+to insert the keyword this. So, we're calling method2
+on the calling object. Now, as you saw from the last
+concept challenge on Polymorphism, this is going to bind at runtime. So, we're gonna look at the actual
+type of the object disc at runtime. This is what's tricky about this example. So, the actual type of this
+object at runtime, as you recall, was an Undergrad object. So we're gonna go down here
+into the Undergrad class and call the method2 inside
+the Undergrad class. So that's going to print out,
+Undergrad 2, and we have the following that gets printed. First, Student 1, then Person 1,
+and then finally Undergrad 2. So the purpose of this example was
+to show you the difference between what happens with a call to super and then
+a method and a call to this and a method. Those calls to super and
+then a method get bound to compile time. So in compile time,
+Java is going to look at the code and figure out what class it's in and
+what the super class of that class is. But when we call this and then a method
+name, that's gonna happen at runtime. So Java is gonna use the actual
+type of the object at runtime. It's a little confusing but, understanding
+these details can help you debug some nasty bugs that you might
+otherwise encounter in your code. So, good Luck.

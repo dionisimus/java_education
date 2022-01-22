@@ -1,0 +1,229 @@
+1
+00:00:00,000 --> 00:00:03,585
+[MUSIC]
+
+2
+00:00:03,585 --> 00:00:04,950
+Welcome back.
+
+3
+00:00:04,950 --> 00:00:08,700
+In this lesson, we get to start
+working with polymorphism in detail.
+
+4
+00:00:08,700 --> 00:00:10,420
+Now, polymorphism, along with inheritance,
+
+5
+00:00:10,420 --> 00:00:13,310
+is one of the most powerful features
+that we have in the java language.
+
+6
+00:00:13,310 --> 00:00:17,660
+So what we're gonna do here is just
+revisit why we have polymorphism.
+
+7
+00:00:18,700 --> 00:00:21,250
+So you're goal from this video is just
+to be able to explain it's purpose, and
+
+8
+00:00:21,250 --> 00:00:21,793
+why we have it.
+
+9
+00:00:22,950 --> 00:00:26,200
+Now, we've already done some polymorphism.
+
+10
+00:00:26,200 --> 00:00:31,670
+You've already had a different super class
+reference pointing to a sub class object.
+
+11
+00:00:32,980 --> 00:00:34,860
+That's very hard, this polymorphism.
+
+12
+00:00:37,140 --> 00:00:37,850
+What we're gonna do then,
+
+13
+00:00:37,850 --> 00:00:42,370
+is give a couple examples then,
+with the hierarchy that we already have.
+
+14
+00:00:42,370 --> 00:00:44,960
+So our hierarchy, again is
+the Person class, the Student class,
+
+15
+00:00:44,960 --> 00:00:46,360
+the Faculty class.
+
+16
+00:00:46,360 --> 00:00:49,140
+And now you notice that I've
+added to this Faculty class, and
+
+17
+00:00:49,140 --> 00:00:53,690
+now it has an employeeID number,
+which is a string.
+
+18
+00:00:53,690 --> 00:00:58,280
+It has toString method just like
+Person does, just like Student does.
+
+19
+00:00:58,280 --> 00:01:01,900
+So all three of our classes
+now have toString methods.
+
+20
+00:01:01,900 --> 00:01:03,440
+We're gonna use this in the next context.
+
+21
+00:01:06,000 --> 00:01:08,850
+We said in the very first
+videos on inheritance,
+
+22
+00:01:08,850 --> 00:01:11,870
+that one of the nice features is that
+you can have a single data structure
+
+23
+00:01:11,870 --> 00:01:15,130
+point to multiple objects of that type.
+
+24
+00:01:15,130 --> 00:01:19,350
+So I'm allowed to have a person array,
+which has room for three references.
+
+25
+00:01:19,350 --> 00:01:22,070
+And have one of those
+references be a person,
+
+26
+00:01:22,070 --> 00:01:25,430
+one of those references be a student,
+and one of those references be faculty.
+
+27
+00:01:25,430 --> 00:01:29,510
+And the reason I'm allowed to do that
+is because a person is a person,
+
+28
+00:01:29,510 --> 00:01:33,500
+a student is a person,
+and a faculty is a person.
+
+29
+00:01:33,500 --> 00:01:36,290
+So I'm allowed to have this array,
+and what I'd like to do then,
+
+30
+00:01:36,290 --> 00:01:38,180
+is just iterate through the array.
+
+31
+00:01:38,180 --> 00:01:41,490
+And call the toString method
+on each of the elements.
+
+32
+00:01:41,490 --> 00:01:42,521
+And what you do is,
+
+33
+00:01:42,521 --> 00:01:46,465
+pause for a few seconds and think about
+what should happen when I do this.
+
+34
+00:01:49,713 --> 00:01:53,338
+All right, if you were saying,
+I hope it calls the toString method for
+
+35
+00:01:53,338 --> 00:01:57,270
+each of the objects based on their
+dynamic type, you're spot on.
+
+36
+00:01:57,270 --> 00:01:59,020
+That's exactly what we wanna have happen.
+
+37
+00:01:59,020 --> 00:02:02,440
+I want the toString method for person
+to call the person's two string method.
+
+38
+00:02:02,440 --> 00:02:06,340
+And I want the toString method for student
+to call the student's toString method.
+
+39
+00:02:06,340 --> 00:02:10,350
+And I want the toString method being
+called on that third element to be called
+
+40
+00:02:10,350 --> 00:02:16,030
+on the faculty member, and the faculty
+object, and that's exactly what happens.
+
+41
+00:02:16,030 --> 00:02:17,000
+So.
+
+42
+00:02:17,000 --> 00:02:18,430
+What polymorphism gives us,
+
+43
+00:02:18,430 --> 00:02:22,010
+is the ability to keep all of our
+objects in one big collection.
+
+44
+00:02:22,010 --> 00:02:24,600
+And then call methods on every
+single one of our elements and
+
+45
+00:02:24,600 --> 00:02:27,870
+the appropriate method is
+what actually gets called.
+
+46
+00:02:27,870 --> 00:02:31,390
+But this does get a little
+confusing at times,
+
+47
+00:02:31,390 --> 00:02:35,040
+because we have a different reference
+point to a different type of object.
+
+48
+00:02:35,040 --> 00:02:38,460
+To understand this in more depth,
+we have to look at compile time rules and
+
+49
+00:02:38,460 --> 00:02:40,600
+run time rules, and
+we'll do that in the next video.

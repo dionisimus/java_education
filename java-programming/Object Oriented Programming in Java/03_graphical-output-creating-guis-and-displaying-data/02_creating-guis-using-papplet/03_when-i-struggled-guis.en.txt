@@ -1,0 +1,6 @@
+[MUSIC] So one thing I had a lot of trouble
+with is Gooey and event handling. I remember when I learned it,
+there was just so many different things that you have to
+keep track of when you use these things and it just didn't make any sense to me. So what I did is, I took example code and
+I made edits until it compiled and ran, and I kept running it and making modifications until it
+ran the way I thought it should.

@@ -1,0 +1,159 @@
+[MUSIC] All right, in our first module you were
+introduced to the project that you're going to be doing throughout this course. And we hope that you think
+it's as exciting as we do, visualizing this geospatial data. In this module though, we're going to
+be stepping a little bit away, and we're going to be talking
+about some of the concepts that underly the code that
+you're going to be writing. So, by the end of this module, you're going to be able to motivate the
+use of classes and objects in programming. So, why do we want to use classes and
+objects when we write our programs? You'll be able to write classes in Java,
+and then create instances, or objects of those classes. And you'll be able to describe
+the parts of a class, like member variables,
+methods, and constructors. So in order to motivate the use of
+classes and objects in programming, I want to go back to my favorite
+definition of computer science. And of course, software engineering and
+software development, which is what we're
+focusing on this course and this specialization,
+is a major part of computer science. So my favorite definition
+of computer science is, that computer science is the science of
+using and processing large amounts of information to automate useful tasks and
+learn about the world around us. Of course, all using a computer,
+because none of this would be possible if we didn't have the computational
+power that the computer affords us. I'm gonna zero in on this
+line in the definition, this idea of using large
+amounts of information. These programs that you're going to be
+writing and programs that people write, if you think about programs out in the world,
+deal with huge amounts of information, so much information it's almost
+impossible to get your mind around it. So one of the fundamental
+questions in writing programs is, how do we organize this information? How do we organize it in a way such
+that our programs are easy to write, easy to maintain, and easy to debug? Well the philosophy behind object oriented
+program, object oriented programming, is to build our programs in a way that match
+the problem that we're trying to solve. So if we go back to our project and the problem we're trying to solve, it's
+to visualize geospatial data on a map. And if we think about what's
+involved in solving that problem, we can think of lots of
+real-world objects and entities that are part of this
+problem that we're solving. So we can think of things
+like the map itself. That's an object that
+we're all familiar with. Shapes. Shapes are objects that have properties. We could talk about the shapes of
+the countries, for example, in this map. Locations in the map,
+colors of the objects in the map, even the window in which
+the map is displayed. Plenty more objects as well, but these are all ideas that have
+real world counterparts. And the idea behind writing
+an object-oriented program to solve this problem, is that we're going to structure
+our code around these real-world concepts. So in order to build our code in this way
+that matches the real world, we're gonna design these things called classes, and
+what classes are, are just custom data types that we get to define to match
+the problem that we're trying to solve. Now of course you're
+familiar with classes, cuz you've been working with Java for
+some time now. But we're gonna talk about really
+the details of creating and using classes. So a class is a new kind of data that
+we the programmer get to define. And it's kind of like a factory. It can produce pieces of data with
+a template that we get to define. So I'm gonna use this factory icon
+when I talk about class definitions. On the other hand, an object is the thing
+that comes out of this factory. It's a piece of this data with this
+custom type that we've defined. And some associated functionality
+that goes along with that data. And I'll represent the objects with this
+little symbol here to represent the things that are coming out of the factory as
+we create objects using our classes. So you can think of this like
+a real-world factory, right? Like a car factory. A car factory knows how to produce,
+say, one kind of car. And it can produce many
+of that kind of car. And once the cars are out in
+the real world, well, at first, they all kind of look the same, but then each individual car can be
+customized and it can be changed in its own way without affecting all the
+other cars that came out of the factory. The same thing's going to happen for
+our classes and our objects in our Java programs. So we're gonna go through
+an example of creating a class. And the class we're gonna
+create has to do with this map example that we've been working with. So here's a map of the world. I'm gonna zoom in on one
+particular place in the world, which is where this orange box is, which is approximately where I'm standing
+right now on the campus of UC San Diego. So here's the University of California, San Diego campus, and
+I'm about right here on this map. So what I want to do is,
+I want to build a class that can represent my location in the world, or can
+represent anyone's location in the world. So the question I have to ask myself is, what do I need to know in
+order to represent a location? Well for this example, I'm going to
+represent the concept of a location using two pieces of data, the latitude and
+the longitude of this location. And in my case, for
+this location right here, you can see these approximately my
+latitude and longitude coordinates. So let's define a class that
+represents this notion of a location. Here's my class definition. So I'm telling Java that I want
+a new class called SimpleLocation. And you can see that on the top
+line in this declaration. I say, public class SimpleLocation. SimpleLocation is the name of the class. The keyword class tells Java
+that I'm creating a new class. And public, which we'll talk about
+more in some of the next videos. Just means that my class
+is public to the world. Anyone can use it. Inside, after that first curly brace,
+is the definition of my class. Now before we look closely at
+the definition, I wanna point out that all of this code has to exist in
+a file called SimpleLocation.java. That's just a rule that Java enforces. That when you're creating a class, you
+have to put it in a file that has the same name as the class, and that's if
+the class is public, which our class is. So all this code is in a file
+called SimpleLocation.java. So let's look a little closely at
+the definition for this class. Up here you can see the data that I
+have associated with my simple location. I had a latitude and a longitude. And I'll represent both of these
+using double type variables. These are what are called
+member variables. These are variables that exist throughout
+the class that represent some essential pieces of data that I need to represent
+my simple location in this case. And notice that they're declared
+outside of any methods, but inside the declaration of the class. So, they come after that
+open curly brace for the class, but
+not inside any particular method. My class also has some
+methods associated with it. So it has, for example, that method
+that you see down there at the bottom. The distance method, and
+what the distance method does is, it takes some other simple location out in
+the world as a parameter, and it returns the distance between on simple location
+and the simple location that's passed in. So that's something that my class can do. So these are the methods. These are the things that my class can do. And I want to zero in now on this
+special method called the constructor. So this is the constructor, and this is a special method that gets
+called when my objects get created. So when I ask Java to give me a new
+object of type SimpleLocation, it's going to call this method here,
+which is called the constructor. And the reason you know
+it's the constructor, is that it doesn't have a return type,
+so it simply says public and then next word in the declaration of this
+method is just the name of the class. So public, SimpleLocation,
+that's my constructor. This constructor happens
+to take two arguments. And it takes the values of those
+arguments that are passed in and stores them away in those member
+variables, latitude and longitude. Now you might see this key word, this. This dot latitude. This dot longitude. You might be wondering what is is. We're gonna talk about that
+in just a couple of minutes. So all of this together is my
+class declaration, SimpleLocation. Class has two member variables and
+couple of methods. And again,
+it's in the file SimpleLocation.java. So now, how do I use this class? Let's take a look at some
+code that actually creates objects of type simple locations and
+does something with them. So now I'm gonna go over into
+a totally different file. I'm gonna go into a file
+called LocationTester.java. Inside a totally different class, because
+everything in Java has to be in a class, and I'm gonna look at a main
+method inside that class. This main method is fairly simple. It just has three lines of code. And the first two lines
+of code are creating new objects of this type SimpleLocation,
+the class that I just wrote. So, you can see here that I declare
+two new variables, ucsd and lima. And I'm creating two new
+SimpleLocation objects to represent the location of where
+I'm standing here at UC San Diego. And then the location of Lima, Peru. When I call new, and
+then say SimpleLocation, and then have the parentheses
+in passing those arguments. What that's doing is, that's going over
+into the SimpleLocation class definition and calling the constructor. So those arguments you saw being passed
+in, those are gonna go in as arguments. To this constructor, which is going to store those values away
+inside the object that just got created. So I call the constructor twice,
+I get two new objects. Then I can use those objects in
+some code like I do down here. So, what I'm doing here is,
+I'm taking my ucsd SimpleLocation object. And I'm calling the distance method on it, passing it in the SimpleLocation object
+that represents the location of Lima. So let's take a look at how that works. When I call that method, it's going to invoke this method distance
+that's inside the class SimpleLocation. All right.
+So let's look in a little bit more
+detail what's going on here, so we can understand the difference
+between UCSD and Lima. So when I call ucsd.distance and pass in the parameter lima, like I
+mentioned before, it invokes that method called distance inside the SimpleLocation
+class, which you can see right here. Now I'm showing you just a little bit of
+what the body of that method might look like, so
+that I can illustrate a couple of points. We're comparing the distance
+between two SimpleLocation objects. One of those objects, lima, is past in
+as an argument to the function, and that's gonna be stored in the parameter,
+other. So I can see that other is used
+inside the body of the method when I get its latitude and its longitude. But what happened to ucsd? How are we getting the latitude and
+longitude of ucsd? That's where the keyword, this, comes in. This refers to the calling object, which
+is the object that called the method, or on which the method was called. So in this line of code, ucsd dot
+distance and then pass in lima UCSD is called the calling object because it's
+the object that occurs before that dot. So when I'm inside this method,
+this will refer to the location of UCSD. So that way I can get the latitude and
+longitude of where I'm standing here at UCSD, and compare it to
+the latitude and longitude of Lima, Peru. and return the distance. Putting it all together,
+when I run this code by compiling it and running it, I see that distance between
+where I'm standing now, and Lima, Peru, is approximately 6,568 kilometers. So those are some objects basics. In the next couple videos, we'll introduce
+you to some more subtle details and interesting things you can do when
+creating classes and objects.

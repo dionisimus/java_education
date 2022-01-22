@@ -1,0 +1,90 @@
+[APPLAUSE]
+>> All right, now we get to have some fun. In that last video that Mia presented,
+she showed you how to work with GUIs in Java and
+specifically using the processing library. And in this video we're gonna
+actually write some code together to create a fun little GUI. So, I hope you're at your computer. You should open up Eclipse. You should navigate to the package, to the
+project, where you've got all the code set up for this class that we set up in Module
+1, and you'll be ready to get started. Okay, so we're gonna get started by creating
+a new package to place our code in. So let's go over here
+to our source folder, and I'll right-click and
+I'll create a new package. So here's my new package. I'm gonna call my package GUI module. Okay, so I've got a new package
+to put my new class in it. It's always a good idea to organize
+your classes in packages so they don't just become a mess
+that's all unorganized. So inside this new class
+there's our new package. I am going to create a new class. So I go over here,
+right-click again and say New > Class. And I'll call my class MyDisplay and
+create it. So here's my new class. So let me get rid of this window
+here cuz I don't need it anymore. So I've got my new class all set up. And if you remember back from Mia's video,
+the way I'm gonna turn this class in to a class that represents a GUI is I'm
+going to make it extend with this magical keywords extends, that we're
+gonna talk about next module, I promise. And it's going to extend
+the PApplet class. All right, so that PApplet class, it's,
+Eclipse is giving me an error on that. It's saying, I don't know what the PApplet
+class is, and it turns out it's actually smart enough to fix this error for
+us by importing the correct class for me. So f I go right down here and I go yes, I want to import that PApplet class,
+it will do that for me. So it adds that import line for
+me and I'm ready to go. So now if you remember back from the video
+as well you know that there are two magic methods that we have to implement
+in order to get our GUI to display. So let's implement those now. So they are public void setup. That's the code that gets run right at
+the beginning of when that GUI starts up. And then there's this other
+method public void draw, and that's the method that's gonna get
+called every time the GUI is redrawn, which actually turns out
+happens quite a bit. So I've got our two methods set up and
+ready to go, and now in fact this GUI will run. So let's try it out. Let's look at what happens
+when I press play. Great.
+So when I press play, I see a small window here. That's my GUI. It's kind of a boring GUI, so
+let's do something interesting with it. Let's start first by playing
+with the size of that window. So, you may remember from the video,
+we have this method called size, and I can pass in parameters, the width that I want my window to be and
+the height that I want my window to be. So I'll make a 400 by 600 size window and
+then run that again and see what happens. There we go. My window is both wider and
+taller than it was last time. So there's my new window. Now, it's always a good idea to
+just write a tiny piece of code and then play around by pressing Run, and we're gonna use this method a lot as we
+write this GUI code, especially GUI code. It's almost impossible to tell what you're
+writing if you don't actually see it, so we'll be writing a couple lines, running
+it, and it'll be kinda more fun that way. So now that we've got our window set up,
+actually I want to make my window square, so I'm gonna make
+a window that 400 by 400. Let's start playing around with color. So I want to first change
+the background color of this window. And in order to do that, I need to
+remember that there's a method that I can call that will change
+the background color. Now, we might not remember what that
+method is called, but that's okay. And that's where our documentation
+is going to come in handy. So I'll use that page in a second. But for now, I want to show
+you the documentation page for the processing library. So here is the documentation page for the
+processing library, and if you just search for processing documentation you
+should be able to find this page, or the URL is right here. And I can look right here
+at this color column and see I've got a number of methods that
+will change the color of my drawing, and one of them right here
+is called background. So if I click on the background method, I see that there are a number of different
+versions of this background method. Remember that overloading we talked about
+in module, in that last module on objects. And you can see that there's a method,
+there's a version of it that takes one parameter, three parameters,
+takes an image parameter. I'm gonna focus here on the one
+that takes three parameters and explain that in a little bit more detail. So that three parameter background method,
+what it's doing is it's taking three values which
+are respectively the red, green, and blue amounts that I want in my color. So we're defining a color in terms
+of its red, green, and blue. And that's a standard way of
+representing color on a computer. So if I say I want no red, no green,
+and no blue, I pass in all zeros. And take a minute to guess about what
+color you think this is gonna be. All right, let's try to run it, and
+see what happens, see if you were right. Nope, it has errors. I forgot a semicolon. No problem, I'll fix that. Now I'll run it, and now you can
+see that this background is black, because I have no red light,
+no green light, no blue light. So no light at all gives me black. If I want white,
+I can change these colors to, these channels to all their maximum value,
+which is 255. And you can see that I'm going
+to get a white background. So there's my white background. And I can play around with the color here. I can change it to red
+by making the blue and the green channels both 0 and run again,
+so there's my red background, and I can keep playing around to get other
+combinations of red, green, and blue. But if you get tired of playing around, there are plenty of sites on
+the internet that you can go to. Here's one that I like that
+will allow you to pick an RGB, sorry pick a color visually and
+then it tells you what its RGB value is. So, if I like this nice kinda teal color,
+I can see that its red, green, blue value are in those boxes below. I think I copy those values
+out into my processing window. Okay, so I want my background
+to be just a kind of plain grey. So I'll put it at 200, 200, 200. And incidentally, whenever I have a red,
+green, blue value that are all the same, I'll get some shade of grey. The lower the numbers, the closer
+to black, the higher the numbers, the closer to white. Okay, I've got my window setup. I've got my canvas setup,
+it's just gonna be a grey square. And I am ready to draw a picture. But we're gonna, in order to keep these videos from getting
+too long, I'm gonna break the video here. Feel free to go off and play, start
+creating your own image on this GUI, or you can come back to the next video and
+we'll draw a happy face.

@@ -1,0 +1,544 @@
+1
+00:00:00,032 --> 00:00:04,723
+[MUSIC]
+
+2
+00:00:04,723 --> 00:00:07,750
+All right, so
+it's time to get started on your project.
+
+3
+00:00:07,750 --> 00:00:09,280
+In this project, there are two parts.
+
+4
+00:00:09,280 --> 00:00:12,340
+The first, you're gonna write some
+code to sort the earthquake data.
+
+5
+00:00:12,340 --> 00:00:16,540
+And the second part, where we think you're
+gonna have a lot of fun, is to add your
+
+6
+00:00:16,540 --> 00:00:19,540
+own extension to this whole project that
+you've created throughout this course.
+
+7
+00:00:20,990 --> 00:00:23,730
+So before we talk about what
+you're actually going to do for
+
+8
+00:00:23,730 --> 00:00:27,480
+the programming assignment, let me say a
+few words about how you're going to submit
+
+9
+00:00:27,480 --> 00:00:28,670
+this programming assignment.
+
+10
+00:00:28,670 --> 00:00:30,760
+It's a little bit different
+from previous modules.
+
+11
+00:00:31,850 --> 00:00:34,470
+So if you go over here to
+Week View on Coursera,
+
+12
+00:00:34,470 --> 00:00:38,040
+these are the things you're learning this
+week, and down here at the bottom is,
+
+13
+00:00:38,040 --> 00:00:41,020
+of course, the Check Your Knowledge
+lesson, which is the last lesson.
+
+14
+00:00:41,020 --> 00:00:43,100
+Just like it is in every assignment, and
+
+15
+00:00:43,100 --> 00:00:45,379
+right now you're watching
+the Programming Assignment Walkthrough.
+
+16
+00:00:46,460 --> 00:00:48,740
+Of course coming next,
+the Programming Assignment Instructions,
+
+17
+00:00:48,740 --> 00:00:50,810
+which I'm going over in this video, but
+
+18
+00:00:50,810 --> 00:00:53,650
+let me talk to you about how you're
+going to submit the assignment.
+
+19
+00:00:53,650 --> 00:00:58,420
+So as usual, what you'll do is, you'll do
+a quiz, just like in previous modules,
+
+20
+00:00:58,420 --> 00:01:00,710
+to check your understanding
+of the concepts.
+
+21
+00:01:00,710 --> 00:01:04,120
+And to make sure you've actually done
+the programming assignment correctly.
+
+22
+00:01:04,120 --> 00:01:07,150
+But in this module,
+you're gonna have an extra piece.
+
+23
+00:01:07,150 --> 00:01:10,920
+Rather than just taking a quiz,
+we're actually going to ask you to submit
+
+24
+00:01:10,920 --> 00:01:15,590
+a peer-review assignment talking about
+part of your programming assignment for
+
+25
+00:01:15,590 --> 00:01:16,810
+this module.
+
+26
+00:01:16,810 --> 00:01:22,130
+So, what's a little weird is you're going
+to see two peer-review assignments,
+
+27
+00:01:22,130 --> 00:01:23,260
+and they're right next to each other.
+
+28
+00:01:23,260 --> 00:01:27,450
+So you can see one right here and
+the other right there.
+
+29
+00:01:27,450 --> 00:01:31,890
+One of them has a due date, meaning that's
+the one that's actually due for a grade.
+
+30
+00:01:31,890 --> 00:01:35,742
+The other one that you see right
+before it, this one is just basically
+
+31
+00:01:35,742 --> 00:01:40,350
+a non-graded,
+an optional peer review assignment, and
+
+32
+00:01:40,350 --> 00:01:45,310
+it's actually identical to the graded
+version of the peer-review assignment.
+
+33
+00:01:45,310 --> 00:01:49,360
+Now, you may be wondering, why do we have
+an optional version of the assignment
+
+34
+00:01:49,360 --> 00:01:52,740
+that's identical to the sort of
+required version of the assignment?
+
+35
+00:01:52,740 --> 00:01:55,990
+And the reason for this is that we
+want you to be able to get preliminary
+
+36
+00:01:55,990 --> 00:01:59,670
+feedback from your peers
+in a quick turnaround.
+
+37
+00:01:59,670 --> 00:02:04,578
+So that you can get some feedback to
+incorporate into the submission that
+
+38
+00:02:04,578 --> 00:02:06,997
+you ultimately submit for a grade.
+
+39
+00:02:06,997 --> 00:02:11,966
+So this version, this ungraded
+peer assignment, is optional.
+
+40
+00:02:11,966 --> 00:02:15,799
+But you can use it to submit
+your peer-review assignment and
+
+41
+00:02:15,799 --> 00:02:20,387
+get some quick feedback from your peers,
+make some improvements on your
+
+42
+00:02:20,387 --> 00:02:25,070
+peer-review assignment, and then
+submit it for a grade by the due date.
+
+43
+00:02:25,070 --> 00:02:29,177
+So now that we've looked at how you're
+going to submit your programming
+
+44
+00:02:29,177 --> 00:02:31,801
+assignment in this module,
+let's go back and
+
+45
+00:02:31,801 --> 00:02:34,584
+take a look at what you're
+actually going to do.
+
+46
+00:02:34,584 --> 00:02:37,100
+So, the first steps are the usual steps.
+
+47
+00:02:37,100 --> 00:02:39,780
+We want you to find
+an open starter code and
+
+48
+00:02:39,780 --> 00:02:43,860
+take a look at it, then we're asking you
+to compare our implementation to yours,
+
+49
+00:02:43,860 --> 00:02:46,460
+and this is really more
+of a reflective question.
+
+50
+00:02:46,460 --> 00:02:49,960
+How does what we did in the module five
+implementation compare to your module
+
+51
+00:02:49,960 --> 00:02:50,920
+five implementation?
+
+52
+00:02:50,920 --> 00:02:53,481
+Be ready to reflect on that in the quiz.
+
+53
+00:02:53,481 --> 00:02:56,184
+The next part, you're going to be
+implementing the code to sort.
+
+54
+00:02:56,184 --> 00:03:00,170
+So the first step says to implement the
+comparable interface in Earthquake Marker.
+
+55
+00:03:00,170 --> 00:03:03,072
+So we go over here to
+the Earthquake Marker file, and you can
+
+56
+00:03:03,072 --> 00:03:07,211
+see that there's a to-do in here that
+says, implement the comparable interface.
+
+57
+00:03:07,211 --> 00:03:09,936
+And so
+you need to figure out what that means,
+
+58
+00:03:09,936 --> 00:03:14,904
+how do we change the class header so that
+it implements the comparable interface?
+
+59
+00:03:14,904 --> 00:03:18,700
+And then, of course, there's a second part
+to implement to the comparable interface
+
+60
+00:03:18,700 --> 00:03:21,152
+which is to implement all
+the methods in the interface.
+
+61
+00:03:21,152 --> 00:03:24,449
+In this case it's just this one method,
+compareTo.
+
+62
+00:03:24,449 --> 00:03:26,961
+And you'll see a TODO down here as well.
+
+63
+00:03:26,961 --> 00:03:31,079
+And remember the compareTo compares
+the calling object Earthquake Marker,
+
+64
+00:03:31,079 --> 00:03:33,114
+to the parameter EarthquakeMarker.
+
+65
+00:03:33,114 --> 00:03:36,504
+And returns either a negative value,
+zero, or
+
+66
+00:03:36,504 --> 00:03:41,943
+a positive value depending on the
+relationship between those two objects.
+
+67
+00:03:41,943 --> 00:03:45,756
+And it's gonna be up to you to figure
+out how to do the comparison and
+
+68
+00:03:45,756 --> 00:03:50,544
+return the correct value so that you get
+your earthquakes sorted in reverse order.
+
+69
+00:03:50,544 --> 00:03:55,458
+All right, and then the second half of
+that piece is to implement this method in
+
+70
+00:03:55,458 --> 00:04:00,003
+EarthquakeCityMap, so we go back
+over here to EarthquakeCityMap, and
+
+71
+00:04:00,003 --> 00:04:02,249
+you'll be implementing a method.
+
+72
+00:04:02,249 --> 00:04:04,628
+You can click here to this little TODO.
+
+73
+00:04:04,628 --> 00:04:07,579
+We're gonna implement this
+method sortAndPrint, and
+
+74
+00:04:07,579 --> 00:04:11,405
+that takes a parameter, the number
+of earthquakes we want to print, and
+
+75
+00:04:11,405 --> 00:04:15,564
+it's going to print out the earthquakes
+in reverse order of their magnitude.
+
+76
+00:04:15,564 --> 00:04:19,080
+So it's gonna be strongest magnitude
+first and then weaker and weaker.
+
+77
+00:04:19,080 --> 00:04:21,120
+So you're gonna implement
+that method here, and
+
+78
+00:04:21,120 --> 00:04:23,650
+then you'll wanna call it
+from the setup method.
+
+79
+00:04:23,650 --> 00:04:26,450
+So you'll be adding your call
+somewhere in here in the setup method.
+
+80
+00:04:27,540 --> 00:04:32,410
+Then you can see here that the second part
+of the project, the main second part,
+
+81
+00:04:32,410 --> 00:04:33,900
+is to add your own extension.
+
+82
+00:04:33,900 --> 00:04:37,378
+So this is where we want you to get
+creative, have a lot of fun, and in case
+
+83
+00:04:37,378 --> 00:04:41,731
+you don't have any ideas, we hope you have
+some ideas, but if you don't, that's okay.
+
+84
+00:04:41,731 --> 00:04:44,720
+We have some ideas to
+seed your creativity.
+
+85
+00:04:44,720 --> 00:04:48,330
+So there are two kind of major
+directions you could take this in.
+
+86
+00:04:48,330 --> 00:04:51,500
+You could extend the functionality
+of your earthquake application, so
+
+87
+00:04:51,500 --> 00:04:53,730
+continue to work with the earthquake data.
+
+88
+00:04:53,730 --> 00:04:55,000
+And you're all set up for that.
+
+89
+00:04:55,000 --> 00:04:57,720
+And we've got a number of
+different suggestions here
+
+90
+00:04:57,720 --> 00:04:59,510
+that you might choose to implement.
+
+91
+00:04:59,510 --> 00:05:02,570
+And then the other direction
+you could take is you could
+
+92
+00:05:02,570 --> 00:05:04,750
+incorporate new data sources.
+
+93
+00:05:04,750 --> 00:05:10,000
+So we have a couple of new kinds
+of data already prepared for you.
+
+94
+00:05:10,000 --> 00:05:15,063
+So one is airport and
+airline root data that you can find over
+
+95
+00:05:15,063 --> 00:05:20,227
+here if you go here into the data
+directory back in Eclipse you
+
+96
+00:05:20,227 --> 00:05:27,227
+can see that we've got this airports.dat,
+and then we have a routes.dat file.
+
+97
+00:05:27,227 --> 00:05:31,332
+And we're also providing you with some
+code that will give you a demo of this, so
+
+98
+00:05:31,332 --> 00:05:33,848
+we've got this AirportMap and
+AirportMarker so
+
+99
+00:05:33,848 --> 00:05:36,388
+you can get a sense of how
+to use those data files.
+
+100
+00:05:36,388 --> 00:05:38,660
+So you can work with that data source or
+
+101
+00:05:38,660 --> 00:05:41,223
+you can work with data
+from the World Bank.
+
+102
+00:05:41,223 --> 00:05:45,445
+We've got the life expectancy data that
+Mia showed you way back in module,
+
+103
+00:05:45,445 --> 00:05:46,931
+the first module on GUIs.
+
+104
+00:05:46,931 --> 00:05:50,710
+And we've got some sample code
+that implements, basically,
+
+105
+00:05:50,710 --> 00:05:54,061
+the example that she implemented
+from that module, and
+
+106
+00:05:54,061 --> 00:05:57,930
+you'll find that over here in
+the lifeexpectancy.java file.
+
+107
+00:05:57,930 --> 00:06:02,143
+So, decide which direction you wanna take,
+decide what you wanna do, play around,
+
+108
+00:06:02,143 --> 00:06:04,072
+have a lot of fun, and then after this,
+
+109
+00:06:04,072 --> 00:06:07,140
+what you're gonna do is you're
+going to be submitting this.
+
+110
+00:06:07,140 --> 00:06:08,260
+In addition to taking the quiz,
+
+111
+00:06:08,260 --> 00:06:12,690
+you'll be submitting this as
+a graded peer review assignment.
+
+112
+00:06:12,690 --> 00:06:13,300
+So you can see,
+
+113
+00:06:13,300 --> 00:06:18,650
+you'll get to see what all your fellow
+MOOC mates have done with this project.
+
+114
+00:06:19,710 --> 00:06:22,430
+So have fun and we really look
+forward to seeing your extensions.

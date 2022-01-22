@@ -1,0 +1,86 @@
+[APPLAUSE]
+>> All right, so now we're gonna look at the example that Mia presented in
+her video on your introduction to GUIs. And that example was to display an image,
+and then put a sun on top of that
+image by putting an ellipse there. And change the color of that ellipse
+depending on the time of day. She talked about using hours
+to calculate the time of day. But I'm a little too impatient to wait for hours to go by to see
+the change in the sun. So I've modified that example slightly. So that the sun color is going to change
+based on the secant of the minute. So you can see here, as I open up this
+application, I see my beach scene. That already has a sun in it, but my sun that I placed on top of it
+is now changing color every second. So it's getting darker,
+and darker, and darker. And in a minute you'll see it get lighter,
+and lighter, and lighter as it goes back
+to its yellow color. So let's take a look at the code
+that makes that happen. Here it is. Of course, it's a GUI, so my class
+needs to extend the PApplet class, which is my base class for
+implementing all of my GUIs. And I'm going to implement these
+two fundamental methods here, the setup method, and the draw method. I've got all the code written. I'm just gonna walk you through it. So the setup method is for
+all the codes that I want to run once, only when this method
+first starts running. So that involves setting
+the size of the window, setting the background color,
+setting the stroke color to be black. And then loading up my image and
+placing it into the background. In my draw method, here's where I'm
+going to create and color the ellipse. And the draw method is what's going to
+get called over and over and over again. So it's going to change the color
+of that ellipse every second and show me that change as you can see
+there on the right of the screen. So it's actually not too complicated
+to understand how this is happening. At the heart of this code, all we are doing is calculating
+a custom color on this line. And then we're filling the ellipse on
+that color that we're about to create. And then we're going
+to create the ellipse. So I'm gonna talk about
+created an ellipse first and talk about how we create
+that custom color. So we're creating the ellipse to be based
+on the width and the height of the window. So we're taking the ratio of the width and
+the height of the window over four and over five,
+to basically position the ellipse and to size it according to
+the height of the window. So if the window was bigger,
+that ellipse would be bigger. And you have access to this width and
+height member variables. Since you're working inside a class
+that extends the p applet class. Those get set automatically for
+you when you call the size method. So that's just a way we can make things
+a little bit more flexible in terms of how big our window is, rather than setting
+the size of the ellipse directly. But really the interesting thing
+here is how the color gets set. So, the color gets set through this
+helper method called sunColorSec. And so let's take a look
+at what sunColorSec does. Well, the first thing it does, is it takes
+an argument in, and it takes the argument, which is a call to this built
+in method called second. And what this built in method called
+second does, is it returns the number of seconds that have elapsed since the last
+minute according to your systems clock. So that's built in for you. You can use it. There's a similar method called minute and
+another method called hour, that do just what you would expect. So based on the number of seconds that
+have elapsed since the last minute, we can calculate a color,
+a version of yellow, either very dark or very light depending on
+those number of seconds. So what we're gonna do is we're gonna sort
+of base everything on how close to the, sort of bottom of the minute we are. So how close to 30 seconds are we in
+terms of the number of seconds that have elapsed. So the very first thing I'm
+going to do in this method. Well first I'm going to create my integer
+array, that holds three integers and that's going to the red, green, and
+blue values that I'll be returning. And then I'm gonna calculate the
+difference between the seconds that have elapsed and 30. But I don't care if they are positive or
+negative. I just want to know the distance. So I'm going to call
+the math.abs function, which is going to calculate
+the absolute value of that number. And I'll store that in
+a variable called diffrom30. Then I want to calculate a ratio in terms
+of how far around the minute are we. So I'm going to divide difffrom30 by 30. So if I'm exactly at 30
+then my difffrom30 is 0, and I'll have 0 divided by 30 and
+my ratio will be 0. If I'm all the way up at 30,
+then my difffrom 30 is going to be 30. Sorry if I'm all the way up,
+far away from 30, so either at 0 or at 60,
+then difffrom 30 is going to be 30. And I'll have 30 divided by 30 which is 1. So this is going to be
+a number between 0 and 1, depending on how far away I am from 30. Then I'll use that ratio to scale
+the red and the green values of yellow to create a color that's
+either very dark or very light. So if my ratio is very close to 1, then I'm gonna be multiplying 255
+by something that's close to 1. And I'm gonna get a very big number for
+my red and my green. My blue is always going to be 0 because
+a pure yellow color would be 255 255 0. So a bright yellow is going to happen
+when that ratio is very close to one. And then a dark yellow or a black is going to happen when
+that ratio is close to zero. So when my ratio is very close to 0,
+it's going to multiply by 255, giving me a very small number. And I'll end up with a color that's very
+close to black, or even black itself, 000. Now you'll notice that I'm
+also casting the result of this multiplication to an int,
+because my array can only store integers. So I have to do this cast
+to do the type conversion. Once I've got all those three values set,
+I return my RGB array and I use it to populate my fill method for
+color red, green, and blue. Since this draw method
+is called continuously, it will change the ellipse as it goes.

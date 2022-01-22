@@ -1,0 +1,582 @@
+1
+00:00:00,347 --> 00:00:03,946
+[MUSIC]
+
+2
+00:00:03,946 --> 00:00:08,118
+Okay, in this next video we'll layer on
+some more details of building classes
+
+3
+00:00:08,118 --> 00:00:08,630
+in Java.
+
+4
+00:00:08,630 --> 00:00:13,570
+We're gonna talk about the keywords public
+and private and protecting your data and
+
+5
+00:00:13,570 --> 00:00:15,930
+methods inside your classes.
+
+6
+00:00:15,930 --> 00:00:19,638
+So by the end of this video you'll be able
+to describe what those keywords mean and
+
+7
+00:00:19,638 --> 00:00:23,470
+their effect on who can access the data
+and methods inside your classes.
+
+8
+00:00:23,470 --> 00:00:25,850
+And you'll be able to also talk
+about how to use getters and
+
+9
+00:00:25,850 --> 00:00:29,890
+setters to allow customized access
+to the data inside of your classes.
+
+10
+00:00:31,490 --> 00:00:32,230
+So as usual,
+
+11
+00:00:32,230 --> 00:00:36,280
+we're gonna go back to the SimpleLocation
+class that we've been developing.
+
+12
+00:00:36,280 --> 00:00:39,890
+So these class, as you know, has two
+member variables, latitude and longitude.
+
+13
+00:00:39,890 --> 00:00:43,050
+And we originally declared
+them both to be public.
+
+14
+00:00:43,050 --> 00:00:45,020
+So let's take a closer
+look at what that means.
+
+15
+00:00:46,070 --> 00:00:49,980
+What that means is that anyone can
+access these member variables from
+
+16
+00:00:49,980 --> 00:00:51,240
+any class at all.
+
+17
+00:00:51,240 --> 00:00:56,960
+So when I create a new object
+of type SimpleLocation,
+
+18
+00:00:56,960 --> 00:00:58,980
+I can get at the member
+variable latitude or
+
+19
+00:00:58,980 --> 00:01:02,870
+the member variable longitude to read
+its value or to change its value.
+
+20
+00:01:02,870 --> 00:01:06,050
+So if I go over here into
+the LocationTester class,
+
+21
+00:01:06,050 --> 00:01:09,960
+I see that I've created two
+new SimpleLocation objects.
+
+22
+00:01:09,960 --> 00:01:14,650
+I can change the value of latitude
+inside the object stored in lima.
+
+23
+00:01:14,650 --> 00:01:18,850
+That's totally okay, because that member
+variable is declared to be public.
+
+24
+00:01:18,850 --> 00:01:20,510
+So I can access it from anywhere.
+
+25
+00:01:22,680 --> 00:01:26,790
+Similarly for methods, I've declared
+my method distance to be public.
+
+26
+00:01:26,790 --> 00:01:29,070
+Which means that I can
+access that method anywhere.
+
+27
+00:01:29,070 --> 00:01:33,660
+So over here, back in my LocationTester
+class I'm calling the distance method,
+
+28
+00:01:33,660 --> 00:01:36,780
+which is also totally allowed because
+again, that method is public.
+
+29
+00:01:38,790 --> 00:01:42,470
+On the other hand, if I were to
+declare my member variables private,
+
+30
+00:01:42,470 --> 00:01:46,590
+what that would mean is that those
+variables would only be accessible
+
+31
+00:01:46,590 --> 00:01:49,460
+from within the SimpleLocation
+class itself.
+
+32
+00:01:49,460 --> 00:01:52,130
+So only inside this class definition.
+
+33
+00:01:52,130 --> 00:01:52,890
+Nowhere else.
+
+34
+00:01:52,890 --> 00:01:56,780
+No one else has access to either read or
+write those variables.
+
+35
+00:01:56,780 --> 00:01:58,200
+Same thing goes for methods.
+
+36
+00:01:58,200 --> 00:01:59,800
+If I make a method private,
+
+37
+00:01:59,800 --> 00:02:05,050
+I can only call that method within
+the class I'm defining, and nowhere else.
+
+38
+00:02:05,050 --> 00:02:07,290
+So, if we look at what that means,
+
+39
+00:02:07,290 --> 00:02:11,338
+if we look at this constructor,
+these two lines of code are just fine.
+
+40
+00:02:11,338 --> 00:02:16,175
+I'm using this.latitude to access
+the member variable latitude and
+
+41
+00:02:16,175 --> 00:02:20,040
+this.longitude to access
+the member variable longitude.
+
+42
+00:02:20,040 --> 00:02:24,980
+Perfectly okay because I'm
+inside the class SimpleLocation.
+
+43
+00:02:24,980 --> 00:02:28,530
+However, if I go back to that
+class LocationTester, and
+
+44
+00:02:28,530 --> 00:02:32,240
+look at this line here that's trying
+to change the value of latitude in
+
+45
+00:02:32,240 --> 00:02:36,470
+the SimpleLocation stored in the variable
+lima, that's no longer allowed.
+
+46
+00:02:36,470 --> 00:02:39,940
+Because now I've said that that
+latitude variable is private.
+
+47
+00:02:39,940 --> 00:02:43,670
+It can only be accessed from
+within the SimpleLocation class.
+
+48
+00:02:43,670 --> 00:02:46,100
+And we're no longer in
+the SimpleLocation class.
+
+49
+00:02:46,100 --> 00:02:49,750
+We're now over here in the main method,
+inside LocationTester.
+
+50
+00:02:49,750 --> 00:02:50,900
+So that would cause an error.
+
+51
+00:02:53,240 --> 00:02:57,080
+So, it's actually,
+despite this error that just got caused,
+
+52
+00:02:57,080 --> 00:03:00,090
+it's actually a good idea to make
+your member variables private.
+
+53
+00:03:01,340 --> 00:03:06,560
+Because you as the class designer
+want to really have ultimate control
+
+54
+00:03:06,560 --> 00:03:08,440
+over who gets to see and
+
+55
+00:03:08,440 --> 00:03:12,590
+change the data that's stored in each
+object of the class that you're creating.
+
+56
+00:03:12,590 --> 00:03:16,150
+So as a rule of thumb,
+always make your member variables private.
+
+57
+00:03:17,560 --> 00:03:19,500
+Now methods can either be public or
+
+58
+00:03:19,500 --> 00:03:23,830
+private, depending on whether they're for
+world use, like the distance method.
+
+59
+00:03:23,830 --> 00:03:27,390
+Or whether they're maybe just helper
+methods that are designed to be used only
+
+60
+00:03:27,390 --> 00:03:29,060
+within that class itself.
+
+61
+00:03:29,060 --> 00:03:32,330
+We'll talk more about that as we start
+talking about more sophisticated
+
+62
+00:03:32,330 --> 00:03:33,750
+class design.
+
+63
+00:03:33,750 --> 00:03:36,570
+But, for now, let's focus on this rule
+of thumb that we should make our member
+
+64
+00:03:36,570 --> 00:03:38,390
+variables private.
+
+65
+00:03:38,390 --> 00:03:41,810
+So, if our member variables are private,
+nobody else can access them.
+
+66
+00:03:41,810 --> 00:03:44,540
+They can't see their values,
+they can't change them.
+
+67
+00:03:44,540 --> 00:03:46,330
+So, that seems like a bit of a problem.
+
+68
+00:03:46,330 --> 00:03:49,960
+We probably sometimes want to
+give a little bit more access
+
+69
+00:03:49,960 --> 00:03:52,600
+to the member variables
+in our class than that.
+
+70
+00:03:52,600 --> 00:03:56,510
+So the way we get around that problem is
+through the use of what are called getters
+
+71
+00:03:56,510 --> 00:03:58,050
+and setters.
+
+72
+00:03:58,050 --> 00:04:03,090
+So this is an example right here of a
+getter, and the purpose of a getter is to
+
+73
+00:04:03,090 --> 00:04:06,500
+take the value of a member
+variable that's private and
+
+74
+00:04:06,500 --> 00:04:09,280
+expose it outside of that class.
+
+75
+00:04:09,280 --> 00:04:13,470
+So you can see this getter here gets
+the value of the member variable latitude,
+
+76
+00:04:13,470 --> 00:04:17,090
+which is private, and
+returns it to the outside world.
+
+77
+00:04:17,090 --> 00:04:19,620
+So the variable itself
+is still private but
+
+78
+00:04:19,620 --> 00:04:23,300
+now I can gain access to that
+variable by calling this getter.
+
+79
+00:04:23,300 --> 00:04:27,340
+So if we go back over here to the code,
+we can see that if I try to
+
+80
+00:04:27,340 --> 00:04:32,140
+access the variable directly say,
+print it out I get an error, but
+
+81
+00:04:32,140 --> 00:04:35,430
+when I call that getter method,
+that's perfectly fine.
+
+82
+00:04:35,430 --> 00:04:39,580
+So I can actually get access to
+the value of that latitude variable
+
+83
+00:04:39,580 --> 00:04:40,260
+through the getter.
+
+84
+00:04:41,810 --> 00:04:48,100
+And now notice that in this code so far,
+going back here, I haven't provided my
+
+85
+00:04:48,100 --> 00:04:53,230
+user of my class with any way to actually
+set or change the value of latitude.
+
+86
+00:04:53,230 --> 00:04:57,140
+And that may be what I intend as the class
+designer, that once that latitude variable
+
+87
+00:04:57,140 --> 00:05:01,280
+gets set in the constructor, I may
+never want anybody to change it again.
+
+88
+00:05:01,280 --> 00:05:04,070
+And in that case,
+I would just simply provide a getter and
+
+89
+00:05:04,070 --> 00:05:07,490
+not provide any way for the user to
+change the value of the variable.
+
+90
+00:05:07,490 --> 00:05:10,090
+But, let's say I actually do
+want to allow somebody to
+
+91
+00:05:10,090 --> 00:05:11,970
+change the value of the variable.
+
+92
+00:05:11,970 --> 00:05:15,030
+In that case I would provide
+what's called a setter.
+
+93
+00:05:15,030 --> 00:05:17,150
+So, here's my setter.
+
+94
+00:05:17,150 --> 00:05:21,970
+What it does is it takes in a value, lat,
+and it changes the value of the private
+
+95
+00:05:21,970 --> 00:05:25,330
+member variable to the value
+that was passed in by the user.
+
+96
+00:05:25,330 --> 00:05:28,540
+So a setter sets the value
+of our member variable,
+
+97
+00:05:28,540 --> 00:05:29,940
+usually a private member variable.
+
+98
+00:05:31,430 --> 00:05:35,479
+So now I've got a getter and
+a setter for my latitude variable.
+
+99
+00:05:35,479 --> 00:05:38,216
+And you might be thinking,
+I would be thinking if I were you,
+
+100
+00:05:38,216 --> 00:05:41,030
+why didn't we just make that
+member variable public?
+
+101
+00:05:41,030 --> 00:05:44,000
+If we're exposing
+the ability to change it and
+
+102
+00:05:44,000 --> 00:05:47,338
+read it, we might as well
+just make it public, right?
+
+103
+00:05:47,338 --> 00:05:49,740
+So here's why, having the getter and
+
+104
+00:05:49,740 --> 00:05:54,310
+the setter allows us more
+control as class designers.
+
+105
+00:05:54,310 --> 00:05:59,040
+So let's say we want to allow the user
+to change the value of the latitude.
+
+106
+00:05:59,040 --> 00:06:03,170
+But we're little bit unsure that the user
+of our class will know what they're doing
+
+107
+00:06:03,170 --> 00:06:06,350
+when it comes to legal latitude values.
+
+108
+00:06:06,350 --> 00:06:10,920
+So we can put some precautions in place
+that allow the user to change the value of
+
+109
+00:06:10,920 --> 00:06:15,970
+that latitude, but only to values
+that are legal latitude values.
+
+110
+00:06:15,970 --> 00:06:19,350
+So the way we would do this is we would
+modify our setter to rather than just
+
+111
+00:06:19,350 --> 00:06:23,810
+blindly accepting whatever argument was
+passed in, we would have some checks,
+
+112
+00:06:23,810 --> 00:06:28,800
+some logic inside of that method
+that said okay, if it's out
+
+113
+00:06:28,800 --> 00:06:34,150
+of range of -180 to 180 then
+that's not a legal value.
+
+114
+00:06:34,150 --> 00:06:37,210
+So we're gonna print out an error,
+inform the user of our class that,
+
+115
+00:06:37,210 --> 00:06:40,740
+hey, you tried to set your latitude
+variable to an illegal value.
+
+116
+00:06:40,740 --> 00:06:44,610
+That's probably some bug in your code, so
+you should probably go check that out.
+
+117
+00:06:44,610 --> 00:06:47,590
+And not change the value that's
+stored in the latitude variable.
+
+118
+00:06:48,730 --> 00:06:53,210
+Otherwise, we can happily accept the value
+because it's within the legal range and
+
+119
+00:06:53,210 --> 00:06:55,420
+change the value of that variable.
+
+120
+00:06:55,420 --> 00:06:58,960
+All right, so that's it for
+the details of classes and objects.
+
+121
+00:06:58,960 --> 00:07:03,010
+You now know all the basics of
+creating classes and objects.
+
+122
+00:07:03,010 --> 00:07:06,760
+Next you'll take a short practice quiz and
+then move on to the next module.

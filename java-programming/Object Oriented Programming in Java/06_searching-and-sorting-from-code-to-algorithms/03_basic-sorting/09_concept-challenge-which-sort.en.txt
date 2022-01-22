@@ -1,0 +1,51 @@
+Hi again and
+welcome back to our module on sorting. At this point, you've seen two
+different sorting techniques, so we're gonna see how well do you
+really understand both of them. You're very familiar with the concept
+challenges at this point. You know the approach is you're gonna
+pause, think about the questions, answer it yourself, discuss it with
+people if you have them around you. Watch a video of UCSD, UC San Diego
+learners, learning about the material, and then confirm your explanation
+with our explanation. So without further ado,
+if you look at these two arrays, in the top array we have the initial
+setup, and in the array below that we've got the state of the array
+after three loop iterations. Which sorting algorithm could've
+been applied to reach this state. >> Hi, I'm Melissa. >> Hi, I'm Ken. >> Hi, I'm Michael. >> So for this one, I thought it
+definitely can't be selection sort because the one would be at the beginning, right? >> I was actually kinda confused on this
+question because I actually picked D. I thought it was both of them since like
+the first couple of elements are already sorted and we're sorting the elements,
+shouldn't that be correct for both? >> I'm actually pretty sure it's insertion
+sort because what happens is through the first iterations or the first loop, it
+checks the four and the seven, no switch. Goes to the next two elements, seven and
+two, switches the seven and two. >> Okay.
+>> And then actually goes back and checks the two and the four, the four and
+the two, and makes that switch. And that would be three loop iterations,
+and that would be exactly
+what the bottom array is. And what she said,
+it can't be selection sort, because the one would be at
+the beginning for selection sort. >> Oh, right. >> Insertion sort never
+made it to the one. >> To reach this state. Hi, I hope this video with
+the UC San Diego learners was helpful. We're going to just walkthrough both
+insertion sort and selection sort, and see the state of the array
+after three loop iterations. With insertion sort, the key idea here
+is that you always keep the left side of the array sorted, but you're only looking
+at essentially, the left elements. So the first pass, all you're gonna
+do is look at element four and say, is four sorted? It sure is. Next iterational loop
+is gonna look at seven, and it's gonna say where should
+seven be in relation to four. Well, it belongs in the same place. So the third iterational loop is where
+it gets interesting because it's gonna look at two. I was gonna say, where does two
+belong relative to four and seven? And it's gonna move two down all
+the way to the first place, and then four and then seven. So after three iterations of the loop,
+this would be the state of insertion sort. And this is what
+the question was asking for. So the right answer
+here is insertion sort. But let's talk through what
+selection sort would have done. Selection Sort is always gonna be looking
+to the remaining part of the array to find the smallest value and
+put that where we're currently looking. So a selection sort, you're gonna be
+looking to the entire array at the start and you're gonna look to see that
+one is the smallest element and then you place one right at the start. And you're gonna look through
+the remaining part of the array, and you're gonna find that two is
+the next smallest element, you're gonna place that next. And then you're gonna look through
+the main part of the array again. You're gonna find that four
+is the next smallest element. You're gonna swap that in. And this will be the state of the array after three durations
+of selection sorting.

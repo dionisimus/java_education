@@ -1,0 +1,170 @@
+1
+00:00:00,000 --> 00:00:04,129
+[MUSIC]
+
+2
+00:00:04,129 --> 00:00:05,526
+In the project for this module,
+
+3
+00:00:05,526 --> 00:00:09,740
+we'll be going further with our graphing
+of earthquakes onto the world map.
+
+4
+00:00:09,740 --> 00:00:10,890
+The past assignment was really neat.
+
+5
+00:00:10,890 --> 00:00:12,900
+You displayed earthquakes on a map, and
+
+6
+00:00:12,900 --> 00:00:14,940
+had their appearance determined by
+the magnitude of the earthquake.
+
+7
+00:00:14,940 --> 00:00:18,570
+But knowing the magnitude of
+the earthquake alone, isn't really enough
+
+8
+00:00:18,570 --> 00:00:22,110
+information to understand
+the potential impact of that event.
+
+9
+00:00:22,110 --> 00:00:25,445
+So we'll be going further with
+this idea in this module by making
+
+10
+00:00:25,445 --> 00:00:29,522
+the earthquakes appear differently based
+on the location of the earthquake,
+
+11
+00:00:29,522 --> 00:00:33,310
+the depth of the earthquake, and
+optionally the age of the earthquake.
+
+12
+00:00:33,310 --> 00:00:36,978
+But we'll continue to visualize the
+magnitude of the earthquake as the size
+
+13
+00:00:36,978 --> 00:00:37,733
+of the marker.
+
+14
+00:00:37,733 --> 00:00:40,229
+So there's a number of steps
+to this assignment, but
+
+15
+00:00:40,229 --> 00:00:42,677
+let's try to break it down
+to four high level goals.
+
+16
+00:00:42,677 --> 00:00:45,910
+The first goal is to add markers for
+major cities.
+
+17
+00:00:45,910 --> 00:00:48,260
+If you don't see your city here,
+please feel free to add it.
+
+18
+00:00:50,080 --> 00:00:53,740
+The second is to figure out if
+the earthquakes occurred in the land, and
+
+19
+00:00:53,740 --> 00:00:56,320
+if so, occurred in which country.
+
+20
+00:00:56,320 --> 00:00:59,570
+Then, you want to draw the earthquakes
+differently if they occurred in the land
+
+21
+00:00:59,570 --> 00:01:00,920
+or in the sea.
+
+22
+00:01:00,920 --> 00:01:04,370
+And you'll again change the size of
+the earthquake, based on its magnitude.
+
+23
+00:01:05,470 --> 00:01:08,370
+Now, where earthquakes occur matters.
+
+24
+00:01:08,370 --> 00:01:11,020
+As the threat they pose is affected by
+whether or not they're under water and
+
+25
+00:01:11,020 --> 00:01:12,490
+could cause a tsunami.
+
+26
+00:01:12,490 --> 00:01:16,710
+Or if they're on land and could cause
+physical damage to surrounding areas.
+
+27
+00:01:16,710 --> 00:01:19,340
+The third goal is to change
+the color of the marker
+
+28
+00:01:19,340 --> 00:01:21,570
+based on how deep the earthquake occurred.
+
+29
+00:01:21,570 --> 00:01:26,890
+Again, the depth of the earthquake changes
+its potential impact to surrounding areas.
+
+30
+00:01:26,890 --> 00:01:28,830
+Lastly, as an optional goal,
+
+31
+00:01:28,830 --> 00:01:32,260
+you can add an X to the earthquakes,
+which occurred in the past day.
+
+32
+00:01:33,570 --> 00:01:36,790
+To accomplish these goals we are using
+features of both inheritance and
+
+33
+00:01:36,790 --> 00:01:38,550
+polymorphism in Java.
+
+34
+00:01:38,550 --> 00:01:41,330
+So be sure to check out the videos on
+these topics if you are unfamiliar or
+
+35
+00:01:41,330 --> 00:01:43,080
+uncomfortable with those ideas.
+
+36
+00:01:43,080 --> 00:01:44,920
+This is one of my favorite
+parts of the project.
+
+37
+00:01:44,920 --> 00:01:45,740
+I hope you'll enjoy it too.

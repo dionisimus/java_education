@@ -1,0 +1,64 @@
+[MUSIC] Congratulations on getting Java,
+Eclipse, and [INAUDIBLE] maps set up on your system. Set up is actually one of the biggest
+barriers to getting started with this course. So now that you've gotten that done we can
+start diving into the program projects. Which we hope will be more fun. The role of these videos is, first,
+to give you an idea of what's required for the project and, secondly, to give you
+some hints about where you should look at in the code to help solve the problem. So this video is really a high-level
+view of the programming assignment, along with some tips. If you want the full
+details of the assignment, you can always go to the Reading
+on the Programming Assignment. So for let's dive into the code. So if you got un fully
+maps that are properly, you should have have package
+here which is UCSDUnfoldingMaps. And let's start by spanning that. So, span it going to the source,
+module1 is for this programming project Going to
+module 1, you'll find HelloWorld. If you open that you'll
+find this file here. Now it's always a good idea,
+when starting with a new file, to figure out what the high
+level structure is. So we know what the class name is,
+this is HelloWorld. It's extending PApplet. We're going to dive into some details
+about what extends means later in this course. But for right now this means that this is
+going to be a graphical user interface. And it has two methods that
+we're going to care about. So if you scroll down,
+you'll find the setup method. Setup is called once, and
+it sets up everything within the frame. And then the other method that
+we're going to focus on is draw. Now draw is called repeatedly. So now that we have an overview of
+the structure, that there's a setup and a draw method. Let's try running an application and
+see what it looks like. So Go under here, do Run As > Java Applet. And what we get is an application that
+has a background with a map on it, and this map is zoomed in to California. It already has some built-in
+functionality, in that you can zoom in or zoom out if you wish. And what's missing from this right now,
+is a second map, which should go here, which is going to
+be zoomed in to your hometown. So that's the main thing you have to do
+with this assignment is create the second map that's zoomed in to your hometown. And we'll do is we'll start looking at the
+code that might help you accomplish this. So the main thing to focus on is
+where was that first map created. So if you go into your code,
+what you'll find are, we have two maps that are created,
+map1 and map2. And before I dive into the details
+of those I do want to mention. If you are working offline, you'll
+want to change this variable to be true. All right, back to our maps. So we have two maps,
+an unfolding map1 and an unfolding map2. And what we've set up is map one for you. But we haven't set up map two yet. We create the application
+just as we do here, which is using the size method which
+creates an 800 x 600 size map. And then we set the background. If you want to change the background
+color you can play with that here. And then we use our map provider. Which here we are using Google. We have some code which only
+applies if you're offline, and then you can find out here
+finally our first use of Map1. Here we're creating a new unfolding map,
+here's our x, our y, our width, and our size, and we're using this Google Map
+provider to creat this unfolding map. Now you want to use something
+just like this for your solution. And notice that, then, right after
+we create the map, we then zoom and pan to a location. And this location happens to
+be the location of UCSD, but you'll want to put in the location
+of your hometown here. The next step is to see if
+map1 is used anywhere else. And it turns out map1 is
+shown in the draw method. So as long as you do the draw method. And if you call map1.draw within
+the draw method map 1 draws. You want to do something
+similar with map 2. So I hope at this point you have a pretty
+good feel of what you're going to do. So you're going to focus
+on setting up a map 2 in the right location in the application. And then you're going to
+zoom in to your hometown. And then you're going to make sure that
+map2 is drawing every time this draw method gets called. After completing your assignment,
+your next step will be to just take the Programming Assignment quiz
+at the end of this module. So you will not being sending any code for
+any of the assignments within this course. Instead, you'll be taking
+the end of module quizzes, which will test you on the concepts
+both in the module but also on ideas related to
+the programming assignment. So before take the end of
+week required quizzes, make sure you do the programming
+assignments first.

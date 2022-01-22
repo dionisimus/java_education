@@ -1,0 +1,567 @@
+1
+00:00:00,125 --> 00:00:03,701
+[MUSIC]
+
+2
+00:00:03,701 --> 00:00:08,463
+In the previous video, we developed
+an algorithm for sorting a bunch of pieces
+
+3
+00:00:08,463 --> 00:00:12,602
+of data and organizing them in some
+order from smallest to biggest.
+
+4
+00:00:12,602 --> 00:00:16,515
+What we'd like to do in this video
+is translate that algorithm, or
+
+5
+00:00:16,515 --> 00:00:19,860
+high-level description of the strategy,
+into Java.
+
+6
+00:00:19,860 --> 00:00:23,600
+So, what we're going to do is think
+step by step about how to go from
+
+7
+00:00:23,600 --> 00:00:28,460
+natural language descriptions
+of the strategy to actual code.
+
+8
+00:00:28,460 --> 00:00:31,580
+And so let's start by thinking
+about what that strategy even was.
+
+9
+00:00:31,580 --> 00:00:33,800
+And so we talked about Selection Sort.
+
+10
+00:00:33,800 --> 00:00:38,230
+So Selection Sort has as its
+general approach, first of all,
+
+11
+00:00:38,230 --> 00:00:42,470
+we think about the smallest element
+overall in the entire array.
+
+12
+00:00:42,470 --> 00:00:45,610
+And we look for that smallest element and
+we try to put it first.
+
+13
+00:00:45,610 --> 00:00:48,150
+Because that's where it's going
+to need to be at the end.
+
+14
+00:00:48,150 --> 00:00:50,050
+And then we move on to
+the rest of the array and
+
+15
+00:00:50,050 --> 00:00:54,310
+try to find the smallest element among
+those elements and then put it in
+
+16
+00:00:54,310 --> 00:00:57,620
+the second position overall because
+that's its correct location at the end.
+
+17
+00:00:57,620 --> 00:01:00,820
+And we keep going, and we keep going, etc.
+
+18
+00:01:00,820 --> 00:01:03,640
+So, let's think about how we
+can translate this approach,
+
+19
+00:01:03,640 --> 00:01:06,440
+the constructs that we
+know from programming.
+
+20
+00:01:06,440 --> 00:01:08,670
+And so, let's start by thinking
+about the big picture.
+
+21
+00:01:08,670 --> 00:01:11,580
+And what we're doing in Selection Sort
+
+22
+00:01:11,580 --> 00:01:15,750
+is we're looping through all of
+the positions in the array and for
+
+23
+00:01:15,750 --> 00:01:20,890
+each one of those positions, we try to
+find the true value in the sorted array.
+
+24
+00:01:20,890 --> 00:01:26,310
+So, for each position i from the very
+beginning of the array all the way
+
+25
+00:01:26,310 --> 00:01:31,760
+until the end, we are trying to find
+the right element to put in that position.
+
+26
+00:01:31,760 --> 00:01:34,670
+But actually,
+not all the way until the end.
+
+27
+00:01:34,670 --> 00:01:36,040
+Remember from the previous video,
+
+28
+00:01:36,040 --> 00:01:41,100
+we talked about a small optimization
+that once we've sorted the first all but
+
+29
+00:01:41,100 --> 00:01:45,480
+last elements of the array, then the last
+element is going to be in the correct
+
+30
+00:01:45,480 --> 00:01:48,290
+position because there's really
+nowhere else for it to go.
+
+31
+00:01:48,290 --> 00:01:52,290
+Okay, so we've got that little tweak and
+the big picture here, what's important,
+
+32
+00:01:52,290 --> 00:01:56,350
+is that we've got a for-loop that looks
+over each position in the array and
+
+33
+00:01:56,350 --> 00:01:59,270
+tries to find the right element there.
+
+34
+00:01:59,270 --> 00:02:02,960
+And, it's also useful to keep in mind,
+that as we're going through this
+
+35
+00:02:02,960 --> 00:02:07,510
+algorithm, we have an invariant property,
+a property that never changes.
+
+36
+00:02:07,510 --> 00:02:12,390
+And that's the, once we've worked on
+position zero, position one, position two,
+
+37
+00:02:12,390 --> 00:02:16,150
+then the elements in those
+positions are sorted, and
+
+38
+00:02:16,150 --> 00:02:18,670
+they're never gonna change, at all.
+
+39
+00:02:18,670 --> 00:02:22,600
+No matter how many more steps we
+have to go or how big the array is.
+
+40
+00:02:22,600 --> 00:02:24,310
+Those positions are done and
+
+41
+00:02:24,310 --> 00:02:27,480
+the correct elements in the sorted
+array are already there.
+
+42
+00:02:27,480 --> 00:02:32,940
+And so what we have is this array
+where slowly, slowly, slowly, we're
+
+43
+00:02:32,940 --> 00:02:36,690
+organizing the first bit of it and then
+we're focusing on the very next position,
+
+44
+00:02:36,690 --> 00:02:40,480
+say position i, and looking for
+what element to put there.
+
+45
+00:02:40,480 --> 00:02:43,160
+So, let's think about
+the body of the for-loop and
+
+46
+00:02:43,160 --> 00:02:45,930
+what we need to do in that
+body of the for-loop.
+
+47
+00:02:45,930 --> 00:02:48,190
+And so
+a way to think about that is to look for
+
+48
+00:02:48,190 --> 00:02:52,750
+the smallest element in the not yet
+organized piece of the array.
+
+49
+00:02:52,750 --> 00:02:55,570
+And whatever is the smallest element among
+
+50
+00:02:55,570 --> 00:02:59,500
+the elements of the array that we
+haven't put in their correct position,
+
+51
+00:02:59,500 --> 00:03:02,600
+that's the one that's going
+to need to be in position i.
+
+52
+00:03:02,600 --> 00:03:05,670
+So we need to find the smallest element
+in all of the elements that remain,
+
+53
+00:03:05,670 --> 00:03:09,030
+and then swap it with the element
+that's in position i so
+
+54
+00:03:09,030 --> 00:03:12,140
+that that element is in
+its correct location.
+
+55
+00:03:12,140 --> 00:03:16,766
+Okay, so let's formalize a little bit what
+it means to be in the still unorganized or
+
+56
+00:03:16,766 --> 00:03:18,345
+unsorted part of the array.
+
+57
+00:03:18,345 --> 00:03:23,389
+Well, those are all of the elements in
+position i through the end of the array,
+
+58
+00:03:23,389 --> 00:03:24,313
+length- 1.
+
+59
+00:03:24,313 --> 00:03:25,005
+All right, so
+
+60
+00:03:25,005 --> 00:03:29,310
+as you can tell we're getting a little
+bit closer to coding up the solution.
+
+61
+00:03:29,310 --> 00:03:32,790
+And what I like you to do now is pause
+the video, and try to write the code.
+
+62
+00:03:34,320 --> 00:03:35,570
+Welcome back.
+
+63
+00:03:35,570 --> 00:03:36,930
+Let's work through it together, and
+
+64
+00:03:36,930 --> 00:03:40,460
+see if the code that we developed is
+similar to what you did on your own.
+
+65
+00:03:40,460 --> 00:03:44,705
+So, you probably declared a method that
+is going to be called something like
+
+66
+00:03:44,705 --> 00:03:49,880
+selectionSort, and takes as input the
+array of values that we wanted to sort.
+
+67
+00:03:49,880 --> 00:03:51,320
+Now, in this method,
+
+68
+00:03:51,320 --> 00:03:55,200
+the way that I've designed it,
+were not going to return any values.
+
+69
+00:03:55,200 --> 00:03:58,540
+So the return is listed as void.
+
+70
+00:03:58,540 --> 00:04:01,710
+Because what we're going to do is sort
+the elements of the array in place.
+
+71
+00:04:01,710 --> 00:04:05,230
+So we're going to move them around
+in the array that we're given.
+
+72
+00:04:05,230 --> 00:04:09,692
+And now, remember that we have the outer
+for-loop and that outer for-loop is
+
+73
+00:04:09,692 --> 00:04:14,369
+looking at all positions i from the very
+beginning until the second last element.
+
+74
+00:04:14,369 --> 00:04:19,231
+Okay, now for each of those positions
+we have to find the correct element to
+
+75
+00:04:19,231 --> 00:04:21,270
+put in that position.
+
+76
+00:04:21,270 --> 00:04:24,950
+And so now we have to implement
+that piece of the algorithm.
+
+77
+00:04:24,950 --> 00:04:28,853
+And so what we are going to do is try to
+find the smallest element that has not yet
+
+78
+00:04:28,853 --> 00:04:31,130
+been put in its correct location.
+
+79
+00:04:31,130 --> 00:04:36,550
+And so we want to keep track of
+the index of that smallest element.
+
+80
+00:04:36,550 --> 00:04:40,310
+The location of where that
+smallest element is in the list.
+
+81
+00:04:40,310 --> 00:04:42,800
+So, at the beginning, we think well,
+
+82
+00:04:42,800 --> 00:04:46,800
+maybe the smallest element is already
+in its correct location in i.
+
+83
+00:04:46,800 --> 00:04:50,790
+So our first guess is that the smallest
+element is in the first place that we look
+
+84
+00:04:50,790 --> 00:04:52,800
+at, namely position i.
+
+85
+00:04:52,800 --> 00:04:58,420
+And then we want to step through all
+possible positions in that unsorted part
+
+86
+00:04:58,420 --> 00:05:03,570
+of the array and compare the elements
+in those positions with the value of
+
+87
+00:05:03,570 --> 00:05:09,340
+the element at our current best guess for
+where the smallest element is located.
+
+88
+00:05:09,340 --> 00:05:14,297
+So, we're comparing the element at
+position indexMin with the element
+
+89
+00:05:14,297 --> 00:05:15,990
+at position j.
+
+90
+00:05:15,990 --> 00:05:20,120
+And if it so happens that the element
+at position, j, is smaller
+
+91
+00:05:20,120 --> 00:05:24,115
+than the element at the position which is
+supposed to record the smallest element,
+
+92
+00:05:24,115 --> 00:05:27,430
+well, we need to update
+what we think is going on.
+
+93
+00:05:27,430 --> 00:05:29,040
+Now, in this case,
+
+94
+00:05:29,040 --> 00:05:31,350
+we think that the smallest element
+is actually in position j.
+
+95
+00:05:32,350 --> 00:05:33,890
+And now we have to keep on going, and
+
+96
+00:05:33,890 --> 00:05:38,630
+keep on checking all of the elements to
+make sure that indexMin really records
+
+97
+00:05:38,630 --> 00:05:44,020
+the position of the smallest element
+in that remaining piece of the array.
+
+98
+00:05:44,020 --> 00:05:46,820
+So once we've gone through
+this inner for-loop,
+
+99
+00:05:46,820 --> 00:05:51,140
+what we have is indexMin
+recording the position
+
+100
+00:05:51,140 --> 00:05:55,200
+of the smallest element in
+the remaining part of the array.
+
+101
+00:05:55,200 --> 00:05:59,460
+And then the last piece of our algorithm
+is to put that smallest element
+
+102
+00:05:59,460 --> 00:06:02,810
+in its correct location,
+namely, in position i.
+
+103
+00:06:02,810 --> 00:06:06,942
+And so we might have a helper method
+swap that we define somewhere else, and
+
+104
+00:06:06,942 --> 00:06:09,632
+that's what method looks
+at the array vals, and
+
+105
+00:06:09,632 --> 00:06:14,080
+it swaps the element at position
+indexMin with the element at position i.
+
+106
+00:06:14,080 --> 00:06:15,570
+And so what that would do,
+
+107
+00:06:15,570 --> 00:06:19,730
+is take the element that supposed to be
+in position i, and really put it there.
+
+108
+00:06:19,730 --> 00:06:20,520
+Okay.
+
+109
+00:06:20,520 --> 00:06:24,860
+And so, what we've done here is we've
+gone from the high level description
+
+110
+00:06:24,860 --> 00:06:29,090
+of selection sort and we've now gone
+ahead and implemented it using Java.
+
+111
+00:06:30,320 --> 00:06:33,160
+All right, so,
+before we leave this algorithm and
+
+112
+00:06:33,160 --> 00:06:37,420
+say hoo, we've done it, pat on our back,
+we can stop thinking about it now.
+
+113
+00:06:37,420 --> 00:06:42,040
+It's useful to probe further and
+always ask ourselves some questions.
+
+114
+00:06:42,040 --> 00:06:43,770
+How do we know that this algorithm and
+
+115
+00:06:43,770 --> 00:06:47,339
+this implementation always works,
+no matter what array we give it?
+
+116
+00:06:48,380 --> 00:06:51,810
+And if we believe that it does work,
+how well does it work?
+
+117
+00:06:51,810 --> 00:06:53,830
+And of course, as good engineers and
+
+118
+00:06:53,830 --> 00:06:57,640
+scientists, we always want
+to do better and can we?
+
+119
+00:06:57,640 --> 00:07:00,080
+So, in the next video we'll talk
+about some of these questions.

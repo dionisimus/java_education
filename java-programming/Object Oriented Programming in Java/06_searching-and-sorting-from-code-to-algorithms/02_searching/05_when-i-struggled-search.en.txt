@@ -1,0 +1,7 @@
+[MUSIC] So one thing I really struggled with,
+when I was learning arrays and sorting algorithms, was array bounds. I was getting exceptions everywhere, I didn't know what to do,
+cuz I was getting so many exceptions. And one thing that really helped me was
+when I talked to one of my professors. He told me to draw, simply draw the array
+and make the numbers and everything. And go through each step of the algorithm,
+and doing the sorting, putting the indexes. And it was one thing that after that, I didn't get any array bound exceptions,
+and it was perfect.

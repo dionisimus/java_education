@@ -1,0 +1,43 @@
+1
+00:00:00,000 --> 00:00:06,633
+[MUSIC]
+
+2
+00:00:06,633 --> 00:00:10,060
+Congratulations on completing
+the first week of the course.
+
+3
+00:00:10,060 --> 00:00:12,030
+We're going to continue
+right where you left off and
+
+4
+00:00:12,030 --> 00:00:14,980
+we'll start diving into memory models and
+scope.
+
+5
+00:00:14,980 --> 00:00:16,870
+Again, this may be a review for
+some of you.
+
+6
+00:00:16,870 --> 00:00:18,410
+If you feel like it's
+too much of a review,
+
+7
+00:00:18,410 --> 00:00:21,640
+feel free to skip ahead to
+the graded quiz at the end of scope.
+
+8
+00:00:22,810 --> 00:00:26,009
+After completing scope, you can get
+started with the programming project and
+
+9
+00:00:26,009 --> 00:00:28,349
+you'll build your first application and
+folding maps.

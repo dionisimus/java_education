@@ -1,0 +1,571 @@
+1
+00:00:00,000 --> 00:00:03,966
+[MUSIC]
+
+2
+00:00:03,966 --> 00:00:08,576
+In the previous video, we started talking
+about how to use the built-in sort that's
+
+3
+00:00:08,576 --> 00:00:09,930
+available to us in Java.
+
+4
+00:00:10,950 --> 00:00:15,580
+What I'd like to do now is to think about
+how to generalize that technique for
+
+5
+00:00:15,580 --> 00:00:17,300
+more complicated objects.
+
+6
+00:00:17,300 --> 00:00:20,090
+So by the end of this video,
+you will be able to define and
+
+7
+00:00:20,090 --> 00:00:22,410
+use the Comparable interface in Java.
+
+8
+00:00:22,410 --> 00:00:25,920
+So that we can have access to
+that built-in sort method.
+
+9
+00:00:25,920 --> 00:00:29,150
+So if you remember last time,
+what we talked about is how to
+
+10
+00:00:29,150 --> 00:00:33,900
+use collections.sort and
+then feed in a list of integers, and
+
+11
+00:00:33,900 --> 00:00:38,313
+somehow magically get the list
+returned to us as a sorted list.
+
+12
+00:00:38,313 --> 00:00:43,490
+Now, what we did in, or what we observed
+happens when we used this method
+
+13
+00:00:43,490 --> 00:00:45,660
+is that we're using
+the Built in Merge Sort.
+
+14
+00:00:45,660 --> 00:00:49,730
+And the beauty of that was that we didn't
+have to implement merge sort ourselves.
+
+15
+00:00:49,730 --> 00:00:54,540
+The issue, though, is that the list
+that we gave it was an integer list, so
+
+16
+00:00:54,540 --> 00:00:56,760
+all the values are numbers.
+
+17
+00:00:56,760 --> 00:00:59,270
+But sometimes the objects
+that we want to sort,
+
+18
+00:00:59,270 --> 00:01:02,510
+the data that we want to
+organize isn't just numbers.
+
+19
+00:01:02,510 --> 00:01:07,360
+Maybe it's more complicated objects, and
+so what we'd like to do now is think about
+
+20
+00:01:07,360 --> 00:01:12,640
+using this built in functionality but
+for collections of non integers.
+
+21
+00:01:12,640 --> 00:01:16,430
+And so for example,
+we might want to sort airports.
+
+22
+00:01:16,430 --> 00:01:19,330
+So remember back to
+the beginning of the module and
+
+23
+00:01:19,330 --> 00:01:22,110
+the motivating example that
+we've been talking about.
+
+24
+00:01:22,110 --> 00:01:24,350
+We have an array of airports and
+
+25
+00:01:24,350 --> 00:01:29,230
+each of those, each of the array elements
+are references to airport objects.
+
+26
+00:01:29,230 --> 00:01:34,420
+And what we'd like to do is sort this
+array based on the city of the airport.
+
+27
+00:01:34,420 --> 00:01:35,730
+Okay?
+
+28
+00:01:35,730 --> 00:01:40,580
+So if we try to just go ahead and,
+in our airport class,
+
+29
+00:01:40,580 --> 00:01:45,840
+define a method within the main method
+that just says, let's sort our airports.
+
+30
+00:01:45,840 --> 00:01:49,570
+So we have an airports list and
+we're gonna go ahead and
+
+31
+00:01:49,570 --> 00:01:53,880
+sort it, then we can hope for
+the best and try to compile this.
+
+32
+00:01:53,880 --> 00:01:59,000
+But unfortunately,
+we're gonna get a big old error message.
+
+33
+00:01:59,000 --> 00:02:04,290
+And the reason for that error message is
+that airports are kind of hard to sort.
+
+34
+00:02:04,290 --> 00:02:08,080
+We don't know how to compare two airports.
+
+35
+00:02:08,080 --> 00:02:12,430
+So this is where the comparable
+interface comes in.
+
+36
+00:02:12,430 --> 00:02:17,960
+And the comparable interface says,
+I will be able to give you access
+
+37
+00:02:17,960 --> 00:02:24,080
+to merge sort and all of these other built
+in functionalities like sorting in Java,
+
+38
+00:02:24,080 --> 00:02:29,920
+if you only tell me how to compare
+two object instances of your class.
+
+39
+00:02:29,920 --> 00:02:34,690
+And so, for example, if we think about
+the object that has the city Montreal, and
+
+40
+00:02:34,690 --> 00:02:39,480
+Canada, with a particular airport code,
+and the airport object that we have that's
+
+41
+00:02:39,480 --> 00:02:44,990
+initialized to the airport in Lagos,
+then we might want to compare these two.
+
+42
+00:02:44,990 --> 00:02:50,720
+And say, M comes after L in the alphabet,
+and so when we're
+
+43
+00:02:50,720 --> 00:02:54,350
+thinking about the city names than the
+object that corresponds to the airport in
+
+44
+00:02:54,350 --> 00:02:59,490
+Montreal should come after the object
+that corresponds to the airport in Lagos.
+
+45
+00:03:00,560 --> 00:03:05,200
+On the other hand, we might want to
+organize our data based on country names,
+
+46
+00:03:05,200 --> 00:03:06,760
+rather than city names.
+
+47
+00:03:06,760 --> 00:03:09,680
+And so then,
+we might focus in on a different field.
+
+48
+00:03:09,680 --> 00:03:12,870
+And look at the instance variable for
+country.
+
+49
+00:03:12,870 --> 00:03:14,650
+And in that case we see that Canada,
+
+50
+00:03:14,650 --> 00:03:19,860
+starting with a C, comes earlier in the
+alphabet than Nigeria, starting with an N.
+
+51
+00:03:19,860 --> 00:03:22,690
+And so we'd want our objects to be
+organized a little bit differently.
+
+52
+00:03:24,110 --> 00:03:28,130
+All right, so how do we do that,
+and how do we tell Java this order?
+
+53
+00:03:28,130 --> 00:03:33,570
+Well, if our class implements
+the comparable interface.
+
+54
+00:03:33,570 --> 00:03:39,280
+And we say that by adding that
+keyword to the class definition.
+
+55
+00:03:39,280 --> 00:03:44,890
+Then our objects in that class will be
+able to be compared to one another.
+
+56
+00:03:44,890 --> 00:03:48,810
+Now notice that special word
+that's after comparable.
+
+57
+00:03:48,810 --> 00:03:51,870
+We've got the angle brackets and Airport.
+
+58
+00:03:51,870 --> 00:03:56,762
+And that's saying that we're specifying
+what kind of objects we're going to
+
+59
+00:03:56,762 --> 00:03:59,884
+know how to compare, and
+this is using generics.
+
+60
+00:03:59,884 --> 00:04:01,886
+Okay, so if we've told Java,
+
+61
+00:04:01,886 --> 00:04:07,279
+we promised that we're going to implement
+what's needed for a comparable class.
+
+62
+00:04:07,279 --> 00:04:11,280
+What that's saying is that we have to
+fulfill the promise of the interface.
+
+63
+00:04:11,280 --> 00:04:16,310
+And the interface comparable says,
+you must implement a compareTo method.
+
+64
+00:04:16,310 --> 00:04:21,660
+And the compareTo method has to be
+called by an object in that class.
+
+65
+00:04:21,660 --> 00:04:25,060
+And it's going to tell us how
+to compare that calling object
+
+66
+00:04:25,060 --> 00:04:27,780
+to an input other object.
+
+67
+00:04:27,780 --> 00:04:30,730
+Okay.
+So let's think about how we might do that.
+
+68
+00:04:30,730 --> 00:04:33,840
+And think about what
+functionality we want.
+
+69
+00:04:33,840 --> 00:04:37,680
+So we're going to return an integer,
+and that integer should
+
+70
+00:04:37,680 --> 00:04:42,100
+demonstrate the relationship between
+the calling object and the other object.
+
+71
+00:04:42,100 --> 00:04:46,800
+So if the calling object is supposed
+to be smaller than the other object,
+
+72
+00:04:46,800 --> 00:04:51,050
+then the integer that
+we return is negative.
+
+73
+00:04:51,050 --> 00:04:55,470
+If the smaller object, if the calling
+object is supposed to be sort of the same
+
+74
+00:04:55,470 --> 00:04:58,600
+size as the other object,
+then we should return zero.
+
+75
+00:04:58,600 --> 00:05:03,580
+And if the calling object is
+bigger than the other object,
+
+76
+00:05:03,580 --> 00:05:06,610
+then we're going to
+return a positive number.
+
+77
+00:05:06,610 --> 00:05:11,780
+And so what you might think about is
+the comparison method is something like
+
+78
+00:05:11,780 --> 00:05:18,280
+doing subtraction, subtracting
+the calling object minus other object.
+
+79
+00:05:18,280 --> 00:05:20,710
+That's sort of the reference
+that we have for
+
+80
+00:05:20,710 --> 00:05:23,650
+why these integers
+are returned the way they are.
+
+81
+00:05:23,650 --> 00:05:26,970
+Okay, so what we'd like to
+do is to return some number.
+
+82
+00:05:26,970 --> 00:05:31,720
+When an airport calls
+compared to another airport.
+
+83
+00:05:31,720 --> 00:05:35,430
+And what we're comparing
+to is using the city name.
+
+84
+00:05:35,430 --> 00:05:39,250
+So we're going to have to have access
+to the city name instance variables
+
+85
+00:05:39,250 --> 00:05:43,340
+in each of these objects and
+we'd like to order those city names.
+
+86
+00:05:43,340 --> 00:05:46,830
+But city names are just strings,
+and strings are objects, and
+
+87
+00:05:46,830 --> 00:05:52,110
+strings can be compared because we can
+sort strings by alphabetical order.
+
+88
+00:05:52,110 --> 00:05:55,490
+And so what we're going to do is
+really just be kind of lazy, and
+
+89
+00:05:55,490 --> 00:05:58,850
+say someone else compare
+these two strings.
+
+90
+00:05:58,850 --> 00:06:01,700
+And we just want to return
+the result of that comparison.
+
+91
+00:06:01,700 --> 00:06:05,460
+So what we're returning here when
+we comparing two airport objects,
+
+92
+00:06:05,460 --> 00:06:10,150
+is what happens when we compare
+the city name of our current object,
+
+93
+00:06:10,150 --> 00:06:15,860
+the calling object, as compared to
+the city name of the other object.
+
+94
+00:06:15,860 --> 00:06:18,035
+Okay, so let's try it out.
+
+95
+00:06:18,035 --> 00:06:23,760
+Once we've implemented this compareTo
+method, what happens when we
+
+96
+00:06:23,760 --> 00:06:27,550
+go ahead and
+try to sort a list of airport objects?
+
+97
+00:06:27,550 --> 00:06:31,070
+So we go back to the main method
+of our airports class and
+
+98
+00:06:31,070 --> 00:06:35,000
+we call Collections.sort
+on the list of airports.
+
+99
+00:06:35,000 --> 00:06:39,690
+And now, beautifully, we get as our output
+
+100
+00:06:39,690 --> 00:06:45,040
+the list of airports in sorted
+order based on the city name.
+
+101
+00:06:45,040 --> 00:06:48,980
+So Agra in India comes first, and
+then Beijing in China, etc., etc.
+
+102
+00:06:50,270 --> 00:06:51,740
+Cool.
+
+103
+00:06:51,740 --> 00:06:55,450
+One more thing,
+when we first thought about this problem,
+
+104
+00:06:55,450 --> 00:06:59,050
+we said we can compare airports
+in some different ways.
+
+105
+00:06:59,050 --> 00:07:03,070
+Maybe we can sort based on
+the alphabetical order of the city name.
+
+106
+00:07:03,070 --> 00:07:05,310
+But what about the country name.
+
+107
+00:07:05,310 --> 00:07:09,960
+So what do we need to do in order
+to change our compareTo method
+
+108
+00:07:09,960 --> 00:07:13,290
+in order to reflect the order
+of the country names?
+
+109
+00:07:13,290 --> 00:07:17,636
+Well we just need to change the body
+of that method to instead of using
+
+110
+00:07:17,636 --> 00:07:22,520
+the getCountry getter method for the,
+sorry, instead of using the getCity
+
+111
+00:07:22,520 --> 00:07:27,352
+getter method for the city name of
+the airport, we're using getCountry.
+
+112
+00:07:27,352 --> 00:07:30,030
+And that's really all there is to it.
+
+113
+00:07:30,030 --> 00:07:33,975
+We just need to change that one line
+of code, and when we run the same
+
+114
+00:07:33,975 --> 00:07:39,130
+Collections.sort method in the main
+method of the airport class,
+
+115
+00:07:39,130 --> 00:07:43,760
+all of sudden our list is ordered
+based on the country names.
+
+116
+00:07:43,760 --> 00:07:48,690
+We have Australia first, and
+then Canada, and then China etc.
+
+117
+00:07:48,690 --> 00:07:52,900
+And so at this point, you're ready to
+dive back into the project and use
+
+118
+00:07:52,900 --> 00:07:58,120
+the comparable interface and the compareTo
+method to compare markers in your project.

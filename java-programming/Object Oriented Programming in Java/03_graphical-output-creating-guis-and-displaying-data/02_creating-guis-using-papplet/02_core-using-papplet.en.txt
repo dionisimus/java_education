@@ -1,0 +1,137 @@
+[MUSIC]. So welcome back to this second of a
+sequence of videos in which we're going to be building a graphical application. And remember our goal is to display
+this beautiful beach picture and add a second sun. And that sun is going to
+be a visual clock for us. So, if we deconstruct the application and
+what we need to do. Basically, we need to create
+some window or canvass and then place items unto that canvass. And so, where going to have a background
+image and then we're going to put some shapes unto the image and so
+we'd like a way for our canvass. To be able to display images and shapes,
+and for us to be able to control the location and color and
+various other properties as well. Let's think about how we would do that and
+we'll start by thinking about controlling the position of elements
+in our application, so a really convenient way of specifying
+position is using coordinates. You probably thought about them a lot
+in various math backgrounds and other situations. Maps, for example, and what we can
+do is we can separate our canvas, the window that we're working with,
+into a grid and we've got points on this grid
+being determined by their location across in the x direction and
+up and down in the y direction and so the x direction determines how
+far across the picture we are and the y coordinate determines how
+far down the picture we are. And so it's useful to keep in mind how
+each of these variables changes as we walk across the picture. And so the 0 of the x coordinate where the
+x is smallest is on the left hand side. And as we go towards the right,
+the x value increases. And that's just as you would expect
+from other contact, the coordinates. But y is a little different. Y is a little tricky. It start as 0 at the very top,
+not the bottom, at the very top is where y is equal to 0. Then as we move down
+the picture is how it grows. All right so let's practice. Let's take an example and
+suppose we had a canvas and it was 200 pixels wide and
+200 pixels long. And let's think about what
+the coordinates would be of the center of the yellow
+sun in this picture. Okay, so let's think about it and when
+you're ball parking at these coordinates, what you might want to do is
+think about relative position. So is the sun half way across the picture? No, it's not really, is it? A quarter of the way across the picture? Yeah, it kind of looks like
+it is a quarter of the way. So, the center x coordinate
+would be probably around 50, and ditto for the y coordinate. It's probably a quarter
+of the way down as well. And these are just rough numbers, so
+it's not exactly those, but pretty good. Okay, so we know how to place, how to at
+least determine positions on the canvas. But now what we would like to do is
+translate this into actual Java code and not just talk about abstract
+drawing a grid on a canvas but actually coding it out. We are going to use processes and
+processes is this amazing versatile library of classes and
+methods and data types that we can use in
+order develop our applications. The thing is though you would not want to
+memorize everything that's in processing. What you want to do is have some sort of
+index, or a way of looking things up. I really want to do something with the
+size, I'm going to look in my processing index to see if there's a method to
+do with the size of the canvas and the Javadoc documentation of
+processing gives us exactly that. So we look up in processing and we see
+that there's a class called PApplet. What this class does is it does all
+of the hard work under the hood. Of bringing up a canvas, a little window, and then giving us
+functionality for drawing in that window. So when we wanna go ahead and
+define our application, the one with La Jolla Shores
+in the background and the sun, we don't need to worry about what it means
+to draw a canvas on my computer screen. I can leave that to the PApplet datatype, which is a kind of a GUI datatype,
+and then just customize what's being displayed in that window
+that's being brought up by my PApplet. So if we look at this code snippet,
+what we see here is that our class, the class that we're defining,
+MyPApplet extends PApplet. So extends is a really important keyword
+and Leo is going to tell you all about that in next module about inheritance. But you don't need to
+worry about that just yet. We're going to use this notion and
+then learn about it after you've got some experience about with how powerful
+it is for now think about extends PApplet as a way of telling Java that we would
+like to use the core functionality that's available in PApplet but
+then customize it a little bit. The people who wrote processing
+developed the data type PApplet. They developed it with graphical
+applications in mind so it gives us a kind of GUI. And what we're going to do now
+with MyPApplet is customize it and change it up a little bit. But in order to use it, we have to tell
+Java the thing that I'm extending, well it comes from the processing library. And so in the beginning of our
+code there we have to tell Java, please look at the code that's
+available in processing.core, and we're going to access
+some of those data types. So that's what that
+line up there is doing. But now, when we we want to build our
+PApplet, what we have to do, our job, is to specify 2 methods. What we are going to need to tell Java is
+first of all, how to configure the canvas. That's going to be in the set up method. Then, once we've configured the canvas
+what to actually draw in there, and that is going to be in the draw method. If you think about the flow of
+execution of our application what's going to happen is that Java
+will execute the setup method once. As we run our application, the first thing that happens that
+we define is the setup method. And then that's executed once and
+then that code is never touched again. And then every time the canvas
+is refreshed or redrawn, for example, if it gets
+resized in the screen and the draw method will get executed
+again and again and again. So that piece of code gets executed often. We loop through it a lot. So let's think about what actually happens
+when we start developing this code. And to do that, let's do baby steps. And this is a useful thing
+when you're testing your code, as well, or debugging,
+is to run it very often. And you'll see especially when you're
+debugging graphical applications. You'll want to stop developing code and
+hit that run button in Eclipse. Extremely frequently because it's going
+to be really the best way of making sure that what you think you're implementing is
+actually what's showing up on a screen and you'll be able to catch
+bugs much more quickly. So you want to hit that run button very,
+very often. Okay, so if we do that even before we
+put any methods in our class at all Let's think about what will happen. And here I did in eclipse offline and
+I'm giving you a little screenshot of it. And what you'll see is that we didn't
+get an error, the code compiled, and it did something even though
+we didn't define any methods. And that's because we're
+using the power of PApplet. So PApplet as a datatype
+already tells Java, hey, I want to draw some default canvas and
+then I'm just gonna wait. I'm gonna do nothing, unless the person whose extending
+this class, tells me what to do. Okay, so by default,
+the applet just displays a blank canvas. But we wanna do more than that. We wanna draw our picture. And so
+we're going to now work on bringing in some content to both the setup method and
+the draw method. Now, what content? Well, that content is
+going to be determined by the methods available to
+us in the processing library. And so it's really useful as
+you're developing to have a browser open with the documentation. Open available to you and keep going
+back and forth between Eclipse and your browser, as you are developing. Don't memorize these methods. Libraries change over time. Which one is most modern,
+that will always change. All the libraries that are most useful
+have really good documented code, so you'll be able to understand which
+methods are available to you. Okay, so
+let's think about the setup method, and the pieces that we want to do
+at the very beginning are to. Set some default size to our canvas and
+then get access to the background beach picture that's going to be
+the background of our application. Okay, so we look up in the index we're processing
+the documentation and oh woo-hoo! We have a size method. And that documentation
+even gives us an example. It's sweet we're great. And we realize that if we type
+in size open graphic 200, 200 then what that setup method is going
+to do when it executes this line of code, is display our canvas at the default size,
+200 wide and 200 long, or high. All right, cool, we've done that. And now what we'd like to do is have
+access to the background image. And, again,
+look up in the documentation and see that there's a really
+nice way of loading an image. And we could even load
+an image from a URL. So an image might exist as a JPEG file,
+for example, on your local machine or
+it might be on a server somewhere. And with processing, we have a way
+to going to a specified web address, a URL, and grabbing an image there and
+bringing that into our application. And so in the documentation we
+have an example of how to do that. We stick it in our code and
+now we've defined out setup method. Whats going to happen when we run? So pause. What do you think? I hope that you ran this example
+in eclipse and saw what happens. And what happens might be
+a little counter intuitive. We still get a blank canvas. The reason that happens is because we've
+only loaded the image into memory, we haven't displayed it yet. And so it's really useful when
+you're using methods from a library, to read through the description. And if we had read through them we would
+have seen that what happens when we execute load image is that we have
+that image loaded into memory and it's stored in a PImage. Object and then we'll have access to it
+later, but nothing in that documentation talks about displaying that object on the
+canvas, and we'll have to dot that later. And so in the next video, we're going
+to really implement the draw method of our PApplet, and once we do that,
+we'll have our full working application.

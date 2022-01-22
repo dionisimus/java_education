@@ -1,0 +1,341 @@
+<meta charset="utf-8"/>
+<co-content>
+ <h1 level="1">
+  Responding to User Actions
+ </h1>
+ <p>
+  You may download a PDF of these directions here:
+  <a href="https://d396qusza40orc.cloudfront.net/phoenixassets/object-oriented-java/Module%205%20PA%20Instructions.pdf">
+   https://d396qusza40orc.cloudfront.net/phoenixassets/object-oriented-java/Module%205%20PA%20Instructions.pdf
+  </a>
+ </p>
+ <p>
+  This assignment builds on the assignment you did in the previous modules. As usual, you will not submit your code for grading, but you should do it because you'll learn and it's fun!  We provide starter code which implements the functionality of the program through module 4.  If you would prefer to build on your own code you are welcome to copy over your code from module 4,
+  <strong>
+   but please be careful to notice the changes.
+  </strong>
+  We recommend you copy in individual methods.
+  <strong>
+   Do not overwrite whole files.
+  </strong>
+ </p>
+ <h2 level="2">
+  Learning outcomes
+ </h2>
+ <ul bullettype="bullets">
+  <li>
+   <p>
+    Explain execution flow in an event-driven program
+   </p>
+  </li>
+  <li>
+   <p>
+    Build event handlers to respond to graphical user input
+   </p>
+  </li>
+  <li>
+   <p>
+    Perform code refactoring to add functionality to code while maintaining good design
+   </p>
+  </li>
+ </ul>
+ <h2 level="2">
+  Introduction
+ </h2>
+ <p>
+  Your map is about to become interactive! You are going to add functionality to your map so that additional information is displayed when the user hovers over or clicks on any marker with her/ his mouse.  When she hovers over a city marker, your map will display a box with the city’s name, country, and population.  When she hovers over an earthquake marker, your map will display the title of the earthquake (including its magnitude and region).  Clicking on a marker gives even more information: A click on a city marker will lead to only that city and earthquakes which affect it being displayed on the map.  Clicking once again on that marker will bring the rest of the map’s markers back.  Similarly, after clicking on an earthquake marker, only cities potentially affected by that earthquake will be displayed.  You’ll use event-driven programming to make this happen.
+ </p>
+ <p>
+  To accomplish this you will need to override two methods, mouseClicked() and mouseMoved().  In both of the these methods you will need to make use of the isInside() method of the SimplePointMarker class, as well as the PApplet fields, mouseX and mouseY.
+ </p>
+ <h2 level="2">
+  Resources to have open
+ </h2>
+ <p>
+  We expect that you are getting good at working with the documentation by now, so you'll again need the two documentation pages handy:
+ </p>
+ <ul bullettype="bullets">
+  <li>
+   <p>
+    <a href="http://unfoldingmaps.org/javadoc/">
+     http://unfoldingmaps.org/javadoc/
+    </a>
+   </p>
+  </li>
+  <li>
+   <p>
+    <a href="https://www.processing.org/reference/">
+     https://www.processing.org/reference/
+    </a>
+   </p>
+  </li>
+ </ul>
+ <p>
+  <strong>
+   IF YOU ARE WORKING OFFLINE
+  </strong>
+  , you can download these documentation pages when you have an internet connection.
+ </p>
+ <h2 level="2">
+  What you will do
+ </h2>
+ <p>
+  <strong>
+   1. Find and open the starter code:
+  </strong>
+  The starter code for this part of the project is in the module5 package.  You will find the same classes you worked with for the previous part of the project: EarthquakeCityMap.java, EarthquakeMarker.java, CityMarker.java, LandQuakeMarker.java, OceanQuakeMarker.java.  You will also find a new class: CommonMarker.java.  The starter code is similar to what you implemented for the last part of the project, but not quite… see the next steps.
+ </p>
+ <p>
+  <strong>
+   IF YOU ARE WORKING OFFLINE
+  </strong>
+  : Remember to set the value of the variable offline to true.
+ </p>
+ <p>
+  <strong>
+   2. Modify the class header in CityMarker
+  </strong>
+  so that this class extends CommonMarker instead of SimplePointMarker.  It will cause an error.  That’s OK.
+ </p>
+ <p>
+  <strong>
+   3. Draw the UML diagram for the classes:
+  </strong>
+ </p>
+ <ul bullettype="bullets">
+  <li>
+   <p>
+    SimplePointMarker
+   </p>
+  </li>
+  <li>
+   <p>
+    CommonMarker
+   </p>
+  </li>
+  <li>
+   <p>
+    EarthquakeMarker
+   </p>
+  </li>
+  <li>
+   <p>
+    CityMarker
+   </p>
+  </li>
+  <li>
+   <p>
+    LandQuakeMarker
+   </p>
+  </li>
+  <li>
+   <p>
+    OceanQuakeMarker
+   </p>
+  </li>
+ </ul>
+ <p>
+  Notice the difference between the class hierarchy now and how it looked in module 4’s assignment.
+ </p>
+ <p>
+  <strong>
+   4. Read the compile error
+  </strong>
+  in the starter code for the class CityMarker.   Explain what caused it, then fix it by changing the name of one of the methods in class.  (Hint: which method that we “promised” to define is missing?  Look at how draw() is implemented in CommonMarker).  Make a note of this because we’ll ask you about it on the self assessment quiz.
+ </p>
+ <p>
+  Steps 3 and 4 highlighted the fact that we have changed the class hierarchy structure for this part of the project: we have introduced the class CommonMarker as the parent class of both EarthquakeMarker and CityMarker.  Now CommonMarker is the class that overrides the draw() method, and it calls drawMarker() which each subclass will implement.  We introduced CommonMarker because in this assignment there will be some drawing functionality that is common to all markers on our map, so we didn’t want to have to duplicate code between EarthquakeMarker and CityMarker.  This process of restructuring our code is known as refactoring and it is very common in software engineering.
+ </p>
+ <p>
+  <strong>
+   5. Implement the
+  </strong>
+  <strong>
+   selectMarkerIfHover
+  </strong>
+  <strong>
+   helper method in EarthquakeCityMap.
+  </strong>
+  This method is called in  mouseMoved() method in EarthquakeCityMap, and mouseMoved() is called by the event handler when the user moves the mouse. selectMarkerIfHover should set the instance variable selected for the first Marker it finds that mouseX and mouseY is inside of.
+ </p>
+ <p>
+  <strong>
+   Hints for step 5
+  </strong>
+ </p>
+ <ul bullettype="bullets">
+  <li>
+   <p>
+    You can use the isInside( UnfoldingMap m, float x, float y ) method defined in the AbstractMarker abstract class to check if a location is inside a marker.
+   </p>
+  </li>
+  <li>
+   <p>
+    PApplet Instance variables mouseX and mouseY store the values of the current mouse position.
+   </p>
+  </li>
+  <li>
+   <p>
+    Note that we clear lastSelected in mouseMoved() before we call selectIfHover, so you can set that variable to indicate that you have found a selected marker.  No other markers should then be selected.
+   </p>
+  </li>
+  <li>
+   <p>
+    The variable selected is a private instance variable in the marker classes.  You will use the getter method isSelected() and setter method setSelected().
+   </p>
+  </li>
+ </ul>
+ <p>
+  <strong>
+   6. Implement the showTitle(PGraphics pg, float x, float y) in both EarthquakeMarker and CityMarker
+  </strong>
+  so that it displays the relevant information about the city or earthquake.  For earthquake markers display the title of earthquake.  For a city, display its name, country, and population.  Notice how showTitle is used in the CommonMarker’s draw method.   (We’ll ask you about this in the quiz)
+ </p>
+ <p>
+  Then use this implementation to test your selectIfHover method.  You should see information about markers appear when you hover over them!
+ </p>
+ <p>
+  <strong>
+   Hints for step 6:
+  </strong>
+ </p>
+ <ul bullettype="bullets">
+  <li>
+   <p>
+    Don’t worry if your labels get overlapped by city and earthquake markers.  There’s no easy way to insist that they always stay on top.  But if you want to force the labels to always be on top, here are a couple of links with information to explore:
+   </p>
+  </li>
+ </ul>
+ <p>
+  <a href="http://processingjs.nihongoresources.com/framework/framework.php">
+   http://processingjs.nihongoresources.com/framework/framework.php
+  </a>
+ </p>
+ <p>
+  <a href="http://stackoverflow.com/questions/23804651/understanding-void-draw-in-processing">
+   http://stackoverflow.com/questions/23804651/understanding-void-draw-in-processing
+  </a>
+ </p>
+ <ul bullettype="bullets">
+  <li>
+   <p>
+    You might want to draw a rectangle underneath the text so the text is more visible, but you don’t have to.
+   </p>
+  </li>
+ </ul>
+ <p>
+  <strong>
+   7. Implement the mouseClicked() method in EarthquakeCityMap.
+  </strong>
+  This method tests whether the lastClick variable refers to a null object or not; if lastClick is not null, this click “de-selects” whichever marker was clicked on last and so all markers should be displayed.  Otherwise, the method must determine which marker is being selected (if any) and hide / display other markers so that:
+ </p>
+ <p>
+  When an earthquake’s marker is selected, all cities within the threat circle of this earthquake are displayed on the map and all other cities and earthquakes are hidden.  You are given an implementation of the threatCircle() method in the EarthquakeMarker class.
+ </p>
+ <p>
+  When a city’s marker is selected, all earthquakes which contain that city in their threat circle are displayed on the map and all other cities and earthquakes are hidden.   You are given an implementation of the threatCircle() method in the EarthquakeMarker class.
+ </p>
+ <p>
+  <strong>
+   Hints and information for step 7:
+  </strong>
+ </p>
+ <ul bullettype="bullets">
+  <li>
+   <p>
+    You will use the setHidden() and isHidden() methods to access the private “hidden” flag.  You may also use the provided private helper method unhideMarkers().
+   </p>
+  </li>
+  <li>
+   <p>
+    From the USGS website,
+    <a href="http://earthquake.usgs.gov/research/dyfi/#pda">
+     http://earthquake.usgs.gov/research/dyfi/#pda
+    </a>
+    , there is a model for predicted intensity levels of earthquakes at some distance away from their epicenter, as a function of the magnitude of the earthquake.  For simplicity, you will approximate the distance away at which the earthquake is felt at an intensity of more than II by the formula: 20*(1.8**(2*Magnitude - 5)).  DISCLAIMER: this formula is for illustration purposes only and is not intended to be used for safety-critical or predictive applications.  The actual distance at which earthquakes are felt with some intensity depends on the geography of the region and many other factors as well.  This method is included in the EarthquakeMarker class.
+   </p>
+  </li>
+ </ul>
+ <p>
+  <strong>
+   8. (Optional) Add to the implementation of the  drawEarthquake() method in the OceanQuakeMarker
+  </strong>
+  class so that if this marker has been clicked on, lines are drawn between this marker and all cities within its threat circle.  If this marker has not been clicked, these lines should disappear.
+ </p>
+ <p>
+  <strong>
+   Hint for step 8:
+  </strong>
+ </p>
+ <ul bullettype="bullets">
+  <li>
+   <p>
+    You can find the x and y coordinates of a marker on a canvas by using the class ScreenPosition.
+   </p>
+  </li>
+  <li>
+   <p>
+    To make lines disappear, you can re-draw them as transparent, e.g. using the noStroke() command.
+   </p>
+  </li>
+ </ul>
+ <p>
+ </p>
+ <p>
+  <strong>
+   Congratulations!  You have finished making your map interactive.  It's time to take the quiz!
+  </strong>
+ </p>
+ <p>
+ </p>
+ <p>
+ </p>
+</co-content>
+<style>
+ body {
+    padding: 50px 85px 50px 85px;
+}
+
+table th, table td {
+    border: 1px solid #e0e0e0;
+    padding: 5px 20px;
+    text-align: left;
+}
+input {
+    margin: 10px;
+}
+}
+th {
+    font-weight: bold;
+}
+td, th {
+    display: table-cell;
+    vertical-align: inherit;
+}
+img {
+    height: auto;
+    max-width: 100%;
+}
+pre {
+    display: block;
+    margin: 20px;
+    background: #424242;
+    color: #fff;
+    font-size: 13px;
+    white-space: pre-wrap;
+    padding: 9.5px;
+    margin: 0 0 10px;
+    border: 1px solid #ccc;
+}
+</style>
+<script async="" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript">
+</script>
+<script type="text/x-mathjax-config">
+ MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$$','$$'], ['$','$'] ],
+      displayMath: [ ["\\[","\\]"] ],
+      processEscapes: true
+    }
+  });
+</script>

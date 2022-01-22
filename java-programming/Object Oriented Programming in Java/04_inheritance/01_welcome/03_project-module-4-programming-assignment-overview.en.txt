@@ -1,0 +1,24 @@
+[MUSIC] In the project for this module, we'll be going further with our graphing
+of earthquakes onto the world map. The past assignment was really neat. You displayed earthquakes on a map, and had their appearance determined by
+the magnitude of the earthquake. But knowing the magnitude of
+the earthquake alone, isn't really enough information to understand
+the potential impact of that event. So we'll be going further with
+this idea in this module by making the earthquakes appear differently based
+on the location of the earthquake, the depth of the earthquake, and
+optionally the age of the earthquake. But we'll continue to visualize the
+magnitude of the earthquake as the size of the marker. So there's a number of steps
+to this assignment, but let's try to break it down
+to four high level goals. The first goal is to add markers for
+major cities. If you don't see your city here,
+please feel free to add it. The second is to figure out if
+the earthquakes occurred in the land, and if so, occurred in which country. Then, you want to draw the earthquakes
+differently if they occurred in the land or in the sea. And you'll again change the size of
+the earthquake, based on its magnitude. Now, where earthquakes occur matters. As the threat they pose is affected by
+whether or not they're under water and could cause a tsunami. Or if they're on land and could cause
+physical damage to surrounding areas. The third goal is to change
+the color of the marker based on how deep the earthquake occurred. Again, the depth of the earthquake changes
+its potential impact to surrounding areas. Lastly, as an optional goal, you can add an X to the earthquakes,
+which occurred in the past day. To accomplish these goals we are using
+features of both inheritance and polymorphism in Java. So be sure to check out the videos on
+these topics if you are unfamiliar or uncomfortable with those ideas. This is one of my favorite
+parts of the project. I hope you'll enjoy it too.

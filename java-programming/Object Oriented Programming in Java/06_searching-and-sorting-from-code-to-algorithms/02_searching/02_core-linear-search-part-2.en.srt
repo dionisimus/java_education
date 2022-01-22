@@ -1,0 +1,364 @@
+1
+00:00:03,810 --> 00:00:04,830
+All right, welcome back.
+
+2
+00:00:04,830 --> 00:00:08,370
+I hope you had a good time writing
+this program, writing this method.
+
+3
+00:00:08,370 --> 00:00:12,350
+And I'm now gonna write it out,
+step by step on my tablet PC.
+
+4
+00:00:12,350 --> 00:00:15,590
+If you really think you've gotten no
+problems, just go ahead and zoom ahead.
+
+5
+00:00:15,590 --> 00:00:18,250
+You can see my solution,
+just check it against yours.
+
+6
+00:00:18,250 --> 00:00:20,930
+But I encourage you to also follow
+me through the thought process,
+
+7
+00:00:20,930 --> 00:00:22,550
+as I write this code.
+
+8
+00:00:22,550 --> 00:00:25,400
+So thinking back to that algorithm,
+the first thing that we need
+
+9
+00:00:25,400 --> 00:00:28,020
+to do is we need to declare
+a new variable called index.
+
+10
+00:00:28,020 --> 00:00:31,630
+Which is going to be the variable
+that steps us through the array.
+
+11
+00:00:31,630 --> 00:00:33,720
+So I'm gonna do that,
+I'm gonna declare a new variable.
+
+12
+00:00:33,720 --> 00:00:41,200
+It's type integer, called index and
+its initial value is 0.
+
+13
+00:00:41,200 --> 00:00:43,060
+So now I'm ready for my loop.
+
+14
+00:00:43,060 --> 00:00:44,820
+And my loop is gonna be a while loop.
+
+15
+00:00:45,940 --> 00:00:49,690
+And it's going to run as
+long as that variable index
+
+16
+00:00:49,690 --> 00:00:51,680
+is less than the length of my array.
+
+17
+00:00:51,680 --> 00:00:59,100
+So airports.length, okay.
+
+18
+00:00:59,100 --> 00:01:03,170
+So now inside the loop, remember what we
+wanna do is we wanna look at the Airport
+
+19
+00:01:03,170 --> 00:01:07,640
+object that's in the cell
+indicated by that index variable.
+
+20
+00:01:07,640 --> 00:01:11,100
+So we're going to get that
+Airport object out first and
+
+21
+00:01:11,100 --> 00:01:14,740
+store it in its own separate variable just
+to make the code a little bit cleaner.
+
+22
+00:01:14,740 --> 00:01:20,148
+So I'll declare new variable Airport
+
+23
+00:01:20,148 --> 00:01:24,880
+a = airports at position index.
+
+24
+00:01:27,770 --> 00:01:31,790
+Now I'm ready to work with that Airport
+object and I can compare the string that
+
+25
+00:01:31,790 --> 00:01:34,450
+I'm trying to find,
+the name of the city I'm trying to find.
+
+26
+00:01:34,450 --> 00:01:39,900
+To the name of the Airport that's in that
+object, pointed to by the variable a.
+
+27
+00:01:39,900 --> 00:01:44,060
+So I do that with an if statement, because
+if they're equal, I wanna do something.
+
+28
+00:01:44,060 --> 00:01:49,474
+So if my toFind
+
+29
+00:01:49,474 --> 00:01:58,680
+equals a.getCity.
+
+30
+00:01:58,680 --> 00:02:04,150
+Now notice that I've used the .equals
+method here instead of the == operator and
+
+31
+00:02:04,150 --> 00:02:05,618
+that's pretty important.
+
+32
+00:02:05,618 --> 00:02:09,560
+Because what .equals is saying to Java is,
+I want to compare
+
+33
+00:02:09,560 --> 00:02:14,270
+the string representations in these two
+objects by essentially their characters.
+
+34
+00:02:14,270 --> 00:02:16,880
+I wanna know, are they the same string?.
+
+35
+00:02:16,880 --> 00:02:20,500
+I don't care if their the exact same
+object in memory, I just wanna know,
+
+36
+00:02:20,500 --> 00:02:22,440
+is it the same string of characters?
+
+37
+00:02:22,440 --> 00:02:24,740
+And the .equals method will do that.
+
+38
+00:02:24,740 --> 00:02:27,910
+On the other hand,
+the == operator, that's just gonna
+
+39
+00:02:27,910 --> 00:02:31,860
+compare the references that are stored
+in two particular variables.
+
+40
+00:02:31,860 --> 00:02:35,180
+And so that will only be true
+if those are actually the same
+
+41
+00:02:35,180 --> 00:02:37,590
+literal object in Java's memory.
+
+42
+00:02:37,590 --> 00:02:41,020
+So in this case, and almost always
+when you're working with objects,
+
+43
+00:02:41,020 --> 00:02:46,570
+the .equals method is the appropriate way
+to compare those two different objects.
+
+44
+00:02:46,570 --> 00:02:51,450
+So if I find that the string that I'm
+looking for is equal to the object's
+
+45
+00:02:51,450 --> 00:02:55,550
+City that's stored in a,
+then I'm going to return the AirportCode.
+
+46
+00:02:55,550 --> 00:03:02,520
+So return a.getCode.
+
+47
+00:03:02,520 --> 00:03:04,120
+Otherwise, I need to keep looking.
+
+48
+00:03:04,120 --> 00:03:08,470
+So there's nothing really more to do
+except to go on to the next location, so
+
+49
+00:03:08,470 --> 00:03:13,775
+I can say index++.
+
+50
+00:03:13,775 --> 00:03:15,295
+Notice I don't need
+an else statement here,
+
+51
+00:03:15,295 --> 00:03:19,075
+because if the if statement was true,
+then I just return out of the function and
+
+52
+00:03:19,075 --> 00:03:20,265
+there's nothing more to be done.
+
+53
+00:03:20,265 --> 00:03:23,830
+But if that if statement is not true,
+then I increment my index and
+
+54
+00:03:23,830 --> 00:03:27,375
+I'll go back to the top of my
+while loop and repeat the process.
+
+55
+00:03:27,375 --> 00:03:30,955
+Now if my while loop completes, that means
+my index has gotten all the way to the end
+
+56
+00:03:30,955 --> 00:03:34,250
+of my array and I still haven't
+found the city that I'm looking for.
+
+57
+00:03:34,250 --> 00:03:40,610
+So now I need to return some value that
+indicates that the city is not there.
+
+58
+00:03:40,610 --> 00:03:44,080
+And in this case,
+I'll just return the value null.
+
+59
+00:03:44,080 --> 00:03:47,210
+And that's appropriate, because my
+method is suppose to return a string.
+
+60
+00:03:47,210 --> 00:03:50,910
+So null is a good value to indicate hey,
+we couldn't find it.
+
+61
+00:03:50,910 --> 00:03:51,450
+It wasn't there.
+
+62
+00:03:52,710 --> 00:03:53,240
+So that's it.
+
+63
+00:03:53,240 --> 00:03:54,101
+That's it for the code.
+
+64
+00:03:54,101 --> 00:03:58,720
+I wanna leave you, oh, there's the code
+a little bit more cleaned up for you.
+
+65
+00:03:58,720 --> 00:04:03,110
+But I do, after you're done sort of
+looking at and digesting the code.
+
+66
+00:04:03,110 --> 00:04:05,820
+What I wanna leave you with
+is a thought question.
+
+67
+00:04:05,820 --> 00:04:08,082
+Actually, two thought questions.
+
+68
+00:04:08,082 --> 00:04:11,970
+I wanna ask the question of,
+if we're really unlucky.
+
+69
+00:04:11,970 --> 00:04:15,250
+So if we're looking for some airport and
+
+70
+00:04:15,250 --> 00:04:20,370
+it's very unluckily way at the end of the
+list or it's not even in the list at all.
+
+71
+00:04:20,370 --> 00:04:24,930
+How many Airport objects are we
+going to have to look at
+
+72
+00:04:24,930 --> 00:04:28,570
+to figure out either the AirportCode
+of this particular airport.
+
+73
+00:04:28,570 --> 00:04:30,870
+Or to figure out that airport
+is not in the list at all?
+
+74
+00:04:32,030 --> 00:04:35,080
+So try to think of how you would
+answer that question in terms
+
+75
+00:04:35,080 --> 00:04:38,560
+of some number of airports in the list.
+
+76
+00:04:38,560 --> 00:04:42,620
+And then, the more important question is,
+can we do better than that?
+
+77
+00:04:42,620 --> 00:04:45,720
+Is there a way to answer
+this question faster?
+
+78
+00:04:45,720 --> 00:04:47,280
+And that's what we're
+going to look at next.

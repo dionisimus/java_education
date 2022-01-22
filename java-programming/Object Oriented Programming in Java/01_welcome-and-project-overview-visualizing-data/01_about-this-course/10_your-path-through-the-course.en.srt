@@ -1,0 +1,419 @@
+1
+00:00:00,000 --> 00:00:03,817
+[MUSIC]
+
+2
+00:00:03,817 --> 00:00:07,224
+Hi again, I'm Christine Alvarado and
+in this video I'm gonna give you some
+
+3
+00:00:07,224 --> 00:00:10,540
+information that will help you choose
+your own path through this course.
+
+4
+00:00:11,690 --> 00:00:15,680
+So, when I'm not teaching, what I like
+to do is, I like to build programs and
+
+5
+00:00:15,680 --> 00:00:20,270
+curriculum that help bring in
+a diverse set of learners to study and
+
+6
+00:00:20,270 --> 00:00:22,650
+work in the field of computer science.
+
+7
+00:00:22,650 --> 00:00:26,370
+And one thing I've learned about
+reaching a diverse audience
+
+8
+00:00:26,370 --> 00:00:30,540
+is that you need diverse courses
+with diverse support structures.
+
+9
+00:00:30,540 --> 00:00:34,630
+So we've engineered this
+diversity into our course and
+
+10
+00:00:34,630 --> 00:00:35,815
+into the whole specialization.
+
+11
+00:00:36,945 --> 00:00:40,475
+We know that you're coming to us with lots
+of different motivations, backgrounds,
+
+12
+00:00:40,475 --> 00:00:45,815
+experience levels, so one size fits
+all is not gonna work for this course.
+
+13
+00:00:45,815 --> 00:00:47,875
+And, that's okay, that's actually great.
+
+14
+00:00:47,875 --> 00:00:50,725
+We love that you're coming from
+all these different backgrounds.
+
+15
+00:00:50,725 --> 00:00:54,125
+And what we want, is for each of you
+to feel challenged, because otherwise,
+
+16
+00:00:54,125 --> 00:00:55,580
+what's the point?
+
+17
+00:00:55,580 --> 00:00:58,350
+But also never to feel overwhelmed.
+
+18
+00:00:58,350 --> 00:01:00,930
+We want it to be the case where when
+you feel like you're starting to get
+
+19
+00:01:00,930 --> 00:01:05,350
+overwhelmed, you can always have some more
+support, to help you with your learning.
+
+20
+00:01:06,590 --> 00:01:10,090
+What we've designed is a course where
+we have different video styles,
+
+21
+00:01:10,090 --> 00:01:12,980
+different video series
+to help meet that goal.
+
+22
+00:01:12,980 --> 00:01:16,030
+So you're not going to want to take
+this course by just sitting down and
+
+23
+00:01:16,030 --> 00:01:18,450
+watching the videos one after another.
+
+24
+00:01:18,450 --> 00:01:20,020
+What you're going to
+want to do is pick and
+
+25
+00:01:20,020 --> 00:01:22,950
+choose a path through the videos
+that's right for you.
+
+26
+00:01:22,950 --> 00:01:26,580
+And to help you do that, I'm gonna tell
+you about our different video series.
+
+27
+00:01:26,580 --> 00:01:30,160
+But first I wanna say that at the end of
+the day, it's all about what you can do.
+
+28
+00:01:30,160 --> 00:01:33,010
+Mia described this really cool project
+that you're gonna be doing throughout
+
+29
+00:01:33,010 --> 00:01:33,970
+this course.
+
+30
+00:01:33,970 --> 00:01:36,820
+And that's really what we
+want you to be able to do.
+
+31
+00:01:36,820 --> 00:01:41,310
+So what we care most about, are these
+end of module assessments which are,
+
+32
+00:01:41,310 --> 00:01:44,220
+a lot of the time, going to have you
+building a piece of that project.
+
+33
+00:01:45,250 --> 00:01:47,200
+So if you're feeling really advanced,
+
+34
+00:01:47,200 --> 00:01:50,680
+really good about the material,
+always feel free to race ahead and
+
+35
+00:01:50,680 --> 00:01:54,290
+just start working on that project or
+do the end of module assessment.
+
+36
+00:01:55,590 --> 00:01:57,550
+But if you want a little instruction,
+
+37
+00:01:57,550 --> 00:02:01,740
+which most of you will,
+you'll wanna watch some of the videos.
+
+38
+00:02:01,740 --> 00:02:05,680
+So the first video series that I'm gonna
+tell you about is our core content series.
+
+39
+00:02:06,700 --> 00:02:09,700
+So these are the videos that
+we expect everybody to watch.
+
+40
+00:02:09,700 --> 00:02:13,830
+They're mostly lecture style and they're
+gonna introduce you to the core concepts
+
+41
+00:02:13,830 --> 00:02:16,980
+and skills that you're going to need
+to do the end of module assessments.
+
+42
+00:02:18,140 --> 00:02:20,020
+Once you've watched those videos,
+
+43
+00:02:20,020 --> 00:02:25,260
+we're gonna probe your knowledge a bit
+more with our concept challenge series.
+
+44
+00:02:25,260 --> 00:02:29,110
+Again we encourage most
+learners to watch these videos.
+
+45
+00:02:29,110 --> 00:02:32,150
+And what they're going to do is they're
+going to ask you to think about
+
+46
+00:02:32,150 --> 00:02:34,760
+the material you just
+learned in a new way.
+
+47
+00:02:34,760 --> 00:02:37,774
+And Leah is gonna tell you more about
+these concept challenges in just a minute.
+
+48
+00:02:37,774 --> 00:02:43,250
+The next series that we have for
+you are additional support videos.
+
+49
+00:02:43,250 --> 00:02:46,080
+Now, we don't expect everybody
+to watch these videos.
+
+50
+00:02:46,080 --> 00:02:50,370
+These videos are designed for if,
+after watching the core content, and
+
+51
+00:02:50,370 --> 00:02:54,340
+doing this concept challenges, you don't
+quite feel ready to tackle the end of
+
+52
+00:02:54,340 --> 00:02:58,299
+module assessments, you might want to
+watch these additional support videos.
+
+53
+00:03:00,900 --> 00:03:05,190
+The last two video series that we have,
+we're really excited about.
+
+54
+00:03:05,190 --> 00:03:08,490
+These are series that aren't
+designed to deliver content, so
+
+55
+00:03:08,490 --> 00:03:11,830
+much as to put the content that
+you're learning in context.
+
+56
+00:03:11,830 --> 00:03:14,810
+So, the first of these series is called,
+In the Real World.
+
+57
+00:03:14,810 --> 00:03:18,690
+And we've got a team of real life
+Google engineers talking about
+
+58
+00:03:18,690 --> 00:03:22,680
+why what you're learning is important,
+in their work at Google and
+
+59
+00:03:22,680 --> 00:03:25,060
+in general in the software industry.
+
+60
+00:03:25,060 --> 00:03:29,190
+So that'll be a really good opportunity
+for you to learn, not only why what you're
+
+61
+00:03:29,190 --> 00:03:32,920
+learning is important, but how it's
+important to these individual engineers.
+
+62
+00:03:33,920 --> 00:03:37,200
+And then the last series that we have for
+you is called, When I struggled.
+
+63
+00:03:37,200 --> 00:03:41,700
+And what you're going to see in this
+series is a number of UC San Diego
+
+64
+00:03:41,700 --> 00:03:45,650
+learners as well as us,
+talking about our own experience
+
+65
+00:03:45,650 --> 00:03:49,490
+learning the material that you're
+gonna be learning during this course.
+
+66
+00:03:49,490 --> 00:03:53,040
+We'll talk about a time where we struggled
+with the material that we're presenting,
+
+67
+00:03:53,040 --> 00:03:56,840
+and then we'll talk about how
+we overcame these struggles.
+
+68
+00:03:56,840 --> 00:03:59,580
+So we hope you'll watch
+both of those series and
+
+69
+00:03:59,580 --> 00:04:02,149
+that it'll enrich your
+experience in this course.
+
+70
+00:04:03,880 --> 00:04:08,150
+So again, to summarize, the standard
+path we imagine a learner taking to this
+
+71
+00:04:08,150 --> 00:04:11,980
+course, is that you would watch
+this introduction with the Google
+
+72
+00:04:11,980 --> 00:04:15,400
+engineers talking about why these
+concepts are important in the real world.
+
+73
+00:04:15,400 --> 00:04:17,980
+You would go through and
+watch the Core Concept videos and
+
+74
+00:04:17,980 --> 00:04:20,010
+perform these concept challenges,
+
+75
+00:04:20,010 --> 00:04:24,390
+maybe watching some videos about when some
+learners struggled with these concepts.
+
+76
+00:04:24,390 --> 00:04:27,910
+Along the way, and then perform
+the module-level assessment, and
+
+77
+00:04:27,910 --> 00:04:29,860
+you would repeat that for each module.
+
+78
+00:04:29,860 --> 00:04:33,750
+But if you're feeling more advanced, you
+might just wanna race right through those
+
+79
+00:04:33,750 --> 00:04:38,170
+core concept videos and get to that
+end of module assessment faster and
+
+80
+00:04:38,170 --> 00:04:39,690
+get developing on those projects.
+
+81
+00:04:39,690 --> 00:04:42,000
+And we encourage you to do that,
+if you're feeling comfortable.
+
+82
+00:04:43,200 --> 00:04:45,960
+And again, if you feel like you
+need a little more support,
+
+83
+00:04:45,960 --> 00:04:48,520
+you've got those support
+videos available to you.
+
+84
+00:04:48,520 --> 00:04:51,930
+So any time you feel like you don't
+quite understand what's going on,
+
+85
+00:04:51,930 --> 00:04:55,680
+you need a little more help, go ahead and
+pull out those support videos and
+
+86
+00:04:55,680 --> 00:04:58,530
+we hope that you'll find
+the support that you need.
+
+87
+00:04:58,530 --> 00:05:01,931
+So choose the path that's right for
+you, challenge yourself, and have fun.

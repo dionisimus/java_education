@@ -1,0 +1,68 @@
+In this concept challenge we're gonna
+have some fun with polymorphism and dynamic binding. We want it to be a little bit challenging,
+but hopefully not too far beyond the reach of what you can do with your new
+knowledge about how this works. So you know the drill. You're going to pause,
+answer the question on your own, discuss it with people around you or
+online, watch our learner videos, and then confirm your understanding
+with our explanation. So what's the problem? Here it is. We two classes for you,
+the student class and the person class. The person class is the base class. It has a private member variable name and
+then the number of methods. There's one constructor. It takes an argument. There's a method called isAsleep. It takes an integer argument,
+and it returns a boolean. The integer argument indicates the time of
+day, in term of hours on a 24 hour clock, and a person is asleep between
+the hours of 10 PM, or 22, and 7 AM. So between those hours,
+isAsleep will return true. It also has a two string method
+which just returns its name, and then it has a status method which also
+takes an integer argument for the hour. And what it's gonna do is it's gonna check
+to see if the person is asleep at that hour, and if it is, it will say the person is offline or
+print a message to that effect. And if they're not asleep then it'll print
+a message saying the person is online. That's the person class. The student class extends
+the person class. And so it inherits a bunch of things from
+the person, and then what it does is it overrides the isAsleep method to slightly
+change the hours that a student is asleep. So a student in our world here is only
+asleep between the hours of 2 AM and 8 AM. So if we call isAsleep between those hours
+then the student will report being asleep. So the question for you is, what happens
+when we create a reference to the person, set that reference equal to
+a new student object, and then call the status method on that
+object at time 1 in the morning? >> I'm Alicia. >> I'm Joanna. >> And I'm Justin. >> So actually when I looked at this code I was wondering if person can
+actually even be a student. >> I think student can be
+a person since it extends person. So. >> I agree with Justin because student
+is a person, and you know it's a person. So it's just a more
+specific type of person. >> What do you think it prints out? >> Mm.. I don't know. Will it even print out? Because there are two,
+if you look in the public class person and in the class student,
+both of them have method is asleep. Which is called in the second
+line of the of the method status? So, how does the compiler know,
+which one to call? So wouldn't it just freak out,
+and stop, and be an error? >> I think it has something
+to do with the this call. >> Oh.
+>> So, maybe this this tells it
+which method it's calling. And I guess since we can
+have it be a student, it's probably calling students is asleep. >> Yeah, I think that's correct, yeah. >> What I was confused about
+was within status [CROSSTALK] >> Yes. >> It calls is asleep. In this well,
+it calls isAsleep when it's in person. So shouldn't this be a person? >> It's a good, it's pretty tricky. >> But we assigned person to be a student,
+right? Oh. >> So at this point perhaps at compile
+time maybe it'll call is asleep in the person class, but maybe at run time, it'll say this is a student, and
+then call students is asleep. >> Okay. >> All right,
+there's a lot going on here so let's trace through this very carefully. The first thing we have to
+think about is even though P is a person reference, the actual
+object it refers to is a student. So when we call p.status
+at one in the morning, we're calling that dot
+status on a student object. This is what Java does at run time. It determines that P refers
+to a student object and that's the type that it's going
+to call the status method on. So we're gonna look in the student
+class for the status method. And so we look here,
+well we don't see a status method. But that's no problem because student
+extends person, so Java will just go ahead and look in the superclass to see
+if there's a status method there. And it turns out there is. Here's our status method. So we can start tracing through the status
+method to see what actually happens. The first thing we do is
+we have an if statement. And that If statement asks this.isAsleep. So the question is,
+is this asleep at the particular hour? Now what is this? Well even though we're currently in the
+person class, that's where the code is. This is at run time determined
+to be a student object. Because the student object is the one
+that called this method originally. So this dynamically binds
+to the student object. And that's the class where
+there is asleep gets called. So we go back down here and
+we use the student's version of is asleep to determine if the student is
+asleep at one in the morning. Now I already said the student only
+sleeps between two in the morning and eight in the morning. So the student is not asleep
+at one o'clock and so we'll fall through to this else condition. And print out that this student is online,
+says now online, this is what it'll print, now online. And the students name is Sally. That's it.

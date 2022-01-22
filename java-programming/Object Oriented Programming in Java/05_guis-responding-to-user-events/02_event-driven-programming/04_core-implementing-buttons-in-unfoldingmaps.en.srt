@@ -1,0 +1,440 @@
+1
+00:00:00,453 --> 00:00:03,713
+[MUSIC]
+
+2
+00:00:03,713 --> 00:00:07,729
+What we'd like to do in this video
+is customize our user interface and
+
+3
+00:00:07,729 --> 00:00:11,440
+use events in a slightly
+more sophisticated way.
+
+4
+00:00:11,440 --> 00:00:15,890
+By the end of this video, you'll be able
+to design your own user interface elements
+
+5
+00:00:15,890 --> 00:00:17,910
+and write the code to support them.
+
+6
+00:00:17,910 --> 00:00:21,160
+So let's go back to our example,
+our friendly old map.
+
+7
+00:00:21,160 --> 00:00:25,000
+And remember those two methods that we
+keep talking about, setup and draw.
+
+8
+00:00:25,000 --> 00:00:29,000
+But now we've added that extra twist
+of having a Default Event Dispatcher
+
+9
+00:00:29,000 --> 00:00:32,890
+supporting zoom through mouse clicks and
+keyboard presses.
+
+10
+00:00:32,890 --> 00:00:35,540
+And so what we're starting with
+is our canvas with our map.
+
+11
+00:00:35,540 --> 00:00:39,430
+And what we'd like to do in this
+video is add a couple of buttons.
+
+12
+00:00:39,430 --> 00:00:43,570
+We're going to add a couple of buttons
+to control the color of the background.
+
+13
+00:00:43,570 --> 00:00:49,590
+So, we're going to have a white square
+that will try to make that frame white and
+
+14
+00:00:49,590 --> 00:00:52,350
+a gray square to make the frame gray.
+
+15
+00:00:52,350 --> 00:00:55,130
+Okay, so
+let's think about how we can do that.
+
+16
+00:00:55,130 --> 00:00:57,350
+And in terms of just drawing the buttons,
+
+17
+00:00:57,350 --> 00:00:59,620
+we already have all
+the tools that we need.
+
+18
+00:00:59,620 --> 00:01:03,085
+If you think back to module three,
+we know how to draw shapes in
+
+19
+00:01:03,085 --> 00:01:08,010
+an applet using the 2D primitives that
+are given to us by the processing library.
+
+20
+00:01:08,010 --> 00:01:11,060
+For example, the primitive method rect.
+
+21
+00:01:11,060 --> 00:01:15,200
+Okay, so we've got these
+rectangles that we can draw.
+
+22
+00:01:15,200 --> 00:01:19,430
+Remember that we're specifying their x and
+y position and
+
+23
+00:01:19,430 --> 00:01:21,360
+then their width and their heights.
+
+24
+00:01:21,360 --> 00:01:25,130
+And we can also specify the color
+that is drawn inside those rectangles
+
+25
+00:01:25,130 --> 00:01:26,020
+using the fill method.
+
+26
+00:01:27,920 --> 00:01:32,990
+But now, the question becomes
+where we'd like to insert
+
+27
+00:01:32,990 --> 00:01:37,530
+these pieces of code to draw the two
+buttons, to draw those two squares.
+
+28
+00:01:37,530 --> 00:01:42,570
+And there's two natural places, either in
+the setup method or in the draw method.
+
+29
+00:01:43,820 --> 00:01:46,619
+So I encourage you to pause the video
+now and think, where would you put it?
+
+30
+00:01:49,460 --> 00:01:53,490
+All right, come back together and
+maybe you've even opened up Eclipse while
+
+31
+00:01:53,490 --> 00:01:58,150
+you're watching the videos, which would be
+a great idea, and tried out both options.
+
+32
+00:01:58,150 --> 00:01:59,970
+And if you did that and
+
+33
+00:01:59,970 --> 00:02:03,840
+you tried out the option of sticking this
+piece of code inside the setup method,
+
+34
+00:02:03,840 --> 00:02:07,580
+what you'll see would have happened
+is that when the applet comes up.
+
+35
+00:02:07,580 --> 00:02:11,800
+You see the buttons very, very briefly and
+then the map comes on top of them and
+
+36
+00:02:11,800 --> 00:02:15,190
+erases them and then the buttons
+don't show up anymore, ever.
+
+37
+00:02:15,190 --> 00:02:18,730
+Whereas, if we put it in the draw method,
+if we put those four lines of code in
+
+38
+00:02:18,730 --> 00:02:22,920
+the draw method, then we see them on top
+of the map where they're supposed to be.
+
+39
+00:02:22,920 --> 00:02:26,740
+And what's happening is that
+because setup is run only once.
+
+40
+00:02:26,740 --> 00:02:32,120
+As soon as our canvas gets overwritten
+by the draw method, any code that was
+
+41
+00:02:32,120 --> 00:02:36,550
+designing the canvas from the setup
+method doesn't get executed again and so
+
+42
+00:02:36,550 --> 00:02:38,650
+those elements are no longer displayed.
+
+43
+00:02:40,440 --> 00:02:43,830
+Okay, so we know what we need to do
+in order to draw the buttons and
+
+44
+00:02:43,830 --> 00:02:47,600
+we know where to put those buttons, but
+so far, they're not really buttons,
+
+45
+00:02:47,600 --> 00:02:48,890
+they're just squares.
+
+46
+00:02:48,890 --> 00:02:53,160
+And so we'd like to add in that
+functionality to make sure that if a user
+
+47
+00:02:53,160 --> 00:02:57,052
+puts their mouse inside one of those
+buttons or over top one of those buttons
+
+48
+00:02:57,052 --> 00:03:00,940
+and clicks then hopefully
+the background of our map will change.
+
+49
+00:03:02,390 --> 00:03:05,440
+So now we get to override some methods
+
+50
+00:03:05,440 --> 00:03:10,660
+that are available to us because
+our applet is a listener.
+
+51
+00:03:10,660 --> 00:03:15,300
+It's listening for mouse events and
+so PApplet implements some sort of
+
+52
+00:03:15,300 --> 00:03:19,130
+default blank behavior to
+correspond to mouse clicks.
+
+53
+00:03:19,130 --> 00:03:22,350
+But what we'd like to do now
+is customize that behaviour
+
+54
+00:03:22,350 --> 00:03:27,240
+in the event of that those mouse clicks
+happen inside one of those buttons.
+
+55
+00:03:27,240 --> 00:03:32,030
+Now there's a few different options of how
+to deal with mice or with mouse clicks and
+
+56
+00:03:32,030 --> 00:03:34,470
+there's a few methods
+that are available to us.
+
+57
+00:03:34,470 --> 00:03:38,320
+What we're going to use is
+the mouseReleased method.
+
+58
+00:03:38,320 --> 00:03:41,390
+Which means that we don't
+really care about when the user
+
+59
+00:03:41,390 --> 00:03:42,990
+starts clicking the mouse or
+
+60
+00:03:42,990 --> 00:03:47,540
+the fact that it was a click rather
+than a click down and hold for a while.
+
+61
+00:03:47,540 --> 00:03:50,870
+We just want to think about
+when the mouse was released and
+
+62
+00:03:50,870 --> 00:03:53,810
+make sure that when the mouse is
+released it was inside the button and so
+
+63
+00:03:53,810 --> 00:03:55,810
+we wanted to react to that action.
+
+64
+00:03:57,600 --> 00:04:01,120
+So that means that when we think
+about the mouseReleased method,
+
+65
+00:04:01,120 --> 00:04:05,100
+we're going to have to check
+that the mouse released event
+
+66
+00:04:05,100 --> 00:04:08,230
+happened when the mouse was inside
+the button that we want to implement.
+
+67
+00:04:08,230 --> 00:04:10,760
+And so
+we have to go back to the coordinates
+
+68
+00:04:10,760 --> 00:04:14,290
+that are defining locations in our canvas.
+
+69
+00:04:14,290 --> 00:04:20,100
+So when we defined for example, the white
+button, we said that it was a rectangle.
+
+70
+00:04:20,100 --> 00:04:24,210
+Whose corner was at coordinate 100,100 and
+
+71
+00:04:24,210 --> 00:04:30,450
+then this button is 25 pixels wide and
+25 pixels high.
+
+72
+00:04:30,450 --> 00:04:34,420
+And so the four corner coordinates
+are now up on the screen.
+
+73
+00:04:34,420 --> 00:04:38,395
+Which means when we're looking at the
+mouse event to check that the mouse event
+
+74
+00:04:38,395 --> 00:04:39,850
+happens inside the button.
+
+75
+00:04:39,850 --> 00:04:42,283
+We want to check that
+the X coordinates and
+
+76
+00:04:42,283 --> 00:04:47,150
+the Y coordinates of the mouse's location
+are within the square that's defined by
+
+77
+00:04:47,150 --> 00:04:50,530
+the corners and those corner coordinates.
+
+78
+00:04:50,530 --> 00:04:54,152
+Now notice that we're doing
+something kinda cool here,
+
+79
+00:04:54,152 --> 00:04:59,590
+we're accessing the coordinates of the
+mouse, using a variable mouseX and mouseY.
+
+80
+00:04:59,590 --> 00:05:04,132
+And that's available again to us through
+inheritance because those variables
+
+81
+00:05:04,132 --> 00:05:08,140
+are available to the applet superclass
+that we're inheriting from.
+
+82
+00:05:09,340 --> 00:05:12,780
+So in the case where our mouse
+was actually released from
+
+83
+00:05:12,780 --> 00:05:14,720
+inside the white button,
+
+84
+00:05:14,720 --> 00:05:19,099
+what we end up doing is setting the
+background color of our canvas to white.
+
+85
+00:05:20,890 --> 00:05:25,830
+And in the other situation, when we've
+calculated the corners of the gray button,
+
+86
+00:05:25,830 --> 00:05:30,100
+we can also set the background
+color of the canvas to gray.
+
+87
+00:05:30,100 --> 00:05:32,940
+Of course, corresponding to a mouse
+click inside the gray button.
+
+88
+00:05:34,330 --> 00:05:39,200
+And that's really all there is to it
+to implementing a button inside this
+
+89
+00:05:39,200 --> 00:05:42,910
+class because we can listen for
+mouse events and
+
+90
+00:05:42,910 --> 00:05:45,700
+we can record the location
+of those mouse events.
+
+91
+00:05:45,700 --> 00:05:47,570
+So not only do we know that
+a mouse was clicked and
+
+92
+00:05:47,570 --> 00:05:49,650
+released, we also know where it happened.
