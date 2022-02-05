@@ -33,7 +33,7 @@ public class EarthquakeCityMap extends PApplet {
 	private static final long serialVersionUID = 1L;
 
 	// IF YOU ARE WORKING OFFLINE, change the value of this variable to true
-	private static final boolean offline = false;
+	private static final boolean offline = true;
 	
 	// Less than this threshold is a light earthquake
 	public static final float THRESHOLD_MODERATE = 5;
@@ -77,10 +77,13 @@ public class EarthquakeCityMap extends PApplet {
 	    // to create a new SimplePointMarker for each PointFeature in 
 	    // earthquakes.  Then add each new SimplePointMarker to the 
 	    // List markers (so that it will be added to the map in the line below)
-	    
-	    
+	    for (PointFeature sp : earthquakes) {
+	    	map.addMarkers(createMarker(sp));
+	    	
+	    }
+	    //map.addMarkers(markers);
 	    // Add the markers to the map so that they are displayed
-	    map.addMarkers(markers);
+	    
 	}
 		
 	/* createMarker: A suggested helper method that takes in an earthquake 
@@ -108,7 +111,17 @@ public class EarthquakeCityMap extends PApplet {
 		// Here is an example of how to use Processing's color method to generate 
 	    // an int that represents the color yellow.  
 	    int yellow = color(255, 255, 0);
-		
+	    int blue = color(0, 0, 255);
+	    int red = color(255, 0, 0);
+		if (mag < THRESHOLD_LIGHT) {
+			marker.setColor(blue);
+		}
+		if (mag >= THRESHOLD_LIGHT && mag < THRESHOLD_MODERATE) {
+			marker.setColor(yellow);
+		}
+		if (mag > THRESHOLD_MODERATE) {
+			marker.setColor(red);
+		}
 		// TODO (Step 4): Add code below to style the marker's size and color 
 	    // according to the magnitude of the earthquake.  
 	    // Don't forget about the constants THRESHOLD_MODERATE and 
@@ -134,6 +147,36 @@ public class EarthquakeCityMap extends PApplet {
 	private void addKey() 
 	{	
 		// Remember you can use Processing's graphics methods here
+		fill(255,255,255);
+		rect(25, 50, 150, 200);
+		
+		textSize(128);
+		fill(0, 0, 0);
+		textSize(17);
+		text("Earthquake Key", 35, 80); 
+		
+		//red 5.0+
+		fill(255,0,0);
+		ellipse (45, 120, 20, 20);
+		fill(0, 0, 0);
+		textSize(12);
+		text("5.0+ Magnitude", 70, 125); 
+		
+		//yellow 4-5
+		fill(255, 255, 0);
+		ellipse (45, 160, 10, 10);
+		fill(0, 0, 0);
+		textSize(12);
+		text("4.0+ Magnitude", 70, 165);
+		
+		//blue <4
+		fill(0, 0, 255);
+		ellipse (45, 205, 10, 10);
+		fill(0, 0, 0);
+		textSize(12);
+		text("Below 4.0", 70, 205);	
 	
 	}
+
+
 }
