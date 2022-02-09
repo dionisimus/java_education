@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<uml:Model xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xmi:id="_Zo8xQIm8EeyKv-DjsONAtA" name="model">
+  <packageImport xmi:type="uml:PackageImport" xmi:id="_ZpPsMIm8EeyKv-DjsONAtA">
+    <importedPackage xmi:type="uml:Model" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#_0"/>
+  </packageImport>
+  <packagedElement xmi:type="uml:Package" xmi:id="_bBnNUIm8EeyKv-DjsONAtA" name="de.fhpotsdam.unfolding.marker">
+    <packagedElement xmi:type="uml:Interface" xmi:id="_liuboIm8EeyKv-DjsONAtA" name="Marker"/>
+    <packagedElement xmi:type="uml:Class" xmi:id="_ADwDQIm9EeyKv-DjsONAtA" name="AbstractMarker">
+      <interfaceRealization xmi:type="uml:InterfaceRealization" xmi:id="_8jjBAIm-EeyKv-DjsONAtA" client="_ADwDQIm9EeyKv-DjsONAtA" supplier="_liuboIm8EeyKv-DjsONAtA" contract="_liuboIm8EeyKv-DjsONAtA"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_FZ1-MIm9EeyKv-DjsONAtA" name="SimplePointMarker">
+      <interfaceRealization xmi:type="uml:InterfaceRealization" xmi:id="_6oGA8Im-EeyKv-DjsONAtA" client="_FZ1-MIm9EeyKv-DjsONAtA" supplier="_liuboIm8EeyKv-DjsONAtA" contract="_liuboIm8EeyKv-DjsONAtA"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_0V2cQIm9EeyKv-DjsONAtA" name="EarthquakeMarker">
+      <generalization xmi:type="uml:Generalization" xmi:id="_rIZ_0Im-EeyKv-DjsONAtA" general="_FZ1-MIm9EeyKv-DjsONAtA"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_1uIhAInBEeyKv-DjsONAtA" name="LandQuakeMarker">
+      <generalization xmi:type="uml:Generalization" xmi:id="_5q874InBEeyKv-DjsONAtA" general="_0V2cQIm9EeyKv-DjsONAtA"/>
+    </packagedElement>
+  </packagedElement>
+</uml:Model>
