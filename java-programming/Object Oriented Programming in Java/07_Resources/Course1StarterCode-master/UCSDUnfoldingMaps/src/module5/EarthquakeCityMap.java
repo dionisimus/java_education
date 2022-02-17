@@ -137,6 +137,7 @@ public class EarthquakeCityMap extends PApplet {
 		}
 		selectMarkerIfHover(quakeMarkers);
 		selectMarkerIfHover(cityMarkers);
+		
 	}
 	
 	// If there is a marker under the cursor, and lastSelected is null 
@@ -147,23 +148,18 @@ public class EarthquakeCityMap extends PApplet {
 	{
 		// TODO: Implement this method
 		for (Marker m : markers) {
+			
 			if (m.isInside(map, mouseX , mouseY)) {
 				lastSelected = (CommonMarker) m;
+				m.setSelected(true);
 			}
+//			System.out.println(m.getProperty("title"));
 			
 			
 		}
 		
 		
-//		pg.line(x-(radius+buffer), 
-//				y-(radius+buffer), 
-//				x+radius+buffer, 
-//				y+radius+buffer);
-//		pg.line(x-(radius+buffer), 
-//				y+(radius+buffer), 
-//				x+radius+buffer, 
-//				y-(radius+buffer));
-		
+
 	}
 	
 	/** The event handler for mouse clicks
@@ -177,8 +173,54 @@ public class EarthquakeCityMap extends PApplet {
 		// TODO: Implement this method
 		// Hint: You probably want a helper method or two to keep this code
 		// from getting too long/disorganized
+		if (lastClicked == null) {
+			if (lastClicked instanceof EarthquakeMarker) {
+				selectEarthquakeMarker();
+			}
+			else {
+				selectCityMarker();
+			}
+			
+			//lastClicked.threatCircle()
+			
+		}
+		else {
+			this.unhideMarkers();
+			lastClicked = null;
+		}
+		
+		}
+			
+	
+	private void selectEarthquakeMarker() {
+		this.hideMarkers();
+		lastClicked = lastSelected;
+		lastClicked.setHidden(false);
+		EarthquakeMarker marker = (EarthquakeMarker)lastClicked;
+		double threat = marker.threatCircle();
+		for (Marker city : cityMarkers) {
+			double distance = city.getDistanceTo(marker.getLocation());
+			if (threat >= distance) {
+				city.setHidden(false);
+			}
+		}
 	}
 	
+	private void selectCityMarker() {
+		this.hideMarkers();
+		lastClicked = lastSelected;
+		lastClicked.setHidden(false);
+		CityMarker marker = (CityMarker)lastClicked;
+//		double threat = marker.threatCircle();
+		for (Marker eq : quakeMarkers) {
+			EarthquakeMarker eqFormula = (EarthquakeMarker)eq;
+			double distance = eqFormula.getDistanceTo(marker.getLocation());
+			double threat = eqFormula.threatCircle();
+			if (threat >= distance) {
+				marker.setHidden(false);
+			}
+		}
+	}
 	
 	// loop over and unhide all markers
 	private void unhideMarkers() {
@@ -188,6 +230,16 @@ public class EarthquakeCityMap extends PApplet {
 			
 		for(Marker marker : cityMarkers) {
 			marker.setHidden(false);
+		}
+	}
+	
+	private void hideMarkers() {
+		for(Marker marker : quakeMarkers) {
+			marker.setHidden(true);
+		}
+			
+		for(Marker marker : cityMarkers) {
+			marker.setHidden(true);
 		}
 	}
 	
