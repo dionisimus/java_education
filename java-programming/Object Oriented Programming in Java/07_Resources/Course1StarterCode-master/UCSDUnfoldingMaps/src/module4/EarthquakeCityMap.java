@@ -1,6 +1,7 @@
 package module4;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import de.fhpotsdam.unfolding.UnfoldingMap;
@@ -60,7 +61,8 @@ public class EarthquakeCityMap extends PApplet {
 	// A List of country markers
 	private List<Marker> countryMarkers;
 	
-	public void setup() {		
+	public void setup() {	
+		
 		// (1) Initializing canvas and map tiles
 		size(900, 700, OPENGL);
 		if (offline) {
@@ -111,7 +113,7 @@ public class EarthquakeCityMap extends PApplet {
 	    }
 
 	    // could be used for debugging
-	    printQuakes();
+	    //printQuakes();
 	 		
 	    // (3) Add markers to map
 	    //     NOTE: Country markers are not added to the map.  They are used
@@ -119,6 +121,7 @@ public class EarthquakeCityMap extends PApplet {
 	    map.addMarkers(quakeMarkers);
 	    map.addMarkers(cityMarkers);
 	    
+	  
 	}  // End setup
 	
 	
@@ -139,22 +142,22 @@ public class EarthquakeCityMap extends PApplet {
 		fill(0);
 		textAlign(LEFT, CENTER);
 		textSize(12);
-		text("Earthquake Key", 50, 75);
+		text("City Marker", 75, 120);
 		
-		fill(color(255, 0, 0));
-		ellipse(50, 125, 15, 15);
-		fill(color(255, 255, 0));
-		ellipse(50, 175, 10, 10);
-		fill(color(0, 0, 255));
-		ellipse(50, 225, 5, 5);
-		
-		fill(0, 0, 0);
-		text("5.0+ Magnitude", 75, 125);
-		text("4.0+ Magnitude", 75, 175);
-		text("Below 4.0", 75, 225);
+		fill(255, 0, 0);
+		triangle(50, 125, 55, 115, 60, 125);
+//		ellipse(50, 125, 15, 15);
+//		fill(color(255, 255, 0));
+//		ellipse(50, 175, 10, 10);
+//		fill(color(0, 0, 255));
+//		ellipse(50, 225, 5, 5);
+//		
+//		fill(0, 0, 0);
+//		text("5.0+ Magnitude", 75, 125);
+//		text("4.0+ Magnitude", 75, 175);
+//		text("Below 4.0", 75, 225);
 	}
 
-	
 	
 	// Checks whether this quake occurred on land.  If it did, it sets the 
 	// "country" property of its PointFeature to the country where it occurred
@@ -185,54 +188,54 @@ public class EarthquakeCityMap extends PApplet {
 	 * ...
 	 * OCEAN QUAKES: numOceanQuakes
 	 * */
-	private void printQuakes() 
-	{
-		// TODO: Implement this method
-		// One (inefficient but correct) approach is to:
-		//   Loop over all of the countries, e.g. using 
-		//        for (Marker cm : countryMarkers) { ... }
-		//        
-		//      Inside the loop, first initialize a quake counter.
-		//      Then loop through all of the earthquake
-		//      markers and check to see whether (1) that marker is on land
-		//     	and (2) if it is on land, that its country property matches 
-		//      the name property of the country marker.   If so, increment
-		//      the country's counter.
-		
-		// Here is some code you will find useful:
-		// 
-		//  * To get the name of a country from a country marker in variable cm, use:
-		//     String name = (String)cm.getProperty("name");
-		//  * If you have a reference to a Marker m, but you know the underlying object
-		//    is an EarthquakeMarker, you can cast it:
-		//       EarthquakeMarker em = (EarthquakeMarker)m;
-		//    Then em can access the methods of the EarthquakeMarker class 
-		//       (e.g. isOnLand)
-		//  * If you know your Marker, m, is a LandQuakeMarker, then it has a "country" 
-		//      property set.  You can get the country with:
-		//        String country = (String)m.getProperty("country");
-		int QMO_total = 0;
-		for (Marker cm : countryMarkers) {
-			int QMC = 0;
-			int QMO = 0;
-			String name = (String)cm.getProperty("name");
-			for (Marker qm : quakeMarkers) {
-				EarthquakeMarker em = (EarthquakeMarker)qm;
-				if (em.isOnLand) {
-					String country = (String)em.getProperty("country");
-					if (name.equals(country)) {
-						QMC++;
-					}
-				}
-				else QMO++;
-			}
-			if (QMC > 0) {
-				System.out.println(name + " " + QMC);
-				QMO_total = QMO;
-			}
-		}
-		System.out.println("OCEAN QUAKES: " + QMO_total);
-	}
+//	private void printQuakes() 
+//	{
+//		// TODO: Implement this method
+//		// One (inefficient but correct) approach is to:
+//		//   Loop over all of the countries, e.g. using 
+//		//        for (Marker cm : countryMarkers) { ... }
+//		//        
+//		//      Inside the loop, first initialize a quake counter.
+//		//      Then loop through all of the earthquake
+//		//      markers and check to see whether (1) that marker is on land
+//		//     	and (2) if it is on land, that its country property matches 
+//		//      the name property of the country marker.   If so, increment
+//		//      the country's counter.
+//		
+//		// Here is some code you will find useful:
+//		// 
+//		//  * To get the name of a country from a country marker in variable cm, use:
+//		//     String name = (String)cm.getProperty("name");
+//		//  * If you have a reference to a Marker m, but you know the underlying object
+//		//    is an EarthquakeMarker, you can cast it:
+//		//       EarthquakeMarker em = (EarthquakeMarker)m;
+//		//    Then em can access the methods of the EarthquakeMarker class 
+//		//       (e.g. isOnLand)
+//		//  * If you know your Marker, m, is a LandQuakeMarker, then it has a "country" 
+//		//      property set.  You can get the country with:
+//		//        String country = (String)m.getProperty("country");
+//		int QMO_total = 0;
+//		for (Marker cm : countryMarkers) {
+//			int QMC = 0;
+//			int QMO = 0;
+//			String name = (String)cm.getProperty("name");
+//			for (Marker qm : quakeMarkers) {
+//				EarthquakeMarker em = (EarthquakeMarker)qm;
+//				if (em.isOnLand) {
+//					String country = (String)em.getProperty("country");
+//					if (name.equals(country)) {
+//						QMC++;
+//					}
+//				}
+//				else QMO++;
+//			}
+//			if (QMC > 0) {
+//				System.out.println(name + " " + QMC);
+//				QMO_total = QMO;
+//			}
+//		}
+//		System.out.println("OCEAN QUAKES: " + QMO_total);
+//	}
 	
 	
 	
@@ -266,8 +269,10 @@ public class EarthquakeCityMap extends PApplet {
 			earthquake.addProperty("country", country.getProperty("name"));
 			
 			return true;
+			
 		}
 		return false;
+		
 	}
-
+	
 }

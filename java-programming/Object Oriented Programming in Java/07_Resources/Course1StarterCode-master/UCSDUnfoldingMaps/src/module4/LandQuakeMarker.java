@@ -34,6 +34,10 @@ public class LandQuakeMarker extends EarthquakeMarker {
 		
 		// TODO: Implement this method
 		
+		pg.ellipse(x, y, radius, radius);
+	//	System.out.println("radius: "+ radius);
+		//System.out.println("getRadius(): "+ getRadius());
+		
 	}
 	
 
