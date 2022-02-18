@@ -174,16 +174,18 @@ public class EarthquakeCityMap extends PApplet {
 		// Hint: You probably want a helper method or two to keep this code
 		// from getting too long/disorganized
 		if (lastClicked == null) {
-			if (lastClicked instanceof EarthquakeMarker) {
-				selectEarthquakeMarker();
+			lastClicked = lastSelected;
+			if (lastClicked.getProperty("title") == null) {
+				this.selectCityMarker();
 			}
-			else {
-				selectCityMarker();
+			if (lastClicked.getProperty("title") != null) {
+				this.selectEarthquakeMarker();
 			}
 			
-			//lastClicked.threatCircle()
+			
 			
 		}
+		
 		else {
 			this.unhideMarkers();
 			lastClicked = null;
@@ -193,8 +195,9 @@ public class EarthquakeCityMap extends PApplet {
 			
 	
 	private void selectEarthquakeMarker() {
+		
 		this.hideMarkers();
-		lastClicked = lastSelected;
+		
 		lastClicked.setHidden(false);
 		EarthquakeMarker marker = (EarthquakeMarker)lastClicked;
 		double threat = marker.threatCircle();
@@ -208,7 +211,7 @@ public class EarthquakeCityMap extends PApplet {
 	
 	private void selectCityMarker() {
 		this.hideMarkers();
-		lastClicked = lastSelected;
+		
 		lastClicked.setHidden(false);
 		CityMarker marker = (CityMarker)lastClicked;
 //		double threat = marker.threatCircle();
@@ -217,7 +220,7 @@ public class EarthquakeCityMap extends PApplet {
 			double distance = eqFormula.getDistanceTo(marker.getLocation());
 			double threat = eqFormula.threatCircle();
 			if (threat >= distance) {
-				marker.setHidden(false);
+				eq.setHidden(false);
 			}
 		}
 	}
