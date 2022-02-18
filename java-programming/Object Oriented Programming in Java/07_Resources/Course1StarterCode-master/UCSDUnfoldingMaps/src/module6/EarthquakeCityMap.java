@@ -37,7 +37,7 @@ public class EarthquakeCityMap extends PApplet {
 	private static final long serialVersionUID = 1L;
 
 	// IF YOU ARE WORKING OFFILINE, change the value of this variable to true
-	private static final boolean offline = false;
+	private static final boolean offline = true;
 	
 	/** This is where to find the local tiles, for working without an Internet connection */
 	public static String mbTilesString = "blankLight-1-3.mbtiles";
@@ -128,7 +128,7 @@ public class EarthquakeCityMap extends PApplet {
 //	    for(Marker m : quakeMarkers) {
 //	    	((EarthquakeMarker) m).getMagnitude();
 //	    }
-	   // sortAndPrint(int quakeMarkers.)
+	   sortAndPrint(5);
 	    
 	    
 	}  // End setup
@@ -138,6 +138,7 @@ public class EarthquakeCityMap extends PApplet {
 		background(0);
 		map.draw();
 		addKey();
+		
 		
 	}
 	
@@ -150,17 +151,19 @@ public class EarthquakeCityMap extends PApplet {
 		Object [] quakeMarkersArray = quakeMarkers.toArray();
 		
 		//show all array values if numToPrint greater than number of elements in quakeMarkersArray
+		Arrays.sort(quakeMarkersArray,Collections.reverseOrder());
 		if (numToPrint > quakeMarkersArray.length) {
+
 			for (Object eq : quakeMarkersArray) {
 				System.out.println(eq);
 			}
 		}
 		//sort array
 			else {
-				Arrays.sort(quakeMarkersArray);
+				
+				//Arrays.sort(quakeMarkersArray);
 				for (int i = 0; i < numToPrint; i++) {
-					(((EarthquakeMarker) quakeMarkersArray[i]).getMagnitude()).copmareTo(((EarthquakeMarker) quakeMarkersArray[i]).getMagnitude());
-					//System.out.println(quakeMarkersArray[i]);
+					System.out.println(quakeMarkersArray[i]);
 				}
 			}
 		
@@ -220,6 +223,7 @@ public class EarthquakeCityMap extends PApplet {
 			checkEarthquakesForClick();
 			if (lastClicked == null) {
 				checkCitiesForClick();
+				
 			}
 		}
 	}

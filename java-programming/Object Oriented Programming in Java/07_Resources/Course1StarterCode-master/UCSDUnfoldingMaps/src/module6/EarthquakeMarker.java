@@ -123,7 +123,8 @@ public abstract class EarthquakeMarker extends CommonMarker implements Comparabl
 		pg.popStyle();
 		
 	}
-
+	
+	
 	
 	/**
 	 * Return the "threat circle" radius, or distance up to 
