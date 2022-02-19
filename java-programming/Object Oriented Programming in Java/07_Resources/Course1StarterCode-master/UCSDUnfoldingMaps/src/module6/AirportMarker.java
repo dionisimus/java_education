@@ -39,4 +39,5 @@ public class AirportMarker extends CommonMarker {
 		
 	}
 	
+	
 }

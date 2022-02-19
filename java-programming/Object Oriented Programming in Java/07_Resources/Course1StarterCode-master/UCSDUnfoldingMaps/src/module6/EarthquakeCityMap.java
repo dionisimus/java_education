@@ -42,7 +42,7 @@ public class EarthquakeCityMap extends PApplet {
 	/** This is where to find the local tiles, for working without an Internet connection */
 	public static String mbTilesString = "blankLight-1-3.mbtiles";
 	
-	
+
 
 	//feed with magnitude 2.5+ Earthquakes
 	private String earthquakesURL = "https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/2.5_week.atom";
@@ -65,6 +65,14 @@ public class EarthquakeCityMap extends PApplet {
 	// NEW IN MODULE 5
 	private CommonMarker lastSelected;
 	private CommonMarker lastClicked;
+
+	private boolean menuStatus = false;
+	private String eqInfo1 = "";
+	private String eqInfo2 = "";
+	private String eqInfo3 = "";
+	//a count for the number of nearby earthquakes
+	//the average magnitude;
+	//and most recent earthquake;
 	
 	public void setup() {		
 		// (1) Initializing canvas and map tiles
@@ -133,15 +141,33 @@ public class EarthquakeCityMap extends PApplet {
 	    
 	}  // End setup
 	
-	
 	public void draw() {
 		background(0);
 		map.draw();
 		addKey();
+		if (menuStatus) {
+			addMenu();
+		}
+		
 		
 		
 	}
 	
+	private void addMenu() {
+		fill(255, 250, 240);
+		int xbase = 25;
+		int ybase = 350;
+		
+		rect(xbase, ybase, 150, 200);
+		
+		fill(0);
+		textAlign(LEFT,CENTER);
+		textSize(12);
+		text("Earquakes: " + eqInfo1, xbase+25, ybase+25);
+		text("Avg Magn:" + eqInfo2, xbase+25, ybase+45);
+		text("Names:" + eqInfo3, xbase+25, ybase+65);
+	
+	}
 	
 	// TODO: Add the method:
 	//   private void sortAndPrint(int numToPrint)
@@ -237,22 +263,46 @@ public class EarthquakeCityMap extends PApplet {
 		for (Marker marker : cityMarkers) {
 			if (!marker.isHidden() && marker.isInside(map, mouseX, mouseY)) {
 				lastClicked = (CommonMarker)marker;
+				menuStatus = true;
+				//private String [] eqInfo ;
+				//eqInfo = new String [3];
+				//a count for the number of nearby earthquakes
+				//the average magnitude;
+				//and most recent earthquake;
+				
 				// Hide all the other earthquakes and hide
 				for (Marker mhide : cityMarkers) {
 					if (mhide != lastClicked) {
 						mhide.setHidden(true);
 					}
 				}
+				int countQMThreat = 0;
+				float magnitude = 0;
+				String latest = "";
 				for (Marker mhide : quakeMarkers) {
 					EarthquakeMarker quakeMarker = (EarthquakeMarker)mhide;
 					if (quakeMarker.getDistanceTo(marker.getLocation()) 
 							> quakeMarker.threatCircle()) {
 						quakeMarker.setHidden(true);
 					}
+					else {
+						countQMThreat++;
+						magnitude = magnitude + ((EarthquakeMarker) mhide).getMagnitude();
+						if ("Past Day".equals(((EarthquakeMarker) mhide).getAge())) {
+							latest = latest + " " + ((EarthquakeMarker) mhide).getTitle();
+						}
+					}
 				}
+				
+				eqInfo1 = Integer.toString(countQMThreat);
+				eqInfo2 = Float.toString(magnitude/countQMThreat);
+				eqInfo3 = latest;
 				return;
+				
 			}
-		}		
+		}	
+		
+		
 	}
 	
 	// Helper method that will check if an earthquake marker was clicked on
@@ -282,8 +332,12 @@ public class EarthquakeCityMap extends PApplet {
 		}
 	}
 	
+	
+	
+	
 	// loop over and unhide all markers
 	private void unhideMarkers() {
+		menuStatus = false;
 		for(Marker marker : quakeMarkers) {
 			marker.setHidden(false);
 		}

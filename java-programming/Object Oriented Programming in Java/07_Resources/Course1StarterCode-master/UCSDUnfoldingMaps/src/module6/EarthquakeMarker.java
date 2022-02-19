@@ -181,6 +181,11 @@ public abstract class EarthquakeMarker extends CommonMarker implements Comparabl
 		
 	}
 	
+	public String getAge() {
+		return (String) getProperty("age");	
+		
+	}
+	
 	public float getRadius() {
 		return Float.parseFloat(getProperty("radius").toString());
 	}
