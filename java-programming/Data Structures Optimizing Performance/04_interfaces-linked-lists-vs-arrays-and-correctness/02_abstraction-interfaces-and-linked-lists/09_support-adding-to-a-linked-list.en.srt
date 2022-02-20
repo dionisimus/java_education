@@ -1,0 +1,560 @@
+1
+00:00:00,008 --> 00:00:04,942
+[APPLAUSE]
+>> In this support video we're going
+
+2
+00:00:04,942 --> 00:00:07,130
+to talk through adding
+an element to a linked list.
+
+3
+00:00:07,130 --> 00:00:10,610
+And there are two pieces to this I want
+to talk about before we get into it.
+
+4
+00:00:10,610 --> 00:00:13,530
+The first is, whenever you're trying to
+work with linked lists, whenever you're
+
+5
+00:00:13,530 --> 00:00:18,580
+trying to talk about insertions or
+deletions, you want to have diagrams.
+
+6
+00:00:18,580 --> 00:00:20,490
+Whenever I do this I am
+working at my whiteboard.
+
+7
+00:00:20,490 --> 00:00:23,260
+And whenever you try to do
+this without having diagrams,
+
+8
+00:00:23,260 --> 00:00:24,960
+it's gonna go potentially, badly.
+
+9
+00:00:24,960 --> 00:00:27,750
+So I really encourage you to pull
+out a piece of paper and a pencil.
+
+10
+00:00:27,750 --> 00:00:32,290
+The second piece to this is in a project
+there's a large component related to,
+
+11
+00:00:32,290 --> 00:00:34,560
+essentially, a linked list insertion.
+
+12
+00:00:34,560 --> 00:00:37,830
+And I'm going to be giving away a lot
+of the details of that in this video.
+
+13
+00:00:37,830 --> 00:00:42,000
+So I would encourage you to essentially
+go work on the project first.
+
+14
+00:00:42,000 --> 00:00:44,330
+And only if you don't know where
+to start with the project.
+
+15
+00:00:44,330 --> 00:00:46,550
+Or only if you're really
+stuck on the project,
+
+16
+00:00:46,550 --> 00:00:48,550
+should you essentially watch this video.
+
+17
+00:00:48,550 --> 00:00:52,519
+So if either of those conditions apply,
+let's go ahead and move forward and
+
+18
+00:00:52,519 --> 00:00:55,260
+talk through how to do
+insertion into a linked list.
+
+19
+00:00:56,654 --> 00:00:59,280
+So what we're gonna do here is
+do insertion only at the front.
+
+20
+00:00:59,280 --> 00:01:01,130
+So this is an addFront method.
+
+21
+00:01:01,130 --> 00:01:03,590
+It's gonna add an element essentially
+right to the front of the list.
+
+22
+00:01:03,590 --> 00:01:07,602
+In the list right now, the way I've drawn
+it, is in gray we have the list, itself.
+
+23
+00:01:07,602 --> 00:01:11,488
+So that's gonna have its head pointer,
+the tail pointer, and then the size,
+
+24
+00:01:11,488 --> 00:01:13,980
+the number of elements in the list.
+
+25
+00:01:13,980 --> 00:01:17,850
+We've got two sentinel elements, just like
+we talked about in the previous videos.
+
+26
+00:01:17,850 --> 00:01:20,340
+We've got a Head Sentinel node,
+and a Tail Sentinel node.
+
+27
+00:01:20,340 --> 00:01:23,920
+And then we have one real node,
+which has the data, 42, in it,
+
+28
+00:01:23,920 --> 00:01:25,310
+and that's in the middle.
+
+29
+00:01:26,490 --> 00:01:31,274
+Our goal now is to add to the front of
+this a node that has a value of 65.
+
+30
+00:01:33,798 --> 00:01:36,590
+We're essentially gonna put that right
+here at the front, right in there.
+
+31
+00:01:37,870 --> 00:01:39,450
+To do that I'm going to need some space so
+
+32
+00:01:39,450 --> 00:01:42,550
+let me,
+essentially stretch out these references.
+
+33
+00:01:42,550 --> 00:01:44,090
+And now we can try to add this new node.
+
+34
+00:01:44,090 --> 00:01:47,530
+And my first step is gonna
+be to create a new node.
+
+35
+00:01:48,740 --> 00:01:50,390
+In creating the new node.
+
+36
+00:01:50,390 --> 00:01:55,630
+I'm gonna have the data, itself, be 65,
+cuz that's part of the constructor.
+
+37
+00:01:55,630 --> 00:01:59,210
+And then I'm also gonna set next be null,
+and previous be null.
+
+38
+00:01:59,210 --> 00:02:01,580
+And we'll try to fix those in,
+in the next few slides.
+
+39
+00:02:03,610 --> 00:02:07,700
+The next step is to link this new node in.
+
+40
+00:02:07,700 --> 00:02:12,630
+Now manipulating these
+links can be very tricky.
+
+41
+00:02:12,630 --> 00:02:17,070
+In fact, I'm gonna take an approach right
+now, which is gonna lead to a dead end.
+
+42
+00:02:17,070 --> 00:02:19,356
+Let me walk through it and
+just show you how tricky this can be.
+
+43
+00:02:19,356 --> 00:02:22,060
+So what I'm gonna try to do, is start.
+
+44
+00:02:22,060 --> 00:02:25,290
+Oh, first off, let me point out all
+the ones that we need to change.
+
+45
+00:02:25,290 --> 00:02:30,501
+Everything highlighted in red here
+is a link that needs to be updated.
+
+46
+00:02:30,501 --> 00:02:34,230
+Let me start with the one that
+is head.next essentially.
+
+47
+00:02:34,230 --> 00:02:37,280
+I wanna change head.next to point
+to what it's supposed to point to.
+
+48
+00:02:37,280 --> 00:02:39,520
+And what it's gonna point to, is n.
+
+49
+00:02:39,520 --> 00:02:41,410
+That's the next node in the list.
+
+50
+00:02:41,410 --> 00:02:45,290
+So I update that link, I've got my next
+node and everything looks like it's going
+
+51
+00:02:45,290 --> 00:02:51,270
+just fine except, by doing that,
+I just lost n.next.
+
+52
+00:02:51,270 --> 00:02:52,940
+I just lost the node.
+
+53
+00:02:54,310 --> 00:02:55,140
+Shoot.
+
+54
+00:02:55,140 --> 00:02:58,990
+So the order in which I'm gonna do these
+operations in the updates really matters.
+
+55
+00:03:00,300 --> 00:03:03,200
+So let's start this over, and
+start working with a different link, and
+
+56
+00:03:03,200 --> 00:03:04,940
+see if we can do it in a better ordering.
+
+57
+00:03:06,560 --> 00:03:08,727
+Let's start, instead, with n.next.
+
+58
+00:03:08,727 --> 00:03:12,187
+What should n.next point to?
+
+59
+00:03:12,187 --> 00:03:14,830
+Well, it should point to
+this node here in yellow.
+
+60
+00:03:16,890 --> 00:03:22,690
+The way that I'm gonna get to it
+is essentially through head.next.
+
+61
+00:03:22,690 --> 00:03:25,580
+You'll notice there,
+I've got my head pointer in yellow.
+
+62
+00:03:25,580 --> 00:03:28,337
+I've got my head.next essentially
+points to the thing that I want.
+
+63
+00:03:28,337 --> 00:03:33,950
+So I can just hook this up to
+say n.next equals head.next.
+
+64
+00:03:33,950 --> 00:03:37,520
+And in doing so,
+I have now linked to this, properly.
+
+65
+00:03:37,520 --> 00:03:39,520
+So I've got one of the four done.
+
+66
+00:03:39,520 --> 00:03:40,850
+Next one.
+
+67
+00:03:40,850 --> 00:03:43,380
+Next one I'm gonna look at is n.previous.
+
+68
+00:03:43,380 --> 00:03:44,840
+What should it point to?
+
+69
+00:03:44,840 --> 00:03:46,720
+Well it should essentially point to head.
+
+70
+00:03:47,870 --> 00:03:49,549
+Now I could just say set to head.
+
+71
+00:03:50,560 --> 00:03:52,640
+But if I wanna do something
+a little more general,
+
+72
+00:03:52,640 --> 00:03:54,440
+I'm actually gonna go a different route.
+
+73
+00:03:54,440 --> 00:03:58,990
+Instead I'm gonna use n.next pointer and
+
+74
+00:03:58,990 --> 00:04:04,430
+the previous pointer in the next
+node to get me to where I belong.
+
+75
+00:04:04,430 --> 00:04:09,090
+So again,
+this is gonna go n.next.previous,
+
+76
+00:04:09,090 --> 00:04:11,180
+to get to the one that I
+actually wanna link to.
+
+77
+00:04:11,180 --> 00:04:17,220
+So if I fill that in in the code, I now
+hook up this link, and setup properly.
+
+78
+00:04:18,470 --> 00:04:21,060
+All right, we got two done, two to go.
+
+79
+00:04:21,060 --> 00:04:26,310
+Next one to do is n.next.previous.
+
+80
+00:04:26,310 --> 00:04:29,360
+So I wanna hook that up to what
+it's supposed to point to.
+
+81
+00:04:29,360 --> 00:04:30,560
+Now, what should it point to?
+
+82
+00:04:30,560 --> 00:04:31,900
+Well, it should be pointing to n.
+
+83
+00:04:31,900 --> 00:04:33,353
+It should point to me.
+
+84
+00:04:33,353 --> 00:04:35,150
+And that's the one in yellow.
+
+85
+00:04:35,150 --> 00:04:39,954
+So all I'm gonna do there
+is say n.next.previous = n.
+
+86
+00:04:39,954 --> 00:04:44,895
+And that's gonna set this link to be
+correctly set up, and we're good.
+
+87
+00:04:44,895 --> 00:04:46,220
+Three done, one to go.
+
+88
+00:04:46,220 --> 00:04:48,550
+The last one to do is to set head.next.
+
+89
+00:04:48,550 --> 00:04:50,930
+And this is the one that
+we originally started with.
+
+90
+00:04:50,930 --> 00:04:52,870
+But this is the one that we're
+actually gonna do last now.
+
+91
+00:04:53,900 --> 00:04:58,060
+So head.next, what should it point to?
+
+92
+00:04:58,060 --> 00:05:00,380
+Well, it should also point to n, so
+
+93
+00:05:00,380 --> 00:05:04,630
+all I'm gonna have to do is say,
+head.next = n, and now hook up that link.
+
+94
+00:05:06,160 --> 00:05:08,569
+Now, you might notice,
+there's a more general way of doing this.
+
+95
+00:05:09,660 --> 00:05:13,180
+Instead of reaching head.next,
+going through the head pointer,
+
+96
+00:05:13,180 --> 00:05:19,830
+I could have said n.prev.next
+to get to the exact same thing.
+
+97
+00:05:19,830 --> 00:05:21,980
+And if you want to come up
+with a more general solution,
+
+98
+00:05:21,980 --> 00:05:22,940
+you could use that instead.
+
+99
+00:05:24,410 --> 00:05:26,930
+Either way, you're gonna hook
+up this link properly and
+
+100
+00:05:26,930 --> 00:05:28,890
+now we have the node properly linked in.
+
+101
+00:05:29,930 --> 00:05:31,710
+Again, this is the hardest
+part to doing this.
+
+102
+00:05:31,710 --> 00:05:33,570
+And if you follow these steps carefully,
+
+103
+00:05:33,570 --> 00:05:36,100
+you do your diagrams,
+this will work properly for you.
+
+104
+00:05:37,360 --> 00:05:38,000
+I've linked it all in.
+
+105
+00:05:38,000 --> 00:05:41,230
+Let's go ahead and
+push that back up in, where it belongs.
+
+106
+00:05:41,230 --> 00:05:42,830
+And now I've just got
+a couple last steps to do.
+
+107
+00:05:42,830 --> 00:05:45,480
+My last step is to just update the size.
+
+108
+00:05:45,480 --> 00:05:47,470
+The size of this was one element.
+
+109
+00:05:47,470 --> 00:05:49,610
+I now update that to be two elements.
+
+110
+00:05:49,610 --> 00:05:50,490
+And essentially we're done.
+
+111
+00:05:51,800 --> 00:05:53,160
+So let me remind you.
+
+112
+00:05:53,160 --> 00:05:57,090
+Whenever you're trying to work with linked
+list, or many other structures that
+
+113
+00:05:57,090 --> 00:06:00,730
+are coming in this course,
+you really wanna draw pictures.
+
+114
+00:06:00,730 --> 00:06:03,150
+Trying to do this in the code
+just isn't gonna work out well.
+
+115
+00:06:04,210 --> 00:06:07,190
+Now you may say this is a really
+large picture that you drew.
+
+116
+00:06:07,190 --> 00:06:10,410
+Do I have to have that large a picture
+when I'm trying to hook this all up?
+
+117
+00:06:10,410 --> 00:06:12,230
+Well no you don't.
+
+118
+00:06:12,230 --> 00:06:15,780
+This representation is actually
+quite common for a list and
+
+119
+00:06:15,780 --> 00:06:17,010
+it's much more concise.
+
+120
+00:06:17,010 --> 00:06:18,700
+And you might try and
+do it this way instead.
+
+121
+00:06:20,260 --> 00:06:20,805
+I hope this helped.
+
+122
+00:06:20,805 --> 00:06:21,953
+Good luck on your project.

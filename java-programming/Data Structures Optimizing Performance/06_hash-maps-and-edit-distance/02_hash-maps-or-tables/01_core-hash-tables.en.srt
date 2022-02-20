@@ -1,0 +1,507 @@
+1
+00:00:00,029 --> 00:00:04,404
+[MUSIC]
+
+2
+00:00:04,404 --> 00:00:07,360
+In this lesson, we begin to
+start working with hash tables.
+
+3
+00:00:07,360 --> 00:00:09,510
+And hash tables are one of
+my favorite data structures.
+
+4
+00:00:09,510 --> 00:00:11,470
+In fact,
+when I'm working on software projects,
+
+5
+00:00:11,470 --> 00:00:13,510
+I find myself using hash
+table more often than not.
+
+6
+00:00:14,700 --> 00:00:16,610
+So, what we're gonna try
+to do in this video.
+
+7
+00:00:16,610 --> 00:00:19,430
+By the end of this video you should
+be able to describe why hash tables
+
+8
+00:00:19,430 --> 00:00:22,270
+are valuable, you should be able to
+understand the role of a hash function.
+
+9
+00:00:23,540 --> 00:00:25,750
+So let's start this off
+with a thought experiment.
+
+10
+00:00:25,750 --> 00:00:28,660
+Let's say I'm trying to keep
+track of integers in a set.
+
+11
+00:00:28,660 --> 00:00:31,920
+And by in a set I just mean is
+95 in the set, or is it not?
+
+12
+00:00:31,920 --> 00:00:33,310
+Is 100 in the set, or is it not?
+
+13
+00:00:34,330 --> 00:00:37,564
+And you know the possible integers
+that could be in this set
+
+14
+00:00:37,564 --> 00:00:40,204
+are bounded between 0 and
+less than a million.
+
+15
+00:00:40,204 --> 00:00:43,620
+Now you could store this as
+an array of a million booleans.
+
+16
+00:00:45,530 --> 00:00:50,280
+If I did this, how long would it take for
+me to add an integer into my set?
+
+17
+00:00:50,280 --> 00:00:53,030
+Go ahead and answer this as an NVO quiz,
+and I'll see you in a moment.
+
+18
+00:00:54,880 --> 00:00:56,840
+I hope the NVO quiz made sense.
+
+19
+00:00:56,840 --> 00:00:59,430
+At this point,
+your pretty comfortable with arrays, so
+
+20
+00:00:59,430 --> 00:01:03,250
+you should be recognizing that if I want
+to access an individual element of array
+
+21
+00:01:03,250 --> 00:01:05,570
+I can do this at essentially
+all at one time.
+
+22
+00:01:05,570 --> 00:01:07,420
+I can do this in constant time.
+
+23
+00:01:07,420 --> 00:01:10,580
+Arrays are, in fact, incredibly fast and
+
+24
+00:01:10,580 --> 00:01:14,570
+the reason they're so fast is that if
+you know where an array starts in memory
+
+25
+00:01:14,570 --> 00:01:18,190
+you can determine the address of any
+element just by using the index.
+
+26
+00:01:19,400 --> 00:01:23,120
+So, if I know the address of an element
+in an array, I can look this up really
+
+27
+00:01:23,120 --> 00:01:27,609
+quickly because essentially accessing an
+address in memory is all of one operation.
+
+28
+00:01:28,900 --> 00:01:32,370
+Now, with a hardware background I
+have to put a quick caveat on this.
+
+29
+00:01:33,620 --> 00:01:37,080
+Different addresses may have different
+access times as programs run
+
+30
+00:01:37,080 --> 00:01:40,790
+because of various constraints within the
+hardware and within the operating system.
+
+31
+00:01:40,790 --> 00:01:43,980
+If you're curious about this more
+advanced detail please look at
+
+32
+00:01:43,980 --> 00:01:48,000
+computer architecture courses or operating
+system courses for some more answers.
+
+33
+00:01:48,000 --> 00:01:51,480
+But for right now, let's just assume
+that this is a constant time operation.
+
+34
+00:01:51,480 --> 00:01:53,526
+You always get an answer back quickly.
+
+35
+00:01:55,678 --> 00:01:59,401
+So the idea behind a hash table is
+if I knew an index for an element,
+
+36
+00:01:59,401 --> 00:02:02,469
+I could look immediately
+into that array and find it.
+
+37
+00:02:03,625 --> 00:02:04,740
+And that's all we're gonna try to do.
+
+38
+00:02:04,740 --> 00:02:07,980
+Is we're gonna take a key, which is
+the value we're trying to put in there.
+
+39
+00:02:07,980 --> 00:02:10,090
+And just figure out a way to
+convert it into an index.
+
+40
+00:02:10,090 --> 00:02:14,440
+The way that we do this is to take a key
+we'd run it through a hash function.
+
+41
+00:02:14,440 --> 00:02:16,210
+Which we'll be talking
+about it momentarily and
+
+42
+00:02:16,210 --> 00:02:17,920
+this hash function has to be really fast.
+
+43
+00:02:17,920 --> 00:02:20,200
+It has to be constant time operation.
+
+44
+00:02:20,200 --> 00:02:23,430
+That's gonna produce for
+us an index which we call a hash code.
+
+45
+00:02:23,430 --> 00:02:25,830
+We're gonna use that hash
+code to point into the array.
+
+46
+00:02:26,960 --> 00:02:30,790
+You might notice that I have both an index
+and data in the array, but really,
+
+47
+00:02:30,790 --> 00:02:31,660
+there's just data in the array.
+
+48
+00:02:31,660 --> 00:02:37,960
+I have the index there to help
+us visualize how this works.
+
+49
+00:02:37,960 --> 00:02:41,310
+So, the core of this is really figuring
+how to make a hash function that
+
+50
+00:02:41,310 --> 00:02:41,870
+works well.
+
+51
+00:02:43,370 --> 00:02:44,850
+So, let's start with some ideas here.
+
+52
+00:02:44,850 --> 00:02:47,330
+So, let's say,
+I have an array of just five elements.
+
+53
+00:02:47,330 --> 00:02:50,590
+And I want to figure out a way of
+hashing an element into an index.
+
+54
+00:02:51,700 --> 00:02:53,060
+So I've got the key three, and
+
+55
+00:02:53,060 --> 00:02:56,130
+I want to figure out how can
+I turn that into an index?
+
+56
+00:02:56,130 --> 00:02:58,920
+Well if I'm working with an integer
+three and I've got five elements,
+
+57
+00:02:58,920 --> 00:03:01,710
+I really just could use
+three as the index, right?
+
+58
+00:03:01,710 --> 00:03:02,930
+Not really much I have to do there.
+
+59
+00:03:04,000 --> 00:03:05,214
+But what if I had 11?
+
+60
+00:03:06,350 --> 00:03:09,930
+Well I can't go to index 11 because
+that's out of the bounds of the array.
+
+61
+00:03:09,930 --> 00:03:12,940
+So what could I do to make sure that
+it has a value between zero and four?
+
+62
+00:03:13,940 --> 00:03:17,450
+Well I can use that
+handy function modular.
+
+63
+00:03:17,450 --> 00:03:19,780
+So if I just do 11 modular five here,
+
+64
+00:03:19,780 --> 00:03:22,320
+this will give me an index
+into that same array.
+
+65
+00:03:23,320 --> 00:03:26,390
+In fact of you look back at the previous
+one, you look at the equality.
+
+66
+00:03:26,390 --> 00:03:31,520
+I could have just done three module of
+five and that would have worked just fine.
+
+67
+00:03:31,520 --> 00:03:37,240
+In fact K mod N is a very common
+hash function where K is the key and
+
+68
+00:03:37,240 --> 00:03:39,130
+N is the number of elements in the array.
+
+69
+00:03:40,640 --> 00:03:43,580
+But we won't necessarily
+just want to store integers.
+
+70
+00:03:43,580 --> 00:03:45,760
+We might wanna store
+things like characters.
+
+71
+00:03:46,850 --> 00:03:49,480
+So how would I work with character a?
+
+72
+00:03:49,480 --> 00:03:53,590
+Well, the nice thing about characters is I
+can convert them to integers quite easily.
+
+73
+00:03:53,590 --> 00:03:57,030
+The ASCII representation for a is 97.
+
+74
+00:03:57,030 --> 00:03:59,520
+So after I converted to
+the ASCII representation 97,
+
+75
+00:03:59,520 --> 00:04:02,770
+I can just do module 5 and
+I get a hash code.
+
+76
+00:04:02,770 --> 00:04:05,130
+So working with characters isn't
+gonna be very hard either.
+
+77
+00:04:06,130 --> 00:04:07,790
+Well, how might I work with a string?
+
+78
+00:04:07,790 --> 00:04:09,320
+Something like Hi?
+
+79
+00:04:09,320 --> 00:04:13,380
+Well, if I wanna work with Hi, again,
+I can convert the characters into ASCII,
+
+80
+00:04:14,540 --> 00:04:18,485
+convert the characters into
+their ASCII values of 72 and
+
+81
+00:04:18,485 --> 00:04:21,010
+105, add them in any module of five.
+
+82
+00:04:21,010 --> 00:04:23,410
+And again,
+now I've got an index into this array.
+
+83
+00:04:23,410 --> 00:04:26,010
+And this is all we mean by
+creating a hash function.
+
+84
+00:04:27,450 --> 00:04:29,710
+So now we have a basic
+idea of a hash function.
+
+85
+00:04:29,710 --> 00:04:30,580
+I want you to take a moment and
+
+86
+00:04:30,580 --> 00:04:33,020
+think about this question and
+we'll come back in a moment.
+
+87
+00:04:34,640 --> 00:04:35,970
+Welcome back.
+
+88
+00:04:35,970 --> 00:04:38,740
+So if you have two elements
+that are considered equal,
+
+89
+00:04:39,750 --> 00:04:42,180
+they have to be able to hash
+the same location, right?
+
+90
+00:04:42,180 --> 00:04:46,760
+If I have seven, it better hash
+the same location as seven, right?
+
+91
+00:04:46,760 --> 00:04:48,980
+If two things are the same,
+they better hash the same location.
+
+92
+00:04:50,460 --> 00:04:52,700
+And set,
+that answer A is the correct response.
+
+93
+00:04:53,860 --> 00:04:57,860
+The problem with B,
+is that B is actually false.
+
+94
+00:04:57,860 --> 00:05:01,660
+So as we saw before you could have
+three module of five give you three.
+
+95
+00:05:01,660 --> 00:05:05,790
+But you could also have eight
+module of five give you three.
+
+96
+00:05:05,790 --> 00:05:11,188
+So you can multiple things point to the
+same index and that's called a collision.
+
+97
+00:05:11,188 --> 00:05:12,730
+Now let me give you
+another example of that.
+
+98
+00:05:13,900 --> 00:05:17,330
+So if I have three, three mod five
+gives me the hash code of three.
+
+99
+00:05:17,330 --> 00:05:21,220
+Again, if I have 13, 13 mod five
+gives me the hash code of three.
+
+100
+00:05:21,220 --> 00:05:22,610
+This is again a collision.
+
+101
+00:05:22,610 --> 00:05:24,700
+You can have multiple elements
+pointing to the same index.
+
+102
+00:05:25,740 --> 00:05:28,990
+So, a key part in trying to figure out
+a hash function is trying to minimize
+
+103
+00:05:28,990 --> 00:05:30,450
+these collisions.
+
+104
+00:05:30,450 --> 00:05:33,290
+We could spend a lot more time
+on hash functions, but for
+
+105
+00:05:33,290 --> 00:05:36,850
+now we can just keep working
+with this notion of K mod N.
+
+106
+00:05:37,900 --> 00:05:42,780
+What we'll do in the next series of videos
+is look at how to deal with collisions
+
+107
+00:05:42,780 --> 00:05:43,540
+in hash tables.

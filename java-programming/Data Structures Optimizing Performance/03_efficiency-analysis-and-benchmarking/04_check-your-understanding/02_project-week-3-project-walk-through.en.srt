@@ -1,0 +1,355 @@
+1
+00:00:00,024 --> 00:00:04,267
+[MUSIC]
+
+2
+00:00:04,267 --> 00:00:07,606
+In this week's programming assignment,
+you're going to make your document class
+
+3
+00:00:07,606 --> 00:00:11,080
+little bit more efficient by implementing
+the efficient document class.
+
+4
+00:00:11,080 --> 00:00:14,640
+And then, you're going to do some
+benchmarking to test the running time
+
+5
+00:00:14,640 --> 00:00:17,150
+between the basic document class
+you implemented last time and
+
+6
+00:00:17,150 --> 00:00:19,970
+the efficient document class that
+you're going to implement this week.
+
+7
+00:00:19,970 --> 00:00:24,340
+So again, before you start, just make sure
+that you're all set up and ready to go.
+
+8
+00:00:24,340 --> 00:00:25,340
+You should have the code.
+
+9
+00:00:25,340 --> 00:00:28,110
+And if you don't like your
+solutions from last week,
+
+10
+00:00:28,110 --> 00:00:32,350
+you're welcome to download our solutions
+for BasicDocument.java and Document.java.
+
+11
+00:00:32,350 --> 00:00:35,816
+So, feel free to grab that code and
+just drop it in to your workspace, and
+
+12
+00:00:35,816 --> 00:00:37,470
+then you could use our
+solutions from last week.
+
+13
+00:00:38,790 --> 00:00:41,690
+So for this week,
+you're going to be working with
+
+14
+00:00:41,690 --> 00:00:45,340
+the efficient document class and
+the document benchmarking class.
+
+15
+00:00:45,340 --> 00:00:47,130
+So, you'll want to go ahead and
+open those up.
+
+16
+00:00:47,130 --> 00:00:52,630
+So, here's EfficientDocument and
+here's DocumentBenchmarking.
+
+17
+00:00:52,630 --> 00:00:56,890
+And the first thing you're
+going to do is implement
+
+18
+00:00:56,890 --> 00:01:01,720
+the code in EfficientDocument.
+
+19
+00:01:01,720 --> 00:01:03,170
+So, in EfficientDocument,
+
+20
+00:01:03,170 --> 00:01:06,320
+there's really only one major thing
+that you're going to have to implement
+
+21
+00:01:06,320 --> 00:01:10,390
+which is this processText function
+in EfficientDocument.java.
+
+22
+00:01:10,390 --> 00:01:14,190
+The idea behind the EfficientDocument
+class is that instead of
+
+23
+00:01:14,190 --> 00:01:17,700
+counting the words, sentences and
+syllables, every time you call,
+
+24
+00:01:17,700 --> 00:01:20,480
+getNumWords, getNumSentences,
+getNumSyllables.
+
+25
+00:01:20,480 --> 00:01:23,297
+It's just going to make one pass
+through the text when you create a new
+
+26
+00:01:23,297 --> 00:01:24,520
+EfficientDocument object.
+
+27
+00:01:24,520 --> 00:01:27,907
+And then, store the number of words,
+syllables, and
+
+28
+00:01:27,907 --> 00:01:30,260
+sentences in the text for later use.
+
+29
+00:01:30,260 --> 00:01:34,140
+So that those get our functions for
+number of sentences, words, and syllables,
+
+30
+00:01:34,140 --> 00:01:35,060
+can be very efficient.
+
+31
+00:01:35,060 --> 00:01:36,300
+All right, so that's it for part one.
+
+32
+00:01:36,300 --> 00:01:40,060
+And then in part two,
+you're going to do some benchmarking.
+
+33
+00:01:40,060 --> 00:01:44,190
+So, we have several steps here but the
+crux of what you're going to do in part
+
+34
+00:01:44,190 --> 00:01:50,130
+two is,
+your goal is to get the code to output
+
+35
+00:01:50,130 --> 00:01:55,090
+this list of running times for
+BasicDocument and EfficientDocument.
+
+36
+00:01:55,090 --> 00:01:56,440
+And you can see that the types for
+
+37
+00:01:56,440 --> 00:01:59,920
+BasicDocument are going to be larger
+than the types for EfficientDocument.
+
+38
+00:01:59,920 --> 00:02:02,910
+And as the size the document gets larger,
+they all get larger.
+
+39
+00:02:02,910 --> 00:02:07,640
+And the idea will be to take this output
+and then plot it in Google sheets or
+
+40
+00:02:07,640 --> 00:02:10,810
+any other spreadsheet program that you
+like, or graphing program that you like,
+
+41
+00:02:10,810 --> 00:02:15,780
+so that you can see the trends for
+each of these implementations.
+
+42
+00:02:15,780 --> 00:02:19,090
+So, what you're going to do in this part
+is your going to go to EfficientDocument,
+
+43
+00:02:19,090 --> 00:02:23,700
+or sorry, to DocumentBenchmarking.java and
+you can see that we've got a main method
+
+44
+00:02:23,700 --> 00:02:26,140
+here already partially implemented for
+you.
+
+45
+00:02:26,140 --> 00:02:30,140
+And it's the four loop here,
+if you look at this little TODO here,
+
+46
+00:02:30,140 --> 00:02:33,430
+you can see that it's the four loop
+here that you want to implement.
+
+47
+00:02:33,430 --> 00:02:37,980
+So, you're basically going to implement
+some code that follows the pseudocode and
+
+48
+00:02:37,980 --> 00:02:42,090
+does some benchmarking and outputs,
+some timing information about running
+
+49
+00:02:42,090 --> 00:02:48,510
+the BasicDocument and EfficientDocument
+flush score for each of those documents.
+
+50
+00:02:48,510 --> 00:02:50,410
+So, are each of those classes.
+
+51
+00:02:50,410 --> 00:02:53,140
+And you'll see that at the top, we have
+some variables that you can play around
+
+52
+00:02:53,140 --> 00:02:55,510
+with, feel free to change
+any of these documents,
+
+53
+00:02:55,510 --> 00:03:00,190
+any of these constants up here,
+to get better numbers and a better graph.
+
+54
+00:03:00,190 --> 00:03:01,640
+So, that's the crux of part two.
+
+55
+00:03:01,640 --> 00:03:05,840
+You will implement this four loop
+according to the pseudocode here,
+
+56
+00:03:05,840 --> 00:03:08,750
+then you will get this output,
+you'll take this output,
+
+57
+00:03:08,750 --> 00:03:11,730
+you'll put it into some graphing
+program like Google Sheets.
+
+58
+00:03:11,730 --> 00:03:14,720
+And then, you'll just look at the trends,
+look at the graph that it produces to
+
+59
+00:03:14,720 --> 00:03:18,565
+compare the running time of BasicDocument
+to the running time of EfficientDocument.
+
+60
+00:03:20,580 --> 00:03:23,870
+That's about it for the assignment and
+
+61
+00:03:23,870 --> 00:03:29,200
+in order to submit this you need to again,
+submit your Java code for grading.
+
+62
+00:03:29,200 --> 00:03:32,176
+So this time, you're going to create
+a ZIP file creating all three files,
+
+63
+00:03:32,176 --> 00:03:35,690
+Document.java, EfficientDocument.java,
+and BasicDocument.java.
+
+64
+00:03:35,690 --> 00:03:41,200
+And your going to submit that ZIP file for
+both parts one and part two.
+
+65
+00:03:41,200 --> 00:03:42,702
+And again, we're looking for
+
+66
+00:03:42,702 --> 00:03:46,330
+different aspects of those files
+with each of our grading methods.
+
+67
+00:03:46,330 --> 00:03:47,263
+And then, submit.
+
+68
+00:03:47,263 --> 00:03:50,708
+And just like for last week,
+if you get any errors,
+
+69
+00:03:50,708 --> 00:03:55,676
+we have provided you with the greater and
+you can run it to fix your errors,
+
+70
+00:03:55,676 --> 00:04:00,450
+and then please submit your
+code until you get for credit.
+
+71
+00:04:00,450 --> 00:04:03,200
+If you get stuck running into problems,
+go ahead and
+
+72
+00:04:03,200 --> 00:04:05,606
+reach out to others in the class
+on that discussion forum.
+
+73
+00:04:05,606 --> 00:04:08,942
+There are mentors around there,
+people around who are happy to help you.
+
+74
+00:04:08,942 --> 00:04:11,970
+So try that first,
+have fun with this assignment.

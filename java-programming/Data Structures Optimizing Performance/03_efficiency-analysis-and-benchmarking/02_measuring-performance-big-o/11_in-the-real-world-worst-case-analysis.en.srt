@@ -1,0 +1,115 @@
+1
+00:00:00,012 --> 00:00:07,878
+[SOUND]
+You may wonder,
+
+2
+00:00:07,878 --> 00:00:10,560
+why is worst-case analysis useful?
+
+3
+00:00:10,560 --> 00:00:15,148
+After all, that's not what users
+are gonna see most of the time.
+
+4
+00:00:15,148 --> 00:00:18,480
+And it's true that other kinds of
+analysis can be really helpful as well.
+
+5
+00:00:18,480 --> 00:00:22,290
+For instance, best case analysis can
+let you know right up front if there's
+
+6
+00:00:22,290 --> 00:00:24,880
+no way that the algorithm is
+gonna work for you at all.
+
+7
+00:00:24,880 --> 00:00:27,900
+If you know that even the best
+case scenario it's gonna take
+
+8
+00:00:27,900 --> 00:00:32,170
+five years to finish this job,
+that's probably okay, great, we're done.
+
+9
+00:00:32,170 --> 00:00:34,030
+Time to look for something different.
+
+10
+00:00:35,110 --> 00:00:38,690
+But worst case analysis is important
+because that's what people remember.
+
+11
+00:00:39,730 --> 00:00:44,530
+Google, if most of your searches
+take less than a second to complete,
+
+12
+00:00:44,530 --> 00:00:46,960
+and here's your answers and
+it's great, cool.
+
+13
+00:00:48,050 --> 00:00:50,180
+And we could have the bet
+answers in the world, and
+
+14
+00:00:50,180 --> 00:00:51,620
+we like to think that we
+try to give you that.
+
+15
+00:00:52,720 --> 00:00:58,360
+But if every so often running a search
+takes on the order of 10 minutes,
+
+16
+00:00:58,360 --> 00:01:01,940
+20 minutes to complete
+because there's a worst case
+
+17
+00:01:01,940 --> 00:01:05,870
+divot that just takes that long,
+you're not gonna use this.
+
+18
+00:01:05,870 --> 00:01:09,310
+You're gonna go to somebody else,
+because who's got 20 minutes to wait
+
+19
+00:01:09,310 --> 00:01:11,610
+even if you know you're
+answers are gonna be good.
+
+20
+00:01:11,610 --> 00:01:15,260
+So, best case performance
+is great to know.
+
+21
+00:01:15,260 --> 00:01:18,130
+Average case performance is great to know.
+
+22
+00:01:18,130 --> 00:01:21,270
+But worst-case scenario
+is really the killer, and
+
+23
+00:01:21,270 --> 00:01:25,280
+that's what we've gotta know, because
+if the worst case isn't good enough,
+
+24
+00:01:26,550 --> 00:01:28,790
+then it's not good enough, and that's it.

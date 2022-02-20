@@ -1,0 +1,7 @@
+[MUSIC] So the very first step is
+actually the compiler. And not all languages are compiled,
+but those that are will give you that little extra assurance that your
+code is syntactically correct. So like, are you calling methods
+with the right kinds of arguments? Do you have any typos in your code? Things like that. It's not gonna tell you that your code is
+like, behaving properly, but it will tell you that it's building properly and you've
+crossed all your Ts and dotted your eyes. [LAUGH]

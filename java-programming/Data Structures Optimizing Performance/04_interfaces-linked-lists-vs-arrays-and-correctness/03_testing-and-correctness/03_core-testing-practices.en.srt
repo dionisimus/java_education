@@ -1,0 +1,548 @@
+1
+00:00:00,050 --> 00:00:04,947
+[SOUND] We've heard how
+important it is to test but
+
+2
+00:00:04,947 --> 00:00:09,253
+let's talk now about testing practices.
+
+3
+00:00:09,253 --> 00:00:12,271
+So the goal at the end of this video is
+to be able to describe different testing
+
+4
+00:00:12,271 --> 00:00:14,550
+methodologies and
+be able to compare and contrast them.
+
+5
+00:00:15,790 --> 00:00:19,840
+So first off, let's start by looking
+at the development cycle of code.
+
+6
+00:00:19,840 --> 00:00:23,319
+Kind of standard cycle is to write code
+then write tests to test whether or
+
+7
+00:00:23,319 --> 00:00:27,212
+not the code's working right, run those
+tests and then iterate through there.
+
+8
+00:00:27,212 --> 00:00:32,427
+But there's an entire design development
+practice which puts testing front and
+
+9
+00:00:32,427 --> 00:00:33,046
+center.
+
+10
+00:00:33,046 --> 00:00:36,794
+And what it essentially asks is how
+are you writing that code if you don't
+
+11
+00:00:36,794 --> 00:00:38,461
+know how it's gonna be tested?
+
+12
+00:00:38,461 --> 00:00:42,366
+And there's usually some specifications
+about how the code's supposed to work but
+
+13
+00:00:42,366 --> 00:00:45,341
+you don't know for sure until you
+see how it's gonna be tested.
+
+14
+00:00:46,600 --> 00:00:49,847
+And with this development practice
+called test driven development,
+
+15
+00:00:49,847 --> 00:00:53,046
+what we're gonna do is just essentially
+flip those first two steps.
+
+16
+00:00:53,046 --> 00:00:56,310
+So we're gonna write the tests
+before we actually write the code.
+
+17
+00:00:57,810 --> 00:01:01,188
+Now, there are a number of
+companies that use this approach.
+
+18
+00:01:01,188 --> 00:01:04,350
+But I wanna say, before we start to
+argue the merits of each of these,
+
+19
+00:01:04,350 --> 00:01:06,370
+this is a very contentious area.
+
+20
+00:01:06,370 --> 00:01:10,050
+So when the right tests,
+which tests are best to run?
+
+21
+00:01:10,050 --> 00:01:12,130
+This is open area for debate.
+
+22
+00:01:13,200 --> 00:01:16,910
+Now there's debate within the software
+engineering community about how to do this
+
+23
+00:01:16,910 --> 00:01:18,550
+but there is some general consensus.
+
+24
+00:01:18,550 --> 00:01:22,190
+And the general consensus is you shouldn't
+wait till the end to test your code.
+
+25
+00:01:22,190 --> 00:01:23,760
+Test early and test often.
+
+26
+00:01:26,800 --> 00:01:27,910
+How are we gonna run these tests?
+
+27
+00:01:27,910 --> 00:01:29,840
+Well, there's two testing styles.
+
+28
+00:01:29,840 --> 00:01:32,250
+The first is called black box testing.
+
+29
+00:01:32,250 --> 00:01:35,730
+Now, with black box testing,
+you're only testing the interface or
+
+30
+00:01:35,730 --> 00:01:36,490
+through the interface.
+
+31
+00:01:37,540 --> 00:01:42,260
+The other style known as clear box or
+white box testing or
+
+32
+00:01:42,260 --> 00:01:46,060
+tests that know actually about how
+the implementation was set up.
+
+33
+00:01:47,790 --> 00:01:52,370
+We can think about this going back
+to Christine's earlier example of
+
+34
+00:01:52,370 --> 00:01:53,910
+the abstraction barrier.
+
+35
+00:01:53,910 --> 00:01:57,825
+So we have the car where you're thinking
+about how does the brake pedal work from
+
+36
+00:01:57,825 --> 00:01:59,004
+a driver perspective.
+
+37
+00:01:59,004 --> 00:02:02,540
+And then on the other side of
+the abstraction barrier you've
+
+38
+00:02:02,540 --> 00:02:07,130
+got the mechanics and the engineers who
+actually understand how brakes work.
+
+39
+00:02:07,130 --> 00:02:11,246
+So if you think about black box testing
+you're thinking about essentially just
+
+40
+00:02:11,246 --> 00:02:14,810
+that driver trying to use the interface,
+trying to press the brake to
+
+41
+00:02:14,810 --> 00:02:17,709
+make sure it stops and
+press the gas to make sure it goes.
+
+42
+00:02:19,120 --> 00:02:20,100
+On the hand though,
+
+43
+00:02:20,100 --> 00:02:23,680
+if you're a mechanic you know a lot
+more about the implementation.
+
+44
+00:02:23,680 --> 00:02:27,580
+You may know these are disc brakes,
+so these should be tested this way or
+
+45
+00:02:27,580 --> 00:02:30,720
+these are drum brakes, so
+these should be tested this other way.
+
+46
+00:02:30,720 --> 00:02:34,510
+So it just depends on which side of
+this abstraction barrier you're on.
+
+47
+00:02:34,510 --> 00:02:37,900
+And there are pros and
+cons to each of these.
+
+48
+00:02:37,900 --> 00:02:41,420
+So what I want you to do is look
+through these potential advantages for
+
+49
+00:02:41,420 --> 00:02:44,740
+black box testing and
+see which ones you think are correct.
+
+50
+00:02:46,300 --> 00:02:47,440
+Welcome back.
+
+51
+00:02:47,440 --> 00:02:50,400
+So I hope you were able to look through
+these examples and by doing so,
+
+52
+00:02:50,400 --> 00:02:53,870
+start getting a better feel for
+when black box testing is appropriate and
+
+53
+00:02:53,870 --> 00:02:56,050
+when clear box testing is appropriate.
+
+54
+00:02:56,050 --> 00:02:58,250
+Let's just walk through these one by one.
+
+55
+00:02:58,250 --> 00:03:02,320
+So it's black box testing is it gonna be
+more representative how users are actually
+
+56
+00:03:02,320 --> 00:03:03,610
+going to use the code?
+
+57
+00:03:03,610 --> 00:03:05,770
+To some degree, yes, it is.
+
+58
+00:03:05,770 --> 00:03:08,072
+You think back to that driving example,
+
+59
+00:03:08,072 --> 00:03:11,129
+if you're thinking from
+the clear box testing view.
+
+60
+00:03:11,129 --> 00:03:14,229
+You're the mechanic,
+you're not going to be worried so
+
+61
+00:03:14,229 --> 00:03:18,180
+much about will the user ever press
+the brake and the gas at the same time.
+
+62
+00:03:19,300 --> 00:03:22,500
+But if you're actually user of the car
+it's more apt that your going home with
+
+63
+00:03:22,500 --> 00:03:25,260
+the scenario of well,
+I can actually press both these at once.
+
+64
+00:03:25,260 --> 00:03:26,710
+What should happen?
+
+65
+00:03:26,710 --> 00:03:28,250
+So if you're thinking
+from the interface or
+
+66
+00:03:28,250 --> 00:03:31,910
+the driver side you'll have a better
+view of what users really do?
+
+67
+00:03:34,040 --> 00:03:36,840
+Second one is it easier to write
+
+68
+00:03:36,840 --> 00:03:39,530
+by someone who's unfamiliar
+with the implementation?
+
+69
+00:03:39,530 --> 00:03:41,690
+This is absolutely correct.
+
+70
+00:03:41,690 --> 00:03:46,010
+So you don't need to know how
+that code piece was implemented
+
+71
+00:03:46,010 --> 00:03:46,800
+to be able to test it.
+
+72
+00:03:46,800 --> 00:03:48,770
+You just have to know what
+the interface looks like.
+
+73
+00:03:48,770 --> 00:03:51,490
+So it's easier in a sense to
+write those black box tests.
+
+74
+00:03:52,550 --> 00:03:57,390
+The last option are you more
+knowledgeable of potential corner cases
+
+75
+00:03:57,390 --> 00:04:00,840
+which might cause incorrect behavior
+if you're doing black box testing.
+
+76
+00:04:00,840 --> 00:04:02,170
+The answer's probably not.
+
+77
+00:04:02,170 --> 00:04:05,330
+This really is an advantage
+to clear box testing.
+
+78
+00:04:05,330 --> 00:04:07,920
+But it also just depends on
+how you define corner cases.
+
+79
+00:04:07,920 --> 00:04:11,330
+If you're thinking corner cases as those
+weird scenarios that the users might do
+
+80
+00:04:11,330 --> 00:04:12,940
+like in option a.
+
+81
+00:04:12,940 --> 00:04:15,700
+Then yeah, this kind of is true for
+black box testing.
+
+82
+00:04:15,700 --> 00:04:19,796
+But what we really mean for this option
+here is if you know the details how brakes
+
+83
+00:04:19,796 --> 00:04:22,839
+works, if you know this
+implementation is a disk brake and
+
+84
+00:04:22,839 --> 00:04:26,900
+disk brakes often fail when these two
+components aren't aligned properly.
+
+85
+00:04:26,900 --> 00:04:30,900
+You can do a much more rigorous test on
+that component of the brakes which you
+
+86
+00:04:30,900 --> 00:04:34,050
+wouldn't be able to do if
+you did black box testing.
+
+87
+00:04:34,050 --> 00:04:38,171
+So option c is really an advantage for
+clear box testing not black box testing.
+
+88
+00:04:41,587 --> 00:04:45,410
+So now that we have an idea of these
+tests, what should we actually do for
+
+89
+00:04:45,410 --> 00:04:46,190
+the testing?
+
+90
+00:04:48,360 --> 00:04:50,840
+So should I be testing
+each individual statement?
+
+91
+00:04:50,840 --> 00:04:56,870
+So should I say, assign a to be 5 and
+then test if a is not 5, abort?
+
+92
+00:04:57,880 --> 00:04:58,800
+Well no, this would be silly.
+
+93
+00:04:58,800 --> 00:05:00,380
+This is way too fine grain.
+
+94
+00:05:01,930 --> 00:05:03,510
+This is way too within the weeds.
+
+95
+00:05:03,510 --> 00:05:05,230
+That's too small of
+a piece of code to test.
+
+96
+00:05:06,470 --> 00:05:08,360
+So you're saying, well wait a second.
+
+97
+00:05:08,360 --> 00:05:13,310
+So if it's too small, should I be testing
+at the whole code level of alpha testing?
+
+98
+00:05:14,320 --> 00:05:16,180
+Well, this isn't the right place to start.
+
+99
+00:05:16,180 --> 00:05:19,710
+Alpha testing is incredibly important but
+you don't want wait until then.
+
+100
+00:05:19,710 --> 00:05:20,580
+That is way too late.
+
+101
+00:05:21,900 --> 00:05:23,961
+So we need to find some
+kind of middle ground.
+
+102
+00:05:23,961 --> 00:05:28,150
+And the middle ground that is gonna
+work for us is essentially methods.
+
+103
+00:05:28,150 --> 00:05:33,430
+We need to find a small unit of code,
+small section of code to test and
+
+104
+00:05:33,430 --> 00:05:35,480
+methods that actually match
+that description quite well.
+
+105
+00:05:36,600 --> 00:05:39,310
+In fact, this is what people mean
+when they're saying unit testing.
+
+106
+00:05:39,310 --> 00:05:42,505
+Just testing really small pieces
+of code or units of code.
+
+107
+00:05:45,712 --> 00:05:47,908
+So how are we gonna be
+performing these tests?
+
+108
+00:05:47,908 --> 00:05:50,140
+We're actually gonna be
+doing these using JUnit,
+
+109
+00:05:50,140 --> 00:05:55,480
+which is a built in suite
+essentially to help test Java code.
+
+110
+00:05:55,480 --> 00:05:59,030
+Now it's actually built in and
+allows us to write and
+
+111
+00:05:59,030 --> 00:06:02,190
+run tests for exactly unit testing.
+
+112
+00:06:02,190 --> 00:06:02,820
+It's fantastic.
+
+113
+00:06:04,660 --> 00:06:08,330
+It's actually built into Eclipse, so if
+you want to know more details about how to
+
+114
+00:06:08,330 --> 00:06:12,360
+use JUnit with Eclipse we're gonna
+have a support video on that next.
+
+115
+00:06:12,360 --> 00:06:15,480
+If your more interested in just diving
+in to how do you write tests for
+
+116
+00:06:15,480 --> 00:06:17,870
+linked lists,
+that's gonna be the next core video.
+
+117
+00:06:17,870 --> 00:06:18,550
+Coming up next.

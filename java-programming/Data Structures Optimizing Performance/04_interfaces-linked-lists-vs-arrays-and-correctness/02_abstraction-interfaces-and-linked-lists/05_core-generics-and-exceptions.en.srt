@@ -1,0 +1,630 @@
+1
+00:00:04,250 --> 00:00:07,280
+So we're working towards our
+implementation of our link list.
+
+2
+00:00:07,280 --> 00:00:10,020
+And in this video, we're gonna talk about
+a couple of concepts that are gonna
+
+3
+00:00:10,020 --> 00:00:12,120
+be really handy for the implementation.
+
+4
+00:00:12,120 --> 00:00:16,985
+They're not specific for link lists in
+particular, they're more general concepts
+
+5
+00:00:16,985 --> 00:00:21,239
+in Java, but you're going to use them
+in your link list implementation and
+
+6
+00:00:21,239 --> 00:00:24,029
+they're the ideas of generics and
+exceptions.
+
+7
+00:00:24,029 --> 00:00:25,592
+So going back to our diagram,
+
+8
+00:00:25,592 --> 00:00:28,791
+we had these two different
+classes that we had to implement.
+
+9
+00:00:28,791 --> 00:00:32,847
+The ListNode class and
+the MyLinkedList class.
+
+10
+00:00:32,847 --> 00:00:36,963
+The ListNode class is really the backbone
+of that link list structure,
+
+11
+00:00:36,963 --> 00:00:41,561
+while the MyLinkedList class provided us
+access to that backbone structure via
+
+12
+00:00:41,561 --> 00:00:46,470
+the head and the tail nodes and
+stored the size of the list in general.
+
+13
+00:00:46,470 --> 00:00:51,395
+So let's start by looking at
+the implementation at that ListNode class.
+
+14
+00:00:51,395 --> 00:00:53,981
+So here's a ListNode and
+we can make it just class.
+
+15
+00:00:53,981 --> 00:00:58,142
+It's not gonna be public or private, it's
+going to be sort of package level, because
+
+16
+00:00:58,142 --> 00:01:02,141
+we're designing this class specifically
+to be used with our MyLinkedList class.
+
+17
+00:01:02,141 --> 00:01:06,486
+This is not really a public class in that
+the world shouldn't be able to use it.
+
+18
+00:01:06,486 --> 00:01:11,004
+We'll just need to be able to access it
+within the package that we're working in,
+
+19
+00:01:11,004 --> 00:01:14,217
+so we just declare it class
+rather than public or private.
+
+20
+00:01:14,217 --> 00:01:17,218
+It has three data members.
+
+21
+00:01:17,218 --> 00:01:21,655
+It has the pointers to the next and
+the previous nodes.
+
+22
+00:01:21,655 --> 00:01:27,909
+And again, going back to that quiz,
+that in video quiz from the last video,
+
+23
+00:01:27,909 --> 00:01:33,284
+you know now that those should be
+pointers to ListNode objects and
+
+24
+00:01:33,284 --> 00:01:36,429
+it also stores data inside that node.
+
+25
+00:01:36,429 --> 00:01:39,566
+But at this point,
+you might be seeing that E and
+
+26
+00:01:39,566 --> 00:01:42,867
+be wondering what in the world
+is this E all about?
+
+27
+00:01:42,867 --> 00:01:48,328
+I don't know of a type called E,
+that's what we're gonna talk about next.
+
+28
+00:01:48,328 --> 00:01:50,147
+What this E stands for is?
+
+29
+00:01:50,147 --> 00:01:52,823
+It's called a type parameter.
+
+30
+00:01:52,823 --> 00:01:57,701
+So this list class, this ListNode
+class works with a parameterized type.
+
+31
+00:01:57,701 --> 00:02:02,556
+Meaning that type can be passed in where
+we create one of these ListNodes and
+
+32
+00:02:02,556 --> 00:02:07,428
+what it allows us to do is it allows us
+to make our list structure be generic.
+
+33
+00:02:07,428 --> 00:02:11,053
+In other words, it can hold any
+kind of data we want it to hold.
+
+34
+00:02:11,053 --> 00:02:13,595
+You've probably worked
+with generics before,
+
+35
+00:02:13,595 --> 00:02:16,147
+because you've worked
+with ArrayList in Java.
+
+36
+00:02:16,147 --> 00:02:20,156
+You know that they take as
+an argument to the constructor and
+
+37
+00:02:20,156 --> 00:02:24,659
+of the type, some type of thing
+that the ArrayList is gonna store.
+
+38
+00:02:24,659 --> 00:02:28,427
+Now you're gonna see how you can
+implement classes that make use
+
+39
+00:02:28,427 --> 00:02:33,029
+of the type parameters, so they can accept
+a type when that class is created and
+
+40
+00:02:33,029 --> 00:02:34,375
+here's how you do it.
+
+41
+00:02:34,375 --> 00:02:37,233
+On the first line, you put that parameter,
+
+42
+00:02:37,233 --> 00:02:42,347
+which is typically a single capital letter
+like E or T in those angle brackets.
+
+43
+00:02:42,347 --> 00:02:45,164
+And then any time you
+wanna refer to that type,
+
+44
+00:02:45,164 --> 00:02:48,356
+you just use it throughout
+your class declaration.
+
+45
+00:02:48,356 --> 00:02:51,481
+So let me give you an example of
+how to create a class using these
+
+46
+00:02:51,481 --> 00:02:52,633
+parametrized types.
+
+47
+00:02:52,633 --> 00:02:54,751
+Here's an example of a very simple class.
+
+48
+00:02:54,751 --> 00:02:58,624
+It simulates a collection of elements
+only when you add elements in,
+
+49
+00:02:58,624 --> 00:03:02,117
+it can only give you back the most
+recent thing that you added.
+
+50
+00:03:02,117 --> 00:03:04,170
+It's called RememberLast.
+
+51
+00:03:04,170 --> 00:03:08,754
+It can be instantiated to take any kind
+of element through that type parameter
+
+52
+00:03:08,754 --> 00:03:09,398
+called T.
+
+53
+00:03:09,398 --> 00:03:12,749
+So when I instantiate this class
+as you'll see in a moment,
+
+54
+00:03:12,749 --> 00:03:16,850
+I'll have to pass in a type and that
+type goes in for the type parameter T.
+
+55
+00:03:16,850 --> 00:03:21,715
+Anywhere I want to refer to the type
+of things that's stored inside this,
+
+56
+00:03:21,715 --> 00:03:25,480
+RememberLast object,
+I just use the capital letter T and
+
+57
+00:03:25,480 --> 00:03:27,608
+that will stand in for the type.
+
+58
+00:03:27,608 --> 00:03:29,537
+It's just like any other
+sort of parameter.
+
+59
+00:03:29,537 --> 00:03:31,289
+It's like a variable, but for a type.
+
+60
+00:03:32,820 --> 00:03:37,050
+So what you can see here is
+that down in the add method,
+
+61
+00:03:37,050 --> 00:03:40,330
+you can see that the parameters
+of the add method is of type T.
+
+62
+00:03:40,330 --> 00:03:43,308
+It returns a type T and
+inside that method,
+
+63
+00:03:43,308 --> 00:03:45,882
+I created a local variable of type T.
+
+64
+00:03:45,882 --> 00:03:47,378
+All of that is just fine.
+
+65
+00:03:47,378 --> 00:03:50,220
+It's just a parameter for
+a particular type and
+
+66
+00:03:50,220 --> 00:03:53,639
+that type will get a value
+when I instantiate this class.
+
+67
+00:03:55,200 --> 00:03:59,100
+We instantiate the class just like
+you'd instantiate any other generic
+
+68
+00:03:59,100 --> 00:04:01,910
+class like ArrayList,
+which you've worked with before
+
+69
+00:04:01,910 --> 00:04:06,050
+by putting the actual type that
+you wanna use in angled brackets.
+
+70
+00:04:06,050 --> 00:04:10,110
+So I can create a member of object type
+integer, which can store integers or
+
+71
+00:04:10,110 --> 00:04:13,270
+one of type string,
+which can store strings or
+
+72
+00:04:13,270 --> 00:04:18,640
+any other kind of object
+that I want to instantiate.
+
+73
+00:04:18,640 --> 00:04:20,516
+It has to be an object type though,
+
+74
+00:04:20,516 --> 00:04:23,837
+I can't instantiate a generic
+class with primitive types.
+
+75
+00:04:23,837 --> 00:04:26,764
+But that's okay,
+because as you can see in this example,
+
+76
+00:04:26,764 --> 00:04:30,231
+if I instantiate it with the integer
+class, Java has this autoboxing
+
+77
+00:04:30,231 --> 00:04:34,209
+functionality of integers, so I can just
+pass in little ints like that three.
+
+78
+00:04:34,209 --> 00:04:39,300
+Java will autobox it into an integer
+to store it in my generic class.
+
+79
+00:04:41,330 --> 00:04:44,133
+So that's the example of
+how to use generics and
+
+80
+00:04:44,133 --> 00:04:48,980
+you'll be using these parameterized types
+in your linked list implementation.
+
+81
+00:04:48,980 --> 00:04:51,358
+Now let's look at ways
+to handle bad input.
+
+82
+00:04:51,358 --> 00:04:56,784
+Let's say that I want my RememberLast
+class not to remember null elements,
+
+83
+00:04:56,784 --> 00:05:01,640
+so I don't wanna be able to
+add null elements to my class.
+
+84
+00:05:01,640 --> 00:05:02,760
+And my question for
+
+85
+00:05:02,760 --> 00:05:07,037
+you is what should happen if my input
+to the add method happens to be null?
+
+86
+00:05:07,037 --> 00:05:11,299
+I'll need an if statement to check for
+it, but
+
+87
+00:05:11,299 --> 00:05:16,888
+what should I do if I discover that,
+that parameter is null?
+
+88
+00:05:16,888 --> 00:05:20,410
+Let's consider the options
+that I gave you.
+
+89
+00:05:20,410 --> 00:05:23,698
+The first option that I gave
+was to return negative 1,
+
+90
+00:05:23,698 --> 00:05:26,569
+like a flag to indicate
+that this was bad input.
+
+91
+00:05:26,569 --> 00:05:28,243
+Now that's a nice thought.
+
+92
+00:05:28,243 --> 00:05:32,698
+Sometimes, it is appropriate to return
+sort of a sentinel value to indicate that
+
+93
+00:05:32,698 --> 00:05:34,739
+something went wrong in the method.
+
+94
+00:05:34,739 --> 00:05:38,708
+But in this case, it's not going to
+work and the main reason it's not
+
+95
+00:05:38,708 --> 00:05:42,483
+going to work is because this method
+is declared to return type T.
+
+96
+00:05:42,483 --> 00:05:47,278
+Type T may not be an int and so
+we can't just go ahead and return an int,
+
+97
+00:05:47,278 --> 00:05:49,863
+it has to return something of type T.
+
+98
+00:05:49,863 --> 00:05:54,302
+Now you might think, okay, well,
+maybe I'll return null, but
+
+99
+00:05:54,302 --> 00:05:59,228
+there's something kind of unsatisfying
+about just returning normally
+
+100
+00:05:59,228 --> 00:06:04,089
+when this input was so bad that we want
+to kind of just not allow it at all.
+
+101
+00:06:04,089 --> 00:06:08,733
+So what we're going to do instead is we're
+going to throw an exception to indicate
+
+102
+00:06:08,733 --> 00:06:12,256
+that something went wrong and
+we don't know how to handle it.
+
+103
+00:06:12,256 --> 00:06:16,627
+This is Java's mechanism of breaking
+the regular flow of the code to say, help,
+
+104
+00:06:16,627 --> 00:06:18,184
+help, I've got a problem.
+
+105
+00:06:18,184 --> 00:06:19,705
+I don't know how to deal with it.
+
+106
+00:06:19,705 --> 00:06:21,680
+Here, you deal with it.
+
+107
+00:06:21,680 --> 00:06:25,872
+So you can think of an exception as
+a method literally panicking and saying,
+
+108
+00:06:25,872 --> 00:06:27,655
+help, I don't know what to do.
+
+109
+00:06:27,655 --> 00:06:32,180
+And taking that point of the code and
+throwing it up to who ever
+
+110
+00:06:32,180 --> 00:06:36,815
+called the method and saying,
+you deal with this, I can't.
+
+111
+00:06:36,815 --> 00:06:40,639
+So in this case, we're throwing a type of
+exception called a NullPointerException.
+
+112
+00:06:40,639 --> 00:06:44,974
+Saying that we got a null pointer,
+we don't know what to do with it,
+
+113
+00:06:44,974 --> 00:06:50,091
+then the method that called this method
+is going to have to deal with it somehow.
+
+114
+00:06:53,155 --> 00:06:54,849
+Sometimes code methods,
+
+115
+00:06:54,849 --> 00:06:59,469
+like this one would declare that they
+throw exceptions and that has to be
+
+116
+00:06:59,469 --> 00:07:04,089
+the case when your exception is
+something called a checked exception.
+
+117
+00:07:04,089 --> 00:07:05,601
+In this case, however,
+
+118
+00:07:05,601 --> 00:07:08,849
+a NullPointerException is
+not a checked exception.
+
+119
+00:07:08,849 --> 00:07:10,523
+It's an unchecked exception.
+
+120
+00:07:10,523 --> 00:07:15,320
+So we don't have to declare in the method
+header that this method could potentially
+
+121
+00:07:15,320 --> 00:07:18,829
+throw an exception, but
+it's okay to do so, if you want to.
+
+122
+00:07:18,829 --> 00:07:21,629
+So you can go online to the Java
+documentation to understand
+
+123
+00:07:21,629 --> 00:07:24,768
+which exceptions are checked,
+which exceptions are unchecked.
+
+124
+00:07:24,768 --> 00:07:27,961
+But pretty much the common exceptions
+like NullPointerException,
+
+125
+00:07:27,961 --> 00:07:31,219
+index out of bounds exception,
+those are all unchecked exceptions.
+
+126
+00:07:31,219 --> 00:07:35,161
+Because it would be really annoying
+to have to declare those everywhere,
+
+127
+00:07:35,161 --> 00:07:37,968
+cuz they might happen really
+anywhere in your code.
+
+128
+00:07:37,968 --> 00:07:42,026
+So you're gonna be doing a lot of
+exception throwing to handle bad input
+
+129
+00:07:42,026 --> 00:07:44,598
+when you implement your
+LinkedList class and
+
+130
+00:07:44,598 --> 00:07:49,285
+now we pretty much have all the mechanisms
+that we need to do that implementation.
+
+131
+00:07:49,285 --> 00:07:52,941
+We'll look at the Java code to start you
+off on that implementation of your doubly
+
+132
+00:07:52,941 --> 00:07:54,360
+LinkedList in the next video.

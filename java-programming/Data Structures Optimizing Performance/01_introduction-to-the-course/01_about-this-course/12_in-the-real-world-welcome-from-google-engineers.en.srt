@@ -1,0 +1,111 @@
+1
+00:00:00,000 --> 00:00:03,362
+[MUSIC]
+
+2
+00:00:09,120 --> 00:00:11,183
+Hi, my name is Jesse Chuy Chavez and I and
+
+3
+00:00:11,183 --> 00:00:15,271
+a software engineer on the Google privacy
+team in the Google office in Chicago.
+
+4
+00:00:15,271 --> 00:00:19,072
+I world on products that help keep
+our users' data safe and secure.
+
+5
+00:00:20,270 --> 00:00:21,720
+I'm Aaron Sure, and
+
+6
+00:00:21,720 --> 00:00:26,110
+I'm a software engineer working on
+shopping at Google's Pittsburgh office.
+
+7
+00:00:26,110 --> 00:00:26,780
+>> Hi, I'm Kelly.
+
+8
+00:00:26,780 --> 00:00:27,490
+>> Hi, I'm Quti.
+
+9
+00:00:27,490 --> 00:00:31,360
+>> And we're software engineers at
+Google on the Google Docs team.
+
+10
+00:00:31,360 --> 00:00:33,195
+>> Hi
+>> I'm Matt Healey.
+
+11
+00:00:33,195 --> 00:00:36,125
+I'm a Google engineer working on
+conversational shopping in our
+
+12
+00:00:36,125 --> 00:00:37,855
+Pittsburgh office.
+
+13
+00:00:37,855 --> 00:00:39,715
+>> Hi there.
+My name is John Taylor, and
+
+14
+00:00:39,715 --> 00:00:42,335
+I'm an engineer in
+Google's Pittsburgh office.
+
+15
+00:00:42,335 --> 00:00:45,385
+I'd like to welcome you to
+Intermediate Programming.
+
+16
+00:00:45,385 --> 00:00:47,755
+Now, I find programming a lot of fun.
+
+17
+00:00:47,755 --> 00:00:50,565
+Not only can you do some
+extremely useful things with it,
+
+18
+00:00:50,565 --> 00:00:55,035
+the act of programming itself can
+be very satisfying and creative.
+
+19
+00:00:56,900 --> 00:00:59,620
+For any particular problem there
+are lots of different ways you
+
+20
+00:00:59,620 --> 00:01:01,760
+could write a program to solve it.
+
+21
+00:01:01,760 --> 00:01:03,990
+But a good program has
+a certain beauty and
+
+22
+00:01:03,990 --> 00:01:09,580
+elegance about it and an elegant program
+is easy for other people to understand and
+
+23
+00:01:09,580 --> 00:01:15,080
+it's also easy for you to extend and
+adapt later as requirements change.
+
+24
+00:01:15,080 --> 00:01:19,140
+And this course will help you write
+beautiful and elegant programs.

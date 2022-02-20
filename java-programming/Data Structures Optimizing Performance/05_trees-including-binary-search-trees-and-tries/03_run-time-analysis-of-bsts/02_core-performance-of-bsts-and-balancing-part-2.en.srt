@@ -1,0 +1,506 @@
+1
+00:00:00,000 --> 00:00:03,892
+[MUSIC]
+
+2
+00:00:03,892 --> 00:00:08,975
+So let's think about what
+the maximum distance in the tree,
+
+3
+00:00:08,975 --> 00:00:14,170
+what is the maximum distance
+between the root and a leaf?
+
+4
+00:00:14,170 --> 00:00:17,670
+Because when we fall off the tree,
+that means that we've reached a leaf
+
+5
+00:00:17,670 --> 00:00:20,890
+node in the tree, one that doesn't have
+any children, and then when we try to go
+
+6
+00:00:20,890 --> 00:00:26,590
+to a child we get that the node is null,
+and so then we return false.
+
+7
+00:00:26,590 --> 00:00:32,360
+Okay, so in these three different
+examples of binary search trees,
+
+8
+00:00:32,360 --> 00:00:33,740
+with the same dictionary,
+
+9
+00:00:33,740 --> 00:00:38,990
+we notice that we have very different
+maximum distances from root to leaf.
+
+10
+00:00:38,990 --> 00:00:44,880
+So the green tree is the worst,
+in terms of how far we have to go down.
+
+11
+00:00:44,880 --> 00:00:49,760
+It contains all seven nodes in a single
+path, and so the distance in the tree
+
+12
+00:00:49,760 --> 00:00:55,320
+is the number of nodes in a single
+path from the root to the leaf.
+
+13
+00:00:55,320 --> 00:00:59,370
+On the other hand,
+if we look at the tree with yellow nodes,
+
+14
+00:00:59,370 --> 00:01:04,170
+we notice that there's always really
+short paths from the root to the leaf.
+
+15
+00:01:04,170 --> 00:01:06,880
+And so if we look at each of the leaves,
+there's three leaves,
+
+16
+00:01:06,880 --> 00:01:11,250
+each of those are accessible using
+only paths that have three nodes.
+
+17
+00:01:11,250 --> 00:01:16,920
+So to get to the leaf that's labelled a,
+we go from the root ate to the node at,
+
+18
+00:01:16,920 --> 00:01:21,650
+and then to its child node a,
+and a is a leaf node.
+
+19
+00:01:21,650 --> 00:01:24,330
+And similarly to each one of
+the leaf nodes we can hop
+
+20
+00:01:24,330 --> 00:01:26,740
+with only three nodes in our path.
+
+21
+00:01:26,740 --> 00:01:30,990
+Now, we can have a binary search tree just
+sort of in between, and the blue one has
+
+22
+00:01:30,990 --> 00:01:37,410
+a path that has four nodes on it, and so
+its maximum distance until a leaf is four.
+
+23
+00:01:37,410 --> 00:01:40,470
+So this maximum distance notion is
+called the height of the tree, and
+
+24
+00:01:40,470 --> 00:01:44,930
+we notice that we can have trees that have
+the same number of nodes all together but
+
+25
+00:01:44,930 --> 00:01:46,620
+have different heights.
+
+26
+00:01:46,620 --> 00:01:47,980
+And now thinking back to our example,
+
+27
+00:01:47,980 --> 00:01:51,070
+we notice that the height
+really impacts the performance.
+
+28
+00:01:51,070 --> 00:01:53,510
+And so what we'd like to do
+is to control the height.
+
+29
+00:01:53,510 --> 00:01:56,880
+We want to keep the height
+down as much as we can
+
+30
+00:01:56,880 --> 00:01:59,790
+while still maintaining
+the same number of nodes.
+
+31
+00:01:59,790 --> 00:02:04,690
+And this is where balanced binary
+search trees get their motivation.
+
+32
+00:02:04,690 --> 00:02:07,110
+This is why we have balanced
+binary search trees.
+
+33
+00:02:07,110 --> 00:02:12,850
+The idea is that we want to maintain
+roughly the heights of the left and
+
+34
+00:02:12,850 --> 00:02:16,880
+right sub-trees of our trees, so
+that we never have these really long,
+
+35
+00:02:16,880 --> 00:02:19,490
+long paths that we might have
+to traverse while looking for
+
+36
+00:02:19,490 --> 00:02:22,170
+a single element that
+might not be on the tree.
+
+37
+00:02:22,170 --> 00:02:26,980
+And so, a tree, a binary search tree
+is called balanced if at every node in
+
+38
+00:02:26,980 --> 00:02:31,810
+the binary search tree,
+the height of the left sub-tree and
+
+39
+00:02:31,810 --> 00:02:34,450
+the height of the right sub-tree
+differ by no more than one.
+
+40
+00:02:34,450 --> 00:02:38,990
+All right, so
+let's work through some examples and
+
+41
+00:02:38,990 --> 00:02:42,039
+here are a few that you can think
+about with an in-video quiz.
+
+42
+00:02:43,720 --> 00:02:45,330
+So in the in-video quiz,
+
+43
+00:02:45,330 --> 00:02:49,770
+you noticed that this particular tree
+is balanced, and so let's think about
+
+44
+00:02:49,770 --> 00:02:54,420
+what the performance implications are of
+having balanced binary search trees.
+
+45
+00:02:54,420 --> 00:02:58,270
+We don't want to just add a whole
+bunch of terminology and
+
+46
+00:02:58,270 --> 00:03:00,410
+new data structures just because
+they're fun.
+
+47
+00:03:00,410 --> 00:03:02,280
+Well, I kinda do, because I like theory.
+
+48
+00:03:02,280 --> 00:03:05,150
+But, typically,
+when you introduce a new data structure,
+
+49
+00:03:05,150 --> 00:03:08,400
+you do it for a reason, and
+often that reason is performance.
+
+50
+00:03:08,400 --> 00:03:10,500
+We want to improve the brunt
+time of our performance.
+
+51
+00:03:11,720 --> 00:03:14,370
+So let's think about whether
+we've accomplished anything
+
+52
+00:03:14,370 --> 00:03:16,320
+with Balanced Binary Search Trees.
+
+53
+00:03:16,320 --> 00:03:19,910
+And you can do some calculations
+to see that approximately
+
+54
+00:03:21,510 --> 00:03:24,480
+when you look at a balanced
+binary search tree, its
+
+55
+00:03:24,480 --> 00:03:28,750
+height is going to be around log(n) where
+(n) is the number of nodes in the tree.
+
+56
+00:03:28,750 --> 00:03:32,610
+And so,
+if we can make sure that our left and
+
+57
+00:03:32,610 --> 00:03:37,600
+right sub-trees are always not too
+different from each other in terms
+
+58
+00:03:37,600 --> 00:03:41,860
+of height, then we have a control
+over the overall height of the tree.
+
+59
+00:03:41,860 --> 00:03:45,920
+And basically, what we're doing here is
+making the tree as bushy as possible.
+
+60
+00:03:45,920 --> 00:03:47,700
+We don't want these spindly branches.
+
+61
+00:03:48,752 --> 00:03:53,300
+And what that means is that when we
+do the Big O analysis for looking for
+
+62
+00:03:53,300 --> 00:03:58,400
+isWord in this tree is, we see that
+in the worst case, even if we have to
+
+63
+00:03:58,400 --> 00:04:04,240
+go until a trial node and run off the
+tree, the balance binary search tree in
+
+64
+00:04:04,240 --> 00:04:09,320
+the worst case is still going to only have
+to make on the order of log n comparisons,
+
+65
+00:04:09,320 --> 00:04:15,810
+because it only has to go down
+the maximum length path in the tree,
+
+66
+00:04:15,810 --> 00:04:20,190
+which has as many nodes as the height and
+the height is going to be about log n.
+
+67
+00:04:21,380 --> 00:04:24,290
+So now we can compare the performance
+of this single method
+
+68
+00:04:25,420 --> 00:04:28,200
+as we run it on different data structures.
+
+69
+00:04:28,200 --> 00:04:32,020
+And this is a really useful table for
+thinking about why we even bother with all
+
+70
+00:04:32,020 --> 00:04:36,110
+the data structures, and the reason is so
+that we can optimize our performance.
+
+71
+00:04:36,110 --> 00:04:38,880
+Now for all of these data structures,
+if we're really lucky and
+
+72
+00:04:38,880 --> 00:04:41,400
+we find our word right away,
+in the best case,
+
+73
+00:04:41,400 --> 00:04:43,760
+they're all going to take
+a constant number of operations.
+
+74
+00:04:43,760 --> 00:04:46,620
+So that's not really where we
+see the distinctions come in.
+
+75
+00:04:46,620 --> 00:04:50,900
+Where we see the big payoffs are in
+the average case and in the worst case.
+
+76
+00:04:50,900 --> 00:04:55,461
+And we see that linked list really both
+average case and worst case takes Big O
+
+77
+00:04:55,461 --> 00:05:00,107
+of n times, which can get really slow
+if you have really big dictionaries.
+
+78
+00:05:00,107 --> 00:05:01,696
+Binary search trees and
+
+79
+00:05:01,696 --> 00:05:06,153
+balanced binary search trees in
+the average case are pretty okay.
+
+80
+00:05:06,153 --> 00:05:08,336
+They're pretty similar I mean, sorry.
+
+81
+00:05:08,336 --> 00:05:10,098
+They're both logarithmic.
+
+82
+00:05:10,098 --> 00:05:11,237
+They're both log n, but
+
+83
+00:05:11,237 --> 00:05:15,930
+the worst case is where really balanced
+binary search trees pay off for us.
+
+84
+00:05:15,930 --> 00:05:20,480
+Now it might seem like we might be able
+to just avoid the worst case of binary
+
+85
+00:05:20,480 --> 00:05:20,990
+search trees.
+
+86
+00:05:20,990 --> 00:05:22,200
+Why do we need balance?
+
+87
+00:05:22,200 --> 00:05:24,534
+We don't really even
+want to think about it.
+
+88
+00:05:24,534 --> 00:05:26,262
+But it turns out that the worst case for
+
+89
+00:05:26,262 --> 00:05:29,920
+binary search trees is actually
+something that comes up pretty often.
+
+90
+00:05:29,920 --> 00:05:34,543
+If we have a dictionary that's
+already organized almost in order and
+
+91
+00:05:34,543 --> 00:05:39,404
+we try to build a binary search tree
+based on that, then what we're going
+
+92
+00:05:39,404 --> 00:05:43,967
+to get is that really spindly,
+linear looking binary search tree.
+
+93
+00:05:43,967 --> 00:05:47,640
+So, we're going to get the worst
+case performance almost every time.
+
+94
+00:05:47,640 --> 00:05:50,649
+If we think that we're helping ourselves
+in pre-processing the data and
+
+95
+00:05:50,649 --> 00:05:53,219
+kind of sorting it, and
+then try to build a binary search tree,
+
+96
+00:05:53,219 --> 00:05:55,222
+that's going to be really bad for
+performance.
+
+97
+00:05:55,222 --> 00:05:59,785
+And so, it turns out that balanced binary
+search trees are really useful, and
+
+98
+00:05:59,785 --> 00:06:03,790
+they're a little bit more complicated,
+but they're worth it.
+
+99
+00:06:03,790 --> 00:06:07,620
+And they're especially worth it because
+someone else did the work for us.
+
+100
+00:06:07,620 --> 00:06:13,050
+Java already has a built in implementation
+of balanced binary search trees.
+
+101
+00:06:13,050 --> 00:06:15,438
+So if you use the TreeSet
+class in the Java API,
+
+102
+00:06:15,438 --> 00:06:19,726
+which you'll be doing in the programming
+assignment, you can get all the benefits
+
+103
+00:06:19,726 --> 00:06:23,909
+of the balanced binary search trees and
+their associated performance payoffs.
+
+104
+00:06:23,909 --> 00:06:27,985
+And so I encourage you to go play with
+balanced binary search trees by delving
+
+105
+00:06:27,985 --> 00:06:29,970
+into that programming assignment.

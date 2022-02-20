@@ -1,0 +1,195 @@
+1
+00:00:00,000 --> 00:00:03,912
+[MUSIC]
+
+2
+00:00:03,912 --> 00:00:06,666
+So you've already seen the full text
+editor that you are going to be
+
+3
+00:00:06,666 --> 00:00:08,580
+implementing as part of this course.
+
+4
+00:00:08,580 --> 00:00:11,140
+But in this video, I'm going to give you a
+quick overview of what you'll be adding in
+
+5
+00:00:11,140 --> 00:00:13,900
+this week's project,
+your first programming assignment.
+
+6
+00:00:13,900 --> 00:00:17,133
+So here's our text editor, and you can see
+that there are a bunch of buttons over
+
+7
+00:00:17,133 --> 00:00:18,448
+here for what I can do with text.
+
+8
+00:00:18,448 --> 00:00:21,849
+And this week we're going to be
+focusing on this flesh index button.
+
+9
+00:00:21,849 --> 00:00:25,303
+So what this button is going to do
+is it's going to give you a score,
+
+10
+00:00:25,303 --> 00:00:28,030
+which is a measure of how
+readable a piece of text is.
+
+11
+00:00:28,030 --> 00:00:31,340
+Let me just demonstrate this behavior
+with a couple of passages of text which
+
+12
+00:00:31,340 --> 00:00:32,830
+may be familiar to you.
+
+13
+00:00:32,830 --> 00:00:38,050
+So the first piece of text that I'm going
+to test out is from the book Peter Pan.
+
+14
+00:00:38,050 --> 00:00:42,784
+So here is Peter Pan, and
+I can find this book on Project Gutenberg.
+
+15
+00:00:42,784 --> 00:00:46,760
+And I'm just going to take the first
+few paragraphs in Peter Pan.
+
+16
+00:00:46,760 --> 00:00:51,840
+Copy them out of Project Gutenberg and
+copy them in to the text application.
+
+17
+00:00:51,840 --> 00:00:54,642
+And now I'm going to press
+this Flesch index score and
+
+18
+00:00:54,642 --> 00:00:57,843
+I can see that this piece of
+text has a score of 81.23.
+
+19
+00:00:57,843 --> 00:01:01,418
+Now we'll be getting to a little bit more
+what exactly the Flesch index is over
+
+20
+00:01:01,418 --> 00:01:02,970
+the course of this week.
+
+21
+00:01:02,970 --> 00:01:06,960
+But just know that, that score,
+it's a pretty readable piece of text.
+
+22
+00:01:06,960 --> 00:01:09,645
+Which makes sense,
+because this is a piece of text,
+
+23
+00:01:09,645 --> 00:01:12,039
+this is a story that was written for
+children.
+
+24
+00:01:12,039 --> 00:01:14,700
+So let me compare that to something else.
+
+25
+00:01:14,700 --> 00:01:17,660
+Let me go over here and
+pick a very different book.
+
+26
+00:01:17,660 --> 00:01:21,020
+A Picture of Dorian Gray by
+Oscar Wilde not a piece of text,
+
+27
+00:01:21,020 --> 00:01:24,570
+not a piece of literature that was
+meant necessarily for children.
+
+28
+00:01:24,570 --> 00:01:27,900
+So let me go down here
+to the actual story and
+
+29
+00:01:27,900 --> 00:01:31,680
+again pick the first few
+paragraphs of the story.
+
+30
+00:01:31,680 --> 00:01:34,333
+And now I'll go over
+here into my text app.
+
+31
+00:01:34,333 --> 00:01:38,543
+I'll replace the text there and
+let me now calculate the flesch index for
+
+32
+00:01:38,543 --> 00:01:39,726
+this piece of text.
+
+33
+00:01:39,726 --> 00:01:43,460
+Wow okay, so 25.88,
+that's a much lower score.
+
+34
+00:01:43,460 --> 00:01:48,326
+That indicates that this piece of text
+is a much harder to read piece of text,
+
+35
+00:01:48,326 --> 00:01:50,392
+it's for more mature readers.
+
+36
+00:01:50,392 --> 00:01:54,093
+So you can play around with this once
+you've implemented this functionality.
+
+37
+00:01:54,093 --> 00:01:57,204
+Figuring out the readability of
+different pieces of text and
+
+38
+00:01:57,204 --> 00:02:00,743
+coming right up you're going to learn
+what this flesch index score is.
+
+39
+00:02:00,743 --> 00:02:02,743
+How to work with strings
+to calculated it and
+
+40
+00:02:02,743 --> 00:02:05,782
+how to integrate this functionality
+into this text application.
+
+41
+00:02:05,782 --> 00:02:06,514
+Have fun.

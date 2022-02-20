@@ -1,0 +1,17 @@
+1
+00:00:00,000 --> 00:00:06,429
+[MUSIC]
+
+2
+00:00:06,429 --> 00:00:09,901
+Welcome to our next module where we'll
+talk about a core data structure called
+
+3
+00:00:09,901 --> 00:00:12,215
+a linked list and
+also talk about some strategies for
+
+4
+00:00:12,215 --> 00:00:14,130
+testing your code to ensure correctness.

@@ -1,0 +1,84 @@
+1
+00:00:00,000 --> 00:00:03,843
+[MUSIC]
+
+2
+00:00:03,843 --> 00:00:05,550
+Hi, my name is Robert.
+
+3
+00:00:05,550 --> 00:00:10,620
+And I remember this one time when I
+was in a data structures class and
+
+4
+00:00:10,620 --> 00:00:14,526
+we had a programming assignment to
+write our compression algorithms,
+
+5
+00:00:14,526 --> 00:00:16,470
+it was Huffman compression.
+
+6
+00:00:16,470 --> 00:00:18,648
+And we were all getting into it.
+
+7
+00:00:18,648 --> 00:00:21,070
+And I think because we'd done so
+well on our previous assignments,
+
+8
+00:00:21,070 --> 00:00:26,650
+we wrote all of our code in a big rush
+all together, no unit testing at all.
+
+9
+00:00:26,650 --> 00:00:31,050
+And when it all came together, we put in
+the test cases, and it was all wrong.
+
+10
+00:00:31,050 --> 00:00:33,350
+We tried moving around
+the different test cases, and
+
+11
+00:00:33,350 --> 00:00:36,900
+we couldn't see any pattern
+about why everything was wrong.
+
+12
+00:00:36,900 --> 00:00:39,360
+We had reached that point
+without any testing and we had
+
+13
+00:00:39,360 --> 00:00:44,450
+no confidence whatsoever that anything
+we had written was actually correct.
+
+14
+00:00:44,450 --> 00:00:48,040
+So we had to completely tear down
+our assignment from the bottom up,
+
+15
+00:00:48,040 --> 00:00:51,840
+and write tests, and actually get
+confidence in each of our levels.
+
+16
+00:00:51,840 --> 00:00:55,100
+And now, since I've been coding for a
+little bit longer, it seems kind of insane
+
+17
+00:00:55,100 --> 00:00:57,470
+not to write testing, but I definitely
+didn't know that in the beginning,
+
+18
+00:00:57,470 --> 00:00:58,880
+and that caused me to struggle a lot.

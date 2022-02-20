@@ -1,0 +1,21 @@
+[MUSIC] So this is a slightly different
+kind of When I Struggle video. This isn't when I struggled when
+I first learned the material. This is when I struggled
+basically last week. What happened was,
+I bought a padlock for my backyard. So that my son isn't able to get out of
+the yard when he's playing back there. And as you know, with padlocks,
+you can set the combination. Well, something went wrong when I was
+trying to set the combination and somehow or another it was locked and
+I didn't know the combination. So I'm stuck with this quandary, go buy
+a new lock or essentially brute force. One by one, check every combination. And this ties in so well to what Mia's
+been explaining about algorithm analysis. Because, I essentially have a best case,
+an average case, and a worst case, and I had to compare that against
+the cost of buying a new one. So the best case, is I try the very
+first combination, say zero, zero, zero, and it works. That'd be fantastic,
+the worst case though, is I might go from 000 all the way to 999. And that could take a really long time. And that'd be really bad. And then the average case really is well,
+on average I'm gonna find this around 500. So being a bit frugal,
+I decided I actually want to try it and I ran through all the combinations. I actually got to 338 when it opened. So I got lucky. It's a little bit better than my
+average case expectation on the time. So what I encourage you to do when you are
+learning about all these abstract concepts related to computer science,
+try to relate it to the real world. See how it's applying to
+you in your everyday life.

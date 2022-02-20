@@ -1,0 +1,89 @@
+[MUSIC] When we started thinking about trees, one
+of the things that we really need to know how to do is essentially,
+how to traverse them. If I'm trying to look for
+something in the tree, how do I find it? What order do I want to
+go through the notes? So we're talk through in this video is
+essentially a number of different ways that you can do traversals. In this video and the next. So by the end of this video,
+you will be able to explain the need to visit data in different ways or
+in different orderings. You should be able to author
+a preorder traversal in Java. So first, we're gonna look at
+some traversals in graphs. And I want to say there's
+a big warning here, and we're gonna be looking at graphs here. But we're not gonna cover
+graphs till the next course. I'm just doing this to help motivate why
+you might want to look at different data in different orderings. So let's start with a maze. So if I'm at the start of, and I want
+you to imagine this is a hedge maze. You can't see the whole maze, this isn't like you're working
+with some paper and pencil. It's you physically in this huge maze. And you start in the maze. You've got choices to make. And let's just say that you make the
+choice to keep going straight, initially. Now, what's your next step? So, you've gone straight. You made the choice already. And now you have to make another choice. Do I go left? Do I keep going straight? Well, you might do the going straight. You might turn left. But I almost guarantee you what you won't
+do is say, well maybe I was wrong making that step forward, let me go back and
+go the other direction. You wouldn't do that. When you're traversing a maze, you want
+to go until you find a dead end, and then you go back to the last choice
+you made and make a different choice. And mazes lend themselves
+well to this approach. Another example would be a social network. Let's say I'm trying to figure out,
+I've got you in the center here, and I'm trying to figure out how closely
+are you connected with person D. Now let's imagine that I
+have a list of your friends. So you have a list of A, B, C, D. And your friend A,
+has a list of friends E, F, and U. So, how am I gonna find how
+closely connected am I with D? Well, I'm probably gonna start walking
+through my list, and I'm gonna look, and I'm gonna see that I'm friends with A. Well, what's my next step? Should I start looking at A's friends, or
+should I start looking at my next friend, to figure out how closely
+connected I am with D? You almost certainly in this case are now
+gonna look at all of your friends first, and then branch out. And this kind of traversal is known
+as Breadth First Traversal, and we'll see how these apply for
+trees in the next few videos. But the bottom line here is the order
+in which your nodes matters and we need to make choices based on
+the needs of our data structure. So we're talking about tree traversals,
+we're going to do the same thing. We're gonna be walking through
+nodes in different orders, to essentially see what we're looking for. So let's start with a preorder traversal. And we're gonna do four traversals
+between this video and the next. The idea for preorder traversal,
+is to visit yourself, then visit all of your left subtree,
+in the exact same way as you did for yourself, and then you're
+gonna go visit your right subtree. That is known as a preorder traversal. What I want to do is walk
+through the steps of this, and then we'll come back to thinking
+about how we might code it. So first off, let's start with ourselves
+at A, and we mark A as visited. Next thing is to visit
+all of my left subtree. So now I'm gonna go to B, and
+I'm gonna mark B as visit. I'm running the same code now for B. B is next up after visiting itself,
+so look at B's left subtree is D. And that's the one I'm
+gonna mark now as visited. So D has already marked itself as visit, it's next step is to
+visit it's left subtree. It doesn't have a left subtree, so
+we're not gonna do anything there. The next step for
+D is to visit it's right subtree. It doesn't have a right subtree either,
+so were not gonna do anything there. And since we've done all the work for D we're gonna step back up the tree,
+back to B. So we visited all of B's
+left subtree right now, but we haven't visited all
+of B's right subtree. So next step is to run the same code on E. We're gonna visit E and then we're gonna
+look at its left subtree which is empty. We're gonna look at its right
+subtree which is empty. At this point, I've finished doing all
+the work that I was supposed to for E and B, but
+I haven't finished doing the work for A. So A, I still need to visit
+all of its right subtree. So now I'm going to go in and visit C. I'm gonna visit C's left subtree,
+which is F. And we're gonna learn at F's left and
+right subtree. Both of those are empty. I'm gonna come back to C. And we're now gonna
+visit C's right subtree. And we're gonna visit G. And now, I finished all the work for G. I finished all the work I need to do for
+C. And I finished all the work
+I needed to do for A. And I've done my preorder
+traversal at this point. So this problem is going to
+lend itself well to recursion. And we've seen a little bit of that so
+far. The idea here is that
+when we are looking at A, I have the problem of visiting all of my
+left subtree and all of my right subtree. Right? But the same thing is true, so
+for this tree A is the root. But if you imagine a tree that's rooted
+at B, the same thing would apply. So when I try to run this on B,
+I'm gonna do the exact same thing. I'm gonna look at B and I'm gonna look
+at its left and its right subtrees. So the approach I'm gonna take here
+is recursive and what I wanna do is I wanna give you a method and
+we're gonna kind of trace through it. What we're gonna do is
+start by just asking. It's gonna take in a node and this is
+the node that's the root of a subtree or the whole tree. And it's gonna say, is this node null? If the node's null, that subtree
+doesn't exist, we can just quit. But if it isn't null, I'm gonna visit and
+then I'm gonna visit it's left subrtree. And to do that i'm gonna call
+the same method within itself, and that's what we mean by recursion. So, I'm gonna call my whole left subtree,
+it's gonna do all the work for it's subtree, it's gonna come back and then
+we're gonna do the whole right subtree. And this may seem really short and
+really clean. It is. This is why I'm doing this recursively. To do these kind of traversals
+recursively, it's short, it's clean, it's nice for the code. There are ways to do it iteratively, and
+we'll talk about those in a little while. Last step here is to have a public method,
+which is called preOrder. And there, I'm just gonna pass
+in root to my helper method and everything's gonna work just fine. So this is the code to actually
+do a full preOrder traversal just like we talked about. In the next video, we'll start looking
+at three different kinds of traversals, and we'll go from there.

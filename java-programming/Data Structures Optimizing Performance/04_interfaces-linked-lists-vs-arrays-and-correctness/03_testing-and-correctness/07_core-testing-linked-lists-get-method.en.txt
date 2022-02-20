@@ -1,0 +1,93 @@
+[MUSIC] In the last few videos, we started looking
+at more details about how to do testing. And so
+far we've looked at a really high level. We've been talking about
+why testing's important, how you can do it in
+the development cycle, and we kinda ended at this point of saying,
+well, we need to be able to test methods. For me, testing didn't quite make sense
+until I saw it in a clear example. So what we're gonna do
+here is do exactly that. We're gonna walk through a single
+example of testing a single method from your linked list. So the goal by the end of this video is to
+be able to write tests for linked lists, which is what you're being asked to do for
+the project. So let's start with a doubly linked
+list like we been working with before. We've still got a head pointer
+pointing to the sentinel node. You got tail pointer pointing to the tail
+sentinel and we've got both next and previous pointers all the way throughout. We're gonna be testing the method get. This is a quick reminder, get takes and is an index, and it's gonna return back
+the value of that element at that index. So it's gonna walk through the link list, find index say 1 and return back 42 here. Now if you ask for something that's
+invalid like I asked for index 10 for a list that only has two elements
+it should throw an index out of bounds exception. So we need to be able to
+test that behavior too. We'll get to that in just a bit. So I have the idea now to
+essentially test this git method. But what test should I run? Now here are the scenarios. These are all different tests
+I could potentially run. And I want you to select which
+ones you think apply, and try to avoid ones that might be redundant,
+compared to previous ones. So if you think it's already been tested, you can essentially say
+that this is redundant. I don't need to test this anymore. Go ahead and
+take a few minutes to work on this quiz. I'll see you back in a moment. Welcome back. I hope that working through this
+helped you understand better what kind of tests we should run and
+which ones we shouldn't. So let's walk through each
+of these in more detail. So first off should I test
+get (0) on an empty list? Where would this be important? Well this is a very good example of
+a corner case where you have empty lists, you better be sure that you're testing
+that it's gonna throw an out of bounds exception if you're trying
+to get an element from it. So this is a perfect
+test of a corner case. How do I do this test? Well if we're working in JUnit,
+like we talked about in the last video, what you're gonna do is
+simply write this test. You're gonna say try. You're gonna put, because
+emptList.get can throw an exception, you're gonna put this in a try block. And the correct behavior is for
+it to throw an exception. So you want it to throw
+an IndexOutOfBoundsException, and you want that to get caught. That is actually the right behavior here. The wrong behavior is for it to just
+get without throwing that exception, or to throw some other kind of exception. So if you do emptyList.get and you get something back instead
+of throwing exception, you'll then execute the code fail
+which is essentially, you failed here. This should have thrown an exception. Next test. Should we be testing get
+on a negative value? Well there's a lot of scenarios you
+can think about in code where you might accidentally ask for negative index. It's important if you're asking for
+negative index, for that to fail as well. This is another great
+example of a corner case. The way you'd test this is very
+similar to the test we just saw. And we have a short list. This is a list I have instantiated to have
+the elements that you see up at the top. It's got just that one element 65 and
+we're gonna try get -1 on it. And that should fail. That should throw
+an IndexOutOfBoundsException. If it fails to do that,
+we should essentially fail a test. That's exactly what this code does. Next one, should a test get 0
+from a list with 1 element. Is this worth running? Absolutely. This is a standard use case. I definitely wanna be able to get
+the first element from a list that has one element. How would I write that in JUnit? I would essentially say assertEquals and that means these two better be equal,
+or this test fails. That's what assertEquals means. And then what I do is I put
+a string in there first to say, check to make sure
+the first element's there. And then I'm gonna test,
+I'm gonna give the value that I expect, which is the (Interger) value for 65. And then I'm gonna call the shortlist,
+which has just this one element, .get(0). And that should return back 65,
+these two should match. If the assertEquals succeeds, we're fine. If those two don't match,
+it'll fail, and my test will fail. All right. Do we wanna try,
+get one from a list with two elements, or do we think this is potentially redundant? Well this one's a bit debatable. If you're thinking of black box testing,
+you might say this is redundant. But if we know just a little
+bit about the implementation, it's completely reasonable
+to run this test, because we want to be able to know that we
+can get more than just the first element. For example,
+your code could work just to say essentially head.next to
+get the first element without ever running any loops to get to
+the most appropriate element on the list. So because I know that my code
+is gonna have loops in it, I kind of know a bit of the details
+about the implementation, and I want to test to make sure I can get
+any element, not just the first one. So this is a completely
+reasonable test to run, but again I'm kind of knowing a bit of
+the details about the implementation. All right. The way I would do this is
+just like the last one. I'm gonna say assertEquals, I wanna
+make sure that if I call shortlist2, this is the one that has these
+two elements, that get(1)), it should return back
+to me the value of 42. I'm just gonna make sure
+those two values are equal. If they are, the test passes. If they're not, my test will fail. All right, last one. Should I test to get 2 from
+a list that has 3 elements, and that's the 3 elements we see up above. Well, now we're being redundant. I already know that I can test, I can find more than the first
+element because of the last test d. What you could argue is,
+maybe this is a better test than d, than option d which is just find
+the second elements in the list. One of these tests is required to
+essentially find, to test whether or not can find more than the first element,
+but only one of them. At a certain point if you just
+keep running this over and over, it's gonna get a bit redundant. In summary, the most important thing
+is to consider both the corner cases we are testing as well as the common case. Again this is the most important piece. Make sure you test these components and
+test them well. Less important there is a cost
+associated with testing. Most companies run unit
+tests overnight and this is gonna take some number of hours. When you're running code overnight, you're
+running code usually on your servers which means you're paying power costs
+associated with running these tests. So if you have a lot of extra redundant
+tests that could be problematic. But in general,
+the rule is just err on the safe side. Test the things that you
+think should be tested and then worry about those redundant
+cases eventually later.

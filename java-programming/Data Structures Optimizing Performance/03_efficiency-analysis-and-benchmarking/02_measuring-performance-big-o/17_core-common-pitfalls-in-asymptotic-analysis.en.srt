@@ -1,0 +1,436 @@
+1
+00:00:00,008 --> 00:00:05,603
+[SOUND] All right, we're ready to wrap
+up our discussion of performance,
+
+2
+00:00:05,603 --> 00:00:10,479
+and I just wanna mention that
+we're really only touching the tip
+
+3
+00:00:10,479 --> 00:00:13,926
+of the iceberg here in
+terms of performance.
+
+4
+00:00:13,926 --> 00:00:16,317
+But we'll talk a lot more
+about big O analysis and
+
+5
+00:00:16,317 --> 00:00:20,940
+asymptotics as the course progresses and
+throughout the rest of the specialization.
+
+6
+00:00:20,940 --> 00:00:23,030
+So by the end of this particular video and
+
+7
+00:00:23,030 --> 00:00:26,770
+this lesson, you'll have a sense
+of organizing the big O classes
+
+8
+00:00:26,770 --> 00:00:30,750
+according to their rate of growth, so
+you'll be able to compare two classes.
+
+9
+00:00:30,750 --> 00:00:33,360
+And you'll also be able to avoid
+some of the common pitfalls
+
+10
+00:00:33,360 --> 00:00:35,130
+in asymptotic analysis.
+
+11
+00:00:35,130 --> 00:00:38,460
+So let's start by thinking about
+the classes that we've been talking about.
+
+12
+00:00:38,460 --> 00:00:42,020
+We talked about constant time, so O(1).
+
+13
+00:00:42,020 --> 00:00:44,270
+And those are really operations or
+
+14
+00:00:44,270 --> 00:00:49,820
+pieces of code that don't depend
+on the size of the input at all.
+
+15
+00:00:49,820 --> 00:00:53,080
+And then we went on and
+talked about O(log n).
+
+16
+00:00:53,080 --> 00:00:57,835
+And so, here you saw in the concept
+challenge earlier on that the base of
+
+17
+00:00:57,835 --> 00:01:02,052
+the logarithm doesn't matter,
+but log n does grow as n grows.
+
+18
+00:01:02,052 --> 00:01:06,443
+And then O(n) even faster,
+and so we have linear time,
+
+19
+00:01:06,443 --> 00:01:09,680
+which grows more quickly than log n time.
+
+20
+00:01:09,680 --> 00:01:13,181
+And then as we keep going,
+we see the, for example,
+
+21
+00:01:13,181 --> 00:01:15,977
+quadratic goes even faster than O(n).
+
+22
+00:01:15,977 --> 00:01:20,120
+Now, we haven't even touched
+most of the complexity classes.
+
+23
+00:01:20,120 --> 00:01:22,260
+These are some standard ones
+that are very useful for
+
+24
+00:01:22,260 --> 00:01:25,370
+the analysis of the code snippets
+that we've been thinking about.
+
+25
+00:01:25,370 --> 00:01:30,290
+But there are others that come into
+play very often when we do complexity.
+
+26
+00:01:30,290 --> 00:01:33,860
+For example,
+exponential functions come in quite often.
+
+27
+00:01:33,860 --> 00:01:36,820
+And we'll talk about those
+a little bit later on.
+
+28
+00:01:36,820 --> 00:01:41,790
+But also, basically any normal
+usual function on integers
+
+29
+00:01:41,790 --> 00:01:45,240
+can be use as a complexity
+function often if it's increasing.
+
+30
+00:01:45,240 --> 00:01:48,240
+And you can do similar
+asymptotic analysis with those.
+
+31
+00:01:49,360 --> 00:01:53,650
+What you wanna keep in mind isn't all of
+the complexity that comes into play there,
+
+32
+00:01:53,650 --> 00:01:58,530
+but rather, that these are useful
+measures for giving us a sense
+
+33
+00:01:58,530 --> 00:02:03,120
+of how we can expect our algorithm
+to perform as our input size grows.
+
+34
+00:02:03,120 --> 00:02:06,370
+And what we'd like is for
+our run time not to go too fast so
+
+35
+00:02:06,370 --> 00:02:11,310
+that we can actually run our code and run
+our algorithms on really big data, okay?
+
+36
+00:02:11,310 --> 00:02:13,790
+So that's one thing to keep in mind.
+
+37
+00:02:13,790 --> 00:02:18,140
+Now, let's think about if we have
+two separate algorithms, and
+
+38
+00:02:18,140 --> 00:02:22,592
+we've done this computation, and
+we've looked at the asymptotics of their
+
+39
+00:02:22,592 --> 00:02:27,280
+run time, of their performance, and we've
+decided that algorithm 1 is O(log n) and
+
+40
+00:02:27,280 --> 00:02:31,150
+algorithm 2 is quadratic, so
+its big O time is n squared.
+
+41
+00:02:31,150 --> 00:02:35,460
+So thinking back to the progression of
+complexity classes that we just saw,
+
+42
+00:02:35,460 --> 00:02:39,200
+we might think that algorithm 2
+is way worse than algorithm 1,
+
+43
+00:02:39,200 --> 00:02:41,540
+it's quadratic instead of logarithmic.
+
+44
+00:02:41,540 --> 00:02:44,770
+And so the question that
+we might ask ourselves is,
+
+45
+00:02:44,770 --> 00:02:48,500
+does Algorithm 1 always run
+faster than Algorithm 2?
+
+46
+00:02:48,500 --> 00:02:53,120
+Is it always going to be the case that
+Algorithm 1 uses fewer operations?
+
+47
+00:02:53,120 --> 00:02:57,060
+And this is a really common
+misconception that just because log n
+
+48
+00:02:57,060 --> 00:03:02,250
+grows more slowly than n squared, that
+Algorithm 1 will always beat Algorithm 2.
+
+49
+00:03:02,250 --> 00:03:05,930
+And what you wanna keep in mind is that
+the answer is no, it's not always going to
+
+50
+00:03:05,930 --> 00:03:11,110
+be the case that a logarithmic algorithm
+will outperform the quadratic algorithm.
+
+51
+00:03:11,110 --> 00:03:15,960
+But in the long run,
+as you get to bigger and bigger inputs and
+
+52
+00:03:15,960 --> 00:03:20,740
+really huge data sets that you're
+processing, in that case then yes.
+
+53
+00:03:20,740 --> 00:03:23,700
+In that case,
+the quadratic algorithm will be slower.
+
+54
+00:03:23,700 --> 00:03:27,710
+But, at the beginning, we might
+have some initialization processes.
+
+55
+00:03:27,710 --> 00:03:32,610
+We might have some constants that will
+mean for small cases, you might wanna
+
+56
+00:03:32,610 --> 00:03:35,350
+go with the n squared algorithm,
+maybe because it's easier to implement.
+
+57
+00:03:35,350 --> 00:03:36,740
+It's easier to code up.
+
+58
+00:03:36,740 --> 00:03:40,020
+And so, you might want to go with
+a slightly slower algorithm.
+
+59
+00:03:40,020 --> 00:03:45,250
+Slower in the worst-case, but one that,
+for the cases that you care about,
+
+60
+00:03:45,250 --> 00:03:48,290
+the inputs, the real-world inputs
+that you're using might be just fine.
+
+61
+00:03:48,290 --> 00:03:52,490
+And so that's a useful piece of
+thinking of an asymptotics and
+
+62
+00:03:52,490 --> 00:03:54,150
+bringing it back to the real world.
+
+63
+00:03:55,280 --> 00:04:00,510
+All right, last but not least, we have
+to think about what's an operation.
+
+64
+00:04:00,510 --> 00:04:04,770
+When we've been doing all of this
+asymptotic analysis, really at the heart,
+
+65
+00:04:04,770 --> 00:04:06,240
+we've been counting operations.
+
+66
+00:04:06,240 --> 00:04:09,070
+At the heart of this process,
+we've been counting operations.
+
+67
+00:04:09,070 --> 00:04:12,690
+And at the beginning, we said that
+an operation is some basic unit of
+
+68
+00:04:12,690 --> 00:04:18,250
+computation whose time doesn't depend on
+the size of the input that we've given it.
+
+69
+00:04:18,250 --> 00:04:22,460
+And so the example that we started
+with was this hasLetter method, and
+
+70
+00:04:22,460 --> 00:04:27,090
+we were going ahead and counting all
+sorts of pieces of this code, and
+
+71
+00:04:27,090 --> 00:04:30,380
+each of the statements that
+are boxed in yellow on the slide,
+
+72
+00:04:30,380 --> 00:04:32,960
+we counted as a single operation.
+
+73
+00:04:32,960 --> 00:04:38,770
+But, I wanna caution you about
+counting methods as single operations,
+
+74
+00:04:38,770 --> 00:04:43,900
+because here for example, what we're doing
+with this charAt method, is we're asking
+
+75
+00:04:43,900 --> 00:04:49,490
+for the character that occurs in index
+i in a string, in the string word.
+
+76
+00:04:49,490 --> 00:04:53,980
+And so what the means is that we need
+to interact with the string object and
+
+77
+00:04:53,980 --> 00:04:59,000
+ask for it to give us some piece of it,
+the character at a particular index.
+
+78
+00:04:59,000 --> 00:05:03,090
+And what's going to happen is that
+the run time of that operation
+
+79
+00:05:03,090 --> 00:05:07,190
+may depend on what that object looks like
+and the internals of that object and
+
+80
+00:05:07,190 --> 00:05:09,540
+what that method charAt does.
+
+81
+00:05:09,540 --> 00:05:14,350
+And so when we're actually looking at
+method calls as part of the analysis
+
+82
+00:05:14,350 --> 00:05:18,300
+of a bigger code snippet,
+we really have to think about
+
+83
+00:05:18,300 --> 00:05:23,320
+whether that method call represents O(1)
+work, just a constant amount of work.
+
+84
+00:05:23,320 --> 00:05:26,560
+Or whether that single
+method call might represent
+
+85
+00:05:26,560 --> 00:05:31,830
+a whole lot more time that we might need
+to include in our asymptotic analysis.
+
+86
+00:05:31,830 --> 00:05:36,300
+So as I said, this is really just the tip
+of the iceberg, but we'll be continuing to
+
+87
+00:05:36,300 --> 00:05:40,860
+revisit this cycle of thinking about the
+algorithm and data structure design, and
+
+88
+00:05:40,860 --> 00:05:44,010
+then thinking about the performance
+implications of those designs.
+
+89
+00:05:44,010 --> 00:05:47,540
+And then going back and maybe refining
+our algorithm or data structure design
+
+90
+00:05:47,540 --> 00:05:51,060
+to get better performance, and going
+back and forth in this productive loop

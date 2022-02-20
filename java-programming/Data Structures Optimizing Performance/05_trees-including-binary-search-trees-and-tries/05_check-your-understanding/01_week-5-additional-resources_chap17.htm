@@ -1,0 +1,512 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<title>Chapter 17: Trees</title>
+
+<style type="text/css">
+<!--
+body {background-color: white; color: black;}
+a {background-color: white; color: blue; text-decoration: underline;}
+a:hover {text-decoration: none;}
+td.head,td.headcenter {background-color: #99ccff; color: black;}
+td.headcenter {width: 100%; text-align: center;}
+img {border-style: none;}
+-->
+</style>
+
+
+<style type="text/css">
+<!--
+.code {font-family: Courier; font-size: 85%;}
+.keyword {color: #0000ff;}
+.comment {color: #008000;}
+.quote {color: #ff0000;}
+.function {color: #0000ff;}
+-->
+</style>
+
+</head>
+
+<body>
+
+<hr>
+<table width="100%" cellpadding="0" cellspacing="2" border="0">
+  <tr>
+    <td width="20" class=head><a href="chap18.htm"><img border="0" alt="Next" src="images/next.png"></a></td>
+    <td width="20" class=head><a href="index.htm"><img border="0" alt="Up" src="images/up.png"></a></td>
+    <td width="20" class=head><a href="chap16.htm"><img border="0" alt="Previous" src="images/prev.png"></a></td>
+    <td width="100%" class=headcenter><img border="0" alt="Hi" src="images/headertitle.png"></td>
+    <td width="20" class=head><img border="0" alt="" src="images/blank.png"></td>
+    <td width="20" class=head><a href="dex.htm"><img border="0" alt="Index" src="images/index.png"></a></td>
+    <td width="20" class=head><img border="0" alt="" src="images/blank.png"></td>
+  </tr>
+</table>
+<hr>
+
+
+<h2>Chapter 17</h2>
+
+<h1>Trees</h1>
+
+
+<p>This chapter presents a new data structure called a tree, some of its uses and two ways to implement it.</p>
+
+<p>A possible source of confusion is the distinction between an ADT, a data structure, and an implementation of an ADT or data structure.  There is no universal answer, because something that is an ADT at one level might in turn be the implementation of another ADT.</p>
+
+
+
+<p>To help keep some of this straight, it is sometimes useful to draw a diagram showing the relationship between an ADT and its possible implementations.  This figure shows that there are two implementations of a tree:</p>
+
+<p align="center"><img src="images/tree_adt.png"></p>
+
+<p>The horizontal line in the figure represents the barrier of abstraction between the ADT and its implementations.</p>
+
+<a name=1></a><br>
+<h3>17.1 A tree node</h3>
+
+<p>Like lists, trees are made up of nodes.  A common kind of tree is a <b>binary tree</b>, in which each node contains a reference to two other nodes (possibly null).  The class definition looks like this:</p>
+
+
+<span class=code><span class=keyword>public class</span> Tree {
+<br>&nbsp; &nbsp; Object cargo;
+<br>&nbsp; &nbsp; Tree left, right;
+<br>}
+<br></span><p>Like list nodes, tree nodes contain cargo: in this case a generic <span class=code>Object</span>.  The other instance variables are named <span class=code>left</span> and <span class=code>right</span>, in accordance with a standard way to represent trees graphically:</p>
+
+<p align="center"><img src="images/tree1.png"></p>
+
+<p>The top of the tree (the node referred to by <span class=code>tree</span>) is called the <b>root</b>.  In keeping with the tree metaphor, the other nodes are called branches and the nodes at the tips with null references are called <b>leaves</b>.  It may seem odd that we draw the picture with the root at the top and the leaves at the bottom, but that is not the strangest thing.</p>
+
+
+
+<p>To make things worse, computer scientists mix in yet another metaphor: the family tree.  The top node is sometimes called a <b>parent</b> and the nodes it refers to are its <b>children</b>. Nodes with the same parent are called <b>siblings</b>, and so on.</p>
+
+<p>Finally, there is also a geometric vocabulary for taking about trees.  I already mentioned left and right, but there is also "up" (toward the parent/root) and down (toward the children/leaves).  Also, all the nodes that are the same distance from the root comprise a <b>level</b> of the tree.</p>
+
+<p>I don't know why we need three metaphors for talking about trees, but there it is.</p>
+
+<a name=2></a><br>
+<h3>17.2 Building trees</h3>
+
+<p>The process of assembling tree nodes is similar to the process of assembling lists. We have a constructor for tree nodes that initializes the instance variables.</p>
+
+
+<span class=code>&nbsp; &nbsp; <span class=keyword>public</span> Tree (Object cargo, Tree left, Tree right) {
+<br>&nbsp; &nbsp; &nbsp; &nbsp; <span class=keyword>this</span>.cargo = cargo;
+<br>&nbsp; &nbsp; &nbsp; &nbsp; <span class=keyword>this</span>.left = left;
+<br>&nbsp; &nbsp; &nbsp; &nbsp; <span class=keyword>this</span>.right = right;
+<br>&nbsp; &nbsp; }
+<br></span><p>We allocate the child nodes first:</p>
+
+
+<span class=code>&nbsp; &nbsp; Tree left = <span class=keyword>new</span> Tree (<span class=keyword>new</span> Integer(2), <span class=keyword>null</span>, <span class=keyword>null</span>);
+<br>&nbsp; &nbsp; Tree right = <span class=keyword>new</span> Tree (<span class=keyword>new</span> Integer(3), <span class=keyword>null</span>, <span class=keyword>null</span>);
+<br></span><p>We can create the parent node and link it to the children at the same time:</p>
+
+
+<span class=code>&nbsp; &nbsp; Tree tree = <span class=keyword>new</span> Tree (<span class=keyword>new</span> Integer(1), left, right);
+<br></span><p>This code produces the state shown in the previous figure.</p>
+
+<a name=3></a><br>
+<h3>17.3 Traversing trees</h3>
+
+<p>By now, any time you see a new data structure, your first question should be, "How can I traverse it?"  The most natural way to traverse a tree is recursively.  For example, to add up all the integers in a tree, we could write this class method:</p>
+
+
+<span class=code>&nbsp; &nbsp; <span class=keyword>public static int</span> total (Tree tree) {
+<br>&nbsp; &nbsp; &nbsp; &nbsp; <span class=keyword>if</span> (tree == <span class=keyword>null</span>) <span class=keyword>return</span> 0;
+<br>&nbsp; &nbsp; &nbsp; &nbsp; Integer cargo = (Integer) tree.cargo;
+<br>&nbsp; &nbsp; &nbsp; &nbsp; <span class=keyword>return</span> cargo.intValue() + total (tree.left) + total (tree.right);
+<br>&nbsp; &nbsp; }
+<br></span><p>This is a class method because we would like to use <span class=code><span class=keyword>null</span></span> to represent the empty tree, and make the empty tree the base case of the recursion.  If the tree is empty, the method returns <span class=code>0</span>. Otherwise it makes two recursive calls to find the total value of its two children.  Finally, it adds in its own cargo and returns the total.</p>
+
+
+
+<p>Although this method works, there is some difficulty fitting it into an object-oriented design. It should not appear in the <span class=code>Tree</span> class because it requires the cargo to be <span class=code>Integer</span> objects.  If we make that assumption in <span class=code>Tree.java</span> then we lose the advantages of a generic data structure.</p>
+
+<p>On the other hand, this code accesses the instance variables of the <span class=code>Tree</span> nodes, so it "knows" more than it should about the implementation of the tree.  If we changed that implementation later (and we will) this code would break.</p>
+
+<p>Later in this chapter we will develop ways to solve this problem, allowing client code to traverse trees containing any kinds of objects without breaking the abstraction barrier between the client code and the implementation.  Before we get there, let's look at an application of trees.</p>
+
+<a name=4></a><br>
+<h3>17.4 Expression trees</h3>
+
+<p>A tree is a natural way to represent the structure of an expression. Unlike other notations, it can represent the comptation unambiguously. For example, the infix expression <span class=code>1 + 2 * 3</span> is ambiguous unless we know that the multiplication happens before the addition.</p>
+
+<p>The following figure represents the same computation:</p>
+
+<p align="center"><img src="images/tree2.png"></p>
+
+<p>The nodes can be operands like <span class=code>1</span> and <span class=code>2</span> or operators like <span class=code>+</span> and <span class=code>*</span>.  Operands are leaf nodes; operator nodes contain references to their operands (all of these operators are <b>binary</b>, meaning they have exactly two operands).</p>
+
+<p>Looking at this figure, there is no question what the order of operations is: the multiplication happens first in order to compute the first operand of the addition.</p>
+
+<p>Expression trees like this have many uses.  The example we are going to look at is translation from one format (postfix) to another (infix).  Similar trees are used inside compilers to parse, optimize and translate programs.</p>
+
+<a name=5></a><br>
+<h3>17.5 Traversal</h3>
+
+<p>I already pointed out that recursion provides a natural way to traverse a tree.  We can print the contents of an expression tree like this:</p>
+
+
+<span class=code>&nbsp; &nbsp; <span class=keyword>public static void</span> print (Tree tree) {
+<br>&nbsp; &nbsp; &nbsp; &nbsp; <span class=keyword>if</span> (tree == <span class=keyword>null</span>) <span class=keyword>return</span>;
+<br>&nbsp; &nbsp; &nbsp; &nbsp; System.out.print (tree + <span class=quote>" "</span>);
+<br>&nbsp; &nbsp; &nbsp; &nbsp; print (tree.left);
+<br>&nbsp; &nbsp; &nbsp; &nbsp; print (tree.right);
+<br>&nbsp; &nbsp; }
+<br></span><p>In other words, to print a tree, first print the contents of the root, then print the entire left subtree, then print the entire right subtree.  This way of traversing a tree is called a <b>preorder</b>, because the contents of the root appear before the contents of the children.</p>
+
+<p>For the example expression the output is <span class=code>+ 1 * 2 3</span>.  This is different from both postfix and infix; it is a new notation called <b>prefix</b>, in which the operators appear before their operands.</p>
+
+<p>You might suspect that if we traverse the tree in a different order we get the expression in a different notation.  For example, if we print the subtrees first, and then the root node:</p>
+
+
+<span class=code>&nbsp; &nbsp; <span class=keyword>public static void</span> printPostorder (Tree tree) {
+<br>&nbsp; &nbsp; &nbsp; &nbsp; <span class=keyword>if</span> (tree == <span class=keyword>null</span>) <span class=keyword>return</span>;
+<br>&nbsp; &nbsp; &nbsp; &nbsp; printPostorder (tree.left);
+<br>&nbsp; &nbsp; &nbsp; &nbsp; printPostorder (tree.right);
+<br>&nbsp; &nbsp; &nbsp; &nbsp; System.out.print (tree + <span class=quote>" "</span>);
+<br>&nbsp; &nbsp; }
+<br></span><p>We get the expression in postfix (<span class=code>1 2 3 * +</span>)!  As the name of the previous method implies, this order of traversal is called <b>postorder</b>.  Finally, to traverse a tree <b>inorder</b>, we print the left tree, then the root, then the right tree:</p>
+
+
+<span class=code>&nbsp; &nbsp; <span class=keyword>public static void</span> printInorder (Tree tree) {
+<br>&nbsp; &nbsp; &nbsp; &nbsp; <span class=keyword>if</span> (tree == <span class=keyword>null</span>) <span class=keyword>return</span>;
+<br>&nbsp; &nbsp; &nbsp; &nbsp; printInorder (tree.left);
+<br>&nbsp; &nbsp; &nbsp; &nbsp; System.out.print (tree + <span class=quote>" "</span>);
+<br>&nbsp; &nbsp; &nbsp; &nbsp; printInorder (tree.right);
+<br>&nbsp; &nbsp; }
+<br></span><p>The result is <span class=code>1 + 2 * 3</span>, which is the expression in infix.</p>
+
+<p>To be fair, I have to point out that I have omitted an important complication.  Sometimes when we write an expression in infix we have to use parentheses to preserve the order of operations.  So an inorder traversal is not quite sufficient to generate an infix expression.</p>
+
+<p>Nevertheless, with a few improvements, the expression tree and the three recursive traversals provide a general way to translate expressions from one format to another.</p>
+
+<a name=6></a><br>
+<h3>17.6 Encapsulation</h3>
+
+<p>As I mentioned before, there is a problem with the way we have been traversing trees: it breaks down the barrier between the client code (the application that uses the tree) and the provider code (the Tree implementation).  Ideally, tree code should be general; it shouldn't know anything about expression trees.  And the code that generates and traverses the expression tree shouldn't know about the implementation of the trees.  This design criterion is called <b>object encapsulation</b> to distinguish it from the encapsulation we saw in <a href="chap06.htm#6">Section 6.6</a>, which we might call <b>method encapsulation</b>.</p>
+
+<p>In the current version, the <span class=code>Tree</span> code knows too much about the client.  Instead, the <span class=code>Tree</span> class should provide the general capability of traversing a tree in various ways.  As it traverses, it should perform operations on each node that are specified by the client.</p>
+
+
+
+<p>To facilitate this separation of interests, we will create a new abstract class, called <span class=code>Visitable</span>.  The items stored in a tree will be required to be visitable, which means that they define a method named <span class=code>visit</span> that does whatever the client wants done to each node.  That way the Tree can perform the traversal and the client can perform the node operations.</p>
+
+<p>Here are the steps we have to perform to wedge an abstract class between a client and a provider:</p>
+
+<ol>
+
+<li>Define an abstract class that specifies the methods the provider code will need to invoke on its components.</li>
+
+<li>Write the provider code in terms of the new abstract class, as opposed to generic <span class=code>Objects</span>.</li>
+
+<li>Define a concrete class that belongs to the abstract class and that implements the required methods as appropriate for the client.</li>
+
+<li>Write the client code to use the new concrete class.</li>
+
+</ol>
+
+<p>The next few sections demonstrate these steps.</p>
+
+<a name=7></a><br>
+<h3>17.7 Defining an abstract class</h3>
+
+<p>An abstract class definition looks a lot like a concrete class definition, except that it only specifies the interface of each method and not an implementation.  The definition of <span class=code>Visitable</span> is</p>
+
+
+<span class=code><span class=keyword>public interface</span> Visitable {
+<br>&nbsp; &nbsp; <span class=keyword>public void</span> visit ();
+<br>}
+<br></span><p>That's it!  The word <span class=code><span class=keyword>interface</span></span> is Java's keyword for an abstract class.  The definition of <span class=code>visit</span> looks like any other method definition, except that it has no body.  This definition specifies that any class that implements <span class=code>Visitable</span> has to have a method named <span class=code>visit</span> that takes no parameters and that returns <span class=code><span class=keyword>void</span></span>.</p>
+
+
+
+<p>Like other class definitions, abstract class definitions go in a file with the same name as the class (in this case <span class=code>Visitable.java</span>).</p>
+
+<a name=8></a><br>
+<h3>17.8 Implementing an abstract class</h3>
+
+<p>If we are using an expression tree to generate infix, then "visiting" a node means printing its contents.  Since the contents of an expression tree are tokens, we'll create a new concrete class called <span class=code>Token</span> that implements <span class=code>Visitable</span></p>
+
+
+<span class=code><span class=keyword>public class</span> Token <span class=keyword>implements</span> Visitable {
+<br>&nbsp; &nbsp; String str;
+<br>
+<br>&nbsp; &nbsp; <span class=keyword>public</span> Token (String str) {
+<br>&nbsp; &nbsp; &nbsp; &nbsp; <span class=keyword>this</span>.str = str;
+<br>&nbsp; &nbsp; }
+<br>
+<br>&nbsp; &nbsp; <span class=keyword>public void</span> visit () {
+<br>&nbsp; &nbsp; &nbsp; &nbsp; System.out.print (str + <span class=quote>" "</span>);
+<br>&nbsp; &nbsp; }
+<br>}
+<br></span><p>When we compile this class definition (which is in a file named <span class=code>Token.java</span>), the compiler checks whether the methods provided satisfy the requirements specified by the abstract class.  If not, it will produce an error message.  For example, if we misspell the name of the method that is supposed to be <span class=code>visit</span>, we might get something like, "class Token must be declared abstract. It does not define void visit() from interface Visitable."</p>
+
+<p>The next step is to modify the parser to put <span class=code>Token</span> objects into the tree instead of <span class=code>Strings</span>.  Here is a small example:</p>
+
+
+<span class=code>&nbsp; &nbsp; String expr = <span class=quote>"1 2 3 * +"</span>;
+<br>&nbsp; &nbsp; StringTokenizer st = <span class=keyword>new</span> StringTokenizer (expr, <span class=quote>" +-*/"</span>, <span class=keyword>true</span>);
+<br>&nbsp; &nbsp; String token = st.nextToken();
+<br>&nbsp; &nbsp; Tree tree = <span class=keyword>new</span> Tree (<span class=keyword>new</span> Token (token), <span class=keyword>null</span>, <span class=keyword>null</span>));
+<br></span><p>This code takes the first token in the string and wraps it in a <span class=code>Token</span> object, then puts the <span class=code>Token</span> into a tree node. If the <span class=code>Tree</span> requires the cargo to be <span class=code>Visitable</span>, it will convert the <span class=code>Token</span> to be a <span class=code>Visitable</span> object. When we remove the <span class=code>Visitable</span> from the tree, we will have to cast it back into a <span class=code>Token</span>.</p>
+
+<p>As an exercise, write a version of <span class=code>printPreorder</span> called <span class=code>visitPreorder</span> that traverses the tree and invokes <span class=code>visit</span> on each node in preorder.</p>
+
+<a name=9></a><br>
+<h3>17.9 Array implementation of trees</h3>
+
+<p>What does it mean to "implement" a tree?  So far we have only seen one implementation of a tree, a linked data structure similar to a linked list.  But there are other structures we would like to identify as trees.  Anything that can perform the basic set of tree operations should be recognized as a tree.</p>
+
+<p>So what are the tree operation?  In other words, how do we define the Tree ADT?</p>
+
+<dl>
+
+<dt>constructor</dt>
+<dd>Build an empty tree.</dd>
+
+<dt><span class=code>empty</span></dt>
+<dd>Is this tree the empty tree?</dd>
+
+<dt><span class=code>left</span></dt>
+<dd>Return the left child of this node, or an empty tree if there is none.</dd>
+
+<dt><span class=code>right</span></dt>
+<dd>Return the left child of this node, or an empty tree if there is none.</dd>
+
+<dt><span class=code>parent</span></dt>
+<dd>Return the parent of this node, or an empty tree if this node is the root.</dd>
+
+</dl>
+
+<p>In the implementation we have seen, the empty tree is represented by the special value <span class=code><span class=keyword>null</span></span>.  <span class=code>left</span> and <span class=code>right</span> are performed by accessing the instance variables of the node.  We have not implemented <span class=code>parent</span> yet (you might think about how to do it).</p>
+
+<p>There is another implementation of trees that uses arrays and indices instead of objects and references.  To see how it works, we will start by looking at a hybrid implementation that uses both arrays and objects.</p>
+
+<p>This figure shows a tree like the ones we have been looking at, although it is laid out sideways, with the root at the left and the leaves on the right.  At the bottom there is an array of references that refer to the objects in the trees.</p>
+
+<p align="center"><img src="images/tree3.png"></p>
+
+<p>In this tree the cargo of each node is the same as the array index of the node, but of course that is not true in general.  You might notice that array index <span class=code>1</span> refers to the root node and array index <span class=code>0</span> is empty.  The reason for that will become clear soon.</p>
+
+<p>So now we have a tree where each node has a unique index. Furthermore, the indices have been assigned to the nodes according to a deliberate pattern, in order to achieve the following results:</p>
+
+<ol>
+
+<li>The left child of the node with index <tt>i</tt> has index <tt>2i</tt>.</li>
+
+<li>The right child of the node with index <tt>i</tt> has index <tt>2i + 1</tt>.</li>
+
+<li>The parent of the node with index <tt>i</tt> has index <tt>i/2</tt> (rounded down).</li>
+
+</ol>
+
+<p>Using these formulas, we can implement <span class=code>left</span>, <span class=code>right</span> and <span class=code>parent</span> just by doing arithmetic; we don't have to use the references at all!</p>
+
+<p>Since we don't use the references, we can get rid of them, which means that what used to be a tree node is now just cargo and nothing else.  That means we can implement the tree as an array of cargo objects; we don't need tree nodes at all.</p>
+
+<p>Here's what one implementation looks like:</p>
+
+
+<span class=code><span class=keyword>public class</span> Tree {
+<br>&nbsp; &nbsp; Object[] array;
+<br>
+<br>&nbsp; &nbsp; <span class=keyword>public</span> Tree () {
+<br>&nbsp; &nbsp; &nbsp; &nbsp; array = <span class=keyword>new</span> Object [128];
+<br>&nbsp; &nbsp; }
+<br></span><p>No surprises so far.  The instance variable is an array of <span class=code>Objects</span>.  The constructor initializes this array with an arbitrary initial size (we can always resize it later).</p>
+
+<p>To check whether a tree is empty, we check whether the root node is <span class=code><span class=keyword>null</span></span>.  Again, the root node is located at index 1.</p>
+
+
+<span class=code>&nbsp; &nbsp; <span class=keyword>public boolean</span> empty () {
+<br>&nbsp; &nbsp; &nbsp; &nbsp; <span class=keyword>return</span> (array[1] == <span class=keyword>null</span>);
+<br>&nbsp; &nbsp; }
+<br></span><p>The implementation of <span class=code>left</span>, <span class=code>right</span> and <span class=code>parent</span> is just arithmetic:</p>
+
+
+<span class=code>&nbsp; &nbsp; <span class=keyword>public int</span> left (<span class=keyword>int</span> i) {&nbsp; <span class=keyword>return</span> 2*i;&nbsp; }
+<br>&nbsp; &nbsp; <span class=keyword>public int</span> right (<span class=keyword>int</span> i) {&nbsp; <span class=keyword>return</span> 2*i + 1;&nbsp; }
+<br>&nbsp; &nbsp; <span class=keyword>public int</span> parent (<span class=keyword>int</span> i) {&nbsp; <span class=keyword>return</span> i/2;&nbsp; }
+<br></span><p>Only one problem remanins. The node "references" we have are not really references; they are integer indices. To access the cargo itself, we have to get or set an element of the array. For that kind of operation, it is often a good idea to provide methods that perform simple error checking before accessing the data structure.</p>
+
+
+
+
+<span class=code>&nbsp; &nbsp; <span class=keyword>public</span> Object getCargo (<span class=keyword>int</span> i) {
+<br>&nbsp; &nbsp; &nbsp; &nbsp; <span class=keyword>if</span> (i &lt; 0 || i &gt;= array.length) <span class=keyword>return null</span>;
+<br>&nbsp; &nbsp; &nbsp; &nbsp; <span class=keyword>return</span> array[i];
+<br>&nbsp; &nbsp; }
+<br>
+<br>&nbsp; &nbsp; <span class=keyword>public void</span> setCargo (<span class=keyword>int</span> i, Object obj) {
+<br>&nbsp; &nbsp; &nbsp; &nbsp; <span class=keyword>if</span> (i &lt; 0 || i &gt;= array.length) <span class=keyword>return</span>;
+<br>&nbsp; &nbsp; &nbsp; &nbsp; array[i] = obj;
+<br>&nbsp; &nbsp; }
+<br></span><p>Methods like this are often called <b>accessor methods</b> because they provide access to a data structure (the ability to get and set elements) without letting the client see the details of the implementation.</p>
+
+<p>Finally we are ready to build a tree.  In another class (the client), we would write</p>
+
+
+<span class=code>&nbsp; &nbsp; Tree tree = <span class=keyword>new</span> Tree ();
+<br>&nbsp; &nbsp; <span class=keyword>int</span> root = 1;
+<br>&nbsp; &nbsp; tree.setCargo (root, <span class=quote>"cargo for root"</span>);
+<br></span><p>The constructor builds an empty tree.  In this case we assume that the client knows that the index of the root is <span class=code>1</span> although it would be preferable for the tree implementation to provide that information.  Anyway, invoking <span class=code>setCargo</span> puts the string <span class=code><span class=quote>"cargo for root"</span></span> into the root node.</p>
+
+<p>To add children to the root node:</p>
+
+
+<span class=code>&nbsp; &nbsp; tree.setCargo (tree.left (root), <span class=quote>"cargo for left"</span>);
+<br>&nbsp; &nbsp; tree.setCargo (tree.right (root), <span class=quote>"cargo for right"</span>);
+<br></span><p>In the tree class we could provide a method that prints the contents of the tree in preorder.</p>
+
+
+<span class=code>&nbsp; &nbsp; <span class=keyword>public void</span> printPreorder (<span class=keyword>int</span> i) {
+<br>&nbsp; &nbsp; &nbsp; &nbsp; <span class=keyword>if</span> (getNode (i) == <span class=keyword>null</span>) <span class=keyword>return</span>;
+<br>&nbsp; &nbsp; &nbsp; &nbsp; System.out.println (getNode (i));
+<br>&nbsp; &nbsp; &nbsp; &nbsp; printPreorder (left (i));
+<br>&nbsp; &nbsp; &nbsp; &nbsp; printPreorder (right (i));
+<br>&nbsp; &nbsp; }
+<br></span><p>We invoke this method from the client by passing the root as a parameter.</p>
+
+
+<span class=code>&nbsp; &nbsp; tree.print (root);
+<br></span><p>The output is</p>
+
+
+<span class=code>cargo <span class=keyword>for</span> root
+<br>cargo <span class=keyword>for</span> left
+<br>cargo <span class=keyword>for</span> right
+<br></span><p>This implementation provides the basic operations required to be a tree, but it leaves a lot to be desired.  As I pointed out, we expect the client to have a lot of information about the implementation, and the interface the client sees, with indices and all, is not very pretty.</p>
+
+<p>Also, we have the usual problem with array implementations, which is that the initial size of the array is arbitrary and it might have to be resized.  This last problem can be solved by replacing the array with a <span class=code>Vector</span>.</p>
+
+<a name=10></a><br>
+<h3>17.10 The <span class=code>Vector</span> class</h3>
+
+<p>The <span class=code>Vector</span> is a built-in Java class in the <span class=code>java.util</span> package.  It is an implementation of an array of <span class=code>Objects</span>, with the added feature that it can resize itself automatically, so we don't have to.</p>
+
+<p>The <span class=code>Vector</span> class provides methods named <span class=code>get</span> and <span class=code>set</span> that are similar to the <span class=code>getCargo</span> and <span class=code>setCargo</span> methods we wrote for the <span class=code>Tree</span> class. You should review the other <span class=code>Vector</span> operations by consulting the online documentation.</p>
+
+<p>Before using the <span class=code>Vector</span> class, you should understand a few concepts.  Every <span class=code>Vector</span> has a capacity, which is the amount of space that has been allocated to store values, and a size, which is the number of values that are actually in the vector.</p>
+
+<p>The following figure is a simple diagram of a <span class=code>Vector</span> that contains three elements, but it has a capacity of seven.</p>
+
+<p align="center"><img src="images/vector.png"></p>
+
+<p>In general, it is the responsibility of the client code to make sure that the vector has sufficient <i>size</i> before invoking <span class=code>set</span> or <span class=code>get</span>.  If you try to access an element that does not exist (in this case the elements with indices 3 through 6), you will get an <span class=code>ArrayIndexOutOfBounds</span> exception.</p>
+
+
+
+<p>The <span class=code>Vector</span> methods use the <span class=code>add</span> and <span class=code>insert</span> automatically increase the size of the <span class=code>Vector</span>, but <span class=code>set</span> does not.  The <span class=code>resize</span> method adds <span class=code><span class=keyword>null</span></span> elements to the end of the <span class=code>Vector</span> to get to the given size.</p>
+
+<p>Most of the time the client doesn't have to worry about capacity.  Whenever the size of the <span class=code>Vector</span> changes, the capacity is updated automatically. For performance reasons, some applications might want to take control of this function, which is why there are additional methods for increasing and decreasing capacity.</p>
+
+<p>Because the client code has no access to the implementation of a vector, it is not clear how we should traverse one.  Of course, one possibility is to use a loop variable as an index into the vector:</p>
+
+
+<span class=code>&nbsp; &nbsp; &nbsp; &nbsp; <span class=keyword>for</span> (<span class=keyword>int</span> i=0; i&lt;v.size(); i++) {
+<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; System.out.println (v.get(i));
+<br>&nbsp; &nbsp; &nbsp; &nbsp; }
+<br></span><p>There's nothing wrong with that, but there is another way that serves to demonstrate the <span class=code>Iterator</span> class.  Vectors provide a method named <span class=code>iterator</span> that returns an <span class=code>Iterator</span> object that makes it possible to traverse the vector.</p>
+
+<a name=11></a><br>
+<h3>17.11 The <span class=code>Iterator</span> class</h3>
+
+<p><span class=code>Iterator</span> is an abstract class in the <span class=code>java.util</span> package.  It specifies three methods:</p>
+
+<dl>
+
+<dt><span class=code>hasNext</span></dt>
+<dd>Does this iteration have more elements?</dd>
+
+<dt><span class=code>next</span></dt>
+<dd>Return the next element, or throw an exception if there is none.</dd>
+
+<dt><span class=code>remove</span></dt>
+<dd>Remove from the collection the last element that was returned.</dd>
+
+</dl>
+
+<p>The following example uses an iterator to traverse and print the elements of a vector.</p>
+
+
+<span class=code>&nbsp; &nbsp; &nbsp; &nbsp; Iterator iterator = vector.iterator ();
+<br>&nbsp; &nbsp; &nbsp; &nbsp; <span class=keyword>while</span> (iterator.hasNext ()) {
+<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; System.out.println (iterator.next ());
+<br>&nbsp; &nbsp; &nbsp; &nbsp; }
+<br></span><p>Once the <span class=code>Iterator</span> is created, it is a separate object from the original <span class=code>Vector</span>.  Subsequent changes in the <span class=code>Vector</span> are not reflected in the <span class=code>Iterator</span>.  In fact, if you modify the <span class=code>Vector</span> after creating an <span class=code>Iterator</span>, the <span class=code>Iterator</span> becomes invalid.  If you access the <span class=code>Iterator</span> again, it will cause a <span class=code>ConcurrentModification</span> exception.</p>
+
+
+
+<p>In a previous section we used the <span class=code>Visitable</span> abstract class to allow a client to traverse a data structure without knowing the details of its implementation.  Iterators provide another way to do the same thing.  In the first case, the provider performs the iteration and invokes client code to "visit" each element.  In the second case the provider gives the client an object that it can use to select elements one at a time (albeit in an order controlled by the provider).</p>
+
+<p>As an exercise, write a concrete class named <span class=code>PreIterator</span> that implements the <span class=code>Iterator</span> interface, and write a method named <span class=code>preorderIterator</span> for the <span class=code>Tree</span> class that returns a <span class=code>PreIterator</span> that selects the elements of the <span class=code>Tree</span> in preorder.</p>
+
+<a name=12></a><br>
+<h3>17.12 Glossary</h3>
+
+<dl>
+
+<dt>binary tree</dt>
+<dd>A tree in which each node refers to 0, 1, or 2 dependent nodes.</dd>
+
+<dt>root</dt>
+<dd>The top-most node in a tree, to which no other nodes refer.</dd>
+
+<dt>leaf</dt>
+<dd>A bottom-most node in a tree, which refers to no other nodes.</dd>
+
+<dt>parent</dt>
+<dd>The node that refers to a given node.</dd>
+
+<dt>child</dt>
+<dd>One of the nodes referred to by a node.</dd>
+
+<dt>level</dt>
+<dd>The set of nodes equidistant from the root.</dd>
+
+<dt>prefix notation</dt>
+<dd>A way of writing a mathematical expression with each operator appearing before its operands.</dd>
+
+<dt>preorder</dt>
+<dd>A way to traverse a tree, visiting each node before its children.</dd>
+
+<dt>postorder</dt>
+<dd>A way to traverse a tree, visiting the children of each node before the node itself.</dd>
+
+<dt>inorder</dt>
+<dd>A way to traverse a tree, visiting the left subtree, then the root, then the right subtree.</dd>
+
+<dt>class variable</dt>
+<dd>A <span class=code><span class=keyword>static</span></span> variable declared outside of any method.  It is accessible from any method.</dd>
+
+<dt>binary operator</dt>
+<dd>An operator that takes two operands.</dd>
+
+<dt>object encapsulation</dt>
+<dd>The design goal of keeping the implementations of two objects as separate as possible.  Neither class should have to know the details of the implementation of the other.</dd>
+
+<dt>method encapsulation</dt>
+<dd>The design goal of keeping the interface of a method separate from the details of its implementation.</dd>
+
+</dl>
+
+<p>
+<hr>
+<table width="100%" cellpadding="0" cellspacing="2" border="0">
+  <tr>
+    <td width="20" class=head><a href="chap18.htm"><img border="0" alt="Next" src="images/next.png"></a></td>
+    <td width="20" class=head><a href="index.htm"><img border="0" alt="Up" src="images/up.png"></a></td>
+    <td width="20" class=head><a href="chap16.htm"><img border="0" alt="Previous" src="images/prev.png"></a></td>
+    <td width="100%" class=headcenter><img border="0" alt="Hi" src="images/headertitle.png"></td>
+    <td width="20" class=head><img border="0" alt="" src="images/blank.png"></td>
+    <td width="20" class=head><a href="dex.htm"><img border="0" alt="Index" src="images/index.png"></a></td>
+    <td width="20" class=head><img border="0" alt="" src="images/blank.png"></td>
+  </tr>
+</table>
+<hr>
+
+</body>
+</html>

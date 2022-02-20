@@ -1,0 +1,5 @@
+[MUSIC] Welcome to the fourth
+module in our course. In this module,
+we're gonna start looking at trees. We're gonna look at binary search trees
+and we're gonna analyze their efficiency. We're also gonna look at a more advanced
+data structure known as a trie.

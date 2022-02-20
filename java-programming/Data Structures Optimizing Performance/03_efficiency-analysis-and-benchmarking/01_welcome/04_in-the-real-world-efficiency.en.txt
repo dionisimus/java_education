@@ -1,0 +1,36 @@
+[MUSIC] Everyone wants to write efficient code, or putting it another way,
+no one wants to write inefficient code. If your program takes ten
+minutes to display the welcome to my program screen, everybody knows this
+is bad, okay fine we wanna avoid that. But making an active decision to write
+efficient code is a little different and it's important because it
+influences how you design it. You make different decisions for the
+underpinnings of the logic for your code, the way you're going to approach it. Writing efficient code is really important
+for us at Google because of how it plays out for millions of users
+making billions of requests everyday. When in the group that I work in,
+when we submit changes to the code one of the things that it gets evaluated
+on before it can actually go live is its impact on the latency
+that's seen by end users. There are certain pieces of our system and
+as you might imagine, Google's system is a stack of different components,
+each communicating with each other. But in our system there is a few places
+in particular that we look at where taken as a whole,
+if the user's request takes so many milliseconds to be
+processed that's okay. But in the specific pieces of that system,
+even though they may run separately and in parallel with the rest of the software,
+we have much tighter constraints. For the areas that I work in,
+if I submit a change and it increases the amount of
+time that it takes to run that part of the request by more
+than one tenth of one millisecond. I have to justify it. We keep that tight of constraint on it. If I blow that constraint,
+I have to go back and fix my code, or I have to prove
+why it's okay for me to do that. In our case,
+it's because we look at it and, well, a tenth of a millisecond here,
+not a big deal, maybe. A tenth of a millisecond there,
+not a big deal, maybe. But when you get as many programmers
+writing code as we do at Google, suddenly those tenths of milliseconds
+really start adding up, and now we're at the point where
+submitting your search request takes three hours to satisfy which
+obviously isn't gonna work for you. You're gonna go off and
+look for somebody else. So, efficiency is hard and it's important and
+you have to design for it. You have to plan for it. And you have to watch it all the time. Because those inefficiencies sneak in and
+mount up. And this little change today
+may not seem like a big deal. But when all those little changes get
+tacked together, suddenly it's forever. So, be careful. Yay, efficiency.

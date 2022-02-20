@@ -1,0 +1,122 @@
+All right, now you've gotten warmed up
+with a project and now we want to think about performance, and this is a common
+theme throughout the entire course. We'll be writing code but then we'll
+also be talking about analyzing it, thinking about if it's good enough,
+and what that even means. So, by the end of this first video, you'll
+have a better sense of what it means to talk about the performance of
+an algorithm and why it's important. And then we'll also describe some
+factor that impact the performance of an algorithm. So, first of all,
+before we delve into an example, let's remind ourselves that an algorithm
+is a strategy for solving a problem. So when we talked about
+the performance of an algorithm, we're talking about how
+good that strategy is for coming at the solution of the problem
+that we're thinking about. So, let's think about an example
+that comes from the project. And in the project we're analyzing
+a whole bunch of text, and we're trying to understand
+how readable it is. That's the first part of the project. And Christine suggested that
+we used the Flesch score and she talked about that in
+some of the earlier videos. And so we have a way of computing
+some numerical representation of the readability of a text,
+based on the number of words, the number of sentences, and
+the number of syllables. Okay, so that's great. We read in a whole bunch of text,
+we compute this Flesch score and then we have a description
+of how readable the text is. But the question is,
+how long does it take? So, from when we've read in the text to
+when we have the Flesch score available for our user. And if we want to answer that question,
+we might just time it. So, we might start a stopwatch and
+press go when our algorithm to compute the Flesch score starts, and then stop the
+stopwatch when we've gotten the answer. The issue, though,
+is that this time that we get might not be a great representation
+of how good our algorithm is. So we're asking how good is
+the algorithm for computing flesh score? And so, before we get to answering that
+question, let's think about what might be the problem with just looking
+at the stopwatch time. So if we think about how
+much time it takes for our code to run on a particular input,
+what might impact that time? Well, so, for example,
+the computer that we're running on, will have a huge part to play
+in how quickly the code runs. So, if we run on really old hardware,
+then we expect our code to take longer than if we run
+it on a really snazzy new machine. Or if the computer's really bogged down
+with a whole lot of other programs, then we expect it to be a little
+bit slower than one that is devoting all of its resources to
+just the one program that we're running. Other factors that might come into play, include the compiler that we use to
+compile our code into machine language. But also decisions that we make
+about what libraries to use and what optimizations were made in those libraries
+for the particular commands that we want. So, just running our code on
+a particular input and timing it doesn't really give us a big picture
+of our overall strategy for the code. So you can think about the problem solving
+paradigm, as we're given a problem, compute the Flesch score of given text. And we've got a strategy for computing
+that Flesch score that maybe says, read in all the text and
+compute how many words there are. Read in all the text and
+compute the number of sentences. Read in all the text and
+compute the number of syllables. And then once we've got those numbers, then we do something with it and
+compute the Flesch score. And so, that high-level description
+is like our algorithm, and then we've coded it up in Java, or
+you've done it in the project, and we have a particular implementation. And what we'd like to do is talk about
+the performance of the algorithm and sometimes that's tied into
+the implementation as well. And so, just the time for running
+the specific code on a specific machine on a specific input doesn't
+give us the whole picture. So, should we just give up
+trying to measure performance? Well we shouldn't because
+performance is so important. Performance is the difference between
+running a really cool algorithm that let's us answer very hard
+questions in very short amount of time. And therefore, processing more and
+more data that then leads to analyze even bigger trends and
+answering more important questions. And if we don't have handle on
+the size of the data that we can process with our algorithms, then maybe we
+think we have a really cool solution but if we try to run it, then the program's
+not gonna stop until the end of time. And so, having a sense of how our
+solutions interact with larger data and more complicated data is at
+the heart of solving these problems. So we don't want to give up,
+but what can we do? Well, maybe instead of measuring the time,
+we're going to count operations. Because hopefully we have a sense of, perhaps if we have some sort
+of basic operation, then the amount of time that it takes to make
+that operation, well, we can't control it. But, we'll know that our algorithm
+takes not too many operations. And so, it won't take that long. Okay, so, we are deciding that we're just
+going to focus on what we can control, which is the number of operations
+we asked the computer to do, rather than how long the computer
+takes to do those operations. And, so we might go ahead and
+try to count them. In our example of the Flesch score, we want to start at the first part
+of our text, and go through it. And for example, we're going to count
+the number of syllables in the document. And so we want to count the number
+of operations that happens. The thing is, though, the number of
+operations that we have to do in order to count the syllables,
+depends on our input. So, if we're looking at the whole
+American tax code, that's going to be a whole lot of operations
+to count all the syllables in there. As opposed to,
+if we just looked at a short snippet, like in the example that Christine did,
+where it's still a complicated text, but we're just looking at a small part of it. And so the number of operations
+that we execute will be smaller. Now, notice that we're performing
+the exact same algorithm, whether we're looking at the whole
+tax code or just a small part of it. And so our measure of performance
+should be about the algorithm shouldn't be talking about the input. So what we need to do,
+is focus on how the performance scales, which means how does the number of
+operations grow as our input grows? So for example,
+we'll ask questions like, if the list, which is the string of text
+that we're processing, is twice as long, how many more
+operations will it take us to process it? Okay, so, we've moved away from just
+timing using the clock time, and we've gone to looking at the number of
+operations our algorithm takes, and we're not just going to look at
+the number as an absolute number. We're thinking about how it grows and
+changes as the input size changes. Okay, but is size all that matters? For example, if I have two collections
+of text, say the American tax code and then something else that is equally long,
+that are standing right in front of me and I try to process both of these
+texts one after the other. Will the number of operations that's
+required to process the IRS tax code, be exactly the same as the number
+of operations required to process something else? Maybe, maybe not. This is a worthwhile question to consider,
+and so we're going to take that into account as
+well, when we think about performance. So, our three strategies for
+talking about performance include, #1, count the operations
+instead of the time. So we abstract away from the machine
+considerations and the software considerations that aren't part of the
+algorithm design problem that we faced. #2, is focus on how
+the performance scales. Because we care about
+really big inputs and so we wanna know about what happens
+eventually as the output gets bigger and bigger and bigger,
+how does our algorithm handle it? And #3, go beyond the input size
+because what we'd like to know, is how the algorithm responds
+in all sorts of situations. And so we'd like our performance analysis
+to be able to capture not just the size of the input but also what might happen because of
+internal structure to the input. Okay so,
+in the next video what we're going to do, is delve right in to counting
+operations for specific codes snippets.

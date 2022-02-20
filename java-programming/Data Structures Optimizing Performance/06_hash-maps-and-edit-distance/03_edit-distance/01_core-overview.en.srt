@@ -1,0 +1,488 @@
+1
+00:00:00,000 --> 00:00:04,140
+[MUSIC]
+
+2
+00:00:04,140 --> 00:00:07,980
+All right, in this last lesson, we're
+going to look at the very last part of
+
+3
+00:00:07,980 --> 00:00:12,180
+the project, where you're going to add the
+ability to suggest words to the user for
+
+4
+00:00:12,180 --> 00:00:14,400
+misspelled words that they typed.
+
+5
+00:00:14,400 --> 00:00:19,270
+And this part of the project is really
+motivated by our societal dependence
+
+6
+00:00:19,270 --> 00:00:21,170
+on spellcheckers these days.
+
+7
+00:00:21,170 --> 00:00:25,070
+You've already got the ability to add
+into your project, the ability to check
+
+8
+00:00:25,070 --> 00:00:28,470
+whether a particular string is a word,
+and that's essential these days.
+
+9
+00:00:28,470 --> 00:00:33,180
+When I'm typing up a document,
+I rely on that underlined red to say, oh,
+
+10
+00:00:33,180 --> 00:00:35,760
+I mistyped that word,
+that's not actually how you spell it.
+
+11
+00:00:35,760 --> 00:00:37,593
+But we're gonna take that a step further.
+
+12
+00:00:37,593 --> 00:00:41,526
+So not only are you going to be able to
+identify misspelled words, but you'll
+
+13
+00:00:41,526 --> 00:00:45,350
+be able to give the user some suggestions
+on how to correct their spelling.
+
+14
+00:00:46,350 --> 00:00:49,450
+So by the end of this video,
+you'll be able to describe the basics of
+
+15
+00:00:49,450 --> 00:00:52,330
+an algorithm to do those
+spelling suggestions.
+
+16
+00:00:52,330 --> 00:00:54,900
+And it turns out this algorithm
+isn't really that complicated.
+
+17
+00:00:54,900 --> 00:00:58,490
+And in the next video, we'll look at
+the details of how to implement it.
+
+18
+00:01:00,460 --> 00:01:03,810
+So let's start by thinking
+about what we need to do.
+
+19
+00:01:03,810 --> 00:01:05,880
+So let's say I have this
+piece text of here,
+
+20
+00:01:05,880 --> 00:01:08,400
+spell correction,
+only I've misspelled the first word.
+
+21
+00:01:08,400 --> 00:01:10,920
+I've spelled it speel instead of spell.
+
+22
+00:01:10,920 --> 00:01:15,240
+And the question is, how can I generate
+possible suggestions of valid words
+
+23
+00:01:15,240 --> 00:01:19,710
+that are good suggestions for
+replacements for that speel word?
+
+24
+00:01:21,030 --> 00:01:25,240
+Well we want to generate a set
+of words that is somehow close
+
+25
+00:01:25,240 --> 00:01:26,880
+to the word that I typed.
+
+26
+00:01:26,880 --> 00:01:30,670
+Because I probably typed
+the word mostly correctly, but
+
+27
+00:01:30,670 --> 00:01:32,590
+I just made a small error here.
+
+28
+00:01:32,590 --> 00:01:35,870
+So I don't wanna give the user suggestions
+of all the words in the English language,
+
+29
+00:01:35,870 --> 00:01:37,200
+that would be way too many.
+
+30
+00:01:37,200 --> 00:01:40,620
+I want to start by suggesting words
+that are pretty close to the thing I
+
+31
+00:01:40,620 --> 00:01:42,220
+actually typed.
+
+32
+00:01:42,220 --> 00:01:46,560
+So now the question is, how can we
+precisely define what it means for
+
+33
+00:01:46,560 --> 00:01:49,299
+one string to be close to another string?
+
+34
+00:01:50,840 --> 00:01:53,730
+What we're going to do is take
+the definition where we say
+
+35
+00:01:53,730 --> 00:01:57,930
+that a string is close to another string
+if it's altered as little as possible.
+
+36
+00:01:59,060 --> 00:02:00,380
+And what do we mean by altered?
+
+37
+00:02:00,380 --> 00:02:03,110
+Well we're gonna think about
+
+38
+00:02:03,110 --> 00:02:07,950
+ways we can alter a word to be one
+step away from another string.
+
+39
+00:02:07,950 --> 00:02:11,710
+We're altering a string to be
+a step away from another string
+
+40
+00:02:11,710 --> 00:02:15,860
+by performing one of three
+transformations on that string.
+
+41
+00:02:16,880 --> 00:02:21,870
+The first transformation we can perform on
+that string is we can do a substitution.
+
+42
+00:02:21,870 --> 00:02:24,390
+And all of these are of
+a single character.
+
+43
+00:02:24,390 --> 00:02:27,240
+So we can choose any character
+in that original string speel,
+
+44
+00:02:27,240 --> 00:02:30,800
+and we can choose to change
+it to any other character.
+
+45
+00:02:30,800 --> 00:02:35,950
+So, for example, I could produce
+the strings apeel, sbeel, spell,
+
+46
+00:02:35,950 --> 00:02:41,150
+speak just by changing one character from
+my original speel to a new character.
+
+47
+00:02:41,150 --> 00:02:44,690
+Now there are going to be many
+more strings that I can produce
+
+48
+00:02:44,690 --> 00:02:46,130
+via the substitution method.
+
+49
+00:02:46,130 --> 00:02:48,120
+I'm just showing you
+a few here as examples.
+
+50
+00:02:49,360 --> 00:02:52,790
+The next transformation I
+can apply is an insertion.
+
+51
+00:02:52,790 --> 00:02:55,720
+So I can take at any
+position in this word,
+
+52
+00:02:55,720 --> 00:02:58,850
+in this original string,
+either before the first character, or
+
+53
+00:02:58,850 --> 00:03:01,940
+between any of the characters,
+or after the last character.
+
+54
+00:03:01,940 --> 00:03:06,330
+I can insert any of the characters in
+the alphabet to produce new strings.
+
+55
+00:03:06,330 --> 00:03:10,170
+So that could produce new
+strings like bspeel or
+
+56
+00:03:10,170 --> 00:03:12,970
+sipeel, and the strings you can see there.
+
+57
+00:03:12,970 --> 00:03:17,290
+Now notice that none of these are words,
+but these are just possible strings I
+
+58
+00:03:17,290 --> 00:03:20,690
+can produce that are one step
+away form my original string.
+
+59
+00:03:21,990 --> 00:03:25,605
+The last way I'm going to think about
+transforming my original string
+
+60
+00:03:25,605 --> 00:03:26,965
+is via deletions.
+
+61
+00:03:26,965 --> 00:03:31,575
+So I can take any of the letters in my
+original string, and I can remove it.
+
+62
+00:03:31,575 --> 00:03:34,955
+And that will give me a list of
+possible strings that are one away,
+
+63
+00:03:34,955 --> 00:03:37,025
+still, from my original string.
+
+64
+00:03:37,025 --> 00:03:40,095
+Notice that there are in this case only
+in this case five of those, because there
+
+65
+00:03:40,095 --> 00:03:44,405
+are only five characters I can delete,
+and two of them end up being the same.
+
+66
+00:03:44,405 --> 00:03:46,135
+So if I delete either of the e's,
+
+67
+00:03:46,135 --> 00:03:51,070
+it will give me the same S-P-E-L
+possible string that's one step away.
+
+68
+00:03:52,880 --> 00:03:57,670
+So this now lends itself to a simple
+spell suggestion algorithm.
+
+69
+00:03:57,670 --> 00:04:01,310
+What I'm gonna do is I'll take
+my original misspelled word, and
+
+70
+00:04:01,310 --> 00:04:06,220
+then I'll generate all the possible
+strings that are one transformation away
+
+71
+00:04:06,220 --> 00:04:10,360
+from that original misspelled word.
+
+72
+00:04:10,360 --> 00:04:14,320
+Then from that list, I will get rid
+of everything that's not a word.
+
+73
+00:04:14,320 --> 00:04:18,550
+And I'll be left with a set of words
+that are one transformation away
+
+74
+00:04:18,550 --> 00:04:21,040
+from the original string
+that the user typed.
+
+75
+00:04:21,040 --> 00:04:25,060
+And these are words that are close
+to what the user originally typed.
+
+76
+00:04:26,720 --> 00:04:30,950
+So here I've just drawn that same
+algorithm with a different visualization
+
+77
+00:04:30,950 --> 00:04:32,250
+of what I'm doing here.
+
+78
+00:04:32,250 --> 00:04:35,050
+So up at the top you see the original
+word that was typed, and
+
+79
+00:04:35,050 --> 00:04:38,880
+then down on the next layer you see all
+the strings that can be produced, or
+
+80
+00:04:38,880 --> 00:04:40,115
+at least a subset of the strings.
+
+81
+00:04:40,115 --> 00:04:44,560
+There's a dot dot dot indicating that this
+layer is going to go on, and on, and on,
+
+82
+00:04:44,560 --> 00:04:46,980
+much larger than what you see here,
+
+83
+00:04:46,980 --> 00:04:50,920
+that are one transformation away from
+that original string that was typed.
+
+84
+00:04:50,920 --> 00:04:55,160
+So then the question becomes,
+well, what if that's enough?
+
+85
+00:04:55,160 --> 00:04:57,810
+What if that doesn't produce any words, or
+
+86
+00:04:57,810 --> 00:05:00,910
+doesn't produce enough options for
+the user?
+
+87
+00:05:00,910 --> 00:05:01,470
+What should I do?
+
+88
+00:05:03,200 --> 00:05:06,000
+We can just extend this
+to go two steps away.
+
+89
+00:05:06,000 --> 00:05:08,920
+So now instead of generating
+the next layer down,
+
+90
+00:05:08,920 --> 00:05:12,200
+I can take each word
+in that next layer and
+
+91
+00:05:12,200 --> 00:05:18,070
+apply the same set of transformations
+to go one step away from those words.
+
+92
+00:05:18,070 --> 00:05:21,270
+So here I'm showing you the expansion
+of just one of the strings
+
+93
+00:05:21,270 --> 00:05:26,630
+in that first layer expanded out to some
+of the strings in the next layer down.
+
+94
+00:05:26,630 --> 00:05:29,810
+Then from all of those strings,
+in the first layer and
+
+95
+00:05:29,810 --> 00:05:33,670
+the second layer, I can now get rid
+of everything that's not a word,
+
+96
+00:05:33,670 --> 00:05:37,240
+preserve the things that are words,
+and those are my spelling suggestions.
+
+97
+00:05:38,570 --> 00:05:42,110
+Okay, but what if that's still not enough?
+
+98
+00:05:42,110 --> 00:05:43,060
+How deep should I go?
+
+99
+00:05:43,060 --> 00:05:47,560
+I could keep going, and going, and
+going, and build a big, huge tree.
+
+100
+00:05:47,560 --> 00:05:52,440
+But at some level, I need to decide what
+is enough words to offer to the user.
+
+101
+00:05:53,540 --> 00:05:55,800
+So this is kind of a basic overview.
+
+102
+00:05:55,800 --> 00:06:00,650
+And in the next video, we'll get into
+details like how do we actually manage
+
+103
+00:06:00,650 --> 00:06:03,999
+when to stop looking for
+words to suggest to the user.

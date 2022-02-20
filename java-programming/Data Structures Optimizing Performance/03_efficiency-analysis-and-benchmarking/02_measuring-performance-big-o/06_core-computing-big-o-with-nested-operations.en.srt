@@ -1,0 +1,412 @@
+1
+00:00:00,000 --> 00:00:04,129
+[MUSIC]
+
+2
+00:00:04,129 --> 00:00:07,835
+So in this video we're going to
+continue our work from last video,
+
+3
+00:00:07,835 --> 00:00:11,420
+where we're looking for
+the runtime of more complicated code.
+
+4
+00:00:11,420 --> 00:00:13,970
+But what we're focusing on now
+
+5
+00:00:13,970 --> 00:00:18,790
+is how to calculate the big-O class
+of code that has nested for loops.
+
+6
+00:00:18,790 --> 00:00:22,910
+So not consecutive for loops,
+but one loop inside another.
+
+7
+00:00:22,910 --> 00:00:27,039
+So let's do an example and
+this example is called maxDifference.
+
+8
+00:00:27,039 --> 00:00:32,470
+It's a method that takes in as its
+argument an array of integers.
+
+9
+00:00:32,470 --> 00:00:37,699
+And as we did before, start off by
+thinking about what this method actually
+
+10
+00:00:37,699 --> 00:00:42,680
+does and it's a great idea to get into
+the habit of describing the higher
+
+11
+00:00:42,680 --> 00:00:47,432
+level functionality of pieces of code,
+so let's start with that.
+
+12
+00:00:49,232 --> 00:00:53,152
+So now that you've looked at what
+max difference does as a method,
+
+13
+00:00:53,152 --> 00:00:55,310
+let's analyze its performance.
+
+14
+00:00:55,310 --> 00:01:00,710
+And as we did before, it's useful to chunk
+up the method into the pieces that really
+
+15
+00:01:00,710 --> 00:01:04,540
+don't interact too much with one another,
+especially when it comes to run time.
+
+16
+00:01:04,540 --> 00:01:08,670
+And so for this context we have
+the initialization piece at the beginning,
+
+17
+00:01:08,670 --> 00:01:12,420
+then we have some nested piece
+of code in the middle, and
+
+18
+00:01:12,420 --> 00:01:14,660
+then we have the return
+statement at the end.
+
+19
+00:01:14,660 --> 00:01:16,760
+Okay, so, easy stuff first.
+
+20
+00:01:16,760 --> 00:01:18,690
+Let's look at the beginning at the end and
+
+21
+00:01:18,690 --> 00:01:22,720
+these are single instructions that
+get executed in constant time.
+
+22
+00:01:22,720 --> 00:01:26,070
+And so, each of those we
+don't need to worry about.
+
+23
+00:01:26,070 --> 00:01:30,300
+And let's focus in on really
+the meaty part of this method.
+
+24
+00:01:30,300 --> 00:01:33,480
+And we've got a for
+loop within a for loop.
+
+25
+00:01:33,480 --> 00:01:35,350
+And so, it might be a little bit daunting.
+
+26
+00:01:35,350 --> 00:01:37,360
+How do we analyze its run time?
+
+27
+00:01:37,360 --> 00:01:41,350
+And so a rule of thumb is to
+count from the inside out.
+
+28
+00:01:41,350 --> 00:01:45,730
+And so let's go as far,
+as deep into the nesting as we can and
+
+29
+00:01:45,730 --> 00:01:47,030
+then work our way out.
+
+30
+00:01:47,030 --> 00:01:51,410
+And so inside the inner for
+loop, we have an if branch and
+
+31
+00:01:51,410 --> 00:01:53,130
+we've worked with those before.
+
+32
+00:01:53,130 --> 00:01:58,270
+And so we notice that what happens here
+is we're doing a test that can happen
+
+33
+00:01:58,270 --> 00:02:03,920
+in constant time, we're comparing
+the values of two entries in the array.
+
+34
+00:02:03,920 --> 00:02:06,800
+And then, based on the result
+of that test, we may or
+
+35
+00:02:06,800 --> 00:02:10,240
+may not do a single operation.
+
+36
+00:02:10,240 --> 00:02:15,010
+And so, that entire conditional statement
+will either be one operation or
+
+37
+00:02:15,010 --> 00:02:17,090
+two depending on the result of the test.
+
+38
+00:02:17,090 --> 00:02:19,855
+But one, two,
+those are both constant numbers.
+
+39
+00:02:19,855 --> 00:02:23,245
+They don't depend on the size
+of the input, and so
+
+40
+00:02:23,245 --> 00:02:26,670
+that entire if branch
+is just big O of one.
+
+41
+00:02:26,670 --> 00:02:30,220
+And so, the advantage of working from
+inside out is that now we don't need to
+
+42
+00:02:30,220 --> 00:02:35,250
+worry about what operations we had
+over there, or what code we executed.
+
+43
+00:02:35,250 --> 00:02:40,090
+All we need to worry about Is that it
+was a big O of one piece of the program.
+
+44
+00:02:40,090 --> 00:02:43,480
+And so now, we can work our
+way back up to say how many
+
+45
+00:02:43,480 --> 00:02:48,400
+times does that big O of one piece of work
+have to get repeated and executed and
+
+46
+00:02:48,400 --> 00:02:52,490
+so, accumulate together how
+much time we need overall.
+
+47
+00:02:52,490 --> 00:02:58,034
+Okay so, in the inner for loop,
+what we're doing is we're going from j=0,
+
+48
+00:02:58,034 --> 00:03:00,480
+all the way to the end of the array.
+
+49
+00:03:00,480 --> 00:03:03,936
+So we're stepping through the input array,
+and at each point,
+
+50
+00:03:03,936 --> 00:03:06,840
+we're doing that constant amount of work.
+
+51
+00:03:06,840 --> 00:03:11,320
+And so that means that if we're focusing
+in on that inner for loop, we're doing
+
+52
+00:03:11,320 --> 00:03:15,940
+a constant amount of work and many
+times where n is the size of the array.
+
+53
+00:03:15,940 --> 00:03:20,230
+And so, overall, we're doing
+a constant times n amount of work, but
+
+54
+00:03:20,230 --> 00:03:24,370
+we drop constants, so
+that's big O(n) amount of work.
+
+55
+00:03:24,370 --> 00:03:25,330
+So that inner for
+
+56
+00:03:25,330 --> 00:03:30,530
+loop, every time we go through it,
+we're doing a big O(n) amount of work.
+
+57
+00:03:30,530 --> 00:03:33,800
+Now how many times do we go
+through that inner for loop?
+
+58
+00:03:33,800 --> 00:03:38,830
+Well, let's step back out one more
+level and we've got the outer for loop.
+
+59
+00:03:38,830 --> 00:03:43,590
+And so that outer for loop you can think
+of as going through the entire array,
+
+60
+00:03:43,590 --> 00:03:48,400
+from i=0 to the end of the array,
+and for each new value of i,
+
+61
+00:03:48,400 --> 00:03:53,100
+we have to do that inner piece of work,
+that big O(n) amount of work.
+
+62
+00:03:53,100 --> 00:03:57,130
+Okay, so
+every time we go through the outer for
+
+63
+00:03:57,130 --> 00:03:59,890
+loop, we're doing O(n) amount of work.
+
+64
+00:03:59,890 --> 00:04:02,380
+How many times do we go
+through the outer for loop?
+
+65
+00:04:02,380 --> 00:04:04,220
+Well the length of the array many times.
+
+66
+00:04:04,220 --> 00:04:06,240
+So that's n many times.
+
+67
+00:04:06,240 --> 00:04:10,540
+And so
+n many times do we do O(n) amount of work,
+
+68
+00:04:10,540 --> 00:04:13,050
+that's n squared amount of work overall.
+
+69
+00:04:14,180 --> 00:04:18,910
+So, what we're seeing here is that when
+we nest to the for loops, what we end up
+
+70
+00:04:18,910 --> 00:04:22,000
+doing is we're multiplying the amount
+of times we go through the outer for
+
+71
+00:04:22,000 --> 00:04:26,380
+loop by the run time of that inner for
+loop.
+
+72
+00:04:26,380 --> 00:04:30,730
+Okay, so we've got multiplication
+happening here because that inner for
+
+73
+00:04:30,730 --> 00:04:34,279
+loop is repeated every single time
+we step through that outer for loop.
+
+74
+00:04:35,480 --> 00:04:39,130
+All right, so
+now what we've done is we've analyzed
+
+75
+00:04:39,130 --> 00:04:43,290
+the runtime of each of the three
+chunks of the algorithm.
+
+76
+00:04:43,290 --> 00:04:46,730
+But now we've reduced our analysis to
+the case that we had in the previous video
+
+77
+00:04:46,730 --> 00:04:49,330
+where we have consecutive pieces of code.
+
+78
+00:04:49,330 --> 00:04:52,180
+And remember that when we had
+consecutive pieces of code,
+
+79
+00:04:52,180 --> 00:04:56,760
+the total run time is just the dominant
+term from each of those three pieces.
+
+80
+00:04:56,760 --> 00:04:58,635
+And so we have, in this case,
+
+81
+00:04:58,635 --> 00:05:03,003
+big O(1) followed by big O(n
+squared) followed by big O(1).
+
+82
+00:05:03,003 --> 00:05:04,717
+1 doesn't grow at all with n, so
+
+83
+00:05:04,717 --> 00:05:07,365
+it's definitely not as
+fast growing as n squared.
+
+84
+00:05:07,365 --> 00:05:10,510
+N squared definitely grows as
+our input size gets bigger.
+
+85
+00:05:10,510 --> 00:05:14,995
+And so overall,
+this algorithm is a quadratic algorithm or
+
+86
+00:05:14,995 --> 00:05:17,698
+it runs in big O (n squared) time.
+
+87
+00:05:17,698 --> 00:05:20,560
+So that's an example of
+dealing with nested for loops.

@@ -1,0 +1,817 @@
+1
+00:00:00,000 --> 00:00:03,712
+[MUSIC]
+
+2
+00:00:03,712 --> 00:00:07,036
+All right, in this video we'll look at
+just the basics of something called
+
+3
+00:00:07,036 --> 00:00:08,480
+regular expressions.
+
+4
+00:00:08,480 --> 00:00:12,520
+Regular expressions themselves
+are a really big field of study,
+
+5
+00:00:12,520 --> 00:00:17,308
+way too much to fit into a single video,
+or even into a single lesson perhaps.
+
+6
+00:00:17,308 --> 00:00:20,309
+So we're just gonna very much
+touch on the basics that you will
+
+7
+00:00:20,309 --> 00:00:21,990
+need to accomplish your project.
+
+8
+00:00:23,220 --> 00:00:27,160
+So, by the end of this video you'll be
+able to write regular expressions to match
+
+9
+00:00:27,160 --> 00:00:31,070
+String patterns in Java, as well as write
+regular expressions to split strings.
+
+10
+00:00:31,070 --> 00:00:33,356
+And this is the functionality
+you'll need for your project.
+
+11
+00:00:34,864 --> 00:00:39,330
+So again, going back to the problem here
+that we left off in the last video with,
+
+12
+00:00:39,330 --> 00:00:43,728
+we wanted to be able to split the sentence
+apart using not just a single space but
+
+13
+00:00:43,728 --> 00:00:47,440
+any number of spaces to
+use as a split delimiter.
+
+14
+00:00:47,440 --> 00:00:50,350
+And we said that the key to this was
+going to be regular expressions.
+
+15
+00:00:50,350 --> 00:00:54,130
+So let's look at what regular expressions
+are and how we can use them in Java.
+
+16
+00:00:54,130 --> 00:00:56,880
+And we're gonna build them
+sort of from the ground up.
+
+17
+00:00:56,880 --> 00:00:59,990
+In a nutshell, a regular expression is
+just an expression of a pattern that we
+
+18
+00:00:59,990 --> 00:01:04,770
+are trying to match, and
+from the most basic point of view,
+
+19
+00:01:04,770 --> 00:01:08,190
+a regular expression can
+be just a simple character.
+
+20
+00:01:08,190 --> 00:01:12,610
+And this is why it worked when we passed
+a space character into our split method,
+
+21
+00:01:12,610 --> 00:01:13,950
+because we are telling Java,
+
+22
+00:01:13,950 --> 00:01:18,320
+match literally a single space as
+the pattern you are trying to look for.
+
+23
+00:01:18,320 --> 00:01:21,890
+So Java matched a single space, and
+every time it saw a single space,
+
+24
+00:01:21,890 --> 00:01:23,620
+it said, okay,
+here's where I want to split.
+
+25
+00:01:25,110 --> 00:01:28,960
+But that's pretty, pretty basic,
+there's not too much we can do with that.
+
+26
+00:01:28,960 --> 00:01:33,062
+So we can also combine regular expressions
+to form more complicated ones and
+
+27
+00:01:33,062 --> 00:01:35,572
+there are three ways
+that we can combine them.
+
+28
+00:01:35,572 --> 00:01:37,315
+We can combine them with repetition.
+
+29
+00:01:37,315 --> 00:01:40,930
+We can combine them with concatenation,
+in other words, putting them together.
+
+30
+00:01:40,930 --> 00:01:43,570
+We can combine them with alternation,
+meaning either/or,
+
+31
+00:01:43,570 --> 00:01:45,170
+choose one expression or the other.
+
+32
+00:01:45,170 --> 00:01:48,860
+We're going to start by
+looking at repetition
+
+33
+00:01:48,860 --> 00:01:50,300
+because that's what we're after.
+
+34
+00:01:50,300 --> 00:01:55,070
+We're trying to figure out how can
+we match not just one space but
+
+35
+00:01:55,070 --> 00:01:56,380
+any number of spaces.
+
+36
+00:01:56,380 --> 00:02:01,360
+So we saw that we can match one space
+just by passing it in as a string.
+
+37
+00:02:01,360 --> 00:02:03,500
+If we wanna match more than one string,
+
+38
+00:02:03,500 --> 00:02:06,720
+we can use the plus operator
+in a regular expression.
+
+39
+00:02:06,720 --> 00:02:10,520
+So this is the first way we can do
+repetition in our regular expression.
+
+40
+00:02:10,520 --> 00:02:16,260
+If we put a plus after some regular
+expression, this case just a space,
+
+41
+00:02:16,260 --> 00:02:19,770
+what we're indicating is
+that we want to match one or
+
+42
+00:02:19,770 --> 00:02:23,400
+more of these regular
+expressions in a row, so
+
+43
+00:02:23,400 --> 00:02:27,420
+in this case we're going to match
+against one or more spaces in a row.
+
+44
+00:02:27,420 --> 00:02:29,450
+So now when Java does the split,
+
+45
+00:02:29,450 --> 00:02:33,710
+it always tries to match as many spaces
+as possible when it does the match.
+
+46
+00:02:33,710 --> 00:02:37,510
+So it will match just one space but
+in this case it will also match two.
+
+47
+00:02:37,510 --> 00:02:41,260
+And it will consume those two
+spaces as the token it matched and
+
+48
+00:02:41,260 --> 00:02:44,570
+give us back just the text on
+either side of those two spaces.
+
+49
+00:02:46,590 --> 00:02:49,940
+Now it can get a little bit tricky
+to think about regular expressions
+
+50
+00:02:49,940 --> 00:02:51,850
+when we're splitting strings.
+
+51
+00:02:51,850 --> 00:02:55,780
+We find it's much easier to think about
+regular expressions in terms of matching,
+
+52
+00:02:55,780 --> 00:02:57,360
+what it actually gets matched.
+
+53
+00:02:57,360 --> 00:03:01,210
+So, we're going to transition over
+into the way you'll be mostly using
+
+54
+00:03:01,210 --> 00:03:03,720
+regular expressions in the project.
+
+55
+00:03:03,720 --> 00:03:07,600
+So, let me introduce to you a little
+bit of the code from the project, and
+
+56
+00:03:07,600 --> 00:03:10,080
+it's this abstract class called Document,
+
+57
+00:03:10,080 --> 00:03:13,080
+which you're going to use to
+represent a document of text.
+
+58
+00:03:13,080 --> 00:03:15,970
+It has a member variable
+called text that stores
+
+59
+00:03:15,970 --> 00:03:18,420
+all the text in a particular document.
+
+60
+00:03:18,420 --> 00:03:22,320
+Now notice that this class is abstract,
+so we'll be providing you with some of
+
+61
+00:03:22,320 --> 00:03:26,320
+the code that makes the Document class but
+we'll also have some abstract methods in
+
+62
+00:03:26,320 --> 00:03:29,350
+there that you're going to have to
+override when you write your code.
+
+63
+00:03:29,350 --> 00:03:31,599
+You'll be writing subclasses
+of this Document class.
+
+64
+00:03:33,090 --> 00:03:38,680
+One of the methods that we are providing
+for you is this method called getTokens.
+
+65
+00:03:38,680 --> 00:03:42,780
+And what the getTokens method
+does is it takes a pattern
+
+66
+00:03:42,780 --> 00:03:46,130
+which is a regular expression of
+the tokens that you are looking for.
+
+67
+00:03:46,130 --> 00:03:49,400
+So this is a regular expression that
+describes what kind of tokens you
+
+68
+00:03:49,400 --> 00:03:51,490
+want to get back from this method.
+
+69
+00:03:51,490 --> 00:03:54,310
+And then the method will
+return a list of those tokens
+
+70
+00:03:54,310 --> 00:03:55,870
+that match that regular expression.
+
+71
+00:03:57,740 --> 00:04:01,270
+So, let's apply this back to our one or
+more spaces example.
+
+72
+00:04:01,270 --> 00:04:05,600
+If we have a document that contains
+the text Hello, space space, hello?
+
+73
+00:04:05,600 --> 00:04:08,010
+And we call the getTokens method on it,
+
+74
+00:04:08,010 --> 00:04:12,500
+what it's going to do is it's going to
+find those two spaces between the words.
+
+75
+00:04:12,500 --> 00:04:15,920
+And it will just return us a list
+containing a single string
+
+76
+00:04:15,920 --> 00:04:17,910
+with those two spaces.
+
+77
+00:04:17,910 --> 00:04:22,500
+So again, now we are preserving the text
+that matches the regular expression,
+
+78
+00:04:22,500 --> 00:04:24,690
+rather than getting rid of it
+like we did in the split method.
+
+79
+00:04:26,700 --> 00:04:29,610
+So we're gonna use this
+getTokens method to illustrate
+
+80
+00:04:29,610 --> 00:04:32,620
+some of the other ways we can
+combine regular expressions.
+
+81
+00:04:32,620 --> 00:04:35,110
+The second way we're gonna look
+at is called concatenation, and
+
+82
+00:04:35,110 --> 00:04:39,530
+this is the idea of just putting regular
+expressions together one after another.
+
+83
+00:04:39,530 --> 00:04:42,125
+So if I have a slightly
+more complicated string,
+
+84
+00:04:42,125 --> 00:04:46,641
+say I have a document with the string,
+splitting a string, it's easy as 1 2 33!
+
+85
+00:04:46,641 --> 00:04:47,733
+Right?
+
+86
+00:04:47,733 --> 00:04:51,519
+And I now call getTokens using
+the regular expression IT,
+
+87
+00:04:51,519 --> 00:04:55,940
+this is actually concatenation
+of two regular expressions.
+
+88
+00:04:55,940 --> 00:04:59,564
+It's a concatenation of
+the regular expression I and T.
+
+89
+00:04:59,564 --> 00:05:03,960
+And this is going to match whenever it
+sees those two regular expressions,
+
+90
+00:05:03,960 --> 00:05:06,610
+the I, T, one after another.
+
+91
+00:05:06,610 --> 00:05:12,059
+So in this case it will match on I, T,
+in splitting, and it will match on I,
+
+92
+00:05:12,059 --> 00:05:17,355
+T in it's, we get back a list of
+just the two strings, "it", "it".
+
+93
+00:05:19,509 --> 00:05:23,184
+We can combine concatenation and
+repetition, so
+
+94
+00:05:23,184 --> 00:05:30,110
+now I've got a regular expression that has
+i followed immediately by one or more ts.
+
+95
+00:05:30,110 --> 00:05:32,969
+So let's see how this changes what we're
+going to get back from the get tokens.
+
+96
+00:05:34,180 --> 00:05:37,060
+This time, we not only get
+the i t out of splitting, but
+
+97
+00:05:37,060 --> 00:05:41,460
+because we've asked for one or more ts,
+Java is going to be greedy and
+
+98
+00:05:41,460 --> 00:05:45,330
+consume as much of that text as it can
+that matches that regular expression.
+
+99
+00:05:45,330 --> 00:05:50,710
+So here it will match i t t, and then that
+i after i t t doesn't match anymore so
+
+100
+00:05:50,710 --> 00:05:53,830
+it will stop and just say ok, i t t,
+that's the first match that I found.
+
+101
+00:05:54,930 --> 00:05:58,565
+The next match it finds again is
+just that I-T in it's, once again.
+
+102
+00:06:01,703 --> 00:06:05,426
+If you're not sure of the grouping
+of the precedence order,
+
+103
+00:06:05,426 --> 00:06:10,570
+you can always use parentheses to do
+explicit grouping in regular expressions.
+
+104
+00:06:10,570 --> 00:06:14,240
+So if I wasn't sure if that plus
+was going to apply to just the T or
+
+105
+00:06:14,240 --> 00:06:17,720
+to the I-T,
+I could have put the t in parenthesis.
+
+106
+00:06:17,720 --> 00:06:20,800
+It turns out that plus binds
+tighter than concatenations, so
+
+107
+00:06:20,800 --> 00:06:22,330
+it applied only to the t.
+
+108
+00:06:22,330 --> 00:06:25,200
+But when in doubt, just go ahead and
+use those parenthesis.
+
+109
+00:06:27,900 --> 00:06:30,742
+There's another form of
+a repetition operator, a star.
+
+110
+00:06:30,742 --> 00:06:34,730
+It's very similar to the plus, but
+this time it means zero or more.
+
+111
+00:06:34,730 --> 00:06:38,290
+So this regular expression, if you might
+want to take a moment to think about, what
+
+112
+00:06:38,290 --> 00:06:41,500
+this regular expression is going to match
+against in our string that we have there.
+
+113
+00:06:43,780 --> 00:06:48,590
+Alright, so it's going to match an i
+followed by zero or more ts and in
+
+114
+00:06:48,590 --> 00:06:54,070
+this case it's going to return that list
+that you see there and I've highlighted
+
+115
+00:06:54,070 --> 00:06:58,270
+the places in that document string where
+it matches that regular expression.
+
+116
+00:06:58,270 --> 00:06:59,780
+So you can see that
+because it matches zero or
+
+117
+00:06:59,780 --> 00:07:02,010
+more Ts sometimes it
+matches just a plain I.
+
+118
+00:07:04,900 --> 00:07:09,290
+So we've talked about concatenation,
+putting two regular expressions together.
+
+119
+00:07:09,290 --> 00:07:11,910
+Repetition, repeating
+a regular expression.
+
+120
+00:07:11,910 --> 00:07:17,310
+And now we have this notion of alternation
+or an either or kind of choice.
+
+121
+00:07:17,310 --> 00:07:21,400
+The way we represent or in a regular
+expression is just with a vertical bar.
+
+122
+00:07:21,400 --> 00:07:23,960
+So what you see here is
+a regular expression that
+
+123
+00:07:23,960 --> 00:07:26,965
+actually combines concatenation and
+alternation and
+
+124
+00:07:26,965 --> 00:07:32,310
+will match either the pattern I-T or
+the pattern S-T.
+
+125
+00:07:32,310 --> 00:07:36,666
+So if we apply that regular expression
+against this string, you can see the text
+
+126
+00:07:36,666 --> 00:07:41,299
+highlighted in blue is what's going to be
+returned, which is just it, st, and it.
+
+127
+00:07:44,261 --> 00:07:47,474
+Another way we can do alternation
+is by creating these things
+
+128
+00:07:47,474 --> 00:07:49,350
+called character classes.
+
+129
+00:07:49,350 --> 00:07:53,940
+So when we put characters in square
+brackets inside the regular expression
+
+130
+00:07:53,940 --> 00:07:58,830
+that we're looking for, what Java will
+match is any character inside that set.
+
+131
+00:07:59,840 --> 00:08:02,860
+So here I have the character class 1,
+2, 3.
+
+132
+00:08:02,860 --> 00:08:07,390
+Java is going to match any single
+character 1, 2, or 3, and I'll get
+
+133
+00:08:07,390 --> 00:08:12,400
+back the list that you
+see there of 1,2,3,3.
+
+134
+00:08:12,400 --> 00:08:16,460
+Notice that it matched the 3s
+separately because that character
+
+135
+00:08:16,460 --> 00:08:21,310
+class says that I want a single
+character that's either a 1 a 2 or
+
+136
+00:08:21,310 --> 00:08:24,870
+a 3, not more than one character,
+just a single character at a time.
+
+137
+00:08:25,970 --> 00:08:29,920
+You can think about how you might
+change that to be multiple characters.
+
+138
+00:08:29,920 --> 00:08:33,110
+And that's just a foreshadowing of what's
+coming up in our concept challenge.
+
+139
+00:08:35,280 --> 00:08:39,630
+We can also express inside these
+character classes ranges using a dash.
+
+140
+00:08:39,630 --> 00:08:43,930
+So if I say one dash three inside
+a character class that means match
+
+141
+00:08:43,930 --> 00:08:47,980
+any number, any numeral,
+any character between one and three.
+
+142
+00:08:47,980 --> 00:08:50,640
+So in this case it matches one,
+two, three, and three again.
+
+143
+00:08:52,500 --> 00:08:56,970
+I can use this same range
+functionality with letters.
+
+144
+00:08:56,970 --> 00:09:01,200
+So I can say match any character
+between a little a and a little f.
+
+145
+00:09:01,200 --> 00:09:04,280
+And that will match all the characters
+in this string that are alphabetically
+
+146
+00:09:04,280 --> 00:09:05,440
+between little a and little f.
+
+147
+00:09:05,440 --> 00:09:07,339
+And I'll get back this.
+
+148
+00:09:10,940 --> 00:09:13,860
+And then finally, the last piece of
+these regular expressions that I want
+
+149
+00:09:13,860 --> 00:09:17,020
+to introduce to you is this carat.
+
+150
+00:09:17,020 --> 00:09:20,560
+And what this carat does
+inside a character class
+
+151
+00:09:20,560 --> 00:09:24,170
+is it excludes all of the characters
+inside that character class.
+
+152
+00:09:24,170 --> 00:09:28,750
+So you're basically saying, match anything
+that is not one of these characters.
+
+153
+00:09:28,750 --> 00:09:31,770
+So let's break down what this regular
+expression that I've written here actually
+
+154
+00:09:31,770 --> 00:09:33,050
+does.
+
+155
+00:09:33,050 --> 00:09:37,660
+I'm saying that carat, which means NOT,
+so none of these characters should match.
+
+156
+00:09:37,660 --> 00:09:41,513
+So I don't want any characters that
+are between little a, and little z.
+
+157
+00:09:41,513 --> 00:09:47,490
+I don't want a 1, I don't want a 2, I
+don't want a 3, and I don't want a space.
+
+158
+00:09:47,490 --> 00:09:50,650
+So all of those characters,
+don't match them.
+
+159
+00:09:50,650 --> 00:09:54,250
+Anything else, please match them and
+give me what you find.
+
+160
+00:09:54,250 --> 00:09:57,410
+So when I use this regular
+expression to get Tokens
+
+161
+00:09:57,410 --> 00:10:00,030
+what I'm going to get back
+is all the single characters
+
+162
+00:10:00,030 --> 00:10:03,800
+that are not one of the character
+class that I just set out.
+
+163
+00:10:03,800 --> 00:10:08,790
+And so that includes the capital S,
+remember in Java lower case letters and
+
+164
+00:10:08,790 --> 00:10:10,820
+upper case letters
+are represented differently.
+
+165
+00:10:10,820 --> 00:10:15,870
+So the capital S, the comma,
+the apostrophe, the exclamation point, and
+
+166
+00:10:15,870 --> 00:10:19,400
+the capital R all match
+the regular expression.
+
+167
+00:10:20,790 --> 00:10:22,550
+So those are the very basics
+of regular expressions.
+
+168
+00:10:22,550 --> 00:10:23,720
+We've got a concept challenge,
+and some support videos, but
+
+169
+00:10:23,720 --> 00:10:28,420
+this should be enough to get
+you going on the project.

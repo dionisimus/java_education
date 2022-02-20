@@ -1,0 +1,80 @@
+[MUSIC] In this video, we're gonna dive
+into the details of something called abstract data types and how they're
+implemented as interfaces in Java. So by the end of this video, you'll be
+able to explain the idea of abstraction both in Java and in the real world,
+and describe why it is important. And you'll also be able to describe the
+difference between an Abstract Data Type as well as a Data Structure,
+which does the implementation. We're getting into this really
+key idea in computer science, and really in the whole world,
+in our lives, called abstraction. Abstraction is the idea of hiding away
+the details of how something works in order to focus on the key features
+you need to interact with that thing. And it's really how we
+function with the world. And it's certainly the key behind
+implementing large scale software systems. So let me give you an example
+of abstraction that you should be familiar with. So here's the example of a car. And in particular, your car brakes. Let me ask you a question. Do you know how your car brakes work? Now you might say, mm, no, not really. I'm not a mechanic. I don't really know how they work. But if you ask me this question I say,
+sure I do. Here's how they work. I put my foot on the brake pedal and
+my car stops. That's all I need to know. So the difference between this first
+thought with thinking about what's under the hood and the details of
+the brakes, and the way I described it, which is step on the pedal and my car
+stops, is the difference between being on either side of something
+called an abstraction barrier. When I'm on the user side of
+the abstraction barrier, I only care about the behavior that happens when
+I interact with my car's brakes. Like I said,
+I put my foot on the pedal and it stops, that's all I need to
+know in order to drive a car. I don't have to know how things
+are implemented under the hood. But in order for
+my car to have functioning brakes, somebody has to be on the other
+side of the abstraction barrier. Somebody has to know how my
+brakes are actually implemented. The person who designed my car,
+the manufacturer of my car, a mechanic who's gonna fix my brakes,
+they're on the other side of the abstraction barrier, concerned with
+the specific implementation of my brakes. As long as they fulfill the contract,
+that I put my foot on the brake pedal and my car stops, I don't particularly
+care how my brakes are implemented. And that's what allows majority of us to
+drive our cars without being a mechanic who knows about every single detail. The same idea exists in software systems,
+in particular, in something we're gonna look
+at called data abstraction. In order to work with
+large quantities of data, it's not important that you understand
+exactly how that data is organized if you're simply a user of
+a particular data repository. So what you care about is how
+you can interact with that data. So let's take the example of a list. A list is kind of an abstract notion. It's a set of elements arranged
+to some particular order. And you can do things with those elements. You can add elements to your list. You can give the size of your list. You can get an element at
+a particular index in your list. You can iterate over the list
+in a particular order. All of this is specified in something
+called the Abstract Data Type. And these Abstract Data Types often
+manifest themselves as either interfaces or as abstract classes in Java. In Java, there's an interface that's
+called the list that embodies this abstract notion of a collection of
+elements organized in a sequential order. But really the abstract notion of a list goes beyond a specific
+programming language. You can think of a grocery list,
+or a list of students in a class. These things are not
+directly related to code. So this idea of
+an Abstract Data Type is broader than just a particular implementation
+in a particular programming language. It's really just this abstract concept
+of how we interact with this data. It's a promise. On the other side of
+the abstraction barrier, we have our specific implementation of the
+list functionality, in this case, in Java. You're probably already familiar
+with the array list class. You've used it several times. And what that class does is it implements
+the list interface, it fulfills all of the functionality of a list, using an
+array to store the elements in the list. So it can use the array to put
+the elements in a particular order. As you know, an array organizes elements in order with indices to access
+the different elements in the array. So that's one particular
+implementation of this list interface. And this specific implementation
+using a data structure, or particular organization of data
+under the hood called an array. But the array is not the only
+way we can implement the list interface in this
+abstract data type list. So throughout the rest of this module,
+we're actually gonna be looking at a different implementation of the list
+interface called a link list, which we'll get into
+starting in the next video. Before we move on to the next video,
+I just want to go back to this idea that there are always two sides
+of an abstraction barrier. On the one hand there's the user side, and you'll be on this side whenever you're
+using built-in libraries in Java. You'll be using the defined interfaces,
+and you care mostly about the behavior,
+not so much about the implementation. On the other side of things, when you're
+a library developer, which you'll also be in this class, you care a lot
+about the specific implementation. And the specific implementation
+must fulfill the contract, but it's also going to have impacts of
+how fast it fulfills the contract. What's the performance of a particular
+choice of underlying data structure to fulfill an abstract data type contract? So we'll start to make all these ideas
+much more concrete when we dive into the implementation of the Linked List
+data structure in the next video.

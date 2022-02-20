@@ -1,0 +1,97 @@
+[MUSIC] In this lesson,
+we're going to start dealing with testing. And I really enjoy testing, because testing influences
+your confidence in your code. And let me tell you just a quick
+story here before we get started. So, I've worked with students for
+a long time and I've also worked for professional programmers a long time. And there's a surprising difference
+in terms of the confidence about code correctness
+between those two groups. And the surprising difference here is
+that students actually tend to be more confident than
+the experienced programmers. So I'll talk to students, they'll come in,
+they'll show me their code. They'll say, hey I've written all my code,
+I haven't compiled it yet, but I'm sure it's close to being finished. And this is terrifying, because you
+haven't compiled your code yet. You haven't run any test cases. How can you be sure that
+it's working correctly? In turn though, I've also seen professional programmers
+who've written and tested even parts of their code, and they still don't
+have much confidence about whether or not it's correct or not until they've
+seen extensive testing done on that code. So there's a big difference in terms
+of confidence, I think comes from the misunderstanding about, how do you
+know if your code works, or if it doesn't? And a lot of that has to do with testing. So by the end of this video, I hope you'll
+be able to explain the value of having confidence in your code, and also be able
+to identify some ways to build confidence about your code's correctness. So when we start talking
+about code correctness, let's start thinking about code
+that runs in important systems. So there's code that runs say,
+a pacemaker in someone's heart. And there's code that's going to be
+running the next self-driving car. And there's code the runs the landing
+program on the space shuttle. You have to be incredibly confident
+about the correctness of this code before you'd ever let it
+impact people's lives. So how do you gain this confidence? Well, it's hard to gain the confidence
+especially given there's lots of different people who are gonna use your code. There are users who are gonna
+try to use your code, and users do a lot of unexpected things
+with code when they work with it. You also have hackers who are
+intentionally trying to misuse your code in order to break it to gain some
+kind of privileged access to it. You have other software
+developers in your own company, who might use your code in a way
+different than it was intended. And then, you also have yourself. I'm working with code these days
+that I wrote ten years ago. I want to be sure that my code is actually
+correct that I use in the future, too. So let's focus on one scenario here. Let's just look at programmers. And talk about how confident
+our code needs to be. How confident we have to be in our code
+to be able to say it's working correctly. So let's say you're working at a company
+and there's 30 programmers there. And each programmer writes say,
+only ten methods. Well, right there you've
+already got 300 methods. Well, let's say you got some really
+good software engineers, and they're 99% sure that each of
+those methods works correctly. Well, what are your chances that
+one of those methods is broken? 95% chance one of those is broken. That's pretty scary. And this is ignoring interactions
+that may occur between the methods or highly level design mistakes
+that may have happened. This is just looking at
+the individual methods themselves. The other way you can look at
+this as a software engineer, is to essentially say that
+this is risk assessment. If you talk to CTOs of companies,
+this is essentially what they'll say. Well, depends on the domain. If we're working with pacemaker code, you have to be sure it's gonna work right
+before you ever release it to the wild. On the other hand, if you're writing code
+for a website that provides cute cats, it's still fun, it's still important, but you can have some bugs in there
+without any real loss of life, right? So it really just depends on the domain. You have to have different degrees
+of confidence depending on how it's gonna be used. So, how do we gain confidence for our code
+and how do we reason about the confidence? What I wanna do is give you some ideas,
+essentially, about how I feel about my code. This is just my personal opinion. But essentially,
+when I have written code and I haven't compiled it yet, I have almost
+no confidence that that code is correct. I've been writing code for a long time. I just assume that it's gonna have
+problems until shown differently. Even after I've compiled the code, I still have no confidence in it because I
+could have many kinds of bugs at run time. Maybe I've tested against a basic input. The inputs, maybe a couple of inputs that
+I used to essentially device my algorithm. I'm still gonna have a low degree of
+confidence because I haven't tested corner cases yet. After I test corner cases, like giving a
+null input as a reference or say, an empty list, then I start feeling a little more
+confident about my code working properly. But it's not until
+a whole bunch of users or other software engineers of the company
+start pounding on down my code, before you're gonna start
+feeling really good about it. And this is why companies do beta testing. They want users to essentially pound on the code to essentially
+find potential mistakes. You might say, wait a second, couldn't we
+just test it against all possible inputs, and then we know for
+sure it's gonna work no matter what. Well, maybe. If your method only depends on say,
+a boolean, so it has different behaviors, whether or
+not a true value is given to it or false value, sure,
+you can try both true or false. But even if your method takes
+just three integer inputs, this is gonna be essentially impossible. Using int has essentially four
+billion different values. And if you wanna look at all possible
+combinations of three integers, you're looking at this number here, and
+I have no idea what this number is. It's just huge. There's no way you could possibly
+test all these combinations. Which means if your method
+takes an array as an input, or depends on information being
+fed to you from a database, there's just no way you could
+try it on all possible inputs. This is just scary. So we can't test on all possible inputs, we just try to test it on as much as we
+possibly can, in real life situations. So how then can we
+increase our confidence? Well first off, at an algorithmic level,
+be critical of your code. Be critical of your idea. You wanna make sure,
+first devise your algorithm, and then essentially put on your
+skeptic hat and try to break it. Trying breaking it in many
+ways as you possibly can. In the process of trying to break it,
+you're essentially gonna try all these different corner cases to see whether or
+not it's gonna work. Is is gonna go off the end of the array? Is it gonna again, deal with that
+null reference being fed to it? The other thing you can do
+is usually attempt to reason about its correctness formally. There's an area of programming languages
+that's essentially focused on this. And that could essentially
+be a course within itself. The last thing you could do, is
+essentially create automated test cases, that are gonna try and test the code in
+a whole bunch of different situations, so you can feel more confident
+in its performance. And that's, in fact,
+what we're gonna do next.

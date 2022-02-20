@@ -1,0 +1,11 @@
+[MUSIC] Then the other important bit about
+testing your code is actually testing the behavior. So there are different ways
+that you can test the behavior. One of them is unit testing. So with unit testing you basically just
+want to test a particular piece of code. So you want to make sure that you are only
+testing an isolated piece of method, rather than testing the whole software. >> And then once you're pretty sure that
+that little piece of code is working properly, you can use
+integration tests which will check the connection between that piece
+of code and other pieces of code. So if you're writing a service that say,
+like relies on a database, you can actually check the connection
+between your code and the database. Make sure it's pulling information out of
+it properly, storing stuff in it properly, that kind of thing.

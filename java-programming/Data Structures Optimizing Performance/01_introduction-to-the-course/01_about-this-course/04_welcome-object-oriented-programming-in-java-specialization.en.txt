@@ -1,0 +1,33 @@
+Hi, I'm Leo Porter. >> I'm Christine Alvarado. >> And I'm Mia Menes. Welcome to the fourth course
+in our specialization. We're happy to have you here
+to solidify your understanding of object-oriented programming
+using data structures. Whether you were with us for the first
+three courses, or you're here for the first time, welcome. >> The data structures and
+scales you'll learn in this course will allow you to solve a wide range
+of software engineering problems. And they're essential knowledge for
+any computer scientist. As you develop and
+test these data structures, you'll be applying object-oriented
+concepts that you've learned in previous courses, like dead encapsulation,
+inheritance, and polymorphism. In this course,
+as its name suggests, measuring and optimizing performance takes center stage. We'll teach you how to analyze algorithms
+at a high level, and then apply these analysis techniques to analyze the
+efficiency of several new data structures, including linked lists,
+trees, and hash tables. So that you'll always be able to select
+the proper data structure for the task. Finally, we'll go beyond high level
+analysis to look at how to measure performance on actual systems and how to ensure the correctness of
+your code through proper testing. >> As with the other courses, you're going to be learning all this
+in the context of a large project employing object-oriented
+programming design principles. In this project,
+we'll be building a text editor that includes features like spell
+check which we all depend on, and auto-complete which you've probably seen
+on your phone or in the Google Search bar. We'll also have a bit of fun. We're going to have, you implement
+a program that measures the readability of text, and we're also going to have you
+implement a program that's a word game, but at its heart is a problem
+that's important to both computational biology and
+machine translation. >> Now, if you were in the course
+with us in the previous course, this project-driven approach isn't
+the only thing that you'll recognize. The When I Struggled and In the Real World
+Video Series are coming right back, and you'll also have concept challenges
+throughout the course to test your understanding. Throughout the course,
+you'll feel challenged and empowered to complete the project
+while having all the support you need. So without further ado, let's get started.

@@ -1,0 +1,54 @@
+[MUSIC] So, at this point you've probably
+had folks tell you that unit tests are important, and that's true. But it's hard to understand just how
+important they can be until you've seen sort of a before and after case. During my previous employment, I wound up doing seven or
+eight months projects for a company that did hardware controlling
+pieces of municipal systems. Sprinklers, lights, stop lights,
+that sort of thing. And at the time they were trying to put their software to a new hard
+wiring operating system platform. They brought us in to help them out. I came in for an on-site, and they spent a few days giving me
+a walk-through of their system. At the end of which I
+said that's all great. Makes a lot of sense,
+everything seems good so far. As we're starting to get the stuff running
+on the new platform, we'll obviously wanna make sure that it works the same way
+that it did on the old platform. What unit test do you have? How do you go about validating that
+software works as designed and intended? And they looked at me funny and said,
+well, when we're done writing a piece of the software and when we're done making
+some changes, we load it up onto that system over there running in
+the corner of their office as a demo. And if it runs there, then we figure it's
+working okay, and we're good to go, and we send it off to QA for final testing. And this blew my mind. This stuff has to work. It's controlling key
+pieces of infrastructure. If it doesn't work or if it crashes,
+there's a real problem. People are gonna have,
+humans are gonna have real issues. So I went back to my office and
+talked with my management back there and said look, this is how they do things. It's not how we do it. We need to do it our way and they agreed. Said yeah that's fine,
+we'll go ahead and write the in address. The project continued and
+made a few additional trips out there. And as the project went on I started
+getting calls from some of their engineers saying look,
+our bud counts are way higher than yours. You're turning in code
+that's really solid. Fine, you're this expert consultant, and you must know the magic sauce to put
+on your code to make everything happy. And I said that all that I am doing that
+I am aware of that you guys aren't is I'm running unit tests. Little pieces of code to make sure that
+mine works the way it's supposed to. I take my test code, I plug the older version of it
+into the test on the old hardware. Run it. If my test passes, great. Then I take that same test code,
+plug my new version of it into the test on the new hardware,
+make sure it runs the same. If it doesn't, then I know I've got
+a problem, and I've gotta fix it. Cuz the rest of the system is gonna expect
+that piece x works just like it did on the old hardware. And if it doesn't,
+then fix it before anybody else sees it. Oh okay, you know, seems reasonable. At the end of the project,
+it was a big success. The project came in on time,
+under budget, and everybody was thrilled. This was one of the best projects
+that they've run in a long time. So, they brought me back out for
+the party at the end. And during part of the party, one of the vice presidents who
+was there was wandering around, asking each of the engineers, so
+okay, very informally, what worked? What made the difference on this project? And they all kept telling
+him the same thing. Well, we started writing unit tests. And it simplified things and made the code
+more robust, and we knew that it worked. And so
+when we plugged the pieces together, if something went wrong, we figured it had
+to be in a part that was connecting them, rather than each of the individual pieces. And their VP was really happy with this. He said, wow, this is great. I've been trying to get folks to
+do unit testing for a long time. It just became the poster child for
+this within the organization. So, upshot is if somebody tells
+you we don't have time to write unit tests,
+just write the code right the first time. They're crazy. You can't do it. You're never gonna be able to get every
+single bug out of the code right away. What you do is you write code
+to test the little pieces, so when you start building bigger pieces
+out of them, this stuff works. You don't build a house on
+a foundation of sand, and you don't write big programs on the basis
+of code that you haven't tested yet.

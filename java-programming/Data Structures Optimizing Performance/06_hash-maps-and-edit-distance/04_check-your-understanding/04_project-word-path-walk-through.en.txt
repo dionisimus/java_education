@@ -1,0 +1,86 @@
+[MUSIC] In this video we're gonna do a walkthrough
+of the programming assignment for module 5 that's focused on word paths. And this assignment is a lot of fun. I had a lot of fun doing it myself but
+it can also be a bit challenging. Here's what we're gonna do,
+we're gonna bring together the content of a number of the components
+of this class into one assignment. And what I mean by that is you're gonna
+be doing a Breadth First search, very similarly to what you did for spelling
+suggestions, while you're also dynamically building a tree, which is somewhat similar
+to the work that you did in week four. With the try. So we're combining both Breadth First
+search as well as dynamic tree generation to essentially solve this puzzle. Now again the puzzle, the game that we're
+playing here, is trying to find a path from one word to another with
+the restriction that you can only make one change at a time and whatever change
+you make has to result in a real word. In the previous videos,
+we've already done a few examples, but here's another example to help you
+understand exactly how this process works. I actually encourage you to try
+this on your own in your head, or on a piece of paper,
+before you ever try to code this, so you essentially see how is this gonna
+work and how should you play the game. As with all the previous assignments,
+make sure you grab the starter code. The starter code that we're gonna be
+focusing on for this are WordPath and WPTree. So, first off, with WordPath,
+WordPath is just an interface, and all it has in it is a find path. And this will just return that list of
+words that go from word 1 to word 2. Or it'll return null if
+no such path exists. Your class, WPTree is gonna
+essentially implement this. First off what I wanna focus on here is
+that we have our WPTree that implements WordPath and it has a tree that you're
+gonna be building dynamically and it also has, essentially, new brighter
+words object that it's gonna be able to reference essentially to perform
+these single character mutations. But before we dive into
+the details of WPTree, let's focus on WPTree node [SOUND]. So, we've actually given you entire
+class WPTree node with [SOUND] all the methods that I think you're
+gonna need for this project. So it has a word. Each node is going to have the word. It's gonna have a list of children
+that are essentially words which are one mutation away from,
+this word. And then they all have a parent. The root node is gonna have this be null,
+but then each of the children will have their parents be again this
+one character mutation away. And each noted self is gonna have, the constructor takes in both
+the string and the parent's node. Again, you would call this WPTree node as
+null if you're creating the root node. You're able to add children
+to this tree node, and you're able to return
+the list of children [SOUND]. Most importantly we have this
+build path to root method, which I'll mention in just a second, but we also
+have methods like get word and two string, which will help you with debugging. So what is this build path to root piece,
+and why are we having to
+create this dynamic tree? The difference between this, let me go
+back to our write up real quickly [SOUND], the difference, and this is all the code
+that we were just walking through. But the fundamental
+difference between this and the spelling suggestions is that once
+you find the word you're looking for, you have to be able to
+reconstruct how you got here. With spelling suggestions all we
+wanted to do is determine the list of potential suggestions. But you didn't need to know how
+you got to a specific suggestion. In word path you have to
+know how you got there. And to know the path that you got
+there requires essentially having building this tree on the fly. And what we've given which
+is potentially useful here is this method which will return back
+to you the path back to your route. If you're at a leaf node and
+you wanna know how did you get here, you can just call this
+method to find that out. Now you might be thinking well this is
+a lot of code that you're gonna be using. What are we required to do? Well, you're required to do
+the heart of the logic here. Which is doing find path. What we've done is given you just
+like in the previous example [SOUND], we've given you the algorithm. Now, again, if you want a larger
+challenge, feel free to just stop reading this, don't look at the algorithm and try
+to come up with the algorithm on your own. But feel free to look at the algorithm. This is a little bit
+tricky to piece together. What you'll find is a lot commonality
+between this algorithm and the spelling suggest algorithm. With the key feature or
+the the key difference is that you're constantly building
+this tree as you're working along. Some hints as you're working
+through this assignment. First off, we create that nearby distance
+one methods to allow us to restrict to just real words. The big advantage to doing so back with the nearby words assignment
+was that you could use this here. So now you don't have to. When you call the distance one,
+you get back a list of words. And if you use that boolean flag of true,
+the one that restricts to just real words. You don't need to prune
+out non dictionary words. You're only gonna get back real words. And that's really useful. We've also give you a method add child in
+the WPTree node which will return back to the node that it creates. This is gonna be really helpful when
+you're trying to construct your tree. Methods print queue, and print queue is in
+WPTree, and the method to string in WPTree node, will be essential when you're
+trying to debug and test your code. I encourage you to do some
+really small examples. And then see what's being produced in
+terms of the queue, as it's running, to see whether or not it's doing
+what you would expect it to do. And lastly, think about corner cases. And we have a couple corner cases here. But you should be thinking about
+other corner cases as well. All right.
+The last step is to upload and submit your code to our graders. So you'll submit WPTree.java. You'll do so the same way we've
+done with the previous assignments. You'll go to My Submission. You'll create your submission and
+you'll submit WPTree.java and you'll get greater output. As the previous ones, I encourage you to
+look at the greater output to see what test cases you may have missed. We also have within the source code
+that we've provided WPTree greater, which will show you essentially the cases
+that we're testing for [SOUND]. If you run into any problems,
+feel free to review the previous videos. Also, feel free to post in learner forums,
+and good luck on your project.

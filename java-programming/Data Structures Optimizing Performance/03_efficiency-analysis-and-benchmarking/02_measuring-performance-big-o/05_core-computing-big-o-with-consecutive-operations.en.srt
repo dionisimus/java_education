@@ -1,0 +1,412 @@
+1
+00:00:00,008 --> 00:00:04,928
+[SOUND] So in the previous video,
+we talked about the definition of
+
+2
+00:00:04,928 --> 00:00:08,684
+Asymptotic Analysis and
+these Big O classes, and
+
+3
+00:00:08,684 --> 00:00:13,797
+we got a bit of a flavor from it,
+some really small snippets of code.
+
+4
+00:00:13,797 --> 00:00:17,153
+How to translate from the number
+of operations to the Big O class.
+
+5
+00:00:17,153 --> 00:00:21,913
+But now what we'd like to do is say, if we
+have the runtime of two small snippets of
+
+6
+00:00:21,913 --> 00:00:26,463
+code, and we put them one right after
+the other, what's going to be the total
+
+7
+00:00:26,463 --> 00:00:30,860
+runtime of the code that we're
+running in asymptotic notation?
+
+8
+00:00:30,860 --> 00:00:34,190
+And so, by the end of this video,
+you'll be able to combine the runtimes
+
+9
+00:00:34,190 --> 00:00:38,080
+of smaller code snippets to analyze
+slightly more complicated code.
+
+10
+00:00:38,080 --> 00:00:41,120
+So let's think about
+a particular method and
+
+11
+00:00:41,120 --> 00:00:44,920
+we're thinking about a method that
+takes as input an array of integers.
+
+12
+00:00:44,920 --> 00:00:49,110
+And before we start going,
+a really good rule of thumb is
+
+13
+00:00:49,110 --> 00:00:52,010
+when you're analyzing code, first to
+have a sense of what it's going to do.
+
+14
+00:00:52,010 --> 00:00:55,959
+So take a minute and
+the in-video quiz is coming up asks you
+
+15
+00:00:55,959 --> 00:01:00,238
+just to run this code on some sample
+integers and see what it does
+
+16
+00:01:04,395 --> 00:01:09,460
+So now that you know what reduce does
+as a method, let's analyze its runtime.
+
+17
+00:01:09,460 --> 00:01:13,965
+And really, we can break out this
+method into four chunks of code.
+
+18
+00:01:13,965 --> 00:01:16,815
+And so, at the beginning we're
+doing some initialization.
+
+19
+00:01:16,815 --> 00:01:18,255
+Then, we have a for loop.
+
+20
+00:01:18,255 --> 00:01:21,485
+Then, a little one-liner.
+
+21
+00:01:21,485 --> 00:01:22,885
+And then, another for loop.
+
+22
+00:01:22,885 --> 00:01:26,187
+And so, let's analyze each of
+those pieces independently,
+
+23
+00:01:26,187 --> 00:01:30,037
+because what our execution path is going
+to be is to go through one segment,
+
+24
+00:01:30,037 --> 00:01:33,927
+and then go through another segment,
+one after the other consecutively.
+
+25
+00:01:33,927 --> 00:01:36,968
+And so the runtime of one of them isn't
+really going to depend on the runtime
+
+26
+00:01:36,968 --> 00:01:37,617
+of the other.
+
+27
+00:01:37,617 --> 00:01:39,868
+They're going to go one after the other.
+
+28
+00:01:39,868 --> 00:01:42,217
+So let's start easy.
+
+29
+00:01:42,217 --> 00:01:44,017
+Let's start with a single lines of code.
+
+30
+00:01:44,017 --> 00:01:48,844
+And remember our rule of thumb is just
+a single line of code, is constant time.
+
+31
+00:01:48,844 --> 00:01:53,157
+The time it takes to execute
+that line of code doesn't depend
+
+32
+00:01:53,157 --> 00:01:55,340
+on the size of the input.
+
+33
+00:01:55,340 --> 00:02:00,689
+And so, we consider that just a constant
+time piece of the algorithm, it's O(1).
+
+34
+00:02:00,689 --> 00:02:02,990
+So we've got those two under our belts.
+
+35
+00:02:02,990 --> 00:02:04,050
+They're done.
+
+36
+00:02:04,050 --> 00:02:06,320
+Now, let's look at that first for loop.
+
+37
+00:02:06,320 --> 00:02:07,190
+And in this for
+
+38
+00:02:07,190 --> 00:02:12,480
+loop what we're dong is we're going
+through the entire array of integers.
+
+39
+00:02:12,480 --> 00:02:14,260
+And for each one at a time,
+
+40
+00:02:14,260 --> 00:02:19,450
+what we're trying to do is find the
+smallest value in the array, basically.
+
+41
+00:02:19,450 --> 00:02:24,324
+And so, we're comparing the value
+at the current position
+
+42
+00:02:24,324 --> 00:02:29,099
+in the array with some smallest
+value that we've set, and
+
+43
+00:02:29,099 --> 00:02:33,112
+seeing whether we found
+a new smallest overall.
+
+44
+00:02:33,112 --> 00:02:38,870
+Now, for analyzing performance, we don't
+really need to know what the program does.
+
+45
+00:02:38,870 --> 00:02:41,790
+It's going to be a good check
+at the end just to confirm.
+
+46
+00:02:41,790 --> 00:02:44,114
+But what we wanna do is
+to count instructions or
+
+47
+00:02:44,114 --> 00:02:48,240
+roughly figure out how the instructions
+depend on the size of the input.
+
+48
+00:02:48,240 --> 00:02:50,758
+And so, let's think through
+about what we have to do as we
+
+49
+00:02:50,758 --> 00:02:52,023
+step through this for loop.
+
+50
+00:02:52,023 --> 00:02:55,998
+We're executing this for loop once,
+the body of the for loop,
+
+51
+00:02:55,998 --> 00:02:58,740
+once for every position in the array.
+
+52
+00:02:58,740 --> 00:03:01,353
+And each time we get to
+a new position in the array,
+
+53
+00:03:01,353 --> 00:03:03,789
+what we're doing is
+this conditional check.
+
+54
+00:03:03,789 --> 00:03:09,326
+We're checking whether two elements in
+the array, one is less than the other.
+
+55
+00:03:09,326 --> 00:03:14,144
+And then, depending on the result of that
+check, we might be updating a variable.
+
+56
+00:03:14,144 --> 00:03:17,764
+So if we think about the performance,
+we're having and
+
+57
+00:03:17,764 --> 00:03:22,850
+repetitions of the body of the array,
+I'm sorry the body of the for loop.
+
+58
+00:03:22,850 --> 00:03:25,101
+But the body of the for
+loop is just constant time.
+
+59
+00:03:25,101 --> 00:03:29,030
+So n many times we're just doing
+a constant amount of work.
+
+60
+00:03:29,030 --> 00:03:31,895
+So all in all it's O(n), O(n).
+
+61
+00:03:31,895 --> 00:03:35,580
+So our for
+loop over here as a whole is O(n).
+
+62
+00:03:35,580 --> 00:03:40,480
+And so, now we have just one more
+piece of the method to analyze.
+
+63
+00:03:40,480 --> 00:03:41,826
+And that's the last for loop.
+
+64
+00:03:41,826 --> 00:03:46,864
+And so, let's focus in on what
+happens in that last for loop.
+
+65
+00:03:46,864 --> 00:03:52,095
+So similarly to before, we have a for
+loop that starts at one end of the array,
+
+66
+00:03:52,095 --> 00:03:57,247
+goes through the array one at a time,
+and then does something as the position
+
+67
+00:03:57,247 --> 00:04:02,025
+of the array increments throughout
+all of the positions in the array.
+
+68
+00:04:02,025 --> 00:04:06,731
+Now, as before, that means that we
+have n many iterations of the for
+
+69
+00:04:06,731 --> 00:04:08,630
+loop being executed.
+
+70
+00:04:08,630 --> 00:04:12,160
+And for each iteration we just
+do a constant amount of work.
+
+71
+00:04:12,160 --> 00:04:16,880
+So overall the amount of work that we're
+doing is n times a constant amount, well,
+
+72
+00:04:16,880 --> 00:04:18,270
+that's O(n).
+
+73
+00:04:18,270 --> 00:04:20,090
+Because we dropped the constants.
+
+74
+00:04:20,090 --> 00:04:23,141
+So this loop as well is O(n).
+
+75
+00:04:23,141 --> 00:04:28,249
+So thinking back to the big picture,
+thinking back to our overall method,
+
+76
+00:04:28,249 --> 00:04:33,358
+we've got the first piece is O(1),
+then the first for loop was O(n),
+
+77
+00:04:33,358 --> 00:04:38,110
+the next piece was at constant work and
+then the last piece is O(n).
+
+78
+00:04:38,110 --> 00:04:41,350
+So if we think about the runtime
+total of this entire method,
+
+79
+00:04:41,350 --> 00:04:44,157
+we're adding up all
+the runtimes that we've done.
+
+80
+00:04:44,157 --> 00:04:46,890
+We've done one after the other,
+after the other.
+
+81
+00:04:46,890 --> 00:04:52,333
+And so, that means that our total runtime,
+if we weren't thinking about O,
+
+82
+00:04:52,333 --> 00:04:56,293
+would be 1 plus n plus 1 plus n,
+but that's not right.
+
+83
+00:04:56,293 --> 00:05:00,997
+It's not 2n + 2,
+what we want to do is drop constants and
+
+84
+00:05:00,997 --> 00:05:03,770
+keep just the dominant terms.
+
+85
+00:05:03,770 --> 00:05:07,294
+And so, dropping constants means that
+we can drop those two O(1) pieces.
+
+86
+00:05:08,295 --> 00:05:13,205
+And then, we're left with two big O(n),
+which is kind of like O(2n), but we have
+
+87
+00:05:13,205 --> 00:05:18,915
+to drop that constant 2 and we have
+a O(n) algorithm, or a linear algorithm.

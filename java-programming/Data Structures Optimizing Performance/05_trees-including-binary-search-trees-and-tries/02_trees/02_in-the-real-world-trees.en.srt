@@ -1,0 +1,37 @@
+1
+00:00:00,000 --> 00:00:03,171
+[MUSIC]
+
+2
+00:00:07,087 --> 00:00:07,754
+Hi.
+
+3
+00:00:07,754 --> 00:00:11,754
+So, one of the products I work on is the
+Google Takeout product within My Account.
+
+4
+00:00:11,754 --> 00:00:17,360
+And one of the things we like to use trees
+for is to represent file structures.
+
+5
+00:00:17,360 --> 00:00:20,460
+So, they're ideal for
+representing hierarchies in a system.
+
+6
+00:00:20,460 --> 00:00:25,879
+And we'd like to model them,
+perhaps group them, shuffle them around.
+
+7
+00:00:25,879 --> 00:00:29,647
+We also pass those structures around to
+different parts of the system, so we can
+
+8
+00:00:29,647 --> 00:00:33,710
+manipulate them, add to them, can search
+them, and trees make a great fit for that.

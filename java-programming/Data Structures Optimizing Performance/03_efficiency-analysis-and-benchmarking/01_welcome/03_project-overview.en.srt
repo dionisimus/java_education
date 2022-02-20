@@ -1,0 +1,205 @@
+1
+00:00:00,166 --> 00:00:03,406
+[MUSIC]
+
+2
+00:00:03,406 --> 00:00:06,763
+In this video, I'll show you the output
+of your next programming assignment,
+
+3
+00:00:06,763 --> 00:00:09,480
+the programming assignment for this week.
+
+4
+00:00:09,480 --> 00:00:11,970
+In terms of the interface
+that text editor interface,
+
+5
+00:00:11,970 --> 00:00:14,150
+you're not gonna be adding
+any additional functionality.
+
+6
+00:00:14,150 --> 00:00:17,010
+You'll be implementing an efficient
+document class, which is going to
+
+7
+00:00:17,010 --> 00:00:21,380
+do the same thing that your basic document
+class did, only it's going to do it.
+
+8
+00:00:21,380 --> 00:00:23,460
+You guessed it, more efficiently.
+
+9
+00:00:23,460 --> 00:00:26,210
+And then you'll be implementing
+some benchmarking to actually
+
+10
+00:00:26,210 --> 00:00:28,700
+compare the running time
+of your basic document
+
+11
+00:00:28,700 --> 00:00:31,090
+with the running time of
+your efficient document.
+
+12
+00:00:31,090 --> 00:00:34,150
+So what I'm gonna show
+you is the run of this
+
+13
+00:00:34,150 --> 00:00:36,280
+document benchmarking program
+that you're gonna write.
+
+14
+00:00:36,280 --> 00:00:38,740
+So I've written it,
+I've got the solution in this file.
+
+15
+00:00:38,740 --> 00:00:41,330
+And I'll show you what it does,
+and then I'll show you how you'll
+
+16
+00:00:41,330 --> 00:00:44,500
+use Google Sheets to do some analysis and
+the visualization of the data.
+
+17
+00:00:44,500 --> 00:00:47,540
+So here's the demo,
+you're going to press run,
+
+18
+00:00:47,540 --> 00:00:51,340
+right here on your DocumentBenchmarking
+class once you've got it running.
+
+19
+00:00:51,340 --> 00:00:53,330
+And then you go over
+here to the console and
+
+20
+00:00:53,330 --> 00:00:58,160
+you can see that it's printing out
+the output of these efficiency tests.
+
+21
+00:00:58,160 --> 00:00:59,140
+Then you can just let that run.
+
+22
+00:00:59,140 --> 00:01:01,320
+All right, it'll take a little while, but
+
+23
+00:01:01,320 --> 00:01:03,960
+when it finally finishes
+you'll have this output here.
+
+24
+00:01:03,960 --> 00:01:06,060
+You'll have the size of
+the document that you are testing.
+
+25
+00:01:06,060 --> 00:01:08,880
+You'll have the performance
+running time for basic document.
+
+26
+00:01:08,880 --> 00:01:10,970
+And the running time for
+the efficient document.
+
+27
+00:01:10,970 --> 00:01:13,080
+And again,
+you'll be writing the file that does this.
+
+28
+00:01:13,080 --> 00:01:15,200
+You'll be writing
+the program that does this.
+
+29
+00:01:15,200 --> 00:01:20,270
+Then what we want you to do is, you're
+gonna take all this data and copy it out.
+
+30
+00:01:20,270 --> 00:01:24,150
+And go on over to Google Sheets.
+
+31
+00:01:24,150 --> 00:01:26,100
+And then I'm just gonna
+paste in this data.
+
+32
+00:01:29,726 --> 00:01:32,174
+All right,
+now I've got my data pasted in and
+
+33
+00:01:32,174 --> 00:01:35,780
+you're gonna see a button
+down here that says Explore.
+
+34
+00:01:35,780 --> 00:01:38,600
+You're gonna press that button, and
+I'm not gonna press it because this is
+
+35
+00:01:38,600 --> 00:01:43,270
+the solution code and I don't want you to
+see the graphs that I get when I run this.
+
+36
+00:01:43,270 --> 00:01:48,020
+I want you to see your own graphs and I
+want you to explore the data on your own.
+
+37
+00:01:48,020 --> 00:01:51,540
+So you'll explore the data using this
+button and it's really pretty cool
+
+38
+00:01:51,540 --> 00:01:53,990
+of what you'll see from running
+these table implementations and
+
+39
+00:01:53,990 --> 00:01:55,450
+then visualizing the data.
+
+40
+00:01:55,450 --> 00:01:57,290
+So, throughout this week,
+
+41
+00:01:57,290 --> 00:02:00,210
+you're gonna learn all the tools you
+need in order to do this comparison.
+
+42
+00:02:00,210 --> 00:02:01,490
+Do this benchmarking.
+
+43
+00:02:01,490 --> 00:02:04,509
+Implement the efficient document and
+have a lot of fun playing with the data.

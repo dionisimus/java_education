@@ -1,0 +1,634 @@
+1
+00:00:00,000 --> 00:00:03,672
+[MUSIC]
+
+2
+00:00:03,672 --> 00:00:07,860
+In this video, we're gonna talk about
+a new data structure called a trie.
+
+3
+00:00:07,860 --> 00:00:09,406
+So by the end of this video,
+
+4
+00:00:09,406 --> 00:00:13,780
+you'll be able to explain what a trie is
+as well as describe the algorithms for
+
+5
+00:00:13,780 --> 00:00:17,979
+inserting data into the trie and
+finding whether data exists in the trie.
+
+6
+00:00:17,979 --> 00:00:22,200
+So to start off, let's go back to the test
+that you're going to have in your
+
+7
+00:00:22,200 --> 00:00:26,823
+programming assignment, which is you wanna
+figure out whether the words the user
+
+8
+00:00:26,823 --> 00:00:30,852
+is typing into the screen, into
+the text box are actually legal words.
+
+9
+00:00:30,852 --> 00:00:33,800
+In other words,
+do they appear in a dictionary?
+
+10
+00:00:33,800 --> 00:00:37,270
+So we can think about representing this
+dictionary in a number of ways and
+
+11
+00:00:37,270 --> 00:00:39,830
+one reasonable way to
+represent this dictionary
+
+12
+00:00:39,830 --> 00:00:44,830
+is using the data structure that Mia just
+taught you about, the binary search tree.
+
+13
+00:00:44,830 --> 00:00:47,855
+And if we assume the binary
+search tree is balanced,
+
+14
+00:00:47,855 --> 00:00:50,551
+then the tree might look
+something like this.
+
+15
+00:00:50,551 --> 00:00:52,030
+So this is a very simple dictionary.
+
+16
+00:00:52,030 --> 00:00:55,788
+It only has six words in it, but you can
+see that they're arranged in a binary
+
+17
+00:00:55,788 --> 00:00:58,630
+search tree according to
+their alphabetical ordering.
+
+18
+00:00:58,630 --> 00:01:01,359
+So the words that are closer
+to a are over on the left and
+
+19
+00:01:01,359 --> 00:01:05,071
+the words that are closer to the end
+of the alphabet are over on the right.
+
+20
+00:01:05,071 --> 00:01:09,722
+Now this is a perfectly fine way to
+organize words into a dictionary, but
+
+21
+00:01:09,722 --> 00:01:14,298
+we can see that in a binary search tree,
+the binary search tree doesn't
+
+22
+00:01:14,298 --> 00:01:18,510
+take advantage of some of
+the structure of the words themselves.
+
+23
+00:01:18,510 --> 00:01:21,376
+It just does these pairwise
+words comparisons to figure out,
+
+24
+00:01:21,376 --> 00:01:26,010
+which word comes first in the alphabet in
+order to arrange the words in the tree.
+
+25
+00:01:26,010 --> 00:01:27,480
+But even with these six words,
+
+26
+00:01:27,480 --> 00:01:30,080
+we can see that there's some
+shared structure to them.
+
+27
+00:01:30,080 --> 00:01:34,543
+For example, ear, east and eat,
+all contain ea right at the start and
+
+28
+00:01:34,543 --> 00:01:39,474
+the binary search tree representation
+is not using that information at all.
+
+29
+00:01:39,474 --> 00:01:42,792
+So now we're gonna look at
+a data structure called a trie,
+
+30
+00:01:42,792 --> 00:01:47,470
+which takes advantage of the structure
+of the keys that it stores.
+
+31
+00:01:47,470 --> 00:01:49,320
+So the idea behind a trie is,
+
+32
+00:01:49,320 --> 00:01:54,670
+it's gonna use the key itself to navigate
+the search through the structure.
+
+33
+00:01:54,670 --> 00:01:57,929
+Now the word trie,
+actually comes from the word retrieval.
+
+34
+00:01:57,929 --> 00:02:00,730
+So it's the middle part
+of the word retrieval,
+
+35
+00:02:00,730 --> 00:02:04,240
+because these keys help you
+retrieve the keys themselves.
+
+36
+00:02:04,240 --> 00:02:07,961
+The structure of the key helps you
+retrieve the key in this structure.
+
+37
+00:02:07,961 --> 00:02:13,570
+However, trie, T-R-I-E in retrieval is
+pronounced the same way as T-R-E-E.
+
+38
+00:02:13,570 --> 00:02:17,787
+And it would be very confusing
+if we were talking about a tree,
+
+39
+00:02:17,787 --> 00:02:21,937
+because we're already talking about trees,
+T-R-E-E.
+
+40
+00:02:21,937 --> 00:02:29,120
+So they decided to call T-R-I-E, trie
+to disambiguate it from the word tree.
+
+41
+00:02:29,120 --> 00:02:31,310
+Because in fact, tries are trees.
+
+42
+00:02:32,320 --> 00:02:34,072
+Hopefully, you're not thoroughly confused.
+
+43
+00:02:34,072 --> 00:02:36,765
+Let's go talk about tries.
+
+44
+00:02:36,765 --> 00:02:39,561
+So here is at the representation
+of a trie for
+
+45
+00:02:39,561 --> 00:02:44,990
+that small dictionary of words that I
+just looked at in the binary search tree.
+
+46
+00:02:44,990 --> 00:02:47,399
+So we have the same six
+words represented here.
+
+47
+00:02:47,399 --> 00:02:50,537
+A, at, ate, ear, east and eat and
+
+48
+00:02:50,537 --> 00:02:55,560
+I'm going to talk to you
+about how this try works.
+
+49
+00:02:55,560 --> 00:02:59,690
+Now right after the bat, you will notice
+some differences between the binary search
+
+50
+00:02:59,690 --> 00:03:03,630
+tree and this trie representation,
+which as I imagine is also a tree.
+
+51
+00:03:04,910 --> 00:03:11,070
+One thing that you'll notice is that not
+every node in this tree represents a word.
+
+52
+00:03:11,070 --> 00:03:15,370
+So you'll see some of the nodes, those
+blue shaded nodes do represent words.
+
+53
+00:03:15,370 --> 00:03:18,560
+But some of the nodes, the white
+nodes are just internal nodes and
+
+54
+00:03:18,560 --> 00:03:21,280
+they don't actually represent
+any word in this dictionary.
+
+55
+00:03:22,390 --> 00:03:27,214
+The other difference you're going to note
+is that these tries can have more than
+
+56
+00:03:27,214 --> 00:03:28,872
+two children at each node.
+
+57
+00:03:28,872 --> 00:03:31,568
+So a binary search tree
+always has two children,
+
+58
+00:03:31,568 --> 00:03:34,510
+these tries can have
+more than two children.
+
+59
+00:03:34,510 --> 00:03:39,467
+In this case, we'll use a restricted set
+of the alphabet, only five characters.
+
+60
+00:03:39,467 --> 00:03:43,128
+And so each trie node can have up to
+five children or it may have less,
+
+61
+00:03:43,128 --> 00:03:45,980
+all of the nodes here have
+fewer than five children.
+
+62
+00:03:47,100 --> 00:03:50,670
+But in this way,
+they're going to be kind of bushier and
+
+63
+00:03:50,670 --> 00:03:56,220
+wider than our binary search trees, which
+always have two, one or zero children.
+
+64
+00:03:57,650 --> 00:04:00,574
+So with an understanding
+of those two differences,
+
+65
+00:04:00,574 --> 00:04:04,227
+let's talk about how this trie works and
+how it's put togethe and
+
+66
+00:04:04,227 --> 00:04:07,492
+we'll do this in the context
+of finding a word in the trie.
+
+67
+00:04:07,492 --> 00:04:09,070
+So let's have looking for the word eat.
+
+68
+00:04:10,100 --> 00:04:12,630
+The way I'm going to find
+the word eat in the trie
+
+69
+00:04:12,630 --> 00:04:15,110
+is I'm going to start up here at the root.
+
+70
+00:04:15,110 --> 00:04:17,770
+And then as I mentioned before,
+the structure of the word,
+
+71
+00:04:17,770 --> 00:04:21,670
+the structure of the key, eat is the key
+that I'm looking for is actually going to
+
+72
+00:04:21,670 --> 00:04:26,650
+provide me with information about
+how to find that key in the trie and
+
+73
+00:04:26,650 --> 00:04:30,540
+the information it provides is
+the characters in the word itself.
+
+74
+00:04:30,540 --> 00:04:35,492
+So I'll start by looking at the first
+character in the word, which is e and then
+
+75
+00:04:35,492 --> 00:04:40,615
+you can see that array has one entry for
+each potential character in my alphabet.
+
+76
+00:04:40,615 --> 00:04:44,613
+So what I'll do is I'll find the entry for
+e, the first character in my word,
+
+77
+00:04:44,613 --> 00:04:45,360
+it's there.
+
+78
+00:04:45,360 --> 00:04:48,026
+And then if there's a link there,
+which there is,
+
+79
+00:04:48,026 --> 00:04:51,470
+I'll follow that link to
+the next node down the trie.
+
+80
+00:04:51,470 --> 00:04:56,000
+So that's the link to that node, given
+that I've seen an e as my first character.
+
+81
+00:04:57,220 --> 00:05:00,560
+Then I'll look ahead at my next character,
+which is a.
+
+82
+00:05:00,560 --> 00:05:05,717
+I'll find the location that links to
+the next node, given the character a,
+
+83
+00:05:05,717 --> 00:05:09,677
+I'll follow that link and
+get to the next node in the trie.
+
+84
+00:05:09,677 --> 00:05:14,390
+I repeat the process, I find the next
+character in the word, which is t.
+
+85
+00:05:14,390 --> 00:05:18,778
+I find the link that I have to follow,
+given that I've now seen a t
+
+86
+00:05:18,778 --> 00:05:23,101
+from this position and
+I'll follow that link to the next node.
+
+87
+00:05:23,101 --> 00:05:27,627
+Now at this point, I look at my word and I
+find that I have no more characters left.
+
+88
+00:05:27,627 --> 00:05:32,324
+So now I'm stuck and I go back and look
+at the node where I ended up stuck and
+
+89
+00:05:32,324 --> 00:05:36,320
+I ask, does this node say
+that it represents a word?
+
+90
+00:05:36,320 --> 00:05:38,120
+And in this case, we see that it's shaded.
+
+91
+00:05:38,120 --> 00:05:41,510
+So yes, this node does in fact,
+say that it represents a word.
+
+92
+00:05:41,510 --> 00:05:45,273
+And in fact, I'm storing the word it
+represents right there in that node,
+
+93
+00:05:45,273 --> 00:05:46,820
+which is eat.
+
+94
+00:05:46,820 --> 00:05:51,614
+It's not strictly necessary to store
+the word that's represented by
+
+95
+00:05:51,614 --> 00:05:56,164
+a node in the trie node itself,
+because you can always recover it by
+
+96
+00:05:56,164 --> 00:05:59,577
+tracing down the trie as
+you follow the links, but
+
+97
+00:05:59,577 --> 00:06:04,795
+it does make things slightly easier at
+the expense of using a bit more space.
+
+98
+00:06:04,795 --> 00:06:06,624
+So in your primary assignment,
+
+99
+00:06:06,624 --> 00:06:10,430
+we will have you store the words in
+those trie nodes that end words.
+
+100
+00:06:11,680 --> 00:06:14,535
+So that's how you find a word in the trie.
+
+101
+00:06:14,535 --> 00:06:17,940
+Let's look now at how you
+add a word to the trie.
+
+102
+00:06:17,940 --> 00:06:21,560
+So now let's say we want to
+add the word eats to the trie.
+
+103
+00:06:21,560 --> 00:06:25,097
+So that's not currently in this trie and
+you'll see how we're going to take
+
+104
+00:06:25,097 --> 00:06:29,030
+advantage of a lot of the structure that's
+already in the trie when we add this word.
+
+105
+00:06:30,110 --> 00:06:32,899
+So what we're gonna do is start off
+exactly the same way that we did
+
+106
+00:06:32,899 --> 00:06:36,008
+when we found the word eat, we'll
+start by looking at the first letter.
+
+107
+00:06:36,008 --> 00:06:39,393
+First, we'll start at the root,
+then we'll look at the first letter e and
+
+108
+00:06:39,393 --> 00:06:43,220
+follow the link that we should follow
+if we're looking at the letter e.
+
+109
+00:06:43,220 --> 00:06:46,339
+So we follow that down on the next node,
+our next letter is a.
+
+110
+00:06:46,339 --> 00:06:49,590
+We find the link to the node for
+the character a,
+
+111
+00:06:49,590 --> 00:06:52,855
+we follow that down to the next node,
+we find t.
+
+112
+00:06:52,855 --> 00:06:58,609
+Follow that down to the next node and
+now we see that we have an s.
+
+113
+00:06:59,630 --> 00:07:02,881
+But if we look in the location
+where the link for s should be,
+
+114
+00:07:02,881 --> 00:07:04,452
+we'll see that it's null.
+
+115
+00:07:04,452 --> 00:07:07,760
+That indicates that this
+word is not in the trie.
+
+116
+00:07:07,760 --> 00:07:11,452
+So if we were looking for the word eats,
+we would conclude at this point,
+
+117
+00:07:11,452 --> 00:07:12,613
+it's not in the trie.
+
+118
+00:07:12,613 --> 00:07:17,023
+But given that we're trying to add it,
+what we need to do is actually create
+
+119
+00:07:17,023 --> 00:07:22,370
+a new node that will represent that next
+character s down further in the trie.
+
+120
+00:07:22,370 --> 00:07:25,580
+So we create that new node and
+you'll notice that when we create it,
+
+121
+00:07:25,580 --> 00:07:27,580
+it's not shaded,
+because we don't quite know yet
+
+122
+00:07:27,580 --> 00:07:32,380
+that this is the end of the word and
+we link it in to the character
+
+123
+00:07:32,380 --> 00:07:36,359
+array above at position s, because
+that's the character that we added.
+
+124
+00:07:37,480 --> 00:07:41,340
+Now at this point, we see that we're out
+of letters in the word we're trying to add
+
+125
+00:07:41,340 --> 00:07:44,170
+and so
+we can take that node we just created and
+
+126
+00:07:44,170 --> 00:07:49,180
+flag it as an end of word node and
+add the word itself, eats to that node.
+
+127
+00:07:50,470 --> 00:07:54,263
+So that's basically all there is
+to adding a node to this trie,
+
+128
+00:07:54,263 --> 00:07:55,775
+adding a word to the try.
+
+129
+00:07:55,775 --> 00:07:59,800
+Now eats is in the trie and if we were
+to look for it, we would find it.
+
+130
+00:08:00,840 --> 00:08:04,468
+So coming up of next, we'll talk about
+a little bit about some of the advantages
+
+131
+00:08:04,468 --> 00:08:07,790
+that tries have over binary search
+trees in terms of their performance.

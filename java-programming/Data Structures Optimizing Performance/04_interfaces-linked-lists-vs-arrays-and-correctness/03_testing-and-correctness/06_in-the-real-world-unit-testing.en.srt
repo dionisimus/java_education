@@ -1,0 +1,380 @@
+1
+00:00:00,000 --> 00:00:03,128
+[MUSIC]
+
+2
+00:00:06,712 --> 00:00:09,598
+So, at this point you've probably
+had folks tell you that unit tests
+
+3
+00:00:09,598 --> 00:00:11,720
+are important, and that's true.
+
+4
+00:00:11,720 --> 00:00:14,380
+But it's hard to understand just how
+important they can be until you've
+
+5
+00:00:14,380 --> 00:00:16,396
+seen sort of a before and after case.
+
+6
+00:00:16,396 --> 00:00:20,800
+During my previous employment,
+
+7
+00:00:20,800 --> 00:00:24,370
+I wound up doing seven or
+eight months projects for
+
+8
+00:00:24,370 --> 00:00:28,530
+a company that did hardware controlling
+pieces of municipal systems.
+
+9
+00:00:28,530 --> 00:00:32,700
+Sprinklers, lights, stop lights,
+that sort of thing.
+
+10
+00:00:32,700 --> 00:00:36,130
+And at the time they were trying to put
+
+11
+00:00:36,130 --> 00:00:38,830
+their software to a new hard
+wiring operating system platform.
+
+12
+00:00:40,370 --> 00:00:42,610
+They brought us in to help them out.
+
+13
+00:00:42,610 --> 00:00:43,880
+I came in for an on-site, and
+
+14
+00:00:43,880 --> 00:00:46,930
+they spent a few days giving me
+a walk-through of their system.
+
+15
+00:00:46,930 --> 00:00:48,950
+At the end of which I
+said that's all great.
+
+16
+00:00:48,950 --> 00:00:51,320
+Makes a lot of sense,
+everything seems good so far.
+
+17
+00:00:52,330 --> 00:00:56,040
+As we're starting to get the stuff running
+on the new platform, we'll obviously wanna
+
+18
+00:00:56,040 --> 00:00:59,330
+make sure that it works the same way
+that it did on the old platform.
+
+19
+00:00:59,330 --> 00:01:01,230
+What unit test do you have?
+
+20
+00:01:01,230 --> 00:01:05,337
+How do you go about validating that
+software works as designed and intended?
+
+21
+00:01:05,337 --> 00:01:09,630
+And they looked at me funny and said,
+well, when we're done writing a piece of
+
+22
+00:01:09,630 --> 00:01:13,859
+the software and when we're done making
+some changes, we load it up onto that
+
+23
+00:01:13,859 --> 00:01:18,180
+system over there running in
+the corner of their office as a demo.
+
+24
+00:01:18,180 --> 00:01:22,625
+And if it runs there, then we figure it's
+working okay, and we're good to go, and
+
+25
+00:01:22,625 --> 00:01:24,670
+we send it off to QA for final testing.
+
+26
+00:01:26,040 --> 00:01:27,920
+And this blew my mind.
+
+27
+00:01:27,920 --> 00:01:30,370
+This stuff has to work.
+
+28
+00:01:30,370 --> 00:01:33,650
+It's controlling key
+pieces of infrastructure.
+
+29
+00:01:34,890 --> 00:01:37,600
+If it doesn't work or if it crashes,
+there's a real problem.
+
+30
+00:01:37,600 --> 00:01:41,150
+People are gonna have,
+humans are gonna have real issues.
+
+31
+00:01:43,080 --> 00:01:48,010
+So I went back to my office and
+talked with my management back there and
+
+32
+00:01:48,010 --> 00:01:51,300
+said look, this is how they do things.
+
+33
+00:01:51,300 --> 00:01:52,450
+It's not how we do it.
+
+34
+00:01:52,450 --> 00:01:56,630
+We need to do it our way and they agreed.
+
+35
+00:01:56,630 --> 00:02:00,570
+Said yeah that's fine,
+we'll go ahead and write the in address.
+
+36
+00:02:00,570 --> 00:02:06,370
+The project continued and
+made a few additional trips out there.
+
+37
+00:02:07,680 --> 00:02:13,360
+And as the project went on I started
+getting calls from some of their engineers
+
+38
+00:02:13,360 --> 00:02:16,460
+saying look,
+our bud counts are way higher than yours.
+
+39
+00:02:17,500 --> 00:02:19,695
+You're turning in code
+that's really solid.
+
+40
+00:02:19,695 --> 00:02:21,048
+Fine, you're this expert consultant,
+
+41
+00:02:21,048 --> 00:02:25,020
+and you must know the magic sauce to put
+on your code to make everything happy.
+
+42
+00:02:26,080 --> 00:02:30,189
+And I said that all that I am doing that
+I am aware of that you guys aren't is I'm
+
+43
+00:02:30,189 --> 00:02:31,600
+running unit tests.
+
+44
+00:02:31,600 --> 00:02:35,620
+Little pieces of code to make sure that
+mine works the way it's supposed to.
+
+45
+00:02:35,620 --> 00:02:37,100
+I take my test code,
+
+46
+00:02:37,100 --> 00:02:42,050
+I plug the older version of it
+into the test on the old hardware.
+
+47
+00:02:42,050 --> 00:02:42,860
+Run it.
+
+48
+00:02:42,860 --> 00:02:44,020
+If my test passes, great.
+
+49
+00:02:44,020 --> 00:02:48,680
+Then I take that same test code,
+plug my new version of it
+
+50
+00:02:48,680 --> 00:02:52,980
+into the test on the new hardware,
+make sure it runs the same.
+
+51
+00:02:52,980 --> 00:02:55,525
+If it doesn't, then I know I've got
+a problem, and I've gotta fix it.
+
+52
+00:02:55,525 --> 00:03:00,660
+Cuz the rest of the system is gonna expect
+that piece x works just like it did
+
+53
+00:03:00,660 --> 00:03:01,290
+on the old hardware.
+
+54
+00:03:02,840 --> 00:03:06,010
+And if it doesn't,
+then fix it before anybody else sees it.
+
+55
+00:03:07,510 --> 00:03:09,410
+Oh okay, you know, seems reasonable.
+
+56
+00:03:11,540 --> 00:03:15,110
+At the end of the project,
+it was a big success.
+
+57
+00:03:15,110 --> 00:03:21,380
+The project came in on time,
+under budget, and everybody was thrilled.
+
+58
+00:03:21,380 --> 00:03:23,350
+This was one of the best projects
+that they've run in a long time.
+
+59
+00:03:23,350 --> 00:03:26,490
+So, they brought me back out for
+the party at the end.
+
+60
+00:03:26,490 --> 00:03:28,256
+And during part of the party,
+
+61
+00:03:28,256 --> 00:03:32,002
+one of the vice presidents who
+was there was wandering around,
+
+62
+00:03:32,002 --> 00:03:36,940
+asking each of the engineers, so
+okay, very informally, what worked?
+
+63
+00:03:36,940 --> 00:03:38,128
+What made the difference on this project?
+
+64
+00:03:40,045 --> 00:03:41,800
+And they all kept telling
+him the same thing.
+
+65
+00:03:41,800 --> 00:03:43,950
+Well, we started writing unit tests.
+
+66
+00:03:43,950 --> 00:03:49,210
+And it simplified things and made the code
+more robust, and we knew that it worked.
+
+67
+00:03:49,210 --> 00:03:50,685
+And so
+when we plugged the pieces together,
+
+68
+00:03:50,685 --> 00:03:55,100
+if something went wrong, we figured it had
+to be in a part that was connecting them,
+
+69
+00:03:55,100 --> 00:03:58,000
+rather than each of the individual pieces.
+
+70
+00:04:00,050 --> 00:04:04,590
+And their VP was really happy with this.
+
+71
+00:04:04,590 --> 00:04:06,360
+He said, wow, this is great.
+
+72
+00:04:06,360 --> 00:04:09,780
+I've been trying to get folks to
+do unit testing for a long time.
+
+73
+00:04:09,780 --> 00:04:12,963
+It just became the poster child for
+this within the organization.
+
+74
+00:04:15,171 --> 00:04:20,150
+So, upshot is if somebody tells
+you we don't have time to
+
+75
+00:04:20,150 --> 00:04:25,462
+write unit tests,
+just write the code right the first time.
+
+76
+00:04:28,090 --> 00:04:30,129
+They're crazy.
+
+77
+00:04:30,129 --> 00:04:31,640
+You can't do it.
+
+78
+00:04:31,640 --> 00:04:36,080
+You're never gonna be able to get every
+single bug out of the code right away.
+
+79
+00:04:36,080 --> 00:04:39,800
+What you do is you write code
+to test the little pieces, so
+
+80
+00:04:39,800 --> 00:04:43,450
+when you start building bigger pieces
+out of them, this stuff works.
+
+81
+00:04:44,930 --> 00:04:48,560
+You don't build a house on
+a foundation of sand, and
+
+82
+00:04:48,560 --> 00:04:54,140
+you don't write big programs on the basis
+of code that you haven't tested yet.

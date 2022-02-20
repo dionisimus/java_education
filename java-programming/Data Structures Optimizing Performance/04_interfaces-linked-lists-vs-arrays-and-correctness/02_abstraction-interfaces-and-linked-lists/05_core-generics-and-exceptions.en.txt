@@ -1,0 +1,104 @@
+So we're working towards our
+implementation of our link list. And in this video, we're gonna talk about
+a couple of concepts that are gonna be really handy for the implementation. They're not specific for link lists in
+particular, they're more general concepts in Java, but you're going to use them
+in your link list implementation and they're the ideas of generics and
+exceptions. So going back to our diagram, we had these two different
+classes that we had to implement. The ListNode class and
+the MyLinkedList class. The ListNode class is really the backbone
+of that link list structure, while the MyLinkedList class provided us
+access to that backbone structure via the head and the tail nodes and
+stored the size of the list in general. So let's start by looking at
+the implementation at that ListNode class. So here's a ListNode and
+we can make it just class. It's not gonna be public or private, it's
+going to be sort of package level, because we're designing this class specifically
+to be used with our MyLinkedList class. This is not really a public class in that
+the world shouldn't be able to use it. We'll just need to be able to access it
+within the package that we're working in, so we just declare it class
+rather than public or private. It has three data members. It has the pointers to the next and
+the previous nodes. And again, going back to that quiz,
+that in video quiz from the last video, you know now that those should be
+pointers to ListNode objects and it also stores data inside that node. But at this point,
+you might be seeing that E and be wondering what in the world
+is this E all about? I don't know of a type called E,
+that's what we're gonna talk about next. What this E stands for is? It's called a type parameter. So this list class, this ListNode
+class works with a parameterized type. Meaning that type can be passed in where
+we create one of these ListNodes and what it allows us to do is it allows us
+to make our list structure be generic. In other words, it can hold any
+kind of data we want it to hold. You've probably worked
+with generics before, because you've worked
+with ArrayList in Java. You know that they take as
+an argument to the constructor and of the type, some type of thing
+that the ArrayList is gonna store. Now you're gonna see how you can
+implement classes that make use of the type parameters, so they can accept
+a type when that class is created and here's how you do it. On the first line, you put that parameter, which is typically a single capital letter
+like E or T in those angle brackets. And then any time you
+wanna refer to that type, you just use it throughout
+your class declaration. So let me give you an example of
+how to create a class using these parametrized types. Here's an example of a very simple class. It simulates a collection of elements
+only when you add elements in, it can only give you back the most
+recent thing that you added. It's called RememberLast. It can be instantiated to take any kind
+of element through that type parameter called T. So when I instantiate this class
+as you'll see in a moment, I'll have to pass in a type and that
+type goes in for the type parameter T. Anywhere I want to refer to the type
+of things that's stored inside this, RememberLast object,
+I just use the capital letter T and that will stand in for the type. It's just like any other
+sort of parameter. It's like a variable, but for a type. So what you can see here is
+that down in the add method, you can see that the parameters
+of the add method is of type T. It returns a type T and
+inside that method, I created a local variable of type T. All of that is just fine. It's just a parameter for
+a particular type and that type will get a value
+when I instantiate this class. We instantiate the class just like
+you'd instantiate any other generic class like ArrayList,
+which you've worked with before by putting the actual type that
+you wanna use in angled brackets. So I can create a member of object type
+integer, which can store integers or one of type string,
+which can store strings or any other kind of object
+that I want to instantiate. It has to be an object type though, I can't instantiate a generic
+class with primitive types. But that's okay,
+because as you can see in this example, if I instantiate it with the integer
+class, Java has this autoboxing functionality of integers, so I can just
+pass in little ints like that three. Java will autobox it into an integer
+to store it in my generic class. So that's the example of
+how to use generics and you'll be using these parameterized types
+in your linked list implementation. Now let's look at ways
+to handle bad input. Let's say that I want my RememberLast
+class not to remember null elements, so I don't wanna be able to
+add null elements to my class. And my question for you is what should happen if my input
+to the add method happens to be null? I'll need an if statement to check for
+it, but what should I do if I discover that,
+that parameter is null? Let's consider the options
+that I gave you. The first option that I gave
+was to return negative 1, like a flag to indicate
+that this was bad input. Now that's a nice thought. Sometimes, it is appropriate to return
+sort of a sentinel value to indicate that something went wrong in the method. But in this case, it's not going to
+work and the main reason it's not going to work is because this method
+is declared to return type T. Type T may not be an int and so
+we can't just go ahead and return an int, it has to return something of type T. Now you might think, okay, well,
+maybe I'll return null, but there's something kind of unsatisfying
+about just returning normally when this input was so bad that we want
+to kind of just not allow it at all. So what we're going to do instead is we're
+going to throw an exception to indicate that something went wrong and
+we don't know how to handle it. This is Java's mechanism of breaking
+the regular flow of the code to say, help, help, I've got a problem. I don't know how to deal with it. Here, you deal with it. So you can think of an exception as
+a method literally panicking and saying, help, I don't know what to do. And taking that point of the code and
+throwing it up to who ever called the method and saying,
+you deal with this, I can't. So in this case, we're throwing a type of
+exception called a NullPointerException. Saying that we got a null pointer,
+we don't know what to do with it, then the method that called this method
+is going to have to deal with it somehow. Sometimes code methods, like this one would declare that they
+throw exceptions and that has to be the case when your exception is
+something called a checked exception. In this case, however, a NullPointerException is
+not a checked exception. It's an unchecked exception. So we don't have to declare in the method
+header that this method could potentially throw an exception, but
+it's okay to do so, if you want to. So you can go online to the Java
+documentation to understand which exceptions are checked,
+which exceptions are unchecked. But pretty much the common exceptions
+like NullPointerException, index out of bounds exception,
+those are all unchecked exceptions. Because it would be really annoying
+to have to declare those everywhere, cuz they might happen really
+anywhere in your code. So you're gonna be doing a lot of
+exception throwing to handle bad input when you implement your
+LinkedList class and now we pretty much have all the mechanisms
+that we need to do that implementation. We'll look at the Java code to start you
+off on that implementation of your doubly LinkedList in the next video.

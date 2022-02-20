@@ -1,0 +1,574 @@
+1
+00:00:00,025 --> 00:00:04,576
+[MUSIC]
+
+2
+00:00:04,576 --> 00:00:06,240
+All right, welcome back.
+
+3
+00:00:06,240 --> 00:00:09,507
+In the last video,
+we started to see real system times.
+
+4
+00:00:09,507 --> 00:00:11,398
+In this next video,
+we're going to go into more depth.
+
+5
+00:00:11,398 --> 00:00:13,478
+We're gonna look at those
+real system times and
+
+6
+00:00:13,478 --> 00:00:17,066
+we're gonna use them to make decisions
+about the performance of our algorithms,
+
+7
+00:00:17,066 --> 00:00:18,580
+the performance of our programs.
+
+8
+00:00:20,110 --> 00:00:24,160
+So by the end of this video,
+you should be able to use runtimes for
+
+9
+00:00:24,160 --> 00:00:26,946
+a real system to reason about performance.
+
+10
+00:00:26,946 --> 00:00:28,110
+So in the last video,
+
+11
+00:00:28,110 --> 00:00:32,330
+we had just seen the idea that we're
+gonna try to measure the sort times.
+
+12
+00:00:32,330 --> 00:00:34,443
+Both for selection sort and
+for quick sort.
+
+13
+00:00:34,443 --> 00:00:36,370
+Again, on a real system.
+
+14
+00:00:36,370 --> 00:00:39,750
+So the idea behind this is to
+go with increasing sizes of n,
+
+15
+00:00:39,750 --> 00:00:41,360
+print the value of n.
+
+16
+00:00:41,360 --> 00:00:45,880
+Create a randomized array of size n and
+then time selection sort and
+
+17
+00:00:45,880 --> 00:00:47,620
+print how long it took.
+
+18
+00:00:47,620 --> 00:00:49,176
+We'll so the same thing again for
+quick sorts.
+
+19
+00:00:49,176 --> 00:00:52,530
+We'll create a randomized array,
+time it and then print the outcome.
+
+20
+00:00:53,660 --> 00:00:57,370
+What we got from that was essentially this
+set of data and we can see really quickly
+
+21
+00:00:57,370 --> 00:01:01,370
+from the data that quick sort did better,
+but we couldn't really reason much about
+
+22
+00:01:01,370 --> 00:01:04,300
+the performance yet,
+unless we do a more in-depth analysis.
+
+23
+00:01:05,470 --> 00:01:08,680
+So what we're going to do next is
+throw this into Google Sheets and
+
+24
+00:01:08,680 --> 00:01:12,030
+essentially, do some analysis
+of the graphs of this.
+
+25
+00:01:12,030 --> 00:01:15,369
+So this is the initial graph of
+selection sort against quick sort.
+
+26
+00:01:15,369 --> 00:01:19,194
+The y-axis here is how much time
+it took for them to run and
+
+27
+00:01:19,194 --> 00:01:22,420
+the x-axis is essentially size n.
+
+28
+00:01:22,420 --> 00:01:27,911
+And again, this confirms our original view
+of this that quick sort is just much,
+
+29
+00:01:27,911 --> 00:01:32,837
+much faster than selection sort,
+even for fairly small values of n, but
+
+30
+00:01:32,837 --> 00:01:36,583
+let's look at each of these
+algorithms in some depth.
+
+31
+00:01:36,583 --> 00:01:40,986
+So starting with selection sort.
+
+32
+00:01:40,986 --> 00:01:45,140
+What we see is essentially these
+are the runtimes as n goes forward.
+
+33
+00:01:45,140 --> 00:01:50,108
+And if you look at this,
+it kinda looks like an n squared growth,
+
+34
+00:01:50,108 --> 00:01:52,232
+but how do we know for sure?
+
+35
+00:01:52,232 --> 00:01:57,330
+What we can do is essentially do a best
+fit on the data against say, an n squared.
+
+36
+00:01:57,330 --> 00:02:01,776
+And the way to do that is essentially
+figure out a reasonable value,
+
+37
+00:02:01,776 --> 00:02:05,369
+the constant that goes in
+front of that n squared term.
+
+38
+00:02:05,369 --> 00:02:11,443
+So by best fit here, all I'm saying is I
+found a reasonably good constant value for
+
+39
+00:02:11,443 --> 00:02:13,389
+k and then I plotted that.
+
+40
+00:02:13,389 --> 00:02:17,387
+And you can see here that the actual
+runtimes for section sort,
+
+41
+00:02:17,387 --> 00:02:21,699
+match an n squared growth quite well for
+this constant that I found.
+
+42
+00:02:23,050 --> 00:02:25,000
+Now what you might be saying is well,
+wait a second,
+
+43
+00:02:25,000 --> 00:02:28,210
+you said this is the best fit and
+you found a really good constant for it.
+
+44
+00:02:28,210 --> 00:02:32,530
+Wouldn't it look really good whether
+it's n squared or n cubed or n?
+
+45
+00:02:32,530 --> 00:02:33,595
+Well, let's do the same thing.
+
+46
+00:02:33,595 --> 00:02:38,177
+I mean, try to find a good constant value
+for n cubed and a good concept value for
+
+47
+00:02:38,177 --> 00:02:39,510
+n and see how it works.
+
+48
+00:02:41,260 --> 00:02:45,797
+So here's the three different fits,
+we having blue is still the actual.
+
+49
+00:02:45,797 --> 00:02:49,750
+In yellow, we still have the best fit for
+an n squared.
+
+50
+00:02:49,750 --> 00:02:52,812
+And then in green,
+I have this best fit for n cubed.
+
+51
+00:02:52,812 --> 00:02:57,720
+And immediately, you see that that
+n cubed grows way too quickly.
+
+52
+00:02:57,720 --> 00:03:02,520
+So, either I pick a constant that has
+the values way too low early on or
+
+53
+00:03:02,520 --> 00:03:06,330
+I have it essentially go off
+this chart fairly quickly.
+
+54
+00:03:06,330 --> 00:03:09,070
+So n cubed just won't fit,
+no matter what constant value I use.
+
+55
+00:03:10,250 --> 00:03:15,151
+Likewise, if we look at red,
+that's the best fit of n growth.
+
+56
+00:03:15,151 --> 00:03:18,330
+And essentially here,
+we see that it's not fitting either.
+
+57
+00:03:18,330 --> 00:03:22,535
+No matter what constant value I do for
+linear growth, it won't fit.
+
+58
+00:03:22,535 --> 00:03:25,030
+It's gonna be too high at
+the beginning and too low later on.
+
+59
+00:03:26,130 --> 00:03:31,589
+So really, this n squared is the right way
+to look at this in terms of the growth.
+
+60
+00:03:31,589 --> 00:03:35,143
+And that's exactly what we would expect
+for selection sort, so we're happy to see
+
+61
+00:03:35,143 --> 00:03:38,930
+that runtimes on our real system actually
+match our high-level analysis beforehand.
+
+62
+00:03:41,669 --> 00:03:45,510
+So let's then focus in on quick sort.
+
+63
+00:03:45,510 --> 00:03:49,640
+So in our initial view, we saw quick
+sort was essentially just this line on
+
+64
+00:03:49,640 --> 00:03:54,010
+the bottom, because the values were so
+low, essentially just at the axis.
+
+65
+00:03:54,010 --> 00:04:00,110
+So if I zoom in on it, what we're gonna
+get is a little bit more refined data or
+
+66
+00:04:00,110 --> 00:04:05,430
+better view and the first thing I want
+you to notice is that this is real data.
+
+67
+00:04:05,430 --> 00:04:09,517
+So we have two of these points that are
+essentially outliers and there is a number
+
+68
+00:04:09,517 --> 00:04:13,665
+of reasons why these could be outliers,
+but I'll focus on two of those reasons.
+
+69
+00:04:13,665 --> 00:04:18,179
+The first is that you know that
+the quick sort is n log(n),
+
+70
+00:04:18,179 --> 00:04:20,542
+essentially an average case.
+
+71
+00:04:20,542 --> 00:04:24,320
+But depending on the input set,
+it could run longer than that.
+
+72
+00:04:24,320 --> 00:04:27,450
+So these could just be
+essentially to randomized inputs
+
+73
+00:04:27,450 --> 00:04:30,150
+that didn't perform that well for
+a quick sort.
+
+74
+00:04:30,150 --> 00:04:33,070
+What I think is actually is more likely
+is that this is on a real system.
+
+75
+00:04:33,070 --> 00:04:37,519
+There could be other things scheduling,
+other programs running at the same time.
+
+76
+00:04:37,519 --> 00:04:41,230
+And if you look at these values
+in the hundredths of seconds.
+
+77
+00:04:41,230 --> 00:04:44,910
+So if something else got scheduled at
+the same time, so are conflicting for
+
+78
+00:04:44,910 --> 00:04:49,600
+resources on the same system, you can see
+aberrations in data like this very easily.
+
+79
+00:04:51,820 --> 00:04:54,640
+The second thing I wanna point
+out about this graph is that this
+
+80
+00:04:54,640 --> 00:04:55,678
+kind of looks linear.
+
+81
+00:04:55,678 --> 00:04:59,275
+Looks like linear growth, not the n log
+n that we talked about, the high-level
+
+82
+00:04:59,275 --> 00:05:03,214
+analysis and how can you really tell the
+difference between linear versus n log(n)?
+
+83
+00:05:04,360 --> 00:05:07,300
+Well, to do that, first thing
+is that we kinda need more data.
+
+84
+00:05:07,300 --> 00:05:10,265
+These are really small sizes of n,
+especially for
+
+85
+00:05:10,265 --> 00:05:12,600
+quick sort when quick sort is so quick.
+
+86
+00:05:14,260 --> 00:05:16,960
+Now we have a great deal more data for
+quick sort and
+
+87
+00:05:16,960 --> 00:05:20,390
+we're gonna all the way out to 10
+million elements for size of n.
+
+88
+00:05:20,390 --> 00:05:23,730
+And you can essentially see that we've
+still got the same kind of graph and
+
+89
+00:05:23,730 --> 00:05:27,940
+we still have these some of these
+points are going up and down the chart,
+
+90
+00:05:27,940 --> 00:05:33,450
+but this is really a clean,
+almost linear growth.
+
+91
+00:05:33,450 --> 00:05:36,700
+But again, how do I tell the difference
+between when you're an log(n),
+
+92
+00:05:36,700 --> 00:05:38,450
+especially in this granularity?
+
+93
+00:05:38,450 --> 00:05:41,897
+What I can do is essentially that
+same best fit analysis that we just
+
+94
+00:05:41,897 --> 00:05:42,709
+talked about.
+
+95
+00:05:42,709 --> 00:05:47,172
+So what I'll do is I'll do a best fit,
+both for
+
+96
+00:05:47,172 --> 00:05:51,650
+linear growth, as well as n log(n) growth.
+
+97
+00:05:51,650 --> 00:05:54,662
+And if you zoom in on this,
+I know this is a little hard to see.
+
+98
+00:05:54,662 --> 00:05:58,213
+If you zoom in on it,
+in yellow we have that n log(n) growth and
+
+99
+00:05:58,213 --> 00:06:01,590
+it's matching the actual blue really well.
+
+100
+00:06:01,590 --> 00:06:03,958
+Whereas in red,
+we've got our linear growth and
+
+101
+00:06:03,958 --> 00:06:05,876
+you see that it essentially falls off.
+
+102
+00:06:05,876 --> 00:06:07,711
+As you get to larger sizes of n,
+
+103
+00:06:07,711 --> 00:06:12,600
+you started getting a bigger gap in terms
+of the actual versus the predicted data.
+
+104
+00:06:12,600 --> 00:06:17,225
+So this really is n logging growth, which
+is exactly what we expect for quick sort.
+
+105
+00:06:17,225 --> 00:06:22,940
+So that's great to see, but why were
+we seeing it look so much like linear?
+
+106
+00:06:22,940 --> 00:06:26,490
+Well, the question is how big is log(n)?
+
+107
+00:06:26,490 --> 00:06:31,480
+So let's say, my n is 10 million,
+how big is log(n)?
+
+108
+00:06:31,480 --> 00:06:34,770
+Take a second to think about it.
+
+109
+00:06:34,770 --> 00:06:39,578
+If you're answering a really small number
+in the 20s to 30s, you're spot on.
+
+110
+00:06:39,578 --> 00:06:43,158
+In fact, 2 to the 23 is about 8 million.
+
+111
+00:06:43,158 --> 00:06:46,293
+So this is roughly 23.
+
+112
+00:06:46,293 --> 00:06:49,803
+Now 23 is really small
+relative to 10 million and
+
+113
+00:06:49,803 --> 00:06:54,509
+that's the problem when you are trying
+to do a linear analysis versus n
+
+114
+00:06:54,509 --> 00:06:58,120
+log(n) is that login is just so
+small relative to n.
+
+115
+00:06:58,120 --> 00:07:01,422
+The n tends to dominate.
+
+116
+00:07:01,422 --> 00:07:05,752
+So in summary, now that we've looked
+at all of these different data points,
+
+117
+00:07:05,752 --> 00:07:09,946
+I want to bring up the fact that we can
+really just use real runtimes to reason
+
+118
+00:07:09,946 --> 00:07:11,164
+about performance.
+
+119
+00:07:11,164 --> 00:07:16,090
+But whenever you do so, be careful,
+because real system data can be noisy.
+
+120
+00:07:17,210 --> 00:07:20,910
+But ultimately, if you want to know
+how well does your program behave
+
+121
+00:07:20,910 --> 00:07:23,970
+on a real system,
+you have to do this kind of analysis.

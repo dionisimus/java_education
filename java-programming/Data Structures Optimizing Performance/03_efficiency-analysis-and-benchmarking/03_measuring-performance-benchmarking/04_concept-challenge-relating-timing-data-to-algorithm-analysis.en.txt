@@ -1,0 +1,62 @@
+[NOISE] So, we've talked about some
+algorithms and we've talked about using benchmarking and timing to try to analyze
+the performance of those algorithms. And so now we're ready for a concept
+challenge to bring those ideas together. And so as you know, for
+a concept challenge, what we ask you to do is to pause and
+try to solve the problem yourself. Then try to find and opportunity to
+discuss your solution with other learners, either on the forum or
+with people learning with you. Then you'll have an opportunity to
+watch the UC San Diego Learners discuss the problem, and then you'll
+be able to answer the question again. And then confirm your understanding as
+we go through the solution together. So, for this particular question, what
+we'd like to do is look at some real data for a sorting algorithm that we ran on
+bigger and bigger and bigger collections. And so, in particular,
+could these be the timings, the real timings for insertion sort? So, take a look, answer the question,
+and then we'll come back later. >> Hi, I'm Tina. >> Hi, my name is Gev. >> Hi, I'm Mia. >> All right, so
+looking at the visual data on this graph, it seems to fall along
+a linear one mostly. So, I would think it'd be like say,
+of and for the run time. I don't know if it would be for
+insertion sort. >> Cuz we learned about
+a lot of different sorts and insertion sort wasn't really
+the most efficient, you know? >> Yeah. You're right. I remember talking about merge sort and
+quick sort and there are n log n and that's one of
+the best possible times you can get. And what this looks like,
+it looks like all then and that kind of sounds too good
+to be true for insertion sort. >> If it's too good to be true, then maybe we can probably rule out
+that this wouldn't be a worst case time. >> Yeah.
+>> Maybe it could be, best case then? >> So you've seen the UC San Diego
+learners discuss these timings that we were seeing and think really
+about whether an actual machine running insertion sort on bigger and
+bigger data could produce these timings. So, let's tie back the timings
+that we got from running the code to the analysis that we did earlier
+in the course trying to think about the asymptotic behavior of various
+sorting algorithms and procedures. And, in particular we're
+thinking about insertion sort. And when we analyze insertion
+sort using big O notation, we saw that on average, and in the worst
+case, big O behaves like, I'm sorry, insertion sort has a quadratic behavior. It's got big O of n squared. But when we look at this graph,
+that doesn't seem to jive, right? The graph looks very linear,
+it's going up at a constant rate. It appears linear and not quadratic. It doesn't look like a parabola. And so we're trying to
+understand how is this possible. And one clue comes from looking at
+that other cell in the table and seeing that there is a case when insertion
+sort can behave like a linear algorithm. And so let's think back to when we
+might be in that best case performance, that best case scenario. And to think about that, we have to go back to the code of how we
+go ahead and implement insertionSort. And we realize that
+the variations in performance, the variations in timing for the insertion
+sort algorithm come from this while loop. And this while loop executes
+a different number of times based on how organized or
+unorganized the data is to begin with. So, if we start with really almost
+sorted or fully sorted data, then this while loop just checks
+whether our current element that we care about is in it's correct location
+relative to the other elements and if it is, we don't need to do anything. And, so, if all of the tests that
+we did to create that timing chart that we saw before. If all of those tests were on really,
+really big, but sorted data, then we could very well have gotten that
+linear behavior that we saw, because that insertion sort algorithm is super
+fast on sorted or nearly sorted data. So indeed, that timing chart that we saw
+could be the result of running just basic old insertion sort on really big data as
+long as we know something about that data. And so the moral of this story is that
+when we look at timing data we have to be aware of drawing conclusions
+from that timing data. And, we wanna be cautious about trying
+to deduce the big O complexity and classes of an algorithm
+just based on the timing. That's not enough. Usually we need to understand what the
+data that we were testing on looks like and whether there's other
+factors at play as well.

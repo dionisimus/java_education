@@ -1,0 +1,5 @@
+[MUSIC] So in this module, what we're going to do is take the next
+step as software engineers and developers. Instead of just focusing on solving
+problems, we're going to be analyzing and refining our solutions. And so this means that we're starting to
+think about performance in a deeper way and we'll be talking both of
+asymptotics and benchmarking

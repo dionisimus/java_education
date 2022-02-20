@@ -1,0 +1,263 @@
+1
+00:00:00,000 --> 00:00:06,904
+[MUSIC]
+
+2
+00:00:06,904 --> 00:00:10,479
+In the last video we started looking how
+to measure the time of program running
+
+3
+00:00:10,479 --> 00:00:11,310
+on a real system.
+
+4
+00:00:12,720 --> 00:00:15,690
+What we're gonna do here is start talking
+about how we actually measure time
+
+5
+00:00:15,690 --> 00:00:17,630
+specifically measure time in Java.
+
+6
+00:00:17,630 --> 00:00:21,620
+And to do that we're going to look
+at how Java timing libraries work.
+
+7
+00:00:23,650 --> 00:00:25,270
+So let's think about
+some code we might have.
+
+8
+00:00:25,270 --> 00:00:28,970
+Let's say we're trying to measure how
+long it takes to execute selectionSort,
+
+9
+00:00:28,970 --> 00:00:30,850
+which we learned in the previous course.
+
+10
+00:00:32,460 --> 00:00:37,500
+What I wanna do to measure this is I wanna
+say, create an array of values, I wanna
+
+11
+00:00:37,500 --> 00:00:41,840
+fill those values with random contents,
+and then I'd wanna run selectionSort.
+
+12
+00:00:43,210 --> 00:00:45,440
+But how long did selectionSort run there?
+
+13
+00:00:45,440 --> 00:00:50,320
+I can't just measure the time of
+the program because I've got time to
+
+14
+00:00:50,320 --> 00:00:55,400
+create the array and I've got time to
+fill the contents with random values.
+
+15
+00:00:55,400 --> 00:00:56,760
+I wanna measure just selectionSort.
+
+16
+00:00:57,760 --> 00:01:02,290
+I mean, I guess what I could do is I could
+say, put a print statement right before
+
+17
+00:01:02,290 --> 00:01:05,340
+and right after and
+take out a stopwatch and like go, click.
+
+18
+00:01:05,340 --> 00:01:09,720
+Right when it starts, and then click when
+it stops and try to measure it that way,
+
+19
+00:01:09,720 --> 00:01:12,840
+but that doesn't seem like
+it's going to work very well.
+
+20
+00:01:12,840 --> 00:01:16,910
+So Java does have something that
+we could use to help do this.
+
+21
+00:01:16,910 --> 00:01:19,420
+How can we just get
+the time of selection sort.
+
+22
+00:01:20,620 --> 00:01:22,270
+Well it turns out Java does,
+
+23
+00:01:22,270 --> 00:01:24,960
+it has within the system class it
+has something called nanoTime.
+
+24
+00:01:24,960 --> 00:01:29,070
+Which you can call and
+essentially give you the current time,
+
+25
+00:01:29,070 --> 00:01:31,200
+which you can then use to
+compare against some other time.
+
+26
+00:01:33,070 --> 00:01:36,910
+So we're gonna use that in our code
+here to evaluate the execution time
+
+27
+00:01:36,910 --> 00:01:37,730
+of that selection sort.
+
+28
+00:01:37,730 --> 00:01:40,550
+And we're gonna do that by putting
+
+29
+00:01:40,550 --> 00:01:43,459
+first a call to system time
+right before selectionSort.
+
+30
+00:01:44,950 --> 00:01:47,990
+And I'm gonna put another call
+to it right after selectionSort.
+
+31
+00:01:49,340 --> 00:01:54,050
+And then all I have to do is essentially
+subtract that startTime from that endTime,
+
+32
+00:01:54,050 --> 00:01:57,440
+divide it by one billion because
+it's in nanoseconds, and
+
+33
+00:01:57,440 --> 00:02:00,200
+I get how long it took for it to run,
+and then I can print that out.
+
+34
+00:02:01,810 --> 00:02:03,860
+And now, why might I wanna do this?
+
+35
+00:02:03,860 --> 00:02:07,810
+Well, I might wanna measure how long it
+takes for a selectionSort to execute.
+
+36
+00:02:07,810 --> 00:02:10,520
+And I may wanna compare
+selectionSort execution time
+
+37
+00:02:10,520 --> 00:02:12,520
+with growing the size of the array.
+
+38
+00:02:14,770 --> 00:02:17,900
+So the idea for
+this would be something like let's
+
+39
+00:02:19,400 --> 00:02:23,230
+take increasing sizes of n,
+let's then print n.
+
+40
+00:02:24,540 --> 00:02:27,160
+We'll then create a randomized
+array of size n,
+
+41
+00:02:27,160 --> 00:02:30,810
+and then we'll time selection sort and
+print out the outcome.
+
+42
+00:02:32,200 --> 00:02:34,180
+Then, let's compare this to quick sort.
+
+43
+00:02:34,180 --> 00:02:38,200
+Let's say, you get a randomized
+array of size n again, and
+
+44
+00:02:38,200 --> 00:02:40,329
+time quick sort, and
+print out its outcome.
+
+45
+00:02:41,470 --> 00:02:43,500
+If I write the real code for
+
+46
+00:02:43,500 --> 00:02:47,690
+this and ran it on a real system,
+I could get times back like this.
+
+47
+00:02:49,100 --> 00:02:52,050
+So essentially I have on the left
+hand side the value of n and
+
+48
+00:02:52,050 --> 00:02:52,700
+or the size of the array.
+
+49
+00:02:52,700 --> 00:02:53,998
+And then I have a column for
+
+50
+00:02:53,998 --> 00:02:56,658
+all the selection sort
+outcomes in terms of seconds.
+
+51
+00:02:56,658 --> 00:03:00,690
+And I have a column for the Quicksort
+outcomes in terms of seconds.
+
+52
+00:03:00,690 --> 00:03:05,170
+And you see immediately that
+Quicksort's way faster, even for
+
+53
+00:03:05,170 --> 00:03:06,740
+only 10,000 elements in the array.
+
+54
+00:03:06,740 --> 00:03:11,230
+And selectionSort keeps growing and
+growing, and Quicksort still really fast.
+
+55
+00:03:11,230 --> 00:03:18,030
+This is great data, and
+we can use this in some additional ways to
+
+56
+00:03:18,030 --> 00:03:22,530
+essentially analyze how did that program
+run, and we'll do that in the next video.

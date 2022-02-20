@@ -1,0 +1,100 @@
+[APPLAUSE]
+>> All right, so in that last video,
+Leo talked you through the algorithm for finding an element in
+a binary search tree. And in this support video, we're actually going to implement
+that algorithm in Java code. Now if you wanna work on this yourself and you don't want to see the Java code,
+you're welcome to do that. Come back to the support video
+only if you really get stuck. Now looking ahead, you're not actually
+ever going to be implementing the code for binary search tree find in this course. What you'll be doing is you'll be
+implementing a find algorithm for the tree structure that you're going to
+be using as part of your project which is not actually going to be
+a binary search tree. But going through the binary
+search tree find algorithm is going to help you with that process. And in particular going through the code, is going to reveal some subtleties
+that you'll have to work with when you implement the algorithm
+that you implement on your project. So, let's start with a task. Our goal is to find whether or not an element that's passed in as
+a parameter is in our binary search tree. So Leo walked you through the steps. You basically are just gonna
+search down through the tree until you either fall of the end or you
+find the element that you're looking for. And at each step you always
+know which way to go. You go left if the element you
+are looking for is smaller than the one that you're at, and you go right
+if the element that you are looking for is greater than the one that you're at. So simple enough, right? So we've got our root pointer in our tree. And let's just say that our first attempt
+says, let's take that root pointer and step it down the tree. So I'm looking for L, I take my root pointer, I go to
+the right because L is greater than E. And at this point you might
+look at this diagram and say, oh, that's kind of a problem. We lost our root of our tree and
+we'll never be able to get it back. So, lesson number one,
+don't change your root pointer. That's what's holding the whole tree so
+that you can get to it. Your root pointer has to
+stay pointed to the root. So instead what we're going to
+do is we're going to introduce a second variable, curr. And curr's job is going to be to step
+down the tree as we're looking for the element we're trying to find. So we can change curr, that's no problem. Curr starts at the root and
+then it's gonna progress down the tree. It's going to progress down the tree
+by going left or right depending on how the element we're looking for compares
+to the element we're currently at. So that's going to, in this first case for
+example, L is greater than E so we'd want to go to the right. So you can see that there's
+two things we need to do here. We need to compare the element
+that we're currently at, curr, to the element that
+we're trying to find. And then based on the comparison the second thing we need to do is we
+need to update our current pointer. So that's what these
+if statements do here. Now you can see that in these if
+statements we are using the greater than and less than symbols. In general these symbols are not
+going to work for our comparison, for comparing objects. So we're gonna come back to
+that idea in just a moment when I get to the end of this algorithm
+I'll come back to that subtlety. But for now let's finish this up
+that if we decide that we are not less than the thing that we're looking at,
+and we're not greater than the thing that we're looking at, well then we must be
+equal to the thing that we're looking at. So what should we do? For example in this case,
+we find that L is equal to L. In that case, this else condition, we know
+that we've found the thing we're looking for and so we should just go ahead and
+return true. Okay so we're getting there. Now we have our movement going left and
+right and returning true if we found
+the element we're looking for. But that's not quite enough. We need to keep doing this over and
+over and over again. So that means we need a loop and
+if we're going to have a loop, we need a loop condition. We need to know when should we stop
+this process of moving down the tree or conversely, when should we keep going? So in the algorithm Leo walked you
+through, you saw that you should keep going as long as you have not
+fallen off the end of the tree. How do you know you have fallen
+off of the end of the tree? You've fallen off the end of
+the tree when current equals null. So we'll add that while loop in here as
+a wrapper around our if statements that while curr is not equal to null,
+we should do these comparisons and move curr down the tree. If we ever find the thing we're
+looking for, we'll return true. Great, looks good right? So are we done? Think about that for a second. All right, well hopefully you said no and
+if you tried to compile this code, you would find that it actually
+gives you a compile error. And the reason for this is we've figured
+out what to if we find the element, but right now we have no action that we're
+taking if we don't find the element. So how do we know that we
+didn't find the element? Well we didn't find the element if we fell
+all the way off the bottom of the tree. So if we fall all the way off the bottom
+of the tree, that loop has ended, and in that case will return false. So that's almost the complete code for
+find. We just need to go back and address
+this issue I mentioned at the beginning of this greater than, less than symbol
+not working for object comparisons. So what we're going to do is
+instead of using greater than and less than operators, we're going
+to use a method called compareTo. So the compareTo method
+does the following. If the calling object is less than
+the object you pass in as a parameter, compareTo is going to return
+a value that's less than zero. So we'll assign the variable comp to
+have the value that's returned by taking toFind and
+compareTo on the current data object. And if that value is less than zero
+then we know that toFind is less than the data object we're currently
+looking at and we should go to the left. On the other hand, if the calling object
+is greater than the object we passed in as a parameter, then compareTo is going to
+return a value that's greater than zero. So in that case, in our code,
+we'll go to the right. And then finally,
+if these two objects are equal, if the calling object is equal to
+the thing we pass in as a parameter, then it returns zero and so
+that's our else condition here. If the comp is not less than zero,
+and it's not greater than zero then it must be equal to zero and
+we found the thing we're looking for. So that's how you can use compareTo to
+make this a more general method to compare any two objects. Well, not quite. compareTo doesn't work on just any object. It only works on objects that implement
+this interface called Comparable. So you're going to have to put this magic
+in your class header if you implement a BST class, which says that you have a BST that holds these type objects E,
+but E has to be a very specific type. It has to be a type that
+actually implements or extends in this nomenclature
+the Comparable interface. Don't worry too much about that
+little magical statement there. Basically what we are saying is that E
+has to be the type that can have this compareTo method called on it because it
+is a very specific interface in Java. But fortunately for you, things you
+want to compare like strings, integers, characters, they all implement
+the Comparable interface, so you can call this compare to
+method on them without fear. So that's it. That's the full find method for
+binary search trees.

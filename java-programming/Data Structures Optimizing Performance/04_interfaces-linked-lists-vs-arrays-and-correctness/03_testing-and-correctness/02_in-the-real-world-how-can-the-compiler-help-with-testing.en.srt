@@ -1,0 +1,45 @@
+1
+00:00:00,000 --> 00:00:03,004
+[MUSIC]
+
+2
+00:00:06,254 --> 00:00:09,240
+So the very first step is
+actually the compiler.
+
+3
+00:00:09,240 --> 00:00:12,080
+And not all languages are compiled,
+but those that are will give you that
+
+4
+00:00:12,080 --> 00:00:15,230
+little extra assurance that your
+code is syntactically correct.
+
+5
+00:00:15,230 --> 00:00:20,000
+So like, are you calling methods
+with the right kinds of arguments?
+
+6
+00:00:20,000 --> 00:00:21,810
+Do you have any typos in your code?
+
+7
+00:00:21,810 --> 00:00:22,950
+Things like that.
+
+8
+00:00:22,950 --> 00:00:27,440
+It's not gonna tell you that your code is
+like, behaving properly, but it will tell
+
+9
+00:00:27,440 --> 00:00:33,555
+you that it's building properly and you've
+crossed all your Ts and dotted your eyes.
+
+10
+00:00:33,555 --> 00:00:34,204
+[LAUGH]

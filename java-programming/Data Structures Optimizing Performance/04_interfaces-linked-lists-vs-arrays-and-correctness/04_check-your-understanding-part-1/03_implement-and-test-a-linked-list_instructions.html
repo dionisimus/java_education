@@ -1,0 +1,299 @@
+<meta charset="utf-8"/>
+<co-content>
+ <h1 level="1">
+  Programming Assignment Part 1: Implement a Linked List
+ </h1>
+ <p>
+  You can download a PDF version of these instructions here:
+ </p>
+ <asset assettype="pdf" extension="pdf" id="24T5K24HEeaPLRIThVfRHQ" name="ProgrammingAssignment_ImplementALinkedList">
+ </asset>
+ <p>
+  You've learned about Linked Lists, now let's apply your knowledge to create a Linked List yourself.  In practice, you will almost always use built-in libraries for data structures like Linked Lists, but the notion of a "linked" data structure is so common and critical in computer science that it warrants being sure you can do this yourself.  In addition, you'll be making more complex "Linked" data structures in this course and the next, and Linked Lists are the right place to start.  Lastly, you'll need your Linked List for the second part of this module's project, which is where you'll auto-generate text which resembles a source text!
+ </p>
+ <h2 level="2">
+  Getting Set Up
+ </h2>
+ <p>
+  Before you begin this assignment, make sure you check Part 2 in
+  <a href="https://www.coursera.org/learn/data-structures-optimizing-performance/supplement/amsdH/setting-up-java-eclipse-and-the-starter-code">
+   the setup guide
+  </a>
+  to make sure the starter code has not changed since you downloaded it.   If you are an active learner, you will have also received an email about any starter code changes.  If there have been any changes, follow the instructions in the setup guide for updating your code base before you begin.
+ </p>
+ <p>
+  <strong>
+   1. Ensure you have the starter code
+  </strong>
+ </p>
+ <p>
+  Be sure you have the starter code you downloaded as part of the first programming assignment on Flesch Score.  You should see a package called textgen in that starter code.
+ </p>
+ <p>
+  To verify everything is setup okay, you can run the "MyLinkedListTester.java" file and you should get JUnit reporting 6/6 tests run with 1 Error and 1 Failure.  (This is okay, you'll be fixing it soon!)
+ </p>
+ <p>
+  <strong>
+   2. Open and examine the starter code
+  </strong>
+ </p>
+ <p>
+  In this project, you will write a MyLinkedList class to be your own implementation of an AbstractList.   Before you begin coding, you should be comfortable with the principles behind a LinkedList and the notion of extending from AbstractList.  For the Java documentation on Abstract Lists, please see
+  <a href="http://docs.oracle.com/javase/7/docs/api/java/util/AbstractList.html">
+   here
+  </a>
+  .
+ </p>
+ <p>
+  Open the starter code for this week by expanding the MOOCTextEditor-&gt;src folder to see the package
+  <strong>
+   textgen
+  </strong>
+  . You will only be focused on
+  <strong>
+   MyLinkedList.java
+  </strong>
+  and
+  <strong>
+   MyLinkedListTester.java
+  </strong>
+  for this part of the assignment. You can open these two files by double-clicking on them. (Note that there is a MyLinkedListGrader.java file in the folder which holds the tests we run when grading. You won't be using that file yet.)
+ </p>
+ <p>
+  Notice that MyLinkedList extends AbstractList and that, like AbstractList, it uses Generics so you can hold any type of element.  The MyLinkedList class contains a package visible class "LLNode" which represents a single element in a doubly-linked list.
+ </p>
+ <h2 level="2">
+  Assignment and Submission Details
+ </h2>
+ <p>
+  Your submission of this assignment is divided into two parts: your code which implements a Linked List (
+  <strong>
+   MyLinkedList.java
+  </strong>
+  ) and your code to test a Linked List implementation (
+  <strong>
+   MyLinkedListTester.java
+  </strong>
+  ). You will submit a separate file for each part, as described below, but
+  <em>
+   our guidelines for this project will more closely reflect how you will develop a project in industry
+  </em>
+  .
+  <strong>
+   We strongly recommend you write your tests as you write your implementation (and vice-versa).
+  </strong>
+ </p>
+ <h3 level="3">
+  <strong>
+   Step 1: Implement and test creating a Linked List Object, adding elements, and retrieving elements.
+  </strong>
+ </h3>
+ <p>
+  To get started, you need to decide if you wish to use sentinel nodes (like we've seen in the videos) or skip sentinel nodes.  We encourage you to use sentinels but either choice is okay.
+ </p>
+ <p>
+  <strong>
+   1. A.  Review the tester methods provided in MyLinkedListTester.java:
+  </strong>
+ </p>
+ <p>
+  In the file MyLinkedListTester.java, review the setup() and fairly robust testGet() methods in MyLinkedListTester.java. We also provide the beginning of the testRemove method, with the tests from the concept challenge video.  These tests give you an idea of how your Linked List constructor, add method, and get method should perform, as well as a start on the tests for remove.  You can run them in JUnit by running the MyLinkedListTester.java file.  It should automatically run as a JUnit test suite.
+ </p>
+ <p>
+  <strong>
+   1. B.
+  </strong>
+  <strong>
+   Author the following methods in MyLinkedList.java:
+  </strong>
+ </p>
+ <p>
+  <strong>
+   public MyLinkedList()
+  </strong>
+ </p>
+ <p>
+  This constructor should create the Linked List and setup any instance variables as needed.
+ </p>
+ <p>
+  <strong>
+   public E get(int index)
+  </strong>
+ </p>
+ <p>
+  This method returns the node in the list corresponding to the index. For example, if the list has the elements 6 and 9 (in that order) and you call "get" with index 0, you should get back 6. If the method is called with an invalid index (say -1 or 2 in the example above), you will thrown an IndexOutOfBoundsException.
+ </p>
+ <p>
+  <strong>
+   public boolean add( E element )
+  </strong>
+ </p>
+ <p>
+  This method adds an element to the end of the list. Null elements are not allowed in the list so if someone tries to insert one you should throw a NullPointerException.  Be sure to think about what happens when you add an element to an empty list as well as a list with already existing elements.  Drawing a picture of the list will help!
+ </p>
+ <p>
+  <strong>
+   1.C. Run existing JUnit Tests by Running MyLinkedListTester
+  </strong>
+ </p>
+ <p>
+  Run "MyLinkedListTester" and if your methods are working, you should get no errors or failures for testGet.  The rest of the tests are empty except for testRemove, which will fail.  If this bothers you, you can comment out the body of the testRemove method for now (just remember to put it back in the next part).  If you have no errors in testGet, your get method method is likely working correctly.  You will write tests to make sure your add method is working correctly in the next step.
+ </p>
+ <p>
+  <strong>
+   1.D. Author the "testAddEnd"  and "testAddAtIndex" methods in MyLinkedListTester
+  </strong>
+ </p>
+ <p>
+  The tests for "testGet" may not properly stress the add method.  To be sure your add method works properly, you should add tests to these two methods.
+ </p>
+ <p>
+  <u>
+   Important note about all Linked List test cases:
+  </u>
+  We want you to test real use cases of your list, but please don't go overboard with the size of the lists you create in your tests.  Testing on lists on the order of tens or hundreds of elements is fine, but don't test on lists that contain thousands or millions of elements.  Because we're using Java, what works for a small list will almost certainly also work for a very large list, within the limits of Java itself.  Also keep in mind that most linked list operations are O(n) so tests on very large lists will take a very long time to run and risk breaking the grader.
+ </p>
+ <h3 level="3">
+  <strong>
+   Step 2: Implement and write tests for the remaining methods in MyLinkedList.
+  </strong>
+ </h3>
+ <p>
+  As we did in Step 1 above, you'll want to continue implementing and testing your
+  <strong>
+   MyLinkedList
+  </strong>
+  class.  To do so, add and test the methods below in the ordering of your choice.  You also must add JUnit tests the the
+  <strong>
+   MyLinkedListTester
+  </strong>
+  class to thoroughly test each method.  You will be graded not only on the correctness of your implementation, but also on the completeness of your tests.
+ </p>
+ <p>
+  To facilitate auto-grading, you need to read the method descriptions carefully to ensure they have the correct behavior.  Also, make sure you are consistent with our test cases/examples in the main method.  But, you have the freedom to implement the doubly-linked list with, or without, a sentinel head and tail node.  Our videos detail how to do this with the sentinel nodes, but feel free to omit the sentinels for extra challenge.
+ </p>
+ <p>
+  <strong>
+   public int size()
+  </strong>
+ </p>
+ <p>
+  This method returns the size of the list.  Be careful to update your size instance variable when adding and removing elements.  To test this method, use the method in MyLinkedListTester called testSize
+ </p>
+ <p>
+  <strong>
+   public void add(int index, E element)
+  </strong>
+ </p>
+ <p>
+  This method adds an element at the specified index.  If elements exist at that index, you will move elements at that index (and beyond) up, effectively inserting this element at that location in the list. Null elements are not allowed in the list so if someone tries to insert one you should throw a NullPointerException.Although drawings are helpful for implementing any method, you will benefit heavily from drawing out what should happen in this method before trying to code it.  You will want to throw an IndexOutOfBoundsException if the index provided is not reasonable for inserting an element.  Optional:  After authoring this version of the add method, you could consider removing redundant code by having the add method you originally wrote just call this method.  To test this method, use the method in MyLinkedListTester called testAddAtIndex.
+ </p>
+ <p>
+  <strong>
+   public E remove(int index)
+  </strong>
+ </p>
+ <p>
+  This method removes an element from that location.  Similar to the "add" method, we strongly encourage you to draw this out before trying to code it.  Like the "get" method, you will want to thrown an IndexOutOfBoundsException if the index provided is out of bounds. To test this method, use the method in MyLinkedListTester called testRemove.
+ </p>
+ <p>
+  <strong>
+   public E set(int index, E element)
+  </strong>
+ </p>
+ <p>
+  This method allows you to change elements in place by specifying a valid index of an existing element and a new value to change that element to. You should return the old value held at that index. Like the "get" method, you will want to thrown an IndexOutOfBoundsException if the index provided is out of bounds. In addition, if someone tries to set a node with a null element, you should throw a NullPointerException.  To test this method, use the method in MyLinkedListTester called testSet.
+ </p>
+ <h2 level="2">
+  Hints: Potentially Useful (but not required) Methods
+ </h2>
+ <p>
+  <strong>
+   public String toString()
+  </strong>
+ </p>
+ <p>
+  Although not included in the required methods for this class, you may find a "toString" method for the list and/or a "toString" method for each node helpful when testing and debugging.
+ </p>
+ <p>
+  <strong>
+   Additional Constructor for LLNode
+  </strong>
+ </p>
+ <p>
+  You may find yourself doing the same operations multiple time in the MyLinkedList class.  If so, you may want to consider a constructor that takes not only the element, but the previous and (possibly) next nodes.
+ </p>
+ <h2 level="2">
+  <strong>
+   What and how to submit
+  </strong>
+ </h2>
+ <h3 level="3">
+  Submission Part 1:  Submitting MyLinkedList Implementation
+ </h3>
+ <p>
+  You will need to upload the
+  <strong>
+   MyLinkedList.java
+  </strong>
+  file for grading. The grading will test the behavior of various methods.  If you were diligent in self-testing, this should pass with flying colors.  But don't worry if we catch a few cases you missed.  Programming a LinkedList can be challenging (and we know the common mistakes our students make).  If you are stuck on why you are failing some of our tests, you can refer to the MyLinkedListGrader.java for the tests we run.
+ </p>
+ <h3 level="3">
+  Submission Part 2:  Submitting MyLinkedListTester
+ </h3>
+ <p>
+  You will upload the file
+  <strong>
+   MyLinkedListTester.java
+  </strong>
+  for grading.  Here we'll examine your JUnit test methods to ensure you are catching incorrect behavior.  We'll run your JUnit Test cases against both working and flawed versions of MyLinkedList implementations to check that your tests pass when the implementation is correct and catch errors when they are incorrect.
+ </p>
+</co-content>
+<style>
+ body {
+    padding: 50px 85px 50px 85px;
+}
+
+table th, table td {
+    border: 1px solid #e0e0e0;
+    padding: 5px 20px;
+    text-align: left;
+}
+input {
+    margin: 10px;
+}
+}
+th {
+    font-weight: bold;
+}
+td, th {
+    display: table-cell;
+    vertical-align: inherit;
+}
+img {
+    height: auto;
+    max-width: 100%;
+}
+pre {
+    display: block;
+    margin: 20px;
+    background: #424242;
+    color: #fff;
+    font-size: 13px;
+    white-space: pre-wrap;
+    padding: 9.5px;
+    margin: 0 0 10px;
+    border: 1px solid #ccc;
+}
+</style>
+<script async="" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript">
+</script>
+<script type="text/x-mathjax-config">
+ MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$$','$$'], ['$','$'] ],
+      displayMath: [ ["\\[","\\]"] ],
+      processEscapes: true
+    }
+  });
+</script>

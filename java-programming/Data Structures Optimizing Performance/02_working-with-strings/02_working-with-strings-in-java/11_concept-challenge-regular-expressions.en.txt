@@ -1,0 +1,104 @@
+For those of you who have already
+taken a course of this before, you're already pros at
+doing concept challenges. For those of you who are new to us, let's talk through the details
+again of a concept challenge. The idea behind a concept challenge,
+is for you to pause and trace all the problems yourself. We're gonna pose a problem and
+then give you an end video quiz about it. Try to solve that problem and then after
+you've come up with an answer for it. Try to discuss that with friends or
+colleagues that are taking the course. This is a great time to get them all
+together and talk about the concepts. If you don't have them around you can
+always watch the UC San Diego learners talk about the concepts themselves. After you've listened to those
+explanations and talked about it. Then you can try to answer
+the question again. After you've asked the question again, you can confirm your understanding
+based on our explanation. All right, so
+let's just dive right into it. What we're gonna try to do is keep
+working with regular expressions. So what I have here is the string below,
+which is splitting a string and it's easy as one, two, 33, right? If I try to do getTokens on that and give it a regular
+expression which is [1-3]. It's gonna give me back one,
+two, three and three. But what I really want
+back is the numbers here. I want one, two and 33. So your challenge here, is what
+regular expression should I put there? >> Hi I'm Joshua. >> My name's Brianna. >> And I'm Allen. >> Okay, what do you guys think about B. I think it might be
+the correct answer because, I think the comma would be used as
+a delimiter and separate one, two, and 33. >> Yeah. >> But, because it's in the brackets,
+it might be taken as a literal symbol. So it's gonna be looking for commas. >> Oh, okay. >> Yeah, I'm kinda, hm. I think I'm kind of leaning
+towards what Bree said. That the commas might be like, it's not a symbol like we use
+to separate different terms. >> Since it's in the brackets. Like, if you look at E,
+there's no brackets in there. >> Yeah and I think I remember that
+the brackets kind of say that look for a comma specifically. Rather than separate one, two, and 33. So I don't think it'll quite
+give us what were looking for. >> Okay, and then C has numbers zero
+through nine, and then it has a plus sign, which means one or
+more of any value from zero to nine. I think that would work. >> You think? I think, hm, but won't it give us one,
+two, three and three? Because it'll split up the 33,
+cuz it's looking for just one digit between zero and nine. So it'll give us one, two, three, three. Instead of one, two, 33, right? >> No, because the plus sign let's you
+have more than just one individual value. >> So it would be like, how do you
+mean more than one individual value? >> So you can have a zero, and then you
+can have a one, you can have a two. You can also have a zero, zero, a one,
+one, a two, two, a three, three. >> Oh okay, I see. So, it could be like three,
+three, or five, five, or six, six or things like that. >> I think that's just more than one. >> Oh but, would it also work for the list that the last character we were
+looking for ends up, 33 would be 34. >> So it wouldn't work for 34 or
+57, or something like that. >> Yeah, it's like,
+instead of like one, two, 33. It was one, two, 34, or some letter. >> I think it would. >> Yeah I think it might work,
+because it'll just look for any digit, like three, four. It doesn't have to be
+the same one exactly. Okay. >> Okay. >> Let's move on to answer d, then. So answer d has a star,
+and it's asking for characters one through
+three rather than a plus. You think that changes the answer? Cuz I'm leaning towards,
+if I think it'll be the same. Where, like Bree said before,
+it'll search for like one or one one, or two and two two, or
+three and three three. So it'll give us this, what we have right
+here, one two and three, three right? >> Yeah, except you'll also
+be counting for zero one. So every time you have no ones,
+you're gonna get a space. >> So, basically anytime
+you have an empty string. I think it would include
+those empty strings. >> Oh right, cuz it's a star. So, star means like zero, okay. Okay, so I guess D wouldn't work either. So, what about E? >> As one, or two, or 33? >> What do you think? >> I think it wouldn't work, because I was thinking more about
+the ones of one and two and three. But this has a line, which means or. So I don't think it would
+be looking exactly for the list that we're looking for,
+one, two, and 33. >> Right, we are looking for
+one and two, and 33, so. >> But the and
+might put them all together. So that it's one and
+two and 33, all together. So if you're evaluating-
+>> Right, one and two and 33, that's our answer, right? >> Right, but if you've got,
+you're scanning through each and every single number, right. So you're gonna look at the first one. Is the first number a one,
+and a two, and a 33? That wouldn't really make sense. >> Okay,
+we should look at them separately. >> Yeah. >> Look at one separately,
+and look at two separately- >> With the or. >> and look at 33 separately. And that's the point of the or. So okay. >> Welcome back. I hope the UC San Diego
+learners video was helpful. Somewhat similar to what they did. What we're gonna do here is
+essentially walk one by one, and talk through whether or
+not that approach would work or not. So option A was bracket 1233 bracket. The idea here is well maybe
+that would capture 33. The problem here is if
+it's within the brackets, all it's gonna say is include one more
+three, but you've already included three. So all you get is the same thing. In fact if you try to run this. All you'll get back is the same thing
+you had before, which is just one, two, three and three. So this didn't quite work. Option B tries to split
+this up using commas. The problem is, just like the last
+example, all that adding those commas did was to simply add comma to the group of
+letters that we're already looking for. So, now we're gonna look for
+one, two, three, and comma. If I run this on the code,
+what am I gonna get back? We're gonna get comma,
+one, two, three, three. So this didn't work either. All right, next one, option C. This one said in brackets [0-9]+. Remember that plus means one or
+more of these elements. If this was your answer, you were right. What this is gonna do is look for
+anything between zero and nine. If it finds at least one,
+look for more adjacent ones. So what this is gonna do then is find one,
+two and 33, which is exactly what we were looking for. Let's keep looking at our
+other options though, cuz this was a select all that apply. So there may be more
+than one right answer. The next idea is to look for
+one through three with an asterisk. Now, the asterisk,
+in regular expressions means zero or more. This might look like it's gonna work, but you have to be careful about the zero or
+more. Because if you look at the letter S,
+are there zero or more one through threes there? Well, yeah, there's zero. Oh, shoot. That means it's gonna match everything,
+right? So what you're gonna get then is you're
+gonna get every single letter matching and give you back an empty string, because
+there isn't a one through three there. It does, in fact,
+give you one, two, and 33, but it gives you a whole
+bunch more garbage. So this is not what we want either. Now what if we just said,
+I want either one, or two, or 33? Would that work? Yeah, actually that's
+gonna work just fine too. The problem is, now that we have two
+right answers, it'd be useful to say, well which one's better than the other? So, given [0-9]+. And either one, or two, or 33. Which do you think might be better? Go ahead and take a few seconds and
+think about it. If your answer is C, you're spot-on. [0-9]+ is gonna capture essentially
+any non-negative integer. That's fantastic. Whereas if I try to do
+the same thing with E. How am I gonna capture
+any non-negative integer. I have to do something like zero,
+or one, or two, or three, or four, all the way out to
+any possible integer. I can capture it so concisely with option
+C that, that is just far more versatile. And that's essentially
+the better of these two choices. Regular expressions
+are incredibly powerful, and I hope you continue to use them as
+part of your programming arsenal.

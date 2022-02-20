@@ -1,0 +1,87 @@
+1
+00:00:00,000 --> 00:00:03,087
+[MUSIC]
+
+2
+00:00:06,129 --> 00:00:10,126
+So one philosophy that people use and
+actually apply testing to their projects,
+
+3
+00:00:10,126 --> 00:00:11,960
+is called test driven development.
+
+4
+00:00:11,960 --> 00:00:14,790
+And the purpose of test driven
+development is to actually
+
+5
+00:00:14,790 --> 00:00:17,400
+make sure that you
+are testing the right thing.
+
+6
+00:00:17,400 --> 00:00:20,420
+A lot of times people will write
+the code that they mean to, and
+
+7
+00:00:20,420 --> 00:00:23,000
+then they'll write the test, and
+when the tests pass, they're happy and
+
+8
+00:00:23,000 --> 00:00:25,060
+they think they did the right thing.
+
+9
+00:00:25,060 --> 00:00:28,613
+But there's always the chance that the
+test actually would have passed before you
+
+10
+00:00:28,613 --> 00:00:31,390
+made your changes, which means
+you're not testing the right thing.
+
+11
+00:00:32,610 --> 00:00:35,550
+>> Yeah, so you wanna make sure
+that you first write a test for
+
+12
+00:00:35,550 --> 00:00:37,870
+the soft piece of code
+that you're writing.
+
+13
+00:00:37,870 --> 00:00:41,730
+So, first you write the test,
+make sure that it fails, and
+
+14
+00:00:41,730 --> 00:00:44,820
+then go through and write your code.
+
+15
+00:00:44,820 --> 00:00:46,340
+>> Seems a little backwards, but
+>> [LAUGH]
+
+16
+00:00:46,340 --> 00:00:48,390
+>> It's a good principle to follow,
+
+17
+00:00:48,390 --> 00:00:51,050
+because that way you make sure that
+you're never actually fixing a totally
+
+18
+00:00:51,050 --> 00:00:51,900
+different bug.
+
+19
+00:00:51,900 --> 00:00:52,499
+>> Exactly

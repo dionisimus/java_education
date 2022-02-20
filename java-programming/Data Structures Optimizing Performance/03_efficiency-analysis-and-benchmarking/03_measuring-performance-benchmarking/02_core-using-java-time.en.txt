@@ -1,0 +1,41 @@
+[MUSIC] In the last video we started looking how
+to measure the time of program running on a real system. What we're gonna do here is start talking
+about how we actually measure time specifically measure time in Java. And to do that we're going to look
+at how Java timing libraries work. So let's think about
+some code we might have. Let's say we're trying to measure how
+long it takes to execute selectionSort, which we learned in the previous course. What I wanna do to measure this is I wanna
+say, create an array of values, I wanna fill those values with random contents,
+and then I'd wanna run selectionSort. But how long did selectionSort run there? I can't just measure the time of
+the program because I've got time to create the array and I've got time to
+fill the contents with random values. I wanna measure just selectionSort. I mean, I guess what I could do is I could
+say, put a print statement right before and right after and
+take out a stopwatch and like go, click. Right when it starts, and then click when
+it stops and try to measure it that way, but that doesn't seem like
+it's going to work very well. So Java does have something that
+we could use to help do this. How can we just get
+the time of selection sort. Well it turns out Java does, it has within the system class it
+has something called nanoTime. Which you can call and
+essentially give you the current time, which you can then use to
+compare against some other time. So we're gonna use that in our code
+here to evaluate the execution time of that selection sort. And we're gonna do that by putting first a call to system time
+right before selectionSort. And I'm gonna put another call
+to it right after selectionSort. And then all I have to do is essentially
+subtract that startTime from that endTime, divide it by one billion because
+it's in nanoseconds, and I get how long it took for it to run,
+and then I can print that out. And now, why might I wanna do this? Well, I might wanna measure how long it
+takes for a selectionSort to execute. And I may wanna compare
+selectionSort execution time with growing the size of the array. So the idea for
+this would be something like let's take increasing sizes of n,
+let's then print n. We'll then create a randomized
+array of size n, and then we'll time selection sort and
+print out the outcome. Then, let's compare this to quick sort. Let's say, you get a randomized
+array of size n again, and time quick sort, and
+print out its outcome. If I write the real code for this and ran it on a real system,
+I could get times back like this. So essentially I have on the left
+hand side the value of n and or the size of the array. And then I have a column for all the selection sort
+outcomes in terms of seconds. And I have a column for the Quicksort
+outcomes in terms of seconds. And you see immediately that
+Quicksort's way faster, even for only 10,000 elements in the array. And selectionSort keeps growing and
+growing, and Quicksort still really fast. This is great data, and
+we can use this in some additional ways to essentially analyze how did that program
+run, and we'll do that in the next video.

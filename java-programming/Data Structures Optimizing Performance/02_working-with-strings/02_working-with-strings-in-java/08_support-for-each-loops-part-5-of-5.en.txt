@@ -1,0 +1,25 @@
+[APPLAUSE] So we finally succeeded in
+implementing the method that we wanted to. But it was a lot of work. And, what you'll notice when you think
+back to the work that we did is that we were kind of implementing the usual old
+for loop, where we start with some index. And we incremented as we go through and
+iterate the for-loop a bunch of times. And so, even though we have
+a for-each loop in our method body, we're not really using the for-each loop. We kind of have to do a regular old
+indexed for loop in addition to it. And when you see yourself trying to work
+really too hard to implement some sort of functionality, that's a clue that
+maybe we're using the wrong construct. And what's at the heart here with the
+trouble with using the for-each loop is we're trying to change
+the contents of an array. So, the moral of this story
+is that in this context, the for-each loop is not
+the right tool for the job. The other thing we'd like to keep in
+mind is that even when we successfully implemented this method, when you think
+back to the parameters that we were given, and the fact that we were given
+a string to begin with, the word, even though we return
+a modified version of the word, we output something that looks
+like i-hippy instead of a-happy. What we're outputting doesn't actually
+change the parameter that we gave, that we started with. So the input variable, the parameter that
+we have, that string object doesn't get changed, doesn't get impacted by the work
+that we've done in this replace method. And that's because strings are immutable. So, even though we were
+able to produce hippy, even though we were able to do that
+replacement of the characters, in terms of giving back a return object,
+the original string object didn't change. And that is a useful thing to keep in mind
+when we're working with strings in Java.

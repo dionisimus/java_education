@@ -1,0 +1,74 @@
+[MUSIC] Hey everyone. In this support video what we're
+gonna do is look at JUnit in detail. So, first off we're going
+to look at our code. In the package that was provided you'll
+find there's a MyLinkedListTester which is already set up to do JUnit. To make sure that you're
+able to run JUnit, you want to make sure that you've
+done the setup instructions properly. To set up JUnit,
+you go to project, properties. Go to the Java build path. And then add in add library. You'll select JUnit. JUnit four. And then finish, and that'll essentially
+add in the JUnit four libraries. And that's essentially what
+you need to be able to JUnit. Okay, so now that Eclipse is set up,
+let's talk about JUnit overall. So JUnit is a lightweight test platform. And what you do is you're gonna
+write methods that are going to run before the tests occur and
+then you're going to write methods which are essentially just testing the behavior
+of methods in some other class. In this case we're trying to
+test The MyLinkedListClass, specifically this class right here. Let me give you a preview of some of
+the methods you might want to write. One method that's incredibly
+useful is called setup. And for
+setup what you do is put an @before and that means this would be run
+before a test, and you run setup. And what it's gonna do is essentially
+set up the state of your variables so that you're able to perform tests. In this case, we're setting up a short
+list, an empty list, a longer list, and we're gonna use these for
+a number of tests. It's worth noting that there is another
+method called setupClass, which, if you wanna run something just once
+not before every single test case, you'd use setupClass. But if you wanna have setup done
+before each individual test, that's where you use setup. In terms of writing tests, the syntax for
+this, lets just say @Test, and then this is one of the test
+cases that'll be executed. In this case I have the method testGet, so this is supposed to test the get
+method in a MyLinkedList class. Let me point out the two things that
+are probably the most useful to you in terms of seeing whether or
+not your code is working properly. The first is actually down here,
+which is called assertEquals. With assertEquals, what it says is,
+I want you to verify that "A", in fact, matches shortlist.get(0). If those two are not equal,
+I want you to throw an error. If they're the same, just keep going. So since they're the same,
+assert that this logic is true. And assert exists in a number
+of programming languages to help with debugging and catching any errors. The other method that I think is
+going to be quite useful is fail. And the,
+where fail comes in is emptyList.get(0) is supposed to throw an exception. I have an empty list, there's nothing in
+there, if I try to get an element out of that that should throw an index
+out of bounds exception. But how am I gonna test that in place? If I just call the method
+emptyList.get(0), it's gonna throw an exception which could be treated like an improper
+activity via inceptions being strung. So the way we do this is to actually throw
+your operation within a tri catch block where the proper behavior is
+actually gonna be caught. So it's gonna catch an index out of
+bounds, exception if it catches it, it's just gonna keep going
+to the very next task. But if this codes succeeds and doesn't throw an index out of bounds
+exception, what you call is a method fail. And fail is gonna say,
+this did not work, we need to quit and it will print out you need
+to check your out of bounds. We could have more of a verbose print
+messages here, something like in test get, empty the list if I get 0 fails
+you should check out of bounds and those are going to be the main
+methods used for this. There are other methods that allow you
+to tear down anything you've built in the process of this test. You're not going to need this for
+this case. But if you'd say, create a large
+database before you began the test, when all the tests are done
+you'd want to tear that down. And the way that you'd do that is
+you'd make a method teardown and you use an @ after to denote I want this method to be performed after
+all the testing is complete. So what does this look
+like when you run it? So if we go to MyLinkedListTester and
+we try to run this code what it's going to give me is a whole new
+window over here on the left called JUnit. And what it will give you
+is a number of things. It will tell you how many different
+tests it ran, in this case there's six. Now we've put code within testGet and
+within testRemove. All the others are just
+empty stubs at this point. So I ran all six of those tests. Because I haven't written
+the MyLinkedList class yet, testGet and testRemove are both gonna fail because
+it's not gonna behave properly. What you will also is that there is
+actually times associated with this. This is how much time was spent
+running these tests to figure out that there was a failure here and
+within test remove there is an error. If you ever see these times start becoming
+large in the second range or even ten second range, you might want to think
+more about how you are doing your tests. But again as we said in
+the original videos, it's more important to make sure
+that you're testing your codes and getting it right and then afterwards
+think about the performance implications. I hope this helps you get started with
+JUnit and good luck on your project.

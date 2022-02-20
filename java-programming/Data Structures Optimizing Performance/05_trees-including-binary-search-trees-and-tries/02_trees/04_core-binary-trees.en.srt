@@ -1,0 +1,447 @@
+1
+00:00:00,000 --> 00:00:04,292
+[MUSIC]
+
+2
+00:00:04,292 --> 00:00:07,352
+In the past few videos we've
+seen why trees matter and
+
+3
+00:00:07,352 --> 00:00:10,016
+how you can define a tree
+in computer science.
+
+4
+00:00:10,016 --> 00:00:14,393
+What we're going to do next is look at
+how to actually code a tree in Java.
+
+5
+00:00:14,393 --> 00:00:17,434
+So by the end of this tree you
+should know what a binary tree is.
+
+6
+00:00:17,434 --> 00:00:20,557
+And you should be able author
+essentially a tree node class.
+
+7
+00:00:23,238 --> 00:00:27,952
+So with a generic tree,
+a parent can have any number of children.
+
+8
+00:00:27,952 --> 00:00:31,140
+So you can see here that
+Tywin has three children.
+
+9
+00:00:31,140 --> 00:00:34,440
+Now, there are many cases in which
+you're gonna want a generic tree,
+
+10
+00:00:34,440 --> 00:00:37,470
+but when we start coding this it's gonna
+be a little bit easier to start with
+
+11
+00:00:37,470 --> 00:00:39,470
+something known as a binary tree.
+
+12
+00:00:39,470 --> 00:00:44,920
+And a binary tree just restricts parents
+to having, at most, two children.
+
+13
+00:00:44,920 --> 00:00:47,340
+So I can prune this tree
+to essentially create it so
+
+14
+00:00:47,340 --> 00:00:51,620
+it's a binary tree just by making sure
+that Tywin has only two children, and
+
+15
+00:00:51,620 --> 00:00:54,090
+Cersei only has two children.
+
+16
+00:00:54,090 --> 00:00:55,530
+And that's what we mean by a binary tree.
+
+17
+00:00:57,770 --> 00:00:59,290
+So then how are we gonna construct this?
+
+18
+00:00:59,290 --> 00:01:00,870
+How are we gonna write the code for this?
+
+19
+00:01:00,870 --> 00:01:02,840
+Well let's look at what we're gonna need.
+
+20
+00:01:02,840 --> 00:01:06,980
+First off,
+that's gonna have a linked list structure.
+
+21
+00:01:06,980 --> 00:01:08,950
+So, just like linked lists,
+
+22
+00:01:08,950 --> 00:01:13,120
+trees are gonna be built essentially just
+by connections to different references.
+
+23
+00:01:13,120 --> 00:01:17,958
+It's gonna seem very similar in nature to
+the linked list that Christine described.
+
+24
+00:01:20,117 --> 00:01:22,739
+The tree itself only needs a root node,
+
+25
+00:01:22,739 --> 00:01:26,540
+kind of just like a linked
+list only needs a head.
+
+26
+00:01:26,540 --> 00:01:30,090
+It can also have a tail, but for a binary
+tree, we only just want this root node.
+
+27
+00:01:31,180 --> 00:01:31,900
+So that's pretty easy.
+
+28
+00:01:31,900 --> 00:01:34,004
+You just have one reference to a node.
+
+29
+00:01:34,004 --> 00:01:36,010
+But then, what do the nodes look like?
+
+30
+00:01:37,070 --> 00:01:38,440
+So if we focus in on Cersei,
+
+31
+00:01:38,440 --> 00:01:43,420
+we can realize that there are four things
+that you'll need with a binary tree node.
+
+32
+00:01:43,420 --> 00:01:45,310
+The first is a value.
+
+33
+00:01:45,310 --> 00:01:46,710
+You know that this node is Cersei.
+
+34
+00:01:48,420 --> 00:01:49,810
+You also need a parent.
+
+35
+00:01:49,810 --> 00:01:51,710
+So in this case, Cersei's parent is Tywin.
+
+36
+00:01:53,770 --> 00:01:56,870
+You need a left child,
+in this case, Joffrey, and
+
+37
+00:01:56,870 --> 00:01:58,950
+a right child, in this case, Tommen.
+
+38
+00:02:00,000 --> 00:02:02,700
+So these four components
+are all we're going to need for
+
+39
+00:02:02,700 --> 00:02:05,670
+instance variables in our
+binary tree node class.
+
+40
+00:02:08,210 --> 00:02:11,648
+Lastly, what if we were doing this just
+for the general tree that we first started
+
+41
+00:02:11,648 --> 00:02:15,003
+talking about, the generic tree where
+you could have any number of children?
+
+42
+00:02:15,003 --> 00:02:20,092
+Well, for that general tree, all we'd
+change here is replace this left child and
+
+43
+00:02:20,092 --> 00:02:23,120
+right child with a list of my children.
+
+44
+00:02:23,120 --> 00:02:30,090
+So it's actually not a large change to
+go from a binary tree to a generic tree.
+
+45
+00:02:30,090 --> 00:02:35,520
+When we start looking at the code, what
+we have here is our class BinaryTree and
+
+46
+00:02:35,520 --> 00:02:39,860
+all it's going to have is a single root,
+a reference to a tree node element.
+
+47
+00:02:39,860 --> 00:02:43,050
+You'll notice that we're using generics
+again just like they were described
+
+48
+00:02:43,050 --> 00:02:44,429
+in the linked lists by Christine.
+
+49
+00:02:45,860 --> 00:02:47,660
+So we've got a TreeNode root.
+
+50
+00:02:47,660 --> 00:02:49,570
+And that's gonna be most of
+what we're gonna need for
+
+51
+00:02:49,570 --> 00:02:51,730
+the BinaryTree to get started.
+
+52
+00:02:51,730 --> 00:02:55,310
+But I can't have a reference to a TreeNode
+until I define what a TreeNode is.
+
+53
+00:02:55,310 --> 00:02:56,943
+So let's look at what
+we mean by a TreeNode.
+
+54
+00:02:56,943 --> 00:02:58,770
+And I could have called
+this a BinaryTreeNode.
+
+55
+00:02:58,770 --> 00:03:01,542
+I just kept it TreeNode for simplicity.
+
+56
+00:03:03,666 --> 00:03:04,850
+All right, here is my TreeNode.
+
+57
+00:03:04,850 --> 00:03:07,469
+I've already filled in the private
+instance variables that we already
+
+58
+00:03:07,469 --> 00:03:08,600
+just described.
+
+59
+00:03:08,600 --> 00:03:11,920
+It's gonna have a value,
+a parent, a left, and a right.
+
+60
+00:03:13,440 --> 00:03:17,771
+So with those four instance variables,
+we can essentially describe our TreeNode.
+
+61
+00:03:17,771 --> 00:03:22,200
+So what we wanna do next is just
+briefly code the constructor together.
+
+62
+00:03:23,800 --> 00:03:24,930
+So what I'm going to create for
+
+63
+00:03:24,930 --> 00:03:29,270
+a constructor here is a constructor that
+takes the value, but also the parent.
+
+64
+00:03:29,270 --> 00:03:32,220
+So it's gonna help us by
+essentially starting the linking
+
+65
+00:03:32,220 --> 00:03:32,960
+right at the beginning.
+
+66
+00:03:34,060 --> 00:03:37,770
+In order to write this constructor, first
+thing I'm gonna do is set value to be
+
+67
+00:03:37,770 --> 00:03:41,810
+the parameter val, just like we've
+done it in many classes already.
+
+68
+00:03:42,880 --> 00:03:46,220
+Next I'm gonna set my parent
+to be that parent parameter.
+
+69
+00:03:46,220 --> 00:03:51,230
+And that now set up that link, so
+that node has a parent automatically.
+
+70
+00:03:51,230 --> 00:03:53,950
+Now you might say but wait,
+what do I do if this is the root?
+
+71
+00:03:53,950 --> 00:03:56,300
+Well you would just pass
+null as the parent.
+
+72
+00:03:58,300 --> 00:03:59,775
+Then I'm gonna set up this.left and
+
+73
+00:03:59,775 --> 00:04:03,590
+this.right, and I'm just gonna make
+sure they're null for my own clarity.
+
+74
+00:04:05,805 --> 00:04:09,190
+Now the next step now that we have this
+constructor is to think about how we
+
+75
+00:04:09,190 --> 00:04:13,240
+would write code for a setter and
+a getter of children.
+
+76
+00:04:13,240 --> 00:04:16,740
+So first off, getters for
+the children isn't gonna be too difficult.
+
+77
+00:04:16,740 --> 00:04:21,210
+You're just gonna write getLeftChild,
+and you're gonna return left.
+
+78
+00:04:21,210 --> 00:04:23,615
+But let's look at adding a left child or
+a right child,
+
+79
+00:04:23,615 --> 00:04:25,199
+I think that's more interesting.
+
+80
+00:04:26,210 --> 00:04:30,890
+So what I have here is, I've blocked out
+the TreeNode constructor code just for
+
+81
+00:04:30,890 --> 00:04:36,500
+space on the slide, and what we have
+then is the addLeftChild method.
+
+82
+00:04:36,500 --> 00:04:39,550
+So I'm gonna set this.left
+to be a new TreeNode.
+
+83
+00:04:39,550 --> 00:04:43,880
+I'm gonna pass it that value that
+we want for the left child, but
+
+84
+00:04:43,880 --> 00:04:45,090
+I need to pass it one other thing.
+
+85
+00:04:46,490 --> 00:04:49,803
+What I want you to do is take a moment and
+go to the in video quiz.
+
+86
+00:04:49,803 --> 00:04:54,070
+See what you think we should put there and
+come back, and I'll see you in a moment.
+
+87
+00:04:54,070 --> 00:04:54,570
+Welcome back.
+
+88
+00:04:56,750 --> 00:04:58,540
+So what do we put here?
+
+89
+00:04:58,540 --> 00:05:01,545
+I need to essentially hook
+up the parent through this,
+
+90
+00:05:01,545 --> 00:05:03,040
+the second section that's
+fill in the blank.
+
+91
+00:05:04,420 --> 00:05:06,520
+Who's gonna be a parent of this node?
+
+92
+00:05:06,520 --> 00:05:08,690
+Well, this TreeNode is, right?
+
+93
+00:05:09,800 --> 00:05:12,415
+So all I have to do is pass this.
+
+94
+00:05:12,415 --> 00:05:16,707
+So our next step, now that we have
+an idea of essentially how to write these
+
+95
+00:05:16,707 --> 00:05:21,483
+tree nodes, is to start thinking about how
+we might want to walk through the tree,
+
+96
+00:05:21,483 --> 00:05:23,518
+or how we might traverse the tree.
+
+97
+00:05:23,518 --> 00:05:24,730
+And we'll do that in the next video.

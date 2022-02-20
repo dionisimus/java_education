@@ -1,0 +1,506 @@
+1
+00:00:00,025 --> 00:00:06,401
+[NOISE] So, now we're ready for
+a second concept challenge.
+
+2
+00:00:06,401 --> 00:00:09,985
+And in the previous one, remember how we
+talked about how tricky it was to get
+
+3
+00:00:09,985 --> 00:00:12,570
+the arrows right,
+to get the references right.
+
+4
+00:00:12,570 --> 00:00:16,430
+And so we're really gonna hammer home that
+point, with a second concept challenge.
+
+5
+00:00:16,430 --> 00:00:20,310
+And so, as usual, you're going to pause
+and try to solve the problem yourself.
+
+6
+00:00:20,310 --> 00:00:25,280
+Then discuss you solution, watch the UC
+San Diego learners, discuss it as well,
+
+7
+00:00:25,280 --> 00:00:26,710
+then answer the question again and
+
+8
+00:00:26,710 --> 00:00:29,500
+confirm your understanding
+when we come back together.
+
+9
+00:00:29,500 --> 00:00:32,910
+So, we're looking at really similar code
+to what we talked about in the previous
+
+10
+00:00:32,910 --> 00:00:36,280
+concept challenge but
+we're just swapping two lines, okay?
+
+11
+00:00:36,280 --> 00:00:38,720
+The two lines that gave us
+the most trouble before.
+
+12
+00:00:38,720 --> 00:00:42,450
+And so let's just see what
+happens if we switch the order.
+
+13
+00:00:42,450 --> 00:00:45,280
+And what I'd like you to think about
+is what does the list of notes that
+
+14
+00:00:45,280 --> 00:00:49,780
+we create in that main method look like
+if we've done this like little swap,
+
+15
+00:00:49,780 --> 00:00:53,010
+this just tiny, tiny little swap,
+and then run the code.
+
+16
+00:00:53,010 --> 00:00:54,550
+>> Hi, I'm Paul.
+
+17
+00:00:54,550 --> 00:00:55,320
+>> I'm Nancy.
+
+18
+00:00:55,320 --> 00:00:56,320
+>> I'm Millie.
+
+19
+00:00:56,320 --> 00:00:59,845
+Okay, so if we look at the last
+two lines of the code,
+
+20
+00:00:59,845 --> 00:01:03,052
+we noticed that the order
+of them has switched,
+
+21
+00:01:03,052 --> 00:01:08,047
+and then I think by noticing that point
+we can firstly eliminate answer A.
+
+22
+00:01:08,047 --> 00:01:12,653
+Because if we look at
+the last line of function,
+
+23
+00:01:12,653 --> 00:01:16,475
+we noticed that it
+connects node n0 with n2,
+
+24
+00:01:16,475 --> 00:01:23,300
+which makes the next pointer of n0
+should be pointing to n2 instead of n1.
+
+25
+00:01:23,300 --> 00:01:28,140
+And we noticed that answer A is the only
+one that connects node n0 with n1,
+
+26
+00:01:28,140 --> 00:01:30,050
+which cannot be correct.
+
+27
+00:01:30,050 --> 00:01:33,160
+So, we can just eliminate this one.
+
+28
+00:01:33,160 --> 00:01:36,310
+And what else can we do?
+
+29
+00:01:36,310 --> 00:01:39,580
+>> Well, I think we can also,
+like in the previous question,
+
+30
+00:01:39,580 --> 00:01:42,230
+we can also eliminate
+the null pointer exception.
+
+31
+00:01:42,230 --> 00:01:47,103
+Since if you look at the constructors
+we do notice that after you add
+
+32
+00:01:47,103 --> 00:01:51,195
+more nodes you're actually
+pointing to something, so
+
+33
+00:01:51,195 --> 00:01:58,755
+it's not actually referencing a null data.
+
+34
+00:01:58,755 --> 00:02:03,538
+On the very last line of
+the of the last constructor,
+
+35
+00:02:03,538 --> 00:02:11,040
+I was kinda confused because it seemed
+that the node was pointing to itself.
+
+36
+00:02:11,040 --> 00:02:16,060
+And I'm not actually sure
+if it's allowed to do that.
+
+37
+00:02:16,060 --> 00:02:19,020
+But, that's what it seemed
+like it was doing so
+
+38
+00:02:19,020 --> 00:02:24,710
+I think answer D would be the best answer,
+if it's actually possible.
+
+39
+00:02:24,710 --> 00:02:25,400
+>> I agree.
+
+40
+00:02:25,400 --> 00:02:29,790
+I think that's, it looks like that's
+what's happening in the last two lines of
+
+41
+00:02:29,790 --> 00:02:34,400
+code, since the previous
+node's next gets set to this.
+
+42
+00:02:36,330 --> 00:02:40,380
+>> All right, let's do a step-by-step
+walk-through to really
+
+43
+00:02:40,380 --> 00:02:45,650
+get at what causes the problem when
+we switch those two lines of code.
+
+44
+00:02:45,650 --> 00:02:50,590
+And let's think together about how
+the list of nodes will be generated and
+
+45
+00:02:50,590 --> 00:02:52,290
+what it will look like at the end.
+
+46
+00:02:52,290 --> 00:02:57,000
+Now, the very first line of code, because
+we used the no argument constructor
+
+47
+00:02:57,000 --> 00:03:00,730
+is exactly the same as in
+the previous concept challenge, so
+
+48
+00:03:00,730 --> 00:03:04,140
+we're not going to go through the details,
+but let's think about what happens when we
+
+49
+00:03:04,140 --> 00:03:09,600
+use the constructor with two
+parameters to create a new object,
+
+50
+00:03:09,600 --> 00:03:15,720
+a new SSL, sorry, SLL node object,
+this time pointed to by n1.
+
+51
+00:03:15,720 --> 00:03:20,000
+So when we call that two
+argument constructor,
+
+52
+00:03:20,000 --> 00:03:24,890
+we now have prevNode pointing
+to the object that is
+
+53
+00:03:24,890 --> 00:03:29,870
+pointed to by n0 that we created before,
+and this points to the object
+
+54
+00:03:29,870 --> 00:03:32,020
+that's being constructed at
+the moment by this constructor.
+
+55
+00:03:32,020 --> 00:03:36,450
+And so the first thing we do is we fill
+in the data value with the number 1,
+
+56
+00:03:36,450 --> 00:03:41,600
+the integer 1, and now we go ahead and
+think about the references and
+
+57
+00:03:41,600 --> 00:03:43,480
+the points, the arrows.
+
+58
+00:03:43,480 --> 00:03:46,210
+So, at this line of code,
+
+59
+00:03:46,210 --> 00:03:51,040
+what we'd like to do is assign
+the value this to prevNode.next.
+
+60
+00:03:51,040 --> 00:03:52,856
+So we follow the arrows.
+
+61
+00:03:52,856 --> 00:03:58,176
+We look at prevNode.next and
+its current value is null.
+
+62
+00:03:58,176 --> 00:04:01,267
+But what we'd like to do is
+set its new value to be this,
+
+63
+00:04:01,267 --> 00:04:04,890
+namely to point to the object
+that we're building.
+
+64
+00:04:04,890 --> 00:04:10,620
+And now we're ready to go ahead and
+assign prevNode.next's value to
+
+65
+00:04:10,620 --> 00:04:12,800
+also be the value of this.next.
+
+66
+00:04:12,800 --> 00:04:16,120
+So that means that when
+we look at this .next,
+
+67
+00:04:16,120 --> 00:04:20,990
+it should get a new value,
+whatever value prevNode.next had.
+
+68
+00:04:20,990 --> 00:04:24,020
+And so that means copying that arrow into
+
+69
+00:04:24,020 --> 00:04:27,900
+also being the arrow
+that's within this .next.
+
+70
+00:04:27,900 --> 00:04:30,440
+And so notice that both prevNode.next and
+
+71
+00:04:30,440 --> 00:04:35,220
+this .next are now going to point to
+the object that's being constructed.
+
+72
+00:04:35,220 --> 00:04:35,930
+Okay.
+
+73
+00:04:35,930 --> 00:04:40,050
+That's a little bit different from
+before and it might not be what we want.
+
+74
+00:04:40,050 --> 00:04:42,950
+So let's just keep with
+it a little bit more and
+
+75
+00:04:42,950 --> 00:04:45,980
+see what happens with
+the next node as well.
+
+76
+00:04:45,980 --> 00:04:52,660
+We now call the two argument constructor
+and build a new object of type SLLNode.
+
+77
+00:04:52,660 --> 00:04:56,234
+We fill in the data, so
+we've got the integer 2 now and
+
+78
+00:04:56,234 --> 00:05:00,900
+now we're ready to play with the reference
+next so the variable next and
+
+79
+00:05:00,900 --> 00:05:04,357
+what we'd like to do is
+set prevNode.next to this.
+
+80
+00:05:04,357 --> 00:05:08,438
+Now prevNode, just as before,
+is the object pointed to by n0, and
+
+81
+00:05:08,438 --> 00:05:13,606
+we'd like to update it's value to point to
+the current object that we're building.
+
+82
+00:05:13,606 --> 00:05:17,894
+And so that means that instead of the
+arrow that we had to the object pointed to
+
+83
+00:05:17,894 --> 00:05:21,177
+by n1, we now point to the object
+that's being created to
+
+84
+00:05:21,177 --> 00:05:23,330
+that's also being pointed to by n2.
+
+85
+00:05:23,330 --> 00:05:29,460
+And now we'd like to update the current
+object's next value to prevNode.next.
+
+86
+00:05:29,460 --> 00:05:33,738
+But that means, well, we'd need to copy
+the value that we just did because we just
+
+87
+00:05:33,738 --> 00:05:35,350
+updated prevNode.next and so
+
+88
+00:05:35,350 --> 00:05:38,880
+we'd look at that arrow that
+points to the current object.
+
+89
+00:05:38,880 --> 00:05:42,100
+And we copy it into this .next as well.
+
+90
+00:05:42,100 --> 00:05:45,756
+So, the picture of the three
+nodes that we've created,
+
+91
+00:05:45,756 --> 00:05:50,020
+well it starts the same as before,
+we still have a head of the list,
+
+92
+00:05:50,020 --> 00:05:54,156
+we've got a sentinel node,
+a node that has its data being null.
+
+93
+00:05:54,156 --> 00:05:56,225
+But now, what it points to or
+
+94
+00:05:56,225 --> 00:06:00,293
+what it links to is the object
+that's pointed to by n2.
+
+95
+00:06:00,293 --> 00:06:03,783
+But notice what happened to
+the object that's pointed to by n1,
+
+96
+00:06:03,783 --> 00:06:08,330
+it's all lonely over there, it's not
+linked to the other two nodes at all.
+
+97
+00:06:08,330 --> 00:06:12,800
+And so what we have are three nodes that
+don't really form a linked list anymore,
+
+98
+00:06:12,800 --> 00:06:17,220
+and so by swapping just those two lines of
+code, we've broken our implementation and
+
+99
+00:06:17,220 --> 00:06:19,470
+we no longer get a linked list.
+
+100
+00:06:19,470 --> 00:06:25,330
+So the point of this little exercise
+was just to caution you about
+
+101
+00:06:25,330 --> 00:06:30,510
+the care that you need to take when you're
+implementing linked list data structures.
+
+102
+00:06:30,510 --> 00:06:34,440
+And especially when you're thinking
+about dealing with those references and
+
+103
+00:06:34,440 --> 00:06:37,880
+being really careful about the order
+in which we copy the references around.
+
+104
+00:06:37,880 --> 00:06:42,350
+And not losing any of the information and
+any of the links that we've already built.
+
+105
+00:06:42,350 --> 00:06:45,580
+So now you're ready to implement
+your own doubly linked list
+
+106
+00:06:45,580 --> 00:06:47,010
+when you go ahead into the project.

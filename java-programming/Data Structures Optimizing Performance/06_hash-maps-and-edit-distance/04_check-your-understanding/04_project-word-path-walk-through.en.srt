@@ -1,0 +1,556 @@
+1
+00:00:00,000 --> 00:00:04,171
+[MUSIC]
+
+2
+00:00:04,171 --> 00:00:06,719
+In this video we're gonna do a walkthrough
+of the programming assignment for
+
+3
+00:00:06,719 --> 00:00:08,101
+module 5 that's focused on word paths.
+
+4
+00:00:08,101 --> 00:00:11,270
+And this assignment is a lot of fun.
+
+5
+00:00:11,270 --> 00:00:15,130
+I had a lot of fun doing it myself but
+it can also be a bit challenging.
+
+6
+00:00:15,130 --> 00:00:17,320
+Here's what we're gonna do,
+we're gonna bring together
+
+7
+00:00:18,590 --> 00:00:23,110
+the content of a number of the components
+of this class into one assignment.
+
+8
+00:00:23,110 --> 00:00:26,110
+And what I mean by that is you're gonna
+be doing a Breadth First search, very
+
+9
+00:00:26,110 --> 00:00:30,330
+similarly to what you did for spelling
+suggestions, while you're also dynamically
+
+10
+00:00:30,330 --> 00:00:34,770
+building a tree, which is somewhat similar
+to the work that you did in week four.
+
+11
+00:00:34,770 --> 00:00:35,570
+With the try.
+
+12
+00:00:37,080 --> 00:00:40,820
+So we're combining both Breadth First
+search as well as dynamic tree generation
+
+13
+00:00:40,820 --> 00:00:43,130
+to essentially solve this puzzle.
+
+14
+00:00:43,130 --> 00:00:46,610
+Now again the puzzle, the game that we're
+playing here, is trying to find a path
+
+15
+00:00:46,610 --> 00:00:49,540
+from one word to another with
+the restriction that you can only make
+
+16
+00:00:49,540 --> 00:00:54,080
+one change at a time and whatever change
+you make has to result in a real word.
+
+17
+00:00:54,080 --> 00:00:57,040
+In the previous videos,
+we've already done a few examples, but
+
+18
+00:00:57,040 --> 00:01:01,010
+here's another example to help you
+understand exactly how this process works.
+
+19
+00:01:01,010 --> 00:01:04,240
+I actually encourage you to try
+this on your own in your head, or
+
+20
+00:01:04,240 --> 00:01:06,510
+on a piece of paper,
+before you ever try to code this, so
+
+21
+00:01:06,510 --> 00:01:10,610
+you essentially see how is this gonna
+work and how should you play the game.
+
+22
+00:01:10,610 --> 00:01:12,910
+As with all the previous assignments,
+make sure you grab the starter code.
+
+23
+00:01:12,910 --> 00:01:17,360
+The starter code that we're gonna be
+focusing on for this are WordPath and
+
+24
+00:01:17,360 --> 00:01:18,180
+WPTree.
+
+25
+00:01:19,450 --> 00:01:24,120
+So, first off, with WordPath,
+WordPath is just an interface, and
+
+26
+00:01:24,120 --> 00:01:26,338
+all it has in it is a find path.
+
+27
+00:01:27,370 --> 00:01:32,860
+And this will just return that list of
+words that go from word 1 to word 2.
+
+28
+00:01:32,860 --> 00:01:35,670
+Or it'll return null if
+no such path exists.
+
+29
+00:01:35,670 --> 00:01:39,780
+Your class, WPTree is gonna
+essentially implement this.
+
+30
+00:01:39,780 --> 00:01:43,556
+First off what I wanna focus on here is
+that we have our WPTree that implements
+
+31
+00:01:43,556 --> 00:01:47,155
+WordPath and it has a tree that you're
+gonna be building dynamically and
+
+32
+00:01:47,155 --> 00:01:51,167
+it also has, essentially, new brighter
+words object that it's gonna be able to
+
+33
+00:01:51,167 --> 00:01:54,713
+reference essentially to perform
+these single character mutations.
+
+34
+00:01:54,713 --> 00:01:58,327
+But before we dive into
+the details of WPTree,
+
+35
+00:01:58,327 --> 00:02:01,118
+let's focus on WPTree node [SOUND].
+
+36
+00:02:01,118 --> 00:02:05,461
+So, we've actually given you entire
+class WPTree node with [SOUND] all
+
+37
+00:02:05,461 --> 00:02:09,298
+the methods that I think you're
+gonna need for this project.
+
+38
+00:02:09,298 --> 00:02:12,815
+So it has a word.
+
+39
+00:02:12,815 --> 00:02:14,757
+Each node is going to have the word.
+
+40
+00:02:14,757 --> 00:02:19,373
+It's gonna have a list of children
+that are essentially words
+
+41
+00:02:19,373 --> 00:02:22,845
+which are one mutation away from,
+this word.
+
+42
+00:02:22,845 --> 00:02:25,920
+And then they all have a parent.
+
+43
+00:02:25,920 --> 00:02:28,960
+The root node is gonna have this be null,
+but then each of the children will have
+
+44
+00:02:28,960 --> 00:02:31,600
+their parents be again this
+one character mutation away.
+
+45
+00:02:33,820 --> 00:02:36,069
+And each noted self is gonna have,
+
+46
+00:02:36,069 --> 00:02:40,800
+the constructor takes in both
+the string and the parent's node.
+
+47
+00:02:40,800 --> 00:02:45,480
+Again, you would call this WPTree node as
+null if you're creating the root node.
+
+48
+00:02:47,090 --> 00:02:49,890
+You're able to add children
+to this tree node,
+
+49
+00:02:49,890 --> 00:02:53,120
+and you're able to return
+the list of children [SOUND].
+
+50
+00:02:53,120 --> 00:02:55,830
+Most importantly we have this
+build path to root method,
+
+51
+00:02:55,830 --> 00:02:59,870
+which I'll mention in just a second, but we also
+have methods like get word and two string,
+
+52
+00:02:59,870 --> 00:03:00,930
+which will help you with debugging.
+
+53
+00:03:01,950 --> 00:03:04,610
+So what is this build path to root piece,
+and
+
+54
+00:03:04,610 --> 00:03:07,100
+why are we having to
+create this dynamic tree?
+
+55
+00:03:08,240 --> 00:03:11,593
+The difference between this, let me go
+back to our write up real quickly [SOUND],
+
+56
+00:03:11,593 --> 00:03:14,813
+the difference, and this is all the code
+that we were just walking through.
+
+57
+00:03:14,813 --> 00:03:17,560
+But the fundamental
+difference between this and
+
+58
+00:03:17,560 --> 00:03:21,915
+the spelling suggestions is that once
+you find the word you're looking for,
+
+59
+00:03:21,915 --> 00:03:25,520
+you have to be able to
+reconstruct how you got here.
+
+60
+00:03:25,520 --> 00:03:28,420
+With spelling suggestions all we
+wanted to do is determine the list of
+
+61
+00:03:28,420 --> 00:03:29,630
+potential suggestions.
+
+62
+00:03:29,630 --> 00:03:33,350
+But you didn't need to know how
+you got to a specific suggestion.
+
+63
+00:03:33,350 --> 00:03:36,330
+In word path you have to
+know how you got there.
+
+64
+00:03:36,330 --> 00:03:39,350
+And to know the path that you got
+there requires essentially having
+
+65
+00:03:39,350 --> 00:03:40,870
+building this tree on the fly.
+
+66
+00:03:42,280 --> 00:03:45,000
+And what we've given which
+is potentially useful here
+
+67
+00:03:45,000 --> 00:03:49,420
+is this method which will return back
+to you the path back to your route.
+
+68
+00:03:49,420 --> 00:03:53,180
+If you're at a leaf node and
+you wanna know how did you get here,
+
+69
+00:03:53,180 --> 00:03:55,290
+you can just call this
+method to find that out.
+
+70
+00:03:55,290 --> 00:03:57,660
+Now you might be thinking well this is
+a lot of code that you're gonna be using.
+
+71
+00:03:57,660 --> 00:03:59,482
+What are we required to do?
+
+72
+00:03:59,482 --> 00:04:02,220
+Well, you're required to do
+the heart of the logic here.
+
+73
+00:04:02,220 --> 00:04:04,260
+Which is doing find path.
+
+74
+00:04:06,740 --> 00:04:10,527
+What we've done is given you just
+like in the previous example [SOUND],
+
+75
+00:04:10,527 --> 00:04:12,335
+we've given you the algorithm.
+
+76
+00:04:12,335 --> 00:04:15,134
+Now, again, if you want a larger
+challenge, feel free to just stop reading
+
+77
+00:04:15,134 --> 00:04:18,264
+this, don't look at the algorithm and try
+to come up with the algorithm on your own.
+
+78
+00:04:18,264 --> 00:04:21,510
+But feel free to look at the algorithm.
+
+79
+00:04:21,510 --> 00:04:23,720
+This is a little bit
+tricky to piece together.
+
+80
+00:04:23,720 --> 00:04:26,450
+What you'll find is a lot commonality
+between this algorithm and
+
+81
+00:04:26,450 --> 00:04:28,170
+the spelling suggest algorithm.
+
+82
+00:04:28,170 --> 00:04:30,790
+With the key feature or
+the the key difference
+
+83
+00:04:30,790 --> 00:04:33,940
+is that you're constantly building
+this tree as you're working along.
+
+84
+00:04:35,860 --> 00:04:38,370
+Some hints as you're working
+through this assignment.
+
+85
+00:04:38,370 --> 00:04:43,290
+First off, we create that nearby distance
+one methods to allow us to restrict
+
+86
+00:04:43,290 --> 00:04:45,360
+to just real words.
+
+87
+00:04:45,360 --> 00:04:47,400
+The big advantage to doing so
+
+88
+00:04:47,400 --> 00:04:50,700
+back with the nearby words assignment
+was that you could use this here.
+
+89
+00:04:50,700 --> 00:04:52,270
+So now you don't have to.
+
+90
+00:04:52,270 --> 00:04:55,230
+When you call the distance one,
+you get back a list of words.
+
+91
+00:04:55,230 --> 00:04:59,930
+And if you use that boolean flag of true,
+the one that restricts to just real words.
+
+92
+00:04:59,930 --> 00:05:01,870
+You don't need to prune
+out non dictionary words.
+
+93
+00:05:01,870 --> 00:05:03,810
+You're only gonna get back real words.
+
+94
+00:05:03,810 --> 00:05:04,740
+And that's really useful.
+
+95
+00:05:06,250 --> 00:05:10,948
+We've also give you a method add child in
+the WPTree node which will return back to
+
+96
+00:05:10,948 --> 00:05:12,860
+the node that it creates.
+
+97
+00:05:12,860 --> 00:05:15,750
+This is gonna be really helpful when
+you're trying to construct your tree.
+
+98
+00:05:15,750 --> 00:05:20,379
+Methods print queue, and print queue is in
+WPTree, and the method to string in WPTree
+
+99
+00:05:20,379 --> 00:05:25,080
+node, will be essential when you're
+trying to debug and test your code.
+
+100
+00:05:25,080 --> 00:05:27,190
+I encourage you to do some
+really small examples.
+
+101
+00:05:27,190 --> 00:05:31,400
+And then see what's being produced in
+terms of the queue, as it's running,
+
+102
+00:05:31,400 --> 00:05:33,780
+to see whether or not it's doing
+what you would expect it to do.
+
+103
+00:05:35,030 --> 00:05:37,500
+And lastly, think about corner cases.
+
+104
+00:05:37,500 --> 00:05:39,270
+And we have a couple corner cases here.
+
+105
+00:05:39,270 --> 00:05:41,510
+But you should be thinking about
+other corner cases as well.
+
+106
+00:05:43,030 --> 00:05:45,360
+All right.
+The last step is to upload and
+
+107
+00:05:45,360 --> 00:05:48,030
+submit your code to our graders.
+
+108
+00:05:48,030 --> 00:05:50,680
+So you'll submit WPTree.java.
+
+109
+00:05:50,680 --> 00:05:53,400
+You'll do so the same way we've
+done with the previous assignments.
+
+110
+00:05:53,400 --> 00:05:54,390
+You'll go to My Submission.
+
+111
+00:05:55,630 --> 00:05:59,790
+You'll create your submission and
+you'll submit WPTree.java and
+
+112
+00:05:59,790 --> 00:06:01,670
+you'll get greater output.
+
+113
+00:06:01,670 --> 00:06:04,430
+As the previous ones, I encourage you to
+look at the greater output to see what
+
+114
+00:06:04,430 --> 00:06:06,080
+test cases you may have missed.
+
+115
+00:06:06,080 --> 00:06:09,161
+We also have within the source code
+that we've provided WPTree greater,
+
+116
+00:06:09,161 --> 00:06:12,251
+which will show you essentially the cases
+that we're testing for [SOUND].
+
+117
+00:06:12,251 --> 00:06:15,860
+If you run into any problems,
+feel free to review the previous videos.
+
+118
+00:06:15,860 --> 00:06:19,290
+Also, feel free to post in learner forums,
+and good luck on your project.

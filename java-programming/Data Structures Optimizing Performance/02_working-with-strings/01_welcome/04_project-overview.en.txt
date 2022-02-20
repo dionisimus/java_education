@@ -1,0 +1,33 @@
+[MUSIC] So you've already seen the full text
+editor that you are going to be implementing as part of this course. But in this video, I'm going to give you a
+quick overview of what you'll be adding in this week's project,
+your first programming assignment. So here's our text editor, and you can see
+that there are a bunch of buttons over here for what I can do with text. And this week we're going to be
+focusing on this flesh index button. So what this button is going to do
+is it's going to give you a score, which is a measure of how
+readable a piece of text is. Let me just demonstrate this behavior
+with a couple of passages of text which may be familiar to you. So the first piece of text that I'm going
+to test out is from the book Peter Pan. So here is Peter Pan, and
+I can find this book on Project Gutenberg. And I'm just going to take the first
+few paragraphs in Peter Pan. Copy them out of Project Gutenberg and
+copy them in to the text application. And now I'm going to press
+this Flesch index score and I can see that this piece of
+text has a score of 81.23. Now we'll be getting to a little bit more
+what exactly the Flesch index is over the course of this week. But just know that, that score,
+it's a pretty readable piece of text. Which makes sense,
+because this is a piece of text, this is a story that was written for
+children. So let me compare that to something else. Let me go over here and
+pick a very different book. A Picture of Dorian Gray by
+Oscar Wilde not a piece of text, not a piece of literature that was
+meant necessarily for children. So let me go down here
+to the actual story and again pick the first few
+paragraphs of the story. And now I'll go over
+here into my text app. I'll replace the text there and
+let me now calculate the flesch index for this piece of text. Wow okay, so 25.88,
+that's a much lower score. That indicates that this piece of text
+is a much harder to read piece of text, it's for more mature readers. So you can play around with this once
+you've implemented this functionality. Figuring out the readability of
+different pieces of text and coming right up you're going to learn
+what this flesch index score is. How to work with strings
+to calculated it and how to integrate this functionality
+into this text application. Have fun.

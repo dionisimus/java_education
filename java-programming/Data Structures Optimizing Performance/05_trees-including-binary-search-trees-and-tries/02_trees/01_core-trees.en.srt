@@ -1,0 +1,282 @@
+1
+00:00:00,000 --> 00:00:03,753
+[MUSIC]
+
+2
+00:00:03,753 --> 00:00:06,290
+In this lesson we're gonna
+start learning about trees.
+
+3
+00:00:06,290 --> 00:00:07,860
+Trees are incredibly powerful and
+
+4
+00:00:07,860 --> 00:00:11,520
+versatile data structure that are used
+commonly throughout computer science.
+
+5
+00:00:11,520 --> 00:00:13,310
+In fact, many of the data structures,
+
+6
+00:00:13,310 --> 00:00:15,960
+built in data structures that
+you've used in java before,
+
+7
+00:00:15,960 --> 00:00:20,010
+almost certainly have trees on their
+back end, in their implementation side.
+
+8
+00:00:20,010 --> 00:00:22,674
+So, where gonna do today is just
+look at why are trees valuable and
+
+9
+00:00:22,674 --> 00:00:23,650
+why are they so common?
+
+10
+00:00:24,810 --> 00:00:28,424
+So, trees somewhat naturally
+represent data in the real world.
+
+11
+00:00:28,424 --> 00:00:31,330
+So, you've almost certainly seen
+a family tree before where you have
+
+12
+00:00:31,330 --> 00:00:33,860
+a parents whose children
+are below them in the tree and
+
+13
+00:00:33,860 --> 00:00:38,040
+then you've got the children of those
+children even further down the tree.
+
+14
+00:00:38,040 --> 00:00:40,899
+And this is a tree from a fairly
+popular TV show these days.
+
+15
+00:00:42,920 --> 00:00:45,200
+Decision trees are also fairly common.
+
+16
+00:00:45,200 --> 00:00:47,190
+If you ever gone to a medical health site,
+
+17
+00:00:47,190 --> 00:00:49,730
+you almost certainly went through a
+decision tree if you were trying to figure
+
+18
+00:00:49,730 --> 00:00:51,920
+out what to do based on your symptoms.
+
+19
+00:00:51,920 --> 00:00:54,520
+Similarly, this is kind of a fun anecdote,
+if your house is clean,
+
+20
+00:00:54,520 --> 00:00:55,510
+you might make a decision.
+
+21
+00:00:55,510 --> 00:00:58,810
+Yes, my house is clean, so I just relax.
+
+22
+00:00:58,810 --> 00:01:00,180
+No?
+Well.
+
+23
+00:01:00,180 --> 00:01:01,310
+Is my floor clean?
+
+24
+00:01:01,310 --> 00:01:03,160
+Well, no, so I better sweep the floor.
+
+25
+00:01:03,160 --> 00:01:06,879
+So these kinds of decision trees
+help guide decisions you might make.
+
+26
+00:01:09,129 --> 00:01:11,510
+Well think of it in science,
+you might do an expression tree.
+
+27
+00:01:11,510 --> 00:01:13,330
+Now we're not gonna dive into
+the details of this, but
+
+28
+00:01:13,330 --> 00:01:17,120
+if you wanna evaluate the expression
+45 / (3 +6), you actually represent
+
+29
+00:01:17,120 --> 00:01:21,050
+it really cleanly as a tree and
+be able to evaluate it much more easily.
+
+30
+00:01:23,640 --> 00:01:25,590
+You almost certainly have file
+systems on your computer.
+
+31
+00:01:25,590 --> 00:01:28,590
+And file systems are perfect
+examples of trees.
+
+32
+00:01:28,590 --> 00:01:33,200
+Where if I want to know that
+my path is users, porter,
+
+33
+00:01:33,200 --> 00:01:35,360
+well I know it based
+on the tree structure.
+
+34
+00:01:35,360 --> 00:01:37,900
+You can see that there's a root,
+then users, then porter.
+
+35
+00:01:39,110 --> 00:01:42,720
+So there's lots of trees
+in computer science.
+
+36
+00:01:42,720 --> 00:01:45,680
+In fact, you almost certainly
+have heard of some of these.
+
+37
+00:01:45,680 --> 00:01:50,390
+But there's just regular trees, there's
+binary trees, there's heaps, there's
+
+38
+00:01:50,390 --> 00:01:54,500
+binary search trees, there's Huffman
+trees, there's AVL trees, randomized
+
+39
+00:01:54,500 --> 00:01:59,070
+search trees, red black trees, tons of
+these, all throughout computer science.
+
+40
+00:02:00,130 --> 00:02:02,640
+Why are there so many trees?
+
+41
+00:02:02,640 --> 00:02:05,600
+Well, there's two reasons why trees are so
+powerful.
+
+42
+00:02:05,600 --> 00:02:08,630
+The first is that they're
+a dynamic data structure.
+
+43
+00:02:10,090 --> 00:02:13,750
+What I mean by that is, it's really
+easy to add a new directory say,
+
+44
+00:02:13,750 --> 00:02:15,370
+for Professor Alvarado.
+
+45
+00:02:16,870 --> 00:02:20,419
+So dynamic data structures just like
+are nice, cuz it's easy to add and remove.
+
+46
+00:02:21,740 --> 00:02:26,580
+The more powerful feature to trees is
+that their structure conveys information.
+
+47
+00:02:26,580 --> 00:02:30,600
+So the fact that users
+is a child of root and
+
+48
+00:02:30,600 --> 00:02:36,850
+that porter is a child of users tells me
+that that path exists to users/porter/.
+
+49
+00:02:36,850 --> 00:02:39,200
+In fact, if you just change
+the structure around a little bit,
+
+50
+00:02:39,200 --> 00:02:41,410
+you get all these
+different kinds of trees.
+
+51
+00:02:41,410 --> 00:02:44,770
+If you make the structure such that root,
+the very top level,
+
+52
+00:02:44,770 --> 00:02:45,970
+has to be the most important.
+
+53
+00:02:45,970 --> 00:02:47,280
+Well now you've got a heap.
+
+54
+00:02:47,280 --> 00:02:50,560
+If you wanna organize it based on
+character frequencies in say a body
+
+55
+00:02:50,560 --> 00:02:53,200
+of text, well now you've got
+a compression tree or Huffman tree.
+
+56
+00:02:53,200 --> 00:02:57,580
+If you wanna organize it based on
+the natural ordering of the nodes,
+
+57
+00:02:57,580 --> 00:02:59,490
+well now you've got a search tree.
+
+58
+00:02:59,490 --> 00:03:03,160
+And there's all these different ways
+that we can organize these trees
+
+59
+00:03:03,160 --> 00:03:04,380
+to get different data structures.
+
+60
+00:03:05,730 --> 00:03:08,680
+We'll look in detail at a few of these
+trees, in these following lessons.

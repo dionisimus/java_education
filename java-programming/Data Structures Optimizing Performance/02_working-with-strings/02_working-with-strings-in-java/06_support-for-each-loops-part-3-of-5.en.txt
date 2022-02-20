@@ -1,0 +1,54 @@
+[SOUND] So we saw, when we went through that method,
+that it actually didn't quite work for us. And the problem that we ran into is
+even though we declared this pointer to an array of characters, cArray, and the
+issue is that to toCharArray that method, which was a copy of the words,
+arrays of characters. It doesn't let us access that
+array of characters itself, and so we ran into troubles as you saw, so let's
+try to modify our method a little bit and say what if we returned
+a new string with cArray as its input character array,
+maybe that will work for us. Does this method now successfully
+return a modified word? So we've tried again,
+let's focus on what we've changed. It's this last line over here where we
+return something at the end of our method. And notice that the beginning of the
+memory model is really the same as what we had because right now we're just
+representing the input arguments, the arguments and
+parameters to the method. Now as we did before the first step of
+this method is to create a variable that points to a copy of of
+the character array of the string, and so we're going to have that
+represented in our memory model as well. And just as before, what it's pointing to
+in the heap is not the character array that we had before, but
+rather a copy that we create in the heap. All right, and notice that what
+we're returning at the end is a new string object and the string object
+is built out of this character array. And so, maybe this will work. So, in order to see that,
+let's trace through what happened. And so after we've declared and initialized the character array cArray,
+we now go into this for each loop. And in this for each loop what
+we're doing is we're going through every character in
+the cArray of characters. And for each one,
+we're looking at the character c, so that so means that c becomes a new
+variable in our memory model. And so this is the new part for this
+method so I'm using a different color. And now we have to think about
+what gets stored in this box, so when we go through that
+first iteration of the for each loop we've declared this character
+variable c, and what we store in it is the contents of the first element of
+the array pointed to by the cArray. And so the contents of this first
+element of the array is the character a. Now notice this is a primitive type. And so what that means is when we assign
+the variable c to have this value, what we're storing here is a,
+the character a. And notice that there's no
+connection between this a and the a that's stored over here. They're different copies
+of the character a. And so in particular, when we go
+through this body of the for loop and we're checking whether the contents
+of c agree with the content of gone. And we say, oh this guy's an a and
+over here we've stored a as well and so that means we have to reassign. The contents of c to,
+instead of it's current value, it gets the new value, whatever was
+stored in the variable here, so that's i. Notice that what that
+assignment variable does, is it changed the content
+of the box pointed to by c. But it doesn't change the content of
+the character array pointed to by cArray. And so even though we've noticed that
+this a actually was the same as this a, where we've changed the character
+was down here and not up here. And so even though we could go
+through this for loop and make all of the modifications to c that are necessary,
+when we go ahead and return the value, we're returning a new string object
+that's based on this character array. And this character array has
+not been modified at all. All of our modifications, all of our assignment statements, have
+just changed the contents of a variable c. And not inside this character array. And so this method implementation still
+doesn't do what we're looking for. It's not going to be our replace method.

@@ -1,0 +1,70 @@
+In this concept challenge we're gonna look
+at a nested for loop, in fact a triply nested for loop, to try to figure out what
+the big-O running time of this code is. So same format as the other
+concept challenges. Work on it on your own. Discuss it and
+watch the UC San Diego's learners discuss. Try the problem again. And then, confirm your
+understanding with our explanation. So here's the problem. We've got this code that you can see here. It's a triply nested for
+loop, and the question is, in terms of n, what is the big-O running
+time, tightest bound, for this code? >> Hi, I'm Tina. >> Hi, my name is Gev. >> Hi, my name is Robert. >> So what I noticed with this code is,
+that we have three nested for loop lines, and so I would think that we could
+figure out the run time for each line, and then multiply those three together,
+and see what we get from there. >> Okay, well for the first outer loop, that starts at i=0 and
+goes all the way up to 2*n. So that's, I think,
+the run time for the first loop. And then, the second loop looks a little
+bit more confusing cuz if we start it at n- 1000,
+I'm a little bit confused about that. >> So, I think for the second one,
+since you're subtracting 1000, so all you have to do is
+increment the 1000, so that would just be 1000 counts for
+the run time. >> And for the last one, I noticed
+our first starting index has n in it, or in this case n over 2, but
+it looks like it's from n over 2 to n. So I'd think it'd be, overall the run
+time for that line would be n over 2, does that seem like it? >> Yeah, and you said we had to multiply
+them, all of them, to get the run time? >> Yeah.
+>> Yeah, that sounds right. >> So, I think that comes out to be 2*n,
+times 1000, times n over 2, and I think we can ignore
+the 1000, because it's a constant. So, that comes out to be n squared,
+I believe. >> Yeah, n squared. >> Right. >> All right, so the key to analyzing this
+triply nested for loop, as Mia showed you, is to analyze the number of instructions
+that are done in each body of the for loop from the inside out. Because the innermost for loop here
+is going to be executed to completion every time the next-outermost for
+loops runs once. Similarly, for
+this next outermost for loop, it will be run to completion every
+time this outermost for loop runs. So let's begin at the very inner layer, this instruction right here which is
+the body of the innermost for loop. And we need to count the number
+of instructions in that body. Well, of course there is just one
+instruction in that body, that sum++. So, the amount of time that that
+body takes is just order 1. So, now we can calculate how many
+times does this innermost for loop run its body,
+which just has one instruction in it. So, to do that, we need to look at the
+loop bounds and where the control variable starts, where it ends, and
+how much we add to it each time through. So, we have this control variable k. It starts at n over 2. It goes as long as k is less than n, and we add one to k each
+time through the loop. So, how many times is
+that going to execute? Well, it's going to execute all
+the way up from n over 2 to n, stepping along one each time, and
+that's gonna be n over 2 times. But n over 2 in big-O notation
+is really just order n, so this loop runs order n times,
+executing 1 each time in its body. And so
+the entire loop Is going to be order n. So, from start to finish, that entire
+inner loop is going to take order n steps. So now let's back out, and figure out how
+many times this next most inner loop runs. Again, we look at the loop header. We have j starting at n- 1000, going up
+to n, and we're adding one each time. Now, this one's a little bit tricky,
+because if we count the number of steps, even though there's an n here, this loop
+is actually only going to run 1000 times. Because we're starting at n- 1000,
+going up to n. So, there's only 1000 steps
+between n- 1000 and n, and we're going to do each step once. So this whole loop only runs 1000 times. So the total amount of work that it does,
+including its body, is just 1000 times the work of the body,
+which is n. So 1000 times n is just
+n times a constant, so we can replace that entire loop with the
+amount of work it does in big-O notation, and that's just order n again. Because again, it only ran 1000 times,
+which is a constant relative to n. So, now we have that the body of
+the outermost for loop is order n. So, let's count the times that the
+outermost for loop runs, and then we'll be able to assert how many times
+the entire block of code actually runs. So i this time starts at 0,
+and we go as long as i is less than 2*n, and
+we add one to i each time. So that's gonna be a total number of
+steps, total number of iterations of 2n, because we're starting at 0,
+going up to 2*n. So this outermost loop runs 2n times,
+it does order n work in its body, so now we have 2n times
+n gives us 2n squared. But in big-O notation,
+that 2 will go away, and we'll end up with the work being done by this entire block,
+is just order n squared.

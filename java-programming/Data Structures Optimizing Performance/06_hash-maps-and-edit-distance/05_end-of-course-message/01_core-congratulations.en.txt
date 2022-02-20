@@ -1,0 +1,11 @@
+[MUSIC] Congratulations, you worked
+through a difficult project and hope you're proud of what you achieved. >> Think back on all the code that you've
+written, the theory that you've learned, the data structures that you've analyzed
+and even if it doesn't feel that way right now, this material is really at
+the heart of computer science and will serve you well throughout
+your career, and especially if and when you choose to apply for a new job
+that uses some software engineering, this stuff will be really useful. >> So,
+we've had a lot of fun in this course. And we hope you have, too. And we hope that you'll also join us for
+our next course in a specialization. In that next course, we're going to be looking at a new
+data structure called a graph. We'll also be looking at some
+more advanced algorithms for working with data in the graph. So, we hope to see you there.

@@ -1,0 +1,623 @@
+1
+00:00:00,000 --> 00:00:03,796
+[MUSIC]
+
+2
+00:00:03,796 --> 00:00:06,989
+When we started thinking about trees, one
+of the things that we really need to know
+
+3
+00:00:06,989 --> 00:00:09,300
+how to do is essentially,
+how to traverse them.
+
+4
+00:00:09,300 --> 00:00:12,000
+If I'm trying to look for
+something in the tree, how do I find it?
+
+5
+00:00:13,130 --> 00:00:15,620
+What order do I want to
+go through the notes?
+
+6
+00:00:15,620 --> 00:00:18,470
+So we're talk through in this video is
+essentially a number of different ways
+
+7
+00:00:18,470 --> 00:00:20,080
+that you can do traversals.
+
+8
+00:00:20,080 --> 00:00:21,012
+In this video and the next.
+
+9
+00:00:21,012 --> 00:00:25,110
+So by the end of this video,
+you will be able to explain the need to
+
+10
+00:00:25,110 --> 00:00:28,460
+visit data in different ways or
+in different orderings.
+
+11
+00:00:28,460 --> 00:00:31,700
+You should be able to author
+a preorder traversal in Java.
+
+12
+00:00:33,700 --> 00:00:36,760
+So first, we're gonna look at
+some traversals in graphs.
+
+13
+00:00:36,760 --> 00:00:38,140
+And I want to say there's
+a big warning here,
+
+14
+00:00:38,140 --> 00:00:40,380
+and we're gonna be looking at graphs here.
+
+15
+00:00:40,380 --> 00:00:42,530
+But we're not gonna cover
+graphs till the next course.
+
+16
+00:00:42,530 --> 00:00:45,200
+I'm just doing this to help motivate why
+you might want to look at different data
+
+17
+00:00:45,200 --> 00:00:46,010
+in different orderings.
+
+18
+00:00:47,310 --> 00:00:48,190
+So let's start with a maze.
+
+19
+00:00:49,360 --> 00:00:52,560
+So if I'm at the start of, and I want
+you to imagine this is a hedge maze.
+
+20
+00:00:52,560 --> 00:00:53,670
+You can't see the whole maze,
+
+21
+00:00:53,670 --> 00:00:56,050
+this isn't like you're working
+with some paper and pencil.
+
+22
+00:00:56,050 --> 00:00:58,690
+It's you physically in this huge maze.
+
+23
+00:00:58,690 --> 00:00:59,770
+And you start in the maze.
+
+24
+00:01:01,270 --> 00:01:02,420
+You've got choices to make.
+
+25
+00:01:02,420 --> 00:01:05,770
+And let's just say that you make the
+choice to keep going straight, initially.
+
+26
+00:01:07,860 --> 00:01:09,140
+Now, what's your next step?
+
+27
+00:01:09,140 --> 00:01:09,970
+So, you've gone straight.
+
+28
+00:01:09,970 --> 00:01:10,990
+You made the choice already.
+
+29
+00:01:10,990 --> 00:01:12,720
+And now you have to make another choice.
+
+30
+00:01:12,720 --> 00:01:13,800
+Do I go left?
+
+31
+00:01:13,800 --> 00:01:14,630
+Do I keep going straight?
+
+32
+00:01:15,820 --> 00:01:19,130
+Well, you might do the going straight.
+
+33
+00:01:19,130 --> 00:01:20,129
+You might turn left.
+
+34
+00:01:20,129 --> 00:01:24,660
+But I almost guarantee you what you won't
+do is say, well maybe I was wrong making
+
+35
+00:01:24,660 --> 00:01:28,210
+that step forward, let me go back and
+go the other direction.
+
+36
+00:01:28,210 --> 00:01:28,740
+You wouldn't do that.
+
+37
+00:01:28,740 --> 00:01:32,190
+When you're traversing a maze, you want
+to go until you find a dead end, and
+
+38
+00:01:32,190 --> 00:01:35,390
+then you go back to the last choice
+you made and make a different choice.
+
+39
+00:01:36,530 --> 00:01:38,260
+And mazes lend themselves
+well to this approach.
+
+40
+00:01:40,740 --> 00:01:42,390
+Another example would be a social network.
+
+41
+00:01:42,390 --> 00:01:45,947
+Let's say I'm trying to figure out,
+I've got you in the center here, and
+
+42
+00:01:45,947 --> 00:01:49,297
+I'm trying to figure out how closely
+are you connected with person D.
+
+43
+00:01:49,297 --> 00:01:52,790
+Now let's imagine that I
+have a list of your friends.
+
+44
+00:01:52,790 --> 00:01:55,500
+So you have a list of A, B, C, D.
+
+45
+00:01:55,500 --> 00:02:00,260
+And your friend A,
+has a list of friends E, F, and U.
+
+46
+00:02:01,410 --> 00:02:05,220
+So, how am I gonna find how
+closely connected am I with D?
+
+47
+00:02:05,220 --> 00:02:07,840
+Well, I'm probably gonna start walking
+through my list, and I'm gonna look, and
+
+48
+00:02:07,840 --> 00:02:10,120
+I'm gonna see that I'm friends with A.
+
+49
+00:02:10,120 --> 00:02:12,740
+Well, what's my next step?
+
+50
+00:02:12,740 --> 00:02:17,330
+Should I start looking at A's friends, or
+should I start looking at my next friend,
+
+51
+00:02:17,330 --> 00:02:19,349
+to figure out how closely
+connected I am with D?
+
+52
+00:02:20,500 --> 00:02:24,810
+You almost certainly in this case are now
+gonna look at all of your friends first,
+
+53
+00:02:24,810 --> 00:02:26,440
+and then branch out.
+
+54
+00:02:26,440 --> 00:02:30,450
+And this kind of traversal is known
+as Breadth First Traversal, and
+
+55
+00:02:30,450 --> 00:02:33,470
+we'll see how these apply for
+trees in the next few videos.
+
+56
+00:02:33,470 --> 00:02:38,126
+But the bottom line here is the order
+in which your nodes matters and
+
+57
+00:02:38,126 --> 00:02:42,630
+we need to make choices based on
+the needs of our data structure.
+
+58
+00:02:45,671 --> 00:02:48,610
+So we're talking about tree traversals,
+we're going to do the same thing.
+
+59
+00:02:48,610 --> 00:02:51,364
+We're gonna be walking through
+nodes in different orders,
+
+60
+00:02:51,364 --> 00:02:53,421
+to essentially see what we're looking for.
+
+61
+00:02:55,046 --> 00:02:57,300
+So let's start with a preorder traversal.
+
+62
+00:02:57,300 --> 00:03:00,060
+And we're gonna do four traversals
+between this video and the next.
+
+63
+00:03:01,100 --> 00:03:04,360
+The idea for preorder traversal,
+is to visit yourself,
+
+64
+00:03:06,300 --> 00:03:11,480
+then visit all of your left subtree,
+in the exact same way
+
+65
+00:03:11,480 --> 00:03:15,830
+as you did for yourself, and then you're
+gonna go visit your right subtree.
+
+66
+00:03:16,840 --> 00:03:18,570
+That is known as a preorder traversal.
+
+67
+00:03:18,570 --> 00:03:20,760
+What I want to do is walk
+through the steps of this, and
+
+68
+00:03:20,760 --> 00:03:22,639
+then we'll come back to thinking
+about how we might code it.
+
+69
+00:03:24,860 --> 00:03:29,100
+So first off, let's start with ourselves
+at A, and we mark A as visited.
+
+70
+00:03:30,450 --> 00:03:32,520
+Next thing is to visit
+all of my left subtree.
+
+71
+00:03:33,900 --> 00:03:37,810
+So now I'm gonna go to B, and
+I'm gonna mark B as visit.
+
+72
+00:03:37,810 --> 00:03:39,210
+I'm running the same code now for B.
+
+73
+00:03:40,630 --> 00:03:47,129
+B is next up after visiting itself,
+so look at B's left subtree is D.
+
+74
+00:03:47,129 --> 00:03:48,970
+And that's the one I'm
+gonna mark now as visited.
+
+75
+00:03:50,410 --> 00:03:51,870
+So D has already marked itself as visit,
+
+76
+00:03:51,870 --> 00:03:54,760
+it's next step is to
+visit it's left subtree.
+
+77
+00:03:54,760 --> 00:03:58,090
+It doesn't have a left subtree, so
+we're not gonna do anything there.
+
+78
+00:03:58,090 --> 00:04:01,570
+The next step for
+D is to visit it's right subtree.
+
+79
+00:04:01,570 --> 00:04:03,890
+It doesn't have a right subtree either,
+so were not gonna do anything there.
+
+80
+00:04:03,890 --> 00:04:05,720
+And since we've done all the work for
+
+81
+00:04:05,720 --> 00:04:09,800
+D we're gonna step back up the tree,
+back to B.
+
+82
+00:04:09,800 --> 00:04:13,080
+So we visited all of B's
+left subtree right now, but
+
+83
+00:04:13,080 --> 00:04:16,750
+we haven't visited all
+of B's right subtree.
+
+84
+00:04:16,750 --> 00:04:18,830
+So next step is to run the same code on E.
+
+85
+00:04:18,830 --> 00:04:23,755
+We're gonna visit E and then we're gonna
+look at its left subtree which is empty.
+
+86
+00:04:23,755 --> 00:04:26,500
+We're gonna look at its right
+subtree which is empty.
+
+87
+00:04:26,500 --> 00:04:29,240
+At this point, I've finished doing all
+the work that I was supposed to for
+
+88
+00:04:30,280 --> 00:04:36,100
+E and B, but
+I haven't finished doing the work for A.
+
+89
+00:04:36,100 --> 00:04:39,230
+So A, I still need to visit
+all of its right subtree.
+
+90
+00:04:39,230 --> 00:04:41,300
+So now I'm going to go in and visit C.
+
+91
+00:04:41,300 --> 00:04:46,089
+I'm gonna visit C's left subtree,
+which is F.
+
+92
+00:04:47,090 --> 00:04:48,950
+And we're gonna learn at F's left and
+right subtree.
+
+93
+00:04:48,950 --> 00:04:50,500
+Both of those are empty.
+
+94
+00:04:50,500 --> 00:04:51,580
+I'm gonna come back to C.
+
+95
+00:04:51,580 --> 00:04:54,470
+And we're now gonna
+visit C's right subtree.
+
+96
+00:04:54,470 --> 00:04:56,780
+And we're gonna visit G.
+
+97
+00:04:56,780 --> 00:05:00,300
+And now, I finished all the work for G.
+
+98
+00:05:00,300 --> 00:05:02,470
+I finished all the work I need to do for
+C.
+
+99
+00:05:02,470 --> 00:05:04,460
+And I finished all the work
+I needed to do for A.
+
+100
+00:05:05,620 --> 00:05:07,930
+And I've done my preorder
+traversal at this point.
+
+101
+00:05:09,260 --> 00:05:12,110
+So this problem is going to
+lend itself well to recursion.
+
+102
+00:05:12,110 --> 00:05:14,650
+And we've seen a little bit of that so
+far.
+
+103
+00:05:14,650 --> 00:05:17,698
+The idea here is that
+when we are looking at A,
+
+104
+00:05:17,698 --> 00:05:23,087
+I have the problem of visiting all of my
+left subtree and all of my right subtree.
+
+105
+00:05:23,087 --> 00:05:25,190
+Right?
+
+106
+00:05:25,190 --> 00:05:29,750
+But the same thing is true, so
+for this tree A is the root.
+
+107
+00:05:29,750 --> 00:05:35,770
+But if you imagine a tree that's rooted
+at B, the same thing would apply.
+
+108
+00:05:35,770 --> 00:05:38,450
+So when I try to run this on B,
+I'm gonna do the exact same thing.
+
+109
+00:05:38,450 --> 00:05:40,990
+I'm gonna look at B and I'm gonna look
+at its left and its right subtrees.
+
+110
+00:05:42,640 --> 00:05:45,820
+So the approach I'm gonna take here
+is recursive and what I wanna do
+
+111
+00:05:45,820 --> 00:05:47,950
+is I wanna give you a method and
+we're gonna kind of trace through it.
+
+112
+00:05:49,320 --> 00:05:52,050
+What we're gonna do is
+start by just asking.
+
+113
+00:05:52,050 --> 00:05:56,140
+It's gonna take in a node and this is
+the node that's the root of a subtree or
+
+114
+00:05:56,140 --> 00:05:57,620
+the whole tree.
+
+115
+00:05:57,620 --> 00:06:00,760
+And it's gonna say, is this node null?
+
+116
+00:06:00,760 --> 00:06:03,810
+If the node's null, that subtree
+doesn't exist, we can just quit.
+
+117
+00:06:04,820 --> 00:06:11,580
+But if it isn't null, I'm gonna visit and
+then I'm gonna visit it's left subrtree.
+
+118
+00:06:11,580 --> 00:06:15,960
+And to do that i'm gonna call
+the same method within itself, and
+
+119
+00:06:15,960 --> 00:06:17,070
+that's what we mean by recursion.
+
+120
+00:06:18,580 --> 00:06:22,100
+So, I'm gonna call my whole left subtree,
+it's gonna do all the work for it's
+
+121
+00:06:22,100 --> 00:06:27,010
+subtree, it's gonna come back and then
+we're gonna do the whole right subtree.
+
+122
+00:06:29,050 --> 00:06:32,370
+And this may seem really short and
+really clean.
+
+123
+00:06:32,370 --> 00:06:33,080
+It is.
+
+124
+00:06:33,080 --> 00:06:34,970
+This is why I'm doing this recursively.
+
+125
+00:06:34,970 --> 00:06:37,460
+To do these kind of traversals
+recursively, it's short,
+
+126
+00:06:37,460 --> 00:06:39,370
+it's clean, it's nice for the code.
+
+127
+00:06:39,370 --> 00:06:42,240
+There are ways to do it iteratively, and
+we'll talk about those in a little while.
+
+128
+00:06:44,680 --> 00:06:47,850
+Last step here is to have a public method,
+which is called preOrder.
+
+129
+00:06:47,850 --> 00:06:51,300
+And there, I'm just gonna pass
+in root to my helper method and
+
+130
+00:06:51,300 --> 00:06:52,920
+everything's gonna work just fine.
+
+131
+00:06:52,920 --> 00:06:56,350
+So this is the code to actually
+do a full preOrder traversal
+
+132
+00:06:56,350 --> 00:06:57,230
+just like we talked about.
+
+133
+00:06:58,400 --> 00:07:01,330
+In the next video, we'll start looking
+at three different kinds of traversals,
+
+134
+00:07:01,330 --> 00:07:01,910
+and we'll go from there.

@@ -1,0 +1,468 @@
+1
+00:00:00,000 --> 00:00:04,037
+[MUSIC]
+
+2
+00:00:04,037 --> 00:00:07,215
+So the programming assignment for
+the module you get to do something that,
+
+3
+00:00:07,215 --> 00:00:08,620
+I think, is really fun.
+
+4
+00:00:08,620 --> 00:00:11,000
+And that's called Markov Text Generation.
+
+5
+00:00:11,000 --> 00:00:14,660
+This video is really about giving
+you the background that you need.
+
+6
+00:00:14,660 --> 00:00:17,230
+Just a little bit on Markov processes and
+
+7
+00:00:17,230 --> 00:00:21,340
+how Markov processes can
+be used to generate text.
+
+8
+00:00:21,340 --> 00:00:26,060
+So let's think about all sorts of examples
+that we have in our interaction with
+
+9
+00:00:26,060 --> 00:00:30,810
+technology where somehow the technology is
+magically able to predict what we want.
+
+10
+00:00:30,810 --> 00:00:35,340
+And so thinking about even typing
+a search string into Google,
+
+11
+00:00:35,340 --> 00:00:37,480
+I can start with the word song and
+
+12
+00:00:37,480 --> 00:00:41,340
+all of a sudden the suggestion comes
+up underneath that says song lyrics.
+
+13
+00:00:41,340 --> 00:00:43,170
+How did google know I wanted lyrics?
+
+14
+00:00:43,170 --> 00:00:47,250
+Well there's a lot of really cool
+technology that goes on under the hood.
+
+15
+00:00:47,250 --> 00:00:51,330
+We won't be able to get into the details
+of what exactly happens at Google but
+
+16
+00:00:51,330 --> 00:00:56,780
+what I'd like to show you is
+one model of predicting what's
+
+17
+00:00:56,780 --> 00:01:01,420
+going to come next based on training
+data that we may have accumulated.
+
+18
+00:01:01,420 --> 00:01:04,780
+And then, this is not what's
+used in practice at Google, but
+
+19
+00:01:04,780 --> 00:01:09,200
+it will give you a taste of how
+you might start and then tune and
+
+20
+00:01:09,200 --> 00:01:11,740
+make more sophisticated after the fact.
+
+21
+00:01:11,740 --> 00:01:15,280
+So what we'd like to
+think about is how we can
+
+22
+00:01:15,280 --> 00:01:19,570
+predict what's going to come next
+based on the information that we have.
+
+23
+00:01:19,570 --> 00:01:23,020
+And so what we're going to do is
+abstract the information that we have
+
+24
+00:01:23,020 --> 00:01:26,460
+as the current state of
+the system that we might be in.
+
+25
+00:01:26,460 --> 00:01:30,900
+And so the basic principle of a Markov
+process is that we should be able to
+
+26
+00:01:30,900 --> 00:01:35,940
+predict or have a probability distribution
+on the next possible outcomes,
+
+27
+00:01:35,940 --> 00:01:39,240
+just based on knowledge
+of our current situation.
+
+28
+00:01:39,240 --> 00:01:42,460
+And so we try to encode everything
+that's going to be relevant
+
+29
+00:01:42,460 --> 00:01:46,270
+to guessing what's going to happen
+next in this notion of state.
+
+30
+00:01:46,270 --> 00:01:50,737
+And then what we'll do is assign
+probabilities to what's going to happen
+
+31
+00:01:50,737 --> 00:01:55,218
+next, which state will have to transition
+to based on our current state.
+
+32
+00:01:55,218 --> 00:02:00,010
+All right, so let's think about
+an example of what that might mean.
+
+33
+00:02:00,010 --> 00:02:04,640
+Let's think about a song that I really
+like by the Beatles called Hello, Goodbye.
+
+34
+00:02:04,640 --> 00:02:09,280
+And if you know this song, you'll notice
+that there's a lot of repeated phrases and
+
+35
+00:02:09,280 --> 00:02:10,100
+it goes back and forth.
+
+36
+00:02:10,100 --> 00:02:11,620
+There's some duality there.
+
+37
+00:02:11,620 --> 00:02:16,260
+And so, we might try to generate
+additional verses of the song,
+
+38
+00:02:16,260 --> 00:02:17,030
+if you really like it.
+
+39
+00:02:17,030 --> 00:02:20,380
+And the Beatles aren't recording any more,
+you might want more of it.
+
+40
+00:02:20,380 --> 00:02:24,970
+And so you might want to think about
+what patterns show up in this song.
+
+41
+00:02:24,970 --> 00:02:31,510
+And so you might notice that after
+The Beatles say you then they say, say.
+
+42
+00:02:31,510 --> 00:02:33,980
+And you might generate something.
+
+43
+00:02:33,980 --> 00:02:36,770
+And so
+I did a little bit on the back end and
+
+44
+00:02:36,770 --> 00:02:38,840
+I'll show you the machinery in a minute.
+
+45
+00:02:38,840 --> 00:02:41,740
+But I generated a couple more
+sentences of the lyrics.
+
+46
+00:02:41,740 --> 00:02:46,060
+Now, notice that these sentences
+don't exactly match the song, but
+
+47
+00:02:46,060 --> 00:02:47,510
+they have a bit of the same flavor.
+
+48
+00:02:47,510 --> 00:02:49,010
+So, you say hello.
+
+49
+00:02:49,010 --> 00:02:50,990
+I don't know why you say hello, hello.
+
+50
+00:02:50,990 --> 00:02:52,120
+I saw goodbye, oh no.
+
+51
+00:02:52,120 --> 00:02:53,100
+You say no.
+
+52
+00:02:53,100 --> 00:02:56,080
+And, so you notice that there's
+some similar patterns to it, but
+
+53
+00:02:56,080 --> 00:02:59,860
+it's not quite the same,
+it's not copying the text
+
+54
+00:02:59,860 --> 00:03:05,160
+from what we started with,
+from the Beatles' song lyrics to begin.
+
+55
+00:03:05,160 --> 00:03:11,500
+And so let me show you how I would've
+created those couple of new sentences.
+
+56
+00:03:11,500 --> 00:03:16,460
+What we want to do is try to capture what
+pairs of words typically go together, and
+
+57
+00:03:16,460 --> 00:03:21,900
+what next word I can expect based
+on the current word I have.
+
+58
+00:03:21,900 --> 00:03:25,970
+So in this model for this particular song,
+
+59
+00:03:25,970 --> 00:03:30,370
+my state is going to be
+the current word in the lyric.
+
+60
+00:03:30,370 --> 00:03:34,150
+And so what I'm going to do is predict
+what the next word is going to be,
+
+61
+00:03:34,150 --> 00:03:36,560
+based on the current word.
+
+62
+00:03:36,560 --> 00:03:39,884
+So for example,
+I can go through the entire song and
+
+63
+00:03:39,884 --> 00:03:45,140
+see that every time the word you,
+with a capital Y, shows up in the lyrics.
+
+64
+00:03:45,140 --> 00:03:48,380
+A capital Y is important because it's
+at the beginning of the sentence.
+
+65
+00:03:48,380 --> 00:03:52,150
+Then every single time that happens,
+the word say follows.
+
+66
+00:03:52,150 --> 00:03:55,800
+And so in my model,
+I wanna mimic that behavior, that pattern.
+
+67
+00:03:55,800 --> 00:03:59,465
+And so I'm going to represent that
+with having a node for You and
+
+68
+00:03:59,465 --> 00:04:04,099
+then always transitioning or having an
+arrow to the next word or the next state,
+
+69
+00:04:04,099 --> 00:04:06,120
+which is the node for the word say.
+
+70
+00:04:07,700 --> 00:04:13,560
+So how that pans out in the predicted
+text is that every time my model
+
+71
+00:04:13,560 --> 00:04:17,840
+predicts that there is going to be a You,
+immediately afterwards you'll see a say.
+
+72
+00:04:17,840 --> 00:04:22,772
+And that shows up in both times that I
+have a You at the beginning of a sentence.
+
+73
+00:04:22,772 --> 00:04:26,590
+All right, but other words aren't
+always followed by the same one.
+
+74
+00:04:26,590 --> 00:04:30,500
+So for example, if I have hello at the end
+of a sentence, looking through it what
+
+75
+00:04:30,500 --> 00:04:35,220
+the Beatles wrote, about a half the time
+the next sentence started with I.
+
+76
+00:04:35,220 --> 00:04:38,820
+And a sixth of the time the next
+sentence started with why.
+
+77
+00:04:38,820 --> 00:04:41,500
+About a third of the time,
+the next sentence started with you.
+
+78
+00:04:41,500 --> 00:04:43,450
+And so what I would like to do is, for
+
+79
+00:04:43,450 --> 00:04:47,600
+the model that I create that's
+based on this song, to mimic that.
+
+80
+00:04:47,600 --> 00:04:53,170
+So, you'll see that the frequencies in
+the short snippet that be have here,
+
+81
+00:04:53,170 --> 00:04:58,270
+also mimic those relative frequencies.
+
+82
+00:04:58,270 --> 00:05:02,182
+And if we generated more text, then you'd
+see those frequencies coming up as well.
+
+83
+00:05:02,182 --> 00:05:04,890
+All right, so
+what's the point of all of this?
+
+84
+00:05:04,890 --> 00:05:07,820
+What I'd really like you to
+get away from this video is
+
+85
+00:05:07,820 --> 00:05:10,360
+that when we have a whole bunch of data,
+
+86
+00:05:10,360 --> 00:05:13,760
+what we'd like to do is use that data
+to inform the model that we build.
+
+87
+00:05:13,760 --> 00:05:18,160
+And so we're gonna build a model,
+in this case, each node, or
+
+88
+00:05:18,160 --> 00:05:20,860
+each state in our model is a word.
+
+89
+00:05:20,860 --> 00:05:26,280
+And what we'd like to do is fill in the
+probabilities of transitioning from one
+
+90
+00:05:26,280 --> 00:05:31,340
+word to the next, and those probabilities
+are going to be based on the frequencies
+
+91
+00:05:31,340 --> 00:05:36,520
+that we see those pairs of words
+in our data set, our training set.
+
+92
+00:05:36,520 --> 00:05:40,930
+Once we have our model built,
+then what we can do is generate and
+
+93
+00:05:40,930 --> 00:05:43,770
+use our model to predict the next text.
+
+94
+00:05:43,770 --> 00:05:47,880
+And so we could start with
+some node in our model, and
+
+95
+00:05:47,880 --> 00:05:52,615
+then just keep on randomly selecting
+what the next word is going to be based
+
+96
+00:05:52,615 --> 00:05:57,085
+on the probabilities that we've determined
+for what those next words might be.
+
+97
+00:05:57,085 --> 00:06:01,095
+And so in the next video, what we'll
+be doing is talking a little bit about
+
+98
+00:06:01,095 --> 00:06:04,075
+the implementation details
+of doing this in Java so
+
+99
+00:06:04,075 --> 00:06:05,315
+you'll be all ready for your project.

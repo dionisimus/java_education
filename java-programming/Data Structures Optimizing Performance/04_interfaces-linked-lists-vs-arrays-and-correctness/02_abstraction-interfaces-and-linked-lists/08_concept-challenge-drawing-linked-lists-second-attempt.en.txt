@@ -1,0 +1,84 @@
+[NOISE] So, now we're ready for
+a second concept challenge. And in the previous one, remember how we
+talked about how tricky it was to get the arrows right,
+to get the references right. And so we're really gonna hammer home that
+point, with a second concept challenge. And so, as usual, you're going to pause
+and try to solve the problem yourself. Then discuss you solution, watch the UC
+San Diego learners, discuss it as well, then answer the question again and confirm your understanding
+when we come back together. So, we're looking at really similar code
+to what we talked about in the previous concept challenge but
+we're just swapping two lines, okay? The two lines that gave us
+the most trouble before. And so let's just see what
+happens if we switch the order. And what I'd like you to think about
+is what does the list of notes that we create in that main method look like
+if we've done this like little swap, this just tiny, tiny little swap,
+and then run the code. >> Hi, I'm Paul. >> I'm Nancy. >> I'm Millie. Okay, so if we look at the last
+two lines of the code, we noticed that the order
+of them has switched, and then I think by noticing that point
+we can firstly eliminate answer A. Because if we look at
+the last line of function, we noticed that it
+connects node n0 with n2, which makes the next pointer of n0
+should be pointing to n2 instead of n1. And we noticed that answer A is the only
+one that connects node n0 with n1, which cannot be correct. So, we can just eliminate this one. And what else can we do? >> Well, I think we can also,
+like in the previous question, we can also eliminate
+the null pointer exception. Since if you look at the constructors
+we do notice that after you add more nodes you're actually
+pointing to something, so it's not actually referencing a null data. On the very last line of
+the of the last constructor, I was kinda confused because it seemed
+that the node was pointing to itself. And I'm not actually sure
+if it's allowed to do that. But, that's what it seemed
+like it was doing so I think answer D would be the best answer,
+if it's actually possible. >> I agree. I think that's, it looks like that's
+what's happening in the last two lines of code, since the previous
+node's next gets set to this. >> All right, let's do a step-by-step
+walk-through to really get at what causes the problem when
+we switch those two lines of code. And let's think together about how
+the list of nodes will be generated and what it will look like at the end. Now, the very first line of code, because
+we used the no argument constructor is exactly the same as in
+the previous concept challenge, so we're not going to go through the details,
+but let's think about what happens when we use the constructor with two
+parameters to create a new object, a new SSL, sorry, SLL node object,
+this time pointed to by n1. So when we call that two
+argument constructor, we now have prevNode pointing
+to the object that is pointed to by n0 that we created before,
+and this points to the object that's being constructed at
+the moment by this constructor. And so the first thing we do is we fill
+in the data value with the number 1, the integer 1, and now we go ahead and
+think about the references and the points, the arrows. So, at this line of code, what we'd like to do is assign
+the value this to prevNode.next. So we follow the arrows. We look at prevNode.next and
+its current value is null. But what we'd like to do is
+set its new value to be this, namely to point to the object
+that we're building. And now we're ready to go ahead and
+assign prevNode.next's value to also be the value of this.next. So that means that when
+we look at this .next, it should get a new value,
+whatever value prevNode.next had. And so that means copying that arrow into also being the arrow
+that's within this .next. And so notice that both prevNode.next and this .next are now going to point to
+the object that's being constructed. Okay. That's a little bit different from
+before and it might not be what we want. So let's just keep with
+it a little bit more and see what happens with
+the next node as well. We now call the two argument constructor
+and build a new object of type SLLNode. We fill in the data, so
+we've got the integer 2 now and now we're ready to play with the reference
+next so the variable next and what we'd like to do is
+set prevNode.next to this. Now prevNode, just as before,
+is the object pointed to by n0, and we'd like to update it's value to point to
+the current object that we're building. And so that means that instead of the
+arrow that we had to the object pointed to by n1, we now point to the object
+that's being created to that's also being pointed to by n2. And now we'd like to update the current
+object's next value to prevNode.next. But that means, well, we'd need to copy
+the value that we just did because we just updated prevNode.next and so we'd look at that arrow that
+points to the current object. And we copy it into this .next as well. So, the picture of the three
+nodes that we've created, well it starts the same as before,
+we still have a head of the list, we've got a sentinel node,
+a node that has its data being null. But now, what it points to or what it links to is the object
+that's pointed to by n2. But notice what happened to
+the object that's pointed to by n1, it's all lonely over there, it's not
+linked to the other two nodes at all. And so what we have are three nodes that
+don't really form a linked list anymore, and so by swapping just those two lines of
+code, we've broken our implementation and we no longer get a linked list. So the point of this little exercise
+was just to caution you about the care that you need to take when you're
+implementing linked list data structures. And especially when you're thinking
+about dealing with those references and being really careful about the order
+in which we copy the references around. And not losing any of the information and
+any of the links that we've already built. So now you're ready to implement
+your own doubly linked list when you go ahead into the project.

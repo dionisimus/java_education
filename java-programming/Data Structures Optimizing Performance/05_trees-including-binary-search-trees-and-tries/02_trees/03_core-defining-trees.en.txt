@@ -1,0 +1,35 @@
+[MUSIC] Hi, in the last video we saw why we
+value trees and why trees are so common in computer science. In this video we are just going
+to dive into some of the basics, of saying what do we mean by a tree? So, by the end of this video you should be
+able to describe a tree data structure. So first off, let's talk terminology. So, I'm gonna use the example here, of the family tree just like
+we did in the last video. And the reason I'm using a family tree is
+that some of this terminology is related to how family trees work. So if we're thinking of the relationship
+between Tywin and Jamie, we know that Tywin is the parent of Jamie. I also wanna point out in this slide, that you'll notice I didn't
+keep all possible parents. So there's only one parent
+of each of these children, to essentially keep it a cleaner tree. Other terminology. So, where do you start in the tree? That's called the root node. The root node is gonna be the only
+node that doesn't have any parents. Leaf nodes are any node
+that has no children. So there's a number of leaf nodes here,
+Tyrion, Myrcella, Joffrey, Tommen, and Jaime are all leaf nodes
+because they have no children. Now that we know the basic terminology,
+what actually makes for a tree? Well, you have a single root and
+again, that is gonna have no parent. Each node can have only one parent,
+except for, again, that root node which is
+allowed not to have one. And then there can be no cycles in a tree. And all I mean by a cycle is
+that there can't be a loop. We'll see an example of
+that in a little while. All right, so now that we have
+a basic definition of a tree, which of these do we think are trees? Go ahead and answer this in the in-video
+quiz, and we'll come back in just a bit. Welcome back. So, hopefully the in-video quiz helped. Let's just walk through each
+of these in more detail. So, is A a tree? Absolutely. You have a single root. The root has no parent. And that's okay. And then each of the children
+have exactly one parent. And that's fine too. What about B? Is that a tree? You've only got a parent and a child. Is that enough to be a tree? Yeah, it is. Again, you've got one root, that's fine. Each node has only one parent, and there's
+no cycles here, so this is a tree as well. Can you have just a single node? Is that sufficient? Yeah, it is. Again, I've got a single
+root that has no parents. There are no other nodes, so we don't
+have to worry about the others, and there is no cycle. What about the last one here? Is this a tree? Well, no, it's not. This has two things wrong with it. The first is that the very bottom
+node here has two parents, and we said from the very beginning every
+node has to have one parent except for the root who can have none. The other thing that's wrong with
+this is this is a perfect example of a cycle, right? If I start at the very top, and
+I go to the left and then I go down, well I get to the same node that I
+could have gotten to the other way. And that's the cycle. What about this last one? Is this a tree. No, it's not either. The reason why is because I have
+two nodes that have no parents. Which means I have two nodes
+which are root nodes and that's not permitted either. So now that we have a better feel for
+what makes for a tree, in the next video, we'll start talking
+about how to code them in Java.

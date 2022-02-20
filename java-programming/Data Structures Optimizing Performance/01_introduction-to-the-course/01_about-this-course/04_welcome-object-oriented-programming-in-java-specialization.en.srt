@@ -1,0 +1,199 @@
+1
+00:00:00,400 --> 00:00:01,980
+Hi, I'm Leo Porter.
+
+2
+00:00:01,980 --> 00:00:03,530
+>> I'm Christine Alvarado.
+
+3
+00:00:03,530 --> 00:00:04,690
+>> And I'm Mia Menes.
+
+4
+00:00:04,690 --> 00:00:07,800
+Welcome to the fourth course
+in our specialization.
+
+5
+00:00:07,800 --> 00:00:10,560
+We're happy to have you here
+to solidify your understanding
+
+6
+00:00:10,560 --> 00:00:14,150
+of object-oriented programming
+using data structures.
+
+7
+00:00:14,150 --> 00:00:17,070
+Whether you were with us for the first
+three courses, or you're here for
+
+8
+00:00:17,070 --> 00:00:18,409
+the first time, welcome.
+
+9
+00:00:19,490 --> 00:00:22,270
+>> The data structures and
+scales you'll learn in this course
+
+10
+00:00:22,270 --> 00:00:25,310
+will allow you to solve a wide range
+of software engineering problems.
+
+11
+00:00:25,310 --> 00:00:28,390
+And they're essential knowledge for
+any computer scientist.
+
+12
+00:00:29,610 --> 00:00:31,860
+As you develop and
+test these data structures,
+
+13
+00:00:31,860 --> 00:00:34,700
+you'll be applying object-oriented
+concepts that you've learned in previous
+
+14
+00:00:34,700 --> 00:00:38,770
+courses, like dead encapsulation,
+inheritance, and polymorphism.
+
+15
+00:00:40,070 --> 00:00:43,140
+In this course,
+as its name suggests, measuring and
+
+16
+00:00:43,140 --> 00:00:45,630
+optimizing performance takes center stage.
+
+17
+00:00:45,630 --> 00:00:48,900
+We'll teach you how to analyze algorithms
+at a high level, and then apply these
+
+18
+00:00:48,900 --> 00:00:52,430
+analysis techniques to analyze the
+efficiency of several new data structures,
+
+19
+00:00:52,430 --> 00:00:55,320
+including linked lists,
+trees, and hash tables.
+
+20
+00:00:55,320 --> 00:00:59,380
+So that you'll always be able to select
+the proper data structure for the task.
+
+21
+00:00:59,380 --> 00:01:02,470
+Finally, we'll go beyond high level
+analysis to look at how to measure
+
+22
+00:01:02,470 --> 00:01:04,710
+performance on actual systems and
+
+23
+00:01:04,710 --> 00:01:07,780
+how to ensure the correctness of
+your code through proper testing.
+
+24
+00:01:07,780 --> 00:01:09,075
+>> As with the other courses,
+
+25
+00:01:09,075 --> 00:01:12,230
+you're going to be learning all this
+in the context of a large project
+
+26
+00:01:12,230 --> 00:01:15,289
+employing object-oriented
+programming design principles.
+
+27
+00:01:16,500 --> 00:01:19,980
+In this project,
+we'll be building a text editor
+
+28
+00:01:19,980 --> 00:01:23,045
+that includes features like spell
+check which we all depend on, and
+
+29
+00:01:23,045 --> 00:01:27,110
+auto-complete which you've probably seen
+on your phone or in the Google Search bar.
+
+30
+00:01:27,110 --> 00:01:28,362
+We'll also have a bit of fun.
+
+31
+00:01:28,362 --> 00:01:32,302
+We're going to have, you implement
+a program that measures the readability of
+
+32
+00:01:32,302 --> 00:01:36,301
+text, and we're also going to have you
+implement a program that's a word game,
+
+33
+00:01:36,301 --> 00:01:39,029
+but at its heart is a problem
+that's important to both
+
+34
+00:01:39,029 --> 00:01:41,660
+computational biology and
+machine translation.
+
+35
+00:01:42,940 --> 00:01:46,250
+>> Now, if you were in the course
+with us in the previous course,
+
+36
+00:01:46,250 --> 00:01:49,900
+this project-driven approach isn't
+the only thing that you'll recognize.
+
+37
+00:01:49,900 --> 00:01:54,150
+The When I Struggled and In the Real World
+Video Series are coming right back, and
+
+38
+00:01:54,150 --> 00:01:57,060
+you'll also have concept challenges
+throughout the course to test
+
+39
+00:01:57,060 --> 00:01:58,390
+your understanding.
+
+40
+00:01:58,390 --> 00:02:00,880
+Throughout the course,
+you'll feel challenged and
+
+41
+00:02:00,880 --> 00:02:04,440
+empowered to complete the project
+while having all the support you need.
+
+42
+00:02:04,440 --> 00:02:06,500
+So without further ado, let's get started.

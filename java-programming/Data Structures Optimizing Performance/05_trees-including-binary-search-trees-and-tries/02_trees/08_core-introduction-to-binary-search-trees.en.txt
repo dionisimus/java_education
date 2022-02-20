@@ -1,0 +1,74 @@
+[MUSIC] At this point we have a pretty good
+idea of how to traverse trees. What we're going to do next is dive
+into the details of one of these trees. The truth is, with most trees,
+the data's organized in some way. You're gonna have the highest
+priority elements in your tree, say the top maybe the shortest
+words at the top. You might have them sorted essentially
+in terms of their ordering. There's lots of ways you
+can organize the tree. So as we go forward it makes
+sense to do an ordering. In this case we're gonna look at
+an ordering based on a binary search tree. So by the end of this video' you should
+be able to define a Binary Search Tree. And be able to identify with trees that
+are actually valid Binary Search Trees. So as a quick review of binary search,
+we introduced binary search back in course one, but if you didn't take that
+course with us that's totally okay, I'm just gonna give you a really quick
+highlight of what binary search is again. What we're trying to do is if I
+have an array of elements and I wanna find an element, say Chicago. In this array how would I do that? Well if they're sorted,
+I can do this really quickly. I can search a sorted array much
+faster than an unsorted array. So what I can do here,
+is essentially start at the middle. Look at Essen and say what's the
+relationship between Chicago and Essen? Well first off, is Chicago Essen? No, the words are the same. But now I can just compare them, and say well Chicago appears earlier
+in the alphabet than Essen does. So I can essentially now ignore Essen,
+and everything to the right of Essen. Because I know all of those are gonna be
+words that start with letters greater than E, E or greater. And now I can just look at
+the other half of the array. So I've actually gotten rid of half
+of the elements just with one check, that's why this is so powerful. So now I'm gonna look at Beijing, that's
+the middle of the other half of the array. And now I'm gonna ask it what's the
+difference between Beijing and Chicago. Well, they're not the same, so
+I'm gonna do the same comparison, Beijing is now less than Chicago,
+so I can eliminate Beijing and everything to the left of Beijing. And now we can go to the middle
+of the remaining array, which at this point is just Chicago, and
+check, and I've actually found Chicago. So this is why Binary Search is so
+powerful is that again, we get rid of half of the elements
+every time we do a comparison. So we can find things in O(log n) time. So sorted arrays are fantastic, then,
+for search, because of that run time but where sorted arrays are bad is in
+terms of insertion and removal. If I try to insert a city into this,
+say San Diego, well that's gonna be not so bad because I can just
+insert it right at the end. But if I want to insert another city,
+say Pullman where I grew up, now I'm gonna have to move some around
+to be able to make room for that. And we know that arrays cannot be
+dynamically resized either, so we're gonna have to always make
+copies into bigger arrays. It gets really messy. What we want are all the nice features
+of a linked list in terms of insertion, but all the benefits in terms
+of search of a sorted array. And we're gonna get that
+from a Binary Search Tree. Say the idea behind a binary search tree
+is take all these elements in this array and just organize them as a tree, so all I
+have to do is essentially pull these out, make them tree nodes, connect them as a
+tree, and now I have a Binary Search Tree. So now I can do the same kind of searching
+I did within an array, but I can also get the benefit of a fast insert and
+a fast removal that a tree provides. So, what do I have to have to make
+this a quote binary Search Tree. So a Binary Search Tree has to,
+first of all, be a binary tree. So each node can have
+at most two children. On top of that, the left subtree has
+to be strictly less than the parent. So everything in the left
+subtree must be lesser and everything in the right subtree must
+be greater than that parent element. So now that we have an idea of
+the definition of a Binary Search Tree, what I wanted to do is give you a number
+of trees and ask you which of these, essentially are Binary Search Trees. So what you do go into the in-video quiz,
+answer the question and we'll come back and
+talk through all of them. Welcome back. I hope that the in-video quiz helped and
+you're starting to get a better feel for what is a Binary Search Tree. So let's look at these one by one. First off,
+A is in fact a Binary Search Tree, right? 42 is greater than 32,
+32 is greater than 12. So the ordering is preserved, and
+no node has more than two children. So this is a Binary Search Tree. B was not a binary search tree because if
+you noticed, 42 is greater than 32 but 32 is part of the right sub tree of 42,
+so it has to be greater. So that's not allowed,
+this isn't a binary search tree. C is also not a binary search tree,
+but for a different reason,
+42 here has 3 children. Three children make it not a binary tree,
+and hence not a binary search tree. And lastly, you notice that in D,
+this was actually the trickiest of them, 42 is less than 45. You can't have this. You can't have an element in the left sub
+tree which is greater than the parent. So this would not be allowed 45 should
+actually be on the right side of 42 so at this point we have a good feel for
+what binary search trees are. What we're gonna do next is find out how
+do we perform a search within that binary search tree.

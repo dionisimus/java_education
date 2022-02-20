@@ -1,0 +1,156 @@
+[MUSIC] So this video, we're going to dive
+into some implementations of that list interface that we introduced
+in the last video. We're gonna look at two implementations,
+the Array List and the Linked List, and we'll get into the Linked List in some
+detail, since that's a new data structure. So by the end of this video,
+you'll be able to describe and draw the structure of a LinkedList, and you'll
+be able to give at least one advantage of using a LinkedList over an ArrayList for
+implementing the list interface. So, as we mentioned in the last video, the
+idea of an abstract data type is that it specifies behavior but
+doesn't specify implementation. So it's up to the developer of
+the library to specify the implementation of a particular behavior. So in Java,
+if I wanna implement an interface, I promise to fulfil all the functionality,
+but I can do it however I wanna do it, as long as the functionality is fulfilled. Java provides two built-in
+implementations, at least two, more than two built-in implementations
+of the list interface. One of which, you're very familiar
+with called the ArrayList, uses an array to implement
+the functionality of the list. And the other is called the LinkedList,
+which uses as you probably guessed, a linked list to implement
+the functionality of the list. Now I'm taking some
+liberties with this diagram. The inheritance hierarchy doesn't
+exactly look like this in Java. But it's close enough. Basically, the ArrayList and the LinkedList are both data structures
+that implement that list implementation. So, let's first look at the ArrayList. As I mentioned, we've got an array
+underlying that structure. And you know about an array,
+it's just a sequence of elements, all look at contiguously in memory and
+each position has an index, so you can go directly to any
+particular location in that array. So if I wanna get the element
+at index position 2, I can just go directly to the element at
+index position 2 and I can see there's 15, and that's instantly,
+you can just do that in constant time. However, I wanna ask you a question. Let's say, as part of a list interface, it says, I can add an element
+at the beginning of the list. So, let's say I wanna add a new
+element to the beginning of the list. In other words, at index position zero. The question I have for you is,
+how long is that going to take relative to the number of elements
+that are already in that list? Okay, so
+this is actually going to take order and time to insert that
+element at the beginning. And the reason for that is that, I can't just drop in the element
+in the index position zero. If I try to put an element in the index
+position 0, I'll overwrite the 42. So before I can put an element
+in the index position 0, I need to move the 42 to position 1. But to move the 42 to position one,
+I need to move the 95 to position two. And so on and so forth. So I basically need to move every
+single element out of the way, all the way down the list, before I
+can put an element at position zero. The problem is, there's no way for me to
+expand my array to like negative one and negative two. It doesn't work that way. I'm stuck at index position zero. So its gonna take relatively long time
+to put an element at the beginning of the array. So if I have a task that involves
+constantly putting elements in the beginning of my list. An ArrayList might not be my best choice. So, in other words, the Abstra data
+type here is specifying behavior, so the ArrayList is fulfilling
+all the behavior, but it doesn't specify any
+bounds on efficiency, so the ArrayList is not very efficient for
+this particular task. Let's look at a data structure
+that's more efficient for inserting elements at the beginning, or arbitrarily anywhere in the middle
+of the list, called the Linked List. So here's a picture of
+my new data structure. And what you see here is the data
+organized into these boxes called nodes. So I have three nodes in my Linked List,
+storing the elements 42, 55, and 23. And inside each node,
+I have the following fields. I have some data,
+that's stored inside the node. And then,
+these nodes aren't necessarily arranged. Anywhere near each other in memory. So, how to link them together somehow? So, each node also has a reference
+to the next node in the list, and a reference to the previous
+node in the list. Now, in order to know where this whole
+list is, I need to store a reference to the head of the list or in other words,
+the first node in the list. And, typically, in what's called a Doubly
+Linked List, because I have two pointers, one to the next and one to the previous, I also store a pointer to the tail of
+the list, the last node in the list. So in this way, I still got my elements
+arranged in a particular order, but instead of being contiguous in memory, these nodes could be scattered all over
+the place and they're linked together. I have direct access to the first node in
+the list, and the last node in the list. But if I want any of the nodes
+in the middle of the list, I have to follow those pointers through
+the list to get access to them. So it's a little bit
+different from an array. Now what I've shown you here
+is a Doubly Linked List. You'll also hear people talk
+about a Singly Linked List. A Singly Linked List is very similar,
+only instead of having a next pointer and a previous pointer, the nodes only have
+a data field and a next pointer but no previous pointer. And typically, in a Singly Linked List, you only store
+a pointer into the head of the list. These are pretty much the same, sometimes, somethings are slightly
+harder to implement. Some functionality is slightly
+harder to implement with the singly linked list than with a doubly linked
+list, but you can pretty much do all of the same stuff you can do with a singly
+linked list and doubly linked list. We're going to be focusing on the doubly
+linked list, but we will ask you some concept questions about singly
+linked list, and their performance in the end of module quiz, so make sure
+you kind of know what they're about. So let's go back to that
+doubly LinkedList and look at, in more detail, how we're going
+to implement this data structure. This data structure's
+already built into Java. So in general, you wouldn't need to
+implement it, but we are going to ask you to implement it as part of a programming
+assignment, just so that you get a really good sense of how this data
+structure works and what it's all about. So you'll be implementing functionality
+that's already built into Java but that's okay. It's kind of a rite of passage
+to implement a LinkedList, as part of your computer
+science education. So to implement a LinkedList, you're going to need to
+implement two different classes. So the first class you'll need to
+implement is called ListNode, and that stores the data in one particular
+node in the list, as well as the pointers to the next node in the list
+and the previous node in the list. So I want you to stop for
+just a minute, and think about the types of that
+field next and that field prev. What is going to be the type
+that you wanna use for those two fields in the ListNode class? All right. We'll get back to that when we actually
+start writing Java code, but for now let's talk about the other class
+that you'll need to implement. This other class is the class that
+represents the LinkedList itself, we'll call it MyLinkedList,
+because LinkedList is already taken. It's already built into Java. And what my list is going to store is,
+some overall properties of the list, perhaps its size. But most importantly,
+a reference to the first node in the list. And the last node in the list. So it's gonna store those head and
+tail pointers, to give you access to
+the whole list itself. But it's the node class that really
+comprises the structure of the list itself. So this diagram now is just
+a slightly more detailed diagram of what you'll actually be implementing in
+Java, showing you all of the fields and their values for this particular example
+that has three nodes in the list. I'm going to use it to add one more
+subtlety to our LinkedList implementation. So those are the ListNode objects. Here's the MyLinkedList object. And I'm now gonna talk about a slight
+variation on this implementation. So what we've been doing so far,
+is we've been linking the head and the tail references directly to to
+ListNode objects that store data. So 42 and 23 are the head and the tail, respectively, in our LinkedList, and
+they actually store real pieces of data. So those pieces of data
+are actually in the list. But sometimes that can
+be kind of problematic. Because you might accidentally
+run off the end of a list or accidentally run off the beginning of
+the list, when you're traversing the list. So it's handy to introduce these
+things called sentinel or dummy nodes. So what are sentinel or dummy nodes? Basically, what we're gonna do is, we're is we're gonna take
+the nodes that store data. Shift them over slightly,
+then we're gonna insert these dummy nodes at the beginning and
+at the end of the list. These dummy nodes don't store any data. They're always gonna be there,
+even when the list is empty. And they're going to be pointed
+to by the head pointer and the tail pointer in the list. So they're essentially just buffers,
+that keep you from running off one end or the other of the list. They make implementation of the LinkedList
+functionality, slightly easier. Do you need them? No, you don't need them. You can implement LinkedList perfectly
+well, without these sentinel nodes. But we're gonna use them in our
+implementation because like I said, they make this implementation
+slightly easier. All right.
+So that's kind of an overview of where
+we're going with our implementation. These are just pictures showing
+you the Java classes that we are going to implement. But let me now return to some
+of these efficiency questions, that I asked you at the beginning. Let's go back to our
+ArrayList implementation. So the question I have for you now is, if
+I want to get an element at a particular index in my list, how long is that going
+to take in the ArrayList implementation? All right good. So, hopefully you now
+understand why it's order 1. Because these elements in the array
+are organized contiguously in memory, and we can just go directly to any
+index in the array that we want to. That's one of the main benefits of arrays. Let me ask you, now, the same question for a LinkedList implementation
+of the List interface. It may seem a little strange, but
+LinkedList can actually associate indices with the elements in the list,
+and that's up to you, the designer of the LinkedList
+class to do that association and you'll be doing that in your
+implementation of your LinkedList. And the question I have for you is, if we
+associate the index 0 with 42, the first element in the list, 1 with 55, and 2 with
+23, how long does it take me to access an arbitrary element in my LInkedList
+implementation, in the worst case? All right, so it's order n. It's much slower than an ArrayList. Because we only have access to the head
+of the list and the tail of the list. So we can actually do it in n over two,
+in the worst case. But of course, you know,
+that's just order n. So, we saw an example where
+ArrayList were worse, when we were constantly inserting
+at the beginning of the list. We don't have that problem in LinkedList, because we can just put elements at
+the head in constant time, but if we wanna access an arbitrary location on the list,
+that's relatively slow using a LinkedList. So the underlying implementation is gonna
+determine the speed of these operations. And it's all about trade offs. Choosing your data structure, to do your
+implementation is gonna depend on what operations you're gonna need to
+use with that data container.

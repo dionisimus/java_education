@@ -1,0 +1,528 @@
+1
+00:00:00,000 --> 00:00:04,184
+[MUSIC]
+
+2
+00:00:04,184 --> 00:00:07,269
+So now we're ready to put together
+everything we've been talking
+
+3
+00:00:07,269 --> 00:00:09,290
+about with performance analysis.
+
+4
+00:00:09,290 --> 00:00:11,940
+And in particular think about
+the asymptotic balance,
+
+5
+00:00:11,940 --> 00:00:15,360
+the big-O classes of searching algorithms.
+
+6
+00:00:15,360 --> 00:00:18,935
+So at this point we've got two searching
+algorithms that we've talked about, so
+
+7
+00:00:18,935 --> 00:00:21,520
+by the end of this video you'll
+be able to both state and
+
+8
+00:00:21,520 --> 00:00:26,180
+justify the big-O runtime for
+both of these search algorithms.
+
+9
+00:00:26,180 --> 00:00:29,110
+And both in the best case and
+in the worst case.
+
+10
+00:00:29,110 --> 00:00:32,310
+So what we're going to be doing is
+filling in this little table, and
+
+11
+00:00:32,310 --> 00:00:35,460
+so let's start with a linear search.
+
+12
+00:00:35,460 --> 00:00:38,470
+So our linear search basic algorithm
+is that when we're searching
+
+13
+00:00:38,470 --> 00:00:42,520
+through a list of data, we start at
+the beginning and we go to the end, and
+
+14
+00:00:42,520 --> 00:00:45,920
+we look for our desired piece of data.
+
+15
+00:00:45,920 --> 00:00:49,530
+So, in the best case, let's think back to
+
+16
+00:00:49,530 --> 00:00:53,020
+the example in your search that we've
+done, that was that hasLetter method,
+
+17
+00:00:53,020 --> 00:00:56,590
+in the best case we find
+the piece of data right away.
+
+18
+00:00:56,590 --> 00:01:02,190
+And so, our best case performance
+is a constant time big O(1).
+
+19
+00:01:02,190 --> 00:01:07,090
+Now in the worst case, we talked about
+this also with the hasLetter method.
+
+20
+00:01:07,090 --> 00:01:12,360
+What happens if we're unlucky is that
+we go through the entire string or
+
+21
+00:01:12,360 --> 00:01:16,610
+entire list of data and
+we don't find what we're looking for, or
+
+22
+00:01:16,610 --> 00:01:18,480
+we only find it at the very end.
+
+23
+00:01:18,480 --> 00:01:23,170
+But in either one of those situations in
+this very unlucky situation, we have to go
+
+24
+00:01:23,170 --> 00:01:28,870
+through all data and so our performance
+is growing just like the input is.
+
+25
+00:01:28,870 --> 00:01:30,810
+So, it's big O(n).
+
+26
+00:01:30,810 --> 00:01:35,000
+And so if the worst case linear
+search performs like big O(n).
+
+27
+00:01:35,000 --> 00:01:40,180
+Okay, so we've got linear search and
+now let's move on to binary search.
+
+28
+00:01:40,180 --> 00:01:43,507
+We haven't talked about binary
+search in this course so far, but
+
+29
+00:01:43,507 --> 00:01:47,319
+if you think back to the first course
+in the specialization we did do several
+
+30
+00:01:47,319 --> 00:01:48,970
+examples with this algorithm.
+
+31
+00:01:48,970 --> 00:01:51,720
+And so you can go back there
+to refresh your memory.
+
+32
+00:01:51,720 --> 00:01:55,450
+The binary search algorithm is
+similarly as before looking for
+
+33
+00:01:55,450 --> 00:02:00,050
+data in a list of data,
+but something that we have
+
+34
+00:02:00,050 --> 00:02:03,870
+to assume in order to use binary search
+is that this data is already sorted.
+
+35
+00:02:03,870 --> 00:02:08,230
+It's organized from smallest to
+biggest in some measure of order.
+
+36
+00:02:08,230 --> 00:02:12,070
+Okay, so if we make that assumption
+that we have sorted data,
+
+37
+00:02:12,070 --> 00:02:14,200
+what's the best case situation?
+
+38
+00:02:14,200 --> 00:02:15,840
+What's the worst case situation?
+
+39
+00:02:15,840 --> 00:02:18,590
+Well, we have to go back to what the
+algorithm is in the first place before we
+
+40
+00:02:18,590 --> 00:02:19,850
+can analyze it.
+
+41
+00:02:19,850 --> 00:02:25,010
+So the nuts and bolts of the binary search
+algorithm is that we take our data and
+
+42
+00:02:25,010 --> 00:02:26,980
+we start by looking in the very middle.
+
+43
+00:02:26,980 --> 00:02:29,190
+And maybe we're lucky and we found it.
+
+44
+00:02:29,190 --> 00:02:30,120
+Sweet.
+
+45
+00:02:30,120 --> 00:02:34,152
+If not, if we didn't find
+the item that we're looking for
+
+46
+00:02:34,152 --> 00:02:39,004
+in the very middle then what we have
+to do is either look at the first half
+
+47
+00:02:39,004 --> 00:02:41,908
+of the list or
+the second half of the list.
+
+48
+00:02:41,908 --> 00:02:46,898
+And we choose which half to look at based
+on comparing the value that we're looking
+
+49
+00:02:46,898 --> 00:02:50,945
+for with the value in the middle and
+seeing, should I be before it or
+
+50
+00:02:50,945 --> 00:02:53,210
+should I be after it?
+
+51
+00:02:53,210 --> 00:02:56,550
+And so what we're doing in
+binary search is over and
+
+52
+00:02:56,550 --> 00:03:01,510
+over cutting the amount of information
+that we need to look at in half again and
+
+53
+00:03:01,510 --> 00:03:04,360
+again and again until we focus
+in onto where our element
+
+54
+00:03:04,360 --> 00:03:07,858
+ought to be in the list and
+then checking if it really is there.
+
+55
+00:03:07,858 --> 00:03:12,100
+Okay so that's big picture what we're
+doing, now how does it perform?
+
+56
+00:03:12,100 --> 00:03:14,950
+And we ask ourselves,
+best case, worst case?
+
+57
+00:03:14,950 --> 00:03:19,570
+And best case is super lucky,
+we zoom into the middle of the list and
+
+58
+00:03:19,570 --> 00:03:21,220
+we've found our element
+that we're looking for.
+
+59
+00:03:21,220 --> 00:03:24,400
+And we're done and we can return,
+and that took lots of time.
+
+60
+00:03:24,400 --> 00:03:28,650
+So the best case is really a similar
+situation to linear search,
+
+61
+00:03:28,650 --> 00:03:34,280
+where we're really lucky and we find
+our item at the first chance we could.
+
+62
+00:03:34,280 --> 00:03:36,780
+So the very first thing
+that we test is actually
+
+63
+00:03:36,780 --> 00:03:38,360
+the element that we're looking for.
+
+64
+00:03:38,360 --> 00:03:42,190
+Okay, so that's the best case,
+constant time, okay.
+
+65
+00:03:42,190 --> 00:03:44,290
+But what about the worst case?
+
+66
+00:03:44,290 --> 00:03:48,670
+And let's think through what
+happens in this worst case and
+
+67
+00:03:48,670 --> 00:03:52,790
+what it would mean to have
+a really unlucky search.
+
+68
+00:03:52,790 --> 00:03:57,450
+And just like before, what it would mean
+to have a really unlucky search is if we
+
+69
+00:03:57,450 --> 00:03:59,230
+don't find the element at all.
+
+70
+00:03:59,230 --> 00:04:01,310
+If we keep looking,
+keep looking, keep looking, and
+
+71
+00:04:01,310 --> 00:04:03,170
+we can't find this element in the list.
+
+72
+00:04:03,170 --> 00:04:05,265
+So if the element is
+missing from the list, and
+
+73
+00:04:05,265 --> 00:04:08,299
+let's think about what this algorithm
+would do in that that case.
+
+74
+00:04:08,299 --> 00:04:10,840
+So we looked in the middle, and
+we didn't find our element.
+
+75
+00:04:10,840 --> 00:04:14,635
+And now, we go and
+look at just half the list, and
+
+76
+00:04:14,635 --> 00:04:17,885
+then we basically repeat the algorithm.
+
+77
+00:04:17,885 --> 00:04:21,480
+And so what we do is we look in the middle
+of that half and look for our algorithm,
+
+78
+00:04:21,480 --> 00:04:23,125
+and we're not gonna find it there.
+
+79
+00:04:23,125 --> 00:04:27,550
+And so we look at half of the remaining
+and look in the middle of that.
+
+80
+00:04:27,550 --> 00:04:29,040
+We're not gonna find it there.
+
+81
+00:04:29,040 --> 00:04:31,260
+Okay, so we only need to
+consider half of the remaining.
+
+82
+00:04:31,260 --> 00:04:34,050
+Look in the middle of that,
+keep on going, keep on going, and
+
+83
+00:04:34,050 --> 00:04:37,630
+the question is when do we get to stop?
+
+84
+00:04:37,630 --> 00:04:42,160
+So, every time we repeat this process,
+every time we
+
+85
+00:04:42,160 --> 00:04:47,550
+have a new high element and a low element,
+and we compute a new midpoint,
+
+86
+00:04:47,550 --> 00:04:52,720
+what we're doing is we're decreasing
+the list in consideration by half.
+
+87
+00:04:52,720 --> 00:04:57,946
+And so we get to stop when the number
+of elements that we need to consider,
+
+88
+00:04:57,946 --> 00:04:59,770
+well, is just one.
+
+89
+00:04:59,770 --> 00:05:03,080
+And so we need to ask ourselves,
+how many times does it take for
+
+90
+00:05:03,080 --> 00:05:07,610
+this process to reduce the list that we
+need to consider to just one element?
+
+91
+00:05:07,610 --> 00:05:09,310
+Or another way of saying that is,
+
+92
+00:05:09,310 --> 00:05:15,230
+how many times can we divide the size
+of the element by 2 and get to 1?
+
+93
+00:05:15,230 --> 00:05:19,026
+So, we're repeatedly dividing by 2,
+dividing by 2, dividing by 2,
+
+94
+00:05:19,026 --> 00:05:20,264
+and we want to get to 1.
+
+95
+00:05:20,264 --> 00:05:22,952
+But the number of times we can do that is
+
+96
+00:05:22,952 --> 00:05:27,212
+exactly the logarithm base
+2 of the size of our list.
+
+97
+00:05:27,212 --> 00:05:31,010
+And there's a support video to go
+through that calculation a little bit
+
+98
+00:05:31,010 --> 00:05:33,540
+more in detail if you're interested.
+
+99
+00:05:33,540 --> 00:05:37,970
+So, for binary search we filled in
+that last cell in the table, and
+
+100
+00:05:37,970 --> 00:05:42,780
+in the worst case this search runs
+in big O of logarithmic time.
+
+101
+00:05:42,780 --> 00:05:45,760
+So, we've got this table, it's great.
+
+102
+00:05:45,760 --> 00:05:50,180
+But, we've got that little asterisk
+that says, all of these calculations for
+
+103
+00:05:50,180 --> 00:05:54,610
+binary search are assuming
+that our data is sorted.
+
+104
+00:05:54,610 --> 00:05:57,820
+Our algorithm for binary search
+requires the data to be sorted.
+
+105
+00:05:57,820 --> 00:06:00,880
+And so it's not really fair
+to have this table and
+
+106
+00:06:00,880 --> 00:06:04,300
+compare linear search head to head with
+binary search because linear search
+
+107
+00:06:04,300 --> 00:06:08,160
+doesn't make any assumptions on
+the organization of the data.
+
+108
+00:06:08,160 --> 00:06:10,320
+And so if we really wanted to
+compare them head to head,
+
+109
+00:06:10,320 --> 00:06:14,340
+these two algorithms, what we would need
+to do is say, well, how long would it take
+
+110
+00:06:14,340 --> 00:06:18,830
+to take an unorganized list and
+sort it and then run binary search on it?
+
+111
+00:06:18,830 --> 00:06:22,790
+So in the next video we'll be summarizing
+some approaches for sorting and
+
+112
+00:06:22,790 --> 00:06:24,560
+doing their performance analysis as well.

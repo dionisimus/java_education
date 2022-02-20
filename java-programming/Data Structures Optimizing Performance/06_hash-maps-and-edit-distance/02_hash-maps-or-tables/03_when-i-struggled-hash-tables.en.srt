@@ -1,0 +1,108 @@
+1
+00:00:00,000 --> 00:00:03,589
+[MUSIC]
+
+2
+00:00:03,589 --> 00:00:05,500
+Hi, my name is Maya.
+
+3
+00:00:05,500 --> 00:00:08,380
+And I took a class about data structures.
+
+4
+00:00:08,380 --> 00:00:10,750
+And for
+most of the class I was doing well.
+
+5
+00:00:10,750 --> 00:00:12,650
+I was understanding everything.
+
+6
+00:00:12,650 --> 00:00:16,700
+But then we got to hash tables,
+and for some reason it was just so
+
+7
+00:00:16,700 --> 00:00:20,500
+confusing, and
+I didn't know what I was gonna do.
+
+8
+00:00:20,500 --> 00:00:22,890
+So, I decided to go to my study group.
+
+9
+00:00:22,890 --> 00:00:24,910
+And my friends were talking through it.
+
+10
+00:00:24,910 --> 00:00:27,540
+They were like, okay, I was understanding.
+
+11
+00:00:27,540 --> 00:00:31,290
+But then, when I went back home
+to work on it, I was lost again.
+
+12
+00:00:31,290 --> 00:00:34,550
+I was like,
+is it my algorithm that's not right?
+
+13
+00:00:34,550 --> 00:00:37,120
+Is it maybe I don't understand
+what hash table should do?
+
+14
+00:00:37,120 --> 00:00:38,870
+I wasn't sure.
+
+15
+00:00:38,870 --> 00:00:40,290
+So I was like, okay.
+
+16
+00:00:40,290 --> 00:00:44,280
+I started early so I can just take
+a break and I'll come back to it.
+
+17
+00:00:44,280 --> 00:00:47,910
+So I decided to go to sleep and
+it was really funny, because while I was
+
+18
+00:00:47,910 --> 00:00:52,195
+sleeping, I remember just waking up and
+was like wait, I know how to do this.
+
+19
+00:00:52,195 --> 00:00:57,280
+So I just got down from my bunk bed,
+went to my desk, wrote some notes.
+
+20
+00:00:57,280 --> 00:01:01,921
+Went back to sleep, and
+when I woke up I found out that it was,
+
+21
+00:01:01,921 --> 00:01:03,834
+maybe, taking a break.
+
+22
+00:01:03,834 --> 00:01:08,546
+Or maybe because I just got to move
+away from the material for a little bit,
+
+23
+00:01:08,546 --> 00:01:11,820
+it kind of got to soak in and
+I understood it better.
+
+24
+00:01:12,890 --> 00:01:14,880
+And that's my story on hash tables.

@@ -1,0 +1,69 @@
+[MUSIC] So, a few years ago, I was one of a very
+small team of engineers trying to get Google's Shopping Express
+project off the ground. Now, Shopping Express is a service that
+Google provides, which allows customers to place orders across a variety of different
+merchants, through a single website. And when they place their order, we send
+couriers to go pick the orders up, and then deliver them to
+the customers within a few hours. So these days, Shopping Express is a
+successful service with dozens of merchant partners, and
+it operates in 89 different U.S. cities. But back in the beginning,
+we had no idea if it'd work. How many orders would we
+be able to deliver per day? How long would it take? How much would it cost? We had no idea. So what could we do? Building something like
+Shopping Express requires a lot of investments and infrastructure. And you really don't wanna do that, unless
+you have some idea about whether it's gonna work, so
+what you could do is build a fake version. In other words, build some software to
+simulate what the real thing might do. You might say, tell it how many couriers
+you have available, how many orders you think you're gonna get, and then have
+the simulator figure out how to route the couriers around the city, and
+deliver the packages from A to B. So that's what we did,
+over a period of several weeks, we built a simulator, and
+it was pretty simple to start with. And it got gradually more sophisticated,
+the very first version had the couriers just moving in straight lines,
+as if they were birds. But the final version had them following
+roads correctly, and it even took traffic into account when it was trying figure
+out the optimal routes to send them on. And the simulator had a map, which showed the couriers traveling
+around the city delivering things. Now, not only was this really cool,
+it was actually useful for debugging the simulator, and also for
+getting some insights into how we could improve the algorithms
+we used to round them. So a simulator like this is actually
+a great way to illustrate Polymorphism. If you can imagine the part of the code
+that was used to render the map. Now what sort of things do
+we wanna see on the map? We wanna see a picture of the city. We wanna see the roads. But we're, particularly, interested in
+the objects that are interesting to the simulator, like the couriers, like the
+stores, where they're picking things up, like the customers where
+they're going to deliver. Now, these three kinds of objects
+are all pretty different, but they do have something in common,
+they all need to be drawn on the map. So one way you can approach this
+is by coming with an interface. Let's call it drawable,
+so things can be drawn. And it might have a single method
+which is something like draw me. So the courier's draw me method,
+would maybe draw a picture of a van. The store's draw me method would draw
+a picture of a building, for example. Now as far as a map
+rendering code is concerned, it doesn't need to care about any of
+these objects, and what they are. All it knows Is that it has
+a bunch of drawable object, and it calls draw me on all of them, and
+they all draw themselves correctly. Now, the nice thing about this is that,
+down the line, if you need to introduce a new object, let's say a warehouse,
+you can make that implement the drawable interface, implement the draw me method,
+which draws presumably a bigger building. And you pass that along to
+the rendering code, and the rendering code is none the wiser. It just draws these objects. It's just a drawable. And it draws the warehouse
+correctly on the map. So, that's really, really helpful. Now Polymorphism isn't only for
+small objects like these icons. Now one of the things about writing
+a simulator is that we wanted to try out lots of different strategies for
+routing the couriers, and these strategies were pretty big tweaks
+of code, very sophisticated in the end. But a lot of this simulator, like the map
+rendering code or the input code, and so on, could be the same for
+all of them you need to change. So one thing you can do,
+one thing we did do, was to create a name, an interface called,
+I think it was called routing engine. So all these different strategies for routing couriers would
+implement that interface. And then, we could swap different ones in, and see how they compare very easily,
+because the rest of the code didn't care. It just had a routing engine. It didn't need to know about
+the insides about how it worked. They were all just routing engines. They were all the same. As far as it was concerned. Now, of course, they weren't the same. Some of the initial ones
+were really simple. For example, the first one we did,
+every order that was placed, a single courier went to the store,
+picked it up and took it back, just to that one customer,
+so, not particularly efficient. Later, routing engine implementations
+were much more sophisticated than that. But again, the point is that, as far as,
+most of the code was concerned, you didn't have to change anything,
+you could just change the algorithm, make it an implement routing engine,
+plug it in, and Polymorphism did the rest.

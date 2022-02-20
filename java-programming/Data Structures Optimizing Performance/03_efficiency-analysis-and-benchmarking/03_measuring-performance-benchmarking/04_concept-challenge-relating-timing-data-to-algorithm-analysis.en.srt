@@ -1,0 +1,368 @@
+1
+00:00:03,940 --> 00:00:07,632
+[NOISE] So, we've talked about some
+algorithms and we've talked about using
+
+2
+00:00:07,632 --> 00:00:11,513
+benchmarking and timing to try to analyze
+the performance of those algorithms.
+
+3
+00:00:11,513 --> 00:00:16,050
+And so now we're ready for a concept
+challenge to bring those ideas together.
+
+4
+00:00:16,050 --> 00:00:18,350
+And so as you know, for
+a concept challenge,
+
+5
+00:00:18,350 --> 00:00:21,820
+what we ask you to do is to pause and
+try to solve the problem yourself.
+
+6
+00:00:21,820 --> 00:00:25,640
+Then try to find and opportunity to
+discuss your solution with other learners,
+
+7
+00:00:25,640 --> 00:00:28,640
+either on the forum or
+with people learning with you.
+
+8
+00:00:28,640 --> 00:00:31,610
+Then you'll have an opportunity to
+watch the UC San Diego Learners
+
+9
+00:00:31,610 --> 00:00:36,080
+discuss the problem, and then you'll
+be able to answer the question again.
+
+10
+00:00:36,080 --> 00:00:39,820
+And then confirm your understanding as
+we go through the solution together.
+
+11
+00:00:39,820 --> 00:00:44,710
+So, for this particular question, what
+we'd like to do is look at some real data
+
+12
+00:00:44,710 --> 00:00:50,000
+for a sorting algorithm that we ran on
+bigger and bigger and bigger collections.
+
+13
+00:00:50,000 --> 00:00:53,300
+And so, in particular,
+could these be the timings,
+
+14
+00:00:53,300 --> 00:00:55,850
+the real timings for insertion sort?
+
+15
+00:00:55,850 --> 00:01:00,404
+So, take a look, answer the question,
+and then we'll come back later.
+
+16
+00:01:00,404 --> 00:01:01,938
+>> Hi, I'm Tina.
+
+17
+00:01:01,938 --> 00:01:03,423
+>> Hi, my name is Gev.
+
+18
+00:01:03,423 --> 00:01:04,180
+>> Hi, I'm Mia.
+
+19
+00:01:07,060 --> 00:01:10,990
+>> All right, so
+looking at the visual data on this graph,
+
+20
+00:01:10,990 --> 00:01:14,510
+it seems to fall along
+a linear one mostly.
+
+21
+00:01:16,360 --> 00:01:20,700
+So, I would think it'd be like say,
+of and for the run time.
+
+22
+00:01:20,700 --> 00:01:24,530
+I don't know if it would be for
+insertion sort.
+
+23
+00:01:26,070 --> 00:01:28,900
+>> Cuz we learned about
+a lot of different sorts and
+
+24
+00:01:28,900 --> 00:01:32,210
+insertion sort wasn't really
+the most efficient, you know?
+
+25
+00:01:33,240 --> 00:01:33,750
+>> Yeah.
+
+26
+00:01:33,750 --> 00:01:34,560
+You're right.
+
+27
+00:01:34,560 --> 00:01:37,230
+I remember talking about merge sort and
+quick sort and
+
+28
+00:01:37,230 --> 00:01:41,220
+there are n log n and that's one of
+the best possible times you can get.
+
+29
+00:01:41,220 --> 00:01:45,060
+And what this looks like,
+it looks like all then and
+
+30
+00:01:45,060 --> 00:01:48,580
+that kind of sounds too good
+to be true for insertion sort.
+
+31
+00:01:48,580 --> 00:01:49,930
+>> If it's too good to be true,
+
+32
+00:01:49,930 --> 00:01:55,275
+then maybe we can probably rule out
+that this wouldn't be a worst case time.
+
+33
+00:01:55,275 --> 00:01:58,320
+>> Yeah.
+>> Maybe it could be, best case then?
+
+34
+00:02:00,140 --> 00:02:03,450
+>> So you've seen the UC San Diego
+learners discuss these timings that we
+
+35
+00:02:03,450 --> 00:02:07,150
+were seeing and think really
+about whether an actual machine
+
+36
+00:02:07,150 --> 00:02:11,785
+running insertion sort on bigger and
+bigger data could produce these timings.
+
+37
+00:02:11,785 --> 00:02:15,845
+So, let's tie back the timings
+that we got from running the code
+
+38
+00:02:15,845 --> 00:02:19,855
+to the analysis that we did earlier
+in the course trying to think about
+
+39
+00:02:19,855 --> 00:02:23,855
+the asymptotic behavior of various
+sorting algorithms and procedures.
+
+40
+00:02:23,855 --> 00:02:26,675
+And, in particular we're
+thinking about insertion sort.
+
+41
+00:02:26,675 --> 00:02:30,165
+And when we analyze insertion
+sort using big O notation,
+
+42
+00:02:30,165 --> 00:02:34,470
+we saw that on average, and in the worst
+case, big O behaves like, I'm sorry,
+
+43
+00:02:34,470 --> 00:02:36,980
+insertion sort has a quadratic behavior.
+
+44
+00:02:36,980 --> 00:02:38,730
+It's got big O of n squared.
+
+45
+00:02:38,730 --> 00:02:42,170
+But when we look at this graph,
+that doesn't seem to jive, right?
+
+46
+00:02:42,170 --> 00:02:46,150
+The graph looks very linear,
+it's going up at a constant rate.
+
+47
+00:02:46,150 --> 00:02:47,710
+It appears linear and not quadratic.
+
+48
+00:02:47,710 --> 00:02:49,560
+It doesn't look like a parabola.
+
+49
+00:02:49,560 --> 00:02:53,410
+And so we're trying to
+understand how is this possible.
+
+50
+00:02:53,410 --> 00:02:58,430
+And one clue comes from looking at
+that other cell in the table and
+
+51
+00:02:58,430 --> 00:03:02,950
+seeing that there is a case when insertion
+sort can behave like a linear algorithm.
+
+52
+00:03:02,950 --> 00:03:08,340
+And so let's think back to when we
+might be in that best case performance,
+
+53
+00:03:08,340 --> 00:03:09,990
+that best case scenario.
+
+54
+00:03:09,990 --> 00:03:10,980
+And to think about that,
+
+55
+00:03:10,980 --> 00:03:15,620
+we have to go back to the code of how we
+go ahead and implement insertionSort.
+
+56
+00:03:15,620 --> 00:03:19,170
+And we realize that
+the variations in performance,
+
+57
+00:03:19,170 --> 00:03:23,898
+the variations in timing for the insertion
+sort algorithm come from this while loop.
+
+58
+00:03:23,898 --> 00:03:28,420
+And this while loop executes
+a different number of times
+
+59
+00:03:28,420 --> 00:03:33,190
+based on how organized or
+unorganized the data is to begin with.
+
+60
+00:03:33,190 --> 00:03:38,400
+So, if we start with really almost
+sorted or fully sorted data,
+
+61
+00:03:38,400 --> 00:03:42,920
+then this while loop just checks
+whether our current element that
+
+62
+00:03:42,920 --> 00:03:46,440
+we care about is in it's correct location
+relative to the other elements and
+
+63
+00:03:46,440 --> 00:03:49,180
+if it is, we don't need to do anything.
+
+64
+00:03:49,180 --> 00:03:54,180
+And, so, if all of the tests that
+we did to create that timing chart
+
+65
+00:03:54,180 --> 00:03:55,560
+that we saw before.
+
+66
+00:03:55,560 --> 00:04:00,070
+If all of those tests were on really,
+really big, but sorted data,
+
+67
+00:04:00,070 --> 00:04:05,030
+then we could very well have gotten that
+linear behavior that we saw, because that
+
+68
+00:04:05,030 --> 00:04:10,710
+insertion sort algorithm is super
+fast on sorted or nearly sorted data.
+
+69
+00:04:10,710 --> 00:04:16,380
+So indeed, that timing chart that we saw
+could be the result of running just basic
+
+70
+00:04:16,380 --> 00:04:21,740
+old insertion sort on really big data as
+long as we know something about that data.
+
+71
+00:04:21,740 --> 00:04:27,810
+And so the moral of this story is that
+when we look at timing data we have to be
+
+72
+00:04:27,810 --> 00:04:31,820
+aware of drawing conclusions
+from that timing data.
+
+73
+00:04:31,820 --> 00:04:37,750
+And, we wanna be cautious about trying
+to deduce the big O complexity and
+
+74
+00:04:37,750 --> 00:04:41,030
+classes of an algorithm
+just based on the timing.
+
+75
+00:04:41,030 --> 00:04:42,260
+That's not enough.
+
+76
+00:04:42,260 --> 00:04:46,160
+Usually we need to understand what the
+data that we were testing on looks like
+
+77
+00:04:46,160 --> 00:04:48,450
+and whether there's other
+factors at play as well.

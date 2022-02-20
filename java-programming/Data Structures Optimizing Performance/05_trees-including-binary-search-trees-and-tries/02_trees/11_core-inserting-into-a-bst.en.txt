@@ -1,0 +1,52 @@
+[MUSIC] In the last video we saw how to
+search a binary search tree but we didn't really see how to
+add elements to it just yet. So let's talk about how to insert
+into a binary search tree. And again, this is part of the motivation
+for having a binary search tree. Sorted arrays are great for search but
+if you wanna do an insertion or removal, linked lists or
+trees are much better for performance. So, by the end of this video
+you should be able to insert an item into the binary search tree. So here's a binary search tree. I have 20 as my root, and
+then I've got children below those. And the question is,
+where should I insert 7 into this tree? Now I have some options for you. I could insert it in Option A,
+Option B, Option C. Is it okay to do either Option A or
+Option B? What I want you to do is answer this in
+the in-video quiz and we'll come back and talk about it. I hope the in-video quiz helped you see
+some of the limitations you have with the binary search tree in where
+you can place your nodes. So lets talk through these one by one. first off, option C isn't allowed. 7 is much less than 30, it can not
+be part of the right sub-tree of 30. Similarly though Option B
+isn't allowed either, right? 7 is still less than ten, so you can't have seven be part
+of the right sub-tree of ten. That eliminates Option D as well,
+leaving us just with Option A. In fact, this is the only place you can
+place seven into this binary search tree. With binary search trees, there's only one place you can
+insert a node when you do so. So let's add in 7 into
+this binary search tree. Let's do a couple more of these. Where should I add 27? So what I'm gonna do, same idea as before,
+is I'm gonna look at 20, 27 is greater than 20, so I'm gonna go into the right
+sub-tree of 20 and I'm gonna look at 30. 27 is less so
+I have to go into 30's left sub-tree. Then I'm going to do 25,
+and 25 is less than 27. So I go into 27's right sub-tree
+only to find that 25 doesn't have a right sub-tree. Perfect, this is the place
+I'm gonna put it. I'm gonna insert right as
+the right child of 25. What am I gonna do then
+if I'm want to insert 8? Same algorithm applies. You're gonna start at 20, you're gonna see
+8 is less than 20, you're gonna go to 10, 8 is still less than 10. So you're gonna go down to 5. 8 is greater than five so
+you are going to 7. 8 is greater than 7 and here you find
+your spot where you can insert that node. Now what want to point out at
+this point is that when you commonly see Binary Search Trees
+they're almost always full tress and what I mean by that is all of
+the levels are completely filled. There is no constraint on insert or binary search tree in itself that it
+has to be full or essentially balanced. You can have just a long string of
+nodes in a binary search tree and it's still a binary search tree. Mia in the next lesson is actually going
+to get into the details of how this affects run times in asymptotic
+run time Again, if you want to go to code this, you can do this
+either with recursion or with iteration. So, if you want to do it recursively, you
+again notice that at any given node you're essentially solving the same problem as
+you would have for the previous node. So recursion applies here really cleanly,
+but so does iteration. With iteration you're just gonna
+keep track of your current node and essentially walk through
+the tree that way. We'll show you how to do that iterative
+approach in our support video. But again I wanna encourage you
+to try this on your own first. I think just knowing the details
+of the algorithm is enough for you to try to code this
+on your own in a project. And then if you get stuck, come back and
+try watching the support video. What we'll do lastly with binary
+search trees is look at deletion and we'll do that in the next video.

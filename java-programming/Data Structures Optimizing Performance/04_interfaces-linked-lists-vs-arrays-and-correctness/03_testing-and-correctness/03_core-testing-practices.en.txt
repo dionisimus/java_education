@@ -1,0 +1,82 @@
+[SOUND] We've heard how
+important it is to test but let's talk now about testing practices. So the goal at the end of this video is
+to be able to describe different testing methodologies and
+be able to compare and contrast them. So first off, let's start by looking
+at the development cycle of code. Kind of standard cycle is to write code
+then write tests to test whether or not the code's working right, run those
+tests and then iterate through there. But there's an entire design development
+practice which puts testing front and center. And what it essentially asks is how
+are you writing that code if you don't know how it's gonna be tested? And there's usually some specifications
+about how the code's supposed to work but you don't know for sure until you
+see how it's gonna be tested. And with this development practice
+called test driven development, what we're gonna do is just essentially
+flip those first two steps. So we're gonna write the tests
+before we actually write the code. Now, there are a number of
+companies that use this approach. But I wanna say, before we start to
+argue the merits of each of these, this is a very contentious area. So when the right tests,
+which tests are best to run? This is open area for debate. Now there's debate within the software
+engineering community about how to do this but there is some general consensus. And the general consensus is you shouldn't
+wait till the end to test your code. Test early and test often. How are we gonna run these tests? Well, there's two testing styles. The first is called black box testing. Now, with black box testing,
+you're only testing the interface or through the interface. The other style known as clear box or
+white box testing or tests that know actually about how
+the implementation was set up. We can think about this going back
+to Christine's earlier example of the abstraction barrier. So we have the car where you're thinking
+about how does the brake pedal work from a driver perspective. And then on the other side of
+the abstraction barrier you've got the mechanics and the engineers who
+actually understand how brakes work. So if you think about black box testing
+you're thinking about essentially just that driver trying to use the interface,
+trying to press the brake to make sure it stops and
+press the gas to make sure it goes. On the hand though, if you're a mechanic you know a lot
+more about the implementation. You may know these are disc brakes,
+so these should be tested this way or these are drum brakes, so
+these should be tested this other way. So it just depends on which side of
+this abstraction barrier you're on. And there are pros and
+cons to each of these. So what I want you to do is look
+through these potential advantages for black box testing and
+see which ones you think are correct. Welcome back. So I hope you were able to look through
+these examples and by doing so, start getting a better feel for
+when black box testing is appropriate and when clear box testing is appropriate. Let's just walk through these one by one. So it's black box testing is it gonna be
+more representative how users are actually going to use the code? To some degree, yes, it is. You think back to that driving example, if you're thinking from
+the clear box testing view. You're the mechanic,
+you're not going to be worried so much about will the user ever press
+the brake and the gas at the same time. But if you're actually user of the car
+it's more apt that your going home with the scenario of well,
+I can actually press both these at once. What should happen? So if you're thinking
+from the interface or the driver side you'll have a better
+view of what users really do? Second one is it easier to write by someone who's unfamiliar
+with the implementation? This is absolutely correct. So you don't need to know how
+that code piece was implemented to be able to test it. You just have to know what
+the interface looks like. So it's easier in a sense to
+write those black box tests. The last option are you more
+knowledgeable of potential corner cases which might cause incorrect behavior
+if you're doing black box testing. The answer's probably not. This really is an advantage
+to clear box testing. But it also just depends on
+how you define corner cases. If you're thinking corner cases as those
+weird scenarios that the users might do like in option a. Then yeah, this kind of is true for
+black box testing. But what we really mean for this option
+here is if you know the details how brakes works, if you know this
+implementation is a disk brake and disk brakes often fail when these two
+components aren't aligned properly. You can do a much more rigorous test on
+that component of the brakes which you wouldn't be able to do if
+you did black box testing. So option c is really an advantage for
+clear box testing not black box testing. So now that we have an idea of these
+tests, what should we actually do for the testing? So should I be testing
+each individual statement? So should I say, assign a to be 5 and
+then test if a is not 5, abort? Well no, this would be silly. This is way too fine grain. This is way too within the weeds. That's too small of
+a piece of code to test. So you're saying, well wait a second. So if it's too small, should I be testing
+at the whole code level of alpha testing? Well, this isn't the right place to start. Alpha testing is incredibly important but
+you don't want wait until then. That is way too late. So we need to find some
+kind of middle ground. And the middle ground that is gonna
+work for us is essentially methods. We need to find a small unit of code,
+small section of code to test and methods that actually match
+that description quite well. In fact, this is what people mean
+when they're saying unit testing. Just testing really small pieces
+of code or units of code. So how are we gonna be
+performing these tests? We're actually gonna be
+doing these using JUnit, which is a built in suite
+essentially to help test Java code. Now it's actually built in and
+allows us to write and run tests for exactly unit testing. It's fantastic. It's actually built into Eclipse, so if
+you want to know more details about how to use JUnit with Eclipse we're gonna
+have a support video on that next. If your more interested in just diving
+in to how do you write tests for linked lists,
+that's gonna be the next core video. Coming up next.

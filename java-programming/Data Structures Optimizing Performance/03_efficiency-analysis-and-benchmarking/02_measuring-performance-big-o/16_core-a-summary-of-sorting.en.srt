@@ -1,0 +1,327 @@
+1
+00:00:00,000 --> 00:00:05,070
+[MUSIC]
+
+2
+00:00:05,070 --> 00:00:07,364
+>> So we've looked at three
+different algorithms for
+
+3
+00:00:07,364 --> 00:00:10,030
+solving the exact same problem,
+that of sorting.
+
+4
+00:00:10,030 --> 00:00:12,490
+And so now let's step back and think about
+
+5
+00:00:12,490 --> 00:00:16,550
+how would we choose which algorithm to use
+and how does their performance compare.
+
+6
+00:00:16,550 --> 00:00:20,670
+So, by the end of this video, you'll be
+able to state the best case, worst case,
+
+7
+00:00:20,670 --> 00:00:23,420
+and average case performance,
+in terms of run time for
+
+8
+00:00:23,420 --> 00:00:25,320
+each of these sorting algorithms.
+
+9
+00:00:25,320 --> 00:00:29,250
+And you'll be able to think a bit
+about which situations call for
+
+10
+00:00:29,250 --> 00:00:31,860
+one of these algorithms
+rather than another.
+
+11
+00:00:31,860 --> 00:00:34,740
+So let's think about our results so
+far, and
+
+12
+00:00:34,740 --> 00:00:37,810
+this table encapsulates what
+we've been thinking through.
+
+13
+00:00:37,810 --> 00:00:41,090
+And we've computed the best case and worst
+case performance of each of selection
+
+14
+00:00:41,090 --> 00:00:43,570
+sort, insertion sort, and merge sort.
+
+15
+00:00:43,570 --> 00:00:47,670
+And something to notice here is that
+we've got the n squared term, or
+
+16
+00:00:47,670 --> 00:00:51,600
+the quadratic term, showing up in the
+first two algorithms that we talked about,
+
+17
+00:00:51,600 --> 00:00:54,860
+and then this n log n performance for
+merge sort.
+
+18
+00:00:54,860 --> 00:00:58,080
+And n log n is quite a bit
+better than quadratic.
+
+19
+00:00:58,080 --> 00:01:01,520
+Now, I'm just going to stick
+another algorithm into the table.
+
+20
+00:01:01,520 --> 00:01:04,730
+We haven't defined what quick sort is,
+how it works.
+
+21
+00:01:06,390 --> 00:01:09,640
+It's another algorithm
+out of a huge collection
+
+22
+00:01:09,640 --> 00:01:11,270
+of sorting algorithms out there.
+
+23
+00:01:12,380 --> 00:01:16,830
+It's sort of a cottage industry of
+defining more and more sorting algorithms,
+
+24
+00:01:16,830 --> 00:01:19,680
+and we'll talk a little bit more
+about why a little bit later.
+
+25
+00:01:19,680 --> 00:01:22,620
+But just so
+you have a reference to another algorithm,
+
+26
+00:01:22,620 --> 00:01:27,020
+the Quick Sort in the best case
+performs like n log n, and
+
+27
+00:01:27,020 --> 00:01:30,517
+in the worst place can have quadratic
+performance, so On squared.
+
+28
+00:01:30,517 --> 00:01:33,540
+So, so far we just have best case and
+worst case, but
+
+29
+00:01:33,540 --> 00:01:36,320
+let's add in that average case
+performance in there, and
+
+30
+00:01:36,320 --> 00:01:39,290
+then think about what this
+table is really telling us.
+
+31
+00:01:39,290 --> 00:01:41,880
+So for example, we might look for
+
+32
+00:01:41,880 --> 00:01:46,450
+which sort is going to be
+the fastest in the best case.
+
+33
+00:01:46,450 --> 00:01:50,470
+So perhaps, we really just care about
+performance and we're willing to maybe put
+
+34
+00:01:50,470 --> 00:01:54,690
+in some work to make sure that we lined
+in the best case as often as we can.
+
+35
+00:01:54,690 --> 00:01:57,390
+And so, in that case we want to narrow in
+
+36
+00:01:57,390 --> 00:02:00,100
+on the cell on the table that
+has the best performance.
+
+37
+00:02:00,100 --> 00:02:04,320
+And linear time beats every
+other time in this cell, and
+
+38
+00:02:04,320 --> 00:02:07,560
+grows more slowly than n log n,
+or than n squared.
+
+39
+00:02:07,560 --> 00:02:09,710
+And so O of n time is really great.
+
+40
+00:02:09,710 --> 00:02:14,600
+And so if we can have any sort of
+confidence that we might stay in
+
+41
+00:02:14,600 --> 00:02:19,150
+the best case relatively often, then
+Insertion Sort might be the way to go.
+
+42
+00:02:19,150 --> 00:02:24,390
+And in the next lesson Leo will be talking
+about some cases in which Insertion Sort
+
+43
+00:02:24,390 --> 00:02:28,430
+might be really appealing.
+
+44
+00:02:28,430 --> 00:02:31,840
+Okay.
+So, we've got this very optimistic, or
+
+45
+00:02:31,840 --> 00:02:34,770
+aggressive, approach that we
+wanna get to the best case and
+
+46
+00:02:34,770 --> 00:02:36,860
+stay there as well as we can.
+
+47
+00:02:36,860 --> 00:02:41,050
+We might also wanna compare Merge Sort and
+Quick Sort because if we look at their
+
+48
+00:02:41,050 --> 00:02:45,250
+best case and average case performance,
+they both perform like n log n.
+
+49
+00:02:45,250 --> 00:02:50,500
+And so then we might focus in on the worst
+case and say, well, why would we ever,
+
+50
+00:02:50,500 --> 00:02:55,020
+ever use Quick Sort if Merge Sort
+has the same best case performance,
+
+51
+00:02:55,020 --> 00:02:57,480
+the same average case performance,
+and does,
+
+52
+00:02:57,480 --> 00:03:00,210
+well, way better in the worst
+case than Quick Sort?
+
+53
+00:03:00,210 --> 00:03:03,240
+Is there ever a reason in which we use
+Quick Sort rather than Merge Sort?
+
+54
+00:03:03,240 --> 00:03:06,940
+Why did I even bother
+putting it in the table?
+
+55
+00:03:06,940 --> 00:03:11,900
+And this leads us to the observation
+that the asymptotics,
+
+56
+00:03:11,900 --> 00:03:15,450
+this performance bound that we've
+been computing of the big O
+
+57
+00:03:15,450 --> 00:03:20,220
+class of the run timer, the number of
+operations that the algorithm performs,
+
+58
+00:03:20,220 --> 00:03:23,560
+is really not the only measure
+of goodness of an algorithm.
+
+59
+00:03:23,560 --> 00:03:26,500
+So this goes back to when we first
+started talking about sorting
+
+60
+00:03:26,500 --> 00:03:28,520
+in the first course in the specialization.
+
+61
+00:03:28,520 --> 00:03:32,110
+We talked about other properties
+that a sorting algorithm might have.
+
+62
+00:03:32,110 --> 00:03:37,350
+It might be stable, or it might use
+very little auxiliary memory so
+
+63
+00:03:37,350 --> 00:03:40,180
+it might have, it'd be very nimble.
+
+64
+00:03:40,180 --> 00:03:43,830
+>> And so, when we're thinking about
+choosing a sorting algorithm we want to
+
+65
+00:03:43,830 --> 00:03:49,110
+choose amongst the whole
+array of possible algorithms,
+
+66
+00:03:49,110 --> 00:03:53,640
+taking run time performance as one
+indicator of which one to use, but
+
+67
+00:03:53,640 --> 00:03:57,310
+also thinking about the use case and
+the actual real-world factors
+
+68
+00:03:57,310 --> 00:04:00,390
+that influence which algorithm
+is going to be right for us.

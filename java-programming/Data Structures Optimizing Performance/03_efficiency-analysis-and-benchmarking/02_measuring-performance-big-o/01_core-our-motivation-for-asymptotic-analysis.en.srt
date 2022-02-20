@@ -1,0 +1,672 @@
+1
+00:00:04,492 --> 00:00:08,140
+All right, now you've gotten warmed up
+with a project and now we want to think
+
+2
+00:00:08,140 --> 00:00:12,250
+about performance, and this is a common
+theme throughout the entire course.
+
+3
+00:00:12,250 --> 00:00:15,382
+We'll be writing code but then we'll
+also be talking about analyzing it,
+
+4
+00:00:15,382 --> 00:00:19,180
+thinking about if it's good enough,
+and what that even means.
+
+5
+00:00:19,180 --> 00:00:23,503
+So, by the end of this first video, you'll
+have a better sense of what it means to
+
+6
+00:00:23,503 --> 00:00:27,212
+talk about the performance of
+an algorithm and why it's important.
+
+7
+00:00:27,212 --> 00:00:30,586
+And then we'll also describe some
+factor that impact the performance of
+
+8
+00:00:30,586 --> 00:00:31,950
+an algorithm.
+
+9
+00:00:31,950 --> 00:00:35,160
+So, first of all,
+before we delve into an example,
+
+10
+00:00:35,160 --> 00:00:39,080
+let's remind ourselves that an algorithm
+is a strategy for solving a problem.
+
+11
+00:00:39,080 --> 00:00:41,290
+So when we talked about
+the performance of an algorithm,
+
+12
+00:00:41,290 --> 00:00:43,740
+we're talking about how
+good that strategy is for
+
+13
+00:00:43,740 --> 00:00:47,540
+coming at the solution of the problem
+that we're thinking about.
+
+14
+00:00:47,540 --> 00:00:50,390
+So, let's think about an example
+that comes from the project.
+
+15
+00:00:50,390 --> 00:00:53,180
+And in the project we're analyzing
+a whole bunch of text, and
+
+16
+00:00:53,180 --> 00:00:55,200
+we're trying to understand
+how readable it is.
+
+17
+00:00:55,200 --> 00:00:56,940
+That's the first part of the project.
+
+18
+00:00:56,940 --> 00:00:59,890
+And Christine suggested that
+we used the Flesch score and
+
+19
+00:00:59,890 --> 00:01:02,150
+she talked about that in
+some of the earlier videos.
+
+20
+00:01:02,150 --> 00:01:05,420
+And so we have a way of computing
+some numerical representation
+
+21
+00:01:05,420 --> 00:01:09,240
+of the readability of a text,
+based on the number of words,
+
+22
+00:01:09,240 --> 00:01:11,850
+the number of sentences, and
+the number of syllables.
+
+23
+00:01:11,850 --> 00:01:13,910
+Okay, so that's great.
+
+24
+00:01:13,910 --> 00:01:18,620
+We read in a whole bunch of text,
+we compute this Flesch score and
+
+25
+00:01:18,620 --> 00:01:22,480
+then we have a description
+of how readable the text is.
+
+26
+00:01:22,480 --> 00:01:25,180
+But the question is,
+how long does it take?
+
+27
+00:01:25,180 --> 00:01:29,370
+So, from when we've read in the text to
+when we have the Flesch score available
+
+28
+00:01:29,370 --> 00:01:30,670
+for our user.
+
+29
+00:01:30,670 --> 00:01:34,650
+And if we want to answer that question,
+we might just time it.
+
+30
+00:01:34,650 --> 00:01:38,910
+So, we might start a stopwatch and
+press go when our algorithm to compute
+
+31
+00:01:38,910 --> 00:01:44,470
+the Flesch score starts, and then stop the
+stopwatch when we've gotten the answer.
+
+32
+00:01:44,470 --> 00:01:48,020
+The issue, though,
+is that this time that we get
+
+33
+00:01:48,020 --> 00:01:52,150
+might not be a great representation
+of how good our algorithm is.
+
+34
+00:01:52,150 --> 00:01:56,173
+So we're asking how good is
+the algorithm for computing flesh score?
+
+35
+00:01:56,173 --> 00:02:00,163
+And so, before we get to answering that
+question, let's think about what might be
+
+36
+00:02:00,163 --> 00:02:03,390
+the problem with just looking
+at the stopwatch time.
+
+37
+00:02:03,390 --> 00:02:07,210
+So if we think about how
+much time it takes for
+
+38
+00:02:07,210 --> 00:02:13,130
+our code to run on a particular input,
+what might impact that time?
+
+39
+00:02:13,130 --> 00:02:16,840
+Well, so, for example,
+the computer that we're running on,
+
+40
+00:02:16,840 --> 00:02:20,910
+will have a huge part to play
+in how quickly the code runs.
+
+41
+00:02:20,910 --> 00:02:24,980
+So, if we run on really old hardware,
+then we expect
+
+42
+00:02:24,980 --> 00:02:29,710
+our code to take longer than if we run
+it on a really snazzy new machine.
+
+43
+00:02:29,710 --> 00:02:33,320
+Or if the computer's really bogged down
+with a whole lot of other programs,
+
+44
+00:02:33,320 --> 00:02:36,090
+then we expect it to be a little
+bit slower than one that
+
+45
+00:02:36,090 --> 00:02:39,310
+is devoting all of its resources to
+just the one program that we're running.
+
+46
+00:02:40,760 --> 00:02:42,370
+Other factors that might come into play,
+
+47
+00:02:42,370 --> 00:02:47,310
+include the compiler that we use to
+compile our code into machine language.
+
+48
+00:02:47,310 --> 00:02:51,920
+But also decisions that we make
+about what libraries to use and what
+
+49
+00:02:51,920 --> 00:02:56,780
+optimizations were made in those libraries
+for the particular commands that we want.
+
+50
+00:02:56,780 --> 00:03:02,470
+So, just running our code on
+a particular input and timing it
+
+51
+00:03:02,470 --> 00:03:08,380
+doesn't really give us a big picture
+of our overall strategy for the code.
+
+52
+00:03:08,380 --> 00:03:12,568
+So you can think about the problem solving
+paradigm, as we're given a problem,
+
+53
+00:03:12,568 --> 00:03:14,671
+compute the Flesch score of given text.
+
+54
+00:03:14,671 --> 00:03:20,001
+And we've got a strategy for computing
+that Flesch score that maybe says,
+
+55
+00:03:20,001 --> 00:03:24,540
+read in all the text and
+compute how many words there are.
+
+56
+00:03:24,540 --> 00:03:27,120
+Read in all the text and
+compute the number of sentences.
+
+57
+00:03:27,120 --> 00:03:29,690
+Read in all the text and
+compute the number of syllables.
+
+58
+00:03:29,690 --> 00:03:32,780
+And then once we've got those numbers,
+
+59
+00:03:32,780 --> 00:03:35,700
+then we do something with it and
+compute the Flesch score.
+
+60
+00:03:35,700 --> 00:03:39,172
+And so, that high-level description
+is like our algorithm, and
+
+61
+00:03:39,172 --> 00:03:42,830
+then we've coded it up in Java, or
+you've done it in the project, and
+
+62
+00:03:42,830 --> 00:03:44,879
+we have a particular implementation.
+
+63
+00:03:44,879 --> 00:03:49,016
+And what we'd like to do is talk about
+the performance of the algorithm and
+
+64
+00:03:49,016 --> 00:03:52,870
+sometimes that's tied into
+the implementation as well.
+
+65
+00:03:52,870 --> 00:03:56,910
+And so, just the time for running
+the specific code on a specific machine
+
+66
+00:03:56,910 --> 00:04:00,290
+on a specific input doesn't
+give us the whole picture.
+
+67
+00:04:00,290 --> 00:04:04,480
+So, should we just give up
+trying to measure performance?
+
+68
+00:04:04,480 --> 00:04:07,490
+Well we shouldn't because
+performance is so important.
+
+69
+00:04:07,490 --> 00:04:11,460
+Performance is the difference between
+running a really cool algorithm
+
+70
+00:04:11,460 --> 00:04:15,600
+that let's us answer very hard
+questions in very short amount of time.
+
+71
+00:04:15,600 --> 00:04:21,300
+And therefore, processing more and
+more data that then leads
+
+72
+00:04:21,300 --> 00:04:27,040
+to analyze even bigger trends and
+answering more important questions.
+
+73
+00:04:27,040 --> 00:04:31,300
+And if we don't have handle on
+the size of the data that we can
+
+74
+00:04:31,300 --> 00:04:34,780
+process with our algorithms, then maybe we
+think we have a really cool solution but
+
+75
+00:04:34,780 --> 00:04:38,720
+if we try to run it, then the program's
+not gonna stop until the end of time.
+
+76
+00:04:38,720 --> 00:04:44,540
+And so, having a sense of how our
+solutions interact with larger data and
+
+77
+00:04:44,540 --> 00:04:48,170
+more complicated data is at
+the heart of solving these problems.
+
+78
+00:04:48,170 --> 00:04:50,650
+So we don't want to give up,
+but what can we do?
+
+79
+00:04:50,650 --> 00:04:57,130
+Well, maybe instead of measuring the time,
+we're going to count operations.
+
+80
+00:04:57,130 --> 00:04:59,690
+Because hopefully we have a sense of,
+
+81
+00:05:01,190 --> 00:05:05,360
+perhaps if we have some sort
+of basic operation, then
+
+82
+00:05:05,360 --> 00:05:09,440
+the amount of time that it takes to make
+that operation, well, we can't control it.
+
+83
+00:05:09,440 --> 00:05:14,060
+But, we'll know that our algorithm
+takes not too many operations.
+
+84
+00:05:14,060 --> 00:05:16,360
+And so, it won't take that long.
+
+85
+00:05:16,360 --> 00:05:20,840
+Okay, so, we are deciding that we're just
+going to focus on what we can control,
+
+86
+00:05:20,840 --> 00:05:23,320
+which is the number of operations
+we asked the computer to do,
+
+87
+00:05:23,320 --> 00:05:26,460
+rather than how long the computer
+takes to do those operations.
+
+88
+00:05:26,460 --> 00:05:29,540
+And, so we might go ahead and
+try to count them.
+
+89
+00:05:29,540 --> 00:05:31,680
+In our example of the Flesch score,
+
+90
+00:05:31,680 --> 00:05:35,880
+we want to start at the first part
+of our text, and go through it.
+
+91
+00:05:35,880 --> 00:05:39,560
+And for example, we're going to count
+the number of syllables in the document.
+
+92
+00:05:39,560 --> 00:05:42,510
+And so we want to count the number
+of operations that happens.
+
+93
+00:05:42,510 --> 00:05:45,470
+The thing is, though, the number of
+operations that we have to do in
+
+94
+00:05:45,470 --> 00:05:48,630
+order to count the syllables,
+depends on our input.
+
+95
+00:05:48,630 --> 00:05:53,500
+So, if we're looking at the whole
+American tax code, that's
+
+96
+00:05:53,500 --> 00:05:57,040
+going to be a whole lot of operations
+to count all the syllables in there.
+
+97
+00:05:57,040 --> 00:05:59,484
+As opposed to,
+if we just looked at a short snippet,
+
+98
+00:05:59,484 --> 00:06:03,375
+like in the example that Christine did,
+where it's still a complicated text, but
+
+99
+00:06:03,375 --> 00:06:05,337
+we're just looking at a small part of it.
+
+100
+00:06:05,337 --> 00:06:09,130
+And so the number of operations
+that we execute will be smaller.
+
+101
+00:06:10,200 --> 00:06:14,450
+Now, notice that we're performing
+the exact same algorithm,
+
+102
+00:06:14,450 --> 00:06:18,080
+whether we're looking at the whole
+tax code or just a small part of it.
+
+103
+00:06:18,080 --> 00:06:21,250
+And so our measure of performance
+should be about the algorithm
+
+104
+00:06:21,250 --> 00:06:23,250
+shouldn't be talking about the input.
+
+105
+00:06:23,250 --> 00:06:26,660
+So what we need to do,
+is focus on how the performance scales,
+
+106
+00:06:26,660 --> 00:06:31,380
+which means how does the number of
+operations grow as our input grows?
+
+107
+00:06:31,380 --> 00:06:34,680
+So for example,
+we'll ask questions like, if the list,
+
+108
+00:06:34,680 --> 00:06:36,610
+which is the string of text
+that we're processing,
+
+109
+00:06:36,610 --> 00:06:42,320
+is twice as long, how many more
+operations will it take us to process it?
+
+110
+00:06:42,320 --> 00:06:46,960
+Okay, so, we've moved away from just
+timing using the clock time, and
+
+111
+00:06:46,960 --> 00:06:50,480
+we've gone to looking at the number of
+operations our algorithm takes, and
+
+112
+00:06:50,480 --> 00:06:53,140
+we're not just going to look at
+the number as an absolute number.
+
+113
+00:06:53,140 --> 00:06:57,504
+We're thinking about how it grows and
+changes as the input size changes.
+
+114
+00:06:57,504 --> 00:07:01,790
+Okay, but is size all that matters?
+
+115
+00:07:01,790 --> 00:07:07,065
+For example, if I have two collections
+of text, say the American tax code and
+
+116
+00:07:07,065 --> 00:07:12,748
+then something else that is equally long,
+that are standing right in front of me and
+
+117
+00:07:12,748 --> 00:07:16,586
+I try to process both of these
+texts one after the other.
+
+118
+00:07:16,586 --> 00:07:21,047
+Will the number of operations that's
+required to process the IRS tax code,
+
+119
+00:07:21,047 --> 00:07:24,950
+be exactly the same as the number
+of operations required to process
+
+120
+00:07:24,950 --> 00:07:26,600
+something else?
+
+121
+00:07:26,600 --> 00:07:28,160
+Maybe, maybe not.
+
+122
+00:07:28,160 --> 00:07:30,900
+This is a worthwhile question to consider,
+and so
+
+123
+00:07:30,900 --> 00:07:35,090
+we're going to take that into account as
+well, when we think about performance.
+
+124
+00:07:35,090 --> 00:07:39,835
+So, our three strategies for
+talking about performance include,
+
+125
+00:07:39,835 --> 00:07:43,050
+#1, count the operations
+instead of the time.
+
+126
+00:07:43,050 --> 00:07:46,620
+So we abstract away from the machine
+considerations and the software
+
+127
+00:07:46,620 --> 00:07:50,555
+considerations that aren't part of the
+algorithm design problem that we faced.
+
+128
+00:07:50,555 --> 00:07:53,640
+#2, is focus on how
+the performance scales.
+
+129
+00:07:53,640 --> 00:07:56,530
+Because we care about
+really big inputs and so
+
+130
+00:07:56,530 --> 00:08:01,330
+we wanna know about what happens
+eventually as the output gets bigger and
+
+131
+00:08:01,330 --> 00:08:04,312
+bigger and bigger,
+how does our algorithm handle it?
+
+132
+00:08:04,312 --> 00:08:08,200
+And #3, go beyond the input size
+because what we'd like to know,
+
+133
+00:08:08,200 --> 00:08:11,560
+is how the algorithm responds
+in all sorts of situations.
+
+134
+00:08:11,560 --> 00:08:16,049
+And so we'd like our performance analysis
+to be able to capture not just the size
+
+135
+00:08:16,049 --> 00:08:16,920
+of the input but
+
+136
+00:08:16,920 --> 00:08:21,410
+also what might happen because of
+internal structure to the input.
+
+137
+00:08:21,410 --> 00:08:23,690
+Okay so,
+in the next video what we're going to do,
+
+138
+00:08:23,690 --> 00:08:28,329
+is delve right in to counting
+operations for specific codes snippets.

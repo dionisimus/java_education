@@ -1,0 +1,7 @@
+[MUSIC] Hi. So, one of the products I work on is the
+Google Takeout product within My Account. And one of the things we like to use trees
+for is to represent file structures. So, they're ideal for
+representing hierarchies in a system. And we'd like to model them,
+perhaps group them, shuffle them around. We also pass those structures around to
+different parts of the system, so we can manipulate them, add to them, can search
+them, and trees make a great fit for that.

@@ -1,0 +1,131 @@
+So Leo introduced binary search
+trees in the previous video, and what we'd like to do now is really focus
+in on the performance of algorithms that use binary search trees, because with all of these data structures
+that we're talking about, one of the big motivations for introducing a data
+structure is to get better performance. So let's see if we do that
+with binary search trees. So in particular,
+by the end of this video, you'll be able to explain the running
+time performance of looking for a word in a binary search tree and
+comparing this performance with other data structures that we have where we
+might want to search for words. So, in particular, for linked lists. All right, so let's think back to
+binary search trees and, in particular, in the programming assignment that you
+were working through we'll be using binary search trees to store dictionaries. So we are storing lists of words and we
+like to be able to lookup and search for words in this data structure. So we're gonna do just a small
+example with these words, and let's think about what
+binary search trees we might get if we start building
+a tree using these words. So it turns out that it's not just
+a single binary search tree that might result. We could get any of these three or
+others potentially. Depending on the order in which
+we insert words into the tree. And so you can follow along and
+each one of these trees and confirm that, in fact, when you look at a node
+that's to the left of a node, and a node that's on its right,
+each time you're going to get the one that's on the left is alphabetically
+before the one that's on the right. Whether it be in the green, binary search tree where we all have
+just a single path going down or in one of the bushier trees that you
+see on the right hand side as well. All right, so we have these three
+different binary search trees. All try to capture that same set
+of words that form our dictionary. And that's going to be interesting when
+we think about performance because we have to think about each
+of these different possible binary search trees that
+we might be working with. So let's think about the isWord method for
+looking up a word in the binary search tree, so
+looking up a word in the dictionary. You can think about an application where
+we were just building the tree and we're trying to add new words to it. And so every time we're looking up
+to see if it's already in there and then perhaps adding to it. Or you can think about searching
+through a big collection of data and trying to find some particular
+piece that we care about. In either situation what we want to
+do is we want to start at the root of the tree, and we want to compare the word that we care
+about to the value at the current node. Now, if at the current node we actually
+don't have a word, if the current is null, then that means that we haven't
+found our word that we care about. It's not in the tree and
+so we return false. On the other hand,
+what we want to do is we wanna compare the word that we care about to the current
+word, and if it actually agrees with it. Then we wanna return true. And so if we found the word,
+then we're happy, and we can return true. On the other hand, we have two
+possibilities for what happens if our node isn't null and if the current word doesn't
+agree with the word that we want to find. Either the word that we want to find is
+alphabetically before the current word, or it's alphabetically
+after the current word. And if it's alphabetically
+before the current word, then we only need to look at the sub
+tree to the left of the current word. If the word that we care about is
+alphabetically greater than or after the word that we're
+looking at right now, then we need to look at the right
+sub tree of the binary search tree. All right, so, let's think about
+what that might look like and remember when we're analyzing performance
+we want to think about best case and worst case performance,
+you want to think about average case. And with each situation it's useful
+to work through some examples and see what does it mean to get lucky
+when we're running this method on particular inputs, and
+what does it mean to get unlucky? And also we need to think about
+what size of input do we, what does it mean to talk
+about the size of the input? What input do we have to this method? And when you think about
+this isWord method, what we're doing is searching
+through a collection. And so the relevant input size,
+is the size of the dictionary. The number of words we're looking through. It's not so
+much the length of the current word. It's not so
+much how many words we're looking for but, it's the size of the dictionary,
+the number of words that we're storing that we're looking
+through in order to find the word to find. Okay, so our input size, or n,
+is the number of words in our dictionary. And what we'd like to think about is how
+to relate the performance of this method is word, to that size. How does our performance change as the
+number of words in the dictionary changes? So let's, for example, look at what happens when we
+run isWord on the word east. And what we have to do using our
+algorithm is look first at the root of the binary search tree. And oh yay, we're lucky,
+we hit our desired word, east, right away. And so that means that for this particular
+run of the algorithm, we've got just a single comparison that we make between
+the argument and a value of the tree. And so, well that comparison
+might take a few operations, but if we are lucky in the very first probe
+of the binary search tree, the very first comparison we make, that's going to
+take a constant number of operations. It's not going to depend on how
+big the tree was if we already were successful when
+we looked at the root. So in the best case, the case
+where we find our word right away, the performance of this algorithm
+is big O(1), constant time. But, we're not always lucky. So, let's look at another case where
+the word that we're looking for isn't at the root. So let's think about what happens
+when we look for the word, a. So we start at the root. And we compare east and a, and we notice
+that a happens alphabetically before east. So we have to look at that left
+sub-tree of the binary search tree. Now we're looking at comparing a with at. All right,
+a is still alphabetically at at. It's a prefix of at so it comes earlier. So we look to the left. And now we're comparing a with am. All right, now again a is
+alphabetically before am, and so we have to look to the left, but
+we didn't find anything there. The children of am are null. And so what we notice is
+we've fallen off the tree. A does not occur in our dictionary. And so we can return an answer that says
+It is not a word in our dictionary so false. Now that's okay, it's okay if we
+don't always find the word, but what we are curious about
+here is the performance. How long did it take us to
+come to this conclusion? And notice that we compared here our words
+to find a with three out of a seven words in the dictionary and so we're working
+through examples, but we really care about the general case so can we extrapolate
+what it means to think about three out of the seven words to a general case
+as the dictionary gets really big. Well, that seems hard. So, let's think about maybe some
+more examples that will give us insight into the general case. And in particular we have to
+remember that our binary search tree might be organized
+a little bit differently. So let's think about the exact
+same input a but with a different characterization of the binary search
+tree so a different organization of it. And so if we had that linear version
+of the binary search tree what happens, how many comparisons we need to do as we
+look for the word a amongst the seven words in the dictionary that we
+populated the search tree with. So again, we compare first to the root and
+we see that a comes before e, so we go to the left. We compare with the next word. A is still before e and
+so we go to the left. We compared a with e here, and
+we see that we still have to go left. We compare a with ate,
+we still have to go left. We compare a with at,
+we still have to go left. We compare a with m, and we notice
+that now we fall off the tree, and we see that a is not in there. But we have to compare with every single
+one of the words in our dictionary in order to come to this conclusion. So notice that this was
+even worse than before in terms of the number of
+comparisons that we had to do. And so if we're doing worst case analysis, then this is the kind of tree
+that we need to think about. So, not only did we have to think about
+the number of elements in the dictionary, so here, n was seven, we also had to
+think about how the tree was organized, and what organization would lead
+us to the worst case behavior, the worst possible behavior. And, so, we see that in this linear tree,
+when we're looking for a word that's not on the tree, in the worst
+case we have to make o of n comparisons. We had to compare our word with every
+single one of the words in the dictionary. Okay, so, that leads us to this analysis
+of how can we avoid the worst case? So in the worse case we
+had this linear tree. And we had to go all the way to
+the bottom to the first time that we fell off the tree. And then we're only then we'll
+be able to return false. But maybe we can think of
+a modification of our data structure, that will help us avoid the situation. And so what we'd like to do is think
+about how the path that we have to travel until we fall off
+the tree can be controlled. Or if there is a property of the tree that
+we can impose that will make sure that we don't have to go too far.

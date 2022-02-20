@@ -1,0 +1,182 @@
+1
+00:00:00,000 --> 00:00:03,610
+[MUSIC]
+
+2
+00:00:03,610 --> 00:00:08,256
+In this video we're gonna look at the cool
+features you'll get to ad to your
+
+3
+00:00:08,256 --> 00:00:10,220
+text editor as part of week 5.
+
+4
+00:00:10,220 --> 00:00:12,510
+So the first of these is
+essentially spelling suggestions,
+
+5
+00:00:12,510 --> 00:00:15,960
+which is a core feature
+of any text editor today.
+
+6
+00:00:15,960 --> 00:00:17,365
+So once you turn on spelling suggestions,
+
+7
+00:00:17,365 --> 00:00:18,780
+it's gonna mark the ones
+that are incorrect,
+
+8
+00:00:18,780 --> 00:00:20,330
+which we've essentially
+already figured out how to do.
+
+9
+00:00:20,330 --> 00:00:23,240
+Is we just check to see if
+the words are in the dictionary.
+
+10
+00:00:23,240 --> 00:00:26,250
+But what spelling suggestions is gonna do,
+is it's gonna allow you to right click on
+
+11
+00:00:26,250 --> 00:00:30,280
+a word, and have it give you suggestions
+which are essentially words that are real
+
+12
+00:00:30,280 --> 00:00:33,280
+words that are close to
+the misspelled word.
+
+13
+00:00:33,280 --> 00:00:37,030
+For example if I click on my
+words key instead of working,
+
+14
+00:00:37,030 --> 00:00:39,750
+it's gonna give me working,
+along with some other words that
+
+15
+00:00:39,750 --> 00:00:42,120
+are essentially very close
+to that misspelled word.
+
+16
+00:00:42,120 --> 00:00:47,090
+I can select working to fix it, likewise,
+for prooblems, I can click on that and
+
+17
+00:00:47,090 --> 00:00:48,720
+correct it to be problems.
+
+18
+00:00:48,720 --> 00:00:51,080
+Again, this is a core
+featuring text generator.
+
+19
+00:00:51,080 --> 00:00:55,860
+It's a fun feature to implement, and
+that's the first part of the assignment.
+
+20
+00:00:55,860 --> 00:00:58,810
+So the second part here is really just for
+fun.
+
+21
+00:00:58,810 --> 00:01:02,240
+And in the second part what we're going
+to do is essentially play a game where
+
+22
+00:01:02,240 --> 00:01:06,720
+we try to go from one word to another by
+making small interchanges that result
+
+23
+00:01:06,720 --> 00:01:07,950
+in real words.
+
+24
+00:01:07,950 --> 00:01:09,890
+And I think this will more
+clear with an example.
+
+25
+00:01:11,100 --> 00:01:14,400
+So let me input the word this and time.
+
+26
+00:01:14,400 --> 00:01:16,880
+And what we're going to
+do is try to find a path
+
+27
+00:01:16,880 --> 00:01:19,600
+by making these small
+changes from this to time.
+
+28
+00:01:19,600 --> 00:01:24,040
+And the path that it
+finds takes four steps.
+
+29
+00:01:24,040 --> 00:01:27,940
+So if I start with the word this and
+I try to make permutations to it,
+
+30
+00:01:27,940 --> 00:01:31,050
+I could add a letter
+like n to produce thins.
+
+31
+00:01:32,060 --> 00:01:37,350
+Once I have thins, I can change
+the letter S to E to make it thine.
+
+32
+00:01:37,350 --> 00:01:42,760
+Once I have thine, I can remove
+the letter H to produce the word tine.
+
+33
+00:01:42,760 --> 00:01:47,820
+And once I have the word tine, I can
+change the letter n to be the letter M.
+
+34
+00:01:47,820 --> 00:01:48,940
+Notice for each of these steps,
+
+35
+00:01:48,940 --> 00:01:52,830
+I'm making a single character
+mutation that results in a real word.
+
+36
+00:01:52,830 --> 00:01:55,270
+This is kind of a fun game
+to play in your head, but
+
+37
+00:01:55,270 --> 00:01:57,840
+in this case we're gonna
+be implementing it in code.
+
+38
+00:01:57,840 --> 00:02:00,200
+So again, hope you have fun
+with this project, good luck!

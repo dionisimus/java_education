@@ -1,0 +1,140 @@
+[MUSIC] So we've been talking about insertion
+sorting and selection sorting, and we've been analyzing their performance. And in this video we're going to
+talk about yet another algorithm to accomplish the exact same task,
+which is sorting a collection of data. And so by the end of this video,
+you'll be able to describe this algorithm, the merge sort algorithm. And the reason we're talking
+about it is because it's a very different kind of algorithm from
+the ones that we've looked at so far. And in particular, it uses recursion. So you'll be able to explain how this
+particular algorithm uses recursion, and then discuss its performance. So let's start with a description
+of the algorithm and how it goes about sorting
+a collection of data. So we're presented with some input
+data and we think of it as a list. And let's just think about
+the easiest case we might have. And in the easiest case that
+list will only have one element. And so if our list has just one element
+then really we don't need to do anything. We can return. Because just one element
+is already sorted. There's nothing that
+could be out of place so it's already all organized
+in ascending order. Okay, so if we're in that special
+base case, the small case. Then we're done, but if not then we
+actually have to do some work and the merge sort algorithm says well, I've got a big collection of data that I
+need to organize from smallest to biggest. And that seems really hard so why don't
+I make my life a little bit easier and just cut the list right in half. And then I'll focus on say the first
+have of the collections of data and say can I organize that piece. Okay, maybe that's a slightly easier task
+because I've got fewer elements there. And so I'll think about how
+to do that in a minute. But, suppose I was able to organize
+that first half of the list. Then I go ahead and say, well what
+about the second half of the list? Can I organize that? Can I sort it in order
+from smallest to biggest? And again, that's a smaller collection
+than what I started with so maybe it's a little bit easier. And so once I do these two steps, then I've got two smaller lists
+that are each sorted, and now what remains is to somehow combine those
+two lists while maintaining the order. And so I'd wanna merge the two sorted
+lists and then output the result. And so we really haven't done
+any comparison of elements yet, in this description. But what we've done is described a high
+level strategy of how we might sort of big list by dividing the problem
+into something a little bit smaller. Sort the first half, sort the second half,
+and then merge the results while preserving the order of the two
+smaller lists that are sorted. Okay, so that seems like a plausible
+strategy, when we have a big problem, break it down, divide and conquer. But we've really kind of punted,
+we've postponed our solution for how do we actually go ahead and
+sort these two smaller sublists? We haven't said how we're
+going to do that, and this is when something really
+powerful comes into play. What we're doing here is
+using the power of recursion. And what recursion is all about
+is breaking a big problem down into a smaller subproblem and then a manageable amount of work to
+incrementally change what we need to do. So we had a big list to begin with,
+and we're going to think about solving the problem on
+the big list as solving smaller, similar subproblems and
+then combining the results. And what's really helping us out here is
+that once was broken down the problem into smaller and smaller and smaller list,
+eventually we know what to do because eventually, if we get down to just a
+single element, then that list has sorted. Okay, so, this all kinda
+feels a little bit abstract. So, let's work through an example and
+see how it all plays out. So let's think about a five element list. And think about the numbers,
+the integers between one and five that we've messed around a bit,
+and so they're not in order anymore. And so we'd like to use the merge sort
+algorithm to rearrange the numbers in this list and put them in order. So, according to our merge sort algorithm,
+we first of all observe that this list has more than one element, so
+we're not in the base case. We have to do something, and so we're going to divide the list in
+half and then sort the two halves. So we start by dividing the list in
+half and so we've got the first half. Well, half of 5 is two and a half and
+so we round down to two elements, and then the rest of the list
+is in the second half. And now we need to sort that first half,
+but sorting means using merge sort, again, using our overall strategy, and so
+that means we start at the beginning and we check, does the list that contained
+5 and 3 have just one element? No, it's got two. So we need to divide
+that list in half again. And so the list that contains 5 and
+3 gets divided down into a list that just contains 5, and
+a list that just contains 3. And similarly the list that contained 2,
+4, and 1, gets divided down into halves. One that contains just the element 2,
+and then the second part of that list is the list that contains the elements 4 and
+1. Okay and now what we want to do is sort each of those halves that we
+got out of dividing our lists. And so we look at that first half of
+the list, and that just has the element 5. And so when we reach down to this base
+case of a list with just one element, then that one list is already sorted so
+we can return. And so when we've sorted the list five,
+well we don't need to do anything. So the yellow shading indicates
+that that list is sorted. And similarly the list that just contains
+3 and the list that just contains 2. When we look at the list it contains 4 and
+1 and we try to apply merge sort to that list in order to sort that half so
+then we can merge all the way back. We notice that it has
+more than one element so we need to divide it in half and
+then we'll be sorting each of it's halves, but they're just one element list so
+they're already sorted. Okay, so what we've done at this point
+is just broken down our problem over and over again to narrow into the smallest
+sub problems that we can actually manage. And so we've started with a big list and
+we've divided, and divided, and divided in half until we get a whole bunch
+of lists that each have one element. And so those one element lists are sorted. But now we have to do that crucial
+step of merging the sorted lists while preserving the order. So let's think about what that happens. We want to merge the lists 5 and 3, and that means we're going
+to combine their elements. The resulting list is gonna have two
+elements, but we want to do it in order, so we choose to pick off the elements
+from the top of the list, or the head of the list. Based on which one is smaller. And so we're going to start with
+the 3 because it's smaller, and afterwards put in the 5. And notice that what we got as a result
+is a sorted list, but it's a little bit bigger than what we had before, and so
+it's bringing us one step closer to our result, which is that sorted,
+five element array that we're looking for. Okay, so we've combined two halves
+of a list that were part of our recursive descent into the smallest sub
+problems, and now we keep on going. So the 1 and the 4 get combined
+to a two element list and then we add in that list two. And notice that when we merge
+the list two with the list one four, what's going to happen is that the 2 will
+get inserted between the 1 and the 4. Because we're comparing the heads
+of the list at each point, and making sure to merge those lists so
+that they preserve the order. And so then what we have is a two
+element list on one side that's sorted. And a three element list on
+the other side, also sorted. And we're going to merge those. And what we'll get is exactly the sorted
+array 1, 2, 3, 4, 5 that we want. Okay, so this is a bit of a quick and dirty high level description
+of the merge sort algorithm. I encourage you to try implementing it. It's very, it feels really good to
+see it in action in front of you. But, it is a bit tricky because it is
+using this principle of recursion. And so, what we're focusing on in
+this module of the course isn't so much an in-depth analysis of recursion. But rather an illustration
+of the different possible algorithms that are out there. For solving the same problem, and then thinking about how that
+translates to different performance. So, let's think about that performance. Let's think about how we might analyze
+how long it takes merged sort to run. How many operations are required. And so if we think about this algorithm, really at the beginning all we were doing
+is saying I don't want to sort yet. I don't want to sort yet, I'm just going to define my problem and
+smaller subproblems. And so we were organizing our data
+until the step where we had to merge. That's where we starting doing
+comparisons between list elements and really putting them together. And at each level of the recursion once
+we started merging the sorted lists, what we had to do was compare,
+pair-wise, basically all the elements. But only once, each of them,
+were we comparing it with another element. And so if we count how many comparisons
+are required there, it's O(n). Where n, remember, is our input size,
+the size of the list that we started with. So really where we were doing a lot of
+work was at a single level, merging all those smaller lists together and
+figuring out how to maintain the order. Okay.
+So then the question is, how many times did we have to do this big merge step, and
+the number of times that we have to do the merge step depended upon how many
+times we had to divide the lists in half. And to get them into smaller and
+smaller chunks so that we could sort them. Okay, so each time that we divide,
+we got two smaller lists. So if we started with a list of size five,
+when we divided we got lists of size two and three and
+then smaller and smaller and smaller. And we got to stop. When all our lists were of size 1. So we had to keep dividing until
+all of our lists were of size 1. And so we're asking ourselves how many
+times do we have to keep dividing by two. If we start at n,
+I want to get all the way to 1. But that's exactly the logarithm base,
+too. So when you start at a number and you
+wanna keep dividing by 2, dividing by 2, dividing by 2, and count how many times
+we have to do that until we get to 1, that's log base 2. And so what we're seeing here
+is that we have log base 2 of n many times that we had to break down
+our problem into sub-problems, and for each one of those,
+we had to do a merge step. So, each one of those recursion levels we had about O(n) work to merge
+all of the little pieces of lists. And that repeated log n times. And so our total performance is
+n times log n, or O(n log n).

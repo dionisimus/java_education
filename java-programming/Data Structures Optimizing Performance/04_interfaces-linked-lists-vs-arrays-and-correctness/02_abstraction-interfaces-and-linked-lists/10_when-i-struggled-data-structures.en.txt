@@ -1,0 +1,20 @@
+[MUSIC] When I first started computer science,
+I was cruising the first few months because the practice that I did
+was just taking a function and just giving it what it needed. Just giving it the right
+answer straight on. And I didn't think too much
+about the data structure. I didn't know anything about
+data structures back then. And then I got into data structures,
+and that was when my whole happy CS world turned upside down and
+I was struggling with it. I pulled so many all-nighters
+trying to finish projects that just involved data structures,
+just randomly implementing them. And I was really frustrated, and really wondering if CS was
+something I would like to continue. Or if that was my route, or
+if I was even fit for it. But, then I got involved
+into this project that needed to implement Dijkstra's algorithm. And it was to determine the shortest
+path from one place to another. And then, that's when I realized, that data structures are like
+paintbrushes and paint. And, your computer is like the canvas. And with those data structures,
+you can create masterpieces. And the moral of the story
+is that in computer science, if you come across anything really
+difficult or really hard, in the end, they're usually the things that help you
+the most, they're usually the things that help you understand the beauty
+behind computer science.

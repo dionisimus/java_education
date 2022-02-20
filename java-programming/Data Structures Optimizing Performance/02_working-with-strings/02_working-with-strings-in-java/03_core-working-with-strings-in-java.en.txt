@@ -1,0 +1,126 @@
+[MUSIC] All right, in this video we're
+gonna pick up working with strings, looking at some of the built in functions
+strings have so that you can learn about strings enough to use them in
+that first part of the project. So by the end of this video you'll be
+able to work with the built in String functions in order to manipulate Strings. Now as I mentioned, at the end of the last
+video, Strings can do a lot of things, and you can see on the slide the URL to
+the API documentation in the Java docs. And I am not going to put in this video an
+explanation of every single method in that library that would take forever and
+it would be very boring. What I am going to do is
+just highlight five methods that we think will be particularly useful
+for you when you're doing your project. But, at the same time, keep in mind
+that whenever you have a doubt you can always go back to those
+Java docs to learn more and to find more methods
+that you might wanna use. So we're going to look at these methods
+in the context of solving problems. So the first problem we're gonna
+wanna think about solving is, how do we calculate the number
+of syllables in a piece of text? That's needed to estimate
+this Flesch score. And in order to do that,
+what we're going to need to do is, we're gonna have to look at words,
+character by character. So, let's look at a function
+that I've written. This method takes in a String word,
+and a character letter and it just tries to determine does that
+letter appear anywhere in the word. The way it does this is it uses a loop, so
+it's going to loop through each character in the word and remember that Strings are
+represented by a raise of characters so Strings have a length method that will
+return back to us the number of characters in that String. So this for loop's gonna execute once for
+every position in the String. Then it's going to check, is the character at that position equal
+to the letter that I'm looking for? Again, this illustrates the use of
+another built-in string method, this charAt method. So charAt takes an index,
+i, in this case, and it returns the character that's
+at that particular index. The character, remember,
+is a primitive, so we can compare this with the equals,
+equals operator. So if it's equal to the letter we're
+looking for, we'll return true. If the loop finishes and we didn't
+find the character, we'll go ahead and return false. Okay, so this method works and it illustrates a couple of things
+in the built in String class. Next I wanna use it to illustrate a kind
+of for loop that you may not have seen, or if you have seen it,
+maybe you forgotten about it. It's called a for-each loop and
+this can be very handy. So, the for-each loop
+looks kind of like a for loop, only the headers
+a little bit different. Instead of those three parts,
+we just basically have two parts. We declare a variable. In this case, a character type variable,
+C and then we have a colon. And after the colon what we
+have is some sort of list or array that we want to loop over. And what's gonna happen, each time for each loop is C is going to get the value
+of each position in that array. So in this case our array, is the array of characters inside
+the word that we're looking at. So a String class has this
+built-in method called toCharArray that returns back the array of
+all the characters in the String. Now, it's not the actual array of the
+characters in the String, it's a copy of the array of the characters in the String
+because, remember, Strings are immutable. So we're not allowed to get in there and change the characters
+in a particular String. So c is going to iterate taking on
+the values of each element in that array. In this way, c will first get
+the first character in the String, the next time through the loop it'll have
+the next character in the String and so on and so forth. So inside the for each loop we just compare c directly
+to the letter we're looking for. If they're the same we return true,
+otherwise, if the loop ends we know it's
+not there and we return false. So at this point, what we're gonna do is,
+we're gonna give you a couple of end of year quizzes to see how well you
+really understood what I just said. And then we're gonna pick back
+up working with this code. All right, now that you're back, we
+actually have one more challenge for you. It's not gonna be a quiz, but
+we do want you to pause the video and think about this. What I would like you to do,
+is I would like you to modify this code, so instead of just returning true or false
+it returns the index of the first position where it finds this particular
+character that it's looking for. So one thing we're gonna have to do is
+we're have to change that method header from boolean to returning an int, but
+let's just assume that's already done. Just focus on what you have
+to change inside the code. So go ahead and pause and
+work on this now. Okay, so we hoped you figured this out, there actually aren't very many
+changes we have to make to this code. All we have to do is, because we have
+this variable i that's tracking through the position in the String, is that when
+we find the character we're looking for, instead of just returning true,
+we can go ahead and change the code so that it returns the index
+where we found that position. And that of course is
+stored in the variable i. If we get to the end, we didn't find it, we wanna return that
+flag that indicates we didn't find it, which was negative 1, so we just replace
+that return false with return negative 1. And that's it. So, it turns out that this method that
+we just implemented is very similar to a built-in method in the string
+class called index of. Index of takes, rather than
+a single character, a String and returns the index position in
+the String that it was called on where it first found the substring
+that it was passed in. So let's take a look at how this works. Let's assume we have this piece
+of text that you can see here. Can you hear me? Hello, hello? And I wanna know what is
+the index of the substring he. Well if you asked Java this using
+the indexOf method in the String class, it will return eight because he first
+appears at position 8 in this String. Remember we start counting at 0 so
+the index of c is 0 and the spaces count. The spaces take up positions
+in that String array. So then when we count, you'll see that
+h is the position eight in the array. On the other hand, if we ask for
+the substring He with a capital h, it won't find it until position 17. Because Java distinguishes between
+little h's and capital h's. Now, if you're worried about case, Java has a couple of string methods
+that can help you with that. So and check out the equals ignore case,
+two lowercase, and two uppercase methods, also in the String class, which you can
+read about in the Java documentation. If you look for a String that's not there,
+like help, Java will return negative one, because that String does not appear at
+all in the text that we're looking at. Okay, now let's switch gears a bit. We've talked about some methods
+that would be useful for counting the number of
+syllables in a particular word. Let's now look at how we're gonna count
+the number of words in an entire document. And in order to count the number of words
+in an entire document, we need to be able to split the String apart into
+individual words, so we can count them. Fortunately, Java has a built-in
+method called split, and what it takes is a pattern that
+you would like to use to split on. So in this example here,
+with that same piece of text, I'm calling the split method
+with a space passed in. So that's a space between those
+two quotes, a single space. And Java will say, okay, every space is
+where I wanna split that String up and it will return to me an array of the Strings
+that are essentially between the spaces. So it will be the words in that String. That's great. But what happens when we,
+say, add an extra space? I like to put two spaces
+between my sentences. Well split isn't quite gonna
+work as we want it to. So it's gonna interpret
+that space quite literally. And instead of giving me back a nice array
+of all the words, it's gonna give me back an array of the words with this
+extra empty String in the middle. And what that empty String is, is it's the text that's between the two
+spaces that are between the sentences. There's no text there, the spaces
+are right next to each other, but because it needs to split there,
+it needs to split among those spaces, it says well, there's this thing here,
+and there's nothing there, so I'll just put an empty String in my
+array of Strings that I'll return. Well that's kind of unfortunate, but the fortunate part is that
+we can fix this problem. So if you look at the Java
+documentation for the split method, you'll see that
+it doesn't take a String, per se, what it takes is something
+called a regular expression. We're gonna talk a lot more about regular
+expressions in the next video, and they're going to be our key to solving
+the problem of splitting on not just one space, but
+any number of spaces in a string.

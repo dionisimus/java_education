@@ -1,0 +1,477 @@
+1
+00:00:00,000 --> 00:00:04,306
+[MUSIC]
+
+2
+00:00:04,306 --> 00:00:07,398
+All right, in this course,
+the project you're gonna be developing is
+
+3
+00:00:07,398 --> 00:00:09,842
+that cool text editor
+that you saw the demo of.
+
+4
+00:00:09,842 --> 00:00:12,860
+We're gonna get started here in this
+lesson talking about the first thing
+
+5
+00:00:12,860 --> 00:00:14,650
+you'll add to that text editor,
+
+6
+00:00:14,650 --> 00:00:18,270
+which is the ability to determine
+the readability of a piece of text.
+
+7
+00:00:18,270 --> 00:00:20,350
+So let's talk about what that means.
+
+8
+00:00:20,350 --> 00:00:24,320
+By the end of this video you'll be
+able to use the Flesch Index Score
+
+9
+00:00:24,320 --> 00:00:27,590
+in order to measure
+the readability of a piece of text
+
+10
+00:00:27,590 --> 00:00:30,560
+in order to incorporate
+it into your project.
+
+11
+00:00:30,560 --> 00:00:33,390
+So let's try to take a look at
+what we mean by text readability.
+
+12
+00:00:34,510 --> 00:00:36,650
+So let's take a look
+at this piece of text.
+
+13
+00:00:36,650 --> 00:00:39,850
+This is a piece of text from
+the US Tax Code document.
+
+14
+00:00:39,850 --> 00:00:43,758
+The document that describes how
+the United States taxes its citizens.
+
+15
+00:00:43,758 --> 00:00:46,940
+And this is largely understood to
+be one of the most confusing and
+
+16
+00:00:46,940 --> 00:00:49,570
+hard to understand documents around.
+
+17
+00:00:49,570 --> 00:00:53,200
+So I pulled a piece of text from that
+document and that piece of text says,
+
+18
+00:00:53,200 --> 00:00:57,720
+there is hereby imposed on the taxable
+income of every individual other than
+
+19
+00:00:57,720 --> 00:01:02,670
+a surviving spouse as defined in section
+2(a) or the head of a household as
+
+20
+00:01:02,670 --> 00:01:07,640
+defined in section 2(b) who is not
+a married individual (as defined
+
+21
+00:01:07,640 --> 00:01:12,150
+in section 7703) a tax determined in
+accordance with the following table.
+
+22
+00:01:12,150 --> 00:01:14,769
+And then there's a table that follows.
+
+23
+00:01:14,769 --> 00:01:18,611
+Now I don't know about you, but
+that's pretty difficult to understand.
+
+24
+00:01:18,611 --> 00:01:23,100
+And in fact, that's one of the easier
+passages from this document to understand.
+
+25
+00:01:23,100 --> 00:01:26,595
+The first section I tried to pull, I spent
+20 minutes trying to understand it, and
+
+26
+00:01:26,595 --> 00:01:29,690
+I couldn't understand it so
+I had to get a simpler piece of text.
+
+27
+00:01:29,690 --> 00:01:33,190
+So this is one of the simpler
+pieces of text from that document.
+
+28
+00:01:33,190 --> 00:01:35,070
+It's still pretty complicated.
+
+29
+00:01:35,070 --> 00:01:39,128
+So, I'm confused,
+let's simplify this text a little bit.
+
+30
+00:01:39,128 --> 00:01:43,420
+Here's my re-write of what
+that piece of text just said.
+
+31
+00:01:43,420 --> 00:01:47,240
+Basically it says, if you're single,
+you've never lost your spouse, and you're
+
+32
+00:01:47,240 --> 00:01:50,670
+not the head of a household, then you pay
+taxes according to the following table.
+
+33
+00:01:50,670 --> 00:01:52,770
+And again the same table would follow.
+
+34
+00:01:52,770 --> 00:01:53,930
+Much easier to understand.
+
+35
+00:01:54,950 --> 00:01:56,900
+So we have these two pieces of text.
+
+36
+00:01:56,900 --> 00:01:59,760
+The piece on top is relatively
+difficult to understand,
+
+37
+00:01:59,760 --> 00:02:02,790
+the piece on the bottom is
+relatively easy to understand.
+
+38
+00:02:02,790 --> 00:02:05,490
+I've taken a few liberties
+in simplifying the text.
+
+39
+00:02:05,490 --> 00:02:09,630
+It's not exactly the same with the same
+precision as the piece of text on top, but
+
+40
+00:02:09,630 --> 00:02:11,840
+they mean basically the same thing.
+
+41
+00:02:11,840 --> 00:02:13,720
+And the question we wanna ask now is,
+
+42
+00:02:13,720 --> 00:02:17,439
+how can we quantify the difference
+between these two pieces of text?
+
+43
+00:02:18,570 --> 00:02:22,210
+So what we're going to do in this video,
+as well as on your project,
+
+44
+00:02:22,210 --> 00:02:25,670
+is you're going to use something
+called the Flesch readability score
+
+45
+00:02:25,670 --> 00:02:30,990
+in order to allow the computer to
+quantify how readable a piece of text is.
+
+46
+00:02:30,990 --> 00:02:34,310
+You can see the formula for
+the Flesch readability score here.
+
+47
+00:02:34,310 --> 00:02:36,840
+And the Flesch readability
+score was developed by
+
+48
+00:02:36,840 --> 00:02:39,550
+an author named Rudolf Flesch.
+
+49
+00:02:39,550 --> 00:02:41,910
+And what it looks like is the following.
+
+50
+00:02:41,910 --> 00:02:47,111
+So the idea behind the score is that
+you have this constant out front,
+
+51
+00:02:47,111 --> 00:02:48,911
+this 206.858.
+
+52
+00:02:48,911 --> 00:02:54,690
+And then, from that constant, you're
+going to subtract two different terms.
+
+53
+00:02:54,690 --> 00:02:59,580
+And that's going to basically lower the
+potential; Flesch score that you can get.
+
+54
+00:02:59,580 --> 00:03:01,770
+So in order to understand
+how this formula works,
+
+55
+00:03:01,770 --> 00:03:05,320
+we need to look at those two terms that
+we're going to be subtracting from that
+
+56
+00:03:05,320 --> 00:03:09,880
+constant to understand what a high score
+means, and what a low score means.
+
+57
+00:03:09,880 --> 00:03:12,500
+So let's first think about
+what makes this formula high.
+
+58
+00:03:13,630 --> 00:03:17,280
+So what makes this formula high,
+since we're subtracting two terms,
+
+59
+00:03:17,280 --> 00:03:21,410
+is if these two terms we're
+subtracting off are relatively low.
+
+60
+00:03:21,410 --> 00:03:22,320
+So what does it mean?
+
+61
+00:03:22,320 --> 00:03:24,690
+When are these two terms relatively low?
+
+62
+00:03:24,690 --> 00:03:28,820
+Well, they're relatively low if
+there are few words per sentence,
+
+63
+00:03:28,820 --> 00:03:30,560
+then that ratio is going to be low.
+
+64
+00:03:30,560 --> 00:03:34,800
+And few syllables per word,
+then that second ratio is going to be low.
+
+65
+00:03:34,800 --> 00:03:39,140
+So, in other words, if we're dealing
+with short sentences and short words,
+
+66
+00:03:39,140 --> 00:03:43,240
+those two terms will be low leading
+to a very high Flesch score.
+
+67
+00:03:44,430 --> 00:03:49,390
+So now intuitively we can see that a high
+Flesch score, and in practice above 90,
+
+68
+00:03:49,390 --> 00:03:52,810
+leads to a very easy
+to read piece of text.
+
+69
+00:03:54,140 --> 00:03:58,500
+On the other hand,
+if we have those two terms be high,
+
+70
+00:03:58,500 --> 00:04:01,770
+in other words we have a lot
+of words per sentence, and
+
+71
+00:04:01,770 --> 00:04:05,840
+a lot of syllables per word we're
+gonna end up subtracting off a lot
+
+72
+00:04:05,840 --> 00:04:09,388
+from our initial constant and
+end up with a very low Flesch score.
+
+73
+00:04:09,388 --> 00:04:14,690
+So a Flesch score of below 30 is a piece
+of text that's very difficult to read.
+
+74
+00:04:14,690 --> 00:04:15,830
+And that again makes sense.
+
+75
+00:04:15,830 --> 00:04:19,819
+If you have long sentences with long words
+the text is gonna be more confusing.
+
+76
+00:04:21,760 --> 00:04:24,890
+Now then we have these constants
+out in front of those two ratios
+
+77
+00:04:24,890 --> 00:04:27,440
+that basically just weight
+those two terms accordingly.
+
+78
+00:04:27,440 --> 00:04:32,530
+And those are just determined by Flesch to
+match our intuition about how text is easy
+
+79
+00:04:32,530 --> 00:04:33,950
+or difficult to read.
+
+80
+00:04:33,950 --> 00:04:37,350
+And in this case it basically
+means that longer words
+
+81
+00:04:37,350 --> 00:04:40,610
+make text a little more difficult
+to read than longer sentences.
+
+82
+00:04:40,610 --> 00:04:43,529
+So more syllables are bad basically.
+
+83
+00:04:43,529 --> 00:04:47,716
+So, if we apply that to their two pieces
+of text, we can see that the piece of text
+
+84
+00:04:47,716 --> 00:04:51,482
+on top, that confusing text,
+has a very low Flesch score, 12.6.
+
+85
+00:04:51,482 --> 00:04:55,415
+And that corresponds to basically a post
+graduate reading level, which everyone
+
+86
+00:04:55,415 --> 00:04:59,950
+basically agrees, you need to be a lawyer
+in order to understand this document.
+
+87
+00:04:59,950 --> 00:05:04,010
+And that piece of text on the bottom, my
+paraphrase of it that's got a much higher
+
+88
+00:05:04,010 --> 00:05:08,160
+Flesch score of 65.8, and
+that's about a 10th grade reading level.
+
+89
+00:05:08,160 --> 00:05:11,490
+So my six year old maybe wouldn't be
+able to read this and understand it.
+
+90
+00:05:11,490 --> 00:05:14,760
+But people with secondary education
+should do a pretty good job of
+
+91
+00:05:14,760 --> 00:05:16,190
+understanding what that sentence means.
+
+92
+00:05:17,530 --> 00:05:20,260
+So, how does this relate to
+what we're about to talk about?
+
+93
+00:05:20,260 --> 00:05:24,770
+Well, in order to calculate the Flesch
+score for text, what do we need to know?
+
+94
+00:05:24,770 --> 00:05:27,250
+We need to know the number of
+words in the piece of text.
+
+95
+00:05:27,250 --> 00:05:28,883
+We need to know the number of sentences.
+
+96
+00:05:28,883 --> 00:05:31,190
+And we need to know
+the number of syllables.
+
+97
+00:05:31,190 --> 00:05:35,610
+Now if we imagine that our piece of text
+is just represented as one big long string
+
+98
+00:05:35,610 --> 00:05:38,130
+in Java,
+we're going to need to be able to do
+
+99
+00:05:38,130 --> 00:05:41,370
+manipulation with those strings
+in order to calculate that score.
+
+100
+00:05:41,370 --> 00:05:43,110
+And that's what we're gonna
+look at in the next video.

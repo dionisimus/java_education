@@ -1,0 +1,114 @@
+[SOUND] Welcome back. In this video we're gonna continue
+our work with traversals. Specifically, we're gonna learn
+how to perform an in-order, a post-order, and
+a level-order traversal on a tree. So remember from the last video
+that we had a preorder traversal. And the idea for the preorder
+traversal was to visit a node itself, then visit all that's left subtree and
+then visit all that's right subtree. And that produced this order of nodes
+being visited, as you can see there. Our goal here is to come up
+with some different orderings. So the first is,
+this is called PostOrder, and the idea here is to visit in the order D,
+E, B, F, G, C, A. And is essentially going very deep and
+kinda coming back. So we can actually do this just by
+rearranging this steps of visit yourself, visit all your left subtree and
+visit all your right subtree. If you just done with this order, you could actually produce
+a postorder traversal. So what's you gonna do is to take
+a moment, pause, think about it and I will come back in just a moment. So hopefully you saw that
+the current ordering won't work. This ordering is, again,
+a preorder traversal. So I need to rearrange this. And the very first thing you probably
+saw is that I can't visit myself first. If I visited myself first and I start
+with the root, I'd be visiting A, and A's the very end, not the very beginning. So I can't visit myself first. I'm gonna have to push visit yourself
+down at least one step to make this work. So now at least I can visit
+my left subtree first. I'm gonna go visit my left subtree for A, then visit my left subtree for B, visit
+my left subtree for D, which is nothing. And then finally, I visit D and
+when I do that I wanna print D. Then I'm gonna come back up to B. I'm gonna print B. Oh, wait, that's not what we wanted. What we want is to essentially
+print E before we print B. So to do that, I just have to
+flip the order one more time. So all I have to do is swap, and
+now I have the ordering that I want. We'll trace through this again. So I'm gonna visit all my left subtree. Start at A. Then I move down to B,
+visit all B subtree. Go to D. Visit all of D subtree,
+and now I come back, and I visit all of these right subtree, and
+then I come back, and now I print D. Come back up for B, and we'll visit all of B's right subtree,
+which is gonna print me E, and then I'm gonna come back to B and print B
+and now we've got the ordering we want. So just rearranging these steps
+gave us the PostOrder Traversal. So I want you to do next, we have one more
+ordering of these which is interesting, and I want you to think about what
+order will these nodes be visited. So now, I'm gonna visit my left subtree
+first, then I'm gonna visit myself, and then I'm gonna visit
+all my right subtree. This is commonly called
+an InOrder Traversal. So go ahead and take the end video quiz,
+see which one you think is gonna be the right ordering, and
+we'll come back in a moment. Welcome back. I'm hoping that one wasn't too tricky. So if you're starting to get a good feel
+for recursion this probably wasn't to bad. If your struggling with recursion though,
+again, we are gonna have some support
+videos in the next few videos. So what does this do, you are gonna
+visit all of your subtree first, so I'm gonna go all of B,
+I'm sorry, from A I'm gonna all of B subtree then I'm gonna do
+all of D, and then I'm gonna visit. Now, all of D's subtree,
+which will give me nothing. And then I come back to D, and
+I visit it, and I print D. And then, I come back and I print B,
+and then I'm gonna go down and I'm gonna print E. So this is actually the one that we first
+started exploring when we were talking about the postorder traversal. So this ordering gives us InOrder. So just again,
+we're rearranging these steps, all you need to do to get
+these different traversals. There's one more traversal
+that I'd like to do, and that's known as a Level Order Traversal. In the level order traversal here,
+we do A, B, C, D, E, F, G. And I wanna point out that this is
+essentially a breadth first traversal. In the previous ones we've been
+looking at, the preorder and the post order,
+those are depth first traversals. So let's explore how to do
+this breadth first traversal. And the first thing to note is that this
+is gonna be a little more challenging. The reason it's gonna be more
+challenging is that I wanna hone in on the scenario where
+you're looking at node B. So you visited A, you visited B, and the next thing
+you're supposed to visit is node C. But you'll notice, B isn't connected to C. B only has a connection to A, D, or E. How is it gonna know to go to C next? For doing this through recursion,
+the ways that we just showed. This is gonna be really hard. We need essentially something to
+keep track of the things we've seen. The way we're gonna do
+this is by keeping a list. And if I keep a list I can essentially
+add to it whenever I see new nodes, and I can remove from the start. That may not make to much sense just yet,
+so lets just walk through
+what I mean by that. So I've got my list and I'm gonna start
+it just by putting A onto the list. I'm not gonna count A as visited yet,
+I'm just putting it on the list. And then, I'm gonna look at my list and
+remove the first element on my list. As long as the list has elements,
+I'm gonna keep removing. So I'm gonna find it,
+it has elements, I'm gonna remove A. When I remove A, I mark it as visited. And then, I'm gonna take all
+the children of A, both B and C, and I'm gonna put them onto the list. I'm gonna pen them at
+the back of the list. My next step, is I'm gonna remove B. And I'm gonna put B in my visited list. The last thing I have to
+do is add B's children, which are D and E, to my main list. Next step proceeding
+just like the last one. I'm gonna remove C from
+the front of the list. I'm gonna add C's children F and
+G to the list. I'm gonna do it all over again. I'm gonna remove D. I'm gonna add D as visited. And then,
+I wanna add these children to the list. So I could actually add null here or I
+could just check to see if they're null or not and then choose not to add them. You could do it either way. I'll talk about it when we get
+to the code here in a moment. So then I'm gonna check E, again, I don't have any children to
+push on the list, so I won't. Gonna check F and then we'll move to G. Now, if I've done those steps,
+I've done exactly what we wanted. This is the level order traversal or
+breath first traversal of this tree. Nice, so what I want you to realize is that we were
+using this list kind of like a queue. Or a line at a grocery store. So if you think about it, a queue,
+just like a line, works like this. If you're at the very, if you come
+up to a new line, if you're polite, what you're gonna do is add
+yourself to the end of the list. Who gets to go next when the ATM is open? Well, the person at the front of the line. So you remove from the front. This kind of data structure, this interaction with
+a list is known as a queue. And it's also sometimes called first in,
+first out, or FIFO. So now that we have this notion
+of a queue, queues exist in Java. So you'll notice that there's an interface
+called Queue that has Insert, which is insert at the end and
+that's called add. It also has Remove, which is remove from the front which
+is exactly the behavior we want. You can also look at the first
+element by doing Examine. Turns out that now we can
+code this using this queue. So what I'm gonna do is have
+this in the BinaryTree class. I'm gonna call this
+a level order traversal. And I'm gonna start by
+creating one of these cubes. I'm gonna create Queue of TreeNodes. And it turns out I can actually
+use LinkedList for this. Because LinkedList implements Queue, nice. So I'm gonna create a list of this
+TreeNodes or Queue of these TreeNodes. And I'm gonna add root at the start,
+and that's gonna get things going. Now, as long as the queue isn't empty,
+I'm gonna keep removing elements from the queue and
+adding their children to the list. So the first step within my loop is gonna
+be to remove the front node in the list. And then I'm going to check
+to see if it's null or not. If it's null, there was an empty tree,
+I shouldn't do anything with it. If it isn't null, then I'm gonna visit it,
+and then I'm gonna add its LeftChild and its RightChild to the list. But I do wanna note, I don't necessarily
+have to add the LeftChild, if it's null. I could check if it's
+null before I add it. This is a choice you could make. And the last thing, again,
+is I'm gonna add that RightChild. So at this point we have a good idea
+of how to do a level order traversal. And you're gonna actually use this idea in
+this week's project, working with tries.

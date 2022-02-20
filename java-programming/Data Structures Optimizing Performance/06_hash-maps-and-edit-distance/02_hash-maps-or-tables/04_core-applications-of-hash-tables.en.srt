@@ -1,0 +1,224 @@
+1
+00:00:00,000 --> 00:00:03,828
+[MUSIC]
+
+2
+00:00:03,828 --> 00:00:07,580
+In the last couple of videos, we started
+to see how Hash Tables can be useful.
+
+3
+00:00:07,580 --> 00:00:11,420
+We also looked at how Hash Tables
+deal with the problem of collisions.
+
+4
+00:00:11,420 --> 00:00:15,900
+In this video, I want to focus in
+on how to use Hash Tables in Java.
+
+5
+00:00:15,900 --> 00:00:19,057
+And specifically I'm going to focus on
+the difference between Hash Sets and
+
+6
+00:00:19,057 --> 00:00:21,830
+Hash Maps, cause this is often
+a point of confusion for students.
+
+7
+00:00:22,860 --> 00:00:25,758
+So by the end of this video, you should be
+able to explain the differences between
+
+8
+00:00:25,758 --> 00:00:26,790
+those two data structures.
+
+9
+00:00:28,815 --> 00:00:33,660
+So a hash set just tells you whether or
+not an item is in the set or not.
+
+10
+00:00:33,660 --> 00:00:36,527
+So in this example, car is in a set.
+
+11
+00:00:36,527 --> 00:00:38,223
+Boat is in a set.
+
+12
+00:00:38,223 --> 00:00:40,810
+But train is not.
+
+13
+00:00:40,810 --> 00:00:42,220
+So you just store the things
+that are in the set,
+
+14
+00:00:42,220 --> 00:00:43,530
+and you don't store
+the things that are not.
+
+15
+00:00:44,700 --> 00:00:48,060
+And this is gonna be incredibly useful for
+a dictionary.
+
+16
+00:00:48,060 --> 00:00:50,650
+So if you wanna just store the words
+that are in the English dictionary,
+
+17
+00:00:50,650 --> 00:00:54,610
+a set is probably
+the right way to do that.
+
+18
+00:00:54,610 --> 00:00:57,433
+And the methods you'll wanna use for
+this are, add,
+
+19
+00:00:57,433 --> 00:01:01,135
+which is essentially just add
+an element into the set, and contains,
+
+20
+00:01:01,135 --> 00:01:04,796
+which just tells you whether or
+not the set contains that item or not.
+
+21
+00:01:06,596 --> 00:01:07,605
+Think about hash maps.
+
+22
+00:01:07,605 --> 00:01:09,790
+Hash maps actually store two things.
+
+23
+00:01:09,790 --> 00:01:12,390
+They store a key, which is what
+we've been working with all along,
+
+24
+00:01:12,390 --> 00:01:15,180
+along with with some extra data,
+or which we call value.
+
+25
+00:01:16,500 --> 00:01:21,140
+Now this is nice if you wanna
+associate some data with each key.
+
+26
+00:01:21,140 --> 00:01:24,180
+An example of this might be let's
+say you are working on Facebook and
+
+27
+00:01:24,180 --> 00:01:24,960
+you have a friend.
+
+28
+00:01:24,960 --> 00:01:27,950
+So I have my friend Ivan up here and
+
+29
+00:01:27,950 --> 00:01:30,210
+we have had a whole bunch of
+text communications on Facebook.
+
+30
+00:01:30,210 --> 00:01:33,480
+And Facebook decides to
+store that communication.
+
+31
+00:01:33,480 --> 00:01:37,320
+Well what they might want to keep is
+essentially Ivan in the hash map because
+
+32
+00:01:37,320 --> 00:01:41,170
+that's my friend and then we will have
+a whole bunch of a linked list there which
+
+33
+00:01:41,170 --> 00:01:45,750
+is essentially just stores the various
+texts that I've had with him in the past.
+
+34
+00:01:45,750 --> 00:01:49,940
+Another example might be if you just
+want to store a movie database.
+
+35
+00:01:49,940 --> 00:01:52,110
+You might have the name of
+the movie in one place, and
+
+36
+00:01:52,110 --> 00:01:55,700
+then you may have a list
+of actors as the value.
+
+37
+00:01:57,470 --> 00:02:00,039
+So when you're working with a HashMap.
+
+38
+00:02:00,039 --> 00:02:02,518
+You're gonna have to always
+have both a key and a value.
+
+39
+00:02:02,518 --> 00:02:06,077
+And the methods you're almost
+certainly gonna use are get,
+
+40
+00:02:06,077 --> 00:02:09,492
+which will get you back the value for
+a given key, and put,
+
+41
+00:02:09,492 --> 00:02:13,290
+which allows you to put in both a key and
+a value into the HashMap.
+
+42
+00:02:14,900 --> 00:02:17,680
+So now that we understand
+more how to do this in Java,
+
+43
+00:02:17,680 --> 00:02:20,820
+I just wanna remind us really quickly
+about the Hash Table Key Points.
+
+44
+00:02:20,820 --> 00:02:23,760
+Hash tables are fantastic
+in the average case.
+
+45
+00:02:23,760 --> 00:02:26,980
+They're O one for lookup,
+insert, and remove.
+
+46
+00:02:26,980 --> 00:02:30,410
+They do have some concerns associated
+with them, in terms of Resizing Costs.
+
+47
+00:02:30,410 --> 00:02:33,934
+And the fact that they have no implicit
+data ordering as part of the structure.

@@ -1,0 +1,514 @@
+1
+00:00:00,000 --> 00:00:04,538
+[MUSIC]
+
+2
+00:00:06,558 --> 00:00:09,485
+So now we're gonna dive in to
+working with strings in Java.
+
+3
+00:00:09,485 --> 00:00:13,004
+This video is gonna introduce the basics,
+and this may be familiar to many of you,
+
+4
+00:00:13,004 --> 00:00:16,580
+and if it is just go ahead and watch
+this really fast or even just skip it.
+
+5
+00:00:16,580 --> 00:00:19,240
+But if not we wanna make sure
+we've got the basics down for
+
+6
+00:00:19,240 --> 00:00:21,030
+everybody before we move forward.
+
+7
+00:00:21,030 --> 00:00:24,230
+So by the end of this video you'll be able
+to describe how strings are represented
+
+8
+00:00:24,230 --> 00:00:27,510
+in Java, and then perform some
+basic operations with strings.
+
+9
+00:00:29,070 --> 00:00:34,170
+So, going back to our task which is to
+estimate the Flesch readability score for
+
+10
+00:00:34,170 --> 00:00:35,160
+a piece of text.
+
+11
+00:00:35,160 --> 00:00:38,948
+Again, our motivation here is that we
+wanna be able to count the number of
+
+12
+00:00:38,948 --> 00:00:41,432
+words, syllables and
+sentences in a string and
+
+13
+00:00:41,432 --> 00:00:44,179
+the way we are gonna represent
+in a document that is.
+
+14
+00:00:44,179 --> 00:00:47,349
+And the way we're gonna represent
+a document is just as one big long
+
+15
+00:00:47,349 --> 00:00:48,440
+string in Java.
+
+16
+00:00:48,440 --> 00:00:51,050
+So let's take a look in more detail
+about how strings are represented.
+
+17
+00:00:52,330 --> 00:00:54,270
+Here are some basics about strings.
+
+18
+00:00:54,270 --> 00:00:59,690
+Strings in Java are objects, so they're
+not primitive types they're object types.
+
+19
+00:00:59,690 --> 00:01:04,190
+And this means that they're represented
+in your computer's heap, in the memory,
+
+20
+00:01:04,190 --> 00:01:07,458
+and the variables that refer
+to them have references.
+
+21
+00:01:07,458 --> 00:01:11,290
+So I'm gonna draw you a memory model
+diagram, and if you took our first course
+
+22
+00:01:11,290 --> 00:01:13,780
+in this specialization,
+this will look familiar to you.
+
+23
+00:01:13,780 --> 00:01:15,000
+And if you didn't,
+
+24
+00:01:15,000 --> 00:01:19,640
+this our typical way that we draw
+memory models of data in our programs.
+
+25
+00:01:19,640 --> 00:01:22,040
+So we have a variable declaration.
+
+26
+00:01:22,040 --> 00:01:23,490
+It gets a box.
+
+27
+00:01:23,490 --> 00:01:27,230
+We have a new object,
+that's going to get created on the heap.
+
+28
+00:01:27,230 --> 00:01:29,340
+And remember that little
+symbol next to that object,
+
+29
+00:01:29,340 --> 00:01:33,470
+that's just our way of representing
+an actual object of a particular class.
+
+30
+00:01:33,470 --> 00:01:36,780
+Then the assignment operator
+connects the variable
+
+31
+00:01:36,780 --> 00:01:40,230
+to the object with this reference,
+which we represent as an arrow.
+
+32
+00:01:40,230 --> 00:01:44,530
+So here we have one string variable and
+refers to a string object in memory, and
+
+33
+00:01:44,530 --> 00:01:45,990
+that string object stores some text.
+
+34
+00:01:46,990 --> 00:01:49,020
+How does that string
+object store in the text?
+
+35
+00:01:49,020 --> 00:01:51,690
+It actually stores it as
+an array of characters.
+
+36
+00:01:51,690 --> 00:01:54,380
+So we have one slot in the array for
+
+37
+00:01:54,380 --> 00:01:59,496
+each character in the string, including
+that space between those two words.
+
+38
+00:01:59,496 --> 00:02:01,850
+All right, we can add to this code.
+
+39
+00:02:01,850 --> 00:02:06,540
+We have a second line of code here,
+which declares another variable and
+
+40
+00:02:06,540 --> 00:02:08,860
+gives it the value of our first variable.
+
+41
+00:02:08,860 --> 00:02:10,560
+So just like any other object,
+
+42
+00:02:10,560 --> 00:02:15,270
+this results in two references to
+the exact same object in memory.
+
+43
+00:02:15,270 --> 00:02:17,880
+Now you may get concerned at this
+point and say wait a minute,
+
+44
+00:02:17,880 --> 00:02:22,430
+we have two objects, sorry two
+references to the exact same object.
+
+45
+00:02:22,430 --> 00:02:25,980
+What if one of those
+references changes our string?
+
+46
+00:02:25,980 --> 00:02:28,270
+Turns out, that's not possible.
+
+47
+00:02:28,270 --> 00:02:32,570
+In Java, strings are immutable, which
+means that the objects that are in memory,
+
+48
+00:02:32,570 --> 00:02:35,130
+that are the strings,
+can never be changed.
+
+49
+00:02:35,130 --> 00:02:38,270
+So there's no way to change
+a string object once it's created.
+
+50
+00:02:39,350 --> 00:02:41,650
+Now, this doesn't mean that
+you can't build strings.
+
+51
+00:02:41,650 --> 00:02:43,640
+Obviously, you've probably
+done this already.
+
+52
+00:02:43,640 --> 00:02:48,060
+For example, you can append strings
+together using the built in append method
+
+53
+00:02:48,060 --> 00:02:49,730
+inside the string class.
+
+54
+00:02:49,730 --> 00:02:52,090
+So here we have our first string,
+which says Hello World!
+
+55
+00:02:52,090 --> 00:02:55,640
+And we append to that string,
+It's a great day.
+
+56
+00:02:55,640 --> 00:02:58,530
+But it doesn't actually change
+that first string object.
+
+57
+00:02:58,530 --> 00:03:01,160
+What it does is it creates
+a whole new string object,
+
+58
+00:03:01,160 --> 00:03:04,650
+takes the text out of the first string
+object, puts it in the second one, and
+
+59
+00:03:04,650 --> 00:03:07,270
+appends that text that we
+want to append onto the end.
+
+60
+00:03:08,410 --> 00:03:12,490
+So one more object,
+no change to that first object.
+
+61
+00:03:12,490 --> 00:03:16,050
+You can also use the + operator
+to do string appends in Java.
+
+62
+00:03:16,050 --> 00:03:18,530
+I'm sure you've done this before, and
+
+63
+00:03:18,530 --> 00:03:22,210
+this does the exact same thing as that
+appends method that I just showed you.
+
+64
+00:03:22,210 --> 00:03:24,780
+Again, no change to that
+first object there.
+
+65
+00:03:27,180 --> 00:03:31,040
+Now this could get messy with all
+these different string objects being
+
+66
+00:03:31,040 --> 00:03:32,320
+created in memory.
+
+67
+00:03:32,320 --> 00:03:37,720
+Strings could end up taking a lot of your
+heap space and Java is aware of this fact
+
+68
+00:03:37,720 --> 00:03:42,030
+so they provide an optimization, which
+is something called an interned string.
+
+69
+00:03:42,030 --> 00:03:44,200
+And I'm gonna tell you a little
+bit about how that works.
+
+70
+00:03:44,200 --> 00:03:45,380
+This is a detail.
+
+71
+00:03:45,380 --> 00:03:48,300
+You don't have to worry too much
+about it when you're programming, but
+
+72
+00:03:48,300 --> 00:03:50,320
+it's good to keep in mind.
+
+73
+00:03:50,320 --> 00:03:54,580
+So, we have on top the way that
+we created the string before,
+
+74
+00:03:54,580 --> 00:03:58,010
+with that new operator, so
+we said new String ("Hello World!").
+
+75
+00:03:58,010 --> 00:04:01,000
+That gave us the first string object
+that you see over there in memory.
+
+76
+00:04:02,180 --> 00:04:05,730
+The second and third lines also create or
+
+77
+00:04:05,730 --> 00:04:09,970
+refer to string objects with
+the same text, Hello World!.
+
+78
+00:04:09,970 --> 00:04:14,700
+However, this string here without the new
+
+79
+00:04:14,700 --> 00:04:19,600
+string before it, creates what's
+called an interned string object.
+
+80
+00:04:19,600 --> 00:04:24,840
+Which is a single string object the Java's
+going to use whenever we don't explicitly
+
+81
+00:04:24,840 --> 00:04:30,070
+create a new string object with the
+keyword new and a call to the constructor.
+
+82
+00:04:30,070 --> 00:04:33,440
+So that first line there explicitly
+creates a new string object, but
+
+83
+00:04:33,440 --> 00:04:38,765
+the second and third lines just refer to
+the same interned hello world string,
+
+84
+00:04:38,765 --> 00:04:41,659
+that Java will create for
+us if it doesn't exist.
+
+85
+00:04:43,380 --> 00:04:46,380
+So there's that intern string,
+both of those variables refer to that.
+
+86
+00:04:48,630 --> 00:04:52,000
+So, let's talk about ways
+of comparing strings.
+
+87
+00:04:52,000 --> 00:04:55,645
+There are two ways we can consider
+comparing string objects in Java,
+
+88
+00:04:55,645 --> 00:05:00,540
+.equals, which is a method on the string
+class, or equals-equals, which
+
+89
+00:05:00,540 --> 00:05:05,030
+is just that operator we've seen before
+to compare the values of two variables.
+
+90
+00:05:05,030 --> 00:05:07,700
+And these two ways behave
+
+91
+00:05:07,700 --> 00:05:11,790
+quite differently when we consider the
+underlying representation of the string.
+
+92
+00:05:11,790 --> 00:05:16,080
+So in this example, we have two strings
+that we've created by calling new and
+
+93
+00:05:16,080 --> 00:05:18,130
+the constructor of the string class twice,
+but
+
+94
+00:05:18,130 --> 00:05:20,700
+they store the exact same piece of text,
+Hello World!
+
+95
+00:05:22,630 --> 00:05:28,950
+If we call .equals on one of the strings,
+so text.equals (text2), this will return
+
+96
+00:05:28,950 --> 00:05:33,210
+true, because what .equals does is it goes
+into the string objects and compares them
+
+97
+00:05:33,210 --> 00:05:37,290
+character by character, returning true if
+they represent the same piece of text.
+
+98
+00:05:38,372 --> 00:05:42,650
+However, equals-equals behaves exactly
+the same way it's always behaved.
+
+99
+00:05:42,650 --> 00:05:46,580
+It just compares the values
+of the variables themselves.
+
+100
+00:05:46,580 --> 00:05:48,120
+And if we look in the box,
+
+101
+00:05:48,120 --> 00:05:52,690
+we can see that the variables themselves
+store references to locations in memory.
+
+102
+00:05:52,690 --> 00:05:56,992
+So these two variables
+store different references.
+
+103
+00:05:56,992 --> 00:06:01,140
+Therefore equals-equals is going to
+return false when we compare them.
+
+104
+00:06:02,140 --> 00:06:07,590
+The lesson here is that we almost always
+wanna use .equals to compare strings and
+
+105
+00:06:07,590 --> 00:06:08,800
+not equals-equals.
+
+106
+00:06:10,780 --> 00:06:13,520
+So that's a basic introduction to strings.
+
+107
+00:06:13,520 --> 00:06:17,385
+They're really powerful objects in
+Java and they can do a lot of things.
+
+108
+00:06:17,385 --> 00:06:20,590
+We're gonna look at just some of
+the things they can do in the next video

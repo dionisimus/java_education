@@ -1,0 +1,273 @@
+<meta charset="utf-8"/>
+<co-content>
+ <h1 level="1">
+  Improving and Measuring Program Efficiency
+ </h1>
+ <p>
+  You can download a PDF version of these instructions here (but note that the files embedded below are not linked from the PDF version of these instructions and must be downloaded separately):
+ </p>
+ <asset assettype="pdf" extension="pdf" id="iphOQDfjEea2WhIyUMEtaQ" name="EfficientDocumentAssignment">
+ </asset>
+ <p>
+  In this assignment, we’ll optimize the implementation of the Document class that you implemented in your last assignment, and then measure how much faster your new implementation is.
+ </p>
+ <h2 level="2">
+  Setup
+ </h2>
+ <p>
+  Before you begin this assignment, make sure you check Part 2 in
+  <a href="https://www.coursera.org/learn/data-structures-optimizing-performance/supplement/amsdH/setting-up-java-eclipse-and-the-starter-code">
+   the setup guide
+  </a>
+  to make sure the starter code has not changed since you downloaded it.   If you are an active learner, you will have also received an email about any starter code changes.  If there have been any changes, follow the instructions in the setup guide for updating your code base before you begin.
+ </p>
+ <p>
+  1.
+  <strong>
+   (Optional) Download and use our solutions for Document.java and BasicDocument.java
+  </strong>
+ </p>
+ <p>
+  First, if you are feeling unsure about your Document.java solution, you are welcome to use ours. With Eclipse closed,
+  <strong>
+   move your BasicDocument.java and Document.java files somewhere else, outside of your workspace.
+  </strong>
+  That is, on your file system, you should find these files in the MOOCTextEditor/src/document folder, and then move them somewhere else.  This is so that you don't lose them when you download our solution.  Then, download our BasicDocument.java and Document.java solution files from the following links and save them back into your MOOCTextEditor/src/document directory on your file system:
+ </p>
+ <asset assettype="generic" extension="java" id="0NTBV4PtEeWSCRI9L3h1iQ" name="BasicDocument">
+ </asset>
+ <asset assettype="generic" extension="java" id="TCD5Ioo_EeWXyArFyzwYoQ" name="Document">
+ </asset>
+ <p>
+ </p>
+ <p>
+  2.
+  <strong>
+   Start Eclipse and find the starter code for this assignment
+  </strong>
+ </p>
+ <p>
+  The starter code for this assignment can be found in the document package.  You will be working with the files EfficientDocument.java and DocumentBenchmarking.java.  You will need EfficientDocument.java for part 1 and DocumentBenchmarking.java for part 2.  Open these two files now.
+ </p>
+ <p>
+  3.
+  <strong>
+   (If needed) Modify LaunchClass.java so that getDocument returns an EfficientDocument instead of a BasicDocument
+  </strong>
+  (only needed if you changed LaunchClass.java in week 1).  If you modified LaunchClass.java so that its getDocument method returned a BasicDocument last week, you should modify it back to returning a document.EfficientDocument for this week's assignment.
+ </p>
+ <h2 level="2">
+  Assignment Instructions
+ </h2>
+ <p>
+  This assignment has two parts.  The instructions below tell you how to produce the files you need to upload for a grade in each part.
+ </p>
+ <h3 level="3">
+  <u>
+   Part 1: Complete the Implementation of EfficientDocument
+  </u>
+ </h3>
+ <p>
+  <strong>
+   1.
+  </strong>
+  <strong>
+   Implement processText() in EfficientDocument.java.
+  </strong>
+ </p>
+ <p>
+  This method should make ONE pass through the tokens list and count the number of words, sentences and syllables in the document.  It should store these values in the appropriate member variables so that when the method is over, they never have to be re-calculated.
+ </p>
+ <p>
+  You should make sure you understand the provided method getTokens, isWord, and the provided first line of code in the processText method.  If you don't, or you need some more hints about how to get started, you can find a little more information here:
+ </p>
+ <asset assettype="pdf" extension="pdf" id="P1VfcTQmEeaPkQpAoDV9cw" name="Hints and additional information for Programming Assignment 2">
+ </asset>
+ <p>
+  IMPORTANT: Notice that countSyllables and isWord
+  <strong>
+   do not
+  </strong>
+  use Matcher objects or regular expressions.  This is important.  It turns out that the process of creating a Pattern and a Matcher object for each word is slow enough that if you take this approach your EfficientDocument will end up being
+  <em>
+   slower
+  </em>
+  than your BasicDocument, because of the overhead of creating and destroying objects in memory.  So use the single regex we provide at the start of the processText method, but don't try to use Patterns or Matchers on the individual tokens returned from the first call to getTokens.
+ </p>
+ <p>
+  <strong>
+   2. Implement getNumWords, getNumSyllables, and getNumSentences in EfficientDocument.java
+  </strong>
+ </p>
+ <p>
+  Once you have implemented the processText method, the implementations of these three methods is trivial.
+ </p>
+ <p>
+  You can again use the method testCase in the Document class to test the correctness of your implementation.  We've provided a few test cases for you.  You should add more.
+ </p>
+ <h3 level="3">
+  <u>
+   Part 2:  Benchmarking
+  </u>
+ </h3>
+ <p>
+  Your next task is to determine and plot how much faster EfficientDocument is than BasicDocument in computing a single Flesch score for a document.
+ </p>
+ <p>
+  1.
+  <strong>
+   Calculate the Big-O running time of your code
+  </strong>
+  to compute the Flesch score for BasicDocument and EfficientDocument (
+  <em>
+   including the time taken by processText!)
+  </em>
+  and predict how the running time of calling fleschScore on  BasicDocument and EfficientDocument will grow as the document size grows.
+ </p>
+ <p>
+  2.
+  <strong>
+   Open the file DocumentBenchmarking.java
+  </strong>
+  , which you can find in the document package.  You will be adding code to the main method, and you will find the method getStringFromFile useful for reading a specified number of characters from a text file.
+ </p>
+ <p>
+  3.
+  <strong>
+   Complete the main method
+  </strong>
+  so that it prints a table with one column each for the amount of time it takes to create a BasicDocument or an EfficientDocument, respectively, and call fleschScore on it.  Your table should look like the following:
+ </p>
+ <p>
+  NumberOfChars        BasicTime              EfficientTime
+ </p>
+ <p>
+  5000                         [basic time 1]          [efficient time 1]
+ </p>
+ <p>
+  10000                       [basic time 2]          [efficient time 2]
+ </p>
+ <p>
+  15000                       [basic time 3]          [efficient time 3]
+ </p>
+ <p>
+  ...
+ </p>
+ <p>
+  Where the first column in the table prints the number of characters in the test, the second column is the amount of time it takes to create a BasicDocument with that many characters and call fleschScore on it, and the third column is the amount of time it takes to create an EfficientDocument with that many characters and call fleschScore on it.  In these timing calculations, you should include the time taken by both constructors (i.e. the time EfficientDocument takes
+ calculating the number of words, syllables and sentences in the 
+document), otherwise it's not a fair 
+comparison at all!
+ </p>
+ <p>
+  Columns in the table should be separated with a \t character for easy copy and paste in the next section.  You can also write this table to a file if you want, but it's not necessary.
+ </p>
+ <p>
+  You can find some notes and hints about this part here (same document as linked in part 1)
+ </p>
+ <asset assettype="pdf" extension="pdf" id="P1VfcTQmEeaPkQpAoDV9cw" name="Hints and additional information for Programming Assignment 2">
+ </asset>
+ <p>
+  <strong>
+   4. Plot your results and compare them to your predictions
+  </strong>
+  .  Copy the output of your program and paste it into a Google spreadsheet (
+  <a href="http://sheets.google.com">
+   sheets.google.com
+  </a>
+  )
+  <strong>
+   .
+  </strong>
+  It should automatically paste into 3 columns.  Then, graph the data using the Explore button in the lower right corner, as shown in the image below.
+ </p>
+ <img alt="" assetid="Es51f2pWEeWh5Q4YtAwRVw" src="data:image/png;base64,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"/>
+ <p>
+  Do your results look like what you expected them to?  If not, consider whether you've done something wrong in your code somewhere and try to fix it.  But remember that empirical tests always have some noise, so some deviations from "perfect" data are expected.
+ </p>
+ <p>
+  <strong>
+   **To better understand your results, we strongly encourage you to discuss your results on the discussion forum**
+  </strong>
+ </p>
+ <p>
+  Working with real data is fun, but is best done when you have someone else to talk about it with to make sure you really understand what's going on.
+ </p>
+ <h2 level="2">
+  <strong>
+   What and How to Submit
+  </strong>
+ </h2>
+ <p>
+  <strong>
+   1. Create a zip file containing only the files Document.java, EfficientDocument.java and BasicDocument.java
+  </strong>
+  To do this, you must locate these files on your computer's filesystem, in the workspace directory you set up for Eclipse.
+ </p>
+ <p>
+  <strong>
+   2. Upload this zip file for BOTH parts 1 and 2.
+  </strong>
+  You will upload the same file for both parts, but in part 1 we will grade the correctness of your methods, while in part 2 we will grade their speed (they must be faster than BasicDocument's implementation).
+ </p>
+ <p>
+  <strong>
+   3. Submit!
+  </strong>
+  Like last week, grading will take a few minutes, during which time you will see a 0 as your score. Don't worry! Your correct score will refresh once grading is done.
+ </p>
+ <p>
+  If you get any errors, you can run the EfficientDocumentGrader code we provide and use that class to help you debug your program.  If you get errors with part 2, it is likely because your implementation is not efficient enough.
+ </p>
+ <p>
+  After you pass, make sure you understand your graphs from part 2.  We will ask you about them in the quiz that follows this assignment.
+ </p>
+</co-content>
+<style>
+ body {
+    padding: 50px 85px 50px 85px;
+}
+
+table th, table td {
+    border: 1px solid #e0e0e0;
+    padding: 5px 20px;
+    text-align: left;
+}
+input {
+    margin: 10px;
+}
+}
+th {
+    font-weight: bold;
+}
+td, th {
+    display: table-cell;
+    vertical-align: inherit;
+}
+img {
+    height: auto;
+    max-width: 100%;
+}
+pre {
+    display: block;
+    margin: 20px;
+    background: #424242;
+    color: #fff;
+    font-size: 13px;
+    white-space: pre-wrap;
+    padding: 9.5px;
+    margin: 0 0 10px;
+    border: 1px solid #ccc;
+}
+</style>
+<script async="" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript">
+</script>
+<script type="text/x-mathjax-config">
+ MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$$','$$'], ['$','$'] ],
+      displayMath: [ ["\\[","\\]"] ],
+      processEscapes: true
+    }
+  });
+</script>

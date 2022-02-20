@@ -1,0 +1,341 @@
+1
+00:00:00,000 --> 00:00:04,328
+[MUSIC]
+
+2
+00:00:04,328 --> 00:00:07,875
+Hi, in the last video we saw why we
+value trees and why trees are so
+
+3
+00:00:07,875 --> 00:00:09,720
+common in computer science.
+
+4
+00:00:09,720 --> 00:00:12,250
+In this video we are just going
+to dive into some of the basics,
+
+5
+00:00:12,250 --> 00:00:14,530
+of saying what do we mean by a tree?
+
+6
+00:00:14,530 --> 00:00:18,080
+So, by the end of this video you should be
+able to describe a tree data structure.
+
+7
+00:00:20,130 --> 00:00:22,980
+So first off, let's talk terminology.
+
+8
+00:00:22,980 --> 00:00:24,590
+So, I'm gonna use the example here,
+
+9
+00:00:24,590 --> 00:00:28,310
+of the family tree just like
+we did in the last video.
+
+10
+00:00:28,310 --> 00:00:31,643
+And the reason I'm using a family tree is
+that some of this terminology is related
+
+11
+00:00:31,643 --> 00:00:33,300
+to how family trees work.
+
+12
+00:00:33,300 --> 00:00:36,340
+So if we're thinking of the relationship
+between Tywin and Jamie,
+
+13
+00:00:36,340 --> 00:00:39,420
+we know that Tywin is the parent of Jamie.
+
+14
+00:00:41,360 --> 00:00:43,340
+I also wanna point out in this slide,
+
+15
+00:00:43,340 --> 00:00:46,250
+that you'll notice I didn't
+keep all possible parents.
+
+16
+00:00:46,250 --> 00:00:48,360
+So there's only one parent
+of each of these children,
+
+17
+00:00:48,360 --> 00:00:49,790
+to essentially keep it a cleaner tree.
+
+18
+00:00:52,290 --> 00:00:53,580
+Other terminology.
+
+19
+00:00:53,580 --> 00:00:55,470
+So, where do you start in the tree?
+
+20
+00:00:55,470 --> 00:00:56,400
+That's called the root node.
+
+21
+00:00:57,910 --> 00:01:00,909
+The root node is gonna be the only
+node that doesn't have any parents.
+
+22
+00:01:03,421 --> 00:01:07,060
+Leaf nodes are any node
+that has no children.
+
+23
+00:01:07,060 --> 00:01:11,400
+So there's a number of leaf nodes here,
+Tyrion, Myrcella, Joffrey,
+
+24
+00:01:11,400 --> 00:01:15,010
+Tommen, and Jaime are all leaf nodes
+because they have no children.
+
+25
+00:01:16,310 --> 00:01:20,790
+Now that we know the basic terminology,
+what actually makes for a tree?
+
+26
+00:01:20,790 --> 00:01:24,110
+Well, you have a single root and
+again, that is gonna have no parent.
+
+27
+00:01:25,580 --> 00:01:28,857
+Each node can have only one parent,
+except for, again,
+
+28
+00:01:28,857 --> 00:01:31,606
+that root node which is
+allowed not to have one.
+
+29
+00:01:31,606 --> 00:01:33,980
+And then there can be no cycles in a tree.
+
+30
+00:01:33,980 --> 00:01:36,480
+And all I mean by a cycle is
+that there can't be a loop.
+
+31
+00:01:37,740 --> 00:01:39,964
+We'll see an example of
+that in a little while.
+
+32
+00:01:41,439 --> 00:01:44,561
+All right, so now that we have
+a basic definition of a tree,
+
+33
+00:01:44,561 --> 00:01:46,508
+which of these do we think are trees?
+
+34
+00:01:46,508 --> 00:01:49,761
+Go ahead and answer this in the in-video
+quiz, and we'll come back in just a bit.
+
+35
+00:01:51,244 --> 00:01:52,335
+Welcome back.
+
+36
+00:01:52,335 --> 00:01:53,763
+So, hopefully the in-video quiz helped.
+
+37
+00:01:53,763 --> 00:01:57,131
+Let's just walk through each
+of these in more detail.
+
+38
+00:01:57,131 --> 00:01:59,830
+So, is A a tree?
+
+39
+00:01:59,830 --> 00:02:00,960
+Absolutely.
+
+40
+00:02:00,960 --> 00:02:01,970
+You have a single root.
+
+41
+00:02:03,100 --> 00:02:04,610
+The root has no parent.
+
+42
+00:02:04,610 --> 00:02:05,590
+And that's okay.
+
+43
+00:02:05,590 --> 00:02:08,473
+And then each of the children
+have exactly one parent.
+
+44
+00:02:08,473 --> 00:02:09,340
+And that's fine too.
+
+45
+00:02:12,130 --> 00:02:13,940
+What about B?
+
+46
+00:02:13,940 --> 00:02:14,460
+Is that a tree?
+
+47
+00:02:14,460 --> 00:02:16,230
+You've only got a parent and a child.
+
+48
+00:02:16,230 --> 00:02:17,850
+Is that enough to be a tree?
+
+49
+00:02:17,850 --> 00:02:19,030
+Yeah, it is.
+
+50
+00:02:19,030 --> 00:02:21,160
+Again, you've got one root, that's fine.
+
+51
+00:02:21,160 --> 00:02:26,669
+Each node has only one parent, and there's
+no cycles here, so this is a tree as well.
+
+52
+00:02:26,669 --> 00:02:28,503
+Can you have just a single node?
+
+53
+00:02:28,503 --> 00:02:29,490
+Is that sufficient?
+
+54
+00:02:30,730 --> 00:02:31,750
+Yeah, it is.
+
+55
+00:02:31,750 --> 00:02:34,490
+Again, I've got a single
+root that has no parents.
+
+56
+00:02:34,490 --> 00:02:37,180
+There are no other nodes, so we don't
+have to worry about the others, and
+
+57
+00:02:37,180 --> 00:02:37,900
+there is no cycle.
+
+58
+00:02:40,410 --> 00:02:42,080
+What about the last one here?
+
+59
+00:02:42,080 --> 00:02:42,740
+Is this a tree?
+
+60
+00:02:44,210 --> 00:02:45,250
+Well, no, it's not.
+
+61
+00:02:45,250 --> 00:02:47,120
+This has two things wrong with it.
+
+62
+00:02:47,120 --> 00:02:50,640
+The first is that the very bottom
+node here has two parents, and
+
+63
+00:02:50,640 --> 00:02:53,980
+we said from the very beginning every
+node has to have one parent except for
+
+64
+00:02:53,980 --> 00:02:55,770
+the root who can have none.
+
+65
+00:02:55,770 --> 00:02:58,220
+The other thing that's wrong with
+this is this is a perfect example of
+
+66
+00:02:58,220 --> 00:02:59,100
+a cycle, right?
+
+67
+00:02:59,100 --> 00:03:04,400
+If I start at the very top, and
+I go to the left and then I go down,
+
+68
+00:03:04,400 --> 00:03:06,770
+well I get to the same node that I
+could have gotten to the other way.
+
+69
+00:03:06,770 --> 00:03:07,749
+And that's the cycle.
+
+70
+00:03:10,952 --> 00:03:12,820
+What about this last one?
+
+71
+00:03:12,820 --> 00:03:13,360
+Is this a tree.
+
+72
+00:03:15,480 --> 00:03:17,430
+No, it's not either.
+
+73
+00:03:17,430 --> 00:03:20,460
+The reason why is because I have
+two nodes that have no parents.
+
+74
+00:03:20,460 --> 00:03:22,680
+Which means I have two nodes
+which are root nodes and
+
+75
+00:03:22,680 --> 00:03:24,560
+that's not permitted either.
+
+76
+00:03:24,560 --> 00:03:27,137
+So now that we have a better feel for
+what makes for a tree,
+
+77
+00:03:27,137 --> 00:03:30,377
+in the next video, we'll start talking
+about how to code them in Java.

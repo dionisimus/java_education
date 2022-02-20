@@ -1,0 +1,20 @@
+[MUSIC] Why would you want to use
+a list rather than an array? The big advantage of
+an array is random access. You can look at any element of
+the array in the same amount of time. So reading an array is constant time. It's o over one. In a list, you have to walk down the list step by
+step to get to the element you want. So reading in a list is linear time. It's o of n.
+On the other hand, inserting or deleting an item in a list, just requires
+fiddling some object references. So, it's constant time. But inserting or deleting into an array usually means you have to copy all
+of the following items in the array. Sometimes you have to copy the whole array
+if you don't have enough space in memory so that's o of n. In general, arrays are faster to read,
+and lists are faster to write. So you have to pick your data
+structure carefully depending on what algorithm you're planning
+on using with it. For example, there was a time
+when I needed to do a merge sort on a collection of very large objects. Merging two arrays means
+allocating a third array as big as the original two combined,
+and then copying each object into it. So it's really slow. Merging two lists means
+walking down the two lists and just fiddling the references as you go. And when you're done
+you have one big list. So that's really fast. In this case the algorithmic
+complexity is the same. They're both n log n, like any merge sort. But in practice, the difference in
+performance was something like 10 or 20 times, because copying
+the objects took such a long time. So using a list was a big win.

@@ -1,0 +1,144 @@
+1
+00:00:00,000 --> 00:00:04,266
+[MUSIC]
+
+2
+00:00:04,266 --> 00:00:06,850
+Welcome to the module four project.
+
+3
+00:00:06,850 --> 00:00:10,740
+This project is gonna be a lot of fun
+because you're going to get to enable
+
+4
+00:00:10,740 --> 00:00:15,310
+this Spelling Suggestions,
+not suggestions yet, but
+
+5
+00:00:15,310 --> 00:00:19,710
+at least the ability to flag incorrectly
+spelled words, and most excitingly,
+
+6
+00:00:19,710 --> 00:00:21,770
+this AutoComplete functionality.
+
+7
+00:00:21,770 --> 00:00:26,140
+So, you're gonna be adding some
+spelling help into your application.
+
+8
+00:00:26,140 --> 00:00:28,830
+So, let me just give you a demo
+of what this is gonna look like.
+
+9
+00:00:28,830 --> 00:00:32,046
+So, if I turn on Spelling Suggestions,
+
+10
+00:00:32,046 --> 00:00:36,679
+what you'll see when you type,
+is that as I type, Hello,
+
+11
+00:00:36,679 --> 00:00:41,809
+as long as the words are typed correctly,
+there's no problem.
+
+12
+00:00:41,809 --> 00:00:46,774
+But if I type something like sentenc,
+like that and I forget the e,
+
+13
+00:00:46,774 --> 00:00:51,910
+you can see that this word is
+going to be flagged as misspelled.
+
+14
+00:00:51,910 --> 00:00:53,070
+Now, in the next week,
+
+15
+00:00:53,070 --> 00:00:56,841
+next week you'll be able to add the
+ability to right-click on this word, and
+
+16
+00:00:56,841 --> 00:01:00,043
+get some spelling suggestions of
+what I might have meant to type.
+
+17
+00:01:00,043 --> 00:01:02,890
+But that's not going to be
+implemented until next week.
+
+18
+00:01:02,890 --> 00:01:06,690
+So for now, you'll just see that
+it's flagged as a misspelled word.
+
+19
+00:01:06,690 --> 00:01:10,467
+But even more excitingly, what you're
+going to get to do is, you're going to get
+
+20
+00:01:10,467 --> 00:01:14,700
+to turn on this AutoComplete functionality
+and have it actually work correctly.
+
+21
+00:01:14,700 --> 00:01:19,760
+So, now when I start to type,
+you can see that I can have all
+
+22
+00:01:19,760 --> 00:01:25,000
+of the possibilities of what I might
+be trying to type displaying for me.
+
+23
+00:01:25,000 --> 00:01:27,710
+Or at least it just displays
+six right now, so I can choose,
+
+24
+00:01:27,710 --> 00:01:30,111
+like maybe I meant to say sentence,
+oh, look I did.
+
+25
+00:01:30,111 --> 00:01:33,619
+So, I can just choose that and
+then go on, sentence this, and
+
+26
+00:01:33,619 --> 00:01:37,802
+you can see that sometimes it doesn't
+come up with what I'm looking for,
+
+27
+00:01:37,802 --> 00:01:40,449
+cuz it's only showing
+me six possibilities.
+
+28
+00:01:41,520 --> 00:01:45,303
+But it then almost always does,
+once I type a little bit more.
+
+29
+00:01:45,303 --> 00:01:48,926
+So, this is really fun piece of the
+project, and I hope you're looking forward
+
+30
+00:01:48,926 --> 00:01:52,510
+to learning everything you need to know,
+in order to add this functionality.

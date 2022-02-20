@@ -1,0 +1,98 @@
+[MUSIC] Welcome back. In this lesson we're gonna learn about
+benchmarking which means this video I get to have a little bit of fun. The reason I get to have some fun is
+that my PhD is actually in computer architecture. Computer architecture is the high
+level of design of processors. And when you start talking
+about designing processors, you're talking about making things fast. If you wanna be able to say one processor
+is faster than another processor you have to have some programs
+to run on the processors. And those are essentially
+called benchmarks. So in this video we're going to dive
+in beneath the hood a little bit. And look at some of these details in
+terms of how long does it take for a program to run. And what are the different things
+that affect program execution time. So big goals for this video is for
+you to be able to explain the role of benchmarking in computer science, and
+for you to be able to identify components in real systems that can
+impact execution time. Now you may have already used some
+kind of benchmarking software before. For example, the website on the left,
+www.speedtest.net has software designed to test your internet service
+provider's ability to transfer data, so essentially how fast is
+your internet connection. The website on the right is
+benchmarking software for video gamers. So if you're a video gamer and you wanna see how well your video
+games are gonna play on your system, this software is designed to essentially
+test all that hardware your graphics card, your processor, etcetera. So if you want to see how well does your
+system do given a piece of software, that's the classic case of benchmarking. Now the other way that you may have
+used benchmarking before is if you ran a program that was a little slow. So may want to use benchmarking to
+essentially compare one piece of software against another. So you may have had your old code, which
+took awhile to run, say like ten seconds. Then you improve your code, and
+it ran in say four seconds. You've essentially done benchmarking. You compared your old version of your code
+against your new version of the code and you say your new version
+of your code is better. Now if you've ever done this before you
+may have noticed that the execution times weren't very consistent. It may have ran four seconds one time,
+six seconds the next, three the next. Why is there a variance there? Well those details are what
+we're gonna dive into now. When Mia first introduced
+run time analysis, she said, you know, when you're trying to work on
+a real system, there's a lot of different variables that play into how
+long it takes something to run. So it's really useful to be able to
+analyze an algorithm in itself and we've been doing a great deal
+of that in the last lesson. And that's an incredibly useful
+way to analyze an algorithm. But at some point or another, you actually
+wanna run your software on a system, and you wanna be able to
+measure how long it takes. There are a number of
+components that go into that. Now I'm gonna dive into some details here
+that you don't need to know going forward. We're not gonna test you on it. But I just want you to see that there's
+a lot of components that all play into how long it takes for
+something to run on a real system. Now one area that you're probably
+very familiar with is the Compiler. So, when you take your code that you've
+written it goes through a Java Compiler, it produces Byte Code which then
+runs on Java Virtual Machine. And there's two things I
+want you to focus on here. The first is that the Java Virtual Machine
+is actually an abstraction, it's an abstraction for computers. You don't need all the details
+behind to essentially write the byte code to run on it. The second piece I want you to focus
+on is that the compiler makes choices. The choices it makes affects
+the performance of your program. Now there are companies that
+compete in other languages, like C++, to essentially produce the best
+compilers the fastest running compilers. So what your compiler does
+impacts your performance. But let's dive into the details
+of the Java Virtual Machine, let's go one level of extraction lower. Your Java Virtual Machine is actually
+executing on top of an operating system. An operating system makes choices too. An operating system is
+essentially an obstraction for all your hardware components. And it makes decisions like how many
+resources should your program get? How often should it get to run? How long does it run for? All these decisions are made
+by your operating system and that affects performance too. But again, it's an abstraction for
+the hardware. So let's look at the hardware. When you actually start running your
+program it's gonna run on real devices. Your program exists and
+data exists on hard disk. Your memory is essentially your working
+set that you're working with right now. And your CPU is actually what
+does all your computations. You have other components
+in your computer. You may have a graphics card which
+does again graphics rendering. You may have a monitor, a keyboard, a mouse, an internet port,
+a wireless adapter. All of these things can
+impact performance. At this point you're almost certainly
+saying, whoa, that's a lot of details. And in fact I'm kinda breaking
+some rules right now. These systems have been designed so
+these details are hidden away from you. That's the whole purpose of abstraction. In fact we should be really
+happy about abstraction. Because when you wrote your first
+program you didn't deal with, how am I gonna pull the program from
+disc and then get that into memory and then put that through my processor and
+then get that to the screen. You just wrote it in Java. And it ran on the Java virtual machine. So why then am I pulling back the curtains
+here and looking at the details? And this would be for two reasons. The first is because when we thing
+about the running time of a program on a real system, it's influenced by
+all these things, by the compiler, by the operating system,
+by the processor design. The other reason I'm talking about these, is because these are really
+interesting topics in themselves. After you've finished the specialization I
+encourage to look more into any of these topics you may be interested in. Again compiler design is
+interesting in itself. Operating systems is
+incredibly interesting. And of course I love computer architecture
+which is the design of processors. So, let's get back to performance. So how then,
+given how complex these real systems are, can we reason about how long it takes
+to run our program on a real system? You might right now be thinking,
+well, wait, I have the program, and I have the system,
+couldn't I just run it and time it? Well yeah, that's what benchmarking is. So benchmarking is just running
+a program on a real machine and measuring its performance. And for right now we're gonna define
+performance to be essentially how long it takes for a program to execute. But I do wanna say there
+are other metrics in performance. For example, you might care
+about how much power is consumed in running that program if you're
+talking about a laptop or smartphone. But for right now, again, let's just focus
+on how long it takes for something to run. And we'll use benchmarking in two ways. The first is it allows us to
+compare different machines by running the same program
+on each of those machines. And the other way we use it,
+is comparing two different programs on the same machine, and that's what
+we're going to do in our next video.

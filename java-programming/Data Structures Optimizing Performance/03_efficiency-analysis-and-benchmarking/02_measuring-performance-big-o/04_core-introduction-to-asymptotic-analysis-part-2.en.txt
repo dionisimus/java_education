@@ -1,0 +1,48 @@
+[MUSIC] Okay, so let's see how that
+is going to translate and basically we're going to start with
+seeing how to compute big O and then afterwards give
+the formal definition. So our big O class is supposed to
+capture eventual rates of growth. And so we don't care about constants. And so in big O world, in asymptotic world, whether we have
+a million or one, same difference. The big O is exactly the same. And so we say that a million is big O(1). So, notice that the way that I'm
+reading the sentence, the equals and then the capital O and
+then the bracket's another function. The way that we read it is, the left hand side is big O of
+what's ever inside those brackets. And so
+here we have that a million is big O(1). And the idea here is those constants might
+just be that initialization cost when we start off a new program. Then we might have to do a whole lot
+of busy work at the very beginning, but that busy work is the same,
+no matter what our input is. And so even if it's a million steps or one
+step that's not going to tell us how that program behaves as our input
+gets bigger and bigger and bigger and so
+we don't need to worry about it. We just lump it all into a single
+constant and say that's big O(1). It's not changing as n changes. Okay, so that's one of our principles. Our second principles with asymptotic
+analysis is that we only care about the dominant term. So we only care about
+the piece of the calculation that's going to make the biggest
+impact to our outcome. And so we only want to keep the part of
+the function that is the fastest growing. So for example, when we think back
+about our linear function before, we had 3n+3 in that calculation
+of the number of operations. But notice that we've got two terms here. We've got the 3n term and we've got the 3. Now, 3n grows as n grows. 3 does not. And so the dominant term of those
+2 pieces of the sum is the 3n, and in our big O analysis we're
+just going to keep that. So 3n+3 is big O(3n). But now think back to our previous
+observation, we're going to drop constants and so 3n is exactly the same
+as n in this big O sense. Okay, so you've got these two principles. How do we know they're okay? Where are they coming from? Well, before we get there,
+let's do some examples, make sure that we're comfortable. And so
+in the next couple of in-video quizzes, we're going to encourage you to think
+about some calculations with big O. So, hopefully those quizzes were
+helpful for getting a flavor for how you deal with big O classes and how you compare two different
+functions based on these asymptotics. But you might be wondering,
+how can we make these choices and what's a principled way for
+understanding asymptotic analysis? So here's the formal definition of
+what it means when we say that f(n) is big O (g(n)). And what we mean, really, is that there
+are these two constants, n and c. So that eventually, so for inputs of
+sizes bigger than this capital N, we can upper bound our function f(n) by some
+constant multiple of our function g(n). Okay, and so you can spend many pleasant
+hours playing with this definition and figuring out exactly why it means
+that we can drop constants and just keep the dominant term. But really for practice and for
+what we're gonna be doing in this class, I encourage you to not worry too
+much about this formal definition. And really make sure that you
+are comfortable with looking at code and getting at the asymptotics
+based on that code. Looking through the execution and
+really picking out the big O class for the runtime of that code. And so
+that's what we'll be practicing next. We'll be looking at a few
+different code snippets and for each one of them computing
+the big O classes of its runtime.

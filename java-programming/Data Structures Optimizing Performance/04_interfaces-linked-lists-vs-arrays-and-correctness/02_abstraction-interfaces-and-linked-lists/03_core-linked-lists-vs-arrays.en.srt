@@ -1,0 +1,986 @@
+1
+00:00:00,000 --> 00:00:04,041
+[MUSIC]
+
+2
+00:00:04,041 --> 00:00:07,807
+So this video, we're going to dive
+into some implementations of that list
+
+3
+00:00:07,807 --> 00:00:10,600
+interface that we introduced
+in the last video.
+
+4
+00:00:10,600 --> 00:00:15,360
+We're gonna look at two implementations,
+the Array List and the Linked List, and
+
+5
+00:00:15,360 --> 00:00:18,540
+we'll get into the Linked List in some
+detail, since that's a new data structure.
+
+6
+00:00:19,580 --> 00:00:22,390
+So by the end of this video,
+you'll be able to describe and draw
+
+7
+00:00:22,390 --> 00:00:26,360
+the structure of a LinkedList, and you'll
+be able to give at least one advantage of
+
+8
+00:00:26,360 --> 00:00:29,530
+using a LinkedList over an ArrayList for
+implementing the list interface.
+
+9
+00:00:31,900 --> 00:00:36,260
+So, as we mentioned in the last video, the
+idea of an abstract data type is that it
+
+10
+00:00:36,260 --> 00:00:40,090
+specifies behavior but
+doesn't specify implementation.
+
+11
+00:00:40,090 --> 00:00:44,550
+So it's up to the developer of
+the library to specify the implementation
+
+12
+00:00:44,550 --> 00:00:46,040
+of a particular behavior.
+
+13
+00:00:46,040 --> 00:00:48,550
+So in Java,
+if I wanna implement an interface,
+
+14
+00:00:48,550 --> 00:00:52,790
+I promise to fulfil all the functionality,
+but I can do it however I wanna do it,
+
+15
+00:00:52,790 --> 00:00:55,290
+as long as the functionality is fulfilled.
+
+16
+00:00:55,290 --> 00:00:58,550
+Java provides two built-in
+implementations, at least two,
+
+17
+00:00:58,550 --> 00:01:02,610
+more than two built-in implementations
+of the list interface.
+
+18
+00:01:02,610 --> 00:01:05,360
+One of which, you're very familiar
+with called the ArrayList,
+
+19
+00:01:05,360 --> 00:01:08,170
+uses an array to implement
+the functionality of the list.
+
+20
+00:01:08,170 --> 00:01:11,970
+And the other is called the LinkedList,
+which uses as you probably guessed,
+
+21
+00:01:11,970 --> 00:01:15,180
+a linked list to implement
+the functionality of the list.
+
+22
+00:01:15,180 --> 00:01:17,350
+Now I'm taking some
+liberties with this diagram.
+
+23
+00:01:17,350 --> 00:01:20,600
+The inheritance hierarchy doesn't
+exactly look like this in Java.
+
+24
+00:01:20,600 --> 00:01:22,160
+But it's close enough.
+
+25
+00:01:22,160 --> 00:01:23,830
+Basically, the ArrayList and
+
+26
+00:01:23,830 --> 00:01:28,630
+the LinkedList are both data structures
+that implement that list implementation.
+
+27
+00:01:30,260 --> 00:01:32,910
+So, let's first look at the ArrayList.
+
+28
+00:01:32,910 --> 00:01:36,960
+As I mentioned, we've got an array
+underlying that structure.
+
+29
+00:01:36,960 --> 00:01:39,720
+And you know about an array,
+it's just a sequence of elements,
+
+30
+00:01:39,720 --> 00:01:44,340
+all look at contiguously in memory and
+each position has an index, so
+
+31
+00:01:44,340 --> 00:01:48,020
+you can go directly to any
+particular location in that array.
+
+32
+00:01:48,020 --> 00:01:50,490
+So if I wanna get the element
+at index position 2,
+
+33
+00:01:50,490 --> 00:01:53,740
+I can just go directly to the element at
+index position 2 and I can see there's 15,
+
+34
+00:01:53,740 --> 00:01:56,770
+and that's instantly,
+you can just do that in constant time.
+
+35
+00:01:58,440 --> 00:02:00,970
+However, I wanna ask you a question.
+
+36
+00:02:00,970 --> 00:02:03,260
+Let's say, as part of a list interface,
+
+37
+00:02:03,260 --> 00:02:06,280
+it says, I can add an element
+at the beginning of the list.
+
+38
+00:02:06,280 --> 00:02:09,360
+So, let's say I wanna add a new
+element to the beginning of the list.
+
+39
+00:02:09,360 --> 00:02:11,400
+In other words, at index position zero.
+
+40
+00:02:11,400 --> 00:02:15,280
+The question I have for you is,
+how long is that going to take
+
+41
+00:02:15,280 --> 00:02:17,750
+relative to the number of elements
+that are already in that list?
+
+42
+00:02:18,870 --> 00:02:21,860
+Okay, so
+this is actually going to take order and
+
+43
+00:02:21,860 --> 00:02:24,380
+time to insert that
+element at the beginning.
+
+44
+00:02:24,380 --> 00:02:25,785
+And the reason for that is that,
+
+45
+00:02:25,785 --> 00:02:28,450
+I can't just drop in the element
+in the index position zero.
+
+46
+00:02:28,450 --> 00:02:32,510
+If I try to put an element in the index
+position 0, I'll overwrite the 42.
+
+47
+00:02:32,510 --> 00:02:35,303
+So before I can put an element
+in the index position 0,
+
+48
+00:02:35,303 --> 00:02:37,750
+I need to move the 42 to position 1.
+
+49
+00:02:37,750 --> 00:02:41,450
+But to move the 42 to position one,
+I need to move the 95 to position two.
+
+50
+00:02:41,450 --> 00:02:42,230
+And so on and so forth.
+
+51
+00:02:42,230 --> 00:02:45,540
+So I basically need to move every
+single element out of the way,
+
+52
+00:02:45,540 --> 00:02:50,070
+all the way down the list, before I
+can put an element at position zero.
+
+53
+00:02:50,070 --> 00:02:54,540
+The problem is, there's no way for me to
+expand my array to like negative one and
+
+54
+00:02:54,540 --> 00:02:55,180
+negative two.
+
+55
+00:02:55,180 --> 00:02:56,690
+It doesn't work that way.
+
+56
+00:02:56,690 --> 00:02:59,270
+I'm stuck at index position zero.
+
+57
+00:02:59,270 --> 00:03:02,830
+So its gonna take relatively long time
+to put an element at the beginning
+
+58
+00:03:02,830 --> 00:03:04,300
+of the array.
+
+59
+00:03:04,300 --> 00:03:08,150
+So if I have a task that involves
+constantly putting elements
+
+60
+00:03:08,150 --> 00:03:10,170
+in the beginning of my list.
+
+61
+00:03:10,170 --> 00:03:12,600
+An ArrayList might not be my best choice.
+
+62
+00:03:13,620 --> 00:03:18,158
+So, in other words, the Abstra data
+type here is specifying behavior, so
+
+63
+00:03:18,158 --> 00:03:21,257
+the ArrayList is fulfilling
+all the behavior, but
+
+64
+00:03:21,257 --> 00:03:24,283
+it doesn't specify any
+bounds on efficiency, so
+
+65
+00:03:24,283 --> 00:03:29,060
+the ArrayList is not very efficient for
+this particular task.
+
+66
+00:03:29,060 --> 00:03:31,970
+Let's look at a data structure
+that's more efficient for
+
+67
+00:03:31,970 --> 00:03:33,950
+inserting elements at the beginning, or
+
+68
+00:03:33,950 --> 00:03:38,720
+arbitrarily anywhere in the middle
+of the list, called the Linked List.
+
+69
+00:03:38,720 --> 00:03:42,280
+So here's a picture of
+my new data structure.
+
+70
+00:03:42,280 --> 00:03:46,970
+And what you see here is the data
+organized into these boxes called nodes.
+
+71
+00:03:46,970 --> 00:03:52,420
+So I have three nodes in my Linked List,
+storing the elements 42, 55, and 23.
+
+72
+00:03:52,420 --> 00:03:56,430
+And inside each node,
+I have the following fields.
+
+73
+00:03:56,430 --> 00:03:59,710
+I have some data,
+that's stored inside the node.
+
+74
+00:03:59,710 --> 00:04:03,000
+And then,
+these nodes aren't necessarily arranged.
+
+75
+00:04:03,000 --> 00:04:05,000
+Anywhere near each other in memory.
+
+76
+00:04:05,000 --> 00:04:07,530
+So, how to link them together somehow?
+
+77
+00:04:07,530 --> 00:04:11,575
+So, each node also has a reference
+to the next node in the list, and
+
+78
+00:04:11,575 --> 00:04:14,330
+a reference to the previous
+node in the list.
+
+79
+00:04:15,710 --> 00:04:20,330
+Now, in order to know where this whole
+list is, I need to store a reference to
+
+80
+00:04:20,330 --> 00:04:24,060
+the head of the list or in other words,
+the first node in the list.
+
+81
+00:04:24,060 --> 00:04:27,730
+And, typically, in what's called a Doubly
+Linked List, because I have two pointers,
+
+82
+00:04:27,730 --> 00:04:29,340
+one to the next and one to the previous,
+
+83
+00:04:29,340 --> 00:04:34,040
+I also store a pointer to the tail of
+the list, the last node in the list.
+
+84
+00:04:35,200 --> 00:04:39,260
+So in this way, I still got my elements
+arranged in a particular order, but
+
+85
+00:04:39,260 --> 00:04:41,550
+instead of being contiguous in memory,
+
+86
+00:04:41,550 --> 00:04:45,820
+these nodes could be scattered all over
+the place and they're linked together.
+
+87
+00:04:45,820 --> 00:04:49,990
+I have direct access to the first node in
+the list, and the last node in the list.
+
+88
+00:04:49,990 --> 00:04:52,340
+But if I want any of the nodes
+in the middle of the list,
+
+89
+00:04:52,340 --> 00:04:55,730
+I have to follow those pointers through
+the list to get access to them.
+
+90
+00:04:56,730 --> 00:04:58,390
+So it's a little bit
+different from an array.
+
+91
+00:04:59,830 --> 00:05:02,110
+Now what I've shown you here
+is a Doubly Linked List.
+
+92
+00:05:02,110 --> 00:05:04,880
+You'll also hear people talk
+about a Singly Linked List.
+
+93
+00:05:04,880 --> 00:05:09,000
+A Singly Linked List is very similar,
+only instead of having a next pointer and
+
+94
+00:05:09,000 --> 00:05:13,510
+a previous pointer, the nodes only have
+a data field and a next pointer but
+
+95
+00:05:13,510 --> 00:05:14,860
+no previous pointer.
+
+96
+00:05:14,860 --> 00:05:15,360
+And typically,
+
+97
+00:05:15,360 --> 00:05:18,600
+in a Singly Linked List, you only store
+a pointer into the head of the list.
+
+98
+00:05:19,870 --> 00:05:23,100
+These are pretty much the same, sometimes,
+
+99
+00:05:23,100 --> 00:05:25,720
+somethings are slightly
+harder to implement.
+
+100
+00:05:25,720 --> 00:05:28,480
+Some functionality is slightly
+harder to implement with the singly
+
+101
+00:05:28,480 --> 00:05:32,600
+linked list than with a doubly linked
+list, but you can pretty much do all of
+
+102
+00:05:32,600 --> 00:05:36,740
+the same stuff you can do with a singly
+linked list and doubly linked list.
+
+103
+00:05:36,740 --> 00:05:39,730
+We're going to be focusing on the doubly
+linked list, but we will ask you some
+
+104
+00:05:39,730 --> 00:05:43,350
+concept questions about singly
+linked list, and their performance
+
+105
+00:05:43,350 --> 00:05:46,770
+in the end of module quiz, so make sure
+you kind of know what they're about.
+
+106
+00:05:48,470 --> 00:05:50,800
+So let's go back to that
+doubly LinkedList and look at,
+
+107
+00:05:50,800 --> 00:05:55,430
+in more detail, how we're going
+to implement this data structure.
+
+108
+00:05:55,430 --> 00:05:57,270
+This data structure's
+already built into Java.
+
+109
+00:05:58,500 --> 00:06:02,100
+So in general, you wouldn't need to
+implement it, but we are going to ask you
+
+110
+00:06:02,100 --> 00:06:05,630
+to implement it as part of a programming
+assignment, just so that you get
+
+111
+00:06:05,630 --> 00:06:09,560
+a really good sense of how this data
+structure works and what it's all about.
+
+112
+00:06:09,560 --> 00:06:13,200
+So you'll be implementing functionality
+that's already built into Java but
+
+113
+00:06:13,200 --> 00:06:14,160
+that's okay.
+
+114
+00:06:14,160 --> 00:06:17,050
+It's kind of a rite of passage
+to implement a LinkedList,
+
+115
+00:06:17,050 --> 00:06:19,840
+as part of your computer
+science education.
+
+116
+00:06:19,840 --> 00:06:21,090
+So to implement a LinkedList,
+
+117
+00:06:21,090 --> 00:06:23,380
+you're going to need to
+implement two different classes.
+
+118
+00:06:23,380 --> 00:06:27,120
+So the first class you'll need to
+implement is called ListNode, and
+
+119
+00:06:27,120 --> 00:06:31,340
+that stores the data in one particular
+node in the list, as well as
+
+120
+00:06:31,340 --> 00:06:34,970
+the pointers to the next node in the list
+and the previous node in the list.
+
+121
+00:06:36,070 --> 00:06:37,920
+So I want you to stop for
+just a minute, and
+
+122
+00:06:37,920 --> 00:06:42,259
+think about the types of that
+field next and that field prev.
+
+123
+00:06:43,400 --> 00:06:46,548
+What is going to be the type
+that you wanna use for
+
+124
+00:06:46,548 --> 00:06:49,234
+those two fields in the ListNode class?
+
+125
+00:06:52,461 --> 00:06:53,460
+All right.
+
+126
+00:06:53,460 --> 00:06:57,190
+We'll get back to that when we actually
+start writing Java code, but for
+
+127
+00:06:57,190 --> 00:07:00,710
+now let's talk about the other class
+that you'll need to implement.
+
+128
+00:07:00,710 --> 00:07:04,670
+This other class is the class that
+represents the LinkedList itself,
+
+129
+00:07:04,670 --> 00:07:07,630
+we'll call it MyLinkedList,
+because LinkedList is already taken.
+
+130
+00:07:07,630 --> 00:07:08,800
+It's already built into Java.
+
+131
+00:07:08,800 --> 00:07:13,880
+And what my list is going to store is,
+some overall properties of the list,
+
+132
+00:07:13,880 --> 00:07:15,190
+perhaps its size.
+
+133
+00:07:15,190 --> 00:07:19,060
+But most importantly,
+a reference to the first node in the list.
+
+134
+00:07:19,060 --> 00:07:20,300
+And the last node in the list.
+
+135
+00:07:20,300 --> 00:07:22,920
+So it's gonna store those head and
+tail pointers,
+
+136
+00:07:22,920 --> 00:07:25,400
+to give you access to
+the whole list itself.
+
+137
+00:07:25,400 --> 00:07:30,380
+But it's the node class that really
+comprises the structure of the list
+
+138
+00:07:30,380 --> 00:07:31,050
+itself.
+
+139
+00:07:33,920 --> 00:07:37,314
+So this diagram now is just
+a slightly more detailed diagram of
+
+140
+00:07:37,314 --> 00:07:41,753
+what you'll actually be implementing in
+Java, showing you all of the fields and
+
+141
+00:07:41,753 --> 00:07:45,889
+their values for this particular example
+that has three nodes in the list.
+
+142
+00:07:47,040 --> 00:07:52,240
+I'm going to use it to add one more
+subtlety to our LinkedList implementation.
+
+143
+00:07:52,240 --> 00:07:54,560
+So those are the ListNode objects.
+
+144
+00:07:54,560 --> 00:07:56,140
+Here's the MyLinkedList object.
+
+145
+00:07:57,250 --> 00:08:00,880
+And I'm now gonna talk about a slight
+variation on this implementation.
+
+146
+00:08:01,910 --> 00:08:05,590
+So what we've been doing so far,
+is we've been linking the head and
+
+147
+00:08:05,590 --> 00:08:11,170
+the tail references directly to to
+ListNode objects that store data.
+
+148
+00:08:11,170 --> 00:08:14,300
+So 42 and 23 are the head and the tail,
+
+149
+00:08:14,300 --> 00:08:19,520
+respectively, in our LinkedList, and
+they actually store real pieces of data.
+
+150
+00:08:19,520 --> 00:08:21,250
+So those pieces of data
+are actually in the list.
+
+151
+00:08:22,440 --> 00:08:24,790
+But sometimes that can
+be kind of problematic.
+
+152
+00:08:24,790 --> 00:08:27,670
+Because you might accidentally
+run off the end of a list or
+
+153
+00:08:27,670 --> 00:08:31,020
+accidentally run off the beginning of
+the list, when you're traversing the list.
+
+154
+00:08:31,020 --> 00:08:36,310
+So it's handy to introduce these
+things called sentinel or dummy nodes.
+
+155
+00:08:36,310 --> 00:08:38,380
+So what are sentinel or dummy nodes?
+
+156
+00:08:38,380 --> 00:08:39,270
+Basically, what we're gonna do is,
+
+157
+00:08:39,270 --> 00:08:42,180
+we're is we're gonna take
+the nodes that store data.
+
+158
+00:08:42,180 --> 00:08:45,930
+Shift them over slightly,
+then we're gonna insert these dummy nodes
+
+159
+00:08:45,930 --> 00:08:48,880
+at the beginning and
+at the end of the list.
+
+160
+00:08:48,880 --> 00:08:51,100
+These dummy nodes don't store any data.
+
+161
+00:08:51,100 --> 00:08:53,800
+They're always gonna be there,
+even when the list is empty.
+
+162
+00:08:53,800 --> 00:08:57,460
+And they're going to be pointed
+to by the head pointer and
+
+163
+00:08:57,460 --> 00:08:59,190
+the tail pointer in the list.
+
+164
+00:08:59,190 --> 00:09:03,270
+So they're essentially just buffers,
+that keep you from running off one end or
+
+165
+00:09:03,270 --> 00:09:05,200
+the other of the list.
+
+166
+00:09:05,200 --> 00:09:09,360
+They make implementation of the LinkedList
+functionality, slightly easier.
+
+167
+00:09:09,360 --> 00:09:10,590
+Do you need them?
+
+168
+00:09:10,590 --> 00:09:11,750
+No, you don't need them.
+
+169
+00:09:11,750 --> 00:09:15,708
+You can implement LinkedList perfectly
+well, without these sentinel nodes.
+
+170
+00:09:15,708 --> 00:09:18,870
+But we're gonna use them in our
+implementation because like I said,
+
+171
+00:09:18,870 --> 00:09:21,060
+they make this implementation
+slightly easier.
+
+172
+00:09:23,860 --> 00:09:24,440
+All right.
+So
+
+173
+00:09:24,440 --> 00:09:27,370
+that's kind of an overview of where
+we're going with our implementation.
+
+174
+00:09:27,370 --> 00:09:29,910
+These are just pictures showing
+you the Java classes that we
+
+175
+00:09:29,910 --> 00:09:31,340
+are going to implement.
+
+176
+00:09:31,340 --> 00:09:34,500
+But let me now return to some
+of these efficiency questions,
+
+177
+00:09:34,500 --> 00:09:36,250
+that I asked you at the beginning.
+
+178
+00:09:36,250 --> 00:09:38,239
+Let's go back to our
+ArrayList implementation.
+
+179
+00:09:39,270 --> 00:09:43,995
+So the question I have for you now is, if
+I want to get an element at a particular
+
+180
+00:09:43,995 --> 00:09:49,040
+index in my list, how long is that going
+to take in the ArrayList implementation?
+
+181
+00:09:52,590 --> 00:09:54,380
+All right good.
+
+182
+00:09:54,380 --> 00:09:57,790
+So, hopefully you now
+understand why it's order 1.
+
+183
+00:09:57,790 --> 00:10:01,610
+Because these elements in the array
+are organized contiguously in memory, and
+
+184
+00:10:01,610 --> 00:10:05,010
+we can just go directly to any
+index in the array that we want to.
+
+185
+00:10:05,010 --> 00:10:07,260
+That's one of the main benefits of arrays.
+
+186
+00:10:08,860 --> 00:10:11,030
+Let me ask you, now, the same question for
+
+187
+00:10:11,030 --> 00:10:13,139
+a LinkedList implementation
+of the List interface.
+
+188
+00:10:14,390 --> 00:10:19,190
+It may seem a little strange, but
+LinkedList can actually associate indices
+
+189
+00:10:19,190 --> 00:10:22,250
+with the elements in the list,
+and that's up to you,
+
+190
+00:10:22,250 --> 00:10:25,110
+the designer of the LinkedList
+class to do that association and
+
+191
+00:10:25,110 --> 00:10:28,330
+you'll be doing that in your
+implementation of your LinkedList.
+
+192
+00:10:28,330 --> 00:10:33,905
+And the question I have for you is, if we
+associate the index 0 with 42, the first
+
+193
+00:10:33,905 --> 00:10:39,641
+element in the list, 1 with 55, and 2 with
+23, how long does it take me to access
+
+194
+00:10:39,641 --> 00:10:44,760
+an arbitrary element in my LInkedList
+implementation, in the worst case?
+
+195
+00:10:49,130 --> 00:10:51,800
+All right, so it's order n.
+
+196
+00:10:51,800 --> 00:10:54,280
+It's much slower than an ArrayList.
+
+197
+00:10:54,280 --> 00:10:58,920
+Because we only have access to the head
+of the list and the tail of the list.
+
+198
+00:10:58,920 --> 00:11:02,390
+So we can actually do it in n over two,
+in the worst case.
+
+199
+00:11:02,390 --> 00:11:04,720
+But of course, you know,
+that's just order n.
+
+200
+00:11:06,450 --> 00:11:10,530
+So, we saw an example where
+ArrayList were worse,
+
+201
+00:11:10,530 --> 00:11:13,060
+when we were constantly inserting
+at the beginning of the list.
+
+202
+00:11:13,060 --> 00:11:14,680
+We don't have that problem in LinkedList,
+
+203
+00:11:14,680 --> 00:11:19,560
+because we can just put elements at
+the head in constant time, but if we wanna
+
+204
+00:11:19,560 --> 00:11:25,410
+access an arbitrary location on the list,
+that's relatively slow using a LinkedList.
+
+205
+00:11:25,410 --> 00:11:29,500
+So the underlying implementation is gonna
+determine the speed of these operations.
+
+206
+00:11:29,500 --> 00:11:31,020
+And it's all about trade offs.
+
+207
+00:11:31,020 --> 00:11:35,529
+Choosing your data structure, to do your
+implementation is gonna depend on what
+
+208
+00:11:35,529 --> 00:11:39,130
+operations you're gonna need to
+use with that data container.

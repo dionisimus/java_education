@@ -1,0 +1,81 @@
+[MUSIC] In this lesson, we begin to
+start working with hash tables. And hash tables are one of
+my favorite data structures. In fact,
+when I'm working on software projects, I find myself using hash
+table more often than not. So, what we're gonna try
+to do in this video. By the end of this video you should
+be able to describe why hash tables are valuable, you should be able to
+understand the role of a hash function. So let's start this off
+with a thought experiment. Let's say I'm trying to keep
+track of integers in a set. And by in a set I just mean is
+95 in the set, or is it not? Is 100 in the set, or is it not? And you know the possible integers
+that could be in this set are bounded between 0 and
+less than a million. Now you could store this as
+an array of a million booleans. If I did this, how long would it take for
+me to add an integer into my set? Go ahead and answer this as an NVO quiz,
+and I'll see you in a moment. I hope the NVO quiz made sense. At this point,
+your pretty comfortable with arrays, so you should be recognizing that if I want
+to access an individual element of array I can do this at essentially
+all at one time. I can do this in constant time. Arrays are, in fact, incredibly fast and the reason they're so fast is that if
+you know where an array starts in memory you can determine the address of any
+element just by using the index. So, if I know the address of an element
+in an array, I can look this up really quickly because essentially accessing an
+address in memory is all of one operation. Now, with a hardware background I
+have to put a quick caveat on this. Different addresses may have different
+access times as programs run because of various constraints within the
+hardware and within the operating system. If you're curious about this more
+advanced detail please look at computer architecture courses or operating
+system courses for some more answers. But for right now, let's just assume
+that this is a constant time operation. You always get an answer back quickly. So the idea behind a hash table is
+if I knew an index for an element, I could look immediately
+into that array and find it. And that's all we're gonna try to do. Is we're gonna take a key, which is
+the value we're trying to put in there. And just figure out a way to
+convert it into an index. The way that we do this is to take a key
+we'd run it through a hash function. Which we'll be talking
+about it momentarily and this hash function has to be really fast. It has to be constant time operation. That's gonna produce for
+us an index which we call a hash code. We're gonna use that hash
+code to point into the array. You might notice that I have both an index
+and data in the array, but really, there's just data in the array. I have the index there to help
+us visualize how this works. So, the core of this is really figuring
+how to make a hash function that works well. So, let's start with some ideas here. So, let's say,
+I have an array of just five elements. And I want to figure out a way of
+hashing an element into an index. So I've got the key three, and I want to figure out how can
+I turn that into an index? Well if I'm working with an integer
+three and I've got five elements, I really just could use
+three as the index, right? Not really much I have to do there. But what if I had 11? Well I can't go to index 11 because
+that's out of the bounds of the array. So what could I do to make sure that
+it has a value between zero and four? Well I can use that
+handy function modular. So if I just do 11 modular five here, this will give me an index
+into that same array. In fact of you look back at the previous
+one, you look at the equality. I could have just done three module of
+five and that would have worked just fine. In fact K mod N is a very common
+hash function where K is the key and N is the number of elements in the array. But we won't necessarily
+just want to store integers. We might wanna store
+things like characters. So how would I work with character a? Well, the nice thing about characters is I
+can convert them to integers quite easily. The ASCII representation for a is 97. So after I converted to
+the ASCII representation 97, I can just do module 5 and
+I get a hash code. So working with characters isn't
+gonna be very hard either. Well, how might I work with a string? Something like Hi? Well, if I wanna work with Hi, again,
+I can convert the characters into ASCII, convert the characters into
+their ASCII values of 72 and 105, add them in any module of five. And again,
+now I've got an index into this array. And this is all we mean by
+creating a hash function. So now we have a basic
+idea of a hash function. I want you to take a moment and think about this question and
+we'll come back in a moment. Welcome back. So if you have two elements
+that are considered equal, they have to be able to hash
+the same location, right? If I have seven, it better hash
+the same location as seven, right? If two things are the same,
+they better hash the same location. And set,
+that answer A is the correct response. The problem with B,
+is that B is actually false. So as we saw before you could have
+three module of five give you three. But you could also have eight
+module of five give you three. So you can multiple things point to the
+same index and that's called a collision. Now let me give you
+another example of that. So if I have three, three mod five
+gives me the hash code of three. Again, if I have 13, 13 mod five
+gives me the hash code of three. This is again a collision. You can have multiple elements
+pointing to the same index. So, a key part in trying to figure out
+a hash function is trying to minimize these collisions. We could spend a lot more time
+on hash functions, but for now we can just keep working
+with this notion of K mod N. What we'll do in the next series of videos
+is look at how to deal with collisions in hash tables.

@@ -1,0 +1,31 @@
+1
+00:00:00,102 --> 00:00:06,569
+[MUSIC]
+
+2
+00:00:06,569 --> 00:00:07,706
+So in this module,
+
+3
+00:00:07,706 --> 00:00:12,970
+what we're going to do is take the next
+step as software engineers and developers.
+
+4
+00:00:12,970 --> 00:00:16,540
+Instead of just focusing on solving
+problems, we're going to be analyzing and
+
+5
+00:00:16,540 --> 00:00:18,040
+refining our solutions.
+
+6
+00:00:18,040 --> 00:00:21,260
+And so this means that we're starting to
+think about performance in a deeper way
+
+7
+00:00:21,260 --> 00:00:24,630
+and we'll be talking both of
+asymptotics and benchmarking

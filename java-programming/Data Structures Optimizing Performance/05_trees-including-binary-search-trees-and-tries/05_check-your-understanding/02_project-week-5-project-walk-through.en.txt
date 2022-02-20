@@ -1,0 +1,173 @@
+[MUSIC] In this video I'll walk you through
+the module four assignment, so you know what you have to do and
+how you have to do it. As you saw at the beginning of the week,
+you are gonna add the spell checking and autocomplete functionality to your text
+editor, which is going to be a lot of fun. So, the first piece you're going to do, we're also gonna have you do some more
+benchmarking, cuz benchmarking is great. And the whole focus on of this course is
+on running time and making things fast. So, what we'll be doing is implementing
+two dictionary implementations. So, you'll find all of
+the code you need for this assignment in the spelling package. So, you'll want to go ahead and
+open up the spelling package, you'll see a lot of files in here. You won't need all of these files for
+this assignment. They'll be used for this assignment and
+for next weeks assignment. So, pay attention a little bit to which
+files you'll need to be working with. In this first piece of the assignment, you'll be working with the dictionary
+ll file and the dictionary bst file. So, here's dictionary ll,
+here's dictionary bst, and you'll see that these both implement
+this interface called Dictionary, so here's this dictionary interface. It just has two methods, one is called
+add word, add a word to the dictionary. And the other's called is word. And actually, sorry, it has three methods. The other is called is word that
+checks to see if a particular strain has been added to the dictionary,
+is it in the dictionary. And then the third method is called size. So, both of your implementations. Oh and size by the way returns
+the number of words in the dictionary. Both of your implementations, dictionary BST and dictionary LL, will
+implement each of these three methods. The difference between them is
+the dictionary LL will use a link list to implement the dictionary. To hold all the words in the dictionary. And DictionaryBST will
+use a binary search tree, which in Java is implemented as a TreeSet. So, you'll see that we've
+set you up to use a TreeSet as the data structure that's going to
+store the words in your dictionary. So these shouldn't take you long at all to
+implement, these are very straightforward. You're just gonna use the built-in
+Java classes to do this. Once you've got those implemented,
+we've provided some testers for you. So, you'll see over here we've
+got dictionary ll tester, dictionary bst tester. You can use our testers
+to make sure you've implemented your dictionary correctly. So, we're trying to make this
+as easy as possible for you so that you can get to the interesting
+piece of this assignment which is that we want you to
+think about What the running time is going to be to find words in each
+of the dictionary implementations. So, put the link list implementation and
+the BST implementation. So, we want you to do that
+prediction first, and then, we've written a dictionary
+benchmark class for you. And again, you'll see it over here. It's called DictionaryBenchmarking.java. And if you just run that program it'll
+do something similar to what you did back in week two, comparing
+the running time of the Dictionary LL, to the Dictionary BST class this time. So you'll see that it's
+basically all written for you. The only thing that you will want
+to play around with is these variable values up here at the top. So, the number of trials you run, the increment step,
+the number of steps, where you start. Play around with these What
+these control is how many words you load from the dictionary each
+iteration, how many iterations you have, what the increment between iterations is,
+how many times you look for words. Trials is the number of times you look for
+the word each time, each iteration. Playing with these numbers to
+try to get some smooth data. I'll tell you right now that
+the data is going to be noisy. It's tough to get clean data here. And don't worry about getting it too
+incredibly smooth, as long as what your seeing is more or less matching
+what you expect to see your okay. We'll ask you about some
+of that in the in the quiz that follows this programming assignment. So, we'll ask you what you saw, and
+we'll ask you to explain what you saw. Finally, when you're ready,
+when you've got this working, you can modify your GUI application,
+that text editor. So, you'll need to go into
+our code just a little bit. Just go into the launch class.java
+files up here in application You'll see this file launch class. And all you're going to need to do is
+go down here to get dictionary and change it from using a hash set to
+using your dictionary bst class and then that will get things working. All right. So, then to submit part one
+you just zip up your files, dictionaryll.java and dictionarybst.java
+and submit the zip file for grading. And remember that the grader
+takes a few minutes and you'll see a zero out of six as your
+score while the grader is working. Now, what you can do after that, and you can see that I'm filming this video
+before the instructions are totally done, so you'll see more instructions here,
+is after you run your code, if you have any problems at all,
+we will be providing you, With a class that actually runs all of the tests
+that we ran when we graded your file. So you can run those tests,
+see what they do, and then reason about what they did
+versus what they should have done. And we'll give you some grader feedback
+that'll tell you What test was being run, which tests passed, which tests failed. In particular we'll tell you as
+much information as possible why those tests failed. So, you'll be able to go to those
+particular tests in the file that we give you, see what that test is running, see
+what output your program is giving, and try to change your program so
+it's giving the proper output. And that should help you with debugging. If you have any problems
+passing our grading tests. So, that's all there is for part one. Oh and by the way, after part one you'll
+be able to see the misspelled words flagged in the interface once you turn
+on that spelling suggestions option. Part two, you're going to appoint
+the autocomplete functionality. And you're going to do this
+by implementing a trie. And the class you're going to implement
+uses a trie as it's data structure. And it implements two interfaces. The autocomplete interface,
+and the dictionary interface. You're already familiar with
+the dictionary interface. But you might want to take just a minute
+to look at the autocomplete interface, which is right here. So, you can see that it
+just has one method. It's called predictCompletions. It takes a prefix and
+the number of completions that you want. And it returns a list
+of those completions. And there are some specifics about
+what completions you need to return. Those are given over here in
+the assignment instructions. So, then your goal is simply to implement
+the methods in the auto complete dictionary trie class. So, going over here, here's the starter
+code for the auto complete dictionary trie, and you'll notice that several methods
+are missing, so add what is missing. To implement addword,
+you need to add a new word to the trie, so you'll be implementing a trie
+data structure Structure here. Now, you're not gonna implement
+this completely from scratch, because if you go over here to TrieNode,
+you will see that we've given you an implementation
+of a node in the trie structure. And that's described a little
+bit in the videos for this week, and you can look at it here. But basically, the idea is that each
+link to the next level is a hash map. That links the character that takes
+you to the next level's node, and then the node that is there. Each node is also gonna keep track
+of the text up to that point, and as I mentioned in the video,
+you could omit this for space, but you don't have to and it makes
+it a lot easier if you keep it in there. So, we suggest keeping it in Been there. And then you have this Boolean flag
+whether or not this node is a word or not. So, this is just the implementation that
+I talked to you about in the video and we're providing this for you. And you can look at some of the methods
+that we provide, they're gonna be really useful in doing your auto complete
+dictionary trie-implementation. So, using these methods,
+you will go ahead and implement all of the missing method That's
+here in the auto complete dictionary trie. So, there's the add word method,
+that has to build out the trie just a bit. And we noticed this other thing that we're
+converting all the strings are lower case, as you insert them. And that's just to make this
+implementation slightly easier. So everything in the dictionary, everything you're going
+to compare it against, it's always lower case,
+you have to do that conversion. Here's the method that
+returns the size of the trie. Now, notice this isn't the same as
+the number of nodes in the trie, this is the number of
+words in the dictionary. So it's not actually the size of the trie
+at all, it's the size of the dictionary. In terms of the number of words. That's from the dictionary interface. And then we have the isword
+method down here. And that returns whether a string
+is a word that's in this And so you'll need to use the algorithm that I
+explained in the video for tracing down the trie as character by character
+in the string and making sure that the last node that you land on is actually
+in the trie, and it's marked as a word. Finally, the last thing that
+you're gonna implement for this part is the predict
+completions method. The predict completions method, you've got, we've got the algorithm right
+here, but basically it's two pieces. First, you use a similar
+methodology that you used for is word to trace down and find the stem,
+or the prefix in the trie. So, you're going to find that stem or
+prefix in the trie, and if the prefix does not appear in the trie
+then you just return an empty list because there's no way to predict completions
+from this non-existent prefix. But once you find the stem or the prefix then you're gonna
+perform a breath first search. As Leo described in his videos this week. To generate all the completions. And here we're giving you
+the algorithm for the spec for search, to make things a little bit earlier. So you create a que, and
+a que is really just a link list. It's a link list where you add notes
+on one end and take them off the other. So, you add things to the back and
+take things off from the front. And link list already, by default,
+will Give you this behavior. Then you'll create a list
+of completions to return, that list of completions is initially
+empty, and while your queue is not empty and you don't have enough completions you
+will remove the first node from the queue. If it's a word,
+you add it's completions list and then you'll add all of its child
+nodes to the back of the queue. And you'll just keep doing this until
+you've generated enough completions or you run out of completions. [INAUDIBLE] In the dictionary,
+and that's it. So that's all you need to do for
+the implementation. And it's described in a lot of detail,
+here. So, I encourage you to read
+this assignment carefully. Because it gives you some. Specific instructions about how
+you need to return words in increasing length order. So, if I ask for four completions,
+I need the four shortest completions from a particular prefix or
+stem, and not a longer completion. We have a tester for you, we have this
+class called AutoCompleteDictionaryTrie tester, you're welcome to run that to test
+your methods, you may need to add to it to make sure that it's complete, and
+when you're ready, you just upload your AutoCompleteDictionaryTrie.java file and
+again. You can run, again I'm doing this before
+this file is completely finalized, before the instructions are completely
+finalized, but again you'll be able to see the exact tests that we run
+in a file that we provide and we'll have the name of that file in these
+instructions by the time we launch. Part 3 is purely optional. So, we've got a note to our beta testers
+that we want them to do it, but for you, it’s up to you. And what part three is basically, is you’ll notice that in
+part two we ignored case. So we put everything in
+the dictionary in lower case. Everything in the autocomplete
+dictionary in lower case. But for part three it would be
+more interesting if we could Do spelling correction and spelling
+suggestion based on case, as well. So, if a proper noun has a lower case
+letter to begin with, it's not allowed. But if it's an upper case
+letter then it's okay. And it turns out that our dictionary text
+file already has all the proper case incorporated into it. So, words appear in the dictionary
+text file in their proper case. So, the challenge in Part 3 is to
+expand on your implementation for Part 2 in a new file. Don't mess up your implementation from
+Part 2 because we're gonna grade it as it is. But make a new file that implements
+a dictionary autocomplete that actually takes case into account. So, if you're working on this part,
+we assume that you're really well on your way, you don't need much guidance, so
+we're leaving it fairly open-ended. And we hope that you have a lot of fun,
+and we you encourage to discuss your implementation with other
+learners in the forums.

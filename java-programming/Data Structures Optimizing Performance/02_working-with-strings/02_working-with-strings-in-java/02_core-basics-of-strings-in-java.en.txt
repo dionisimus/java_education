@@ -1,0 +1,84 @@
+[MUSIC] So now we're gonna dive in to
+working with strings in Java. This video is gonna introduce the basics,
+and this may be familiar to many of you, and if it is just go ahead and watch
+this really fast or even just skip it. But if not we wanna make sure
+we've got the basics down for everybody before we move forward. So by the end of this video you'll be able
+to describe how strings are represented in Java, and then perform some
+basic operations with strings. So, going back to our task which is to
+estimate the Flesch readability score for a piece of text. Again, our motivation here is that we
+wanna be able to count the number of words, syllables and
+sentences in a string and the way we are gonna represent
+in a document that is. And the way we're gonna represent
+a document is just as one big long string in Java. So let's take a look in more detail
+about how strings are represented. Here are some basics about strings. Strings in Java are objects, so they're
+not primitive types they're object types. And this means that they're represented
+in your computer's heap, in the memory, and the variables that refer
+to them have references. So I'm gonna draw you a memory model
+diagram, and if you took our first course in this specialization,
+this will look familiar to you. And if you didn't, this our typical way that we draw
+memory models of data in our programs. So we have a variable declaration. It gets a box. We have a new object,
+that's going to get created on the heap. And remember that little
+symbol next to that object, that's just our way of representing
+an actual object of a particular class. Then the assignment operator
+connects the variable to the object with this reference,
+which we represent as an arrow. So here we have one string variable and
+refers to a string object in memory, and that string object stores some text. How does that string
+object store in the text? It actually stores it as
+an array of characters. So we have one slot in the array for each character in the string, including
+that space between those two words. All right, we can add to this code. We have a second line of code here,
+which declares another variable and gives it the value of our first variable. So just like any other object, this results in two references to
+the exact same object in memory. Now you may get concerned at this
+point and say wait a minute, we have two objects, sorry two
+references to the exact same object. What if one of those
+references changes our string? Turns out, that's not possible. In Java, strings are immutable, which
+means that the objects that are in memory, that are the strings,
+can never be changed. So there's no way to change
+a string object once it's created. Now, this doesn't mean that
+you can't build strings. Obviously, you've probably
+done this already. For example, you can append strings
+together using the built in append method inside the string class. So here we have our first string,
+which says Hello World! And we append to that string,
+It's a great day. But it doesn't actually change
+that first string object. What it does is it creates
+a whole new string object, takes the text out of the first string
+object, puts it in the second one, and appends that text that we
+want to append onto the end. So one more object,
+no change to that first object. You can also use the + operator
+to do string appends in Java. I'm sure you've done this before, and this does the exact same thing as that
+appends method that I just showed you. Again, no change to that
+first object there. Now this could get messy with all
+these different string objects being created in memory. Strings could end up taking a lot of your
+heap space and Java is aware of this fact so they provide an optimization, which
+is something called an interned string. And I'm gonna tell you a little
+bit about how that works. This is a detail. You don't have to worry too much
+about it when you're programming, but it's good to keep in mind. So, we have on top the way that
+we created the string before, with that new operator, so
+we said new String ("Hello World!"). That gave us the first string object
+that you see over there in memory. The second and third lines also create or refer to string objects with
+the same text, Hello World!. However, this string here without the new string before it, creates what's
+called an interned string object. Which is a single string object the Java's
+going to use whenever we don't explicitly create a new string object with the
+keyword new and a call to the constructor. So that first line there explicitly
+creates a new string object, but the second and third lines just refer to
+the same interned hello world string, that Java will create for
+us if it doesn't exist. So there's that intern string,
+both of those variables refer to that. So, let's talk about ways
+of comparing strings. There are two ways we can consider
+comparing string objects in Java, .equals, which is a method on the string
+class, or equals-equals, which is just that operator we've seen before
+to compare the values of two variables. And these two ways behave quite differently when we consider the
+underlying representation of the string. So in this example, we have two strings
+that we've created by calling new and the constructor of the string class twice,
+but they store the exact same piece of text,
+Hello World! If we call .equals on one of the strings,
+so text.equals (text2), this will return true, because what .equals does is it goes
+into the string objects and compares them character by character, returning true if
+they represent the same piece of text. However, equals-equals behaves exactly
+the same way it's always behaved. It just compares the values
+of the variables themselves. And if we look in the box, we can see that the variables themselves
+store references to locations in memory. So these two variables
+store different references. Therefore equals-equals is going to
+return false when we compare them. The lesson here is that we almost always
+wanna use .equals to compare strings and not equals-equals. So that's a basic introduction to strings. They're really powerful objects in
+Java and they can do a lot of things. We're gonna look at just some of
+the things they can do in the next video

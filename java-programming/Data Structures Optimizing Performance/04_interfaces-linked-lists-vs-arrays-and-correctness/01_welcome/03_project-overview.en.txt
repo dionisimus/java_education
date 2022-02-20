@@ -1,0 +1,47 @@
+[MUSIC] Hey everybody. In this video, we're gonna learn about the programming
+assignment associated with week three. Now there's two pieces to
+this programming assignment, the first is creating your
+own linked LinkedList. And the second part of it,
+is creating Markov Text Generator. I just wanna show what you're
+gonna do with each of these. So, the first part, creating a LinkedList
+is an interesting assignment. And the reason it's interesting is because
+this kind of already exists in Java. So if you look at the list
+interface in the Java Docs, you'll notice that it has a number of
+features which are useful to programmers. In fact, you've almost certainly
+used the list interface already. Now, there is a LinkList implementation
+of the list interface and this is provided by Java. So there's a bit of a question. Why then should you code
+a LinkList yourself? Well the reason why is that LinkedList
+are a core data structure and they're also a linked data structure. And we're gonna be doing a whole
+bunch with the linked data structures as we go forward through this course and
+even into the next course. LinkedList is a great place to
+start when trying to write your own linked data structure. So what you're gonna do is you're
+gonna create your own LinkedList and it's gonna have many of the features that
+the Java implementational LinkedList has. The second reason why we're gonna write a
+LinkedList yourself is because we're gonna learn about testing in this week. Mainly, how do you do unit tests and
+why are they so important. What we're gonna do is apply this
+knowledge of how to do testing to essentially test your LinkList interface. And you'll also run your test against,
+essentially, a whole sweep of LinkLists,
+which are either correctly or incorrectly written as part of
+the grading for the assignment. The second part of the assignment
+is actually really fun. So, what I have here in our interface, and I hope you've got this all running at this
+point, is I've just typed in some text. And all I wrote in was this is a test. This is a video. This video is cool. Now, what Markov Text Generation
+does is it creates text that's artificial but
+it looks similar to the original text. So, let's just do this. I'll show you what it looks like. I'm gonna generate Markov Text. I'm gonna use, creates say 50 words worth. And what it produces is text that
+looks really similar to that original. But it's not quite the same. I wanna highlight a couple
+of these phrases in here, that shows you that this isn't doing
+exactly what you may think it does. So, if you look at the original text, there's nowhere in the original
+text that says this is cool. To create this is cool,
+he looked at the original text and it found that the words that
+followed this, include is or video. And I happened to randomly select is. And then I looked at words
+that potentially follow is and it found that words that follow
+is are either a or cool. And it randomly selected cool. And that's how it ended up producing,
+this is cool. Now, this Markov text looks like real
+text, but will also have mistakes. For example, this video is a video
+doesn't make any sense, but it makes sense in terms of
+Markov Text Generation. From the original text, it says,
+this is, I'm sorry, this video is, and then I found a sign that
+matched after is, which as video. Now if this is a bit confusing, don't
+worry about it we'll talk in depth in our lessons about how Markov Text Generation
+works and the basis behind this. I hope you have a lot of fun with
+both this part of the assignment and with the first part of the assignment and
+good luck.

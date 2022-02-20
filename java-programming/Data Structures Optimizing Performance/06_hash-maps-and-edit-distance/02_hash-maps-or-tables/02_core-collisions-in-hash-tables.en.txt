@@ -1,0 +1,84 @@
+[MUSIC] In the last video,
+we began working with hash tables. Now one of the hardest parts to hash
+tables is dealing with collisions. So in this video,
+we're gonna do two things. You should be able to describe
+alternative methods for handling collisions in a hash table. And you should be able to identify
+some other challenges associated with hash tables. So, first off, let's talk about
+where these collisions happen. So I'm trying to do a hash table insert,
+and I've got the value 9. I'm gonna run it through my hash function. We'll assume my hash function is K mod 7, just like we talked
+about in the last video. I'm gonna run that through and, again, I had 7 because I have 7
+elements in the array. I'm gonna run it through the hash
+function, and it produces an index or a hash code of 2. That's gonna allow me now to
+insert 9 into the hash table. Next thing I want to insert is 16. So I run 16 through my hash function. That also produces a hash code of 2,
+and now what do I do? This is a collision. I already have 9 in there at
+the place I wanna put 16, and I can't keep both in
+one spot in the array. So what we're gonna do is talk about
+really two solutions for this. And the first of these
+solutions is linear probing. And the idea behind linear probing is
+just look for the next open spot and put the value there. So what we do here is we have a collision
+at location two or index two, and what I'm gonna do is look at the very
+next location and see, is it open? And because it is open,
+I'm just gonna put 16 there. So that's essentially how we're
+gonna work with linear probing. So let's do a couple more examples. So now I try to insert 3. I do K mod 7 again on 3. That's gonna produce the index 3. I go to index 3, and I get another collision, right,
+because now 16's in my way. So, I'm gonna look for
+the next open element and place 3 there. Let's do one more of these. Now, I'm gonna try to do a search. I'm gonna check to see whether or
+not 2 is in my hash table. So I'm gonna run 2 through my has
+function to give me the hash code 2. And I'm gonna look at the next two,
+and I find nine there. But I can't stop there, right, because I may have put 2 in a later
+location because of linear probing. So now I have to look at the next element
+to see, is there something there? So, first I look at 9, then I look at 16. And 16's not 2, but there's still more
+valid data, so I have to keep looking. So now I'm gonna look at 3. 3 is not 2 either, but
+I have to keep looking. And I finally find an open spot,
+and that tells me 2's not in there. Now you'll notice that I just had to look
+at a number of spots just to find out whether or not 2 was in my hash table. And this is disconcerting, because again,
+we like hash tables because we can look, the goal was to look at one spot and
+immediately get an answer. So there are some ways. So this is gonna get particularly
+problematic when the hash table gets full. And we'll talk little bit more
+about what we mean by full and how we're gonna address
+that as we go forward. I do wanna mention there's another
+approach you can take other than linear probing. And that's called random probing. And the idea there is just essentially,
+instead of going just the next step over to see for an open spot, you essentially
+try to jump a random number of steps, based on seeding at random with a key. Now, there's a whole bunch of different
+trade-offs associated with that. But, most importantly, the cost of doing
+random operations tends to be expensive. So, this has problems as well. The second solution I wanna talk about
+after linear probing is separate chaining. Now, the idea behind separate
+chaining is pretty simple actually. Instead of just keeping a single element
+within my array, why don't I keep a list? So when I insert 9, I'm gonna do
+the same hash function as before. It's gonna give me the index 2. I'm gonna look at index 2, and
+I'm gonna add 9 to my list. Now when I try to insert 16, I'm gonna look at my location at index 2,
+I'm gonna find the list. Now the list already has 9 in it,
+but it's a list. So I can just add 16 to it. So it's actually a really clean solution. So just keep essentially a linked list
+at each location in your hash table. It's often preferred in terms of
+implementations, but it has it's own set of drawbacks, which are a little bit
+too advanced for this topic right now. All right, I do want to mention two
+last challenges with hash tables. The first is we're talking about
+when the hash table gets too full, you're going to need to do
+something to help fix things. When hash tables get, and
+the rule of thumb is about 70%, about 70% full you're
+gonna want to resize it. Essentially create a larger hash table
+in order to avoid these collisions and all these problems that come up. The problem with resizing is because
+we're working with arrays and arrays are essentially statically sized, it requires me to create
+an entirely new table. Create a new hash function and
+reinsert everything. This can be expensive. And the only time you're going to
+be really concerned about expense, is if you're working
+on a real time system. So if you're landing the space shuttle and the space shuttle's essentially doing
+a hash table operation and it decides to resize, and all of a sudden you can't use
+your controls, that's not gonna work okay. So that's one of the concerns you might
+have with hash tables is just this resize cost. The second challenge is that hash tables
+don't have an implicit ordering of data within the structure itself. So thinking back to our binary
+search trees, if I want to know, if I want to iterate through
+all the data in order, I can pretty easily walk this binary
+search tree to say A B C E L M Q. But there's no such ordering
+within a hash table. So if you actually want an ordered
+list of all the elements, you have to pull them out and
+essentially sort them. So when we're thinking about hash tables, realize that the big pros to hash
+tables is that it has, on average case, O of 1 lookup, insert, and remove,
+and that's pretty fantastic. But there are a couple of drawbacks. The first is that those resizing costs can
+impact you if you're working say on a real time system and
+that there is no implicit data ordering. You want to keep that in mind
+when you're selecting whether or not a hash table is gonna work for
+your project. So in summary, we've looked at a couple
+of solutions for handling collisions. The first was linear probing, and
+the second was separate chaining. We've also seen some additional
+challenges for hash tables, and next what we're gonna do is start looking
+at how to use hash tables in Java.

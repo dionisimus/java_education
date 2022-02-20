@@ -1,0 +1,68 @@
+[NOISE] Okay, we're ready for our final concept challenge
+of the course on hash tables. So, just like you've done before,
+you'll solve the problem yourself. You'll discuss it,
+you'll watch the UC San Diego learners. You'll try the problem again, and
+then you can watch our explanation. So here is the problem. You've got a hash table that
+has seven positions in it, and it's got some elements
+already inserted into it. So you'll need to know a few
+things about this hash table. First thing you should know is that
+the hash function is that same hash function we've been working with
+where you take your key and mod by 7, to figure out where in the hash
+table your key should go. The next thing you need to know is that
+it's going to use linear probing for collision resolution. And then the final thing you need to know
+about the next key we're going to insert is that we're going to randomly
+choose a key to insert next, and all the keys we could possibly choose,
+they're all equally likely to be chosen. So our question for you is,
+what's the probability that that next key that we choose will end up in each
+of the slots in this hash table? >> I'm Daniel. >> I'm Melissa. >> I'm Sarah. >> All right, so for this problem,
+I was started off thinking that honestly all the probability will be one
+seventh, because in the problem it says that all the integers
+are equally likely to be chosen. So, my first inclination is that it'll be
+one seventh chance for all the open spots. I thought it would be different for 0, 1, 2, or 6, spots 0, 1, 2, and 6, in the way that if some
+number mod 7 was 3, then it would go from 3 to 4, 5 to 6. And if there was already something in 6, then it would go 0, 1,
+2 and then go there. So, it would come out to one seventh,
+three seventh, one seventh and two seventh I
+believe in the end, in order. >> Yeah. >> I think it works like
+that if it lands on 3, 4, or 5, they'll all go to 6 if
+any one of them land on there, because linear probing means it
+goes to the next open space. >> All right. So, the learners had
+a really good conversation about how to solve this problem. So let's take a look at it. And I wanna start by looking
+at a blank hash table. So let's consider that we
+have that same hash table, only this time there's nothing in it. So, we know that our hash function is
+that we're gonna take our key, and mod it by 7,
+in order to figure out where to put it. And we also know that all keys
+are equally likely to be chosen as the next thing that we're
+going to put in this hash table. So, basically what that means, because
+mod 7 will cover all the slots in this hash table 0 through 6, is that there's an equally likely chance that our next
+key will end up in any of these spots. So that's if the hash table is empty. But what happens now if we say
+insert 24 into this hash table? How does that change the probabilities
+of the next key going into each of these slots? Well, we can start off by observing that
+all the keys are still equally likely to occur. So, in theory, we should have an equal probability of
+putting them into each of these slots. But, now we can see that
+this one slot is full so we can't put another key into that. What should we do? Well, now we need to go to our
+collision resolution strategy which is linear probing. So with linear probing, if we try to
+put a key into that slot that's full, instead we're going to move it over
+into the next slot that's empty. So in this case, we would instead of
+putting it into slot 3, where there's already 24, we'd put it now into slot 4,
+which means that that 1/7 probability of ending up in slot three
+now actually ends up in slot four. So we take the 1/7, and we add it to
+the 1/7 that's already there for slot 4. Giving us a final set of
+probabilities that look like this. There's no chance it's going to go into
+slot three, because it's already full. But there's a 2/7 chance that it
+will end up in that next slot over. The 1/7 chance that it hit slot 3 and
+it had to go over one, and the 1/7 chance that it was originally
+designed to go into slot 4. All right, so with this we can
+continue our reasoning and go back to our original problem. What happens if all three of
+these positions are filled in? What is the probability
+that the next key is gonna end up in any of these
+different locations? Just like before, those three slots
+are full, so we can't put a new key there. So what's gonna happen? Well, if a key tries to go in any
+of these spots via linear probing, we're gonna move that key over, and
+over, and over, into that slot 6. And by the way, if six had also been full, we would've wrapped back
+around to position 0. But in this case six is empty, so
+we'll take the 1/7 probability from each of the full slots and
+move them over into that slot 6. We add them all together and we're gonna
+end up that the first three slots still have a 1/7 probability of
+getting a key put into them, those three block slots
+are zero probability and then that last slot has a 4/7
+probability of a key ending up there. All right.

@@ -1,0 +1,59 @@
+[MUSIC] >> In the last video we saw how to
+insert into a binary search tree. In this video we're gonna start looking at how to remove
+an element from a binary search tree. And you won't have to do removal for
+your project, so we're gonna look at this
+really at just a high level. So by the end of this video you should be able to delete
+an object from a binary search tree. So let's think about deletion
+in a couple of scenarios. The first is what do I wanna do if I
+have this binary search tree here and I wanna delete seven? That's actually gonna be really clean. Right?
+Seven is a leaf node. I can essentially just remove the link
+from five to seven and I'm done. So by setting five's
+right pointer to be null, the garbage collector will
+clean this up for us. So this one's nice and clean. Leaf nodes, easy to remove. Let's look at another example. So I've changed the tree
+around a little bit. And let's say now I wanna remove five. So this one's little bit more difficult,
+right? Because I can't just cut
+the link from ten to five, because if I did that I'd lose seven. And I want seven to remain in my tree. But if I only have one element below me,
+I can actually just hoist that element up. And what I mean by that is
+essentially just take the pointer that's going from ten to five and
+make it now point to seven. And just by changing that reference, so
+ten's left reference to seven, again, the garbage collector will
+clean up five for us. So these two scenarios are fairly
+clean and aren't too hard to coat. There is gonna be one scenario that's
+gonna be a little bit trickier. So let's look at a whole other tree here. I made some changes to the tree. And the idea here is to delete ten. And what I want you to do is just pause
+for a few seconds, think about it, and then we'll come back. All right. As you were working through that one, you almost instantly saw
+that this is tricky, right? Trying to remove an element
+that has two children? There aren't really clean ways to do this. I can't hoist up fifteen because then I've
+got problems with both five and twelve, are supposed to be children of fifteen. And there's just, this gets really messy. So I want to tell you is essentially
+the algorithm to solve this in the general case. The way to do this is to essentially
+realize that I could replace ten with something else. They way that I'm gonna do that is I'm
+gonna look through, again this is tricky, I'm gonna look through my right
+subtree to find the smallest element. The smallest element on my right
+sub tree is gonna be twelve. Now I wanna point out something really
+important about finding the smallest element in your right sub tree. If it's the smallest element, you know
+that it's left reference is null, right? Twelve's left reference has to be null
+because if it were anything else, that thing would be smaller. So we know that there's only,
+at most, one child of twelve, and that's going to be important
+here in just a moment. So let's find the smallest value in the
+right sub tree, and then what I'm going to do is hoist that value up, but
+just the value, not the node. So what I'm going to do is take ten,
+remove the value ten, and replace it with twelve. And then you're gonna say,
+well, wait a second. Now you've got duplicates in your tree. I absolutely do. And the way that I'm gonna
+handle this is I'm going to now perform a delete on twelve on
+the sub tree rooted at fifteen. So I'm gonna delete this duplicate. And you might say, well, wait a second, that could be complex,
+deleting this one, too. But it won't be because we know that
+at least, at most, it has one child. And from the earlier examples we saw,
+deleting a leaf node is easy and deleting a node that has just
+one child is actually easy. So removing this duplicate
+isn't going to be too bad. The hard part, which is recognizing
+where you can find the element and how to bring that up in. So, now that you have a good
+idea of how to delete, you could potentially
+code this on your own. I encourage you to do so. So, in this lesson,
+you've actually learned a great deal. You've learned how to create trees and
+what trees are in computer science. And that trees play a large
+role in a number of things that we do as computer scientists. We have explored different ways of
+traversing these trees, and we have looked really closely at binary search
+trees doing search, insert, and delete. There are a number of trees, again,
+in the field of Computer Science and I encourage you to look at more of
+these for more details on your own. Next what we will do is look
+at the run time analysis for binary search trees to see, really,
+are these better than other approaches?

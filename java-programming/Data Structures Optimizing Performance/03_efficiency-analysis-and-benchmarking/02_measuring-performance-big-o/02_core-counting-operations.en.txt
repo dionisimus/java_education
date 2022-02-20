@@ -1,0 +1,134 @@
+[MUSIC] So in the last video, we talked about
+how we're going to measure performance, based on counting operations. So we're going to count the number
+of operations that are performed every time we execute code. So, let's practice how to do that. By the end of this video,
+you'll be able to count the operations when you look at
+a particular code snippet. And think about what happens when
+we run it for a given input. All right, so the code that we're going
+to focus on is going to solve the answer, answer the question of looking for
+a particular letter in a word. And we'd like to think
+about how long that takes. So, for example, we're going to look at
+the word or two words, but it's a single string, San Diego, and we're going to
+search for the letter, lowercase a. Now in order to do that, Christine showed
+you a method in the previous lesson where we have the method hasLetter,
+which has input both the string, which is the word that we're looking in. And the letter that we're looking for,
+so that's a character. So we have those two inputs, and then
+what we're going to return is a Boolean which says true if we found the letter
+in the word and false if we didn't. Okay, so thinking about this algorithm, what
+we're really doing is a linear search. We're gonna go through the entire string,
+which remember, is an array of characters, and we're going to start at the beginning. And one by one, character by character,
+we're going to compare the current character to
+the letter that we're looking for. So we start at the beginning
+with our index being at 0 and then we keep checking whether
+the character at that index 0, is the same as the letter that we're
+looking for, which was input by the user. So we have our example word San Diego and
+we're looking for the letter a, remember. Okay, so we start by initializing
+our loop counter i, and that counts as a single operation. And now we check that our loop
+counter is less than the bound, and so we're comparing 0, the current value of i,
+to the word length, which is 9. And what we need to do now is say,
+okay, yes, that's correct, 0 is less than 9, and so we keep on going. But we have to increment the number
+of operations that we've done, because that test is an operation. All right, so now we've gone into
+the body of the for loop and inside the body of the for loop we have
+an if statement, a conditional branch. And what we're checking here is
+whether the letter at position 0, which was our current value of i,
+is the letter that we're looking for. But notice that even making that check,
+testing that condition, is an operation. And so we have to increment our
+operation count once more so, so far three operations. In this case, the current character is a
+capital S that's not the same as little a. And so we don't execute the body
+of the if branch at this point, we go up to the top of the for loop. We increment the counter i, oh,
+incrementing, that's another operation. And now we check that our
+current value of the counter, which is 1, is less than the word length. It is, and so
+we go back inside the for loop. But that means that we have to
+increment our operation count because we did another check. Okay, so we're now back inside the if and we're checking whether
+the current character, little a, matches the letter that we're looking for
+which is little a, all right? So this check evaluates to true,
+but before we go ahead and follow the logic, we remember that we
+have to increment our operation count. And now that we've decided that we have
+to go inside the if branch, we go in and we return true. Returning is an operation, and so
+our total number of operations is 7. Okay, so hopefully that trace
+through gives you an indication that we have to count each time
+that we execute a statement. Or that we evaluate a conditional branch,
+or a check,
+something that evaluates to a Boolean. Now, is this number of operations 7,
+going to be the same every time we run the method, hasLetter,
+on inputs of string and a character? And so what we have now, we have
+a couple of quizzes for you, to see what you think about what happens when we
+run this method in different contexts. So in those quizzes hopefully
+you got a sense of just how many variables there are for deciding how many operations get executed
+when we run a method on particular inputs. And so let's recap what you saw in those
+quizzes and let's think about what happens when we search for the letter x,
+still in that same word San Diego. So we're still looking at
+the hasLetter method and now we're thinking about just looking for
+a different character. So when we think about counting
+operations, I know that I think about groaning because I don't wanna do that
+same line by line counting each one again. That was kind of painful but
+I'd like to find a shortcut. So let's think instead of grouping
+a whole bunch of instructions, a whole bunch of operations into maybe
+something higher level, that then I can think about how that higher level
+construct repeats over and over. So let's think about what happens as we
+go through a single iteration of the for loop, what that body of the for loop is
+going to contribute to my operation count. And so, in a single iteration,
+what I need to do is, well I need to test whether my current
+loop counter is less than the bound. I need to, in that case, perform
+the contents of the body of the for loop. And then I'm going to need to
+increment my loop counter. Okay, so
+each of those contributes one instruction, in this particular case,
+to the operation count all in all. And this is, of course, assuming that
+in this current iteration of the for loop I haven't found the character
+that I'm looking for, because that would kick us out of the for
+loop. And so let's just think about what's
+happening in an iteration, somewhere in the middle of my algorithm, somewhere in
+the middle of the execution of the code. And so in that case,
+each iteration takes 3 operations. And so
+if we think back to looking for 'a', then we only really did 2
+iterations of the for loop. We went through an iteration when
+our loop counter was at the 0, so we were comparing a to capital S, and then we had an iteration with
+our loop counter at position 1. And so then we were comparing a to a, and
+then we broke out of the for loop and were happy. Okay, so, when we had just the 2
+iterations, we got 7 operations. And so now let's think about the how
+many iterations of the loop are there, when we're looking for the letter 'x'. Okay, so thinking back to the algorithm, we're going from the beginning to
+the very end of the word San Diego. And so we're going to be looking through
+every single position of the string, and that means that there's going
+to be an iteration of the for loop for
+each of the positions in the string. And there are 9 such positions
+because this is a length 9 word. Okay, now we can go ahead and
+do the calculations for the number of operations
+based on the 9 iterations. We see that there are going
+to be 29 operations. And now you might stop and
+say, whoa, hold on, I know my arithmetic,
+9 times 3 is not 29, it's 27! Think about what happens at the very
+beginning, when we initialized the variable i, and at the very end,
+when we break out of the loop. And so, there's going to be some niggly
+little counts at the very beginning and the end that aren't exactly the same, it's just doing 3 times
+the number of iterations. You can do that calculation, I trust you,
+you can do that on your own. But big picture, we've got about
+3 operations for each iteration. And then we've got 9 iterations of the for
+loop, as we're looking for that letter 'x' through
+the word San Diego. But in all of this,
+we're kinda sweeping under the rug, this question of what
+counts as an operation? What does it mean to have an operation? And so, when we first started out, I suggested that every time we execute
+a statement, that's an operation. And every time we evaluate
+a conditional statement and ask for the Boolean value of that conditional
+statement, then that's an operation. But you might ask, well how did you know? How did you know that when we returned
+to something that's an operation? What about other possibilities,
+or can I group operations? What if I have a single line that's
+both a variable declaration and an assignment,
+is that one operation or two? Who knows? Well so that's a really good question and it goes to the heart of what we wanna
+do when we're analyzing performance. What we'd like to do is not
+worry about this question, what we'd like to do is only worry about the pieces of the algorithm that we
+can control as algorithm designers. And not so much about the implementation of how
+a single line of Java code gets executed. And so a way to think about an operation,
+is a basic unit of execution that doesn't
+change as the input changes. So when we have a single line of code that
+is both a declaration and an assignment, then what we're doing in that single line
+of code doesn't depend on the input. How long it takes us to do that doesn't
+really depend on the input and so we can count that as a single operation. So a basic operation is something that
+doesn't depend on the size of the input, it doesn't depend on what
+happens with the input. And so
+what we'd like to do is not worry so much about whether we count such
+a declaration plus assignment as two instructions or one, and
+just think of it as a single operation. And the tools that we'll be developing
+in the next video will help us do even more of that kind of abstraction,
+where we're less worried about counting every single operation and
+every single line. And rather look at the whole scale
+performance of the algorithm, specifically as the input grows and
+the input size gets really, really big.

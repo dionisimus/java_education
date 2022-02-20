@@ -1,0 +1,1091 @@
+1
+00:00:00,000 --> 00:00:05,308
+[MUSIC]
+
+2
+00:00:05,308 --> 00:00:09,071
+In this video I'll walk you through
+the module four assignment, so
+
+3
+00:00:09,071 --> 00:00:12,470
+you know what you have to do and
+how you have to do it.
+
+4
+00:00:12,470 --> 00:00:16,190
+As you saw at the beginning of the week,
+you are gonna add the spell checking and
+
+5
+00:00:16,190 --> 00:00:19,699
+autocomplete functionality to your text
+editor, which is going to be a lot of fun.
+
+6
+00:00:20,740 --> 00:00:23,020
+So, the first piece you're going to do,
+
+7
+00:00:23,020 --> 00:00:25,960
+we're also gonna have you do some more
+benchmarking, cuz benchmarking is great.
+
+8
+00:00:25,960 --> 00:00:29,110
+And the whole focus on of this course is
+on running time and making things fast.
+
+9
+00:00:29,110 --> 00:00:33,830
+So, what we'll be doing is implementing
+two dictionary implementations.
+
+10
+00:00:33,830 --> 00:00:35,970
+So, you'll find all of
+the code you need for
+
+11
+00:00:35,970 --> 00:00:39,750
+this assignment in the spelling package.
+
+12
+00:00:39,750 --> 00:00:41,670
+So, you'll want to go ahead and
+open up the spelling package,
+
+13
+00:00:41,670 --> 00:00:43,650
+you'll see a lot of files in here.
+
+14
+00:00:43,650 --> 00:00:45,760
+You won't need all of these files for
+this assignment.
+
+15
+00:00:45,760 --> 00:00:48,660
+They'll be used for this assignment and
+for next weeks assignment.
+
+16
+00:00:48,660 --> 00:00:52,070
+So, pay attention a little bit to which
+files you'll need to be working with.
+
+17
+00:00:52,070 --> 00:00:53,720
+In this first piece of the assignment,
+
+18
+00:00:53,720 --> 00:00:58,590
+you'll be working with the dictionary
+ll file and the dictionary bst file.
+
+19
+00:00:58,590 --> 00:01:01,210
+So, here's dictionary ll,
+here's dictionary bst,
+
+20
+00:01:01,210 --> 00:01:05,170
+and you'll see that these both implement
+this interface called Dictionary, so
+
+21
+00:01:05,170 --> 00:01:07,010
+here's this dictionary interface.
+
+22
+00:01:07,010 --> 00:01:11,800
+It just has two methods, one is called
+add word, add a word to the dictionary.
+
+23
+00:01:11,800 --> 00:01:12,910
+And the other's called is word.
+
+24
+00:01:12,910 --> 00:01:15,420
+And actually, sorry, it has three methods.
+
+25
+00:01:15,420 --> 00:01:18,220
+The other is called is word that
+checks to see if a particular strain
+
+26
+00:01:18,220 --> 00:01:20,140
+has been added to the dictionary,
+is it in the dictionary.
+
+27
+00:01:20,140 --> 00:01:22,650
+And then the third method is called size.
+
+28
+00:01:22,650 --> 00:01:25,020
+So, both of your implementations.
+
+29
+00:01:25,020 --> 00:01:28,210
+Oh and size by the way returns
+the number of words in the dictionary.
+
+30
+00:01:28,210 --> 00:01:29,450
+Both of your implementations,
+
+31
+00:01:29,450 --> 00:01:33,800
+dictionary BST and dictionary LL, will
+implement each of these three methods.
+
+32
+00:01:33,800 --> 00:01:37,690
+The difference between them is
+the dictionary LL will use a link list
+
+33
+00:01:37,690 --> 00:01:39,390
+to implement the dictionary.
+
+34
+00:01:39,390 --> 00:01:40,980
+To hold all the words in the dictionary.
+
+35
+00:01:40,980 --> 00:01:44,630
+And DictionaryBST will
+use a binary search tree,
+
+36
+00:01:44,630 --> 00:01:47,220
+which in Java is implemented as a TreeSet.
+
+37
+00:01:47,220 --> 00:01:49,810
+So, you'll see that we've
+set you up to use a TreeSet
+
+38
+00:01:49,810 --> 00:01:53,830
+as the data structure that's going to
+store the words in your dictionary.
+
+39
+00:01:53,830 --> 00:01:57,450
+So these shouldn't take you long at all to
+implement, these are very straightforward.
+
+40
+00:01:57,450 --> 00:02:00,330
+You're just gonna use the built-in
+Java classes to do this.
+
+41
+00:02:01,960 --> 00:02:05,010
+Once you've got those implemented,
+we've provided some testers for you.
+
+42
+00:02:05,010 --> 00:02:07,780
+So, you'll see over here we've
+got dictionary ll tester,
+
+43
+00:02:07,780 --> 00:02:09,500
+dictionary bst tester.
+
+44
+00:02:09,500 --> 00:02:11,140
+You can use our testers
+to make sure you've
+
+45
+00:02:11,140 --> 00:02:12,630
+implemented your dictionary correctly.
+
+46
+00:02:12,630 --> 00:02:15,360
+So, we're trying to make this
+as easy as possible for you so
+
+47
+00:02:15,360 --> 00:02:17,830
+that you can get to the interesting
+piece of this assignment
+
+48
+00:02:17,830 --> 00:02:20,760
+which is that we want you to
+think about What the running time
+
+49
+00:02:20,760 --> 00:02:23,660
+is going to be to find words in each
+of the dictionary implementations.
+
+50
+00:02:23,660 --> 00:02:27,470
+So, put the link list implementation and
+the BST implementation.
+
+51
+00:02:27,470 --> 00:02:29,720
+So, we want you to do that
+prediction first, and
+
+52
+00:02:29,720 --> 00:02:32,755
+then, we've written a dictionary
+benchmark class for you.
+
+53
+00:02:32,755 --> 00:02:33,945
+And again, you'll see it over here.
+
+54
+00:02:33,945 --> 00:02:37,695
+It's called DictionaryBenchmarking.java.
+
+55
+00:02:37,695 --> 00:02:42,585
+And if you just run that program it'll
+do something similar to what you
+
+56
+00:02:42,585 --> 00:02:46,565
+did back in week two, comparing
+the running time of the Dictionary LL,
+
+57
+00:02:46,565 --> 00:02:49,710
+to the Dictionary BST class this time.
+
+58
+00:02:49,710 --> 00:02:53,880
+So you'll see that it's
+basically all written for you.
+
+59
+00:02:53,880 --> 00:02:57,620
+The only thing that you will want
+to play around with is these
+
+60
+00:02:57,620 --> 00:02:59,870
+variable values up here at the top.
+
+61
+00:02:59,870 --> 00:03:01,330
+So, the number of trials you run,
+
+62
+00:03:01,330 --> 00:03:04,790
+the increment step,
+the number of steps, where you start.
+
+63
+00:03:04,790 --> 00:03:07,900
+Play around with these What
+these control is how many
+
+64
+00:03:07,900 --> 00:03:11,970
+words you load from the dictionary each
+iteration, how many iterations you have,
+
+65
+00:03:11,970 --> 00:03:15,400
+what the increment between iterations is,
+how many times you look for words.
+
+66
+00:03:15,400 --> 00:03:21,890
+Trials is the number of times you look for
+the word each time, each iteration.
+
+67
+00:03:21,890 --> 00:03:24,450
+Playing with these numbers to
+try to get some smooth data.
+
+68
+00:03:24,450 --> 00:03:27,150
+I'll tell you right now that
+the data is going to be noisy.
+
+69
+00:03:27,150 --> 00:03:29,680
+It's tough to get clean data here.
+
+70
+00:03:29,680 --> 00:03:33,690
+And don't worry about getting it too
+incredibly smooth, as long as what your
+
+71
+00:03:33,690 --> 00:03:38,930
+seeing is more or less matching
+what you expect to see your okay.
+
+72
+00:03:38,930 --> 00:03:42,170
+We'll ask you about some
+of that in the in the quiz
+
+73
+00:03:42,170 --> 00:03:43,780
+that follows this programming assignment.
+
+74
+00:03:43,780 --> 00:03:46,340
+So, we'll ask you what you saw, and
+we'll ask you to explain what you saw.
+
+75
+00:03:47,780 --> 00:03:51,990
+Finally, when you're ready,
+when you've got this working,
+
+76
+00:03:51,990 --> 00:03:54,750
+you can modify your GUI application,
+that text editor.
+
+77
+00:03:54,750 --> 00:03:57,590
+So, you'll need to go into
+our code just a little bit.
+
+78
+00:03:57,590 --> 00:04:01,980
+Just go into the launch class.java
+files up here in application
+
+79
+00:04:01,980 --> 00:04:03,790
+You'll see this file launch class.
+
+80
+00:04:03,790 --> 00:04:09,330
+And all you're going to need to do is
+go down here to get dictionary and
+
+81
+00:04:09,330 --> 00:04:14,070
+change it from using a hash set to
+using your dictionary bst class and
+
+82
+00:04:14,070 --> 00:04:15,310
+then that will get things working.
+
+83
+00:04:17,970 --> 00:04:18,500
+All right.
+
+84
+00:04:18,500 --> 00:04:22,398
+So, then to submit part one
+you just zip up your files,
+
+85
+00:04:22,398 --> 00:04:27,510
+dictionaryll.java and dictionarybst.java
+and submit the zip file for grading.
+
+86
+00:04:27,510 --> 00:04:29,860
+And remember that the grader
+takes a few minutes and
+
+87
+00:04:29,860 --> 00:04:33,139
+you'll see a zero out of six as your
+score while the grader is working.
+
+88
+00:04:34,460 --> 00:04:37,030
+Now, what you can do after that, and
+
+89
+00:04:37,030 --> 00:04:40,300
+you can see that I'm filming this video
+before the instructions are totally done,
+
+90
+00:04:40,300 --> 00:04:46,300
+so you'll see more instructions here,
+is after you run your code,
+
+91
+00:04:46,300 --> 00:04:50,980
+if you have any problems at all,
+we will be providing you, With a class
+
+92
+00:04:50,980 --> 00:04:55,900
+that actually runs all of the tests
+that we ran when we graded your file.
+
+93
+00:04:55,900 --> 00:04:59,510
+So you can run those tests,
+see what they do, and
+
+94
+00:04:59,510 --> 00:05:05,360
+then reason about what they did
+versus what they should have done.
+
+95
+00:05:05,360 --> 00:05:10,580
+And we'll give you some grader feedback
+that'll tell you What test was being run,
+
+96
+00:05:10,580 --> 00:05:13,060
+which tests passed, which tests failed.
+
+97
+00:05:13,060 --> 00:05:16,030
+In particular we'll tell you as
+much information as possible
+
+98
+00:05:16,030 --> 00:05:17,500
+why those tests failed.
+
+99
+00:05:17,500 --> 00:05:21,820
+So, you'll be able to go to those
+particular tests in the file that we give
+
+100
+00:05:21,820 --> 00:05:26,050
+you, see what that test is running, see
+what output your program is giving, and
+
+101
+00:05:26,050 --> 00:05:28,800
+try to change your program so
+it's giving the proper output.
+
+102
+00:05:28,800 --> 00:05:31,350
+And that should help you with debugging.
+
+103
+00:05:31,350 --> 00:05:34,900
+If you have any problems
+passing our grading tests.
+
+104
+00:05:34,900 --> 00:05:36,150
+So, that's all there is for part one.
+
+105
+00:05:37,180 --> 00:05:41,910
+Oh and by the way, after part one you'll
+be able to see the misspelled words
+
+106
+00:05:41,910 --> 00:05:47,030
+flagged in the interface once you turn
+on that spelling suggestions option.
+
+107
+00:05:48,370 --> 00:05:52,900
+Part two, you're going to appoint
+the autocomplete functionality.
+
+108
+00:05:52,900 --> 00:05:56,050
+And you're going to do this
+by implementing a trie.
+
+109
+00:05:56,050 --> 00:06:00,480
+And the class you're going to implement
+uses a trie as it's data structure.
+
+110
+00:06:00,480 --> 00:06:02,740
+And it implements two interfaces.
+
+111
+00:06:02,740 --> 00:06:05,580
+The autocomplete interface,
+and the dictionary interface.
+
+112
+00:06:05,580 --> 00:06:07,400
+You're already familiar with
+the dictionary interface.
+
+113
+00:06:07,400 --> 00:06:10,560
+But you might want to take just a minute
+to look at the autocomplete interface,
+
+114
+00:06:10,560 --> 00:06:11,310
+which is right here.
+
+115
+00:06:11,310 --> 00:06:13,010
+So, you can see that it
+just has one method.
+
+116
+00:06:13,010 --> 00:06:14,420
+It's called predictCompletions.
+
+117
+00:06:14,420 --> 00:06:17,630
+It takes a prefix and
+the number of completions that you want.
+
+118
+00:06:17,630 --> 00:06:19,540
+And it returns a list
+of those completions.
+
+119
+00:06:19,540 --> 00:06:25,000
+And there are some specifics about
+what completions you need to return.
+
+120
+00:06:25,000 --> 00:06:28,180
+Those are given over here in
+the assignment instructions.
+
+121
+00:06:28,180 --> 00:06:32,400
+So, then your goal is simply to implement
+the methods in the auto complete
+
+122
+00:06:32,400 --> 00:06:33,800
+dictionary trie class.
+
+123
+00:06:33,800 --> 00:06:38,190
+So, going over here, here's the starter
+code for the auto complete dictionary trie,
+
+124
+00:06:38,190 --> 00:06:42,490
+and you'll notice that several methods
+are missing, so add what is missing.
+
+125
+00:06:42,490 --> 00:06:46,410
+To implement addword,
+you need to add a new word to the trie, so
+
+126
+00:06:46,410 --> 00:06:48,740
+you'll be implementing a trie
+data structure Structure here.
+
+127
+00:06:48,740 --> 00:06:51,690
+Now, you're not gonna implement
+this completely from scratch,
+
+128
+00:06:51,690 --> 00:06:56,260
+because if you go over here to TrieNode,
+you will
+
+129
+00:06:56,260 --> 00:07:00,630
+see that we've given you an implementation
+of a node in the trie structure.
+
+130
+00:07:00,630 --> 00:07:03,720
+And that's described a little
+bit in the videos for
+
+131
+00:07:03,720 --> 00:07:06,520
+this week, and you can look at it here.
+
+132
+00:07:06,520 --> 00:07:11,630
+But basically, the idea is that each
+link to the next level is a hash map.
+
+133
+00:07:11,630 --> 00:07:15,340
+That links the character that takes
+you to the next level's node, and
+
+134
+00:07:15,340 --> 00:07:17,970
+then the node that is there.
+
+135
+00:07:17,970 --> 00:07:21,540
+Each node is also gonna keep track
+of the text up to that point, and
+
+136
+00:07:21,540 --> 00:07:24,020
+as I mentioned in the video,
+you could omit this for
+
+137
+00:07:24,020 --> 00:07:28,420
+space, but you don't have to and it makes
+it a lot easier if you keep it in there.
+
+138
+00:07:28,420 --> 00:07:30,580
+So, we suggest keeping it in Been there.
+
+139
+00:07:30,580 --> 00:07:34,770
+And then you have this Boolean flag
+whether or not this node is a word or not.
+
+140
+00:07:34,770 --> 00:07:38,410
+So, this is just the implementation that
+I talked to you about in the video and
+
+141
+00:07:38,410 --> 00:07:40,250
+we're providing this for you.
+
+142
+00:07:40,250 --> 00:07:44,400
+And you can look at some of the methods
+that we provide, they're gonna be really
+
+143
+00:07:44,400 --> 00:07:49,940
+useful in doing your auto complete
+dictionary trie-implementation.
+
+144
+00:07:49,940 --> 00:07:53,050
+So, using these methods,
+you will go ahead and
+
+145
+00:07:53,050 --> 00:07:57,610
+implement all of the missing method That's
+here in the auto complete dictionary trie.
+
+146
+00:07:57,610 --> 00:08:01,410
+So, there's the add word method,
+that has to build out the trie just a bit.
+
+147
+00:08:01,410 --> 00:08:07,350
+And we noticed this other thing that we're
+converting all the strings are lower case,
+
+148
+00:08:07,350 --> 00:08:08,890
+as you insert them.
+
+149
+00:08:08,890 --> 00:08:12,840
+And that's just to make this
+implementation slightly easier.
+
+150
+00:08:12,840 --> 00:08:14,050
+So everything in the dictionary,
+
+151
+00:08:14,050 --> 00:08:15,240
+everything you're going
+to compare it against,
+
+152
+00:08:15,240 --> 00:08:17,750
+it's always lower case,
+you have to do that conversion.
+
+153
+00:08:19,170 --> 00:08:22,460
+Here's the method that
+returns the size of the trie.
+
+154
+00:08:22,460 --> 00:08:25,180
+Now, notice this isn't the same as
+the number of nodes in the trie,
+
+155
+00:08:25,180 --> 00:08:28,370
+this is the number of
+words in the dictionary.
+
+156
+00:08:28,370 --> 00:08:31,490
+So it's not actually the size of the trie
+at all, it's the size of the dictionary.
+
+157
+00:08:31,490 --> 00:08:33,580
+In terms of the number of words.
+
+158
+00:08:33,580 --> 00:08:35,740
+That's from the dictionary interface.
+
+159
+00:08:35,740 --> 00:08:38,680
+And then we have the isword
+method down here.
+
+160
+00:08:38,680 --> 00:08:43,060
+And that returns whether a string
+is a word that's in this And so
+
+161
+00:08:43,060 --> 00:08:46,470
+you'll need to use the algorithm that I
+explained in the video for tracing down
+
+162
+00:08:46,470 --> 00:08:50,840
+the trie as character by character
+in the string and making sure that
+
+163
+00:08:50,840 --> 00:08:55,329
+the last node that you land on is actually
+in the trie, and it's marked as a word.
+
+164
+00:08:56,950 --> 00:08:59,140
+Finally, the last thing that
+you're gonna implement for
+
+165
+00:08:59,140 --> 00:09:01,520
+this part is the predict
+completions method.
+
+166
+00:09:01,520 --> 00:09:02,740
+The predict completions method,
+
+167
+00:09:02,740 --> 00:09:06,320
+you've got, we've got the algorithm right
+here, but basically it's two pieces.
+
+168
+00:09:06,320 --> 00:09:09,910
+First, you use a similar
+methodology that you used for
+
+169
+00:09:09,910 --> 00:09:14,570
+is word to trace down and find the stem,
+or the prefix in the trie.
+
+170
+00:09:14,570 --> 00:09:18,830
+So, you're going to find that stem or
+prefix in the trie, and
+
+171
+00:09:18,830 --> 00:09:22,240
+if the prefix does not appear in the trie
+then you just return an empty list because
+
+172
+00:09:22,240 --> 00:09:28,000
+there's no way to predict completions
+from this non-existent prefix.
+
+173
+00:09:28,000 --> 00:09:29,420
+But once you find the stem or
+
+174
+00:09:29,420 --> 00:09:33,090
+the prefix then you're gonna
+perform a breath first search.
+
+175
+00:09:33,090 --> 00:09:37,620
+As Leo described in his videos this week.
+
+176
+00:09:37,620 --> 00:09:39,300
+To generate all the completions.
+
+177
+00:09:39,300 --> 00:09:41,990
+And here we're giving you
+the algorithm for the spec for search,
+
+178
+00:09:41,990 --> 00:09:43,880
+to make things a little bit earlier.
+
+179
+00:09:43,880 --> 00:09:46,900
+So you create a que, and
+a que is really just a link list.
+
+180
+00:09:46,900 --> 00:09:50,340
+It's a link list where you add notes
+on one end and take them off the other.
+
+181
+00:09:50,340 --> 00:09:53,250
+So, you add things to the back and
+take things off from the front.
+
+182
+00:09:53,250 --> 00:09:57,350
+And link list already, by default,
+will Give you this behavior.
+
+183
+00:09:58,880 --> 00:10:00,940
+Then you'll create a list
+of completions to return,
+
+184
+00:10:00,940 --> 00:10:05,320
+that list of completions is initially
+empty, and while your queue is not empty
+
+185
+00:10:05,320 --> 00:10:09,730
+and you don't have enough completions you
+will remove the first node from the queue.
+
+186
+00:10:09,730 --> 00:10:12,330
+If it's a word,
+you add it's completions list and
+
+187
+00:10:12,330 --> 00:10:14,900
+then you'll add all of its child
+nodes to the back of the queue.
+
+188
+00:10:14,900 --> 00:10:17,880
+And you'll just keep doing this until
+you've generated enough completions or
+
+189
+00:10:17,880 --> 00:10:19,065
+you run out of completions.
+
+190
+00:10:19,065 --> 00:10:21,400
+[INAUDIBLE] In the dictionary,
+and that's it.
+
+191
+00:10:22,440 --> 00:10:24,930
+So that's all you need to do for
+the implementation.
+
+192
+00:10:26,980 --> 00:10:29,170
+And it's described in a lot of detail,
+here.
+
+193
+00:10:29,170 --> 00:10:35,560
+So, I encourage you to read
+this assignment carefully.
+
+194
+00:10:35,560 --> 00:10:38,230
+Because it gives you some.
+
+195
+00:10:38,230 --> 00:10:42,720
+Specific instructions about how
+you need to return words in
+
+196
+00:10:42,720 --> 00:10:44,320
+increasing length order.
+
+197
+00:10:44,320 --> 00:10:47,280
+So, if I ask for four completions,
+I need the four shortest
+
+198
+00:10:47,280 --> 00:10:52,260
+completions from a particular prefix or
+stem, and not a longer completion.
+
+199
+00:10:54,570 --> 00:10:58,530
+We have a tester for you, we have this
+class called AutoCompleteDictionaryTrie
+
+200
+00:10:58,530 --> 00:11:02,600
+tester, you're welcome to run that to test
+your methods, you may need to add to it to
+
+201
+00:11:02,600 --> 00:11:06,046
+make sure that it's complete, and
+when you're ready, you just upload your
+
+202
+00:11:06,046 --> 00:11:10,940
+AutoCompleteDictionaryTrie.java file and
+again.
+
+203
+00:11:10,940 --> 00:11:15,730
+You can run, again I'm doing this before
+this file is completely finalized,
+
+204
+00:11:15,730 --> 00:11:18,930
+before the instructions are completely
+finalized, but again you'll be able to see
+
+205
+00:11:18,930 --> 00:11:22,180
+the exact tests that we run
+in a file that we provide and
+
+206
+00:11:22,180 --> 00:11:25,310
+we'll have the name of that file in these
+instructions by the time we launch.
+
+207
+00:11:26,490 --> 00:11:28,510
+Part 3 is purely optional.
+
+208
+00:11:28,510 --> 00:11:31,690
+So, we've got a note to our beta testers
+that we want them to do it, but for you,
+
+209
+00:11:31,690 --> 00:11:33,210
+it’s up to you.
+
+210
+00:11:33,210 --> 00:11:35,460
+And what part three is basically,
+
+211
+00:11:35,460 --> 00:11:38,100
+is you’ll notice that in
+part two we ignored case.
+
+212
+00:11:38,100 --> 00:11:40,270
+So we put everything in
+the dictionary in lower case.
+
+213
+00:11:40,270 --> 00:11:43,960
+Everything in the autocomplete
+dictionary in lower case.
+
+214
+00:11:43,960 --> 00:11:48,140
+But for part three it would be
+more interesting if we could
+
+215
+00:11:48,140 --> 00:11:52,590
+Do spelling correction and spelling
+suggestion based on case, as well.
+
+216
+00:11:52,590 --> 00:11:58,340
+So, if a proper noun has a lower case
+letter to begin with, it's not allowed.
+
+217
+00:11:58,340 --> 00:12:00,770
+But if it's an upper case
+letter then it's okay.
+
+218
+00:12:00,770 --> 00:12:05,210
+And it turns out that our dictionary text
+file already has all the proper case
+
+219
+00:12:05,210 --> 00:12:06,150
+incorporated into it.
+
+220
+00:12:06,150 --> 00:12:10,210
+So, words appear in the dictionary
+text file in their proper case.
+
+221
+00:12:10,210 --> 00:12:14,690
+So, the challenge in Part 3 is to
+expand on your implementation for
+
+222
+00:12:14,690 --> 00:12:15,560
+Part 2 in a new file.
+
+223
+00:12:15,560 --> 00:12:19,480
+Don't mess up your implementation from
+Part 2 because we're gonna grade it
+
+224
+00:12:19,480 --> 00:12:20,460
+as it is.
+
+225
+00:12:20,460 --> 00:12:25,290
+But make a new file that implements
+a dictionary autocomplete
+
+226
+00:12:25,290 --> 00:12:27,830
+that actually takes case into account.
+
+227
+00:12:27,830 --> 00:12:30,610
+So, if you're working on this part,
+we assume that you're really well on your
+
+228
+00:12:30,610 --> 00:12:34,450
+way, you don't need much guidance, so
+we're leaving it fairly open-ended.
+
+229
+00:12:34,450 --> 00:12:37,700
+And we hope that you have a lot of fun,
+and we you encourage to discuss your
+
+230
+00:12:37,700 --> 00:12:40,050
+implementation with other
+learners in the forums.

@@ -1,0 +1,649 @@
+1
+00:00:00,000 --> 00:00:04,157
+[MUSIC]
+
+2
+00:00:04,157 --> 00:00:08,830
+So, now you have a lot of practice
+computing asymptotic bounds.
+
+3
+00:00:08,830 --> 00:00:12,480
+Which means those big O classes for
+various pieces of code.
+
+4
+00:00:12,480 --> 00:00:17,410
+And when we're thinking about a piece of
+code that's executed on a given input.
+
+5
+00:00:17,410 --> 00:00:20,363
+But what we'd like to do is step back and
+think about our original problem.
+
+6
+00:00:20,363 --> 00:00:23,897
+And our original problem was measuring
+the performance of an algorithm,
+
+7
+00:00:23,897 --> 00:00:26,500
+which was a strategy for
+solving a problem.
+
+8
+00:00:26,500 --> 00:00:29,890
+And so that means that we don't want
+to just focus in on a single input.
+
+9
+00:00:29,890 --> 00:00:33,840
+We wanna think about how
+the algorithm behaves for all inputs.
+
+10
+00:00:33,840 --> 00:00:37,630
+And so, by the end of this video, you'll
+be able to define what it means to talk
+
+11
+00:00:37,630 --> 00:00:42,120
+about the worst case, average case, and
+best case performance of an algorithm.
+
+12
+00:00:42,120 --> 00:00:44,610
+And talk about how that really talks
+
+13
+00:00:44,610 --> 00:00:47,670
+about the various inputs that
+we might have to come across.
+
+14
+00:00:47,670 --> 00:00:51,120
+And then we'll talk about, also,
+why each of these is used.
+
+15
+00:00:51,120 --> 00:00:55,870
+So, let's think back to this big picture
+we have of an algorithm as a problem
+
+16
+00:00:55,870 --> 00:00:57,735
+solving strategy or machine.
+
+17
+00:00:57,735 --> 00:01:02,040
+That takes some input and produces output,
+and the performance that we've been
+
+18
+00:01:02,040 --> 00:01:05,900
+focusing on is the time that it takes for
+the algorithm to do this.
+
+19
+00:01:05,900 --> 00:01:08,560
+To report back the answer,
+given the input.
+
+20
+00:01:08,560 --> 00:01:13,750
+So in the example that we've talked about
+way back when when we first started.
+
+21
+00:01:13,750 --> 00:01:18,640
+We were looking at the hasLetter method,
+which took as its input a word,
+
+22
+00:01:18,640 --> 00:01:20,190
+which was a string.
+
+23
+00:01:20,190 --> 00:01:24,050
+And a character which was the letter
+that we were looking for in that word.
+
+24
+00:01:24,050 --> 00:01:25,630
+And then it returned either true or
+
+25
+00:01:25,630 --> 00:01:29,590
+false based on whether the character
+was found inside the string.
+
+26
+00:01:29,590 --> 00:01:35,080
+Now, as we saw when we were counting
+operations, depending on the specific
+
+27
+00:01:35,080 --> 00:01:39,500
+word and letter combination, our algorithm
+behaved a little bit differently.
+
+28
+00:01:39,500 --> 00:01:43,750
+It took a different number of operations,
+in with each one of these cases.
+
+29
+00:01:43,750 --> 00:01:46,920
+So even if we were looking
+at the exact same word, so
+
+30
+00:01:46,920 --> 00:01:50,930
+that a fixed length word,
+and one character.
+
+31
+00:01:50,930 --> 00:01:53,370
+We weren't changing the number of
+characters we were looking for.
+
+32
+00:01:53,370 --> 00:01:56,700
+We could still have quite different
+behavior in terms of the number of
+
+33
+00:01:56,700 --> 00:02:00,810
+operations that our algorithm required
+before it could output the answer.
+
+34
+00:02:00,810 --> 00:02:05,682
+And so what we'd like to do now
+is capture that variability in
+
+35
+00:02:05,682 --> 00:02:08,367
+terms of the algorithm run time.
+
+36
+00:02:08,367 --> 00:02:11,970
+And talk about the different
+contexts we might care about.
+
+37
+00:02:11,970 --> 00:02:18,290
+So we might be optimistic and
+say, in the best possible case
+
+38
+00:02:18,290 --> 00:02:23,490
+how short might be my wait,
+how quick might my algorithm be?
+
+39
+00:02:23,490 --> 00:02:28,050
+So, if I give the algorithms
+just the most beautiful input,
+
+40
+00:02:28,050 --> 00:02:33,280
+whatever beautiful means,
+then how quick can it respond to me?
+
+41
+00:02:33,280 --> 00:02:37,540
+And now still this input is
+going to be of a fixed size n.
+
+42
+00:02:37,540 --> 00:02:40,810
+So, we don't expect
+the algorithm to be very quick,
+
+43
+00:02:40,810 --> 00:02:42,250
+no matter what size input we have.
+
+44
+00:02:42,250 --> 00:02:45,850
+So we're just thinking about,
+within all the inputs of size n,
+
+45
+00:02:45,850 --> 00:02:48,880
+what's the best possible
+behavior of my algorithm.
+
+46
+00:02:48,880 --> 00:02:51,960
+And so
+thinking back to the hasLetter method,
+
+47
+00:02:51,960 --> 00:02:54,710
+when is this algorithm the quickest?
+
+48
+00:02:54,710 --> 00:02:58,080
+When does it have to run
+very few operations?
+
+49
+00:02:58,080 --> 00:03:00,270
+Well, think back to what we do.
+
+50
+00:03:00,270 --> 00:03:01,500
+We start at the beginning and
+
+51
+00:03:01,500 --> 00:03:05,910
+we look for our letter in every
+possible position of our string.
+
+52
+00:03:05,910 --> 00:03:09,590
+So if we found our letter at the very
+beginning, if our letter was the very
+
+53
+00:03:09,590 --> 00:03:13,410
+first letter of this string, then we'd
+be able to quit while we were ahead.
+
+54
+00:03:13,410 --> 00:03:17,410
+We'd be able to return out
+of the method very quickly.
+
+55
+00:03:17,410 --> 00:03:22,170
+So the best case for this method,
+is when the word that we've input,
+
+56
+00:03:22,170 --> 00:03:24,810
+starts with the letter
+that we're looking for.
+
+57
+00:03:24,810 --> 00:03:29,830
+And in that case, well, this algorithm
+just really needs to do one check, really.
+
+58
+00:03:29,830 --> 00:03:33,150
+It just compares the letter
+that we're looking for
+
+59
+00:03:33,150 --> 00:03:38,080
+with a character at the first position of
+the string, and that takes constant time.
+
+60
+00:03:38,080 --> 00:03:42,310
+So in the best case,
+this method is a constant-time method.
+
+61
+00:03:44,260 --> 00:03:46,080
+So that's interesting, but
+
+62
+00:03:46,080 --> 00:03:49,710
+most of the time we're not going
+to be in the best case scenario.
+
+63
+00:03:49,710 --> 00:03:53,480
+Most of the time the word that we care
+about will not start with the letter that
+
+64
+00:03:53,480 --> 00:03:54,490
+we care about.
+
+65
+00:03:54,490 --> 00:03:59,280
+And so this is just a very small
+view of how this algorithm behaves.
+
+66
+00:03:59,280 --> 00:04:01,120
+This is just one special case.
+
+67
+00:04:01,120 --> 00:04:03,760
+And so, on the other hand,
+we might be pessimists, and
+
+68
+00:04:03,760 --> 00:04:07,620
+say, well,
+I think things are gonna be bad.
+
+69
+00:04:07,620 --> 00:04:09,740
+I think my algorithm's gonna take forever.
+
+70
+00:04:09,740 --> 00:04:13,450
+And so
+what should we prepare ourselves against?
+
+71
+00:04:13,450 --> 00:04:16,460
+What's the worst possible
+performance of the algorithm,
+
+72
+00:04:16,460 --> 00:04:20,570
+no matter how bad the input,
+still for a given, fixed size?
+
+73
+00:04:20,570 --> 00:04:23,990
+And so what we'd like to do now is look at
+our algorithm and say, as pessimistically
+
+74
+00:04:23,990 --> 00:04:29,130
+as possible, in the worst possible
+situation, how many steps will I need?
+
+75
+00:04:29,130 --> 00:04:32,300
+And so
+again with our example of hasLetter,
+
+76
+00:04:32,300 --> 00:04:36,530
+what's the worst possible situation we
+might have in terms of run time here?
+
+77
+00:04:36,530 --> 00:04:40,770
+Well, we're stepping through
+the letters of the word and
+
+78
+00:04:40,770 --> 00:04:43,630
+each time we're looking for
+our desired letter.
+
+79
+00:04:43,630 --> 00:04:47,350
+And so, in the worst possible situation,
+
+80
+00:04:47,350 --> 00:04:50,850
+what we're gonna have to do is
+go through the entire word and
+
+81
+00:04:50,850 --> 00:04:54,190
+either just find our letter at
+the very end or not find it at all.
+
+82
+00:04:54,190 --> 00:04:58,870
+So, the worst case for this method is that
+the letter that we care about is either at
+
+83
+00:04:58,870 --> 00:05:01,500
+the end of the word or
+it's missing altogether.
+
+84
+00:05:02,520 --> 00:05:07,222
+And in either one of those situations what
+happens is that we've stepped through
+
+85
+00:05:07,222 --> 00:05:08,617
+the entire input word.
+
+86
+00:05:08,617 --> 00:05:13,594
+And are only able to return our answer
+to the user once we've looked at all of
+
+87
+00:05:13,594 --> 00:05:16,270
+the characters in the string.
+
+88
+00:05:16,270 --> 00:05:20,360
+And so in either way,
+what we have to do is some constant number
+
+89
+00:05:20,360 --> 00:05:25,460
+of instructions for
+each position in the word.
+
+90
+00:05:25,460 --> 00:05:29,289
+And so that means that we need to
+do big O of N much work where N
+
+91
+00:05:29,289 --> 00:05:31,017
+is the length of the word.
+
+92
+00:05:31,017 --> 00:05:35,698
+And so, in the worst case, where we
+have to go through the entire string,
+
+93
+00:05:35,698 --> 00:05:38,880
+this method takes linear time,
+big O(n) time.
+
+94
+00:05:38,880 --> 00:05:41,470
+Okay, so,
+we've got the best case situation,
+
+95
+00:05:41,470 --> 00:05:43,310
+we've got the worst case situation.
+
+96
+00:05:43,310 --> 00:05:45,660
+And, just if we think
+about the meanings here,
+
+97
+00:05:45,660 --> 00:05:49,910
+the amount of time our algorithm takes in
+the best case will always be shorter than
+
+98
+00:05:49,910 --> 00:05:53,170
+the amount of time our algorithm
+takes in the worst case.
+
+99
+00:05:53,170 --> 00:05:57,800
+Okay, and so when we think about this
+best case and worst case analysis,
+
+100
+00:05:57,800 --> 00:06:02,710
+it's useful to keep in mind why we
+might care, how we'll use these bounds.
+
+101
+00:06:02,710 --> 00:06:08,010
+And so you can think about the best
+case analysis as this guarantee
+
+102
+00:06:08,010 --> 00:06:12,480
+that we'll always have to spend at least
+this amount of time doing this algorithm.
+
+103
+00:06:12,480 --> 00:06:15,600
+We know that we'll never be
+shorter than the best case.
+
+104
+00:06:15,600 --> 00:06:17,380
+Okay, and so if we're budgeting our time,
+
+105
+00:06:17,380 --> 00:06:19,520
+we know that we have to budget
+at least this amount of time.
+
+106
+00:06:20,920 --> 00:06:24,640
+For the worst case analysis, we know that
+we've got a guarantee that we'll never
+
+107
+00:06:24,640 --> 00:06:27,560
+have to wait longer than
+the worst case analysis.
+
+108
+00:06:27,560 --> 00:06:30,050
+To get back an answer from our algorithm.
+
+109
+00:06:30,050 --> 00:06:34,220
+And so if we're planning ahead, we'll know
+that by a certain amount of time, and
+
+110
+00:06:34,220 --> 00:06:37,780
+maybe before,
+we'll have terminated this algorithm.
+
+111
+00:06:37,780 --> 00:06:42,840
+And so it's useful to have these extreme
+situations analyzed when we're trying
+
+112
+00:06:42,840 --> 00:06:46,770
+to analyze how our algorithm's going
+to behave, no matter what input we get.
+
+113
+00:06:46,770 --> 00:06:49,110
+Well, now we've understood the extremes.
+
+114
+00:06:49,110 --> 00:06:53,650
+The thing is that in real life,
+we don't usually live in the extremes,
+
+115
+00:06:53,650 --> 00:06:56,110
+we often live somewhere
+in that messy middle.
+
+116
+00:06:56,110 --> 00:06:59,620
+And so we also have a notion
+of average case performance.
+
+117
+00:06:59,620 --> 00:07:01,570
+And with average case analysis,
+
+118
+00:07:01,570 --> 00:07:07,180
+what we'd like to do is get a sense of the
+performance of the algorithm on average,
+
+119
+00:07:07,180 --> 00:07:10,050
+if we consider all
+possible inputs of size n.
+
+120
+00:07:10,050 --> 00:07:13,370
+Now this gets really messy.
+
+121
+00:07:13,370 --> 00:07:17,550
+All sorts of considerations
+need to get taken into account.
+
+122
+00:07:17,550 --> 00:07:21,180
+If we want to be completely
+precise about it,
+
+123
+00:07:21,180 --> 00:07:24,450
+we need to think about
+the distribution of possible inputs,
+
+124
+00:07:24,450 --> 00:07:27,620
+how likely it is to get
+different kinds of inputs.
+
+125
+00:07:27,620 --> 00:07:33,403
+We can also think about what happens with
+each of those inputs on their own and
+
+126
+00:07:33,403 --> 00:07:35,934
+then try to put them together.
+
+127
+00:07:35,934 --> 00:07:39,450
+As you can probably tell,
+this is very messy, very quickly and
+
+128
+00:07:39,450 --> 00:07:44,810
+what we typically do is just say average
+case we realize is more realistic.
+
+129
+00:07:44,810 --> 00:07:49,190
+But it's too hard and we're going
+to use the bounds that we got from
+
+130
+00:07:49,190 --> 00:07:53,030
+the analysis of best case and
+worst case to give us the ballpark.
+
+131
+00:07:53,030 --> 00:07:57,210
+Understand the sandbox in which we're
+playing and that's good enough.
+
+132
+00:07:57,210 --> 00:08:02,880
+So there we have the best case, the worst
+case, and the average case possibilities.
+
+133
+00:08:02,880 --> 00:08:06,929
+Notice that we're using the asymptotic
+notation, the big O notation to describe,
+
+134
+00:08:08,210 --> 00:08:11,880
+in each of these contexts,
+what the run time of the algorithm is.
+
+135
+00:08:11,880 --> 00:08:15,650
+But what we're computing is going to be
+a little bit different in each situation.

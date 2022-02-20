@@ -1,0 +1,822 @@
+1
+00:00:03,668 --> 00:00:06,193
+For those of you who have already
+taken a course of this before,
+
+2
+00:00:06,193 --> 00:00:08,810
+you're already pros at
+doing concept challenges.
+
+3
+00:00:08,810 --> 00:00:10,670
+For those of you who are new to us,
+
+4
+00:00:10,670 --> 00:00:13,558
+let's talk through the details
+again of a concept challenge.
+
+5
+00:00:13,558 --> 00:00:16,320
+The idea behind a concept challenge,
+is for you to pause and
+
+6
+00:00:16,320 --> 00:00:17,790
+trace all the problems yourself.
+
+7
+00:00:17,790 --> 00:00:21,320
+We're gonna pose a problem and
+then give you an end video quiz about it.
+
+8
+00:00:21,320 --> 00:00:25,950
+Try to solve that problem and then after
+you've come up with an answer for it.
+
+9
+00:00:25,950 --> 00:00:29,400
+Try to discuss that with friends or
+colleagues that are taking the course.
+
+10
+00:00:29,400 --> 00:00:33,120
+This is a great time to get them all
+together and talk about the concepts.
+
+11
+00:00:33,120 --> 00:00:36,820
+If you don't have them around you can
+always watch the UC San Diego learners
+
+12
+00:00:36,820 --> 00:00:38,290
+talk about the concepts themselves.
+
+13
+00:00:39,620 --> 00:00:42,380
+After you've listened to those
+explanations and talked about it.
+
+14
+00:00:42,380 --> 00:00:43,950
+Then you can try to answer
+the question again.
+
+15
+00:00:45,170 --> 00:00:46,360
+After you've asked the question again,
+
+16
+00:00:46,360 --> 00:00:50,430
+you can confirm your understanding
+based on our explanation.
+
+17
+00:00:50,430 --> 00:00:51,790
+All right, so
+let's just dive right into it.
+
+18
+00:00:51,790 --> 00:00:55,100
+What we're gonna try to do is keep
+working with regular expressions.
+
+19
+00:00:55,100 --> 00:01:00,216
+So what I have here is the string below,
+which is splitting a string and
+
+20
+00:01:00,216 --> 00:01:03,176
+it's easy as one, two, 33, right?
+
+21
+00:01:03,176 --> 00:01:06,216
+If I try to do getTokens on that and
+
+22
+00:01:06,216 --> 00:01:10,896
+give it a regular
+expression which is [1-3].
+
+23
+00:01:10,896 --> 00:01:16,340
+It's gonna give me back one,
+two, three and three.
+
+24
+00:01:16,340 --> 00:01:18,453
+But what I really want
+back is the numbers here.
+
+25
+00:01:18,453 --> 00:01:21,560
+I want one, two and 33.
+
+26
+00:01:21,560 --> 00:01:25,000
+So your challenge here, is what
+regular expression should I put there?
+
+27
+00:01:27,440 --> 00:01:28,460
+>> Hi I'm Joshua.
+
+28
+00:01:28,460 --> 00:01:29,140
+>> My name's Brianna.
+
+29
+00:01:29,140 --> 00:01:29,750
+>> And I'm Allen.
+
+30
+00:01:29,750 --> 00:01:34,425
+>> Okay, what do you guys think about B.
+
+31
+00:01:34,425 --> 00:01:37,370
+I think it might be
+the correct answer because,
+
+32
+00:01:37,370 --> 00:01:42,318
+I think the comma would be used as
+a delimiter and separate one, two, and 33.
+
+33
+00:01:42,318 --> 00:01:42,880
+>> Yeah.
+
+34
+00:01:42,880 --> 00:01:47,190
+>> But, because it's in the brackets,
+it might be taken as a literal symbol.
+
+35
+00:01:48,290 --> 00:01:50,240
+So it's gonna be looking for commas.
+
+36
+00:01:50,240 --> 00:01:50,740
+>> Oh, okay.
+
+37
+00:01:52,150 --> 00:01:54,543
+>> Yeah, I'm kinda, hm.
+
+38
+00:01:54,543 --> 00:01:59,210
+I think I'm kind of leaning
+towards what Bree said.
+
+39
+00:01:59,210 --> 00:02:02,254
+That the commas might be like,
+
+40
+00:02:02,254 --> 00:02:08,120
+it's not a symbol like we use
+to separate different terms.
+
+41
+00:02:08,120 --> 00:02:09,360
+>> Since it's in the brackets.
+
+42
+00:02:09,360 --> 00:02:11,809
+Like, if you look at E,
+there's no brackets in there.
+
+43
+00:02:11,809 --> 00:02:16,543
+>> Yeah and I think I remember that
+the brackets kind of say that look for
+
+44
+00:02:16,543 --> 00:02:18,218
+a comma specifically.
+
+45
+00:02:18,218 --> 00:02:21,574
+Rather than separate one, two, and 33.
+
+46
+00:02:21,574 --> 00:02:24,987
+So I don't think it'll quite
+give us what were looking for.
+
+47
+00:02:24,987 --> 00:02:30,591
+>> Okay, and then C has numbers zero
+through nine, and then it has a plus sign,
+
+48
+00:02:30,591 --> 00:02:34,550
+which means one or
+more of any value from zero to nine.
+
+49
+00:02:34,550 --> 00:02:36,630
+I think that would work.
+
+50
+00:02:36,630 --> 00:02:37,201
+>> You think?
+
+51
+00:02:37,201 --> 00:02:43,610
+I think, hm, but won't it give us one,
+two, three and three?
+
+52
+00:02:43,610 --> 00:02:48,177
+Because it'll split up the 33,
+cuz it's looking for
+
+53
+00:02:48,177 --> 00:02:51,296
+just one digit between zero and nine.
+
+54
+00:02:51,296 --> 00:02:53,838
+So it'll give us one, two, three, three.
+
+55
+00:02:53,838 --> 00:02:56,577
+Instead of one, two, 33, right?
+
+56
+00:02:56,577 --> 00:03:03,717
+>> No, because the plus sign let's you
+have more than just one individual value.
+
+57
+00:03:03,717 --> 00:03:10,890
+>> So it would be like, how do you
+mean more than one individual value?
+
+58
+00:03:10,890 --> 00:03:13,790
+>> So you can have a zero, and then you
+can have a one, you can have a two.
+
+59
+00:03:13,790 --> 00:03:17,370
+You can also have a zero, zero, a one,
+one, a two, two, a three, three.
+
+60
+00:03:17,370 --> 00:03:18,980
+>> Oh okay, I see.
+
+61
+00:03:18,980 --> 00:03:21,730
+So, it could be like three,
+three, or five,
+
+62
+00:03:21,730 --> 00:03:24,290
+five, or six, six or things like that.
+
+63
+00:03:24,290 --> 00:03:26,310
+>> I think that's just more than one.
+
+64
+00:03:26,310 --> 00:03:28,152
+>> Oh but, would it also work for
+
+65
+00:03:28,152 --> 00:03:33,191
+the list that the last character we were
+looking for ends up, 33 would be 34.
+
+66
+00:03:33,191 --> 00:03:37,970
+>> So it wouldn't work for 34 or
+57, or something like that.
+
+67
+00:03:37,970 --> 00:03:41,330
+>> Yeah, it's like,
+instead of like one, two, 33.
+
+68
+00:03:41,330 --> 00:03:43,570
+It was one, two, 34, or some letter.
+
+69
+00:03:43,570 --> 00:03:45,428
+>> I think it would.
+
+70
+00:03:45,428 --> 00:03:49,638
+>> Yeah I think it might work,
+because it'll just look for
+
+71
+00:03:49,638 --> 00:03:52,067
+any digit, like three, four.
+
+72
+00:03:52,067 --> 00:03:54,784
+It doesn't have to be
+the same one exactly.
+
+73
+00:03:54,784 --> 00:03:55,979
+Okay.
+
+74
+00:03:55,979 --> 00:03:56,944
+>> Okay.
+
+75
+00:03:56,944 --> 00:03:59,520
+>> Let's move on to answer d, then.
+
+76
+00:03:59,520 --> 00:04:02,890
+So answer d has a star,
+and it's asking for
+
+77
+00:04:02,890 --> 00:04:06,833
+characters one through
+three rather than a plus.
+
+78
+00:04:06,833 --> 00:04:08,670
+You think that changes the answer?
+
+79
+00:04:08,670 --> 00:04:11,690
+Cuz I'm leaning towards,
+if I think it'll be the same.
+
+80
+00:04:12,730 --> 00:04:17,584
+Where, like Bree said before,
+it'll search for like one or one one,
+
+81
+00:04:17,584 --> 00:04:20,727
+or two and two two, or
+three and three three.
+
+82
+00:04:20,727 --> 00:04:25,091
+So it'll give us this, what we have right
+here, one two and three, three right?
+
+83
+00:04:25,091 --> 00:04:30,989
+>> Yeah, except you'll also
+be counting for zero one.
+
+84
+00:04:30,989 --> 00:04:33,920
+So every time you have no ones,
+you're gonna get a space.
+
+85
+00:04:33,920 --> 00:04:36,740
+>> So, basically anytime
+you have an empty string.
+
+86
+00:04:36,740 --> 00:04:39,120
+I think it would include
+those empty strings.
+
+87
+00:04:41,090 --> 00:04:42,530
+>> Oh right, cuz it's a star.
+
+88
+00:04:42,530 --> 00:04:45,040
+So, star means like zero, okay.
+
+89
+00:04:45,040 --> 00:04:47,960
+Okay, so I guess D wouldn't work either.
+
+90
+00:04:47,960 --> 00:04:50,877
+So, what about E?
+
+91
+00:04:50,877 --> 00:04:54,057
+>> As one, or two, or 33?
+
+92
+00:04:54,057 --> 00:04:55,462
+>> What do you think?
+
+93
+00:04:55,462 --> 00:04:57,568
+>> I think it wouldn't work,
+
+94
+00:04:57,568 --> 00:05:02,710
+because I was thinking more about
+the ones of one and two and three.
+
+95
+00:05:02,710 --> 00:05:06,310
+But this has a line, which means or.
+
+96
+00:05:06,310 --> 00:05:08,820
+So I don't think it would
+be looking exactly for
+
+97
+00:05:08,820 --> 00:05:11,849
+the list that we're looking for,
+one, two, and 33.
+
+98
+00:05:11,849 --> 00:05:15,110
+>> Right, we are looking for
+one and two, and 33, so.
+
+99
+00:05:15,110 --> 00:05:17,930
+>> But the and
+might put them all together.
+
+100
+00:05:17,930 --> 00:05:20,790
+So that it's one and
+two and 33, all together.
+
+101
+00:05:20,790 --> 00:05:22,999
+So if you're evaluating-
+>> Right, one and two and 33,
+
+102
+00:05:22,999 --> 00:05:24,621
+that's our answer, right?
+
+103
+00:05:24,621 --> 00:05:28,649
+>> Right, but if you've got,
+you're scanning through each and
+
+104
+00:05:28,649 --> 00:05:30,629
+every single number, right.
+
+105
+00:05:30,629 --> 00:05:31,710
+So you're gonna look at the first one.
+
+106
+00:05:31,710 --> 00:05:34,867
+Is the first number a one,
+and a two, and a 33?
+
+107
+00:05:34,867 --> 00:05:36,570
+That wouldn't really make sense.
+
+108
+00:05:38,010 --> 00:05:41,012
+>> Okay,
+we should look at them separately.
+
+109
+00:05:41,012 --> 00:05:41,547
+>> Yeah.
+
+110
+00:05:41,547 --> 00:05:42,963
+>> Look at one separately,
+and look at two separately-
+
+111
+00:05:42,963 --> 00:05:43,705
+>> With the or.
+
+112
+00:05:43,705 --> 00:05:45,621
+>> and look at 33 separately.
+
+113
+00:05:45,621 --> 00:05:47,820
+And that's the point of the or.
+
+114
+00:05:47,820 --> 00:05:49,991
+So okay.
+
+115
+00:05:49,991 --> 00:05:51,180
+>> Welcome back.
+
+116
+00:05:51,180 --> 00:05:54,454
+I hope the UC San Diego
+learners video was helpful.
+
+117
+00:05:54,454 --> 00:05:55,939
+Somewhat similar to what they did.
+
+118
+00:05:55,939 --> 00:05:58,410
+What we're gonna do here is
+essentially walk one by one, and
+
+119
+00:05:58,410 --> 00:06:01,570
+talk through whether or
+not that approach would work or not.
+
+120
+00:06:01,570 --> 00:06:04,380
+So option A was bracket 1233 bracket.
+
+121
+00:06:04,380 --> 00:06:09,490
+The idea here is well maybe
+that would capture 33.
+
+122
+00:06:09,490 --> 00:06:11,600
+The problem here is if
+it's within the brackets,
+
+123
+00:06:11,600 --> 00:06:16,470
+all it's gonna say is include one more
+three, but you've already included three.
+
+124
+00:06:16,470 --> 00:06:18,740
+So all you get is the same thing.
+
+125
+00:06:18,740 --> 00:06:19,993
+In fact if you try to run this.
+
+126
+00:06:19,993 --> 00:06:24,790
+All you'll get back is the same thing
+you had before, which is just one, two,
+
+127
+00:06:24,790 --> 00:06:25,890
+three and three.
+
+128
+00:06:25,890 --> 00:06:26,899
+So this didn't quite work.
+
+129
+00:06:28,560 --> 00:06:30,900
+Option B tries to split
+this up using commas.
+
+130
+00:06:30,900 --> 00:06:34,810
+The problem is, just like the last
+example, all that adding those commas did
+
+131
+00:06:34,810 --> 00:06:39,330
+was to simply add comma to the group of
+letters that we're already looking for.
+
+132
+00:06:39,330 --> 00:06:42,260
+So, now we're gonna look for
+one, two, three, and comma.
+
+133
+00:06:42,260 --> 00:06:45,917
+If I run this on the code,
+what am I gonna get back?
+
+134
+00:06:45,917 --> 00:06:49,296
+We're gonna get comma,
+one, two, three, three.
+
+135
+00:06:49,296 --> 00:06:51,176
+So this didn't work either.
+
+136
+00:06:51,176 --> 00:06:53,915
+All right, next one, option C.
+
+137
+00:06:53,915 --> 00:06:58,710
+This one said in brackets [0-9]+.
+
+138
+00:06:58,710 --> 00:07:02,660
+Remember that plus means one or
+more of these elements.
+
+139
+00:07:04,300 --> 00:07:06,330
+If this was your answer, you were right.
+
+140
+00:07:06,330 --> 00:07:09,760
+What this is gonna do is look for
+anything between zero and nine.
+
+141
+00:07:09,760 --> 00:07:12,820
+If it finds at least one,
+look for more adjacent ones.
+
+142
+00:07:12,820 --> 00:07:16,991
+So what this is gonna do then is find one,
+two and 33,
+
+143
+00:07:16,991 --> 00:07:20,272
+which is exactly what we were looking for.
+
+144
+00:07:20,272 --> 00:07:22,218
+Let's keep looking at our
+other options though,
+
+145
+00:07:22,218 --> 00:07:23,662
+cuz this was a select all that apply.
+
+146
+00:07:23,662 --> 00:07:25,349
+So there may be more
+than one right answer.
+
+147
+00:07:27,720 --> 00:07:30,600
+The next idea is to look for
+one through three with an asterisk.
+
+148
+00:07:31,670 --> 00:07:35,560
+Now, the asterisk,
+in regular expressions means zero or more.
+
+149
+00:07:36,800 --> 00:07:38,380
+This might look like it's gonna work, but
+
+150
+00:07:38,380 --> 00:07:40,680
+you have to be careful about the zero or
+more.
+
+151
+00:07:40,680 --> 00:07:43,750
+Because if you look at the letter S,
+are there zero or
+
+152
+00:07:43,750 --> 00:07:46,000
+more one through threes there?
+
+153
+00:07:46,000 --> 00:07:47,120
+Well, yeah, there's zero.
+
+154
+00:07:47,120 --> 00:07:48,210
+Oh, shoot.
+
+155
+00:07:48,210 --> 00:07:50,970
+That means it's gonna match everything,
+right?
+
+156
+00:07:50,970 --> 00:07:55,323
+So what you're gonna get then is you're
+gonna get every single letter matching and
+
+157
+00:07:55,323 --> 00:07:59,506
+give you back an empty string, because
+there isn't a one through three there.
+
+158
+00:07:59,506 --> 00:08:02,305
+It does, in fact,
+give you one, two, and 33,
+
+159
+00:08:02,305 --> 00:08:04,788
+but it gives you a whole
+bunch more garbage.
+
+160
+00:08:04,788 --> 00:08:08,410
+So this is not what we want either.
+
+161
+00:08:08,410 --> 00:08:14,203
+Now what if we just said,
+I want either one, or two, or 33?
+
+162
+00:08:14,203 --> 00:08:15,630
+Would that work?
+
+163
+00:08:15,630 --> 00:08:19,346
+Yeah, actually that's
+gonna work just fine too.
+
+164
+00:08:19,346 --> 00:08:22,592
+The problem is, now that we have two
+right answers, it'd be useful to say,
+
+165
+00:08:22,592 --> 00:08:24,384
+well which one's better than the other?
+
+166
+00:08:24,384 --> 00:08:27,623
+So, given [0-9]+.
+
+167
+00:08:27,623 --> 00:08:30,084
+And either one, or two, or 33.
+
+168
+00:08:30,084 --> 00:08:31,489
+Which do you think might be better?
+
+169
+00:08:31,489 --> 00:08:33,531
+Go ahead and take a few seconds and
+think about it.
+
+170
+00:08:35,482 --> 00:08:37,835
+If your answer is C, you're spot-on.
+
+171
+00:08:37,835 --> 00:08:43,000
+[0-9]+ is gonna capture essentially
+any non-negative integer.
+
+172
+00:08:43,000 --> 00:08:44,522
+That's fantastic.
+
+173
+00:08:44,522 --> 00:08:46,891
+Whereas if I try to do
+the same thing with E.
+
+174
+00:08:46,891 --> 00:08:49,410
+How am I gonna capture
+any non-negative integer.
+
+175
+00:08:49,410 --> 00:08:53,530
+I have to do something like zero,
+or one, or two, or three, or
+
+176
+00:08:53,530 --> 00:08:56,340
+four, all the way out to
+any possible integer.
+
+177
+00:08:56,340 --> 00:09:00,490
+I can capture it so concisely with option
+C that, that is just far more versatile.
+
+178
+00:09:00,490 --> 00:09:02,930
+And that's essentially
+the better of these two choices.
+
+179
+00:09:04,470 --> 00:09:06,500
+Regular expressions
+are incredibly powerful, and
+
+180
+00:09:06,500 --> 00:09:08,900
+I hope you continue to use them as
+part of your programming arsenal.

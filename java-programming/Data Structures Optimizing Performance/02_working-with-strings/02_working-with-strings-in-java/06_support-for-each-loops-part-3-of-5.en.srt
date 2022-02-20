@@ -1,0 +1,300 @@
+1
+00:00:00,025 --> 00:00:03,467
+[SOUND]
+
+2
+00:00:03,467 --> 00:00:08,253
+So we saw, when we went through that method,
+that it actually didn't quite work for us.
+
+3
+00:00:08,253 --> 00:00:13,380
+And the problem that we ran into is
+even though we declared this pointer
+
+4
+00:00:13,380 --> 00:00:19,619
+to an array of characters, cArray, and the
+issue is that to toCharArray that method,
+
+5
+00:00:19,619 --> 00:00:23,660
+which was a copy of the words,
+arrays of characters.
+
+6
+00:00:23,660 --> 00:00:27,260
+It doesn't let us access that
+array of characters itself, and so
+
+7
+00:00:27,260 --> 00:00:32,320
+we ran into troubles as you saw, so let's
+try to modify our method a little bit and
+
+8
+00:00:32,320 --> 00:00:38,520
+say what if we returned
+a new string with cArray
+
+9
+00:00:38,520 --> 00:00:42,990
+as its input character array,
+maybe that will work for us.
+
+10
+00:00:42,990 --> 00:00:46,720
+Does this method now successfully
+return a modified word?
+
+11
+00:00:46,720 --> 00:00:51,242
+So we've tried again,
+let's focus on what we've changed.
+
+12
+00:00:51,242 --> 00:00:56,350
+It's this last line over here where we
+return something at the end of our method.
+
+13
+00:00:56,350 --> 00:00:59,953
+And notice that the beginning of the
+memory model is really the same as what we
+
+14
+00:00:59,953 --> 00:01:03,279
+had because right now we're just
+representing the input arguments,
+
+15
+00:01:03,279 --> 00:01:05,880
+the arguments and
+parameters to the method.
+
+16
+00:01:05,880 --> 00:01:10,980
+Now as we did before the first step of
+this method is to create a variable
+
+17
+00:01:10,980 --> 00:01:17,610
+that points to a copy of of
+the character array of the string,
+
+18
+00:01:17,610 --> 00:01:24,480
+and so we're going to have that
+represented in our memory model as well.
+
+19
+00:01:24,480 --> 00:01:29,730
+And just as before, what it's pointing to
+in the heap is not the character array
+
+20
+00:01:29,730 --> 00:01:36,952
+that we had before, but
+rather a copy that we create in the heap.
+
+21
+00:01:36,952 --> 00:01:42,560
+All right, and notice that what
+we're returning at the end is a new
+
+22
+00:01:42,560 --> 00:01:47,340
+string object and the string object
+is built out of this character array.
+
+23
+00:01:47,340 --> 00:01:49,770
+And so, maybe this will work.
+
+24
+00:01:49,770 --> 00:01:52,900
+So, in order to see that,
+let's trace through what happened.
+
+25
+00:01:52,900 --> 00:01:55,580
+And so after we've declared and
+
+26
+00:01:55,580 --> 00:02:00,380
+initialized the character array cArray,
+we now go into this for each loop.
+
+27
+00:02:00,380 --> 00:02:05,110
+And in this for each loop what
+we're doing is we're going through
+
+28
+00:02:05,110 --> 00:02:10,360
+every character in
+the cArray of characters.
+
+29
+00:02:10,360 --> 00:02:13,760
+And for each one,
+we're looking at the character c, so
+
+30
+00:02:13,760 --> 00:02:18,700
+that so means that c becomes a new
+variable in our memory model.
+
+31
+00:02:18,700 --> 00:02:22,383
+And so this is the new part for this
+method so I'm using a different color.
+
+32
+00:02:22,383 --> 00:02:26,958
+And now we have to think about
+what gets stored in this box, so
+
+33
+00:02:26,958 --> 00:02:30,638
+when we go through that
+first iteration of the for
+
+34
+00:02:30,638 --> 00:02:36,562
+each loop we've declared this character
+variable c, and what we store in it is
+
+35
+00:02:36,562 --> 00:02:42,660
+the contents of the first element of
+the array pointed to by the cArray.
+
+36
+00:02:42,660 --> 00:02:48,070
+And so the contents of this first
+element of the array is the character a.
+
+37
+00:02:49,690 --> 00:02:52,460
+Now notice this is a primitive type.
+
+38
+00:02:52,460 --> 00:02:57,340
+And so what that means is when we assign
+the variable c to have this value,
+
+39
+00:02:57,340 --> 00:03:01,500
+what we're storing here is a,
+the character a.
+
+40
+00:03:01,500 --> 00:03:04,990
+And notice that there's no
+connection between this a and
+
+41
+00:03:04,990 --> 00:03:06,920
+the a that's stored over here.
+
+42
+00:03:06,920 --> 00:03:10,570
+They're different copies
+of the character a.
+
+43
+00:03:10,570 --> 00:03:16,030
+And so in particular, when we go
+through this body of the for loop and
+
+44
+00:03:16,030 --> 00:03:21,330
+we're checking whether the contents
+of c agree with the content of gone.
+
+45
+00:03:21,330 --> 00:03:26,000
+And we say, oh this guy's an a and
+over here we've stored a as well and so
+
+46
+00:03:26,000 --> 00:03:28,080
+that means we have to reassign.
+
+47
+00:03:28,080 --> 00:03:32,220
+The contents of c to,
+instead of it's current value,
+
+48
+00:03:32,220 --> 00:03:38,110
+it gets the new value, whatever was
+stored in the variable here, so that's i.
+
+49
+00:03:38,110 --> 00:03:40,240
+Notice that what that
+assignment variable does,
+
+50
+00:03:40,240 --> 00:03:45,120
+is it changed the content
+of the box pointed to by c.
+
+51
+00:03:45,120 --> 00:03:51,440
+But it doesn't change the content of
+the character array pointed to by cArray.
+
+52
+00:03:51,440 --> 00:03:56,290
+And so even though we've noticed that
+this a actually was the same as this a,
+
+53
+00:03:56,290 --> 00:04:00,250
+where we've changed the character
+was down here and not up here.
+
+54
+00:04:00,250 --> 00:04:03,900
+And so even though we could go
+through this for loop and make all of
+
+55
+00:04:03,900 --> 00:04:09,370
+the modifications to c that are necessary,
+when we go ahead and return the value,
+
+56
+00:04:09,370 --> 00:04:13,890
+we're returning a new string object
+that's based on this character array.
+
+57
+00:04:13,890 --> 00:04:17,160
+And this character array has
+not been modified at all.
+
+58
+00:04:17,160 --> 00:04:18,440
+All of our modifications,
+
+59
+00:04:18,440 --> 00:04:23,200
+all of our assignment statements, have
+just changed the contents of a variable c.
+
+60
+00:04:23,200 --> 00:04:25,610
+And not inside this character array.
+
+61
+00:04:25,610 --> 00:04:29,540
+And so this method implementation still
+doesn't do what we're looking for.
+
+62
+00:04:29,540 --> 00:04:31,780
+It's not going to be our replace method.

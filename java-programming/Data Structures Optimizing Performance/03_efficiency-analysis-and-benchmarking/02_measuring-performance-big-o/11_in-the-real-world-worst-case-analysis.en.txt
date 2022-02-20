@@ -1,0 +1,21 @@
+[SOUND]
+You may wonder, why is worst-case analysis useful? After all, that's not what users
+are gonna see most of the time. And it's true that other kinds of
+analysis can be really helpful as well. For instance, best case analysis can
+let you know right up front if there's no way that the algorithm is
+gonna work for you at all. If you know that even the best
+case scenario it's gonna take five years to finish this job,
+that's probably okay, great, we're done. Time to look for something different. But worst case analysis is important
+because that's what people remember. Google, if most of your searches
+take less than a second to complete, and here's your answers and
+it's great, cool. And we could have the bet
+answers in the world, and we like to think that we
+try to give you that. But if every so often running a search
+takes on the order of 10 minutes, 20 minutes to complete
+because there's a worst case divot that just takes that long,
+you're not gonna use this. You're gonna go to somebody else,
+because who's got 20 minutes to wait even if you know you're
+answers are gonna be good. So, best case performance
+is great to know. Average case performance is great to know. But worst-case scenario
+is really the killer, and that's what we've gotta know, because
+if the worst case isn't good enough, then it's not good enough, and that's it.

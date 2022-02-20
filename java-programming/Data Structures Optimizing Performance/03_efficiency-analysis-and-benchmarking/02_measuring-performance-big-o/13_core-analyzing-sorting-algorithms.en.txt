@@ -1,0 +1,121 @@
+[MUSIC] So now we're ready to analyze
+the performance of some of the sorting algorithms that we've
+already talked about. So by the end of this video, you'll be able to state and
+justify the asymptotic performance, so the big O classes for the running time,
+of both selection sort and insertion sort. And we'll be thinking about them, both
+in the best case and in the worst case. Now, for both of these sorting algorithms
+if you need a refresher just go back to the first course in the specialization. That's when we talked about
+them in quite a bit of detail. But, we'll be doing an overview now,
+as well. So, our goal is to fill in this table with
+big O classes that represent the best and worst case performance for
+these two sorting algorithms. So let's start with selection sort, and in selection sort we take a list or
+an array of data. And what we'd like to do is organize it so
+that it's presented in order from smallest to biggest based
+on some measure of smallest and biggest. And so our strategy is going to look
+at each position in the array in turn. And for each of those positions,
+find the right element to put in there. And so we look at all of the possible
+elements remaining in the array. And figure out which one
+of those is smallest and put it in this current position. Okay, so that's the algorithm. And so now, let's think ahead about what
+insertion sort algorithm is going to do. It's a little bit different. We're still going through all of
+the positions in the array in turn. But instead of looking for
+the correct elements to put in each time, what we're doing is looking at the current
+value that we're focused in and nudge it over to its correct position relative
+to the elements that are already listed. So we're still going step by step and
+increasing the part of the array that's sorted each time, but
+doing it in a slightly different strategy. And we'll see the impact of
+these different strategies on their performance
+of the two algorithms. So let's start with selection sort, and let's think about the performance
+of this sorting algorithm. So we actually used selection sort
+in a previous support video where we went through the code for selection
+sort and computed its performance. This was an example of nested for loops that were really interesting to
+analyze and we used some cool identities. But notice that when we did that analysis,
+we could say, this algorithm is big O of n squared,
+it's quadratic, and when we did that, it was before we said anything about
+best case, worst case, average case. We weren't even thinking
+about the input or how it was organized, because this
+sorting algorithm, if you think about it, doesn't really care what the input
+looks like when you first get it. It goes through and does the same sequence of steps no
+matter how its input is organized. So the number of steps,
+the performance of the sorting algorithm, only depends on the size of
+the array that it starts with. It doesn't depend on how the contents
+of the array are organized and that means that the best case and the worst case performance of this
+algorithm are exactly the same. It's the same as the average case. It's the same as any case, so for
+any array of size n, the best case and worst case performance of selection sort,
+is big O of n squared. Okay, so that's the one algorithm. Now let's think about
+the insertion sort algorithm, and try to fill in some of those questions
+marks, and we haven't analyzed it yet. So let's do it now, and
+what we're trying to do, as I mentioned earlier, is focus on one
+new element of the array at a time. And for that new element put it in its
+correct location relative to the earlier ones that have been sorted already. And so we assume that at each
+point we have that initial piece of the arrays already sorted. And so what we need to do is figure
+out where the next element goes and we do that by comparing
+that next element to, well, the highest element in
+the sorted part of the array and see, well should I swap their locations or
+not? And then maybe I'm gonna
+need to swap again, and maybe I need to swap again until
+the new element gets to its correct relative location based on the previously
+sorted pieces of the array. Okay, so what would the best case
+of this algorithm look like? And in order to do that,
+we need to focus in on that for loop. Where that for loop looks at
+each position in the array and says, I'm going to put the element in
+this position, in its correct location. And the piece that really depends on
+the values is the inner while loop. So, the inner while loop
+maybe gets executed a different number of times,
+based on the relative size of the consecutive pairs
+of elements in the array. So, let's think about the best case first. So, in the best case, what we would have, is that we don't
+need to make very many swaps at all. So we're looking at a new element in the
+array, and we'd like to find its correct relative position, relative to
+the earlier elements in the array. And if we're really lucky then it's
+already going to be in that position. Well what that would
+mean is that it's bigger than the biggest element in
+the already sorted part of the array. And so, what we need to check
+is that the current index has, the value of that current index
+is already bigger than the value at the last piece of the already
+sorted part of the array. So when does that happen? Well, it happens when the array that
+we start with is already sorted. Every time we look at a new element,
+it's already in its correct location relative to the earlier ones, so
+we don't need to do anything. The body of the while loop never executes. And so when we look at
+the performance in this case, that means that every time we try
+to start executing the while loop, all we need to do is do that just one
+test, and it's going to evaluate to false. And we go away from it, and we go to
+the next iteration of the for loop. And so that means that the body of the for
+loop in this case, when the array's already sorted,
+every time we go through the for loop, we just execute a constant
+number of instructions. And so all in all, we have n iterations
+of the for loop, each time doing just a constant amount of work, and
+so all in all we have just O(n) work. So when the array is already sorted,
+in this best-case lucky, lucky scenario,
+insertion sort just takes big O(n) time. Cool.
+That's much, much better than quadratic, which was selection sort. So that's interesting, okay. Is it gonna be good all the time? Is it a big win? Well, so let's think about the worst case. So what input might we get that would
+require us to run many, many steps? And remember the piece that we're
+focusing in on is that inner while loop. Where we're nudging the current value that
+we're looking at to its correct location within that first part of
+the array that's already sorted. So, if we think about what
+might make us really unlucky is if we have to do a lot of the nudging,
+a lot of the swaps over. And so, if we think of our arrays being
+really far from sorted, then we're gonna have to do a lot of work to keep moving
+these elements to their correct location, relative to the sorted part of the array. So, thinking about an array that's
+given to us in reverse sorted order, we're going to have to do a lot of work
+in this algorithm in order to get it to the correct form, namely going from one through five,
+rather than from five through one. So in this worst case analysis what we
+see is that when we are looking at, for example, at the second position,
+so position equals 1, then when we want to nudge 4 over to its
+correct location we have to do a swap. And then when we look at the next index
+at position 2, then in order to move 3 to its correct location we're
+going to have to swap it twice. And so every time we're going to
+have to swap all the way over to the head of the array and so all
+together what's going to happen is that on average we're gonna have about
+O(n) many swaps for each position. And that happens n many times as
+we go through all the positions. And so
+we get to O(n) squared amount of work. And so the analysis at the end
+was a little brief but it's really similar to what we do when
+we think about analyzing selection sort. So go back and revisit that support video if you'd
+like to see a little bit more detail. Now what we wanna keep in mind,
+though, is that the worse case for insertion sort happened when our
+input array was in reverse order. And so this is really illustrating how the structure of the input can determine
+the performance of our algorithm. And when we're thinking about worst-case
+analysis, we want to think about the kinds of inputs that will make
+us do the most amount of work. So here is our table so
+far for sorting algorithms. And in the next video we'll introduce
+a couple of new sorting algorithms just to expand our vocabulary, expand
+our toolbox of sorting algorithms and compare how they're run as well.

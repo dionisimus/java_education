@@ -1,0 +1,10 @@
+[MUSIC] This week you're going to dive into
+your first real programming assignment, which is to calculate
+the readability of a piece of text. To do so, you'll learn all about strings,
+a really fundamental data type in Java. You'll also learn about something
+called regular expressions, which can be really useful
+when working with strings. There's a lot to learn this week but
+if you feel ready, we encourage you to go through the core videos and
+then tackle that project right away. If you need a little bit more support,
+we've got it, so check out those concept challenges and the support videos,
+as you go through this week.

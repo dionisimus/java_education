@@ -1,0 +1,130 @@
+[MUSIC] All right, in this video we're gonna talk
+about something called edit distance, and also talk about the very last piece
+of your programming assignment, which is to find the path between
+two words in the English language. So by the end of this video, you'll be able to define
+the notion of edit distance. You'll be able to describe a naive
+algorithm, very naive, for solving the edit distance problem, and
+you'll also be able to talk about how pruning can help restrict
+the size of a search space, and make problems, big problems,
+more manageable. So let's start off with a little game and
+this is game you'll be implementing the solution for
+in your programming assignment. And the game is to take any two
+words in the English language and find a path between those words
+such that each step in the path only does one transformation,
+either a substitution. A, an insertion or deletion like we
+talked about in the previous videos, and it produces a word that's also
+valid in the English language. So for example, to get from spell to mine,
+I could take the e in spell and replace it with an i, to get me spill,
+I could then drop the first s to give me pill take that last l and
+turn it into an e to get pile. Take that l and
+turn it into an n to get pine. And then, take the p and
+turn it into an m and I've got mine. So in this case, I've got five steps that
+it took me to get from spell to mine. Now this game is actually an illustration
+of a more general problem called the edit distance problem. Our spelling error word path game is
+a restricted version of this problem because the general edit distance
+between two sequences is just the number of transformations you have to make
+to turn one sequence of characters or things into another sequence
+of characters or things. And you don't actually necessarily care
+about whether those intermediate strings are valid words. So this tree illustrates the notion
+of edit distance very nicely. So at the first layer in this tree,
+you can see all the words that are just one transformation away
+from my original word. They're at a distance one. The next layer in the tree shows me all
+the strings that are edit distance two away from the original word,
+and so on and so forth. So you can see that you can actually
+solve the general edit distance problem by just building out this tree,
+layer by layer. Looking for the word that you're
+trying to transform into. So I start with my
+original word at the top. I generate layer by layer
+by layer in this tree, until I find the word that
+I'm actually looking for. And then I have a nice path as well
+as a distance from my original word down to the word that I'm looking for. This is a very naive implementation, and we'll talk about limitations of
+that solution in a little bit. But before we go on, I wanna say that
+edit distance problem is actually a general problem used in a number of
+fields, not just in spelling suggestions. So it's used in computational biology. For example, when you're comparing two
+DNA sequences to try to figure out how far apart are those
+two DNA sequences really? It's also used in natural
+language processing. For example, to align two different sentences
+to see how close they really are. So it has a number of applications
+beyond what we're using it for here. Your assignment will just introduce you
+to the idea then to an algorithm for solving it. This tree based structure illustrates
+a general problem solving strategy that involves exhaustively searching
+a space looking for a solution. So this is a strategy that's used in a lot
+of artificial intelligence problems, where again the goal is to just
+really search an entire problem space until you find a particular solution. So each layer in the tree basically
+transforms the state of the problem into a slightly different state, until you've
+found the state that is the solution. So in this case, our original
+state was our original word, and our solution is going to be the word
+that we're looking to transform into. Then we can get a path to the solution by
+following the path to the tree from start to solution. However, one problem that comes up
+with building these trees to do these exhaustive searches,
+is that they tend to get really large. And we're going to do a little bit of
+analysis to kind of get a ballpark estimate of how big does this tree get. So let's think about that
+first layer down in the tree. How many strings do we produce that
+are just one away from my original word. If that original word
+has k characters in it. In this case k equals five. Well in order to reason about that,
+we need to think about the number of strings that are produced via
+substitutions, via insertions, and via deletions, and
+just add those all together. So thinking about substitutions, we have k different characters in
+my string that we can substitute. And there are 25 other characters that we
+could put in in place of the character that's already there. So we have 25 times k strings that
+are produced via substitution. Moving on to insertion. We actually have k plus 1 locations in the
+string where we can insert a character. We can insert before
+the beginning of the string, between any of the characters of the
+string, and then after the last character. So that's k plus 1. And we can insert any of the 26
+characters that we have available to us. So that's going to be 26 times k+1,
+stings that are produced via insertion. Finally, we get to deletions. Deletions are much smaller class, because
+we can only delete each character once. So in this case,
+we could delete five characters. But in general, we can delete k
+characters, leading us to k new strings. Produced via deletions. So we add those all together, and we get
+that in the first layer of this tree, we're going to have 52 k,
+plus 26 new strings produced. Plus the one that we had. Originally up at the top of the tree. So that may not seem too bad, but
+that's just the first layer of this tree. Now let's consider searching
+deeper in the tree. What happens if we go down to level two,
+to add a distance two? Well, now we're going to have each of
+these 52k plus 26 strings in the first layer, expand out in the exact same way
+as that very first word expanded out. So for each of the 52k plus 26 strings, we're going to have another
+52k plus 26 strings produced. And in fact that's a slight
+underestimate because our k, our length of our string,
+is actually getting bigger. Many of those strings in the first
+layer are actually 1 longer than the original string
+with started with. So our k is not just gonna be k anymore. It's actually going to have
+grown to somewhere between k and k + 1 on the next layer down. So I'm representing the total
+number as 52k plus 26 squared, but that's actually an underestimate for
+the number of strings in the tree. That's okay, because this number's
+gonna get big enough even with the underestimate, and this makes it a
+little bit more simple to do the analysis. So moving up, what if I want to look
+at an arbitrary level in the tree and layers deep? Well, when I go n away, that just changes the power that
+I raise that 52k plus 26 to. Every time I add a layer, I have to
+multiply again by the 52k plus 26. So by the time I get n layers deep in the
+tree, and now this is going to be a vast underestimate for the size of the tree,
+I've got 52 k plus 26 to the n. And anytime you see something that's
+to the n you should be very worried. That's a number that's
+going to grow very quickly. We're not going to be able to
+go much deeper than say, four or five layers deep in that tree
+without getting a huge explosion and way too many possibilities to consider. So, how are we going
+to solve this problem? There are two possible solutions to making
+the solutions to the edit distance problem faster. If we want to consider the general
+edit distance problem. Then it turns out this tree based approach is not the way we would to go
+about solving the problem at all. There's a much faster algorithm, using
+something called dynamic programming. That can solve the general edit distance
+problem in order k squared time. So it's really cool,
+it's a great algorithm, and unfortunately we're not going
+to be covering it in this class. But you will see this algorithm
+covered if you take, say, a computational biology class and you'll
+see the general concept of a programming technique called dynamic programming,
+which is really cool. When you go on to take
+a course on algorithms. But again, it's a bit beyond
+the scope of this particular course. The way we're going to structure the
+problem is we're actually going to look at a slightly different problem that I
+mentioned at the very beginning of this video, which is that we're going
+to restrict our edit distance path to going through real words
+in the English language. So we won't have to
+explore this entire tree. We're going to employ heavy
+pruning of this tree. So what that means is that at each layer,
+each level of the tree, instead of letting it span
+out to its full breadth, we'll remove all the strings that are not
+actually words in the english language. So then this tree-based structure is going
+to allow us to solve the problem that we want to solve, and it's going to avoid that huge explosion
+of possibilities at each level. So this is the algorithm you'll be
+implementing for your project and you'll be able to solve
+this word path problem.

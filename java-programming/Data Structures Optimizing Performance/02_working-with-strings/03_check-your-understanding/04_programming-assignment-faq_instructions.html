@@ -1,0 +1,107 @@
+<meta charset="utf-8"/>
+<co-content>
+ <p>
+  We've tried to pull the answers/suggestions for the most frequently encountered issues on the first programming assignment into this document.  If you don't see your question answered here, or to check out other questions people are asking (and hopefully some answers) remember to check the discussion forum for this week.  If you have a suggestion for a question we should add to this document, please submit it using the "flag" at the bottom of this assignment.
+ </p>
+ <h3 level="3">
+  Q: I'm getting a "Grader Failed" message when I submit my code.  What's wrong?  Is this a problem with my code or with your grader?
+ </h3>
+ <p>
+  A:  At this point our graders have been tested extensively, so chances are it's something in your code.  The most common reason for getting the "grader failed" error is that your code does something very unexpected, such as incorrect return types, infinite loops, thrown exceptions, or other similar errors. So if you are getting this error
+  <strong>
+   check your code carefully
+  </strong>
+  and
+  <strong>
+   run the grader locally
+  </strong>
+  to make sure everything is exactly as it should be.  If you still cannot catch your mistake, try
+  <strong>
+   posting on the forum
+  </strong>
+  to see if anyone else has received a similar message.  Finally, if that doesn't fix the problem, go ahead and
+  <strong>
+   submit a bug report
+  </strong>
+  by clicking the flag button on the bottom of the assignment page and we will look into it further.  But again, chances are it's something wrong in your code and you'll solve the problem fastest by trying to get to the bottom of things yourself.
+ </p>
+ <h3 level="3">
+  Q: My fleschScore method returns the wrong value/I am failing the tests for Part 2.
+ </h3>
+ <p>
+  A: The number one reason that people get the wrong value when they calculate the Flesch score is that they fail to cast the ints returned by getNumWords, getNumSentences and getNumSyllables to doubles before they divide them.  This will cause Java to use integer division and truncate numbers inappropriately.
+ </p>
+ <p>
+  If this is not your problem, make sure each of your getNumWords, getNumSentences and getNumSyllables is returning the correct value, and that you don't have a typo in the constants used in the formula.  Finally, check the order of operations, and add parentheses if necessary.
+ </p>
+ <h3 level="3">
+  Q: I keep getting the wrong result for getNumSyllables.
+ </h3>
+ <p>
+  A: We have provided several examples in the main method in BasicDocument.java.  If you have questions about any of these examples, or any of your own examples, please post in the forum.    We find that learners are very willing to answer questions about syllable counting.  Finally, if you get very frustrated, we've provided our solution code for getNumSyllables, linked from the assignment instructions.  It's not our goal to have you agonize over detailed definitions.
+ </p>
+ <h3 level="3">
+  Q: I can't figure out how to write a single regular expression to count the number of syllables.
+ </h3>
+ <p>
+  A: Neither could we!  Well, we
+  <strong>
+   could
+  </strong>
+  but it's not pretty.  In fact, we feel that regular expressions are
+  <em>
+   not
+  </em>
+  the best way to approach the getNumSyllables problem.  We used a loop to look at the characters in each word, and manually count the syllables.
+ </p>
+ <p>
+ </p>
+</co-content>
+<style>
+ body {
+    padding: 50px 85px 50px 85px;
+}
+
+table th, table td {
+    border: 1px solid #e0e0e0;
+    padding: 5px 20px;
+    text-align: left;
+}
+input {
+    margin: 10px;
+}
+}
+th {
+    font-weight: bold;
+}
+td, th {
+    display: table-cell;
+    vertical-align: inherit;
+}
+img {
+    height: auto;
+    max-width: 100%;
+}
+pre {
+    display: block;
+    margin: 20px;
+    background: #424242;
+    color: #fff;
+    font-size: 13px;
+    white-space: pre-wrap;
+    padding: 9.5px;
+    margin: 0 0 10px;
+    border: 1px solid #ccc;
+}
+</style>
+<script async="" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript">
+</script>
+<script type="text/x-mathjax-config">
+ MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$$','$$'], ['$','$'] ],
+      displayMath: [ ["\\[","\\]"] ],
+      processEscapes: true
+    }
+  });
+</script>

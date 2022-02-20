@@ -1,0 +1,419 @@
+1
+00:00:00,000 --> 00:00:03,171
+[MUSIC]
+
+2
+00:00:07,421 --> 00:00:11,804
+So, a few years ago, I was one of a very
+small team of engineers trying to get
+
+3
+00:00:11,804 --> 00:00:15,800
+Google's Shopping Express
+project off the ground.
+
+4
+00:00:15,800 --> 00:00:20,890
+Now, Shopping Express is a service that
+Google provides, which allows customers to
+
+5
+00:00:20,890 --> 00:00:26,110
+place orders across a variety of different
+merchants, through a single website.
+
+6
+00:00:26,110 --> 00:00:30,080
+And when they place their order, we send
+couriers to go pick the orders up, and
+
+7
+00:00:30,080 --> 00:00:32,960
+then deliver them to
+the customers within a few hours.
+
+8
+00:00:34,760 --> 00:00:39,940
+So these days, Shopping Express is a
+successful service with dozens of merchant
+
+9
+00:00:39,940 --> 00:00:43,770
+partners, and
+it operates in 89 different U.S. cities.
+
+10
+00:00:43,770 --> 00:00:46,760
+But back in the beginning,
+we had no idea if it'd work.
+
+11
+00:00:48,710 --> 00:00:51,300
+How many orders would we
+be able to deliver per day?
+
+12
+00:00:51,300 --> 00:00:52,910
+How long would it take?
+
+13
+00:00:52,910 --> 00:00:53,680
+How much would it cost?
+
+14
+00:00:53,680 --> 00:00:55,620
+We had no idea.
+
+15
+00:00:55,620 --> 00:00:59,680
+So what could we do?
+
+16
+00:00:59,680 --> 00:01:04,020
+Building something like
+Shopping Express requires a lot of
+
+17
+00:01:05,180 --> 00:01:06,770
+investments and infrastructure.
+
+18
+00:01:08,676 --> 00:01:11,420
+And you really don't wanna do that, unless
+you have some idea about whether it's
+
+19
+00:01:11,420 --> 00:01:16,930
+gonna work, so
+what you could do is build a fake version.
+
+20
+00:01:16,930 --> 00:01:21,760
+In other words, build some software to
+simulate what the real thing might do.
+
+21
+00:01:21,760 --> 00:01:26,130
+You might say, tell it how many couriers
+you have available, how many orders you
+
+22
+00:01:26,130 --> 00:01:30,243
+think you're gonna get, and then have
+the simulator figure out how to route
+
+23
+00:01:30,243 --> 00:01:33,921
+the couriers around the city, and
+deliver the packages from A to B.
+
+24
+00:01:33,921 --> 00:01:37,668
+So that's what we did,
+over a period of several weeks,
+
+25
+00:01:37,668 --> 00:01:42,630
+we built a simulator, and
+it was pretty simple to start with.
+
+26
+00:01:42,630 --> 00:01:46,375
+And it got gradually more sophisticated,
+the very first version had the couriers
+
+27
+00:01:46,375 --> 00:01:48,879
+just moving in straight lines,
+as if they were birds.
+
+28
+00:01:48,879 --> 00:01:52,824
+But the final version had them following
+roads correctly, and it even took traffic
+
+29
+00:01:52,824 --> 00:01:56,504
+into account when it was trying figure
+out the optimal routes to send them on.
+
+30
+00:01:56,504 --> 00:01:57,754
+And the simulator had a map,
+
+31
+00:01:57,754 --> 00:02:01,004
+which showed the couriers traveling
+around the city delivering things.
+
+32
+00:02:01,004 --> 00:02:04,449
+Now, not only was this really cool,
+it was actually useful for
+
+33
+00:02:04,449 --> 00:02:08,284
+debugging the simulator, and also for
+getting some insights into how
+
+34
+00:02:08,284 --> 00:02:11,280
+we could improve the algorithms
+we used to round them.
+
+35
+00:02:12,660 --> 00:02:17,922
+So a simulator like this is actually
+a great way to illustrate Polymorphism.
+
+36
+00:02:17,922 --> 00:02:22,045
+If you can imagine the part of the code
+that was used to render the map.
+
+37
+00:02:22,045 --> 00:02:24,380
+Now what sort of things do
+we wanna see on the map?
+
+38
+00:02:24,380 --> 00:02:26,130
+We wanna see a picture of the city.
+
+39
+00:02:26,130 --> 00:02:27,990
+We wanna see the roads.
+
+40
+00:02:27,990 --> 00:02:30,930
+But we're, particularly, interested in
+the objects that are interesting to
+
+41
+00:02:30,930 --> 00:02:36,160
+the simulator, like the couriers, like the
+stores, where they're picking things up,
+
+42
+00:02:36,160 --> 00:02:40,020
+like the customers where
+they're going to deliver.
+
+43
+00:02:40,020 --> 00:02:43,735
+Now, these three kinds of objects
+are all pretty different, but
+
+44
+00:02:43,735 --> 00:02:46,960
+they do have something in common,
+they all need to be drawn on the map.
+
+45
+00:02:46,960 --> 00:02:51,940
+So one way you can approach this
+is by coming with an interface.
+
+46
+00:02:51,940 --> 00:02:55,280
+Let's call it drawable,
+so things can be drawn.
+
+47
+00:02:55,280 --> 00:02:59,150
+And it might have a single method
+which is something like draw me.
+
+48
+00:02:59,150 --> 00:03:02,940
+So the courier's draw me method,
+would maybe draw a picture of a van.
+
+49
+00:03:04,040 --> 00:03:08,570
+The store's draw me method would draw
+a picture of a building, for example.
+
+50
+00:03:08,570 --> 00:03:10,990
+Now as far as a map
+rendering code is concerned,
+
+51
+00:03:10,990 --> 00:03:14,390
+it doesn't need to care about any of
+these objects, and what they are.
+
+52
+00:03:14,390 --> 00:03:19,340
+All it knows Is that it has
+a bunch of drawable object, and
+
+53
+00:03:19,340 --> 00:03:22,400
+it calls draw me on all of them, and
+they all draw themselves correctly.
+
+54
+00:03:24,080 --> 00:03:27,470
+Now, the nice thing about this is that,
+down the line, if you need to introduce
+
+55
+00:03:27,470 --> 00:03:33,700
+a new object, let's say a warehouse,
+you can make that implement the drawable
+
+56
+00:03:33,700 --> 00:03:39,320
+interface, implement the draw me method,
+which draws presumably a bigger building.
+
+57
+00:03:39,320 --> 00:03:40,950
+And you pass that along to
+the rendering code, and
+
+58
+00:03:40,950 --> 00:03:42,900
+the rendering code is none the wiser.
+
+59
+00:03:42,900 --> 00:03:44,500
+It just draws these objects.
+
+60
+00:03:44,500 --> 00:03:45,940
+It's just a drawable.
+
+61
+00:03:45,940 --> 00:03:48,000
+And it draws the warehouse
+correctly on the map.
+
+62
+00:03:48,000 --> 00:03:49,860
+So, that's really, really helpful.
+
+63
+00:03:49,860 --> 00:03:55,379
+Now Polymorphism isn't only for
+small objects like these icons.
+
+64
+00:03:55,379 --> 00:03:59,726
+Now one of the things about writing
+a simulator is that we wanted to try out
+
+65
+00:03:59,726 --> 00:04:03,361
+lots of different strategies for
+routing the couriers, and
+
+66
+00:04:03,361 --> 00:04:08,296
+these strategies were pretty big tweaks
+of code, very sophisticated in the end.
+
+67
+00:04:08,296 --> 00:04:13,336
+But a lot of this simulator, like the map
+rendering code or the input code,
+
+68
+00:04:13,336 --> 00:04:18,280
+and so on, could be the same for
+all of them you need to change.
+
+69
+00:04:18,280 --> 00:04:21,960
+So one thing you can do,
+one thing we did do, was to create a name,
+
+70
+00:04:21,960 --> 00:04:25,400
+an interface called,
+I think it was called routing engine.
+
+71
+00:04:25,400 --> 00:04:27,700
+So all these different strategies for
+
+72
+00:04:27,700 --> 00:04:29,940
+routing couriers would
+implement that interface.
+
+73
+00:04:29,940 --> 00:04:31,625
+And then, we could swap different ones in,
+
+74
+00:04:31,625 --> 00:04:35,500
+and see how they compare very easily,
+because the rest of the code didn't care.
+
+75
+00:04:35,500 --> 00:04:36,830
+It just had a routing engine.
+
+76
+00:04:36,830 --> 00:04:39,370
+It didn't need to know about
+the insides about how it worked.
+
+77
+00:04:39,370 --> 00:04:40,750
+They were all just routing engines.
+
+78
+00:04:40,750 --> 00:04:42,240
+They were all the same.
+
+79
+00:04:42,240 --> 00:04:43,290
+As far as it was concerned.
+
+80
+00:04:43,290 --> 00:04:44,230
+Now, of course, they weren't the same.
+
+81
+00:04:45,560 --> 00:04:47,350
+Some of the initial ones
+were really simple.
+
+82
+00:04:47,350 --> 00:04:51,820
+For example, the first one we did,
+every order that was placed,
+
+83
+00:04:51,820 --> 00:04:53,970
+a single courier went to the store,
+picked it up and
+
+84
+00:04:53,970 --> 00:04:57,970
+took it back, just to that one customer,
+so, not particularly efficient.
+
+85
+00:04:57,970 --> 00:05:02,440
+Later, routing engine implementations
+were much more sophisticated than that.
+
+86
+00:05:02,440 --> 00:05:06,310
+But again, the point is that, as far as,
+most of the code was concerned,
+
+87
+00:05:06,310 --> 00:05:08,812
+you didn't have to change anything,
+you could just change the algorithm,
+
+88
+00:05:08,812 --> 00:05:14,470
+make it an implement routing engine,
+plug it in, and Polymorphism did the rest.

@@ -1,0 +1,84 @@
+All right.
+So now we have a concept challenge for
+you that has to do with big O classes. So it's just like any
+other concept challenge. What we want you to do is we want you
+to try to solve the problem yourself, then get together with some friends and
+discuss. Watch the UC San Diego learners discuss. Try to answer the question again and then verify your understanding
+with our explanation. So the problem for you is we have three potential equalities here that
+relate a function to a big O class. And what I'd like to know is which
+of these represent tight bounds on the function over here
+on the right hand side? So is O of N a tight bound for
+n squared minus 10,000? Is O of n squared a tight bound for
+n plus n log n? And is O of log base 2 of n a tight
+bound for log base 10 of n. >> Hi, my name is Maya. >> Hi, my name is Robert. >> Hi, my name is Christina. >> For the first one,
+N squared minus 10,000 equals big O of n. Are you saying if the n squared,
+if it's a function like this, and then there's another function
+like big O of n that's like that, you mean like,
+which one would grow faster? >> Yes.
+So they're sort of asking, is n a bigger function than
+n squared minus 10,000? Okay, so it just has to be bigger. So in the question we have n squared and
+O of n, so n squared would be bigger than O of n. So O of n wouldn't be tighter big O class. >> Yeah,
+even though 10,000 it's a constant so it's just n squared
+>> Oh yeah, and with problems like these,
+constants don't really matter. You could cancel them out a little bit. >> Even if it's multiplied,
+it doesn't matter either. >> Okay. >> So in the second one we have two terms. We have n and
+n log n equals O of n squared. So when we have two terms, I think only the biggest one takes
+precedents just like the constants. >> Yeah, so I guess the second
+term would be a lot bigger cuz since obviously it's n
+multiplied to another term. >> Mm-hm. >> And whenever log n is smaller than n,
+right? >> Yes. >> So it would be smaller than n squared
+So, n squared is a big O in this case. >> Okay. >> But I don't think it's the tightest. >> No. So the tightest would be
+something like n log n. Yeah.
+>> Yeah. >> Okay. >> Okay, so for the third one,
+I noticed on the left side there is a 10. On the right side there's a 2. >> So, I'm not really sure, but I feel like they still
+kinda grow at the same rate. So, I'm not really sure. Yeah. >> Because obviously they're different. But, what could you
+multiply a constant to it. So they're coefficients. >> Yeah. Because if you do that, it would be equal. >> Yeah, I'm not so sure which ones. >> So we're gonna use that method that
+Mia showed you for estimating, or figuring out, what the tight bound is for
+a given function. So let's start here,
+with this given function. And the function is n
+squared minus 10,000. So, what is the tightest
+big O bound on this? Well, what Mia showed you to do
+is to basically ignore all but the highest order term. So, we look at n squared,
+we look at 10,000. n squared is clearly the high order term
+here, so we focus in on that n squared. And then we're gonna ignore any constant
+multipliers on that n squared term. Well, there are no constant multipliers. And so what we would have here is that,
+if we use our estimation technique that Mia taught you, this should be
+O of n squared as the tightest bound. But if we compare that
+to what we asserted, O of n, we have to compare n squared to n. And we can see that clearly n
+squared grows faster than n. So n squared is in fact the tightest O
+bound we can have on this function here. And n is not even an upper bound because
+it grows much more slowly than n squared. So the answer to this one,
+is this is a tight bound? The answer is no. All right, next question, is O of n
+squared a tight bound on n plus n log n? Again, we'll do the same thing, and we'll figure out which is the bigger term,
+n or n log n. Well n is just n, and
+log n is n times something of n. So this here is going
+to be our bigger term. We can ignore the n term. There's no constant multiplier on it,
+so we would just, using again that method that Mia
+presented, see that this is n times log n. And now we have to figure out how does
+n times log n compare to n squared. Well n squared is just n times n. So here we have n times log n. Over here was n times n. This is going to be a slower growing
+function, because log n is smaller than n. So this bound here, O of n log n, is going to be a tighter bound than
+our originally proposed bound of O of n squared because n squared
+grows faster than n log n. So this tighter bound is
+smaller than n squared. N squared is an upper bound, but
+it's not the tightest one we can find, which is this one right here. So this one doesn't work
+either as a tight bound. Finally, let's consider our last function
+down here which is we're asking is O of log base 2 of n a tight bound for the function log base 10 of n. Now there's no two terms to consider, there's only one term,
+there's no constant multipliers. So what we're really asking is do logs grow kind of at the same rate
+no matter what their bases are? And to figure this out you have to
+remember that log base conversion formula. Or if you've never seen it before
+I'm gonna show it to you now. Because we need to be able to express
+these logs in terms of the same base to be able to compare them. Because right now it's not really clear
+if those two functions will grow at the same rate. So the log based conversion
+formula looks like this. We can turn log base 10of n into log base 2 of n by dividing log base 2 of n by log base 2 of 10. So there we have it. We take our old base,
+we convert it to a new base but then we have to divide by log and
+the new base of the old base. But if we look at this quotient here, we can see what's on the bottom
+isn't in terms of n at all. So that's just a constant factor
+which we can now ignore for the purpose of our big O analysis. So we can pretty much just ignore this and
+we can see that this top turn here is going to turn into to
+O of log based 2 of n. And if we compare this to what we
+originally asserted over there, we can see those are exactly the same. So O of log base 2 of n, is in fact
+a tight bound for log base 10 of n. This is why you'll see computer scientists
+almost always drop the bases from logs, when they're talking about big O notation. Because it doesn't matter. All bases of logs can be converted into
+others using constant, factor, and multiplication. So inside the big O, the base doesn't
+matter, which is why you can see that we in fact even dropped it up here
+in our first analysis that I just did.

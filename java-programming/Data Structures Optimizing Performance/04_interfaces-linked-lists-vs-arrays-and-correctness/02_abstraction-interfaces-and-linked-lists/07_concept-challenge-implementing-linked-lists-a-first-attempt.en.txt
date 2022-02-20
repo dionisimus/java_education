@@ -1,0 +1,131 @@
+So you've been hearing from
+Christine about linked lists. And as a data structure, it's not
+such a complicated data structure. It's just got these nodes that
+are linked together one after the other. But it turns out that implementing
+linked lists is really quite tricky. And so
+this concept challenge that we have for you will help you think through some
+of the details of the implementation, so you're ready to do it when you
+get your programming assignment. So as you know, with a concept challenge,
+we'll be posing a question and you'll pause and think through
+the answer and solve it yourself. Then you have the opportunity to discuss
+your solution with people around you or in the discussion forums. We'll show you some UC San Diego learners
+thinking through the same ideas. You'll answer the question again. Hopefully with a little bit more
+confidence behind your answer now. And then confirm your understanding
+as we come together and walk through the solution. So let's get started
+setting off the problem. In this problem, we're going to tweak the data structure
+that Christine talked about a little bit. We'll be implementing
+a singly linked list. In the core videos, the linked list data
+structure that you saw was doubly linked. And we're modifying just a little bit so
+we have a cleaner example for this concept challenge, and also so
+that we don't take all the fun out of the implementation when you go ahead and
+do the programming assignment. So just to point out the differences
+in the singly linked list, we only have a sentinel object
+at the head of the list. And we don't have a tail sentinel. And then when we think about what's
+contained inside each of the object, we have next references,
+we don't have previous references. All right, so we have a head object and then we point forward
+choosing next pointers. So this is our abstract representation
+of the singly linked list. And what this concept challenge really
+is about is going from the code to these pictures of the nodes linked together and seeing how the code
+relates to those objects. So the code that we've written is for defining a class SSLNode, which is
+a single node in a singly linked list. And in this particular implementation,
+we're gonna have three different constructors that can be
+used to create a node. And what I'd like you to think
+about is what happens when we use these constructors to create some
+nodes and try to link them together. >> Hi, my name is Paul
+>> I'm Nancy. >> My name is Raymond. >> So I think we can eliminate
+sort of E as an answer choice. >> Can probably also eliminate D,
+which is also saying that all the nodes
+are individually assigned and they're not actually
+pointing to anything else. I think after you add more nodes
+they actually point to something. So I don't think D should be the answer. >> Yeah.
+I think Nancy is definitely correct, and I'm seeing her theory
+also applies to layer C, cuz it also does not has the next
+reference to node 1 from node 2. So I mean just for letter a,
+I mean it's obviously incorrect that the only
+reference has two values. The next reference of node 0
+has one reference to node 1, another reference to node 2, but
+yeah, do you think it's correct? >> Well just by looking at
+the constructors, we can see that you can't have two references
+coming out of the same node. So I think we can
+eliminate that answer also. >> So let's think through what the
+learners talked about in their discussion and walk through the solution by
+drawing the diagram one line at a time. And so we start off our diagram by thinking about what happens
+when we declare the variable n0. It's of type SLLNode and
+remember that those angle brackets say that our nodes
+data will be of type integer. Now, when we wanna create the object
+we use the new operator and we say we're creating an object when
+we're using the No-arg constructor. So with the No-arg constructor,
+we're saying that the default values for our instance variables are null. And so in our memory model, we wanna draw
+our object that's being pointed to by n0, and we fill in those instance
+variables with null. That's all we have to do for
+this first line. Now we go ahead to our second line,
+where we're declaring a new variable, n1. And notice that the constructor that
+we're using the build the object that's going to be pointed to
+by n1 now has some arguments. And so we're going to include
+those in our memory model. We're going to include an argument for
+n0, which is the previous node. Now, the first line of
+the two argument constructor calls the one argument constructor. All right, so
+we're gonna follow through this carefully. The first thing we need to do
+is call the constructor for an SLL node with input the data. And the data was that argument one, which is the integer that we want to be
+stored in our object, the node object. And so the first thing that the object
+that's being created right now does is, it fills in the data value 1, for
+the instance variable of this object. Now notice that as we're constructing
+this object we also get a variable, this, that's pointing to the object
+that's being constructed. And that's gonna be useful for tracing
+through the execution as we go ahead and go to the next line. Now these next two lines of code
+are the trickiest part of the constructor. And so we're gonna go through
+them in a fair amount of detail. What we're doing here is we want to
+connect the objects that we've created, and so we need to move some arrows around, we need to move some references around,
+and so it's a little bit tricky. So in the first part, what we're going
+to do is we're going to set the value of this current object's next object or
+next node. And the way that we wanna do
+that is we wanna read off what the previous object pointed to before. And so we look at the value
+that's stored in prevNode.next. And so we follow the area, we see that
+we have a box in our memory model for prevNode and we follow that to
+look at what's its next value. And that's null and so
+we need to copy that over to this.next. And so we follow the arrow for this,
+go into the box for next and so we've copied over null. But now what we'd like to do
+is say the previous object, the previous node,
+it used to point somewhere, but now we wanna point it to us, because we
+want to link the previous node to us. And so we need to update
+the value of prevNode.next with the current object that we're building. And so that means we wanna update it with
+the arrow that's being pointed to by this, namely the object that
+we're currently building. All right, we did it. Now we've got yet
+another object to create. So let's move our work up above and
+think about what happens when we execute the constructor
+SLLNode on new input parameters and we're going to point to the newly
+created object with the variable n2. All right, so as before, we start off
+by using the one argument constructor to build an object of type SLLNode and
+fill in the data field in that object. And then, we do the tricky
+part with the arrows, and so walking through it we look up
+what the prevNodes next value is. And notice that in this call for
+the constructor, we're using n0 or the object pointed to by n0 as the same
+object as pointed to by prevNode. And so when we read off prevNode.next,
+we need that yellow box up above. And what we wanna do is copy the arrow
+that was in there to be the new value of this .next, all right. And so now this.next is going to
+point to the object that's pointed to by n1 as well. All right, so what we've done there, is we've said that the next value
+after the object that we're creating is what used to be the next value
+after the prevNode's object. And now what we're going to do is say
+the prevNode should point to me to the new object. And so what I need to do is say
+update the value of prevNode.next with a pointer to the object
+that I'm building. And so that variable prevNode.next now
+points to the object that I just built, namely the point that object
+that was pointed to by this. All right, so we've gone through
+all of the lines in the main method and now let's clean up our
+picture just a little bit and see what it would look like with
+the abstract representation that we had. Okay, so
+that's a little bit easier to follow. And so let's pick out the elements of the
+linked list that we have in this picture. So the head of the list is
+that object pointed to by n0. Also notice that it's
+a sentinel object over here. Even though it's a linked list node,
+it's got null data. So it doesn't really contain any
+important information that's going to be part of our list. It doesn't store any data
+that's used in our list but it tells us where to start, so
+our sentinel node is that n0. The first node that has real data is n2,
+so the node after the sentinel node, and then notice that n2 then points to n1. Now I'm using n2 and n1 as shorthands for
+the objects pointed to by, but basically what we see is we have a linked
+list that starts with a sentinel node. And then goes to a node that stores 2,
+and then goes to a node that stores 1. And that is our list. So in the next concept challenge,
+we'll take this concept just a little bit further, and see if we really
+understand those two lines of code that played with the arrows, and make sure that
+the implementation is perfectly clear.

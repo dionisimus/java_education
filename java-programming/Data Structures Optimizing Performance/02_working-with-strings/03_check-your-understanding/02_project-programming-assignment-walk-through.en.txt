@@ -1,0 +1,137 @@
+[MUSIC] This videos going to walk you through
+your first programming assignment. You've already seen what the output of
+the entire program is going to look like, but here we're going to focus
+on what you're going to do for the first module for this first week. So here we are in
+the programming assignment and what you're going to do is you
+going to read all these instructions. There's a lot here which is why we
+going to walk you through what you need to do very carefully. So, if you start reading instructions, the first thing you need to do
+is to get everything set up. So if you haven't already
+followed the set up guide you will want to follow that setup guide. You can access that setup guide right
+here, just clock on this link, or you have already seen it as a reading if you have
+been going through the course in order. I will want you to follow that
+setup guide to get Eclipse and your starter code all set up even if you
+have already worked with Eclipse and even if you have already worked with Java. Because there's going to be some
+differences between the set up for this course and the set up that
+you might have used in the past. So it's important that you go to that
+set up guide even if you're with us in the first course and
+even if you use the clips and Java before. Just to make sure you got
+everything set up correctly. Then once you think you've got everything
+set up correctly you could verify that it's all set up by going
+over here into a clips. And then,
+running the front end application. So you can open up the project, which
+will be your MOOC text editor project. Open up the source folder and
+then go into the application package. And you'll find the file
+that you're going to run in order to run that
+text editor right here. It's the main app. So, Iet's open up main app, and I'm going to close all the other windows
+here so you can just see the main app. And this is already written for you,
+so all you have to do is press run and you will see the application
+run right like that. And you'll see that if
+I type some text Hello. This is text. You can see that it doesn't
+actually do anything. So, I type the flesch index and it gives
+me a flesch index score of zero which obviously isn't correct but that's because
+we haven't implemented anything yet. So the load text button is going to work. But all these other buttons
+are not going to do anything. If I ask for example spelling suggestions,
+it's just going to tell me that everything is misspelled because I don't have
+any of my dictionaries implemented. So I can detect text, I can load text,
+I can clear the text, but that's about all I can do. So what are you going to be
+adding in this assignment? Well, in this assignment, you are going to
+be adding the functionality of that Flash index score and let's take
+a look at how you're going to do that. You're going to do that by
+adding the substarter code, so we recommend here in step three
+that you take a moment or yourself to the starter code for
+this assignment. And the starter code for this assignment
+is document.java and basicdocument.java. So, let's open those app. So their found over here
+in the document package. So here's the document package,
+I can open up basic documents and I can open up documents. And what you'll see when you open up this
+two files is that you'll see that their market are little to do items. So there are some things that
+you need to do in these files. And I'll talk about what they are as
+I walk through the assignment. So, the first thing, part one, is you're going to implement the missing
+methods in BasicDocument.java. So what you'll find in BasicDocument.java,
+and we'll look at it in a second,
+is that there are a few methods missing. So the method getNumSentences,
+getNumWords, and getNumSyllables, none of those are implemented at all and
+it's your job to implement them. And the most important piece of this
+implementation is that these 3 methods will be implemented fairly naively in
+that it's okay to process the whole text to count the number sentences
+the number of words the number of syllables every single time
+you call these methods. In fact, it's not only okay,
+it's what we want you to do. But we don't want you to
+do this from scratch. So, let me talk about the code, and
+we are actually going to write. So, let's go to BasicDocument.java,
+and if we click on this first todo, you'll see that the first todo is to
+implement the getNumWords method. This method should return
+the number of words in the text which represents this document. But you don't want to do this
+completely from scratch. We've actually provided you with this
+helper method that you're going to find extremely useful in
+implementing this method. So if you go over here to Document.java. You'll see that there's a method
+up here called getTokens. GetTokens is a method that we
+mentioned in our videos and in particular in that support video. But what getTokens is going to do is it's
+going to take a pattern which is a regular expression and it's going to return
+all of the tokens in the document, in the text for the document that matched. That pattern. So, it's a good way to extract all
+the words in the document, for example. You just need to write a pattern
+that will match a word. So, look at the support
+video if you get stuck. There's a support video that really
+walks you through how to implement the three methods that you need
+to implement in basic document using that getTokens method. So you should be calling that getTokens
+method with some regular expression in getNumWords, getNumSentences,
+and getNumSyllables. Now in getNumWords and getNumSentences,
+there won't be much else to do. If you've got the right regular
+expression, the method is almost done. But in getting syllables
+you'll need to do a bit more. Not only will you need to get the words, you'll need to count the number
+of syllables in each word. And for that process we're actually
+recommending that you implement a helper method in the document class. The stub right here that will take
+a string representing a word and return the number of syllables in it. You'll need to loop through
+the characters the word one at a time to count the syllables. So that's all for part one, for
+the first part of this assignment. And make sure you read this text
+carefully and be very clear about what constitutes a word, a sentence,
+and a syllable using our definition, because we're going to be grading you
+using our definition of words, sentences, and syllables,
+not using whatever you want to use. It has to be our definition, because
+that's what our auto-grader is going to use when we grade your assignment. So, once you've got everything working,
+go ahead and test your code. And we've provided a method called Test
+Case in the document class, and we've got some examples of how to cull that method
+in the main method inside basic documents. So take a look at the tests we provide,
+add your own, and get those methods working. Notice we've got a few hints for
+this first part of the assignment here, so read through those hints they
+kind of have talked about what I've already said in this video. Then we've got an optional
+part which is that you can make your basic document code work
+with the text center application. By default implementing the methods and
+basic document and then later the flash core which we will
+do in part b it's not going to show up. It's not going to work in that
+Text Editor application I just showed you because currently we use a different
+implementation of the documents class for the Text Editor. So, if you want to have this first
+assignment change how the Text Editor functions, then what you're going
+to need to do is, I'll show you. You go over here and
+you go into the application folder and into this file called LaunchClass.java. And in LaunchClass.java you'll see
+this method called get document and we've annotated it with a comment. You're going to change this line
+right here that says return new document.EfficientDocument. You're just going to go ahead and
+change that to say, basic document. That's all you need to do. I'll put it back to efficient. And then you would put
+it back to efficient, as well, when you go on to next
+last week's programming assignment. So don't forget to do that. So that's it for part 1. In part 2 you'll implement
+the Flesch score method, the getFleschScore method
+in the document class. So, all you have to do is go over here
+to Document.java and you'll see that one of these to do is I think this one down
+here, says, implement this method. Right now, the method returns at 0.0
+which is obviously is incorrect. What you wanted to do is you
+wanted to return the results of this calculation here and so, you'll use
+your getNumWords, getNumSentences, and getNumSyllables method in order to
+calculate the results of this formula and then, you just return it. That's it Once you finished part 1 and
+part 2 you're ready to submit. We do have an optional part 3 for
+you which is which is just to have fun calculating the Flesch readability
+score for any text that you want. So find some text online,
+use some of your own text and set up your text editor application. Like we talked to you about
+before in this video, so that you can load the code in there and
+just see its Flesch readability score. So there's nothing to submit for part 3. Just have fun with it. What you are going to submit is you're
+going to submit files for part 1 and part 2. You're actually going to
+submit the same file. For part 1 and part 2, so
+all you need to do is create a zip file containing your Document.java and
+BasicDocument.java files, so put those two files into a zip file you call whatever
+you like, you need to find those files in your work space into the direct that you
+set up in your computer file system, and then upload this file twice,
+once for part 1 and once for part 2. We're going to grade different
+aspects of these files in each of these different parts. Then submit. And submission will take a little bit but
+eventually you'll see some grading feedback, so if you have any trouble at
+all, you can figure out what went wrong. By running our grader. We provide you with this grader. It's in a file called basic
+document grader dot Java, and it's in the document package. So, just go ahead and
+run the grader locally, figure out what went wrong, fix your code,
+and resubmit, until you get it right. Have fun with this assignment.

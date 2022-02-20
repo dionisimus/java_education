@@ -1,0 +1,79 @@
+[MUSIC] All right, in this course,
+the project you're gonna be developing is that cool text editor
+that you saw the demo of. We're gonna get started here in this
+lesson talking about the first thing you'll add to that text editor, which is the ability to determine
+the readability of a piece of text. So let's talk about what that means. By the end of this video you'll be
+able to use the Flesch Index Score in order to measure
+the readability of a piece of text in order to incorporate
+it into your project. So let's try to take a look at
+what we mean by text readability. So let's take a look
+at this piece of text. This is a piece of text from
+the US Tax Code document. The document that describes how
+the United States taxes its citizens. And this is largely understood to
+be one of the most confusing and hard to understand documents around. So I pulled a piece of text from that
+document and that piece of text says, there is hereby imposed on the taxable
+income of every individual other than a surviving spouse as defined in section
+2(a) or the head of a household as defined in section 2(b) who is not
+a married individual (as defined in section 7703) a tax determined in
+accordance with the following table. And then there's a table that follows. Now I don't know about you, but
+that's pretty difficult to understand. And in fact, that's one of the easier
+passages from this document to understand. The first section I tried to pull, I spent
+20 minutes trying to understand it, and I couldn't understand it so
+I had to get a simpler piece of text. So this is one of the simpler
+pieces of text from that document. It's still pretty complicated. So, I'm confused,
+let's simplify this text a little bit. Here's my re-write of what
+that piece of text just said. Basically it says, if you're single,
+you've never lost your spouse, and you're not the head of a household, then you pay
+taxes according to the following table. And again the same table would follow. Much easier to understand. So we have these two pieces of text. The piece on top is relatively
+difficult to understand, the piece on the bottom is
+relatively easy to understand. I've taken a few liberties
+in simplifying the text. It's not exactly the same with the same
+precision as the piece of text on top, but they mean basically the same thing. And the question we wanna ask now is, how can we quantify the difference
+between these two pieces of text? So what we're going to do in this video,
+as well as on your project, is you're going to use something
+called the Flesch readability score in order to allow the computer to
+quantify how readable a piece of text is. You can see the formula for
+the Flesch readability score here. And the Flesch readability
+score was developed by an author named Rudolf Flesch. And what it looks like is the following. So the idea behind the score is that
+you have this constant out front, this 206.858. And then, from that constant, you're
+going to subtract two different terms. And that's going to basically lower the
+potential; Flesch score that you can get. So in order to understand
+how this formula works, we need to look at those two terms that
+we're going to be subtracting from that constant to understand what a high score
+means, and what a low score means. So let's first think about
+what makes this formula high. So what makes this formula high,
+since we're subtracting two terms, is if these two terms we're
+subtracting off are relatively low. So what does it mean? When are these two terms relatively low? Well, they're relatively low if
+there are few words per sentence, then that ratio is going to be low. And few syllables per word,
+then that second ratio is going to be low. So, in other words, if we're dealing
+with short sentences and short words, those two terms will be low leading
+to a very high Flesch score. So now intuitively we can see that a high
+Flesch score, and in practice above 90, leads to a very easy
+to read piece of text. On the other hand,
+if we have those two terms be high, in other words we have a lot
+of words per sentence, and a lot of syllables per word we're
+gonna end up subtracting off a lot from our initial constant and
+end up with a very low Flesch score. So a Flesch score of below 30 is a piece
+of text that's very difficult to read. And that again makes sense. If you have long sentences with long words
+the text is gonna be more confusing. Now then we have these constants
+out in front of those two ratios that basically just weight
+those two terms accordingly. And those are just determined by Flesch to
+match our intuition about how text is easy or difficult to read. And in this case it basically
+means that longer words make text a little more difficult
+to read than longer sentences. So more syllables are bad basically. So, if we apply that to their two pieces
+of text, we can see that the piece of text on top, that confusing text,
+has a very low Flesch score, 12.6. And that corresponds to basically a post
+graduate reading level, which everyone basically agrees, you need to be a lawyer
+in order to understand this document. And that piece of text on the bottom, my
+paraphrase of it that's got a much higher Flesch score of 65.8, and
+that's about a 10th grade reading level. So my six year old maybe wouldn't be
+able to read this and understand it. But people with secondary education
+should do a pretty good job of understanding what that sentence means. So, how does this relate to
+what we're about to talk about? Well, in order to calculate the Flesch
+score for text, what do we need to know? We need to know the number of
+words in the piece of text. We need to know the number of sentences. And we need to know
+the number of syllables. Now if we imagine that our piece of text
+is just represented as one big long string in Java,
+we're going to need to be able to do manipulation with those strings
+in order to calculate that score. And that's what we're gonna
+look at in the next video.

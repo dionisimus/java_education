@@ -1,0 +1,326 @@
+1
+00:00:00,025 --> 00:00:03,440
+[MUSIC]
+
+2
+00:00:03,440 --> 00:00:06,107
+Okay, so let's see how that
+is going to translate and
+
+3
+00:00:06,107 --> 00:00:09,429
+basically we're going to start with
+seeing how to compute big O and
+
+4
+00:00:09,429 --> 00:00:12,270
+then afterwards give
+the formal definition.
+
+5
+00:00:12,270 --> 00:00:16,810
+So our big O class is supposed to
+capture eventual rates of growth.
+
+6
+00:00:16,810 --> 00:00:19,070
+And so we don't care about constants.
+
+7
+00:00:19,070 --> 00:00:20,720
+And so in big O world,
+
+8
+00:00:20,720 --> 00:00:25,680
+in asymptotic world, whether we have
+a million or one, same difference.
+
+9
+00:00:25,680 --> 00:00:27,930
+The big O is exactly the same.
+
+10
+00:00:27,930 --> 00:00:30,938
+And so we say that a million is big O(1).
+
+11
+00:00:30,938 --> 00:00:34,750
+So, notice that the way that I'm
+reading the sentence, the equals and
+
+12
+00:00:34,750 --> 00:00:37,970
+then the capital O and
+then the bracket's another function.
+
+13
+00:00:37,970 --> 00:00:39,450
+The way that we read it is,
+
+14
+00:00:39,450 --> 00:00:44,350
+the left hand side is big O of
+what's ever inside those brackets.
+
+15
+00:00:44,350 --> 00:00:47,240
+And so
+here we have that a million is big O(1).
+
+16
+00:00:47,240 --> 00:00:51,757
+And the idea here is those constants might
+just be that initialization cost when we
+
+17
+00:00:51,757 --> 00:00:53,136
+start off a new program.
+
+18
+00:00:53,136 --> 00:00:56,107
+Then we might have to do a whole lot
+of busy work at the very beginning, but
+
+19
+00:00:56,107 --> 00:00:58,740
+that busy work is the same,
+no matter what our input is.
+
+20
+00:00:58,740 --> 00:01:02,990
+And so even if it's a million steps or one
+step that's not going to tell us how that
+
+21
+00:01:02,990 --> 00:01:05,660
+program behaves as our input
+gets bigger and bigger and
+
+22
+00:01:05,660 --> 00:01:07,750
+bigger and so
+we don't need to worry about it.
+
+23
+00:01:07,750 --> 00:01:11,740
+We just lump it all into a single
+constant and say that's big O(1).
+
+24
+00:01:11,740 --> 00:01:14,390
+It's not changing as n changes.
+
+25
+00:01:14,390 --> 00:01:16,236
+Okay, so that's one of our principles.
+
+26
+00:01:16,236 --> 00:01:19,833
+Our second principles with asymptotic
+analysis is that we only care
+
+27
+00:01:19,833 --> 00:01:21,680
+about the dominant term.
+
+28
+00:01:21,680 --> 00:01:24,820
+So we only care about
+the piece of the calculation
+
+29
+00:01:24,820 --> 00:01:27,940
+that's going to make the biggest
+impact to our outcome.
+
+30
+00:01:27,940 --> 00:01:33,570
+And so we only want to keep the part of
+the function that is the fastest growing.
+
+31
+00:01:33,570 --> 00:01:37,378
+So for example, when we think back
+about our linear function before,
+
+32
+00:01:37,378 --> 00:01:42,650
+we had 3n+3 in that calculation
+of the number of operations.
+
+33
+00:01:42,650 --> 00:01:44,780
+But notice that we've got two terms here.
+
+34
+00:01:44,780 --> 00:01:47,479
+We've got the 3n term and we've got the 3.
+
+35
+00:01:47,479 --> 00:01:50,787
+Now, 3n grows as n grows.
+
+36
+00:01:50,787 --> 00:01:51,863
+3 does not.
+
+37
+00:01:51,863 --> 00:01:56,535
+And so the dominant term of those
+2 pieces of the sum is the 3n, and
+
+38
+00:01:56,535 --> 00:02:00,221
+in our big O analysis we're
+just going to keep that.
+
+39
+00:02:00,221 --> 00:02:03,740
+So 3n+3 is big O(3n).
+
+40
+00:02:03,740 --> 00:02:08,420
+But now think back to our previous
+observation, we're going to drop constants
+
+41
+00:02:08,420 --> 00:02:14,220
+and so 3n is exactly the same
+as n in this big O sense.
+
+42
+00:02:14,220 --> 00:02:17,900
+Okay, so you've got these two principles.
+
+43
+00:02:17,900 --> 00:02:18,970
+How do we know they're okay?
+
+44
+00:02:18,970 --> 00:02:20,380
+Where are they coming from?
+
+45
+00:02:20,380 --> 00:02:23,290
+Well, before we get there,
+let's do some examples,
+
+46
+00:02:23,290 --> 00:02:24,760
+make sure that we're comfortable.
+
+47
+00:02:24,760 --> 00:02:27,200
+And so
+in the next couple of in-video quizzes,
+
+48
+00:02:27,200 --> 00:02:30,130
+we're going to encourage you to think
+about some calculations with big O.
+
+49
+00:02:31,310 --> 00:02:34,677
+So, hopefully those quizzes were
+helpful for getting a flavor for
+
+50
+00:02:34,677 --> 00:02:36,358
+how you deal with big O classes and
+
+51
+00:02:36,358 --> 00:02:39,923
+how you compare two different
+functions based on these asymptotics.
+
+52
+00:02:39,923 --> 00:02:42,939
+But you might be wondering,
+how can we make these choices and
+
+53
+00:02:42,939 --> 00:02:46,690
+what's a principled way for
+understanding asymptotic analysis?
+
+54
+00:02:46,690 --> 00:02:50,710
+So here's the formal definition of
+what it means when we say that f(n) is
+
+55
+00:02:50,710 --> 00:02:52,420
+big O (g(n)).
+
+56
+00:02:52,420 --> 00:02:56,313
+And what we mean, really, is that there
+are these two constants, n and c.
+
+57
+00:02:56,313 --> 00:03:02,187
+So that eventually, so for inputs of
+sizes bigger than this capital N, we
+
+58
+00:03:02,187 --> 00:03:09,150
+can upper bound our function f(n) by some
+constant multiple of our function g(n).
+
+59
+00:03:09,150 --> 00:03:14,460
+Okay, and so you can spend many pleasant
+hours playing with this definition and
+
+60
+00:03:14,460 --> 00:03:17,640
+figuring out exactly why it means
+that we can drop constants and
+
+61
+00:03:17,640 --> 00:03:19,230
+just keep the dominant term.
+
+62
+00:03:19,230 --> 00:03:22,380
+But really for practice and for
+what we're gonna be doing in this class,
+
+63
+00:03:22,380 --> 00:03:26,480
+I encourage you to not worry too
+much about this formal definition.
+
+64
+00:03:26,480 --> 00:03:30,130
+And really make sure that you
+are comfortable with looking at code and
+
+65
+00:03:30,130 --> 00:03:33,250
+getting at the asymptotics
+based on that code.
+
+66
+00:03:33,250 --> 00:03:37,694
+Looking through the execution and
+really picking out the big O class for
+
+67
+00:03:37,694 --> 00:03:39,330
+the runtime of that code.
+
+68
+00:03:39,330 --> 00:03:41,400
+And so
+that's what we'll be practicing next.
+
+69
+00:03:41,400 --> 00:03:44,690
+We'll be looking at a few
+different code snippets and for
+
+70
+00:03:44,690 --> 00:03:47,700
+each one of them computing
+the big O classes of its runtime.

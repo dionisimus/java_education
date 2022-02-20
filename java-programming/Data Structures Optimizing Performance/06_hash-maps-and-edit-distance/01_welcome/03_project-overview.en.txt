@@ -1,0 +1,32 @@
+[MUSIC] In this video we're gonna look at the cool
+features you'll get to ad to your text editor as part of week 5. So the first of these is
+essentially spelling suggestions, which is a core feature
+of any text editor today. So once you turn on spelling suggestions, it's gonna mark the ones
+that are incorrect, which we've essentially
+already figured out how to do. Is we just check to see if
+the words are in the dictionary. But what spelling suggestions is gonna do,
+is it's gonna allow you to right click on a word, and have it give you suggestions
+which are essentially words that are real words that are close to
+the misspelled word. For example if I click on my
+words key instead of working, it's gonna give me working,
+along with some other words that are essentially very close
+to that misspelled word. I can select working to fix it, likewise,
+for prooblems, I can click on that and correct it to be problems. Again, this is a core
+featuring text generator. It's a fun feature to implement, and
+that's the first part of the assignment. So the second part here is really just for
+fun. And in the second part what we're going
+to do is essentially play a game where we try to go from one word to another by
+making small interchanges that result in real words. And I think this will more
+clear with an example. So let me input the word this and time. And what we're going to
+do is try to find a path by making these small
+changes from this to time. And the path that it
+finds takes four steps. So if I start with the word this and
+I try to make permutations to it, I could add a letter
+like n to produce thins. Once I have thins, I can change
+the letter S to E to make it thine. Once I have thine, I can remove
+the letter H to produce the word tine. And once I have the word tine, I can
+change the letter n to be the letter M. Notice for each of these steps, I'm making a single character
+mutation that results in a real word. This is kind of a fun game
+to play in your head, but in this case we're gonna
+be implementing it in code. So again, hope you have fun
+with this project, good luck!

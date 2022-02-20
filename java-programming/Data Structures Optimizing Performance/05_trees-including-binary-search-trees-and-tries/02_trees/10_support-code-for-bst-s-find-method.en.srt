@@ -1,0 +1,638 @@
+1
+00:00:00,025 --> 00:00:04,370
+[APPLAUSE]
+>> All right,
+
+2
+00:00:04,370 --> 00:00:07,850
+so in that last video,
+Leo talked you through the algorithm for
+
+3
+00:00:07,850 --> 00:00:10,110
+finding an element in
+a binary search tree.
+
+4
+00:00:10,110 --> 00:00:12,130
+And in this support video,
+
+5
+00:00:12,130 --> 00:00:15,630
+we're actually going to implement
+that algorithm in Java code.
+
+6
+00:00:15,630 --> 00:00:17,960
+Now if you wanna work on this yourself and
+
+7
+00:00:17,960 --> 00:00:21,510
+you don't want to see the Java code,
+you're welcome to do that.
+
+8
+00:00:21,510 --> 00:00:24,890
+Come back to the support video
+only if you really get stuck.
+
+9
+00:00:24,890 --> 00:00:29,560
+Now looking ahead, you're not actually
+ever going to be implementing the code for
+
+10
+00:00:29,560 --> 00:00:32,400
+binary search tree find in this course.
+
+11
+00:00:32,400 --> 00:00:35,350
+What you'll be doing is you'll be
+implementing a find algorithm for
+
+12
+00:00:35,350 --> 00:00:38,370
+the tree structure that you're going to
+be using as part of your project which is
+
+13
+00:00:38,370 --> 00:00:40,730
+not actually going to be
+a binary search tree.
+
+14
+00:00:40,730 --> 00:00:43,540
+But going through the binary
+search tree find algorithm
+
+15
+00:00:43,540 --> 00:00:45,650
+is going to help you with that process.
+
+16
+00:00:45,650 --> 00:00:47,420
+And in particular going through the code,
+
+17
+00:00:47,420 --> 00:00:50,360
+is going to reveal some subtleties
+that you'll have to work with
+
+18
+00:00:50,360 --> 00:00:54,610
+when you implement the algorithm
+that you implement on your project.
+
+19
+00:00:54,610 --> 00:00:56,620
+So, let's start with a task.
+
+20
+00:00:56,620 --> 00:00:57,980
+Our goal is to find whether or
+
+21
+00:00:57,980 --> 00:01:02,750
+not an element that's passed in as
+a parameter is in our binary search tree.
+
+22
+00:01:02,750 --> 00:01:04,630
+So Leo walked you through the steps.
+
+23
+00:01:04,630 --> 00:01:07,290
+You basically are just gonna
+search down through the tree
+
+24
+00:01:07,290 --> 00:01:11,260
+until you either fall of the end or you
+find the element that you're looking for.
+
+25
+00:01:11,260 --> 00:01:13,270
+And at each step you always
+know which way to go.
+
+26
+00:01:13,270 --> 00:01:16,130
+You go left if the element you
+are looking for is smaller than
+
+27
+00:01:16,130 --> 00:01:19,190
+the one that you're at, and you go right
+if the element that you are looking for
+
+28
+00:01:19,190 --> 00:01:20,950
+is greater than the one that you're at.
+
+29
+00:01:20,950 --> 00:01:22,690
+So simple enough, right?
+
+30
+00:01:22,690 --> 00:01:24,920
+So we've got our root pointer in our tree.
+
+31
+00:01:24,920 --> 00:01:29,260
+And let's just say that our first attempt
+says, let's take that root pointer and
+
+32
+00:01:29,260 --> 00:01:30,400
+step it down the tree.
+
+33
+00:01:30,400 --> 00:01:31,140
+So I'm looking for
+
+34
+00:01:31,140 --> 00:01:36,000
+L, I take my root pointer, I go to
+the right because L is greater than E.
+
+35
+00:01:36,000 --> 00:01:38,060
+And at this point you might
+look at this diagram and
+
+36
+00:01:38,060 --> 00:01:41,560
+say, oh, that's kind of a problem.
+
+37
+00:01:41,560 --> 00:01:45,730
+We lost our root of our tree and
+we'll never be able to get it back.
+
+38
+00:01:45,730 --> 00:01:49,270
+So, lesson number one,
+don't change your root pointer.
+
+39
+00:01:49,270 --> 00:01:54,130
+That's what's holding the whole tree so
+that you can get to it.
+
+40
+00:01:54,130 --> 00:01:57,100
+Your root pointer has to
+stay pointed to the root.
+
+41
+00:01:57,100 --> 00:02:00,540
+So instead what we're going to
+do is we're going to introduce
+
+42
+00:02:00,540 --> 00:02:02,640
+a second variable, curr.
+
+43
+00:02:02,640 --> 00:02:07,070
+And curr's job is going to be to step
+down the tree as we're looking for
+
+44
+00:02:07,070 --> 00:02:08,630
+the element we're trying to find.
+
+45
+00:02:08,630 --> 00:02:10,710
+So we can change curr, that's no problem.
+
+46
+00:02:10,710 --> 00:02:14,728
+Curr starts at the root and
+then it's gonna progress down the tree.
+
+47
+00:02:14,728 --> 00:02:19,350
+It's going to progress down the tree
+by going left or right depending on
+
+48
+00:02:19,350 --> 00:02:23,640
+how the element we're looking for compares
+to the element we're currently at.
+
+49
+00:02:23,640 --> 00:02:28,610
+So that's going to, in this first case for
+example, L is greater than E so
+
+50
+00:02:28,610 --> 00:02:31,840
+we'd want to go to the right.
+
+51
+00:02:31,840 --> 00:02:34,390
+So you can see that there's
+two things we need to do here.
+
+52
+00:02:34,390 --> 00:02:37,580
+We need to compare the element
+that we're currently at,
+
+53
+00:02:37,580 --> 00:02:39,740
+curr, to the element that
+we're trying to find.
+
+54
+00:02:39,740 --> 00:02:42,400
+And then based on the comparison
+
+55
+00:02:42,400 --> 00:02:46,090
+the second thing we need to do is we
+need to update our current pointer.
+
+56
+00:02:46,090 --> 00:02:48,550
+So that's what these
+if statements do here.
+
+57
+00:02:49,720 --> 00:02:53,690
+Now you can see that in these if
+statements we are using the greater than
+
+58
+00:02:53,690 --> 00:02:55,670
+and less than symbols.
+
+59
+00:02:55,670 --> 00:02:59,340
+In general these symbols are not
+going to work for our comparison, for
+
+60
+00:02:59,340 --> 00:03:00,858
+comparing objects.
+
+61
+00:03:00,858 --> 00:03:03,860
+So we're gonna come back to
+that idea in just a moment
+
+62
+00:03:03,860 --> 00:03:07,290
+when I get to the end of this algorithm
+I'll come back to that subtlety.
+
+63
+00:03:07,290 --> 00:03:13,460
+But for now let's finish this up
+that if we decide that we are not
+
+64
+00:03:13,460 --> 00:03:16,890
+less than the thing that we're looking at,
+and we're not greater than the thing that
+
+65
+00:03:16,890 --> 00:03:20,600
+we're looking at, well then we must be
+equal to the thing that we're looking at.
+
+66
+00:03:20,600 --> 00:03:21,860
+So what should we do?
+
+67
+00:03:21,860 --> 00:03:25,550
+For example in this case,
+we find that L is equal to L.
+
+68
+00:03:25,550 --> 00:03:28,610
+In that case, this else condition, we know
+that we've found the thing we're looking
+
+69
+00:03:28,610 --> 00:03:30,849
+for and so we should just go ahead and
+return true.
+
+70
+00:03:32,470 --> 00:03:33,920
+Okay so we're getting there.
+
+71
+00:03:33,920 --> 00:03:36,790
+Now we have our movement going left and
+right and
+
+72
+00:03:36,790 --> 00:03:39,770
+returning true if we found
+the element we're looking for.
+
+73
+00:03:39,770 --> 00:03:41,710
+But that's not quite enough.
+
+74
+00:03:41,710 --> 00:03:45,590
+We need to keep doing this over and
+over and over again.
+
+75
+00:03:45,590 --> 00:03:48,330
+So that means we need a loop and
+if we're going to have a loop,
+
+76
+00:03:48,330 --> 00:03:49,630
+we need a loop condition.
+
+77
+00:03:49,630 --> 00:03:54,160
+We need to know when should we stop
+this process of moving down the tree or
+
+78
+00:03:55,160 --> 00:03:57,220
+conversely, when should we keep going?
+
+79
+00:03:58,250 --> 00:04:01,670
+So in the algorithm Leo walked you
+through, you saw that you should keep
+
+80
+00:04:01,670 --> 00:04:05,060
+going as long as you have not
+fallen off the end of the tree.
+
+81
+00:04:05,060 --> 00:04:06,545
+How do you know you have fallen
+off of the end of the tree?
+
+82
+00:04:06,545 --> 00:04:10,220
+You've fallen off the end of
+the tree when current equals null.
+
+83
+00:04:10,220 --> 00:04:14,580
+So we'll add that while loop in here as
+a wrapper around our if statements that
+
+84
+00:04:14,580 --> 00:04:18,610
+while curr is not equal to null,
+we should do these comparisons and
+
+85
+00:04:18,610 --> 00:04:21,130
+move curr down the tree.
+
+86
+00:04:21,130 --> 00:04:24,860
+If we ever find the thing we're
+looking for, we'll return true.
+
+87
+00:04:24,860 --> 00:04:27,010
+Great, looks good right?
+
+88
+00:04:27,010 --> 00:04:28,351
+So are we done?
+
+89
+00:04:28,351 --> 00:04:30,566
+Think about that for a second.
+
+90
+00:04:34,084 --> 00:04:37,774
+All right, well hopefully you said no and
+if you tried to compile this code,
+
+91
+00:04:37,774 --> 00:04:40,900
+you would find that it actually
+gives you a compile error.
+
+92
+00:04:40,900 --> 00:04:45,590
+And the reason for this is we've figured
+out what to if we find the element, but
+
+93
+00:04:45,590 --> 00:04:50,950
+right now we have no action that we're
+taking if we don't find the element.
+
+94
+00:04:50,950 --> 00:04:53,280
+So how do we know that we
+didn't find the element?
+
+95
+00:04:53,280 --> 00:04:56,890
+Well we didn't find the element if we fell
+all the way off the bottom of the tree.
+
+96
+00:04:56,890 --> 00:04:59,610
+So if we fall all the way off the bottom
+of the tree, that loop has ended,
+
+97
+00:04:59,610 --> 00:05:02,290
+and in that case will return false.
+
+98
+00:05:02,290 --> 00:05:05,870
+So that's almost the complete code for
+find.
+
+99
+00:05:05,870 --> 00:05:09,180
+We just need to go back and address
+this issue I mentioned at the beginning
+
+100
+00:05:09,180 --> 00:05:13,490
+of this greater than, less than symbol
+not working for object comparisons.
+
+101
+00:05:13,490 --> 00:05:15,910
+So what we're going to do is
+instead of using greater than and
+
+102
+00:05:15,910 --> 00:05:21,390
+less than operators, we're going
+to use a method called compareTo.
+
+103
+00:05:21,390 --> 00:05:24,350
+So the compareTo method
+does the following.
+
+104
+00:05:25,570 --> 00:05:30,614
+If the calling object is less than
+the object you pass in as a parameter,
+
+105
+00:05:30,614 --> 00:05:35,530
+compareTo is going to return
+a value that's less than zero.
+
+106
+00:05:35,530 --> 00:05:40,720
+So we'll assign the variable comp to
+have the value that's returned by
+
+107
+00:05:40,720 --> 00:05:46,290
+taking toFind and
+compareTo on the current data object.
+
+108
+00:05:46,290 --> 00:05:51,280
+And if that value is less than zero
+then we know that toFind is less
+
+109
+00:05:51,280 --> 00:05:54,390
+than the data object we're currently
+looking at and we should go to the left.
+
+110
+00:05:55,470 --> 00:06:01,330
+On the other hand, if the calling object
+is greater than the object we passed in
+
+111
+00:06:01,330 --> 00:06:05,860
+as a parameter, then compareTo is going to
+return a value that's greater than zero.
+
+112
+00:06:05,860 --> 00:06:09,490
+So in that case, in our code,
+we'll go to the right.
+
+113
+00:06:09,490 --> 00:06:12,210
+And then finally,
+if these two objects are equal,
+
+114
+00:06:12,210 --> 00:06:16,000
+if the calling object is equal to
+the thing we pass in as a parameter,
+
+115
+00:06:16,000 --> 00:06:21,180
+then it returns zero and so
+that's our else condition here.
+
+116
+00:06:21,180 --> 00:06:24,620
+If the comp is not less than zero,
+and it's not greater than zero
+
+117
+00:06:24,620 --> 00:06:27,960
+then it must be equal to zero and
+we found the thing we're looking for.
+
+118
+00:06:27,960 --> 00:06:33,260
+So that's how you can use compareTo to
+make this a more general method to compare
+
+119
+00:06:33,260 --> 00:06:35,740
+any two objects.
+
+120
+00:06:35,740 --> 00:06:37,545
+Well, not quite.
+
+121
+00:06:37,545 --> 00:06:40,330
+compareTo doesn't work on just any object.
+
+122
+00:06:40,330 --> 00:06:44,740
+It only works on objects that implement
+this interface called Comparable.
+
+123
+00:06:45,870 --> 00:06:49,660
+So you're going to have to put this magic
+in your class header if you implement
+
+124
+00:06:49,660 --> 00:06:55,290
+a BST class, which says that you have
+
+125
+00:06:55,290 --> 00:07:00,780
+a BST that holds these type objects E,
+but E has to be a very specific type.
+
+126
+00:07:00,780 --> 00:07:02,720
+It has to be a type that
+actually implements or
+
+127
+00:07:02,720 --> 00:07:07,180
+extends in this nomenclature
+the Comparable interface.
+
+128
+00:07:07,180 --> 00:07:10,050
+Don't worry too much about that
+little magical statement there.
+
+129
+00:07:10,050 --> 00:07:13,797
+Basically what we are saying is that E
+has to be the type that can have this
+
+130
+00:07:13,797 --> 00:07:17,927
+compareTo method called on it because it
+is a very specific interface in Java.
+
+131
+00:07:17,927 --> 00:07:22,717
+But fortunately for you, things you
+want to compare like strings, integers,
+
+132
+00:07:22,717 --> 00:07:26,580
+characters, they all implement
+the Comparable interface, so
+
+133
+00:07:26,580 --> 00:07:30,030
+you can call this compare to
+method on them without fear.
+
+134
+00:07:31,130 --> 00:07:31,980
+So that's it.
+
+135
+00:07:31,980 --> 00:07:34,708
+That's the full find method for
+binary search trees.

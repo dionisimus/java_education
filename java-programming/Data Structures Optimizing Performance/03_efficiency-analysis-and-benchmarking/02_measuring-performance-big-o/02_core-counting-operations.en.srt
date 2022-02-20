@@ -1,0 +1,784 @@
+1
+00:00:00,000 --> 00:00:03,887
+[MUSIC]
+
+2
+00:00:03,887 --> 00:00:07,403
+So in the last video, we talked about
+how we're going to measure performance,
+
+3
+00:00:07,403 --> 00:00:08,830
+based on counting operations.
+
+4
+00:00:08,830 --> 00:00:11,990
+So we're going to count the number
+of operations that are performed
+
+5
+00:00:11,990 --> 00:00:13,760
+every time we execute code.
+
+6
+00:00:13,760 --> 00:00:15,560
+So, let's practice how to do that.
+
+7
+00:00:15,560 --> 00:00:18,690
+By the end of this video,
+you'll be able to count the operations
+
+8
+00:00:18,690 --> 00:00:20,770
+when you look at
+a particular code snippet.
+
+9
+00:00:20,770 --> 00:00:24,340
+And think about what happens when
+we run it for a given input.
+
+10
+00:00:24,340 --> 00:00:29,620
+All right, so the code that we're going
+to focus on is going to solve the answer,
+
+11
+00:00:29,620 --> 00:00:33,870
+answer the question of looking for
+a particular letter in a word.
+
+12
+00:00:33,870 --> 00:00:36,770
+And we'd like to think
+about how long that takes.
+
+13
+00:00:36,770 --> 00:00:40,640
+So, for example, we're going to look at
+the word or two words, but it's a single
+
+14
+00:00:40,640 --> 00:00:45,270
+string, San Diego, and we're going to
+search for the letter, lowercase a.
+
+15
+00:00:45,270 --> 00:00:50,310
+Now in order to do that, Christine showed
+you a method in the previous lesson where
+
+16
+00:00:50,310 --> 00:00:55,450
+we have the method hasLetter,
+which has input both the string,
+
+17
+00:00:55,450 --> 00:00:57,220
+which is the word that we're looking in.
+
+18
+00:00:57,220 --> 00:01:00,770
+And the letter that we're looking for,
+so that's a character.
+
+19
+00:01:00,770 --> 00:01:04,890
+So we have those two inputs, and then
+what we're going to return is a Boolean
+
+20
+00:01:04,890 --> 00:01:09,420
+which says true if we found the letter
+in the word and false if we didn't.
+
+21
+00:01:09,420 --> 00:01:10,070
+Okay, so
+
+22
+00:01:10,070 --> 00:01:14,380
+thinking about this algorithm, what
+we're really doing is a linear search.
+
+23
+00:01:14,380 --> 00:01:18,678
+We're gonna go through the entire string,
+which remember, is an array of characters,
+
+24
+00:01:18,678 --> 00:01:20,813
+and we're going to start at the beginning.
+
+25
+00:01:20,813 --> 00:01:23,825
+And one by one, character by character,
+we're going to compare
+
+26
+00:01:23,825 --> 00:01:27,260
+the current character to
+the letter that we're looking for.
+
+27
+00:01:27,260 --> 00:01:30,490
+So we start at the beginning
+with our index being at 0 and
+
+28
+00:01:30,490 --> 00:01:35,220
+then we keep checking whether
+the character at that index 0,
+
+29
+00:01:35,220 --> 00:01:39,850
+is the same as the letter that we're
+looking for, which was input by the user.
+
+30
+00:01:39,850 --> 00:01:44,770
+So we have our example word San Diego and
+we're looking for the letter a, remember.
+
+31
+00:01:44,770 --> 00:01:48,940
+Okay, so we start by initializing
+our loop counter i, and
+
+32
+00:01:48,940 --> 00:01:51,280
+that counts as a single operation.
+
+33
+00:01:51,280 --> 00:01:54,690
+And now we check that our loop
+counter is less than the bound, and so
+
+34
+00:01:54,690 --> 00:01:59,080
+we're comparing 0, the current value of i,
+to the word length, which is 9.
+
+35
+00:01:59,080 --> 00:02:03,700
+And what we need to do now is say,
+okay, yes, that's correct,
+
+36
+00:02:03,700 --> 00:02:06,760
+0 is less than 9, and so we keep on going.
+
+37
+00:02:06,760 --> 00:02:09,190
+But we have to increment the number
+of operations that we've done,
+
+38
+00:02:09,190 --> 00:02:12,280
+because that test is an operation.
+
+39
+00:02:12,280 --> 00:02:15,217
+All right, so now we've gone into
+the body of the for loop and
+
+40
+00:02:15,217 --> 00:02:19,036
+inside the body of the for loop we have
+an if statement, a conditional branch.
+
+41
+00:02:19,036 --> 00:02:23,008
+And what we're checking here is
+whether the letter at position 0,
+
+42
+00:02:23,008 --> 00:02:27,840
+which was our current value of i,
+is the letter that we're looking for.
+
+43
+00:02:27,840 --> 00:02:32,805
+But notice that even making that check,
+testing that condition, is an operation.
+
+44
+00:02:32,805 --> 00:02:36,339
+And so we have to increment our
+operation count once more so, so
+
+45
+00:02:36,339 --> 00:02:37,680
+far three operations.
+
+46
+00:02:39,010 --> 00:02:43,902
+In this case, the current character is a
+capital S that's not the same as little a.
+
+47
+00:02:43,902 --> 00:02:48,570
+And so we don't execute the body
+of the if branch at this point,
+
+48
+00:02:48,570 --> 00:02:51,310
+we go up to the top of the for loop.
+
+49
+00:02:51,310 --> 00:02:56,030
+We increment the counter i, oh,
+incrementing, that's another operation.
+
+50
+00:02:56,030 --> 00:02:58,828
+And now we check that our
+current value of the counter,
+
+51
+00:02:58,828 --> 00:03:02,010
+which is 1, is less than the word length.
+
+52
+00:03:02,010 --> 00:03:05,160
+It is, and so
+we go back inside the for loop.
+
+53
+00:03:05,160 --> 00:03:08,420
+But that means that we have to
+increment our operation count
+
+54
+00:03:08,420 --> 00:03:10,180
+because we did another check.
+
+55
+00:03:10,180 --> 00:03:14,160
+Okay, so we're now back inside the if and
+
+56
+00:03:14,160 --> 00:03:18,220
+we're checking whether
+the current character, little a,
+
+57
+00:03:18,220 --> 00:03:22,050
+matches the letter that we're looking for
+which is little a, all right?
+
+58
+00:03:22,050 --> 00:03:28,560
+So this check evaluates to true,
+but before we go ahead and
+
+59
+00:03:28,560 --> 00:03:33,140
+follow the logic, we remember that we
+have to increment our operation count.
+
+60
+00:03:33,140 --> 00:03:38,000
+And now that we've decided that we have
+to go inside the if branch, we go in and
+
+61
+00:03:38,000 --> 00:03:39,320
+we return true.
+
+62
+00:03:39,320 --> 00:03:45,200
+Returning is an operation, and so
+our total number of operations is 7.
+
+63
+00:03:45,200 --> 00:03:49,160
+Okay, so hopefully that trace
+through gives you an indication
+
+64
+00:03:49,160 --> 00:03:54,060
+that we have to count each time
+that we execute a statement.
+
+65
+00:03:54,060 --> 00:03:56,620
+Or that we evaluate a conditional branch,
+or
+
+66
+00:03:56,620 --> 00:03:59,150
+a check,
+something that evaluates to a Boolean.
+
+67
+00:04:00,390 --> 00:04:06,180
+Now, is this number of operations 7,
+going to be the same every time we run
+
+68
+00:04:06,180 --> 00:04:11,200
+the method, hasLetter,
+on inputs of string and a character?
+
+69
+00:04:11,200 --> 00:04:14,350
+And so what we have now, we have
+a couple of quizzes for you, to see
+
+70
+00:04:14,350 --> 00:04:18,100
+what you think about what happens when we
+run this method in different contexts.
+
+71
+00:04:19,220 --> 00:04:22,850
+So in those quizzes hopefully
+you got a sense of just how many
+
+72
+00:04:22,850 --> 00:04:24,170
+variables there are for
+
+73
+00:04:24,170 --> 00:04:29,250
+deciding how many operations get executed
+when we run a method on particular inputs.
+
+74
+00:04:29,250 --> 00:04:33,060
+And so let's recap what you saw in those
+quizzes and let's think about what happens
+
+75
+00:04:33,060 --> 00:04:36,660
+when we search for the letter x,
+still in that same word San Diego.
+
+76
+00:04:36,660 --> 00:04:39,460
+So we're still looking at
+the hasLetter method and
+
+77
+00:04:39,460 --> 00:04:42,990
+now we're thinking about just looking for
+a different character.
+
+78
+00:04:42,990 --> 00:04:48,070
+So when we think about counting
+operations, I know that I think about
+
+79
+00:04:48,070 --> 00:04:51,990
+groaning because I don't wanna do that
+same line by line counting each one again.
+
+80
+00:04:51,990 --> 00:04:55,350
+That was kind of painful but
+I'd like to find a shortcut.
+
+81
+00:04:55,350 --> 00:04:58,690
+So let's think instead of grouping
+a whole bunch of instructions,
+
+82
+00:04:58,690 --> 00:05:03,170
+a whole bunch of operations into maybe
+something higher level, that then I can
+
+83
+00:05:03,170 --> 00:05:06,890
+think about how that higher level
+construct repeats over and over.
+
+84
+00:05:06,890 --> 00:05:10,400
+So let's think about what happens as we
+go through a single iteration of the for
+
+85
+00:05:10,400 --> 00:05:16,050
+loop, what that body of the for loop is
+going to contribute to my operation count.
+
+86
+00:05:16,050 --> 00:05:19,350
+And so, in a single iteration,
+what I need to do is,
+
+87
+00:05:19,350 --> 00:05:24,170
+well I need to test whether my current
+loop counter is less than the bound.
+
+88
+00:05:24,170 --> 00:05:28,720
+I need to, in that case, perform
+the contents of the body of the for loop.
+
+89
+00:05:28,720 --> 00:05:32,210
+And then I'm going to need to
+increment my loop counter.
+
+90
+00:05:32,210 --> 00:05:35,660
+Okay, so
+each of those contributes one instruction,
+
+91
+00:05:35,660 --> 00:05:39,820
+in this particular case,
+to the operation count all in all.
+
+92
+00:05:39,820 --> 00:05:43,470
+And this is, of course, assuming that
+in this current iteration of the for
+
+93
+00:05:43,470 --> 00:05:46,700
+loop I haven't found the character
+that I'm looking for,
+
+94
+00:05:46,700 --> 00:05:48,690
+because that would kick us out of the for
+loop.
+
+95
+00:05:48,690 --> 00:05:52,215
+And so let's just think about what's
+happening in an iteration, somewhere in
+
+96
+00:05:52,215 --> 00:05:55,858
+the middle of my algorithm, somewhere in
+the middle of the execution of the code.
+
+97
+00:05:55,858 --> 00:05:59,280
+And so in that case,
+each iteration takes 3 operations.
+
+98
+00:05:59,280 --> 00:06:02,630
+And so
+if we think back to looking for 'a',
+
+99
+00:06:02,630 --> 00:06:06,730
+then we only really did 2
+iterations of the for loop.
+
+100
+00:06:06,730 --> 00:06:10,340
+We went through an iteration when
+our loop counter was at the 0, so
+
+101
+00:06:10,340 --> 00:06:12,620
+we were comparing a to capital S, and
+
+102
+00:06:12,620 --> 00:06:15,870
+then we had an iteration with
+our loop counter at position 1.
+
+103
+00:06:15,870 --> 00:06:19,345
+And so then we were comparing a to a, and
+then we broke out of the for loop and
+
+104
+00:06:19,345 --> 00:06:19,976
+were happy.
+
+105
+00:06:19,976 --> 00:06:25,000
+Okay, so, when we had just the 2
+iterations, we got 7 operations.
+
+106
+00:06:25,000 --> 00:06:28,460
+And so now let's think about the how
+many iterations of the loop are there,
+
+107
+00:06:28,460 --> 00:06:30,095
+when we're looking for the letter 'x'.
+
+108
+00:06:30,095 --> 00:06:34,330
+Okay, so thinking back to the algorithm,
+
+109
+00:06:34,330 --> 00:06:39,200
+we're going from the beginning to
+the very end of the word San Diego.
+
+110
+00:06:39,200 --> 00:06:43,550
+And so we're going to be looking through
+every single position of the string, and
+
+111
+00:06:43,550 --> 00:06:46,260
+that means that there's going
+to be an iteration of the for
+
+112
+00:06:46,260 --> 00:06:50,010
+loop for
+each of the positions in the string.
+
+113
+00:06:50,010 --> 00:06:53,990
+And there are 9 such positions
+because this is a length 9 word.
+
+114
+00:06:53,990 --> 00:06:57,410
+Okay, now we can go ahead and
+do the calculations for
+
+115
+00:06:57,410 --> 00:07:00,340
+the number of operations
+based on the 9 iterations.
+
+116
+00:07:00,340 --> 00:07:04,220
+We see that there are going
+to be 29 operations.
+
+117
+00:07:04,220 --> 00:07:07,687
+And now you might stop and
+say, whoa, hold on,
+
+118
+00:07:07,687 --> 00:07:12,032
+I know my arithmetic,
+9 times 3 is not 29, it's 27!
+
+119
+00:07:12,032 --> 00:07:15,356
+Think about what happens at the very
+beginning, when we initialized
+
+120
+00:07:15,356 --> 00:07:18,920
+the variable i, and at the very end,
+when we break out of the loop.
+
+121
+00:07:18,920 --> 00:07:23,980
+And so, there's going to be some niggly
+little counts at the very beginning and
+
+122
+00:07:23,980 --> 00:07:25,590
+the end that aren't exactly the same,
+
+123
+00:07:25,590 --> 00:07:28,419
+it's just doing 3 times
+the number of iterations.
+
+124
+00:07:29,440 --> 00:07:32,910
+You can do that calculation, I trust you,
+you can do that on your own.
+
+125
+00:07:32,910 --> 00:07:38,120
+But big picture, we've got about
+3 operations for each iteration.
+
+126
+00:07:38,120 --> 00:07:41,370
+And then we've got 9 iterations of the for
+loop, as we're looking for
+
+127
+00:07:41,370 --> 00:07:43,970
+that letter 'x' through
+the word San Diego.
+
+128
+00:07:45,350 --> 00:07:49,470
+But in all of this,
+we're kinda sweeping under the rug,
+
+129
+00:07:49,470 --> 00:07:52,560
+this question of what
+counts as an operation?
+
+130
+00:07:52,560 --> 00:07:55,110
+What does it mean to have an operation?
+
+131
+00:07:55,110 --> 00:07:57,370
+And so, when we first started out,
+
+132
+00:07:57,370 --> 00:08:02,210
+I suggested that every time we execute
+a statement, that's an operation.
+
+133
+00:08:02,210 --> 00:08:05,111
+And every time we evaluate
+a conditional statement and ask for
+
+134
+00:08:05,111 --> 00:08:08,871
+the Boolean value of that conditional
+statement, then that's an operation.
+
+135
+00:08:08,871 --> 00:08:10,780
+But you might ask, well how did you know?
+
+136
+00:08:10,780 --> 00:08:13,590
+How did you know that when we returned
+to something that's an operation?
+
+137
+00:08:13,590 --> 00:08:16,990
+What about other possibilities,
+or can I group operations?
+
+138
+00:08:16,990 --> 00:08:21,160
+What if I have a single line that's
+both a variable declaration and
+
+139
+00:08:21,160 --> 00:08:24,074
+an assignment,
+is that one operation or two?
+
+140
+00:08:24,074 --> 00:08:25,294
+Who knows?
+
+141
+00:08:25,294 --> 00:08:27,456
+Well so that's a really good question and
+
+142
+00:08:27,456 --> 00:08:31,770
+it goes to the heart of what we wanna
+do when we're analyzing performance.
+
+143
+00:08:31,770 --> 00:08:35,610
+What we'd like to do is not
+worry about this question,
+
+144
+00:08:35,610 --> 00:08:38,490
+what we'd like to do is only worry about
+
+145
+00:08:38,490 --> 00:08:42,060
+the pieces of the algorithm that we
+can control as algorithm designers.
+
+146
+00:08:42,060 --> 00:08:42,600
+And not so
+
+147
+00:08:42,600 --> 00:08:47,520
+much about the implementation of how
+a single line of Java code gets executed.
+
+148
+00:08:47,520 --> 00:08:53,050
+And so a way to think about an operation,
+is a basic unit
+
+149
+00:08:53,050 --> 00:08:58,810
+of execution that doesn't
+change as the input changes.
+
+150
+00:08:58,810 --> 00:09:05,780
+So when we have a single line of code that
+is both a declaration and an assignment,
+
+151
+00:09:05,780 --> 00:09:11,640
+then what we're doing in that single line
+of code doesn't depend on the input.
+
+152
+00:09:11,640 --> 00:09:15,124
+How long it takes us to do that doesn't
+really depend on the input and so
+
+153
+00:09:15,124 --> 00:09:17,144
+we can count that as a single operation.
+
+154
+00:09:17,144 --> 00:09:21,413
+So a basic operation is something that
+doesn't depend on the size of the input,
+
+155
+00:09:21,413 --> 00:09:24,630
+it doesn't depend on what
+happens with the input.
+
+156
+00:09:24,630 --> 00:09:26,860
+And so
+what we'd like to do is not worry so
+
+157
+00:09:26,860 --> 00:09:31,310
+much about whether we count such
+a declaration plus assignment as two
+
+158
+00:09:31,310 --> 00:09:35,700
+instructions or one, and
+just think of it as a single operation.
+
+159
+00:09:35,700 --> 00:09:39,910
+And the tools that we'll be developing
+in the next video will help us do even
+
+160
+00:09:39,910 --> 00:09:43,520
+more of that kind of abstraction,
+where we're less worried about counting
+
+161
+00:09:43,520 --> 00:09:48,100
+every single operation and
+every single line.
+
+162
+00:09:48,100 --> 00:09:51,460
+And rather look at the whole scale
+performance of the algorithm,
+
+163
+00:09:51,460 --> 00:09:55,800
+specifically as the input grows and
+the input size gets really, really big.

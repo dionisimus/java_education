@@ -1,0 +1,87 @@
+1
+00:00:00,000 --> 00:00:03,553
+[MUSIC]
+
+2
+00:00:03,553 --> 00:00:05,028
+So when I was learning about trees,
+
+3
+00:00:05,028 --> 00:00:07,850
+I learned about the different
+kind of tree traversals.
+
+4
+00:00:07,850 --> 00:00:10,700
+Level order, in order,
+pre order, post order.
+
+5
+00:00:10,700 --> 00:00:12,550
+And you know,
+I dutifully did the work, but
+
+6
+00:00:12,550 --> 00:00:15,240
+I never quite understood
+what they were good for.
+
+7
+00:00:15,240 --> 00:00:16,000
+And so many,
+
+8
+00:00:16,000 --> 00:00:21,430
+many years later, well after the class I
+had taken on trees, I was doing my thesis.
+
+9
+00:00:21,430 --> 00:00:25,570
+And at some point in that thesis
+development, I realized suddenly,
+
+10
+00:00:25,570 --> 00:00:29,160
+this is a pattern recognition problem,
+it's a problem in artificial intelligence.
+
+11
+00:00:29,160 --> 00:00:31,340
+That I was actually
+working with a tree again.
+
+12
+00:00:31,340 --> 00:00:35,640
+And I was thinking about how to solve,
+this one problem, that I had to solve for
+
+13
+00:00:35,640 --> 00:00:36,770
+my thesis.
+
+14
+00:00:36,770 --> 00:00:37,940
+And suddenly it hit me.
+
+15
+00:00:37,940 --> 00:00:40,710
+Oh my gosh,
+I need a level order traversal here.
+
+16
+00:00:40,710 --> 00:00:44,900
+And it was of those moments, where I'm
+like, oh, all that stuff I used back then.
+
+17
+00:00:44,900 --> 00:00:46,320
+It does have a point.
+
+18
+00:00:46,320 --> 00:00:47,670
+It is useful.
+
+19
+00:00:47,670 --> 00:00:50,060
+And it really kind of hit
+the point home for me.

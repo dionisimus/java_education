@@ -1,0 +1,44 @@
+[MUSIC] In this lesson we're gonna
+start learning about trees. Trees are incredibly powerful and versatile data structure that are used
+commonly throughout computer science. In fact, many of the data structures, built in data structures that
+you've used in java before, almost certainly have trees on their
+back end, in their implementation side. So, where gonna do today is just
+look at why are trees valuable and why are they so common? So, trees somewhat naturally
+represent data in the real world. So, you've almost certainly seen
+a family tree before where you have a parents whose children
+are below them in the tree and then you've got the children of those
+children even further down the tree. And this is a tree from a fairly
+popular TV show these days. Decision trees are also fairly common. If you ever gone to a medical health site, you almost certainly went through a
+decision tree if you were trying to figure out what to do based on your symptoms. Similarly, this is kind of a fun anecdote,
+if your house is clean, you might make a decision. Yes, my house is clean, so I just relax. No?
+Well. Is my floor clean? Well, no, so I better sweep the floor. So these kinds of decision trees
+help guide decisions you might make. Well think of it in science,
+you might do an expression tree. Now we're not gonna dive into
+the details of this, but if you wanna evaluate the expression
+45 / (3 +6), you actually represent it really cleanly as a tree and
+be able to evaluate it much more easily. You almost certainly have file
+systems on your computer. And file systems are perfect
+examples of trees. Where if I want to know that
+my path is users, porter, well I know it based
+on the tree structure. You can see that there's a root,
+then users, then porter. So there's lots of trees
+in computer science. In fact, you almost certainly
+have heard of some of these. But there's just regular trees, there's
+binary trees, there's heaps, there's binary search trees, there's Huffman
+trees, there's AVL trees, randomized search trees, red black trees, tons of
+these, all throughout computer science. Why are there so many trees? Well, there's two reasons why trees are so
+powerful. The first is that they're
+a dynamic data structure. What I mean by that is, it's really
+easy to add a new directory say, for Professor Alvarado. So dynamic data structures just like
+are nice, cuz it's easy to add and remove. The more powerful feature to trees is
+that their structure conveys information. So the fact that users
+is a child of root and that porter is a child of users tells me
+that that path exists to users/porter/. In fact, if you just change
+the structure around a little bit, you get all these
+different kinds of trees. If you make the structure such that root,
+the very top level, has to be the most important. Well now you've got a heap. If you wanna organize it based on
+character frequencies in say a body of text, well now you've got
+a compression tree or Huffman tree. If you wanna organize it based on
+the natural ordering of the nodes, well now you've got a search tree. And there's all these different ways
+that we can organize these trees to get different data structures. We'll look in detail at a few of these
+trees, in these following lessons.

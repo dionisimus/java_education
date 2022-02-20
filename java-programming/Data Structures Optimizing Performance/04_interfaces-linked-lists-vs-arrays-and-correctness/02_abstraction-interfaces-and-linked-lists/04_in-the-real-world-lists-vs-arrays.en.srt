@@ -1,0 +1,150 @@
+1
+00:00:00,000 --> 00:00:07,171
+[MUSIC]
+
+2
+00:00:07,171 --> 00:00:09,930
+Why would you want to use
+a list rather than an array?
+
+3
+00:00:11,090 --> 00:00:14,090
+The big advantage of
+an array is random access.
+
+4
+00:00:14,090 --> 00:00:17,590
+You can look at any element of
+the array in the same amount of time.
+
+5
+00:00:17,590 --> 00:00:20,740
+So reading an array is constant time.
+
+6
+00:00:20,740 --> 00:00:21,410
+It's o over one.
+
+7
+00:00:22,430 --> 00:00:23,700
+In a list,
+
+8
+00:00:23,700 --> 00:00:28,240
+you have to walk down the list step by
+step to get to the element you want.
+
+9
+00:00:29,240 --> 00:00:33,140
+So reading in a list is linear time.
+
+10
+00:00:33,140 --> 00:00:35,665
+It's o of n.
+On the other hand, inserting or
+
+11
+00:00:35,665 --> 00:00:40,610
+deleting an item in a list, just requires
+fiddling some object references.
+
+12
+00:00:40,610 --> 00:00:42,620
+So, it's constant time.
+
+13
+00:00:42,620 --> 00:00:45,370
+But inserting or deleting into an array
+
+14
+00:00:45,370 --> 00:00:49,970
+usually means you have to copy all
+of the following items in the array.
+
+15
+00:00:49,970 --> 00:00:53,240
+Sometimes you have to copy the whole array
+if you don't have enough space in memory
+
+16
+00:00:53,240 --> 00:00:54,000
+so that's o of n.
+
+17
+00:00:54,000 --> 00:00:59,250
+In general, arrays are faster to read,
+and lists are faster to write.
+
+18
+00:00:59,250 --> 00:01:02,200
+So you have to pick your data
+structure carefully depending on what
+
+19
+00:01:02,200 --> 00:01:03,799
+algorithm you're planning
+on using with it.
+
+20
+00:01:05,920 --> 00:01:10,680
+For example, there was a time
+when I needed to do a merge sort
+
+21
+00:01:10,680 --> 00:01:13,220
+on a collection of very large objects.
+
+22
+00:01:14,940 --> 00:01:18,170
+Merging two arrays means
+allocating a third array
+
+23
+00:01:18,170 --> 00:01:22,600
+as big as the original two combined,
+and then copying each object into it.
+
+24
+00:01:22,600 --> 00:01:24,410
+So it's really slow.
+
+25
+00:01:24,410 --> 00:01:26,980
+Merging two lists means
+walking down the two lists and
+
+26
+00:01:26,980 --> 00:01:28,480
+just fiddling the references as you go.
+
+27
+00:01:28,480 --> 00:01:30,900
+And when you're done
+you have one big list.
+
+28
+00:01:30,900 --> 00:01:32,540
+So that's really fast.
+
+29
+00:01:32,540 --> 00:01:35,415
+In this case the algorithmic
+complexity is the same.
+
+30
+00:01:35,415 --> 00:01:38,975
+They're both n log n, like any merge sort.
+
+31
+00:01:38,975 --> 00:01:42,895
+But in practice, the difference in
+performance was something like 10 or
+
+32
+00:01:42,895 --> 00:01:47,815
+20 times, because copying
+the objects took such a long time.
+
+33
+00:01:47,815 --> 00:01:49,185
+So using a list was a big win.

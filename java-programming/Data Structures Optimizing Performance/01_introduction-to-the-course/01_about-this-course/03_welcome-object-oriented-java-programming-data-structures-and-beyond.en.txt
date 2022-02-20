@@ -1,0 +1,40 @@
+[MUSIC] Hi, I'm Mia Minnes. >> I'm Leo Porter. >> And I'm Christine Alvarado. We're back with the second course in
+our intermediate Java programming specialization. Some of you were with us for
+our first course, and if you were, wasn't that a cool project? Others here are just joining us for
+the first time. Either way, welcome. >> If you were with us for
+that first course, you've already seem a glimpse of
+the importance of performance and efficiency in your code even when you were
+working with just moderate size data sets. What we're going to do in this
+course is push that even further and think about how data structures can help
+us both measure and optimize performance. >> We'll begin by learning how to perform
+a high level analysis of an algorithm, we'll then apply that to data structures. Specifically, we're gonna be looking at
+data structures ability to search for information, to add new information and
+to remove existing information. In the process of this analysis, we're
+gonna look closely at a number of core data structures and abstract data types,
+including linked lists, queues, trees, binary search trees,
+tries and hash tables. And we're gonna go beyond just
+the high-level analysis to also look at how does this actually
+perform on a real system. And lastly, we'll help you have more
+confidence in your codes correctness by learning more about testing. >> And all of this will be in
+the context of a really cool project. So you'll be building a text editor that
+has some really modern functionality built into it. In particular,
+you'll be building spell check and also auto-complete, which is a feature
+that I use all the time, for example, when typing strings
+into the Google search bar. In addition to those functionalities, you'll also be implementing some
+games as part of your text editor. One of those will help you
+determine the readability or how easy it is to read a piece of text,
+and also a game for going from one word to another,
+just by modifying one character at a time. >> Yeah, that's a really fun game. But it also turns out it's gonna
+illustrate a problem which is really central to many fields in
+computer science and related fields, like computational biology and
+machine translation. So, this project-based approach isn't
+the only thing you'll recognize from our first tours if you took it. We're also bringing back the ability for you to choose your own
+path through this course. So you'll be able to use the resources
+we provide to customize your experience, getting the help you
+need when you need it and challenging yourself to your own level. We want you to be successful on the
+project and the end of module assessments. So be sure to check out my video that
+talks about how to use the features of the course to customize your own path. >> Regardless of the path that you take
+through the course, the skills and the data structures that you'll learn
+in this course will help you solve a number of problems as
+a software engineer, and are essentially core information for
+any computer scientist. So without further ado, let's get started.

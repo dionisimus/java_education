@@ -1,0 +1,617 @@
+1
+00:00:00,025 --> 00:00:05,405
+[SOUND] So in this lesson on trees,
+you've seen a lot of jargon and
+
+2
+00:00:05,405 --> 00:00:08,404
+a lot of notation and terminology.
+
+3
+00:00:08,404 --> 00:00:12,535
+And so this concept challenge helps
+you put all the concepts together and
+
+4
+00:00:12,535 --> 00:00:15,799
+really see how the different
+pieces impact one another.
+
+5
+00:00:15,799 --> 00:00:19,070
+Now, you're used to the routine here.
+
+6
+00:00:19,070 --> 00:00:20,710
+You'll be presented with a question and
+
+7
+00:00:20,710 --> 00:00:22,820
+we'll invite you to solve
+the problem yourself.
+
+8
+00:00:22,820 --> 00:00:25,630
+Then you'll discuss with other
+learners either around you or
+
+9
+00:00:25,630 --> 00:00:29,280
+on the discussion forums, and
+then you'll watch the UC San Diego
+
+10
+00:00:29,280 --> 00:00:32,300
+students video where they
+discuss the question.
+
+11
+00:00:32,300 --> 00:00:36,520
+You'll be invited to answer the question
+again and then we'll recap the solution.
+
+12
+00:00:36,520 --> 00:00:41,510
+So, in this problem, what you'll be doing
+is thinking about how the insertion order
+
+13
+00:00:41,510 --> 00:00:45,760
+of elements into a binary search
+tree impact the shape of the tree.
+
+14
+00:00:45,760 --> 00:00:46,980
+>> Hi I'm Alan.
+
+15
+00:00:46,980 --> 00:00:47,560
+>> I'm Melissa.
+
+16
+00:00:47,560 --> 00:00:48,850
+>> I'm Sarah.
+
+17
+00:00:48,850 --> 00:00:51,980
+>> So I think these are all
+valid trees because each node,
+
+18
+00:00:51,980 --> 00:00:53,980
+everything less than the node
+is less than the node, and
+
+19
+00:00:53,980 --> 00:00:56,220
+everything to the right of
+the node is greater than the node.
+
+20
+00:00:57,570 --> 00:00:58,660
+>> Yeah.
+
+21
+00:00:58,660 --> 00:01:05,360
+So for A, the root always comes first,
+and so there's two first,
+
+22
+00:01:06,650 --> 00:01:12,020
+and it could be either one or four, right?
+
+23
+00:01:12,020 --> 00:01:13,240
+>> Right.
+
+24
+00:01:13,240 --> 00:01:14,000
+>> Yeah.
+
+25
+00:01:14,000 --> 00:01:17,595
+>> So two, one and then two,
+four and then eight on the end.
+
+26
+00:01:17,595 --> 00:01:20,640
+>> One could also come in the end, too.
+
+27
+00:01:20,640 --> 00:01:24,980
+>> Yeah, that's true, so
+it could be two, four, eight and one.
+
+28
+00:01:24,980 --> 00:01:25,560
+>> Yeah.
+
+29
+00:01:25,560 --> 00:01:27,130
+>> Okay, so
+there's three possibilities for A.
+
+30
+00:01:28,380 --> 00:01:29,440
+>> So for B.
+
+31
+00:01:29,440 --> 00:01:32,940
+So if the rest come first,
+then it has to be two, and then
+
+32
+00:01:32,940 --> 00:01:37,153
+one can still come at the end since it's
+on its own, it doesn't have any children.
+
+33
+00:01:37,153 --> 00:01:39,320
+>> Yes.
+>> So it doesn't have children,
+
+34
+00:01:39,320 --> 00:01:41,380
+it can come at the end right?
+
+35
+00:01:41,380 --> 00:01:42,800
+>> Yeah, if it doesn't,
+that makes sense, yeah.
+
+36
+00:01:42,800 --> 00:01:47,350
+>> All right, so, and
+then four has to be after eight.
+
+37
+00:01:47,350 --> 00:01:48,650
+>> Yes.
+>> So it'd be two, eight, four, and
+
+38
+00:01:48,650 --> 00:01:51,580
+then one could come over.
+
+39
+00:01:51,580 --> 00:01:54,720
+And then C, it is one long one so
+they have to be in order.
+
+40
+00:01:54,720 --> 00:01:55,638
+>> Yeah.
+>> Efficient though.
+
+41
+00:01:55,638 --> 00:01:59,030
+>> Yeah true.
+
+42
+00:01:59,030 --> 00:02:01,790
+>> I think D's a little weird
+with the two at the end.
+
+43
+00:02:03,600 --> 00:02:05,440
+>> Yeah.
+>> Yeah that confused me a bit.
+
+44
+00:02:05,440 --> 00:02:07,860
+I thought that was
+an invalid tree at first.
+
+45
+00:02:07,860 --> 00:02:10,950
+>> Yeah.
+>> I thought it was an invalid tree.
+
+46
+00:02:10,950 --> 00:02:13,500
+>> But I think it's a valid tree since
+
+47
+00:02:13,500 --> 00:02:17,140
+two can come after four since it's
+smaller than four on the left.
+
+48
+00:02:18,850 --> 00:02:19,740
+>> Yeah, that's true.
+
+49
+00:02:21,260 --> 00:02:25,630
+So, the root, which is one,
+comes first, and then-
+
+50
+00:02:25,630 --> 00:02:27,345
+>> And then it would have to be four,
+
+51
+00:02:27,345 --> 00:02:29,290
+cuz it's the one's only child.
+
+52
+00:02:29,290 --> 00:02:31,880
+And then I guess two and
+eight come in either order.
+
+53
+00:02:31,880 --> 00:02:36,207
+>> Yeah, so
+there's two possibilities for D.
+
+54
+00:02:36,207 --> 00:02:40,557
+>> So as you saw when the U C San Diego
+students discussed this problem,
+
+55
+00:02:40,557 --> 00:02:43,013
+all the four options are valid trees.
+
+56
+00:02:43,013 --> 00:02:45,481
+You can think about the root
+node of each of these trees,
+
+57
+00:02:45,481 --> 00:02:48,159
+you can think about the leaf
+nodes of each of these trees, and
+
+58
+00:02:48,159 --> 00:02:51,941
+you notice that they're all satisfying the
+properties that are required for trees,
+
+59
+00:02:51,941 --> 00:02:54,384
+and not only that,
+they're all binary search trees.
+
+60
+00:02:54,384 --> 00:02:58,678
+And so notice that every node has at most
+two children and that when we look at
+
+61
+00:02:58,678 --> 00:03:03,040
+the elements or the values stored in
+each of these nodes, we always have that
+
+62
+00:03:03,040 --> 00:03:07,216
+nodes on the left have smaller values
+than the nodes to the right of them.
+
+63
+00:03:07,216 --> 00:03:10,560
+So we have four valid options
+of binary search trees.
+
+64
+00:03:10,560 --> 00:03:14,312
+But, then, the question is, in what order
+might we have inserted the elements
+
+65
+00:03:14,312 --> 00:03:17,956
+in order to get to these very, very
+different shaped trees that we have here.
+
+66
+00:03:17,956 --> 00:03:21,568
+So let's start with the first option,
+option A and
+
+67
+00:03:21,568 --> 00:03:26,860
+we notice that the root of the tree will
+have to come first when we insert it.
+
+68
+00:03:26,860 --> 00:03:30,296
+And that's because when we insert
+nodes into a binary search tree,
+
+69
+00:03:30,296 --> 00:03:33,988
+we always insert nodes as leaf nodes,
+so they don't have any children.
+
+70
+00:03:33,988 --> 00:03:39,103
+And so if we start out with nothing,
+our very first element is
+
+71
+00:03:39,103 --> 00:03:45,238
+going to be the root node because the root
+is not a child of any other node.
+
+72
+00:03:45,238 --> 00:03:49,813
+So we know that our first element to go
+in is going to have to be the number two.
+
+73
+00:03:49,813 --> 00:03:51,822
+But then the question
+is what happens next?
+
+74
+00:03:51,822 --> 00:03:55,196
+And whether there are any constraints
+that are imposed on us by the shape that
+
+75
+00:03:55,196 --> 00:03:55,942
+we see already.
+
+76
+00:03:55,942 --> 00:03:59,959
+And what the learners discussed, and
+what you might be observing as well,
+
+77
+00:03:59,959 --> 00:04:03,848
+is that the eight had to have been
+inserted after the four because it shows
+
+78
+00:04:03,848 --> 00:04:05,726
+up here as a child of the node four.
+
+79
+00:04:05,726 --> 00:04:08,761
+And so
+that means that in our possible orderings,
+
+80
+00:04:08,761 --> 00:04:11,299
+eight is always going to come after four.
+
+81
+00:04:11,299 --> 00:04:15,569
+But that means that it could go at the end
+so then it could have two and then one and
+
+82
+00:04:15,569 --> 00:04:16,756
+then four and eight.
+
+83
+00:04:16,756 --> 00:04:21,193
+Or we could have had four and eight be
+inserted immediately after two and then
+
+84
+00:04:21,193 --> 00:04:25,925
+the one at the end, or we could have had
+four inserted and then one and then eight.
+
+85
+00:04:25,925 --> 00:04:29,307
+And that's okay because the node for
+one and the nodes for
+
+86
+00:04:29,307 --> 00:04:33,256
+four and eight really don't interact
+very much with one another,
+
+87
+00:04:33,256 --> 00:04:37,085
+and so they could have been inserted
+in any order into this tree.
+
+88
+00:04:37,085 --> 00:04:40,335
+All right, so these are the three
+options that we have for
+
+89
+00:04:40,335 --> 00:04:44,074
+insertion orders that lead into
+this shaped binary search tree.
+
+90
+00:04:44,074 --> 00:04:46,214
+But now let's look at option B and
+
+91
+00:04:46,214 --> 00:04:49,738
+we notice that we have
+a slightly similar shaped tree.
+
+92
+00:04:49,738 --> 00:04:54,298
+As before the root comes first, and
+as before, we noticed that when
+
+93
+00:04:54,298 --> 00:04:59,178
+we have a child node, that it had to
+have been inserted after its parent.
+
+94
+00:04:59,178 --> 00:05:02,426
+And so that means that we have
+a constraint of four had to be inserted
+
+95
+00:05:02,426 --> 00:05:03,126
+after eight.
+
+96
+00:05:03,126 --> 00:05:08,106
+But as before, there's still some
+freedom in terms of how we insert one
+
+97
+00:05:08,106 --> 00:05:10,766
+relative to the nodes four and eight.
+
+98
+00:05:10,766 --> 00:05:14,966
+And so again, we have the three options
+that mirrored the collection of
+
+99
+00:05:14,966 --> 00:05:16,930
+options that we had for option A.
+
+100
+00:05:16,930 --> 00:05:20,290
+But now we get to something quite
+different when we look at option C, and
+
+101
+00:05:20,290 --> 00:05:24,111
+in option C we notice that the shape that
+we're thinking about is a linear shape.
+
+102
+00:05:24,111 --> 00:05:28,347
+And so we start at the bottom with the
+root and the root had to come first, but
+
+103
+00:05:28,347 --> 00:05:30,647
+then we have other constraints as well.
+
+104
+00:05:30,647 --> 00:05:33,567
+So we see that the node two
+had to be inserted after one,
+
+105
+00:05:33,567 --> 00:05:37,886
+because that's a child of one, but then
+also four needed to be inserted after two
+
+106
+00:05:37,886 --> 00:05:42,333
+because it's a child of two, and then also
+eight needed to be inserted after four,
+
+107
+00:05:42,333 --> 00:05:46,716
+and so all of a sudden we have completely
+constrained the insertion order into this
+
+108
+00:05:46,716 --> 00:05:50,825
+binary search tree because every single
+node has already been determined.
+
+109
+00:05:50,825 --> 00:05:55,828
+It's position in the insertion order
+completely determined, and so the order
+
+110
+00:05:55,828 --> 00:06:00,997
+in which we inserted elements is exactly
+one, then two, then four, then eight.
+
+111
+00:06:00,997 --> 00:06:04,504
+And that's the only way to have
+inserted them, in order and
+
+112
+00:06:04,504 --> 00:06:07,671
+in that order,
+in order to get that path-like tree.
+
+113
+00:06:07,671 --> 00:06:08,589
+All right.
+
+114
+00:06:08,589 --> 00:06:10,708
+Last but not least,
+we've got this tree and
+
+115
+00:06:10,708 --> 00:06:14,209
+it looks quite different from the other
+ones that we've thought about.
+
+116
+00:06:14,209 --> 00:06:19,261
+Still, the root will have to come first
+when we insert into this tree, but now
+
+117
+00:06:19,261 --> 00:06:24,886
+notice that the dependencies are that both
+leaf nodes are children of that node four.
+
+118
+00:06:24,886 --> 00:06:28,906
+And so both two and eight needed to be
+inserted after four, which meant that four
+
+119
+00:06:28,906 --> 00:06:32,746
+had to come right after one, right
+after the root, in the insertion order,
+
+120
+00:06:32,746 --> 00:06:36,280
+because we had to have space for
+two other elements behind it.
+
+121
+00:06:36,280 --> 00:06:39,580
+But those two other elements, well they
+could go in whatever order they want
+
+122
+00:06:39,580 --> 00:06:41,490
+because neither is a child of the other.
+
+123
+00:06:41,490 --> 00:06:43,701
+And so we have two options for
+the insertion order,
+
+124
+00:06:43,701 --> 00:06:45,663
+either two before eight or
+eight before two.
+
+125
+00:06:45,663 --> 00:06:49,528
+And now we've gone through all of
+the options that we were considering and
+
+126
+00:06:49,528 --> 00:06:53,330
+the take home message of this concept
+challenge is that the order in which
+
+127
+00:06:53,330 --> 00:06:56,632
+we put elements into a binary
+search tree impact the shape, and
+
+128
+00:06:56,632 --> 00:07:00,494
+what you'll see is that the shape of
+the binary search tree will have a huge
+
+129
+00:07:00,494 --> 00:07:04,280
+impact on the performance of operations
+with that binary search tree.
+
+130
+00:07:04,280 --> 00:07:07,750
+And so you want to keep that in mind when
+you're working with this data structure.

@@ -1,0 +1,13 @@
+[MUSIC] So when I was learning about trees, I learned about the different
+kind of tree traversals. Level order, in order,
+pre order, post order. And you know,
+I dutifully did the work, but I never quite understood
+what they were good for. And so many, many years later, well after the class I
+had taken on trees, I was doing my thesis. And at some point in that thesis
+development, I realized suddenly, this is a pattern recognition problem,
+it's a problem in artificial intelligence. That I was actually
+working with a tree again. And I was thinking about how to solve,
+this one problem, that I had to solve for my thesis. And suddenly it hit me. Oh my gosh,
+I need a level order traversal here. And it was of those moments, where I'm
+like, oh, all that stuff I used back then. It does have a point. It is useful. And it really kind of hit
+the point home for me.

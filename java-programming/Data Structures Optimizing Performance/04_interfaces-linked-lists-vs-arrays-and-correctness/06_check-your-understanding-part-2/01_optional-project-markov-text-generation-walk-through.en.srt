@@ -1,0 +1,876 @@
+1
+00:00:00,000 --> 00:00:03,355
+[MUSIC]
+
+2
+00:00:03,355 --> 00:00:07,032
+This video is a walk-through of
+the Programming Assignment for Module 3,
+
+3
+00:00:07,032 --> 00:00:09,630
+Part 2,
+which is the Markov Text Generator.
+
+4
+00:00:09,630 --> 00:00:12,410
+And again, this assignment should be
+a fair amount of fun because essentially
+
+5
+00:00:12,410 --> 00:00:15,130
+when you're done with this you're gonna be
+able to generate random texts which look
+
+6
+00:00:15,130 --> 00:00:16,390
+a lot like original source text.
+
+7
+00:00:16,390 --> 00:00:19,430
+And I've had a lot of fun
+playing with this myself.
+
+8
+00:00:19,430 --> 00:00:21,510
+To do this what you're gonna do is,
+just like all the previous assignments,
+
+9
+00:00:21,510 --> 00:00:23,220
+make sure that you have the starting code.
+
+10
+00:00:23,220 --> 00:00:25,970
+So here is the startup code
+that we've provided to you.
+
+11
+00:00:25,970 --> 00:00:31,450
+The two files that we're gonna focus
+on are the MarkovTextGenerator.java and
+
+12
+00:00:31,450 --> 00:00:35,470
+then MarkovTextGeneratorLoL.java file,
+or LoL file.
+
+13
+00:00:36,860 --> 00:00:41,000
+So what you'll notice initially is that
+the MarkovTextGenerator is actually
+
+14
+00:00:41,000 --> 00:00:44,800
+an interface, and the interface just
+requires that you implement three methods.
+
+15
+00:00:44,800 --> 00:00:48,300
+The train method, which is
+essentially given some source text,
+
+16
+00:00:48,300 --> 00:00:53,030
+train my MarkovTextGenerator
+based on the source text.
+
+17
+00:00:53,030 --> 00:00:56,490
+The second is the generateText method,
+which is what you're gonna call if you
+
+18
+00:00:56,490 --> 00:01:01,420
+wanna generate say 50 words, and get back
+some random text that looks like this.
+
+19
+00:01:01,420 --> 00:01:04,720
+The last method is, you should be able to
+retrain your generator from scratch, and
+
+20
+00:01:04,720 --> 00:01:06,630
+base in some new source text.
+
+21
+00:01:06,630 --> 00:01:08,960
+So, all you're gonna have to is implement
+those three methods within your
+
+22
+00:01:08,960 --> 00:01:14,100
+MarkovTextGeneratorLoL class for
+this to work properly.
+
+23
+00:01:14,100 --> 00:01:16,580
+So if you look at your
+MarkovTextGeneratorLoL class,
+
+24
+00:01:16,580 --> 00:01:20,030
+you'll find that what it has is a three
+instance variables that I want to point
+
+25
+00:01:20,030 --> 00:01:20,900
+out real quickly.
+
+26
+00:01:20,900 --> 00:01:23,130
+The first is,
+it's gonna have a list of list nodes.
+
+27
+00:01:23,130 --> 00:01:25,960
+I'll show you what a list node
+looks like here in just a moment.
+
+28
+00:01:25,960 --> 00:01:27,820
+And this is why it's
+called a list of list,
+
+29
+00:01:27,820 --> 00:01:31,190
+because each of the ListNodes is actually
+gonna have a list within itself.
+
+30
+00:01:32,660 --> 00:01:35,260
+You wanna have essentially
+a starting word which says
+
+31
+00:01:35,260 --> 00:01:38,220
+at what word should we start with
+when we wanna generate some new text.
+
+32
+00:01:38,220 --> 00:01:41,250
+And then lastly you're gonna have
+random generator that's past you.
+
+33
+00:01:42,580 --> 00:01:45,030
+We already wrote
+the MarkovTextGeneratorLoL constructor for
+
+34
+00:01:45,030 --> 00:01:48,310
+you, which takes in a random generator,
+hooks that up right here,
+
+35
+00:01:48,310 --> 00:01:52,640
+and also sets up your word list
+via a linked list of list nodes
+
+36
+00:01:52,640 --> 00:01:56,710
+as well as to set your starter
+string to be the empty string.
+
+37
+00:01:56,710 --> 00:02:00,800
+Now you may ask but why am I taking in
+a random generator as per the constructor?
+
+38
+00:02:00,800 --> 00:02:02,650
+And the reason for
+that is to help with testing.
+
+39
+00:02:02,650 --> 00:02:06,810
+If you take in a random generator
+that is seeded with a value, say 10,
+
+40
+00:02:06,810 --> 00:02:10,210
+it will always produce the same
+random numbers after that.
+
+41
+00:02:10,210 --> 00:02:11,510
+And that's quite useful for testing.
+
+42
+00:02:11,510 --> 00:02:13,520
+And you'll find this useful
+when you test your own code.
+
+43
+00:02:15,390 --> 00:02:18,020
+As you'd expect because this
+is implementing the Markov
+
+44
+00:02:18,020 --> 00:02:19,450
+text generator interface.
+
+45
+00:02:19,450 --> 00:02:23,460
+It's got a train method
+a generate text method.
+
+46
+00:02:23,460 --> 00:02:24,840
+And it's also got a retrain method.
+
+47
+00:02:24,840 --> 00:02:28,420
+You'll notice that we've also
+given you a two-string method
+
+48
+00:02:28,420 --> 00:02:32,530
+to essentially help print out this
+list when you're debugging it.
+
+49
+00:02:32,530 --> 00:02:36,424
+We've also given you a main method which
+does some primary tests and you should
+
+50
+00:02:36,424 --> 00:02:40,152
+feel free to use this however you feel
+fit in terms of testing your own code.
+
+51
+00:02:42,325 --> 00:02:46,917
+Lastly, we've given you a list node itself
+and a list node, I'll show you a graphic
+
+52
+00:02:46,917 --> 00:02:51,056
+for this in a moment, contains a word
+which is the word in the original source
+
+53
+00:02:51,056 --> 00:02:55,520
+text, along with all of the possible words
+that follow that and that, of course,
+
+54
+00:02:55,520 --> 00:02:58,754
+is going to have to be a list
+because you can have more than one
+
+55
+00:02:58,754 --> 00:03:01,510
+word Have falling each
+original word in the text.
+
+56
+00:03:02,680 --> 00:03:07,460
+And we already set up an instructor for
+this, we already created a getter method,
+
+57
+00:03:07,460 --> 00:03:11,760
+we also created a method that lets you
+to add additional words to this list.
+
+58
+00:03:11,760 --> 00:03:13,460
+And we've also given you
+a two-string method,
+
+59
+00:03:13,460 --> 00:03:16,060
+and again a two string method is for
+testing.
+
+60
+00:03:16,060 --> 00:03:19,790
+What we haven't given you
+is a getRandomNextWord.
+
+61
+00:03:19,790 --> 00:03:23,818
+And this is where you're gonna have
+to produce a single random next word.
+
+62
+00:03:23,818 --> 00:03:28,240
+So your MarkovTextGenerator class
+is gonna call your linked list node
+
+63
+00:03:28,240 --> 00:03:32,410
+object's getRandomNextWord method and
+
+64
+00:03:32,410 --> 00:03:36,210
+it should give you back a random word,
+that follows this.
+
+65
+00:03:36,210 --> 00:03:38,420
+And again, I'll show you some
+graphics of this in just a moment.
+
+66
+00:03:38,420 --> 00:03:41,290
+But this is essentially the code
+that you have to start with.
+
+67
+00:03:41,290 --> 00:03:43,490
+So again, I encourage you to
+look first at the starter code,
+
+68
+00:03:43,490 --> 00:03:45,120
+go through the code itself.
+
+69
+00:03:45,120 --> 00:03:47,840
+Look at the train method,
+the journey text method.
+
+70
+00:03:47,840 --> 00:03:52,440
+The retrain methods and see what you
+need to implement for this assignment.
+
+71
+00:03:52,440 --> 00:03:56,150
+After you have done that I encourage you
+to read this write correctly we've given
+
+72
+00:03:56,150 --> 00:04:00,770
+you the algorithms that you will need
+to implement as part of this write up.
+
+73
+00:04:00,770 --> 00:04:04,410
+If you want an extra added challenge
+go head and skip these parts and
+
+74
+00:04:04,410 --> 00:04:06,130
+try to do this on your own but
+
+75
+00:04:06,130 --> 00:04:09,760
+I do encourage you to look at the
+algorithms if you want that extra help.
+
+76
+00:04:10,940 --> 00:04:13,060
+So the algorithms you're gonna be
+implementing are actually fairly well
+
+77
+00:04:13,060 --> 00:04:13,750
+defined.
+
+78
+00:04:13,750 --> 00:04:15,740
+First, the train method.
+
+79
+00:04:15,740 --> 00:04:18,220
+So to train,
+you're gonna take an imput text and
+
+80
+00:04:18,220 --> 00:04:21,280
+you're gonna generate a data
+structure that's gonna help you
+
+81
+00:04:21,280 --> 00:04:24,240
+perform the MarkovTextGenerator
+based on that imput text.
+
+82
+00:04:24,240 --> 00:04:27,990
+And you can see that, I have the algorithm
+essentially outlined right here.
+
+83
+00:04:27,990 --> 00:04:31,730
+What I wanna show you is essentially
+the output of the data structure.
+
+84
+00:04:31,730 --> 00:04:34,890
+So if you were to train on the phrase,
+hi there,
+
+85
+00:04:34,890 --> 00:04:40,560
+hi Leo, what you'd end up with is
+three nodes in your list of lists.
+
+86
+00:04:40,560 --> 00:04:42,910
+The first node would have the word hi.
+
+87
+00:04:42,910 --> 00:04:46,160
+That's the start word, and there's two
+possible words that follow from hi.
+
+88
+00:04:46,160 --> 00:04:50,690
+As you can tell from the original text,
+there was hi there, so there is included.
+
+89
+00:04:50,690 --> 00:04:53,780
+There's also hi Leo, so Leo is included.
+
+90
+00:04:53,780 --> 00:04:55,180
+So, if you have the word, hi,
+
+91
+00:04:55,180 --> 00:04:59,130
+you potentially generate
+either the words there or Leo.
+
+92
+00:04:59,130 --> 00:05:02,370
+The word there is only followed
+by the word hi in this text.
+
+93
+00:05:02,370 --> 00:05:06,070
+So, if you produce the word there,
+the only word that can follow it,
+
+94
+00:05:06,070 --> 00:05:06,950
+again, is hi.
+
+95
+00:05:08,160 --> 00:05:11,290
+And the last node to focus
+on is the node for Leo.
+
+96
+00:05:11,290 --> 00:05:14,590
+So there are no words to follow
+Leo in this initial text.
+
+97
+00:05:14,590 --> 00:05:17,570
+Let's make your generate
+text method easier,
+
+98
+00:05:17,570 --> 00:05:22,160
+what you're gonna do is have it followed
+by the very first work in the text.
+
+99
+00:05:22,160 --> 00:05:23,130
+So, when you hit the word Leo,
+
+100
+00:05:23,130 --> 00:05:26,570
+you're gonna make sure that it's
+followed by the very first word.
+
+101
+00:05:26,570 --> 00:05:30,510
+Now if Leo had appeared multiple
+times in this text already,
+
+102
+00:05:30,510 --> 00:05:33,790
+again you'd still wanna pan
+the word hi to make sure
+
+103
+00:05:33,790 --> 00:05:37,300
+that it could have been eventually
+start over without the very first word.
+
+104
+00:05:38,670 --> 00:05:42,205
+So your goal for the train method is
+essentially produce this data structure.
+
+105
+00:05:42,205 --> 00:05:46,315
+And what we've given you again is a method
+that allows you to print out the output.
+
+106
+00:05:46,315 --> 00:05:48,539
+So, if you train on hi there, hi Leo,
+
+107
+00:05:48,539 --> 00:05:52,026
+what you want then is when you
+print it is to get this output.
+
+108
+00:05:53,790 --> 00:05:58,708
+The second step, and I encourage you to
+heavily test your train method before
+
+109
+00:05:58,708 --> 00:06:02,020
+you move on to the generate text method.
+
+110
+00:06:02,020 --> 00:06:04,880
+Well, once you've tested your code
+carefully for train, move on to
+
+111
+00:06:04,880 --> 00:06:09,590
+generate text and what you'll do is again
+follow the algorithm that we've given you.
+
+112
+00:06:09,590 --> 00:06:12,160
+And let me go back up to
+our visual representation.
+
+113
+00:06:12,160 --> 00:06:15,010
+And the idea for generating text is
+essentially start with the start word,
+
+114
+00:06:15,010 --> 00:06:18,100
+which is hi, and
+then pick one of the possible words.
+
+115
+00:06:18,100 --> 00:06:21,596
+And you're gonna use a random number
+to essentially pick which one that
+
+116
+00:06:21,596 --> 00:06:22,820
+you wanna use.
+
+117
+00:06:22,820 --> 00:06:25,760
+So you'll pick hi initially because it's
+the first word, it's the starter word.
+
+118
+00:06:25,760 --> 00:06:27,760
+And then you'll randomly select one.
+
+119
+00:06:27,760 --> 00:06:30,000
+Let's say we pick the word bear.
+
+120
+00:06:30,000 --> 00:06:31,550
+So, we're gonna go there.
+
+121
+00:06:31,550 --> 00:06:32,810
+There can only produce the word, hi.
+
+122
+00:06:32,810 --> 00:06:36,330
+So you're gonna print hi and there,
+you're back at the high note.
+
+123
+00:06:36,330 --> 00:06:40,400
+So, hi can produce either there or Leo,
+and let's say we randomly now select Leo.
+
+124
+00:06:40,400 --> 00:06:42,710
+So, got a Leo, Leo can only produce hi.
+
+125
+00:06:42,710 --> 00:06:44,920
+We're back to hi, and
+we just continue this process for
+
+126
+00:06:44,920 --> 00:06:47,300
+as many words as the user has asked for.
+
+127
+00:06:49,090 --> 00:06:51,557
+Again, if you want more details,
+the algorithm is provided right here.
+
+128
+00:06:54,180 --> 00:06:56,340
+Last step is to do retrain.
+
+129
+00:06:56,340 --> 00:06:59,090
+So retrain is going to look a lot like the
+train method its just that you're going to
+
+130
+00:06:59,090 --> 00:07:02,260
+have to clear out the data structures
+that you've already created and
+
+131
+00:07:02,260 --> 00:07:03,490
+just start over again.
+
+132
+00:07:03,490 --> 00:07:06,860
+So retrain is basically just
+train except that you discard
+
+133
+00:07:06,860 --> 00:07:07,900
+the train that you already had.
+
+134
+00:07:10,210 --> 00:07:11,520
+So some hint's,
+
+135
+00:07:11,520 --> 00:07:15,930
+you're almost only gonna really use that
+two string method both within the list and
+
+136
+00:07:15,930 --> 00:07:20,040
+within each node when you're trying
+to test and debug what's going on.
+
+137
+00:07:20,040 --> 00:07:23,110
+The second is I encourage you
+to train on small inputs and
+
+138
+00:07:23,110 --> 00:07:28,660
+then draw your expected list of lists
+by hand before you run the code itself.
+
+139
+00:07:28,660 --> 00:07:29,680
+And then run the code and
+
+140
+00:07:29,680 --> 00:07:32,680
+see if it actually generates that
+list of lists that you inspected.
+
+141
+00:07:32,680 --> 00:07:36,500
+This kinda very careful debugging
+process is gonna be incredibly valuable
+
+142
+00:07:36,500 --> 00:07:39,620
+in terms of solving this
+project efficiently.
+
+143
+00:07:39,620 --> 00:07:42,740
+When you pick a random next word, there
+are a couple of things that can go wrong.
+
+144
+00:07:42,740 --> 00:07:46,250
+The first is you wanna make sure that
+you can produce all possible words.
+
+145
+00:07:46,250 --> 00:07:50,470
+So, if your current word
+could produce hi there or
+
+146
+00:07:50,470 --> 00:07:54,510
+this, make sure that you can produce all
+of those, by running essentially a large
+
+147
+00:07:54,510 --> 00:07:57,790
+enough generate text that
+you see all of them occur.
+
+148
+00:07:57,790 --> 00:08:02,420
+Really common bugs are to
+omit ever outputting hi or
+
+149
+00:08:02,420 --> 00:08:04,970
+this, just in terms of which
+one you pick randomly.
+
+150
+00:08:04,970 --> 00:08:09,060
+The other thing to focus on when you're
+generating random words is to recognize
+
+151
+00:08:09,060 --> 00:08:12,480
+that you should be able to
+repeat words in your list.
+
+152
+00:08:12,480 --> 00:08:15,746
+For example, if your word is
+followed by the word hi, and
+
+153
+00:08:15,746 --> 00:08:19,640
+then it's followed again by the word
+hi later in this source text.
+
+154
+00:08:19,640 --> 00:08:22,096
+And it's followed again by the word
+hi 'later in the source text and
+
+155
+00:08:22,096 --> 00:08:24,530
+then it's followed by the word
+hello in the source text.
+
+156
+00:08:24,530 --> 00:08:28,220
+Your list should actually contain hi,
+hi, hi, and hello.
+
+157
+00:08:28,220 --> 00:08:32,240
+And the reason for this is because you
+wanna make sure that hi gets generated
+
+158
+00:08:32,240 --> 00:08:34,330
+more commonly, than the word hello does.
+
+159
+00:08:34,330 --> 00:08:38,830
+And the way you're going to test this
+again, is to generate a large enough
+
+160
+00:08:38,830 --> 00:08:43,300
+segment of text that you can make
+sure that the word in question here
+
+161
+00:08:43,300 --> 00:08:47,420
+generates hi following it more often
+than it generates hello following it.
+
+162
+00:08:47,420 --> 00:08:50,420
+And if you generate next word
+methods working properly,
+
+163
+00:08:50,420 --> 00:08:52,470
+it will do this just fine.
+
+164
+00:08:52,470 --> 00:08:54,820
+When you're all done writing you
+MarkovTextGenerator class and
+
+165
+00:08:54,820 --> 00:08:58,490
+testing it, you're gonna upload this
+to our servers for automated testing.
+
+166
+00:08:59,630 --> 00:09:03,720
+And just like the previous one,
+you'll go to my submission, you'll
+
+167
+00:09:03,720 --> 00:09:07,900
+notice that I've already been doing some
+testing in terms of testing the graders.
+
+168
+00:09:07,900 --> 00:09:11,830
+You'll go to create submissioa And
+you will
+
+169
+00:09:11,830 --> 00:09:15,800
+upload your MarkovTextGeneratorLoL.java
+file and you'll submit it.
+
+170
+00:09:15,800 --> 00:09:19,380
+And then if you get a full score grade,
+
+171
+00:09:19,380 --> 00:09:22,750
+if you miss some test cases
+that's not a big deal at all.
+
+172
+00:09:22,750 --> 00:09:25,260
+The grader output should tell you
+the things that you missed, but
+
+173
+00:09:25,260 --> 00:09:29,030
+if you're still unclear on it feel free
+to go back into the original source code
+
+174
+00:09:29,030 --> 00:09:33,380
+pull up, MarkovTextGeneratorGrader,
+and you'll see the test that we run.
+
+175
+00:09:33,380 --> 00:09:35,470
+And you'll get a better feel for
+what we're testing and
+
+176
+00:09:35,470 --> 00:09:36,630
+then you'll be able to fix your code.
+
+177
+00:09:36,630 --> 00:09:39,420
+It's almost certain you'll have a couple
+of bugs in your code the first time
+
+178
+00:09:39,420 --> 00:09:41,250
+around, and that's totally fine.
+
+179
+00:09:41,250 --> 00:09:44,380
+Once you fix your code, keep
+submitting until you get a full score.
+
+180
+00:09:44,380 --> 00:09:47,010
+And again, I encourage you,
+as you're working on this project,
+
+181
+00:09:47,010 --> 00:09:50,560
+to always feel free to go back to
+the videos on MarkovTextGenerator.
+
+182
+00:09:50,560 --> 00:09:53,230
+If you have any questions,
+post in the forums.
+
+183
+00:09:53,230 --> 00:09:53,730
+Good luck.

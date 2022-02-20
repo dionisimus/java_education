@@ -1,0 +1,13 @@
+1
+00:00:00,000 --> 00:00:06,127
+[MUSIC]
+
+2
+00:00:06,127 --> 00:00:08,489
+You've made it to the last
+module in this course,
+
+3
+00:00:08,489 --> 00:00:11,930
+where we'll finish up the project and
+you'll learn about hash tables.

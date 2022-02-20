@@ -1,0 +1,92 @@
+[MUSIC] Hi everybody. In this video we're going to do a walk
+through of the program assignment for Module 3, Part 1, and that's
+implementing and testing a linked list. First off, with all these assignments, what we're gonna do is essentially start
+by making sure we have the starter code. Now if you pull up your code for the project you're going to find
+that there's a textgen package and within that textgen package there's
+MyLinkedList and MyLinkedListTester. Those are the two files we're going to be
+focusing on in this video walk-through. So the first thing to do is essentially
+just run MyLinkedListTester to make sure everything's set up properly. So if I run MyLinkedListTester, what it's gonna tell me is that
+essentially my tests have failed. And the reason for that is I've
+already put in some tests, but we haven't actually ran
+any of the implementation. So this is what you should expect to see. After you've got this
+MyLinkedListTester running, next step is to essentially open up and
+examine the starter code. And the way to do that is to essentially
+to open up the mylinklist file itself, look to see the methods that you're
+essentially gonna implement. And then to go through
+MyLinkedListTester and to see that we've actually created a setup
+method for you which sets up the test, and we've already created a testGet method, which does all the tests that you really
+should need to do for for the get method. And then lastly, we have some
+initial tests already in there for you for test removed and then space for the other methods that you're
+going to need to write. If you look back to my link list, you're going to find that we've already
+written a linklist node class for you that has a previous element,
+a next element, and data. And I just wanna point out that you might
+wanna add another constructor to this, but we're giving you a constructor to
+essentially start working with this class. On this class has, these have package
+access so you can access previous and next from within your
+My Linked list class. When you go to submit, you're gonna
+essentially submit two things. You're gonna submit the code
+which implements linked list, which was the my linked list class,
+as well as your code which is gonna test the linked list implementation,
+which is mylinikedlisttester.java. And you're gonna submit separately,
+but what I want to point out is I don't want you to code this essentially
+by writing the whole implementation. And then thinking about
+the tests you want to write. I want you to do this essentially the same
+way you do an industry which is write some tests as you write your implementation and
+just keep going back an forth so that each step of your implementation
+is tested before you go forward. So to do this what we'll do is- we
+already gave you the testGet method. And what we'll do then is write enough of
+the LinkedList class so that you're able to run that tester and see if your
+MyLinkedList notation's working for that. So, after reviewing the testGet method
+to see what's actually being performed, go into MyLinkedList.java. Author the constructor. I do wanna point out that
+it's up to you whether or not you wanna use the same sentinel nodes. We had a sentinel node and
+a sentinel tail in all the videos. Or if you just wanna go
+without the sentinel nodes. That's completely okay. Either way will work for this assignment. Anyway, so you're gonna create your
+constructor, you're gonna create then the get method which should return
+the elements at that index. If you're asking for an invalid index, it should throw an index
+out of bounds assumption. You then wanna add an add method or
+create an add method, and this method is gonna add
+an element to the end of the list. It's always gonna add it
+to the end of the list. Once you've ran those methods,
+you can go back into your tester, run the tester, run the J Unit test. And if things work properly, your test for
+the get method should work properly now. Notice that we've added a method,
+the add method, without actually adding any tests for it. So the last step here is
+to test your add method to make sure that it's
+working properly as well. Once you've done this cycle of
+creating some code and testing it and going back and forth. What you'll wanna do is do the same
+process for the remaining methods in my linked list, and those remaining methods
+include size, which is how big the list is, a method that adds an element
+at a certain index within the list. Or essentially inserts
+an element at that index. You'll want a remove method, which allows
+you to remove an element from the list. And notice, in all these cases,
+if someone does something inappropriate, like tries to add an element and
+index that doesn't exist, you should be throwing it
+out of bounds exception. If someone tries to remove an element,
+an index that doesn't exist, you should be throwing an index out
+of bounds exception, and so on. You should also author the set method, which will change an element's
+added index to a different value. Now if someone tries to set or
+add an element that has a null element. You should also be throwing a null pointer
+exception because people shouldn't be putting a null element into the list. I've already mentioned that you may want
+to add an additional constructor for linkless nodes, and the reason you want to
+do this is when you first start authoring your add method, that first add method,
+what you'll notice is that if you're seeing the same code in repeated places,
+you might just want to put that code in one place within
+the linked list node class. You also potentially want a two
+string method to be able to print out both the list as well as
+the nodes within the list. So how are you gonna submit this? Well again,
+you're gonna submit two things. And you should feel free to submit,
+either in isolation, but really if you follow the process
+that we're recommending here, you should have completed your whole
+MyLinkedList implementation at the exact same time that you've completed
+your whole MyLinkedList Testing. To do this, what you'll do is
+you go into the interface and you'll go up to the submit button. You'll go into My Submissions and
+you'll create a new submission and you'll notice that I've actually
+done a whole bunch of tests here in the process of creating your graders. Anyway what you'll do is you'll do
+an upload files and submit, and you'll put in your linklist.java file. You'll put in your mylink.tester file. You'll submit these, and after a brief time period,
+you'll get back the graded results. And I encourage you to, essentially,
+if you don't get a full score, to look at the grader output to figure, and it should
+tell you essentially what went wrong. You should also feel comfortable, though, looking at the tester,
+the greater code itself. This is for the implementation, and it'll essentially tell you
+what tasks were performed. So you should feel free to go into
+the my linked list creator class and look at what methods are being tested. All right. Good luck on the assignment. If you have questions, feel free to post in the forums and also
+feel free to go back and review the videos on how to write a MyLinkList test and
+how to write good tests for MyLinkList.

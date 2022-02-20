@@ -1,0 +1,74 @@
+[APPLAUSE]
+>> In this support video we're going to talk through adding
+an element to a linked list. And there are two pieces to this I want
+to talk about before we get into it. The first is, whenever you're trying to
+work with linked lists, whenever you're trying to talk about insertions or
+deletions, you want to have diagrams. Whenever I do this I am
+working at my whiteboard. And whenever you try to do
+this without having diagrams, it's gonna go potentially, badly. So I really encourage you to pull
+out a piece of paper and a pencil. The second piece to this is in a project
+there's a large component related to, essentially, a linked list insertion. And I'm going to be giving away a lot
+of the details of that in this video. So I would encourage you to essentially
+go work on the project first. And only if you don't know where
+to start with the project. Or only if you're really
+stuck on the project, should you essentially watch this video. So if either of those conditions apply,
+let's go ahead and move forward and talk through how to do
+insertion into a linked list. So what we're gonna do here is
+do insertion only at the front. So this is an addFront method. It's gonna add an element essentially
+right to the front of the list. In the list right now, the way I've drawn
+it, is in gray we have the list, itself. So that's gonna have its head pointer,
+the tail pointer, and then the size, the number of elements in the list. We've got two sentinel elements, just like
+we talked about in the previous videos. We've got a Head Sentinel node,
+and a Tail Sentinel node. And then we have one real node,
+which has the data, 42, in it, and that's in the middle. Our goal now is to add to the front of
+this a node that has a value of 65. We're essentially gonna put that right
+here at the front, right in there. To do that I'm going to need some space so let me,
+essentially stretch out these references. And now we can try to add this new node. And my first step is gonna
+be to create a new node. In creating the new node. I'm gonna have the data, itself, be 65,
+cuz that's part of the constructor. And then I'm also gonna set next be null,
+and previous be null. And we'll try to fix those in,
+in the next few slides. The next step is to link this new node in. Now manipulating these
+links can be very tricky. In fact, I'm gonna take an approach right
+now, which is gonna lead to a dead end. Let me walk through it and
+just show you how tricky this can be. So what I'm gonna try to do, is start. Oh, first off, let me point out all
+the ones that we need to change. Everything highlighted in red here
+is a link that needs to be updated. Let me start with the one that
+is head.next essentially. I wanna change head.next to point
+to what it's supposed to point to. And what it's gonna point to, is n. That's the next node in the list. So I update that link, I've got my next
+node and everything looks like it's going just fine except, by doing that,
+I just lost n.next. I just lost the node. Shoot. So the order in which I'm gonna do these
+operations in the updates really matters. So let's start this over, and
+start working with a different link, and see if we can do it in a better ordering. Let's start, instead, with n.next. What should n.next point to? Well, it should point to
+this node here in yellow. The way that I'm gonna get to it
+is essentially through head.next. You'll notice there,
+I've got my head pointer in yellow. I've got my head.next essentially
+points to the thing that I want. So I can just hook this up to
+say n.next equals head.next. And in doing so,
+I have now linked to this, properly. So I've got one of the four done. Next one. Next one I'm gonna look at is n.previous. What should it point to? Well it should essentially point to head. Now I could just say set to head. But if I wanna do something
+a little more general, I'm actually gonna go a different route. Instead I'm gonna use n.next pointer and the previous pointer in the next
+node to get me to where I belong. So again,
+this is gonna go n.next.previous, to get to the one that I
+actually wanna link to. So if I fill that in in the code, I now
+hook up this link, and setup properly. All right, we got two done, two to go. Next one to do is n.next.previous. So I wanna hook that up to what
+it's supposed to point to. Now, what should it point to? Well, it should be pointing to n. It should point to me. And that's the one in yellow. So all I'm gonna do there
+is say n.next.previous = n. And that's gonna set this link to be
+correctly set up, and we're good. Three done, one to go. The last one to do is to set head.next. And this is the one that
+we originally started with. But this is the one that we're
+actually gonna do last now. So head.next, what should it point to? Well, it should also point to n, so all I'm gonna have to do is say,
+head.next = n, and now hook up that link. Now, you might notice,
+there's a more general way of doing this. Instead of reaching head.next,
+going through the head pointer, I could have said n.prev.next
+to get to the exact same thing. And if you want to come up
+with a more general solution, you could use that instead. Either way, you're gonna hook
+up this link properly and now we have the node properly linked in. Again, this is the hardest
+part to doing this. And if you follow these steps carefully, you do your diagrams,
+this will work properly for you. I've linked it all in. Let's go ahead and
+push that back up in, where it belongs. And now I've just got
+a couple last steps to do. My last step is to just update the size. The size of this was one element. I now update that to be two elements. And essentially we're done. So let me remind you. Whenever you're trying to work with linked
+list, or many other structures that are coming in this course,
+you really wanna draw pictures. Trying to do this in the code
+just isn't gonna work out well. Now you may say this is a really
+large picture that you drew. Do I have to have that large a picture
+when I'm trying to hook this all up? Well no you don't. This representation is actually
+quite common for a list and it's much more concise. And you might try and
+do it this way instead. I hope this helped. Good luck on your project.

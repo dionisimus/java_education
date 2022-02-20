@@ -1,0 +1,143 @@
+[MUSIC] All right, in this video we'll look at
+just the basics of something called regular expressions. Regular expressions themselves
+are a really big field of study, way too much to fit into a single video,
+or even into a single lesson perhaps. So we're just gonna very much
+touch on the basics that you will need to accomplish your project. So, by the end of this video you'll be
+able to write regular expressions to match String patterns in Java, as well as write
+regular expressions to split strings. And this is the functionality
+you'll need for your project. So again, going back to the problem here
+that we left off in the last video with, we wanted to be able to split the sentence
+apart using not just a single space but any number of spaces to
+use as a split delimiter. And we said that the key to this was
+going to be regular expressions. So let's look at what regular expressions
+are and how we can use them in Java. And we're gonna build them
+sort of from the ground up. In a nutshell, a regular expression is
+just an expression of a pattern that we are trying to match, and
+from the most basic point of view, a regular expression can
+be just a simple character. And this is why it worked when we passed
+a space character into our split method, because we are telling Java, match literally a single space as
+the pattern you are trying to look for. So Java matched a single space, and
+every time it saw a single space, it said, okay,
+here's where I want to split. But that's pretty, pretty basic,
+there's not too much we can do with that. So we can also combine regular expressions
+to form more complicated ones and there are three ways
+that we can combine them. We can combine them with repetition. We can combine them with concatenation,
+in other words, putting them together. We can combine them with alternation,
+meaning either/or, choose one expression or the other. We're going to start by
+looking at repetition because that's what we're after. We're trying to figure out how can
+we match not just one space but any number of spaces. So we saw that we can match one space
+just by passing it in as a string. If we wanna match more than one string, we can use the plus operator
+in a regular expression. So this is the first way we can do
+repetition in our regular expression. If we put a plus after some regular
+expression, this case just a space, what we're indicating is
+that we want to match one or more of these regular
+expressions in a row, so in this case we're going to match
+against one or more spaces in a row. So now when Java does the split, it always tries to match as many spaces
+as possible when it does the match. So it will match just one space but
+in this case it will also match two. And it will consume those two
+spaces as the token it matched and give us back just the text on
+either side of those two spaces. Now it can get a little bit tricky
+to think about regular expressions when we're splitting strings. We find it's much easier to think about
+regular expressions in terms of matching, what it actually gets matched. So, we're going to transition over
+into the way you'll be mostly using regular expressions in the project. So, let me introduce to you a little
+bit of the code from the project, and it's this abstract class called Document, which you're going to use to
+represent a document of text. It has a member variable
+called text that stores all the text in a particular document. Now notice that this class is abstract,
+so we'll be providing you with some of the code that makes the Document class but
+we'll also have some abstract methods in there that you're going to have to
+override when you write your code. You'll be writing subclasses
+of this Document class. One of the methods that we are providing
+for you is this method called getTokens. And what the getTokens method
+does is it takes a pattern which is a regular expression of
+the tokens that you are looking for. So this is a regular expression that
+describes what kind of tokens you want to get back from this method. And then the method will
+return a list of those tokens that match that regular expression. So, let's apply this back to our one or
+more spaces example. If we have a document that contains
+the text Hello, space space, hello? And we call the getTokens method on it, what it's going to do is it's going to
+find those two spaces between the words. And it will just return us a list
+containing a single string with those two spaces. So again, now we are preserving the text
+that matches the regular expression, rather than getting rid of it
+like we did in the split method. So we're gonna use this
+getTokens method to illustrate some of the other ways we can
+combine regular expressions. The second way we're gonna look
+at is called concatenation, and this is the idea of just putting regular
+expressions together one after another. So if I have a slightly
+more complicated string, say I have a document with the string,
+splitting a string, it's easy as 1 2 33! Right? And I now call getTokens using
+the regular expression IT, this is actually concatenation
+of two regular expressions. It's a concatenation of
+the regular expression I and T. And this is going to match whenever it
+sees those two regular expressions, the I, T, one after another. So in this case it will match on I, T,
+in splitting, and it will match on I, T in it's, we get back a list of
+just the two strings, "it", "it". We can combine concatenation and
+repetition, so now I've got a regular expression that has
+i followed immediately by one or more ts. So let's see how this changes what we're
+going to get back from the get tokens. This time, we not only get
+the i t out of splitting, but because we've asked for one or more ts,
+Java is going to be greedy and consume as much of that text as it can
+that matches that regular expression. So here it will match i t t, and then that
+i after i t t doesn't match anymore so it will stop and just say ok, i t t,
+that's the first match that I found. The next match it finds again is
+just that I-T in it's, once again. If you're not sure of the grouping
+of the precedence order, you can always use parentheses to do
+explicit grouping in regular expressions. So if I wasn't sure if that plus
+was going to apply to just the T or to the I-T,
+I could have put the t in parenthesis. It turns out that plus binds
+tighter than concatenations, so it applied only to the t. But when in doubt, just go ahead and
+use those parenthesis. There's another form of
+a repetition operator, a star. It's very similar to the plus, but
+this time it means zero or more. So this regular expression, if you might
+want to take a moment to think about, what this regular expression is going to match
+against in our string that we have there. Alright, so it's going to match an i
+followed by zero or more ts and in this case it's going to return that list
+that you see there and I've highlighted the places in that document string where
+it matches that regular expression. So you can see that
+because it matches zero or more Ts sometimes it
+matches just a plain I. So we've talked about concatenation,
+putting two regular expressions together. Repetition, repeating
+a regular expression. And now we have this notion of alternation
+or an either or kind of choice. The way we represent or in a regular
+expression is just with a vertical bar. So what you see here is
+a regular expression that actually combines concatenation and
+alternation and will match either the pattern I-T or
+the pattern S-T. So if we apply that regular expression
+against this string, you can see the text highlighted in blue is what's going to be
+returned, which is just it, st, and it. Another way we can do alternation
+is by creating these things called character classes. So when we put characters in square
+brackets inside the regular expression that we're looking for, what Java will
+match is any character inside that set. So here I have the character class 1,
+2, 3. Java is going to match any single
+character 1, 2, or 3, and I'll get back the list that you
+see there of 1,2,3,3. Notice that it matched the 3s
+separately because that character class says that I want a single
+character that's either a 1 a 2 or a 3, not more than one character,
+just a single character at a time. You can think about how you might
+change that to be multiple characters. And that's just a foreshadowing of what's
+coming up in our concept challenge. We can also express inside these
+character classes ranges using a dash. So if I say one dash three inside
+a character class that means match any number, any numeral,
+any character between one and three. So in this case it matches one,
+two, three, and three again. I can use this same range
+functionality with letters. So I can say match any character
+between a little a and a little f. And that will match all the characters
+in this string that are alphabetically between little a and little f. And I'll get back this. And then finally, the last piece of
+these regular expressions that I want to introduce to you is this carat. And what this carat does
+inside a character class is it excludes all of the characters
+inside that character class. So you're basically saying, match anything
+that is not one of these characters. So let's break down what this regular
+expression that I've written here actually does. I'm saying that carat, which means NOT,
+so none of these characters should match. So I don't want any characters that
+are between little a, and little z. I don't want a 1, I don't want a 2, I
+don't want a 3, and I don't want a space. So all of those characters,
+don't match them. Anything else, please match them and
+give me what you find. So when I use this regular
+expression to get Tokens what I'm going to get back
+is all the single characters that are not one of the character
+class that I just set out. And so that includes the capital S,
+remember in Java lower case letters and upper case letters
+are represented differently. So the capital S, the comma,
+the apostrophe, the exclamation point, and the capital R all match
+the regular expression. So those are the very basics
+of regular expressions. We've got a concept challenge,
+and some support videos, but this should be enough to get
+you going on the project.

@@ -1,0 +1,530 @@
+1
+00:00:05,232 --> 00:00:08,460
+All right, we've looked at quite a bit
+of the linked list implementation, and
+
+2
+00:00:08,460 --> 00:00:11,900
+now it's time to take it all the way to
+Java code, which is what you're going
+
+3
+00:00:11,900 --> 00:00:15,360
+to do in the first part of this
+programming assignment in this module.
+
+4
+00:00:15,360 --> 00:00:16,450
+So by the end of this video,
+
+5
+00:00:16,450 --> 00:00:20,240
+you'll be able to implement
+a doubly linked list in Java.
+
+6
+00:00:20,240 --> 00:00:23,770
+And if you don't quite get there we've got
+some support videos and concept challenges
+
+7
+00:00:23,770 --> 00:00:26,890
+that will help you a little beyond
+what I cover in this particular video.
+
+8
+00:00:28,260 --> 00:00:30,300
+So let's go back to our diagram.
+
+9
+00:00:30,300 --> 00:00:32,830
+You can see here the two classes
+that we're going to implement.
+
+10
+00:00:32,830 --> 00:00:35,810
+The list node class and
+the my linked list class.
+
+11
+00:00:35,810 --> 00:00:38,690
+So let's start by looking
+at the ListNode class.
+
+12
+00:00:38,690 --> 00:00:41,650
+And we looked at some of the details
+of this class in the last video,
+
+13
+00:00:41,650 --> 00:00:45,660
+the generics, how we're gonna
+throw exceptions on bad input.
+
+14
+00:00:45,660 --> 00:00:48,340
+Let's dive in now to what
+the class actually looks like.
+
+15
+00:00:48,340 --> 00:00:50,100
+It's actually a fairly simple class.
+
+16
+00:00:50,100 --> 00:00:53,864
+It's got three fields,
+there's the previous reference,
+
+17
+00:00:53,864 --> 00:00:56,462
+the next reference, and the data field.
+
+18
+00:00:56,462 --> 00:01:00,095
+And then we've got a simple constructor
+here that just sets the data field to
+
+19
+00:01:00,095 --> 00:01:02,382
+an argument that we pass
+into the constructor.
+
+20
+00:01:02,382 --> 00:01:05,319
+Now, a couple things to
+notice about this class.
+
+21
+00:01:05,319 --> 00:01:09,046
+The first one that might seem a little
+weird, or a little uncomfortable,
+
+22
+00:01:09,046 --> 00:01:12,064
+is that this is actually what's
+called a recursive class.
+
+23
+00:01:12,064 --> 00:01:13,780
+It's a recursive definition.
+
+24
+00:01:13,780 --> 00:01:18,690
+What that means is that we're using
+references of the class itself
+
+25
+00:01:18,690 --> 00:01:20,550
+inside the class we're defining.
+
+26
+00:01:20,550 --> 00:01:22,510
+So we're defining the ListNode class, and
+
+27
+00:01:22,510 --> 00:01:27,320
+inside that ListNode class, we have
+two references to ListNode objects.
+
+28
+00:01:27,320 --> 00:01:28,820
+Now this might seem a little weird.
+
+29
+00:01:28,820 --> 00:01:33,660
+Like how can we use a class when
+we're not even done defining it, but
+
+30
+00:01:33,660 --> 00:01:35,540
+this is what recursion is all about.
+
+31
+00:01:35,540 --> 00:01:37,300
+We're not gonna talk too
+much about recursion.
+
+32
+00:01:37,300 --> 00:01:40,720
+Mia will talk about it a little bit in
+the next module when she talks about merge
+
+33
+00:01:40,720 --> 00:01:47,220
+sort, but just be comfortable with
+the idea that this is totally okay.
+
+34
+00:01:47,220 --> 00:01:50,680
+Because by the time Java actually
+creates any of these ListNode objects,
+
+35
+00:01:50,680 --> 00:01:55,750
+the class definition will be finished,
+and so it'll be totally okay to do this.
+
+36
+00:01:55,750 --> 00:01:57,350
+Feels weird, but it's totally okay.
+
+37
+00:01:58,450 --> 00:02:02,850
+The next thing I wanna point out is that
+we're using this generic type parameter
+
+38
+00:02:02,850 --> 00:02:06,210
+E to indicate the type of the thing
+that the list node stores.
+
+39
+00:02:06,210 --> 00:02:10,230
+Notice that we've got it in
+the type of the previous and
+
+40
+00:02:10,230 --> 00:02:14,140
+next pointers, but
+it doesn't appear here in the constructor.
+
+41
+00:02:14,140 --> 00:02:17,020
+And that's just the way you
+define generic classes,
+
+42
+00:02:17,020 --> 00:02:20,070
+you don't need to put the type
+parameter In the constructor.
+
+43
+00:02:20,070 --> 00:02:21,610
+And if you do,
+if you accidentally forget and
+
+44
+00:02:21,610 --> 00:02:24,270
+put it there ,you're gonna get
+a really weird compile error.
+
+45
+00:02:24,270 --> 00:02:26,569
+So it's not supposed to be there.
+
+46
+00:02:26,569 --> 00:02:27,544
+So that's basically it.
+
+47
+00:02:27,544 --> 00:02:31,499
+This is our entire list node class we've
+got the forward, the previous pointer,
+
+48
+00:02:31,499 --> 00:02:35,398
+the next pointer, the data that we're
+trying to store and the constructor which
+
+49
+00:02:35,398 --> 00:02:38,640
+sets the data element to be whatever
+we pass in to the constructor.
+
+50
+00:02:40,020 --> 00:02:42,820
+One thing to note about this
+is that the constructor will
+
+51
+00:02:42,820 --> 00:02:46,520
+by default set the previous and
+next pointers to null.
+
+52
+00:02:46,520 --> 00:02:50,362
+So we don't have to do that explicitly,
+though we could if we wanted to.
+
+53
+00:02:50,362 --> 00:02:52,922
+So with that under our belt,
+let's go ahead and
+
+54
+00:02:52,922 --> 00:02:55,424
+look at how we define
+the my linked list class.
+
+55
+00:02:55,424 --> 00:02:58,834
+This is gonna be the class that
+actually does all the operations on
+
+56
+00:02:58,834 --> 00:02:59,770
+the linked list.
+
+57
+00:03:01,060 --> 00:03:03,430
+So what we need first is our data fields,
+and
+
+58
+00:03:03,430 --> 00:03:06,740
+looking at that diagram you can see that
+there's going to be three data fields.
+
+59
+00:03:06,740 --> 00:03:10,310
+There's the head pointer, the tail
+pointer, and the size of the length list.
+
+60
+00:03:11,530 --> 00:03:14,702
+So I've got a couple blanks
+in my Java code there, and
+
+61
+00:03:14,702 --> 00:03:18,860
+I want you to tell me what are the types
+that should go in those blanks for
+
+62
+00:03:18,860 --> 00:03:21,210
+the head pointer and the tail pointer.
+
+63
+00:03:24,414 --> 00:03:28,426
+Okay, hopefully you figured that out
+that they should be ListNodes, and
+
+64
+00:03:28,426 --> 00:03:30,690
+they should be ListNode of type E.
+
+65
+00:03:30,690 --> 00:03:34,280
+So the same type of data we wanna store in
+the LinkList has to be the type of data
+
+66
+00:03:34,280 --> 00:03:36,120
+that we store in each individual node, and
+
+67
+00:03:36,120 --> 00:03:39,610
+that makes sense,
+because the nodes actually are the list.
+
+68
+00:03:39,610 --> 00:03:41,480
+So now we've got our data fields set up.
+
+69
+00:03:41,480 --> 00:03:43,060
+Let's look at the constructor.
+
+70
+00:03:43,060 --> 00:03:45,610
+What we want the constructor
+to do is create an empty list
+
+71
+00:03:45,610 --> 00:03:47,730
+as you can see in this diagram here.
+
+72
+00:03:47,730 --> 00:03:50,590
+An empty list is not
+actually devoid of nodes.
+
+73
+00:03:50,590 --> 00:03:53,900
+We still need those sentinel head and
+tail nodes.
+
+74
+00:03:53,900 --> 00:03:58,401
+So the constructor is going to have to
+create those two nodes that you see in
+
+75
+00:03:58,401 --> 00:03:59,279
+the diagram.
+
+76
+00:03:59,279 --> 00:04:02,414
+So here's our first attempt
+at writing this constructor.
+
+77
+00:04:02,414 --> 00:04:04,640
+We're gonna set the size
+of the list to zero.
+
+78
+00:04:04,640 --> 00:04:05,780
+There are no elements in it.
+
+79
+00:04:05,780 --> 00:04:10,400
+And then we'll create a new node for the
+head and create a new node for the tail.
+
+80
+00:04:10,400 --> 00:04:13,290
+And link the member variable head
+to that first node we created, and
+
+81
+00:04:13,290 --> 00:04:16,200
+link the member variable tail to
+the the second node that we create.
+
+82
+00:04:17,340 --> 00:04:20,590
+So now my question for
+you is, is this code correct?
+
+83
+00:04:20,590 --> 00:04:24,380
+Does this correctly set up this empty
+link list, as you see in the diagram?
+
+84
+00:04:29,100 --> 00:04:33,920
+You found out that the answer is no, it
+doesn't correctly set up this link list.
+
+85
+00:04:33,920 --> 00:04:34,950
+Why not?
+
+86
+00:04:34,950 --> 00:04:39,430
+Well it's missing the links that will
+link together this dummy head node
+
+87
+00:04:39,430 --> 00:04:43,420
+to the dummy tail node, and
+those links are shown there in red.
+
+88
+00:04:43,420 --> 00:04:46,430
+Remember, the ListNode constructor
+just sets the previous and
+
+89
+00:04:46,430 --> 00:04:47,610
+next pointers to null.
+
+90
+00:04:47,610 --> 00:04:50,020
+So, when we first create those nodes,
+those previous and
+
+91
+00:04:50,020 --> 00:04:53,400
+next pointers in both the nodes are null,
+they don't point to each other.
+
+92
+00:04:53,400 --> 00:04:57,480
+So, we need to explicitly set the next
+pointer of the head node to point
+
+93
+00:04:57,480 --> 00:05:01,279
+to the tail, and the previous pointer
+of the tail node to point to the head.
+
+94
+00:05:02,480 --> 00:05:05,780
+And we can do that using
+these two lines of code here.
+
+95
+00:05:05,780 --> 00:05:09,660
+So we say head.next, which is that
+next pointer in the head node,
+
+96
+00:05:09,660 --> 00:05:13,210
+is going to get the value of
+the reference to the tail node.
+
+97
+00:05:13,210 --> 00:05:17,240
+And tail.prev is going to get the value
+of the reference to the head node.
+
+98
+00:05:18,390 --> 00:05:23,430
+Then our linked list, our empty linked
+list, we correctly set up those head and
+
+99
+00:05:23,430 --> 00:05:25,810
+tail dummy nodes will be
+properly linked together.
+
+100
+00:05:27,300 --> 00:05:31,734
+All right, so now you've really got
+all you need to go ahead and dive in,
+
+101
+00:05:31,734 --> 00:05:36,098
+and do your first part of your homework
+assignment which is to implement
+
+102
+00:05:36,098 --> 00:05:40,775
+the methods size, get, set, add, and
+remove in the MyLinkedList class.
+
+103
+00:05:40,775 --> 00:05:44,039
+So if you're feeling ready,
+we've got a concept challenge for
+
+104
+00:05:44,039 --> 00:05:46,761
+you just to really solidify
+your understanding, and
+
+105
+00:05:46,761 --> 00:05:49,726
+then feel free to dive into
+that programming assignment,
+
+106
+00:05:49,726 --> 00:05:53,917
+but I'll warn you that implementing these
+linked list methods is pretty tricky.
+
+107
+00:05:53,917 --> 00:05:57,231
+So if you are having any doubts,
+or you're at all uncomfortable, or
+
+108
+00:05:57,231 --> 00:06:01,478
+you try to start implementing these
+methods, and find yourself getting stuck.
+
+109
+00:06:01,478 --> 00:06:05,340
+We've got a support video for you that's
+gonna walk you through in a little bit
+
+110
+00:06:05,340 --> 00:06:10,730
+more detail some of the subtleties of
+implementing these linkless methods.
+
+111
+00:06:10,730 --> 00:06:11,860
+So good luck and have fun.

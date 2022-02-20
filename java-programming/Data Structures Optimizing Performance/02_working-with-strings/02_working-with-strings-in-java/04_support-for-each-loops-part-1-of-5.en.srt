@@ -1,0 +1,154 @@
+1
+00:00:00,025 --> 00:00:03,723
+[APPLAUSE].
+
+2
+00:00:03,723 --> 00:00:07,601
+>> So, in this support video, what we'd
+really like to do is take some time to
+
+3
+00:00:07,601 --> 00:00:12,140
+think about for-each loops, and
+in particular, how they relate to strings.
+
+4
+00:00:12,140 --> 00:00:15,265
+So, by the end of this video you'll
+be much more comfortable using these
+
+5
+00:00:15,265 --> 00:00:19,000
+programming constructs, and we'll see
+a few examples of both pitfalls, and
+
+6
+00:00:19,000 --> 00:00:20,540
+advantages.
+
+7
+00:00:20,540 --> 00:00:23,480
+So in the core videos,
+Christine presented this method,
+
+8
+00:00:23,480 --> 00:00:27,370
+hasLetter, which searches through
+a given word and looks for
+
+9
+00:00:27,370 --> 00:00:31,900
+a particular letter, and she showed you
+two implementations of this method, and
+
+10
+00:00:31,900 --> 00:00:35,990
+the second implementation she went
+through uses a for-each loop.
+
+11
+00:00:35,990 --> 00:00:40,470
+And so what we're going to do now is think
+about changing up this method a little bit
+
+12
+00:00:40,470 --> 00:00:43,450
+and seeing if similar constructs
+can be used there too.
+
+13
+00:00:43,450 --> 00:00:47,420
+So, the method we'll be focusing
+on is a replace method.
+
+14
+00:00:47,420 --> 00:00:51,740
+And what we'd like to do is replace
+every occurrence of the character gone,
+
+15
+00:00:51,740 --> 00:00:56,485
+or we'd like to make it gone, and instead
+put in a character that we'll call here.
+
+16
+00:00:56,485 --> 00:00:59,385
+Okay?
+So we'll have two input characters and
+
+17
+00:00:59,385 --> 00:01:00,975
+this input string.
+
+18
+00:01:00,975 --> 00:01:04,845
+And what we'd like to return
+is the modified string
+
+19
+00:01:04,845 --> 00:01:08,455
+that replaces all of the occurrences
+of one character by the other.
+
+20
+00:01:08,455 --> 00:01:11,745
+Let's think about what would
+happen if we gave it this string,
+
+21
+00:01:11,745 --> 00:01:14,060
+a space happy, a happy.
+
+22
+00:01:14,060 --> 00:01:18,200
+And what we're doing with this particular
+replace method is we're going to replace
+
+23
+00:01:18,200 --> 00:01:21,190
+all the characters a by the character i.
+
+24
+00:01:21,190 --> 00:01:28,040
+And so if we're successful what we should
+get returned back is i space hippy.
+
+25
+00:01:28,040 --> 00:01:30,610
+All right, so that's going to be our
+test case that we always check our
+
+26
+00:01:30,610 --> 00:01:31,590
+work against.
+
+27
+00:01:31,590 --> 00:01:34,370
+And it's useful to have a small
+example that we work with
+
+28
+00:01:34,370 --> 00:01:35,690
+when we're developing a new method.
+
+29
+00:01:35,690 --> 00:01:38,970
+So that's a good habit to get into.
+
+30
+00:01:38,970 --> 00:01:41,690
+So let's have our first attempt.
+
+31
+00:01:41,690 --> 00:01:43,900
+And we have some code up already.
+
+32
+00:01:43,900 --> 00:01:46,880
+And think about whether this
+particular implementation of the method
+
+33
+00:01:46,880 --> 00:01:50,900
+successfully returns a modified
+word that does what we wanted.

@@ -1,0 +1,13 @@
+[MUSIC] So one philosophy that people use and
+actually apply testing to their projects, is called test driven development. And the purpose of test driven
+development is to actually make sure that you
+are testing the right thing. A lot of times people will write
+the code that they mean to, and then they'll write the test, and
+when the tests pass, they're happy and they think they did the right thing. But there's always the chance that the
+test actually would have passed before you made your changes, which means
+you're not testing the right thing. >> Yeah, so you wanna make sure
+that you first write a test for the soft piece of code
+that you're writing. So, first you write the test,
+make sure that it fails, and then go through and write your code. >> Seems a little backwards, but
+>> [LAUGH] >> It's a good principle to follow, because that way you make sure that
+you're never actually fixing a totally different bug. >> Exactly

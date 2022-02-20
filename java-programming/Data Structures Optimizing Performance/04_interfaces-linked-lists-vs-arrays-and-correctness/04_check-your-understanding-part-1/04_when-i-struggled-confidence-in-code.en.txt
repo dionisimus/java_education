@@ -1,0 +1,14 @@
+[MUSIC] Hi, my name is Robert. And I remember this one time when I
+was in a data structures class and we had a programming assignment to
+write our compression algorithms, it was Huffman compression. And we were all getting into it. And I think because we'd done so
+well on our previous assignments, we wrote all of our code in a big rush
+all together, no unit testing at all. And when it all came together, we put in
+the test cases, and it was all wrong. We tried moving around
+the different test cases, and we couldn't see any pattern
+about why everything was wrong. We had reached that point
+without any testing and we had no confidence whatsoever that anything
+we had written was actually correct. So we had to completely tear down
+our assignment from the bottom up, and write tests, and actually get
+confidence in each of our levels. And now, since I've been coding for a
+little bit longer, it seems kind of insane not to write testing, but I definitely
+didn't know that in the beginning, and that caused me to struggle a lot.

@@ -1,0 +1,26 @@
+[MUSIC] So I remember the first few times that
+I learned about regular expressions, I was thoroughly confused. And this happened quite often, actually, because my research area turns out to be
+something that uses regular expressions, and thinks about regular
+expressions all the time. And so I would go into these pretty
+advanced seeming seminars, and right from the get go, I was going back to basics and
+saying, what does this mean again? What are all these symbols? And I felt kind of embarrassed that I
+wasn't able to get it right away, and it seemed like everyone else around
+just sort of knew the lingo, but then I realized that it's okay not to
+have sort of internalized everything. And that I just needed to
+cut myself some slack. And go back to thinking
+about the definitions. And think about what each
+of the symbols meant. Because what was really confusing for me
+is distinguishing between the pattern and how we denote the pattern, and then,
+thinking about the strings that match it. And so having these two different kinds
+of strings that are being involved in the regular expressions. And really understanding
+the different roles that they play. So what really helped me is, actually thinking about these regular
+expressions in a few different ways. One of the ways that you can
+do that is using automata. And that's something that if you
+continue in computer science and when you continue in computer science,
+you can learn a lot more about. But, the moral of the story is that
+when you come across something that may seem some kind of intimidating,
+what I find really helpful is to, first of all, try to take a deep
+breath and cut yourself some slack. But, then also,
+try to think of the different ways to understand the definition and
+to think about the problem. And sometimes, one of those alternate perspective
+will just click a little bit better.

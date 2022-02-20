@@ -1,0 +1,78 @@
+[MUSIC] All right, in this last lesson, we're
+going to look at the very last part of the project, where you're going to add the
+ability to suggest words to the user for misspelled words that they typed. And this part of the project is really
+motivated by our societal dependence on spellcheckers these days. You've already got the ability to add
+into your project, the ability to check whether a particular string is a word,
+and that's essential these days. When I'm typing up a document,
+I rely on that underlined red to say, oh, I mistyped that word,
+that's not actually how you spell it. But we're gonna take that a step further. So not only are you going to be able to
+identify misspelled words, but you'll be able to give the user some suggestions
+on how to correct their spelling. So by the end of this video,
+you'll be able to describe the basics of an algorithm to do those
+spelling suggestions. And it turns out this algorithm
+isn't really that complicated. And in the next video, we'll look at
+the details of how to implement it. So let's start by thinking
+about what we need to do. So let's say I have this
+piece text of here, spell correction,
+only I've misspelled the first word. I've spelled it speel instead of spell. And the question is, how can I generate
+possible suggestions of valid words that are good suggestions for
+replacements for that speel word? Well we want to generate a set
+of words that is somehow close to the word that I typed. Because I probably typed
+the word mostly correctly, but I just made a small error here. So I don't wanna give the user suggestions
+of all the words in the English language, that would be way too many. I want to start by suggesting words
+that are pretty close to the thing I actually typed. So now the question is, how can we
+precisely define what it means for one string to be close to another string? What we're going to do is take
+the definition where we say that a string is close to another string
+if it's altered as little as possible. And what do we mean by altered? Well we're gonna think about ways we can alter a word to be one
+step away from another string. We're altering a string to be
+a step away from another string by performing one of three
+transformations on that string. The first transformation we can perform on
+that string is we can do a substitution. And all of these are of
+a single character. So we can choose any character
+in that original string speel, and we can choose to change
+it to any other character. So, for example, I could produce
+the strings apeel, sbeel, spell, speak just by changing one character from
+my original speel to a new character. Now there are going to be many
+more strings that I can produce via the substitution method. I'm just showing you
+a few here as examples. The next transformation I
+can apply is an insertion. So I can take at any
+position in this word, in this original string,
+either before the first character, or between any of the characters,
+or after the last character. I can insert any of the characters in
+the alphabet to produce new strings. So that could produce new
+strings like bspeel or sipeel, and the strings you can see there. Now notice that none of these are words,
+but these are just possible strings I can produce that are one step
+away form my original string. The last way I'm going to think about
+transforming my original string is via deletions. So I can take any of the letters in my
+original string, and I can remove it. And that will give me a list of
+possible strings that are one away, still, from my original string. Notice that there are in this case only
+in this case five of those, because there are only five characters I can delete,
+and two of them end up being the same. So if I delete either of the e's, it will give me the same S-P-E-L
+possible string that's one step away. So this now lends itself to a simple
+spell suggestion algorithm. What I'm gonna do is I'll take
+my original misspelled word, and then I'll generate all the possible
+strings that are one transformation away from that original misspelled word. Then from that list, I will get rid
+of everything that's not a word. And I'll be left with a set of words
+that are one transformation away from the original string
+that the user typed. And these are words that are close
+to what the user originally typed. So here I've just drawn that same
+algorithm with a different visualization of what I'm doing here. So up at the top you see the original
+word that was typed, and then down on the next layer you see all
+the strings that can be produced, or at least a subset of the strings. There's a dot dot dot indicating that this
+layer is going to go on, and on, and on, much larger than what you see here, that are one transformation away from
+that original string that was typed. So then the question becomes,
+well, what if that's enough? What if that doesn't produce any words, or doesn't produce enough options for
+the user? What should I do? We can just extend this
+to go two steps away. So now instead of generating
+the next layer down, I can take each word
+in that next layer and apply the same set of transformations
+to go one step away from those words. So here I'm showing you the expansion
+of just one of the strings in that first layer expanded out to some
+of the strings in the next layer down. Then from all of those strings,
+in the first layer and the second layer, I can now get rid
+of everything that's not a word, preserve the things that are words,
+and those are my spelling suggestions. Okay, but what if that's still not enough? How deep should I go? I could keep going, and going, and
+going, and build a big, huge tree. But at some level, I need to decide what
+is enough words to offer to the user. So this is kind of a basic overview. And in the next video, we'll get into
+details like how do we actually manage when to stop looking for
+words to suggest to the user.

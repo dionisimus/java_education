@@ -1,0 +1,634 @@
+1
+00:00:03,917 --> 00:00:04,470
+All right.
+So
+
+2
+00:00:04,470 --> 00:00:08,950
+now we have a concept challenge for
+you that has to do with big O classes.
+
+3
+00:00:08,950 --> 00:00:10,510
+So it's just like any
+other concept challenge.
+
+4
+00:00:10,510 --> 00:00:13,900
+What we want you to do is we want you
+to try to solve the problem yourself,
+
+5
+00:00:13,900 --> 00:00:16,330
+then get together with some friends and
+discuss.
+
+6
+00:00:16,330 --> 00:00:18,750
+Watch the UC San Diego learners discuss.
+
+7
+00:00:18,750 --> 00:00:20,460
+Try to answer the question again and
+
+8
+00:00:20,460 --> 00:00:23,270
+then verify your understanding
+with our explanation.
+
+9
+00:00:23,270 --> 00:00:26,630
+So the problem for you is we have three
+
+10
+00:00:26,630 --> 00:00:31,750
+potential equalities here that
+relate a function to a big O class.
+
+11
+00:00:31,750 --> 00:00:36,124
+And what I'd like to know is which
+of these represent tight bounds
+
+12
+00:00:36,124 --> 00:00:39,394
+on the function over here
+on the right hand side?
+
+13
+00:00:39,394 --> 00:00:43,086
+So is O of N a tight bound for
+n squared minus 10,000?
+
+14
+00:00:43,086 --> 00:00:46,487
+Is O of n squared a tight bound for
+n plus n log n?
+
+15
+00:00:46,487 --> 00:00:52,908
+And is O of log base 2 of n a tight
+bound for log base 10 of n.
+
+16
+00:00:52,908 --> 00:00:54,532
+>> Hi, my name is Maya.
+
+17
+00:00:54,532 --> 00:00:55,914
+>> Hi, my name is Robert.
+
+18
+00:00:55,914 --> 00:00:58,271
+>> Hi, my name is Christina.
+
+19
+00:00:58,271 --> 00:01:03,286
+>> For the first one,
+N squared minus 10,000 equals big O of n.
+
+20
+00:01:03,286 --> 00:01:07,510
+Are you saying if the n squared,
+if it's a function like this, and
+
+21
+00:01:07,510 --> 00:01:11,660
+then there's another function
+like big O of n that's like that,
+
+22
+00:01:11,660 --> 00:01:15,320
+you mean like,
+which one would grow faster?
+
+23
+00:01:15,320 --> 00:01:17,950
+>> Yes.
+So they're sort of asking,
+
+24
+00:01:17,950 --> 00:01:22,500
+is n a bigger function than
+n squared minus 10,000?
+
+25
+00:01:22,500 --> 00:01:23,850
+Okay, so it just has to be bigger.
+
+26
+00:01:25,220 --> 00:01:28,820
+So in the question we have n squared and
+O of n, so
+
+27
+00:01:28,820 --> 00:01:31,290
+n squared would be bigger than O of n.
+
+28
+00:01:31,290 --> 00:01:36,570
+So O of n wouldn't be tighter big O class.
+
+29
+00:01:36,570 --> 00:01:38,810
+>> Yeah,
+even though 10,000 it's a constant so
+
+30
+00:01:38,810 --> 00:01:42,270
+it's just n squared
+>> Oh yeah, and
+
+31
+00:01:42,270 --> 00:01:46,370
+with problems like these,
+constants don't really matter.
+
+32
+00:01:46,370 --> 00:01:48,685
+You could cancel them out a little bit.
+
+33
+00:01:48,685 --> 00:01:51,276
+>> Even if it's multiplied,
+it doesn't matter either.
+
+34
+00:01:51,276 --> 00:01:53,170
+>> Okay.
+
+35
+00:01:53,170 --> 00:01:55,200
+>> So in the second one we have two terms.
+
+36
+00:01:55,200 --> 00:02:00,265
+We have n and
+n log n equals O of n squared.
+
+37
+00:02:00,265 --> 00:02:03,170
+So when we have two terms,
+
+38
+00:02:03,170 --> 00:02:06,290
+I think only the biggest one takes
+precedents just like the constants.
+
+39
+00:02:06,290 --> 00:02:09,340
+>> Yeah, so I guess the second
+term would be a lot bigger
+
+40
+00:02:09,340 --> 00:02:11,925
+cuz since obviously it's n
+multiplied to another term.
+
+41
+00:02:11,925 --> 00:02:13,390
+>> Mm-hm.
+
+42
+00:02:13,390 --> 00:02:18,106
+>> And whenever log n is smaller than n,
+right?
+
+43
+00:02:18,106 --> 00:02:19,340
+>> Yes.
+
+44
+00:02:19,340 --> 00:02:28,570
+>> So it would be smaller than n squared
+So, n squared is a big O in this case.
+
+45
+00:02:28,570 --> 00:02:29,470
+>> Okay.
+
+46
+00:02:29,470 --> 00:02:30,900
+>> But I don't think it's the tightest.
+
+47
+00:02:32,000 --> 00:02:33,030
+>> No.
+
+48
+00:02:33,030 --> 00:02:36,400
+So the tightest would be
+something like n log n.
+
+49
+00:02:36,400 --> 00:02:37,300
+Yeah.
+>> Yeah.
+
+50
+00:02:37,300 --> 00:02:38,370
+>> Okay.
+
+51
+00:02:38,370 --> 00:02:42,520
+>> Okay, so for the third one,
+I noticed on the left side there is a 10.
+
+52
+00:02:42,520 --> 00:02:44,480
+On the right side there's a 2.
+
+53
+00:02:44,480 --> 00:02:46,190
+>> So, I'm not really sure,
+
+54
+00:02:46,190 --> 00:02:50,030
+but I feel like they still
+kinda grow at the same rate.
+
+55
+00:02:50,030 --> 00:02:53,240
+So, I'm not really sure.
+
+56
+00:02:53,240 --> 00:02:54,360
+Yeah.
+
+57
+00:02:54,360 --> 00:02:55,740
+>> Because obviously they're different.
+
+58
+00:02:55,740 --> 00:03:01,310
+But, what could you
+multiply a constant to it.
+
+59
+00:03:01,310 --> 00:03:03,120
+So they're coefficients.
+
+60
+00:03:03,120 --> 00:03:04,310
+>> Yeah.
+
+61
+00:03:04,310 --> 00:03:07,470
+Because if you do that, it would be equal.
+
+62
+00:03:07,470 --> 00:03:09,700
+>> Yeah, I'm not so sure which ones.
+
+63
+00:03:10,850 --> 00:03:14,400
+>> So we're gonna use that method that
+Mia showed you for estimating, or
+
+64
+00:03:14,400 --> 00:03:18,030
+figuring out, what the tight bound is for
+a given function.
+
+65
+00:03:18,030 --> 00:03:20,771
+So let's start here,
+with this given function.
+
+66
+00:03:20,771 --> 00:03:23,835
+And the function is n
+squared minus 10,000.
+
+67
+00:03:23,835 --> 00:03:26,330
+So, what is the tightest
+big O bound on this?
+
+68
+00:03:26,330 --> 00:03:29,650
+Well, what Mia showed you to do
+is to basically ignore all but
+
+69
+00:03:29,650 --> 00:03:31,080
+the highest order term.
+
+70
+00:03:31,080 --> 00:03:33,410
+So, we look at n squared,
+we look at 10,000.
+
+71
+00:03:33,410 --> 00:03:37,920
+n squared is clearly the high order term
+here, so we focus in on that n squared.
+
+72
+00:03:37,920 --> 00:03:42,220
+And then we're gonna ignore any constant
+multipliers on that n squared term.
+
+73
+00:03:42,220 --> 00:03:44,080
+Well, there are no constant multipliers.
+
+74
+00:03:44,080 --> 00:03:48,635
+And so what we would have here is that,
+if we use our estimation technique
+
+75
+00:03:48,635 --> 00:03:53,205
+that Mia taught you, this should be
+O of n squared as the tightest bound.
+
+76
+00:03:53,205 --> 00:03:56,234
+But if we compare that
+to what we asserted,
+
+77
+00:03:56,234 --> 00:03:59,104
+O of n, we have to compare n squared to n.
+
+78
+00:03:59,104 --> 00:04:03,336
+And we can see that clearly n
+squared grows faster than n.
+
+79
+00:04:03,336 --> 00:04:08,080
+So n squared is in fact the tightest O
+bound we can have on this function here.
+
+80
+00:04:08,080 --> 00:04:13,670
+And n is not even an upper bound because
+it grows much more slowly than n squared.
+
+81
+00:04:13,670 --> 00:04:16,070
+So the answer to this one,
+is this is a tight bound?
+
+82
+00:04:16,070 --> 00:04:17,190
+The answer is no.
+
+83
+00:04:19,600 --> 00:04:26,750
+All right, next question, is O of n
+squared a tight bound on n plus n log n?
+
+84
+00:04:26,750 --> 00:04:27,930
+Again, we'll do the same thing, and
+
+85
+00:04:27,930 --> 00:04:32,190
+we'll figure out which is the bigger term,
+n or n log n.
+
+86
+00:04:32,190 --> 00:04:37,580
+Well n is just n, and
+log n is n times something of n.
+
+87
+00:04:37,580 --> 00:04:40,130
+So this here is going
+to be our bigger term.
+
+88
+00:04:40,130 --> 00:04:41,410
+We can ignore the n term.
+
+89
+00:04:42,420 --> 00:04:45,490
+There's no constant multiplier on it,
+so we would just,
+
+90
+00:04:45,490 --> 00:04:51,170
+using again that method that Mia
+presented, see that this is n times log n.
+
+91
+00:04:53,020 --> 00:04:58,770
+And now we have to figure out how does
+n times log n compare to n squared.
+
+92
+00:04:58,770 --> 00:05:03,420
+Well n squared is just n times n.
+
+93
+00:05:03,420 --> 00:05:05,650
+So here we have n times log n.
+
+94
+00:05:05,650 --> 00:05:08,260
+Over here was n times n.
+
+95
+00:05:08,260 --> 00:05:13,970
+This is going to be a slower growing
+function, because log n is smaller than n.
+
+96
+00:05:15,160 --> 00:05:19,130
+So this bound here, O of n log n,
+
+97
+00:05:19,130 --> 00:05:23,580
+is going to be a tighter bound than
+our originally proposed bound of O of
+
+98
+00:05:23,580 --> 00:05:28,550
+n squared because n squared
+grows faster than n log n.
+
+99
+00:05:28,550 --> 00:05:31,500
+So this tighter bound is
+smaller than n squared.
+
+100
+00:05:31,500 --> 00:05:35,210
+N squared is an upper bound, but
+it's not the tightest one we can find,
+
+101
+00:05:35,210 --> 00:05:37,340
+which is this one right here.
+
+102
+00:05:37,340 --> 00:05:41,930
+So this one doesn't work
+either as a tight bound.
+
+103
+00:05:41,930 --> 00:05:46,928
+Finally, let's consider our last function
+down here which is we're asking is O of
+
+104
+00:05:46,928 --> 00:05:51,920
+log base 2 of n a tight bound for
+
+105
+00:05:53,040 --> 00:05:55,930
+the function log base 10 of n.
+
+106
+00:05:55,930 --> 00:05:57,950
+Now there's no two terms to consider,
+
+107
+00:05:57,950 --> 00:06:01,230
+there's only one term,
+there's no constant multipliers.
+
+108
+00:06:01,230 --> 00:06:04,630
+So what we're really asking is do logs
+
+109
+00:06:04,630 --> 00:06:07,980
+grow kind of at the same rate
+no matter what their bases are?
+
+110
+00:06:09,130 --> 00:06:13,530
+And to figure this out you have to
+remember that log base conversion formula.
+
+111
+00:06:13,530 --> 00:06:16,700
+Or if you've never seen it before
+I'm gonna show it to you now.
+
+112
+00:06:16,700 --> 00:06:21,510
+Because we need to be able to express
+these logs in terms of the same base to
+
+113
+00:06:21,510 --> 00:06:22,820
+be able to compare them.
+
+114
+00:06:22,820 --> 00:06:26,490
+Because right now it's not really clear
+if those two functions will grow at
+
+115
+00:06:26,490 --> 00:06:28,020
+the same rate.
+
+116
+00:06:28,020 --> 00:06:31,120
+So the log based conversion
+formula looks like this.
+
+117
+00:06:31,120 --> 00:06:36,470
+We can turn log base 10of n into
+
+118
+00:06:36,470 --> 00:06:41,423
+log base 2 of n by dividing log
+
+119
+00:06:41,423 --> 00:06:46,990
+base 2 of n by log base 2 of 10.
+
+120
+00:06:46,990 --> 00:06:47,710
+So there we have it.
+
+121
+00:06:47,710 --> 00:06:50,460
+We take our old base,
+we convert it to a new base but
+
+122
+00:06:50,460 --> 00:06:55,640
+then we have to divide by log and
+the new base of the old base.
+
+123
+00:06:55,640 --> 00:06:58,720
+But if we look at this quotient here,
+
+124
+00:06:58,720 --> 00:07:02,150
+we can see what's on the bottom
+isn't in terms of n at all.
+
+125
+00:07:02,150 --> 00:07:06,120
+So that's just a constant factor
+which we can now ignore for
+
+126
+00:07:06,120 --> 00:07:08,690
+the purpose of our big O analysis.
+
+127
+00:07:08,690 --> 00:07:13,070
+So we can pretty much just ignore this and
+we can see that this top turn here is
+
+128
+00:07:13,070 --> 00:07:17,850
+going to turn into to
+O of log based 2 of n.
+
+129
+00:07:17,850 --> 00:07:21,490
+And if we compare this to what we
+originally asserted over there,
+
+130
+00:07:21,490 --> 00:07:23,380
+we can see those are exactly the same.
+
+131
+00:07:23,380 --> 00:07:28,710
+So O of log base 2 of n, is in fact
+a tight bound for log base 10 of n.
+
+132
+00:07:29,750 --> 00:07:34,470
+This is why you'll see computer scientists
+almost always drop the bases from logs,
+
+133
+00:07:34,470 --> 00:07:37,070
+when they're talking about big O notation.
+
+134
+00:07:37,070 --> 00:07:38,470
+Because it doesn't matter.
+
+135
+00:07:38,470 --> 00:07:42,820
+All bases of logs can be converted into
+others using constant, factor, and
+
+136
+00:07:42,820 --> 00:07:43,770
+multiplication.
+
+137
+00:07:43,770 --> 00:07:47,700
+So inside the big O, the base doesn't
+matter, which is why you can see
+
+138
+00:07:47,700 --> 00:07:51,980
+that we in fact even dropped it up here
+in our first analysis that I just did.

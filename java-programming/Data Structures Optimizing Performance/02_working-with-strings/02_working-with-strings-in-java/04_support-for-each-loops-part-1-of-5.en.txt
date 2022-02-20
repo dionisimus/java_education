@@ -1,0 +1,24 @@
+[APPLAUSE]. >> So, in this support video, what we'd
+really like to do is take some time to think about for-each loops, and
+in particular, how they relate to strings. So, by the end of this video you'll
+be much more comfortable using these programming constructs, and we'll see
+a few examples of both pitfalls, and advantages. So in the core videos,
+Christine presented this method, hasLetter, which searches through
+a given word and looks for a particular letter, and she showed you
+two implementations of this method, and the second implementation she went
+through uses a for-each loop. And so what we're going to do now is think
+about changing up this method a little bit and seeing if similar constructs
+can be used there too. So, the method we'll be focusing
+on is a replace method. And what we'd like to do is replace
+every occurrence of the character gone, or we'd like to make it gone, and instead
+put in a character that we'll call here. Okay?
+So we'll have two input characters and this input string. And what we'd like to return
+is the modified string that replaces all of the occurrences
+of one character by the other. Let's think about what would
+happen if we gave it this string, a space happy, a happy. And what we're doing with this particular
+replace method is we're going to replace all the characters a by the character i. And so if we're successful what we should
+get returned back is i space hippy. All right, so that's going to be our
+test case that we always check our work against. And it's useful to have a small
+example that we work with when we're developing a new method. So that's a good habit to get into. So let's have our first attempt. And we have some code up already. And think about whether this
+particular implementation of the method successfully returns a modified
+word that does what we wanted.

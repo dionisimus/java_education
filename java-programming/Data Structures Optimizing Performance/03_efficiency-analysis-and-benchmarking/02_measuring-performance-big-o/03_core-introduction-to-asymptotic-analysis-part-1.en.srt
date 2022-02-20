@@ -1,0 +1,714 @@
+1
+00:00:03,587 --> 00:00:05,299
+[MUSIC]
+So in the last video,
+
+2
+00:00:05,299 --> 00:00:09,150
+we got all tied up in questions
+of what an operation is.
+
+3
+00:00:09,150 --> 00:00:12,010
+How do we count every
+single last operation
+
+4
+00:00:12,010 --> 00:00:14,990
+when we execute a piece
+of code on a given input?
+
+5
+00:00:14,990 --> 00:00:17,780
+And now, what we'd like to do is
+just clean away all that clutter,
+
+6
+00:00:17,780 --> 00:00:21,140
+clean away all that mess, and
+talk about asymptotic analysis.
+
+7
+00:00:21,140 --> 00:00:25,230
+So by the end of this video, you'll be
+able to explain why asymptotic analysis is
+
+8
+00:00:25,230 --> 00:00:28,780
+so useful, and
+then start calculating the big O class,
+
+9
+00:00:28,780 --> 00:00:33,120
+which is that indicator of asymptotics
+of particular code snippets.
+
+10
+00:00:33,120 --> 00:00:36,670
+So we've already got some of that
+motivation based on the pain that we went
+
+11
+00:00:36,670 --> 00:00:38,140
+through in the previous video.
+
+12
+00:00:38,140 --> 00:00:43,120
+What we'd like to do is not have to worry
+about things that we can't control.
+
+13
+00:00:43,120 --> 00:00:45,610
+So we'd like to let go
+some of the details, and
+
+14
+00:00:45,610 --> 00:00:49,580
+think about the big picture of how our
+algorithm or our problem solving strategy
+
+15
+00:00:49,580 --> 00:00:54,340
+behaves, in particular,
+relative to big data and big inputs.
+
+16
+00:00:54,340 --> 00:00:59,064
+So we're going to think about putting away
+the details of the initialization time of
+
+17
+00:00:59,064 --> 00:01:00,003
+the execution.
+
+18
+00:01:00,003 --> 00:01:02,569
+So if there are certain things that
+we need to do at the beginning,
+
+19
+00:01:02,569 --> 00:01:04,250
+some variables we need to declare.
+
+20
+00:01:04,250 --> 00:01:08,530
+Or some tidying up stuff that we need
+to do at the beginning of our code.
+
+21
+00:01:08,530 --> 00:01:10,630
+We don't want to have to worry about that.
+
+22
+00:01:10,630 --> 00:01:15,930
+We also want to not have to worry about
+implementing specific operations.
+
+23
+00:01:15,930 --> 00:01:17,940
+How do those happen?
+
+24
+00:01:17,940 --> 00:01:21,900
+Especially if they don't have anything
+to do with how our input size
+
+25
+00:01:21,900 --> 00:01:23,360
+determines the runtime.
+
+26
+00:01:23,360 --> 00:01:24,870
+We don't need to think about them at all.
+
+27
+00:01:24,870 --> 00:01:29,612
+And so what we'd like to do is come up
+with a principled theoretical way of
+
+28
+00:01:29,612 --> 00:01:31,420
+analyzing our algorithm.
+
+29
+00:01:31,420 --> 00:01:36,083
+But something that's a little bit
+more sophisticated than counting each
+
+30
+00:01:36,083 --> 00:01:39,842
+instruction and that has this
+wider purpose of not having to
+
+31
+00:01:39,842 --> 00:01:44,052
+worry about the nitty picky details
+of the specific operations and
+
+32
+00:01:44,052 --> 00:01:49,338
+things that have to do with initialization
+time or small inputs for our algorithm.
+
+33
+00:01:49,338 --> 00:01:53,778
+Okay, so our focus is going to be
+on how the performance scales,
+
+34
+00:01:53,778 --> 00:01:58,340
+how our algorithm runs as we give
+it bigger and bigger inputs.
+
+35
+00:01:58,340 --> 00:02:01,750
+So, that motivating question
+that we talked about earlier is,
+
+36
+00:02:01,750 --> 00:02:07,400
+if our input is twice as big, how many
+more operations do we need in general?
+
+37
+00:02:07,400 --> 00:02:10,820
+Okay, and so, that's going to
+be motivating us throughout.
+
+38
+00:02:10,820 --> 00:02:14,180
+So let's start to think about
+some specific code snippets.
+
+39
+00:02:14,180 --> 00:02:15,930
+And these are, you'll recognize them,
+
+40
+00:02:15,930 --> 00:02:19,230
+taken from that hasLetter method
+that we were thinking about before.
+
+41
+00:02:19,230 --> 00:02:23,600
+So let's think about this, just the if
+branch that we have right over here.
+
+42
+00:02:23,600 --> 00:02:27,010
+And think about how it behaves,
+with respect to word.
+
+43
+00:02:27,010 --> 00:02:30,870
+So our input here is that string word.
+
+44
+00:02:30,870 --> 00:02:32,800
+And when we're thinking about performance,
+
+45
+00:02:32,800 --> 00:02:35,700
+we're thinking about it
+relative to the input size.
+
+46
+00:02:35,700 --> 00:02:39,780
+So if we have a string, then the size
+of that string is the length,
+
+47
+00:02:39,780 --> 00:02:41,950
+the number of characters in that string.
+
+48
+00:02:41,950 --> 00:02:45,570
+And you'll notice that whenever we
+talk about asymptotic analysis,
+
+49
+00:02:45,570 --> 00:02:49,810
+when we talk about inputs,
+we usually use the letter n
+
+50
+00:02:49,810 --> 00:02:54,020
+to represent the size of
+the inputs that we're given.
+
+51
+00:02:54,020 --> 00:02:57,960
+So as we work through these examples,
+whenever you see a little n pop up,
+
+52
+00:02:57,960 --> 00:03:01,310
+that's our representation of
+the size of the input, okay.
+
+53
+00:03:01,310 --> 00:03:06,300
+So for this particular piece of code,
+when the word is our input, and
+
+54
+00:03:06,300 --> 00:03:09,840
+so its size is n,
+the number of characters in the string.
+
+55
+00:03:09,840 --> 00:03:15,090
+What we'd like to think about is how long
+does it take to execute this if branch.
+
+56
+00:03:15,090 --> 00:03:18,440
+And so, in our previous model,
+we counted operations.
+
+57
+00:03:18,440 --> 00:03:20,880
+But right now what we'd like to
+do is maybe not have to count all
+
+58
+00:03:20,880 --> 00:03:25,820
+the operations, but think about how
+does the number of operations change
+
+59
+00:03:25,820 --> 00:03:29,790
+as the word gets bigger or smaller,
+as we have different inputs?
+
+60
+00:03:29,790 --> 00:03:33,330
+And if we think about what we're
+doing in this if branch, we're doing
+
+61
+00:03:33,330 --> 00:03:37,650
+one comparison, comparing a particular
+character with another character, and
+
+62
+00:03:37,650 --> 00:03:41,630
+then either doing zero operations,
+or one operation.
+
+63
+00:03:41,630 --> 00:03:47,560
+Okay, so this if branch is either going
+to have one operation associated with it,
+
+64
+00:03:47,560 --> 00:03:51,190
+just the comparison, or two operations
+associated with it, the comparison and
+
+65
+00:03:51,190 --> 00:03:52,870
+the return statement.
+
+66
+00:03:52,870 --> 00:03:55,970
+And notice that all of that calculation,
+
+67
+00:03:55,970 --> 00:04:00,220
+what we just did, didn't depend
+on the size of the word at all.
+
+68
+00:04:00,220 --> 00:04:03,280
+We had to think about two cases based
+on the particular character, but
+
+69
+00:04:03,280 --> 00:04:06,140
+nothing to do with the size of the input.
+
+70
+00:04:06,140 --> 00:04:11,480
+And so the number of operations is
+constant if all we're thinking about is
+
+71
+00:04:11,480 --> 00:04:13,390
+the size of the input.
+
+72
+00:04:13,390 --> 00:04:18,050
+Okay, so this is an example of
+a constant time code snippet.
+
+73
+00:04:18,050 --> 00:04:21,830
+So let's look at another code snippet,
+and in this code snippet,
+
+74
+00:04:21,830 --> 00:04:26,210
+what we're doing really is just counting
+the number of characters in our string.
+
+75
+00:04:26,210 --> 00:04:30,050
+And so let's think about how the runtime
+of this code snippet changes
+
+76
+00:04:30,050 --> 00:04:33,710
+as our input string grows and
+grows and grows.
+
+77
+00:04:33,710 --> 00:04:38,140
+And so what we're doing over is here is
+we're taking the input, which is still
+
+78
+00:04:38,140 --> 00:04:44,320
+the string word, and notice that here
+we're still going to call the size n.
+
+79
+00:04:44,320 --> 00:04:46,870
+And again it's the number
+of characters in the word.
+
+80
+00:04:46,870 --> 00:04:52,270
+But now the size is starting to play
+a role in the execution of the code.
+
+81
+00:04:52,270 --> 00:04:55,410
+Because what we're doing here is
+we're stepping through, in this for
+
+82
+00:04:55,410 --> 00:04:59,410
+loop, through each character
+in the string, and so
+
+83
+00:04:59,410 --> 00:05:04,540
+the number of operations is going
+to grow as the string grows.
+
+84
+00:05:04,540 --> 00:05:05,950
+And how is it going to grow?
+
+85
+00:05:05,950 --> 00:05:08,320
+For every new character in the string,
+
+86
+00:05:08,320 --> 00:05:11,940
+we're going to have to go through
+one more iteration of the for loop.
+
+87
+00:05:11,940 --> 00:05:14,430
+Because the length is going
+to be just one bigger.
+
+88
+00:05:14,430 --> 00:05:19,430
+So every time we add one character
+to our input, one additional
+
+89
+00:05:19,430 --> 00:05:23,370
+character to our string, we're adding
+one more iteration to the for loop.
+
+90
+00:05:23,370 --> 00:05:26,560
+And in that for loop, well,
+we're just doing one instruction.
+
+91
+00:05:26,560 --> 00:05:31,370
+So, every new character in our string
+adds one more instruction overall.
+
+92
+00:05:31,370 --> 00:05:36,380
+And this relationship, well,
+if we go through that calculation,
+
+93
+00:05:36,380 --> 00:05:41,560
+we have one instruction for the initial
+variable, declaration and assignment.
+
+94
+00:05:41,560 --> 00:05:46,650
+And then, n times through this loop,
+we're going to check
+
+95
+00:05:46,650 --> 00:05:51,580
+our loop counter, increment the count,
+and then add one to our loop counter.
+
+96
+00:05:51,580 --> 00:05:53,630
+And that's gonna happen n times.
+
+97
+00:05:53,630 --> 00:05:58,510
+So overall, the run time of this
+piece of code is going to be one for
+
+98
+00:05:58,510 --> 00:06:03,070
+that initial piece, and
+then within that body of the for loop,
+
+99
+00:06:03,070 --> 00:06:08,270
+we're going to have one for
+declaring the loop counter i.
+
+100
+00:06:08,270 --> 00:06:11,340
+And then for
+each iteration of the for loop,
+
+101
+00:06:11,340 --> 00:06:13,180
+we're going to have three instructions.
+
+102
+00:06:13,180 --> 00:06:15,890
+And then we're going to have one
+additional instruction at the very end,
+
+103
+00:06:15,890 --> 00:06:20,680
+when we've incremented the i too
+many times and it's bigger than
+
+104
+00:06:20,680 --> 00:06:25,390
+the length of the string, and
+that's gonna kick us out of the for loop.
+
+105
+00:06:25,390 --> 00:06:30,090
+Okay, so overall the number of
+instructions that we execute is 3n + 3,
+
+106
+00:06:30,090 --> 00:06:32,060
+putting all of those pieces together.
+
+107
+00:06:32,060 --> 00:06:35,060
+Notice that that's a linear function of n.
+
+108
+00:06:35,060 --> 00:06:38,850
+Okay so thinking back to calculus and
+definitions of linear functions,
+
+109
+00:06:38,850 --> 00:06:42,680
+when we have an input being mapped
+to some constant times that input,
+
+110
+00:06:42,680 --> 00:06:46,260
+maybe plus another constant,
+that's a linear function.
+
+111
+00:06:46,260 --> 00:06:51,400
+Okay, so the run time in terms of the
+number of operations of this piece of code
+
+112
+00:06:51,400 --> 00:06:54,080
+is linear, so it's linear time.
+
+113
+00:06:54,080 --> 00:06:57,120
+So we've seen a code snippet
+that was constant time,
+
+114
+00:06:57,120 --> 00:06:59,180
+relative to the size of its input.
+
+115
+00:06:59,180 --> 00:07:01,930
+And now we've seen another code
+snippet that's linear time,
+
+116
+00:07:01,930 --> 00:07:04,360
+relative to the size of its input.
+
+117
+00:07:04,360 --> 00:07:07,610
+And now what we'd like to do,
+is phrase this more broadly,
+
+118
+00:07:07,610 --> 00:07:10,520
+in the sense of big O classes.
+
+119
+00:07:10,520 --> 00:07:15,730
+And so, when we say that one function
+is big O of another function, what we
+
+120
+00:07:15,730 --> 00:07:22,540
+mean by that is that those two functions
+grow in the same way as their input grows.
+
+121
+00:07:22,540 --> 00:07:27,620
+Because what we'd like to do in this
+big O notation is say I don't wanna
+
+122
+00:07:27,620 --> 00:07:31,770
+care about the constants I don't wanna
+have to keep track of the plus one here,
+
+123
+00:07:31,770 --> 00:07:33,290
+and the plus three there.
+
+124
+00:07:33,290 --> 00:07:37,020
+What I like to think about is
+the rate of growth of the functions.
+
+125
+00:07:37,020 --> 00:07:40,480
+And so when we looked at that
+second function over there,
+
+126
+00:07:40,480 --> 00:07:45,450
+the one that had the linear time, we don't
+want to focus on the fact that it was
+
+127
+00:07:45,450 --> 00:07:50,480
+three n plus three, but rather that notion
+of it being a linear function of n.
+
+128
+00:07:50,480 --> 00:07:55,060
+That it grew just a little bit with
+every time that we increased the input
+
+129
+00:07:55,060 --> 00:07:56,840
+by a little bit.
+
+130
+00:07:56,840 --> 00:08:01,310
+Okay, and so this big O notation is
+going to be our way of capturing
+
+131
+00:08:01,310 --> 00:08:05,070
+the rate of growth of two functions,
+and so we say that
+
+132
+00:08:05,070 --> 00:08:09,820
+two functions are in the same big O class
+if they have the same rate of growth.
+
+133
+00:08:09,820 --> 00:08:14,610
+Okay, now disclaimer, in industry and
+
+134
+00:08:14,610 --> 00:08:17,990
+in practice, this is the way
+that most people use big O.
+
+135
+00:08:17,990 --> 00:08:18,880
+The way I just said it.
+
+136
+00:08:18,880 --> 00:08:23,990
+The big O class means that the two
+functions grow in the same way.
+
+137
+00:08:23,990 --> 00:08:28,790
+Now, if you look at the text books,
+if you Google asymptotics,
+
+138
+00:08:28,790 --> 00:08:32,200
+you'll notice that there are a lot of
+different ways of measuring asymptotics.
+
+139
+00:08:32,200 --> 00:08:34,080
+So, there's big O,
+which we'll be talking about.
+
+140
+00:08:34,080 --> 00:08:37,040
+There's also something called big theta,
+big omega,
+
+141
+00:08:37,040 --> 00:08:40,720
+little o,
+all of these different kinds of classes.
+
+142
+00:08:40,720 --> 00:08:45,740
+And they're going to represent a
+finer-grained analysis of the asymptotics.
+
+143
+00:08:45,740 --> 00:08:48,040
+Sometimes we just care
+about lower bounds or
+
+144
+00:08:48,040 --> 00:08:51,930
+upper bounds, and
+that's going to be useful as well.
+
+145
+00:08:51,930 --> 00:08:55,370
+But what we're going to do in
+this course and in our analysis,
+
+146
+00:08:55,370 --> 00:09:01,020
+is focus on the big O, and we're going to
+use that as shorthand for the tight bound.
+
+147
+00:09:01,020 --> 00:09:05,050
+Now, that's not exactly how it's
+used In the formal definition, but
+
+148
+00:09:05,050 --> 00:09:08,130
+for us big O is gonna be
+the tightest description
+
+149
+00:09:08,130 --> 00:09:10,910
+of the asymptotics of the function
+that we can come up with.

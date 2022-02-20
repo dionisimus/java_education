@@ -1,0 +1,69 @@
+1
+00:00:00,000 --> 00:00:03,699
+[MUSIC]
+
+2
+00:00:06,208 --> 00:00:10,527
+Then the other important bit about
+testing your code is actually testing
+
+3
+00:00:10,527 --> 00:00:11,740
+the behavior.
+
+4
+00:00:11,740 --> 00:00:14,380
+So there are different ways
+that you can test the behavior.
+
+5
+00:00:14,380 --> 00:00:16,400
+One of them is unit testing.
+
+6
+00:00:16,400 --> 00:00:20,290
+So with unit testing you basically just
+want to test a particular piece of code.
+
+7
+00:00:20,290 --> 00:00:24,990
+So you want to make sure that you are only
+testing an isolated piece of method,
+
+8
+00:00:24,990 --> 00:00:26,870
+rather than testing the whole software.
+
+9
+00:00:28,010 --> 00:00:30,940
+>> And then once you're pretty sure that
+that little piece of code is working
+
+10
+00:00:30,940 --> 00:00:34,290
+properly, you can use
+integration tests which will
+
+11
+00:00:34,290 --> 00:00:37,660
+check the connection between that piece
+of code and other pieces of code.
+
+12
+00:00:37,660 --> 00:00:40,880
+So if you're writing a service that say,
+like relies on a database,
+
+13
+00:00:40,880 --> 00:00:44,350
+you can actually check the connection
+between your code and the database.
+
+14
+00:00:44,350 --> 00:00:48,400
+Make sure it's pulling information out of
+it properly, storing stuff in it properly,
+
+15
+00:00:48,400 --> 00:00:49,070
+that kind of thing.

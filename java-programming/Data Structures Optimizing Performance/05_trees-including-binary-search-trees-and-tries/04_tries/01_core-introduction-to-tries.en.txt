@@ -1,0 +1,112 @@
+[MUSIC] In this video, we're gonna talk about
+a new data structure called a trie. So by the end of this video, you'll be able to explain what a trie is
+as well as describe the algorithms for inserting data into the trie and
+finding whether data exists in the trie. So to start off, let's go back to the test
+that you're going to have in your programming assignment, which is you wanna
+figure out whether the words the user is typing into the screen, into
+the text box are actually legal words. In other words,
+do they appear in a dictionary? So we can think about representing this
+dictionary in a number of ways and one reasonable way to
+represent this dictionary is using the data structure that Mia just
+taught you about, the binary search tree. And if we assume the binary
+search tree is balanced, then the tree might look
+something like this. So this is a very simple dictionary. It only has six words in it, but you can
+see that they're arranged in a binary search tree according to
+their alphabetical ordering. So the words that are closer
+to a are over on the left and the words that are closer to the end
+of the alphabet are over on the right. Now this is a perfectly fine way to
+organize words into a dictionary, but we can see that in a binary search tree,
+the binary search tree doesn't take advantage of some of
+the structure of the words themselves. It just does these pairwise
+words comparisons to figure out, which word comes first in the alphabet in
+order to arrange the words in the tree. But even with these six words, we can see that there's some
+shared structure to them. For example, ear, east and eat,
+all contain ea right at the start and the binary search tree representation
+is not using that information at all. So now we're gonna look at
+a data structure called a trie, which takes advantage of the structure
+of the keys that it stores. So the idea behind a trie is, it's gonna use the key itself to navigate
+the search through the structure. Now the word trie,
+actually comes from the word retrieval. So it's the middle part
+of the word retrieval, because these keys help you
+retrieve the keys themselves. The structure of the key helps you
+retrieve the key in this structure. However, trie, T-R-I-E in retrieval is
+pronounced the same way as T-R-E-E. And it would be very confusing
+if we were talking about a tree, because we're already talking about trees,
+T-R-E-E. So they decided to call T-R-I-E, trie
+to disambiguate it from the word tree. Because in fact, tries are trees. Hopefully, you're not thoroughly confused. Let's go talk about tries. So here is at the representation
+of a trie for that small dictionary of words that I
+just looked at in the binary search tree. So we have the same six
+words represented here. A, at, ate, ear, east and eat and I'm going to talk to you
+about how this try works. Now right after the bat, you will notice
+some differences between the binary search tree and this trie representation,
+which as I imagine is also a tree. One thing that you'll notice is that not
+every node in this tree represents a word. So you'll see some of the nodes, those
+blue shaded nodes do represent words. But some of the nodes, the white
+nodes are just internal nodes and they don't actually represent
+any word in this dictionary. The other difference you're going to note
+is that these tries can have more than two children at each node. So a binary search tree
+always has two children, these tries can have
+more than two children. In this case, we'll use a restricted set
+of the alphabet, only five characters. And so each trie node can have up to
+five children or it may have less, all of the nodes here have
+fewer than five children. But in this way,
+they're going to be kind of bushier and wider than our binary search trees, which
+always have two, one or zero children. So with an understanding
+of those two differences, let's talk about how this trie works and
+how it's put togethe and we'll do this in the context
+of finding a word in the trie. So let's have looking for the word eat. The way I'm going to find
+the word eat in the trie is I'm going to start up here at the root. And then as I mentioned before,
+the structure of the word, the structure of the key, eat is the key
+that I'm looking for is actually going to provide me with information about
+how to find that key in the trie and the information it provides is
+the characters in the word itself. So I'll start by looking at the first
+character in the word, which is e and then you can see that array has one entry for
+each potential character in my alphabet. So what I'll do is I'll find the entry for
+e, the first character in my word, it's there. And then if there's a link there,
+which there is, I'll follow that link to
+the next node down the trie. So that's the link to that node, given
+that I've seen an e as my first character. Then I'll look ahead at my next character,
+which is a. I'll find the location that links to
+the next node, given the character a, I'll follow that link and
+get to the next node in the trie. I repeat the process, I find the next
+character in the word, which is t. I find the link that I have to follow,
+given that I've now seen a t from this position and
+I'll follow that link to the next node. Now at this point, I look at my word and I
+find that I have no more characters left. So now I'm stuck and I go back and look
+at the node where I ended up stuck and I ask, does this node say
+that it represents a word? And in this case, we see that it's shaded. So yes, this node does in fact,
+say that it represents a word. And in fact, I'm storing the word it
+represents right there in that node, which is eat. It's not strictly necessary to store
+the word that's represented by a node in the trie node itself,
+because you can always recover it by tracing down the trie as
+you follow the links, but it does make things slightly easier at
+the expense of using a bit more space. So in your primary assignment, we will have you store the words in
+those trie nodes that end words. So that's how you find a word in the trie. Let's look now at how you
+add a word to the trie. So now let's say we want to
+add the word eats to the trie. So that's not currently in this trie and
+you'll see how we're going to take advantage of a lot of the structure that's
+already in the trie when we add this word. So what we're gonna do is start off
+exactly the same way that we did when we found the word eat, we'll
+start by looking at the first letter. First, we'll start at the root,
+then we'll look at the first letter e and follow the link that we should follow
+if we're looking at the letter e. So we follow that down on the next node,
+our next letter is a. We find the link to the node for
+the character a, we follow that down to the next node,
+we find t. Follow that down to the next node and
+now we see that we have an s. But if we look in the location
+where the link for s should be, we'll see that it's null. That indicates that this
+word is not in the trie. So if we were looking for the word eats,
+we would conclude at this point, it's not in the trie. But given that we're trying to add it,
+what we need to do is actually create a new node that will represent that next
+character s down further in the trie. So we create that new node and
+you'll notice that when we create it, it's not shaded,
+because we don't quite know yet that this is the end of the word and
+we link it in to the character array above at position s, because
+that's the character that we added. Now at this point, we see that we're out
+of letters in the word we're trying to add and so
+we can take that node we just created and flag it as an end of word node and
+add the word itself, eats to that node. So that's basically all there is
+to adding a node to this trie, adding a word to the try. Now eats is in the trie and if we were
+to look for it, we would find it. So coming up of next, we'll talk about
+a little bit about some of the advantages that tries have over binary search
+trees in terms of their performance.

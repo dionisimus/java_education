@@ -1,0 +1,66 @@
+[SOUND] So in the previous video,
+we talked about the definition of Asymptotic Analysis and
+these Big O classes, and we got a bit of a flavor from it,
+some really small snippets of code. How to translate from the number
+of operations to the Big O class. But now what we'd like to do is say, if we
+have the runtime of two small snippets of code, and we put them one right after
+the other, what's going to be the total runtime of the code that we're
+running in asymptotic notation? And so, by the end of this video,
+you'll be able to combine the runtimes of smaller code snippets to analyze
+slightly more complicated code. So let's think about
+a particular method and we're thinking about a method that
+takes as input an array of integers. And before we start going,
+a really good rule of thumb is when you're analyzing code, first to
+have a sense of what it's going to do. So take a minute and
+the in-video quiz is coming up asks you just to run this code on some sample
+integers and see what it does So now that you know what reduce does
+as a method, let's analyze its runtime. And really, we can break out this
+method into four chunks of code. And so, at the beginning we're
+doing some initialization. Then, we have a for loop. Then, a little one-liner. And then, another for loop. And so, let's analyze each of
+those pieces independently, because what our execution path is going
+to be is to go through one segment, and then go through another segment,
+one after the other consecutively. And so the runtime of one of them isn't
+really going to depend on the runtime of the other. They're going to go one after the other. So let's start easy. Let's start with a single lines of code. And remember our rule of thumb is just
+a single line of code, is constant time. The time it takes to execute
+that line of code doesn't depend on the size of the input. And so, we consider that just a constant
+time piece of the algorithm, it's O(1). So we've got those two under our belts. They're done. Now, let's look at that first for loop. And in this for loop what we're dong is we're going
+through the entire array of integers. And for each one at a time, what we're trying to do is find the
+smallest value in the array, basically. And so, we're comparing the value
+at the current position in the array with some smallest
+value that we've set, and seeing whether we found
+a new smallest overall. Now, for analyzing performance, we don't
+really need to know what the program does. It's going to be a good check
+at the end just to confirm. But what we wanna do is
+to count instructions or roughly figure out how the instructions
+depend on the size of the input. And so, let's think through
+about what we have to do as we step through this for loop. We're executing this for loop once,
+the body of the for loop, once for every position in the array. And each time we get to
+a new position in the array, what we're doing is
+this conditional check. We're checking whether two elements in
+the array, one is less than the other. And then, depending on the result of that
+check, we might be updating a variable. So if we think about the performance,
+we're having and repetitions of the body of the array,
+I'm sorry the body of the for loop. But the body of the for
+loop is just constant time. So n many times we're just doing
+a constant amount of work. So all in all it's O(n), O(n). So our for
+loop over here as a whole is O(n). And so, now we have just one more
+piece of the method to analyze. And that's the last for loop. And so, let's focus in on what
+happens in that last for loop. So similarly to before, we have a for
+loop that starts at one end of the array, goes through the array one at a time,
+and then does something as the position of the array increments throughout
+all of the positions in the array. Now, as before, that means that we
+have n many iterations of the for loop being executed. And for each iteration we just
+do a constant amount of work. So overall the amount of work that we're
+doing is n times a constant amount, well, that's O(n). Because we dropped the constants. So this loop as well is O(n). So thinking back to the big picture,
+thinking back to our overall method, we've got the first piece is O(1),
+then the first for loop was O(n), the next piece was at constant work and
+then the last piece is O(n). So if we think about the runtime
+total of this entire method, we're adding up all
+the runtimes that we've done. We've done one after the other,
+after the other. And so, that means that our total runtime,
+if we weren't thinking about O, would be 1 plus n plus 1 plus n,
+but that's not right. It's not 2n + 2,
+what we want to do is drop constants and keep just the dominant terms. And so, dropping constants means that
+we can drop those two O(1) pieces. And then, we're left with two big O(n),
+which is kind of like O(2n), but we have to drop that constant 2 and we have
+a O(n) algorithm, or a linear algorithm.

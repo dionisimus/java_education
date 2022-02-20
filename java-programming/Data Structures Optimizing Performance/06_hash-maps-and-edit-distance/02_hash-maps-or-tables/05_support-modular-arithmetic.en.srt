@@ -1,0 +1,357 @@
+1
+00:00:00,025 --> 00:00:03,837
+[NOISE]
+>> So
+
+2
+00:00:03,837 --> 00:00:08,260
+in Leo's videos you heard about
+HashMaps and how useful they can be.
+
+3
+00:00:08,260 --> 00:00:12,500
+And, in particular, we talked
+already about mod this and mod that.
+
+4
+00:00:12,500 --> 00:00:15,730
+And so this support video is
+an opportunity to remind ourselves what
+
+5
+00:00:15,730 --> 00:00:17,510
+modular arithmetic is and
+
+6
+00:00:17,510 --> 00:00:20,910
+how it can be useful when we're
+dealing with hash sets and HashMaps.
+
+7
+00:00:20,910 --> 00:00:24,240
+So, by the end of this video,
+you'll be able to explain how and
+
+8
+00:00:24,240 --> 00:00:27,330
+why to use modular
+arithmetic in this context.
+
+9
+00:00:27,330 --> 00:00:30,430
+So, let's go back to the example
+that Leo worked through.
+
+10
+00:00:30,430 --> 00:00:33,270
+And if we're thinking about
+an array that has five elements and
+
+11
+00:00:33,270 --> 00:00:37,870
+we want to hash elements into that array,
+then a very useful function or
+
+12
+00:00:37,870 --> 00:00:42,740
+a common function is to say K mod N,
+where K is the key or so
+
+13
+00:00:42,740 --> 00:00:46,690
+it's a code for the element that
+we're trying to put into the array.
+
+14
+00:00:46,690 --> 00:00:50,156
+And N is the size of
+the hash table that we have.
+
+15
+00:00:50,156 --> 00:00:52,896
+And so we might wanna do K mod N,
+but then why?
+
+16
+00:00:52,896 --> 00:00:55,972
+It seems kinda arbitrary,
+why do we wanna use this mod function?
+
+17
+00:00:55,972 --> 00:00:59,455
+And so, it's worthwhile to think back
+to what the mod function actually does.
+
+18
+00:00:59,455 --> 00:01:03,316
+And if you think back about
+the definition of a mod function and
+
+19
+00:01:03,316 --> 00:01:08,290
+what it's possible values are, when we
+say K mod N, we're saying I want to give
+
+20
+00:01:08,290 --> 00:01:13,480
+back the remainder of the long division
+that happens when we divide K by N.
+
+21
+00:01:13,480 --> 00:01:17,793
+Okay and so, if we think about what
+the possible remainders might be,
+
+22
+00:01:17,793 --> 00:01:21,155
+well a remainder when we do
+long division is either 0,
+
+23
+00:01:21,155 --> 00:01:25,710
+if the number divides evenly, or
+it's some number no bigger than N- 1.
+
+24
+00:01:25,710 --> 00:01:28,058
+Because if the remainder was as big as N,
+well,
+
+25
+00:01:28,058 --> 00:01:31,956
+then it wouldn't be a remainder anymore,
+we could fit more copies of N into K.
+
+26
+00:01:31,956 --> 00:01:36,367
+Okay, so the remainder is
+an integer between 0 and N-1, but
+
+27
+00:01:36,367 --> 00:01:41,694
+integers between 0 and N-1 are exactly
+the indices of an array of size N and
+
+28
+00:01:41,694 --> 00:01:46,273
+so, the set of possible values for
+the mod function is perfect for
+
+29
+00:01:46,273 --> 00:01:48,964
+storing values into a table of size N.
+
+30
+00:01:48,964 --> 00:01:53,456
+All right, so at least we know that
+the mod function, or mod N, is going to be
+
+31
+00:01:53,456 --> 00:01:57,770
+related in some way to indices in
+a collection or a table of size N.
+
+32
+00:01:57,770 --> 00:02:02,360
+And so let's think about how even the
+definition of this function that has these
+
+33
+00:02:02,360 --> 00:02:05,980
+values is already gonna help
+us calculate hash codes.
+
+34
+00:02:05,980 --> 00:02:09,470
+So when we think about remainders,
+we think about long division and
+
+35
+00:02:09,470 --> 00:02:12,840
+long division is this algorithmic
+process to compare two numbers.
+
+36
+00:02:12,840 --> 00:02:15,730
+And so we have an algorithm for
+comparing the hash codes.
+
+37
+00:02:15,730 --> 00:02:20,109
+So going back to the examples that
+Leo presented, if we think about for
+
+38
+00:02:20,109 --> 00:02:22,496
+example the hash code of the key 11.
+
+39
+00:02:22,496 --> 00:02:26,633
+We wanna compute 11 mod 5 and so
+that means that we need to do,
+
+40
+00:02:26,633 --> 00:02:28,753
+the long division of 11 by 5.
+
+41
+00:02:28,753 --> 00:02:31,573
+And so a way of thinking about
+that is that we want to write
+
+42
+00:02:31,573 --> 00:02:34,300
+11 as some multiple of 5 plus a remainder.
+
+43
+00:02:34,300 --> 00:02:35,210
+Okay, what multiple of 5?
+
+44
+00:02:35,210 --> 00:02:37,881
+I want the biggest possible
+multiple of 5 that we can.
+
+45
+00:02:37,881 --> 00:02:41,398
+And so it's 2 because 10 fits into 11.
+
+46
+00:02:41,398 --> 00:02:44,998
+And so we got 11 equals 2 times
+5 plus our remainder 1 and
+
+47
+00:02:44,998 --> 00:02:50,310
+that remainder is what we get when we say
+mod and so the hash code is just one.
+
+48
+00:02:50,310 --> 00:02:53,010
+Now with three, it's a little bit tricky.
+
+49
+00:02:53,010 --> 00:02:54,840
+It seems a little bit tricky.
+
+50
+00:02:54,840 --> 00:02:56,910
+What happens when we divide three by five?
+
+51
+00:02:56,910 --> 00:02:59,760
+Well, three is smaller than five,
+how do we divide it?
+
+52
+00:02:59,760 --> 00:03:01,585
+Well, we're still looking for
+
+53
+00:03:01,585 --> 00:03:05,309
+some multiple of five plus a remainder
+should all equal to three.
+
+54
+00:03:05,309 --> 00:03:08,856
+And so the multiple of 5
+that we end up using is 0,
+
+55
+00:03:08,856 --> 00:03:12,669
+because no positive integer
+copies of 5 fit into 3.
+
+56
+00:03:12,669 --> 00:03:16,083
+So 3 = 0 * 5 + the remainder 3.
+
+57
+00:03:16,083 --> 00:03:18,320
+And so then MOD function outputs 3.
+
+58
+00:03:18,320 --> 00:03:20,230
+And that's the hash code for 3.
+
+59
+00:03:20,230 --> 00:03:25,360
+All right, so we now know why MOD
+is useful, because it gives us
+
+60
+00:03:25,360 --> 00:03:29,470
+this limited range of possible values,
+and we know how to compute MOD.
+
+61
+00:03:29,470 --> 00:03:33,140
+But then there was this comment that Leo
+made about collisions that we have to
+
+62
+00:03:33,140 --> 00:03:36,760
+worry about what happens
+when different keys,
+
+63
+00:03:36,760 --> 00:03:40,650
+different values mapped to the same
+position in the hash table.
+
+64
+00:03:40,650 --> 00:03:45,540
+They collide, we wanna have the same
+hash code for two different numbers.
+
+65
+00:03:45,540 --> 00:03:48,300
+And so you might wonder, well,
+do we need to even worry about that?
+
+66
+00:03:48,300 --> 00:03:50,220
+Will that ever happen?
+
+67
+00:03:50,220 --> 00:03:53,860
+And so let's think about
+an example of the keys 3 and
+
+68
+00:03:53,860 --> 00:03:57,689
+13 when we try to put them
+into a hash table of size 5.
+
+69
+00:03:57,689 --> 00:04:02,058
+If we do the long division in each of
+those cases, the remainder, or the mod,
+
+70
+00:04:02,058 --> 00:04:03,889
+comes out as 3 for both of them.
+
+71
+00:04:03,889 --> 00:04:05,361
+And in fact, many, many,
+
+72
+00:04:05,361 --> 00:04:08,920
+many different integers all will
+have the same remainder mod 5.
+
+73
+00:04:08,920 --> 00:04:12,490
+And, so, we will potentially
+deal with collisions and so
+
+74
+00:04:12,490 --> 00:04:15,910
+we have to worry about how our hash
+table's going to accommodate those.
+
+75
+00:04:15,910 --> 00:04:19,505
+And that's what Leo talks about
+in those videos about collisions.

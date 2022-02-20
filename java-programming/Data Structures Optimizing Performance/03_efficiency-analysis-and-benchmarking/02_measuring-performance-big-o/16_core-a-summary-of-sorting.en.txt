@@ -1,0 +1,57 @@
+[MUSIC] >> So we've looked at three
+different algorithms for solving the exact same problem,
+that of sorting. And so now let's step back and think about how would we choose which algorithm to use
+and how does their performance compare. So, by the end of this video, you'll be
+able to state the best case, worst case, and average case performance,
+in terms of run time for each of these sorting algorithms. And you'll be able to think a bit
+about which situations call for one of these algorithms
+rather than another. So let's think about our results so
+far, and this table encapsulates what
+we've been thinking through. And we've computed the best case and worst
+case performance of each of selection sort, insertion sort, and merge sort. And something to notice here is that
+we've got the n squared term, or the quadratic term, showing up in the
+first two algorithms that we talked about, and then this n log n performance for
+merge sort. And n log n is quite a bit
+better than quadratic. Now, I'm just going to stick
+another algorithm into the table. We haven't defined what quick sort is,
+how it works. It's another algorithm
+out of a huge collection of sorting algorithms out there. It's sort of a cottage industry of
+defining more and more sorting algorithms, and we'll talk a little bit more
+about why a little bit later. But just so
+you have a reference to another algorithm, the Quick Sort in the best case
+performs like n log n, and in the worst place can have quadratic
+performance, so On squared. So, so far we just have best case and
+worst case, but let's add in that average case
+performance in there, and then think about what this
+table is really telling us. So for example, we might look for which sort is going to be
+the fastest in the best case. So perhaps, we really just care about
+performance and we're willing to maybe put in some work to make sure that we lined
+in the best case as often as we can. And so, in that case we want to narrow in on the cell on the table that
+has the best performance. And linear time beats every
+other time in this cell, and grows more slowly than n log n,
+or than n squared. And so O of n time is really great. And so if we can have any sort of
+confidence that we might stay in the best case relatively often, then
+Insertion Sort might be the way to go. And in the next lesson Leo will be talking
+about some cases in which Insertion Sort might be really appealing. Okay.
+So, we've got this very optimistic, or aggressive, approach that we
+wanna get to the best case and stay there as well as we can. We might also wanna compare Merge Sort and
+Quick Sort because if we look at their best case and average case performance,
+they both perform like n log n. And so then we might focus in on the worst
+case and say, well, why would we ever, ever use Quick Sort if Merge Sort
+has the same best case performance, the same average case performance,
+and does, well, way better in the worst
+case than Quick Sort? Is there ever a reason in which we use
+Quick Sort rather than Merge Sort? Why did I even bother
+putting it in the table? And this leads us to the observation
+that the asymptotics, this performance bound that we've
+been computing of the big O class of the run timer, the number of
+operations that the algorithm performs, is really not the only measure
+of goodness of an algorithm. So this goes back to when we first
+started talking about sorting in the first course in the specialization. We talked about other properties
+that a sorting algorithm might have. It might be stable, or it might use
+very little auxiliary memory so it might have, it'd be very nimble. >> And so, when we're thinking about
+choosing a sorting algorithm we want to choose amongst the whole
+array of possible algorithms, taking run time performance as one
+indicator of which one to use, but also thinking about the use case and
+the actual real-world factors that influence which algorithm
+is going to be right for us.

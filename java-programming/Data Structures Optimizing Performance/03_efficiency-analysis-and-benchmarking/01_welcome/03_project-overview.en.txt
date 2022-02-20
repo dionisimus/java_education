@@ -1,0 +1,35 @@
+[MUSIC] In this video, I'll show you the output
+of your next programming assignment, the programming assignment for this week. In terms of the interface
+that text editor interface, you're not gonna be adding
+any additional functionality. You'll be implementing an efficient
+document class, which is going to do the same thing that your basic document
+class did, only it's going to do it. You guessed it, more efficiently. And then you'll be implementing
+some benchmarking to actually compare the running time
+of your basic document with the running time of
+your efficient document. So what I'm gonna show
+you is the run of this document benchmarking program
+that you're gonna write. So I've written it,
+I've got the solution in this file. And I'll show you what it does,
+and then I'll show you how you'll use Google Sheets to do some analysis and
+the visualization of the data. So here's the demo,
+you're going to press run, right here on your DocumentBenchmarking
+class once you've got it running. And then you go over
+here to the console and you can see that it's printing out
+the output of these efficiency tests. Then you can just let that run. All right, it'll take a little while, but when it finally finishes
+you'll have this output here. You'll have the size of
+the document that you are testing. You'll have the performance
+running time for basic document. And the running time for
+the efficient document. And again,
+you'll be writing the file that does this. You'll be writing
+the program that does this. Then what we want you to do is, you're
+gonna take all this data and copy it out. And go on over to Google Sheets. And then I'm just gonna
+paste in this data. All right,
+now I've got my data pasted in and you're gonna see a button
+down here that says Explore. You're gonna press that button, and
+I'm not gonna press it because this is the solution code and I don't want you to
+see the graphs that I get when I run this. I want you to see your own graphs and I
+want you to explore the data on your own. So you'll explore the data using this
+button and it's really pretty cool of what you'll see from running
+these table implementations and then visualizing the data. So, throughout this week, you're gonna learn all the tools you
+need in order to do this comparison. Do this benchmarking. Implement the efficient document and
+have a lot of fun playing with the data.

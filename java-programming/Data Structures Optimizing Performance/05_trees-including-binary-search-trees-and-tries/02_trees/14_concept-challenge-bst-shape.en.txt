@@ -1,0 +1,99 @@
+[SOUND] So in this lesson on trees,
+you've seen a lot of jargon and a lot of notation and terminology. And so this concept challenge helps
+you put all the concepts together and really see how the different
+pieces impact one another. Now, you're used to the routine here. You'll be presented with a question and we'll invite you to solve
+the problem yourself. Then you'll discuss with other
+learners either around you or on the discussion forums, and
+then you'll watch the UC San Diego students video where they
+discuss the question. You'll be invited to answer the question
+again and then we'll recap the solution. So, in this problem, what you'll be doing
+is thinking about how the insertion order of elements into a binary search
+tree impact the shape of the tree. >> Hi I'm Alan. >> I'm Melissa. >> I'm Sarah. >> So I think these are all
+valid trees because each node, everything less than the node
+is less than the node, and everything to the right of
+the node is greater than the node. >> Yeah. So for A, the root always comes first,
+and so there's two first, and it could be either one or four, right? >> Right. >> Yeah. >> So two, one and then two,
+four and then eight on the end. >> One could also come in the end, too. >> Yeah, that's true, so
+it could be two, four, eight and one. >> Yeah. >> Okay, so
+there's three possibilities for A. >> So for B. So if the rest come first,
+then it has to be two, and then one can still come at the end since it's
+on its own, it doesn't have any children. >> Yes.
+>> So it doesn't have children, it can come at the end right? >> Yeah, if it doesn't,
+that makes sense, yeah. >> All right, so, and
+then four has to be after eight. >> Yes.
+>> So it'd be two, eight, four, and then one could come over. And then C, it is one long one so
+they have to be in order. >> Yeah.
+>> Efficient though. >> Yeah true. >> I think D's a little weird
+with the two at the end. >> Yeah.
+>> Yeah that confused me a bit. I thought that was
+an invalid tree at first. >> Yeah.
+>> I thought it was an invalid tree. >> But I think it's a valid tree since two can come after four since it's
+smaller than four on the left. >> Yeah, that's true. So, the root, which is one,
+comes first, and then- >> And then it would have to be four, cuz it's the one's only child. And then I guess two and
+eight come in either order. >> Yeah, so
+there's two possibilities for D. >> So as you saw when the U C San Diego
+students discussed this problem, all the four options are valid trees. You can think about the root
+node of each of these trees, you can think about the leaf
+nodes of each of these trees, and you notice that they're all satisfying the
+properties that are required for trees, and not only that,
+they're all binary search trees. And so notice that every node has at most
+two children and that when we look at the elements or the values stored in
+each of these nodes, we always have that nodes on the left have smaller values
+than the nodes to the right of them. So we have four valid options
+of binary search trees. But, then, the question is, in what order
+might we have inserted the elements in order to get to these very, very
+different shaped trees that we have here. So let's start with the first option,
+option A and we notice that the root of the tree will
+have to come first when we insert it. And that's because when we insert
+nodes into a binary search tree, we always insert nodes as leaf nodes,
+so they don't have any children. And so if we start out with nothing,
+our very first element is going to be the root node because the root
+is not a child of any other node. So we know that our first element to go
+in is going to have to be the number two. But then the question
+is what happens next? And whether there are any constraints
+that are imposed on us by the shape that we see already. And what the learners discussed, and
+what you might be observing as well, is that the eight had to have been
+inserted after the four because it shows up here as a child of the node four. And so
+that means that in our possible orderings, eight is always going to come after four. But that means that it could go at the end
+so then it could have two and then one and then four and eight. Or we could have had four and eight be
+inserted immediately after two and then the one at the end, or we could have had
+four inserted and then one and then eight. And that's okay because the node for
+one and the nodes for four and eight really don't interact
+very much with one another, and so they could have been inserted
+in any order into this tree. All right, so these are the three
+options that we have for insertion orders that lead into
+this shaped binary search tree. But now let's look at option B and we notice that we have
+a slightly similar shaped tree. As before the root comes first, and
+as before, we noticed that when we have a child node, that it had to
+have been inserted after its parent. And so that means that we have
+a constraint of four had to be inserted after eight. But as before, there's still some
+freedom in terms of how we insert one relative to the nodes four and eight. And so again, we have the three options
+that mirrored the collection of options that we had for option A. But now we get to something quite
+different when we look at option C, and in option C we notice that the shape that
+we're thinking about is a linear shape. And so we start at the bottom with the
+root and the root had to come first, but then we have other constraints as well. So we see that the node two
+had to be inserted after one, because that's a child of one, but then
+also four needed to be inserted after two because it's a child of two, and then also
+eight needed to be inserted after four, and so all of a sudden we have completely
+constrained the insertion order into this binary search tree because every single
+node has already been determined. It's position in the insertion order
+completely determined, and so the order in which we inserted elements is exactly
+one, then two, then four, then eight. And that's the only way to have
+inserted them, in order and in that order,
+in order to get that path-like tree. All right. Last but not least,
+we've got this tree and it looks quite different from the other
+ones that we've thought about. Still, the root will have to come first
+when we insert into this tree, but now notice that the dependencies are that both
+leaf nodes are children of that node four. And so both two and eight needed to be
+inserted after four, which meant that four had to come right after one, right
+after the root, in the insertion order, because we had to have space for
+two other elements behind it. But those two other elements, well they
+could go in whatever order they want because neither is a child of the other. And so we have two options for
+the insertion order, either two before eight or
+eight before two. And now we've gone through all of
+the options that we were considering and the take home message of this concept
+challenge is that the order in which we put elements into a binary
+search tree impact the shape, and what you'll see is that the shape of
+the binary search tree will have a huge impact on the performance of operations
+with that binary search tree. And so you want to keep that in mind when
+you're working with this data structure.

@@ -1,0 +1,82 @@
+[MUSIC] So now we're ready to put together
+everything we've been talking about with performance analysis. And in particular think about
+the asymptotic balance, the big-O classes of searching algorithms. So at this point we've got two searching
+algorithms that we've talked about, so by the end of this video you'll
+be able to both state and justify the big-O runtime for
+both of these search algorithms. And both in the best case and
+in the worst case. So what we're going to be doing is
+filling in this little table, and so let's start with a linear search. So our linear search basic algorithm
+is that when we're searching through a list of data, we start at
+the beginning and we go to the end, and we look for our desired piece of data. So, in the best case, let's think back to the example in your search that we've
+done, that was that hasLetter method, in the best case we find
+the piece of data right away. And so, our best case performance
+is a constant time big O(1). Now in the worst case, we talked about
+this also with the hasLetter method. What happens if we're unlucky is that
+we go through the entire string or entire list of data and
+we don't find what we're looking for, or we only find it at the very end. But in either one of those situations in
+this very unlucky situation, we have to go through all data and so our performance
+is growing just like the input is. So, it's big O(n). And so if the worst case linear
+search performs like big O(n). Okay, so we've got linear search and
+now let's move on to binary search. We haven't talked about binary
+search in this course so far, but if you think back to the first course
+in the specialization we did do several examples with this algorithm. And so you can go back there
+to refresh your memory. The binary search algorithm is
+similarly as before looking for data in a list of data,
+but something that we have to assume in order to use binary search
+is that this data is already sorted. It's organized from smallest to
+biggest in some measure of order. Okay, so if we make that assumption
+that we have sorted data, what's the best case situation? What's the worst case situation? Well, we have to go back to what the
+algorithm is in the first place before we can analyze it. So the nuts and bolts of the binary search
+algorithm is that we take our data and we start by looking in the very middle. And maybe we're lucky and we found it. Sweet. If not, if we didn't find
+the item that we're looking for in the very middle then what we have
+to do is either look at the first half of the list or
+the second half of the list. And we choose which half to look at based
+on comparing the value that we're looking for with the value in the middle and
+seeing, should I be before it or should I be after it? And so what we're doing in
+binary search is over and over cutting the amount of information
+that we need to look at in half again and again and again until we focus
+in onto where our element ought to be in the list and
+then checking if it really is there. Okay so that's big picture what we're
+doing, now how does it perform? And we ask ourselves,
+best case, worst case? And best case is super lucky,
+we zoom into the middle of the list and we've found our element
+that we're looking for. And we're done and we can return,
+and that took lots of time. So the best case is really a similar
+situation to linear search, where we're really lucky and we find
+our item at the first chance we could. So the very first thing
+that we test is actually the element that we're looking for. Okay, so that's the best case,
+constant time, okay. But what about the worst case? And let's think through what
+happens in this worst case and what it would mean to have
+a really unlucky search. And just like before, what it would mean
+to have a really unlucky search is if we don't find the element at all. If we keep looking,
+keep looking, keep looking, and we can't find this element in the list. So if the element is
+missing from the list, and let's think about what this algorithm
+would do in that that case. So we looked in the middle, and
+we didn't find our element. And now, we go and
+look at just half the list, and then we basically repeat the algorithm. And so what we do is we look in the middle
+of that half and look for our algorithm, and we're not gonna find it there. And so we look at half of the remaining
+and look in the middle of that. We're not gonna find it there. Okay, so we only need to
+consider half of the remaining. Look in the middle of that,
+keep on going, keep on going, and the question is when do we get to stop? So, every time we repeat this process,
+every time we have a new high element and a low element,
+and we compute a new midpoint, what we're doing is we're decreasing
+the list in consideration by half. And so we get to stop when the number
+of elements that we need to consider, well, is just one. And so we need to ask ourselves,
+how many times does it take for this process to reduce the list that we
+need to consider to just one element? Or another way of saying that is, how many times can we divide the size
+of the element by 2 and get to 1? So, we're repeatedly dividing by 2,
+dividing by 2, dividing by 2, and we want to get to 1. But the number of times we can do that is exactly the logarithm base
+2 of the size of our list. And there's a support video to go
+through that calculation a little bit more in detail if you're interested. So, for binary search we filled in
+that last cell in the table, and in the worst case this search runs
+in big O of logarithmic time. So, we've got this table, it's great. But, we've got that little asterisk
+that says, all of these calculations for binary search are assuming
+that our data is sorted. Our algorithm for binary search
+requires the data to be sorted. And so it's not really fair
+to have this table and compare linear search head to head with
+binary search because linear search doesn't make any assumptions on
+the organization of the data. And so if we really wanted to
+compare them head to head, these two algorithms, what we would need
+to do is say, well, how long would it take to take an unorganized list and
+sort it and then run binary search on it? So in the next video we'll be summarizing
+some approaches for sorting and doing their performance analysis as well.

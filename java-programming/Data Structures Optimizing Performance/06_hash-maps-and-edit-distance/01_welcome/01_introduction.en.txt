@@ -1,0 +1,3 @@
+[MUSIC] You've made it to the last
+module in this course, where we'll finish up the project and
+you'll learn about hash tables.

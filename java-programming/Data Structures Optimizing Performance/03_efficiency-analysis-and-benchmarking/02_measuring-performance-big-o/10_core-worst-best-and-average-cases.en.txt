@@ -1,0 +1,111 @@
+[MUSIC] So, now you have a lot of practice
+computing asymptotic bounds. Which means those big O classes for
+various pieces of code. And when we're thinking about a piece of
+code that's executed on a given input. But what we'd like to do is step back and
+think about our original problem. And our original problem was measuring
+the performance of an algorithm, which was a strategy for
+solving a problem. And so that means that we don't want
+to just focus in on a single input. We wanna think about how
+the algorithm behaves for all inputs. And so, by the end of this video, you'll
+be able to define what it means to talk about the worst case, average case, and
+best case performance of an algorithm. And talk about how that really talks about the various inputs that
+we might have to come across. And then we'll talk about, also,
+why each of these is used. So, let's think back to this big picture
+we have of an algorithm as a problem solving strategy or machine. That takes some input and produces output,
+and the performance that we've been focusing on is the time that it takes for
+the algorithm to do this. To report back the answer,
+given the input. So in the example that we've talked about
+way back when when we first started. We were looking at the hasLetter method,
+which took as its input a word, which was a string. And a character which was the letter
+that we were looking for in that word. And then it returned either true or false based on whether the character
+was found inside the string. Now, as we saw when we were counting
+operations, depending on the specific word and letter combination, our algorithm
+behaved a little bit differently. It took a different number of operations,
+in with each one of these cases. So even if we were looking
+at the exact same word, so that a fixed length word,
+and one character. We weren't changing the number of
+characters we were looking for. We could still have quite different
+behavior in terms of the number of operations that our algorithm required
+before it could output the answer. And so what we'd like to do now
+is capture that variability in terms of the algorithm run time. And talk about the different
+contexts we might care about. So we might be optimistic and
+say, in the best possible case how short might be my wait,
+how quick might my algorithm be? So, if I give the algorithms
+just the most beautiful input, whatever beautiful means,
+then how quick can it respond to me? And now still this input is
+going to be of a fixed size n. So, we don't expect
+the algorithm to be very quick, no matter what size input we have. So we're just thinking about,
+within all the inputs of size n, what's the best possible
+behavior of my algorithm. And so
+thinking back to the hasLetter method, when is this algorithm the quickest? When does it have to run
+very few operations? Well, think back to what we do. We start at the beginning and we look for our letter in every
+possible position of our string. So if we found our letter at the very
+beginning, if our letter was the very first letter of this string, then we'd
+be able to quit while we were ahead. We'd be able to return out
+of the method very quickly. So the best case for this method,
+is when the word that we've input, starts with the letter
+that we're looking for. And in that case, well, this algorithm
+just really needs to do one check, really. It just compares the letter
+that we're looking for with a character at the first position of
+the string, and that takes constant time. So in the best case,
+this method is a constant-time method. So that's interesting, but most of the time we're not going
+to be in the best case scenario. Most of the time the word that we care
+about will not start with the letter that we care about. And so this is just a very small
+view of how this algorithm behaves. This is just one special case. And so, on the other hand,
+we might be pessimists, and say, well,
+I think things are gonna be bad. I think my algorithm's gonna take forever. And so
+what should we prepare ourselves against? What's the worst possible
+performance of the algorithm, no matter how bad the input,
+still for a given, fixed size? And so what we'd like to do now is look at
+our algorithm and say, as pessimistically as possible, in the worst possible
+situation, how many steps will I need? And so
+again with our example of hasLetter, what's the worst possible situation we
+might have in terms of run time here? Well, we're stepping through
+the letters of the word and each time we're looking for
+our desired letter. And so, in the worst possible situation, what we're gonna have to do is
+go through the entire word and either just find our letter at
+the very end or not find it at all. So, the worst case for this method is that
+the letter that we care about is either at the end of the word or
+it's missing altogether. And in either one of those situations what
+happens is that we've stepped through the entire input word. And are only able to return our answer
+to the user once we've looked at all of the characters in the string. And so in either way,
+what we have to do is some constant number of instructions for
+each position in the word. And so that means that we need to
+do big O of N much work where N is the length of the word. And so, in the worst case, where we
+have to go through the entire string, this method takes linear time,
+big O(n) time. Okay, so,
+we've got the best case situation, we've got the worst case situation. And, just if we think
+about the meanings here, the amount of time our algorithm takes in
+the best case will always be shorter than the amount of time our algorithm
+takes in the worst case. Okay, and so when we think about this
+best case and worst case analysis, it's useful to keep in mind why we
+might care, how we'll use these bounds. And so you can think about the best
+case analysis as this guarantee that we'll always have to spend at least
+this amount of time doing this algorithm. We know that we'll never be
+shorter than the best case. Okay, and so if we're budgeting our time, we know that we have to budget
+at least this amount of time. For the worst case analysis, we know that
+we've got a guarantee that we'll never have to wait longer than
+the worst case analysis. To get back an answer from our algorithm. And so if we're planning ahead, we'll know
+that by a certain amount of time, and maybe before,
+we'll have terminated this algorithm. And so it's useful to have these extreme
+situations analyzed when we're trying to analyze how our algorithm's going
+to behave, no matter what input we get. Well, now we've understood the extremes. The thing is that in real life,
+we don't usually live in the extremes, we often live somewhere
+in that messy middle. And so we also have a notion
+of average case performance. And with average case analysis, what we'd like to do is get a sense of the
+performance of the algorithm on average, if we consider all
+possible inputs of size n. Now this gets really messy. All sorts of considerations
+need to get taken into account. If we want to be completely
+precise about it, we need to think about
+the distribution of possible inputs, how likely it is to get
+different kinds of inputs. We can also think about what happens with
+each of those inputs on their own and then try to put them together. As you can probably tell,
+this is very messy, very quickly and what we typically do is just say average
+case we realize is more realistic. But it's too hard and we're going
+to use the bounds that we got from the analysis of best case and
+worst case to give us the ballpark. Understand the sandbox in which we're
+playing and that's good enough. So there we have the best case, the worst
+case, and the average case possibilities. Notice that we're using the asymptotic
+notation, the big O notation to describe, in each of these contexts,
+what the run time of the algorithm is. But what we're computing is going to be
+a little bit different in each situation.

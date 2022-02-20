@@ -1,0 +1,309 @@
+1
+00:00:00,000 --> 00:00:03,796
+[MUSIC]
+
+2
+00:00:03,796 --> 00:00:06,344
+Now that we have a good idea of
+what a binary search tree is,
+
+3
+00:00:06,344 --> 00:00:08,950
+let's talk about how we do
+a search in a binary search tree.
+
+4
+00:00:08,950 --> 00:00:10,160
+So by the end of this video,
+
+5
+00:00:10,160 --> 00:00:13,490
+you should be able to perform
+searches within a binary search tree.
+
+6
+00:00:15,190 --> 00:00:21,069
+So the idea behind a binary search tree is
+very similar to binary search of an array.
+
+7
+00:00:22,170 --> 00:00:24,580
+So what we're gonna do is I'm just going
+to give you a few examples of this and
+
+8
+00:00:24,580 --> 00:00:26,490
+then we'll talk about how we
+could solve this with code.
+
+9
+00:00:27,760 --> 00:00:33,300
+So first off, let's say I'm trying to find
+element C, well how am I gonna get there?
+
+10
+00:00:33,300 --> 00:00:36,950
+Well I'm gonna start with the root and
+we'll look and I'm gonna say is E C?
+
+11
+00:00:36,950 --> 00:00:39,600
+Are those the same things?
+
+12
+00:00:39,600 --> 00:00:40,620
+No they are not.
+
+13
+00:00:40,620 --> 00:00:41,740
+E is actually greater than C.
+
+14
+00:00:41,740 --> 00:00:47,480
+And because E is greater than C, it tells
+me to look in the left sub tree of E.
+
+15
+00:00:47,480 --> 00:00:52,110
+So, my next step is to move my
+current notion of tree node down to B.
+
+16
+00:00:52,110 --> 00:00:55,250
+I'm going to look at B and compare B to C.
+
+17
+00:00:55,250 --> 00:00:57,190
+Are they the same?
+
+18
+00:00:57,190 --> 00:00:58,240
+They're not.
+
+19
+00:00:58,240 --> 00:01:00,330
+B is less than C.
+
+20
+00:01:00,330 --> 00:01:03,430
+So I now need to look at
+the right sub tree of B.
+
+21
+00:01:03,430 --> 00:01:05,580
+So now I'm gonna head and look at C.
+
+22
+00:01:05,580 --> 00:01:11,180
+So in other words in node C where
+going to ask is C equal to C.
+
+23
+00:01:11,180 --> 00:01:13,680
+It is, yay, we found it!
+
+24
+00:01:13,680 --> 00:01:15,670
+We're done,
+all we have to is return true or
+
+25
+00:01:15,670 --> 00:01:18,290
+return the node depending on what
+we're doing with the search.
+
+26
+00:01:18,290 --> 00:01:22,480
+We found this binary search
+tree contains the element C.
+
+27
+00:01:22,480 --> 00:01:24,900
+So, let's do one more example here.
+
+28
+00:01:24,900 --> 00:01:25,990
+Let's start searching for P.
+
+29
+00:01:25,990 --> 00:01:28,790
+So, what I'm gonna do is
+again start at the root.
+
+30
+00:01:28,790 --> 00:01:29,710
+I'm going to look at E.
+
+31
+00:01:29,710 --> 00:01:30,580
+I'm gonna ask.
+
+32
+00:01:30,580 --> 00:01:33,390
+I'm gonna compare E and P, and
+I'm gonna ask are they the same.
+
+33
+00:01:33,390 --> 00:01:35,088
+They're not.
+E is less than P, so
+
+34
+00:01:35,088 --> 00:01:38,120
+I'm gonna go into the right sub tree of E.
+
+35
+00:01:39,210 --> 00:01:39,920
+So now I'm gonna look at M.
+
+36
+00:01:39,920 --> 00:01:44,190
+I'm gonna ask again,
+what's the relationship between M and P?
+
+37
+00:01:44,190 --> 00:01:47,470
+Well, M is still less than P so
+I need to go to the right sub-tree of M.
+
+38
+00:01:47,470 --> 00:01:50,587
+And now I'm gonna look at Q.
+
+39
+00:01:50,587 --> 00:01:54,712
+And I'm gonna see that,
+do the same comparison, Q is not P.
+
+40
+00:01:54,712 --> 00:01:57,170
+I'm gonna see that Q is greater than P,
+
+41
+00:01:57,170 --> 00:02:00,233
+therefore I need to look
+in the left sub tree of Q.
+
+42
+00:02:00,233 --> 00:02:02,800
+There is no left sub tree of Q.
+
+43
+00:02:02,800 --> 00:02:06,150
+P is not in this array, so
+it's no here and I can return false.
+
+44
+00:02:06,150 --> 00:02:07,040
+Essentially that's not found.
+
+45
+00:02:08,700 --> 00:02:11,240
+So now that we have the idea
+of how to do this search,
+
+46
+00:02:11,240 --> 00:02:13,700
+the question is how are we
+gonna put this into code?
+
+47
+00:02:13,700 --> 00:02:17,546
+Well first off, you could solve this
+fairly cleanly using recursion.
+
+48
+00:02:17,546 --> 00:02:22,206
+And the way I want you to think about this
+is that if I'm thinking about what do I
+
+49
+00:02:22,206 --> 00:02:25,087
+wanna do at node E, so
+the tree rooted at node E.
+
+50
+00:02:25,087 --> 00:02:30,152
+It's very similar to what I'm gonna want
+to do when I'm looking at the sub tree
+
+51
+00:02:30,152 --> 00:02:34,909
+rooted at node B, which is very similar
+to the comparisons I might make for
+
+52
+00:02:34,909 --> 00:02:37,190
+the sub tree rooted at C.
+
+53
+00:02:37,190 --> 00:02:40,919
+So because it's the same behavior at each
+step, this lends itself well to recursion.
+
+54
+00:02:42,130 --> 00:02:45,690
+You can also solve this very
+cleanly using iteration.
+
+55
+00:02:45,690 --> 00:02:48,530
+And here you would just have a loop where
+you're essentially keeping track of your
+
+56
+00:02:48,530 --> 00:02:49,390
+current node.
+
+57
+00:02:49,390 --> 00:02:53,440
+So just like we did before, you'd have
+your current node be E, then B, then C and
+
+58
+00:02:53,440 --> 00:02:56,400
+you can just essentially walk
+through the tree that way.
+
+59
+00:02:56,400 --> 00:02:59,210
+Now at this point,
+I want you to try this on your own.
+
+60
+00:02:59,210 --> 00:03:03,100
+So you're gonna be searching
+in the project for an element.
+
+61
+00:03:03,100 --> 00:03:06,000
+And I'd like you to try that code
+on your own before you look for
+
+62
+00:03:06,000 --> 00:03:06,820
+any support videos.
+
+63
+00:03:06,820 --> 00:03:09,700
+But if you want some more support, and
+you're a little bit stuck on how to search
+
+64
+00:03:09,700 --> 00:03:13,920
+a tree, we have a more thorough
+walk through of doing search
+
+65
+00:03:13,920 --> 00:03:16,450
+in one of our support videos, so
+you can always look at that there.
+
+66
+00:03:17,930 --> 00:03:20,810
+Next, we're gonna start looking
+at how to do insertion and
+
+67
+00:03:20,810 --> 00:03:22,450
+deletion from this binary search tree.

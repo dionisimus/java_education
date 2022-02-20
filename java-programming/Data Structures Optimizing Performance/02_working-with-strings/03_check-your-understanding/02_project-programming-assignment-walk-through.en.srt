@@ -1,0 +1,867 @@
+1
+00:00:00,093 --> 00:00:04,134
+[MUSIC]
+
+2
+00:00:04,134 --> 00:00:07,210
+This videos going to walk you through
+your first programming assignment.
+
+3
+00:00:07,210 --> 00:00:10,110
+You've already seen what the output of
+the entire program is going to look like,
+
+4
+00:00:10,110 --> 00:00:12,230
+but here we're going to focus
+on what you're going to do for
+
+5
+00:00:12,230 --> 00:00:14,900
+the first module for this first week.
+
+6
+00:00:14,900 --> 00:00:17,960
+So here we are in
+the programming assignment and
+
+7
+00:00:17,960 --> 00:00:20,160
+what you're going to do is you
+going to read all these instructions.
+
+8
+00:00:20,160 --> 00:00:22,980
+There's a lot here which is why we
+going to walk you through what you need to
+
+9
+00:00:22,980 --> 00:00:25,000
+do very carefully.
+
+10
+00:00:25,000 --> 00:00:26,520
+So, if you start reading instructions,
+
+11
+00:00:26,520 --> 00:00:29,690
+the first thing you need to do
+is to get everything set up.
+
+12
+00:00:29,690 --> 00:00:32,580
+So if you haven't already
+followed the set up guide
+
+13
+00:00:32,580 --> 00:00:34,150
+you will want to follow that setup guide.
+
+14
+00:00:34,150 --> 00:00:37,960
+You can access that setup guide right
+here, just clock on this link, or you have
+
+15
+00:00:37,960 --> 00:00:41,800
+already seen it as a reading if you have
+been going through the course in order.
+
+16
+00:00:41,800 --> 00:00:44,850
+I will want you to follow that
+setup guide to get Eclipse and
+
+17
+00:00:44,850 --> 00:00:48,900
+your starter code all set up even if you
+have already worked with Eclipse and
+
+18
+00:00:48,900 --> 00:00:50,840
+even if you have already worked with Java.
+
+19
+00:00:50,840 --> 00:00:56,680
+Because there's going to be some
+differences between the set up for
+
+20
+00:00:56,680 --> 00:00:59,520
+this course and the set up that
+you might have used in the past.
+
+21
+00:00:59,520 --> 00:01:02,630
+So it's important that you go to that
+set up guide even if you're with us in
+
+22
+00:01:02,630 --> 00:01:05,470
+the first course and
+even if you use the clips and Java before.
+
+23
+00:01:05,470 --> 00:01:08,520
+Just to make sure you got
+everything set up correctly.
+
+24
+00:01:08,520 --> 00:01:11,540
+Then once you think you've got everything
+set up correctly you could verify
+
+25
+00:01:11,540 --> 00:01:14,300
+that it's all set up by going
+over here into a clips.
+
+26
+00:01:14,300 --> 00:01:16,520
+And then,
+running the front end application.
+
+27
+00:01:16,520 --> 00:01:22,030
+So you can open up the project, which
+will be your MOOC text editor project.
+
+28
+00:01:22,030 --> 00:01:25,900
+Open up the source folder and
+then go into the application package.
+
+29
+00:01:25,900 --> 00:01:29,430
+And you'll find the file
+that you're going to
+
+30
+00:01:29,430 --> 00:01:31,380
+run in order to run that
+text editor right here.
+
+31
+00:01:31,380 --> 00:01:32,660
+It's the main app.
+
+32
+00:01:32,660 --> 00:01:34,150
+So, Iet's open up main app, and
+
+33
+00:01:34,150 --> 00:01:39,230
+I'm going to close all the other windows
+here so you can just see the main app.
+
+34
+00:01:39,230 --> 00:01:44,180
+And this is already written for you,
+so all you have to do is press run and
+
+35
+00:01:44,180 --> 00:01:47,570
+you will see the application
+run right like that.
+
+36
+00:01:47,570 --> 00:01:50,730
+And you'll see that if
+I type some text Hello.
+
+37
+00:01:50,730 --> 00:01:52,770
+This is text.
+
+38
+00:01:52,770 --> 00:01:55,410
+You can see that it doesn't
+actually do anything.
+
+39
+00:01:55,410 --> 00:01:59,700
+So, I type the flesch index and it gives
+me a flesch index score of zero which
+
+40
+00:01:59,700 --> 00:02:04,280
+obviously isn't correct but that's because
+we haven't implemented anything yet.
+
+41
+00:02:04,280 --> 00:02:06,380
+So the load text button is going to work.
+
+42
+00:02:06,380 --> 00:02:09,230
+But all these other buttons
+are not going to do anything.
+
+43
+00:02:09,230 --> 00:02:12,430
+If I ask for example spelling suggestions,
+it's just going to tell me that everything
+
+44
+00:02:12,430 --> 00:02:16,410
+is misspelled because I don't have
+any of my dictionaries implemented.
+
+45
+00:02:16,410 --> 00:02:19,140
+So I can detect text, I can load text,
+I can clear the text, but
+
+46
+00:02:19,140 --> 00:02:20,100
+that's about all I can do.
+
+47
+00:02:22,040 --> 00:02:24,570
+So what are you going to be
+adding in this assignment?
+
+48
+00:02:24,570 --> 00:02:27,260
+Well, in this assignment, you are going to
+be adding the functionality of that
+
+49
+00:02:27,260 --> 00:02:31,710
+Flash index score and let's take
+a look at how you're going to do that.
+
+50
+00:02:31,710 --> 00:02:34,000
+You're going to do that by
+adding the substarter code, so
+
+51
+00:02:34,000 --> 00:02:36,590
+we recommend here in step three
+that you take a moment or
+
+52
+00:02:36,590 --> 00:02:38,740
+yourself to the starter code for
+this assignment.
+
+53
+00:02:38,740 --> 00:02:44,050
+And the starter code for this assignment
+is document.java and basicdocument.java.
+
+54
+00:02:44,050 --> 00:02:45,460
+So, let's open those app.
+
+55
+00:02:45,460 --> 00:02:48,290
+So their found over here
+in the document package.
+
+56
+00:02:48,290 --> 00:02:51,870
+So here's the document package,
+I can open up basic documents and
+
+57
+00:02:51,870 --> 00:02:53,410
+I can open up documents.
+
+58
+00:02:53,410 --> 00:02:57,040
+And what you'll see when you open up this
+two files is that you'll see that their
+
+59
+00:02:57,040 --> 00:02:58,840
+market are little to do items.
+
+60
+00:02:58,840 --> 00:03:02,410
+So there are some things that
+you need to do in these files.
+
+61
+00:03:02,410 --> 00:03:06,420
+And I'll talk about what they are as
+I walk through the assignment.
+
+62
+00:03:06,420 --> 00:03:07,720
+So, the first thing, part one,
+
+63
+00:03:07,720 --> 00:03:11,540
+is you're going to implement the missing
+methods in BasicDocument.java.
+
+64
+00:03:11,540 --> 00:03:13,630
+So what you'll find in BasicDocument.java,
+and
+
+65
+00:03:13,630 --> 00:03:17,030
+we'll look at it in a second,
+is that there are a few methods missing.
+
+66
+00:03:17,030 --> 00:03:20,950
+So the method getNumSentences,
+getNumWords, and getNumSyllables,
+
+67
+00:03:20,950 --> 00:03:25,340
+none of those are implemented at all and
+it's your job to implement them.
+
+68
+00:03:25,340 --> 00:03:29,860
+And the most important piece of this
+implementation is that these 3 methods
+
+69
+00:03:29,860 --> 00:03:34,940
+will be implemented fairly naively in
+that it's okay to process the whole
+
+70
+00:03:34,940 --> 00:03:38,890
+text to count the number sentences
+the number of words the number of
+
+71
+00:03:38,890 --> 00:03:42,450
+syllables every single time
+you call these methods.
+
+72
+00:03:42,450 --> 00:03:45,060
+In fact, it's not only okay,
+it's what we want you to do.
+
+73
+00:03:46,150 --> 00:03:48,760
+But we don't want you to
+do this from scratch.
+
+74
+00:03:48,760 --> 00:03:52,840
+So, let me talk about the code, and
+we are actually going to write.
+
+75
+00:03:52,840 --> 00:03:57,100
+So, let's go to BasicDocument.java,
+and if we click on this first todo,
+
+76
+00:03:57,100 --> 00:04:00,730
+you'll see that the first todo is to
+implement the getNumWords method.
+
+77
+00:04:00,730 --> 00:04:03,560
+This method should return
+the number of words in the text
+
+78
+00:04:03,560 --> 00:04:05,480
+which represents this document.
+
+79
+00:04:05,480 --> 00:04:07,780
+But you don't want to do this
+completely from scratch.
+
+80
+00:04:07,780 --> 00:04:10,690
+We've actually provided you with this
+helper method that you're going to
+
+81
+00:04:10,690 --> 00:04:14,090
+find extremely useful in
+implementing this method.
+
+82
+00:04:14,090 --> 00:04:16,430
+So if you go over here to Document.java.
+
+83
+00:04:16,430 --> 00:04:21,470
+You'll see that there's a method
+up here called getTokens.
+
+84
+00:04:21,470 --> 00:04:24,800
+GetTokens is a method that we
+mentioned in our videos and
+
+85
+00:04:24,800 --> 00:04:26,430
+in particular in that support video.
+
+86
+00:04:26,430 --> 00:04:30,920
+But what getTokens is going to do is it's
+going to take a pattern which is a regular
+
+87
+00:04:30,920 --> 00:04:35,060
+expression and it's going to return
+all of the tokens in the document,
+
+88
+00:04:35,060 --> 00:04:37,270
+in the text for the document that matched.
+
+89
+00:04:37,270 --> 00:04:38,580
+That pattern.
+
+90
+00:04:38,580 --> 00:04:42,530
+So, it's a good way to extract all
+the words in the document, for example.
+
+91
+00:04:42,530 --> 00:04:45,310
+You just need to write a pattern
+that will match a word.
+
+92
+00:04:46,320 --> 00:04:48,500
+So, look at the support
+video if you get stuck.
+
+93
+00:04:48,500 --> 00:04:51,770
+There's a support video that really
+walks you through how to implement
+
+94
+00:04:51,770 --> 00:04:55,580
+the three methods that you need
+to implement in basic document
+
+95
+00:04:55,580 --> 00:04:57,460
+using that getTokens method.
+
+96
+00:04:57,460 --> 00:05:01,870
+So you should be calling that getTokens
+method with some regular expression
+
+97
+00:05:01,870 --> 00:05:06,890
+in getNumWords, getNumSentences,
+and getNumSyllables.
+
+98
+00:05:06,890 --> 00:05:10,000
+Now in getNumWords and getNumSentences,
+there won't be much else to do.
+
+99
+00:05:10,000 --> 00:05:14,710
+If you've got the right regular
+expression, the method is almost done.
+
+100
+00:05:14,710 --> 00:05:17,800
+But in getting syllables
+you'll need to do a bit more.
+
+101
+00:05:17,800 --> 00:05:19,460
+Not only will you need to get the words,
+
+102
+00:05:19,460 --> 00:05:22,230
+you'll need to count the number
+of syllables in each word.
+
+103
+00:05:22,230 --> 00:05:25,790
+And for that process we're actually
+recommending that you implement a helper
+
+104
+00:05:25,790 --> 00:05:27,940
+method in the document class.
+
+105
+00:05:27,940 --> 00:05:31,860
+The stub right here that will take
+a string representing a word and
+
+106
+00:05:31,860 --> 00:05:33,680
+return the number of syllables in it.
+
+107
+00:05:33,680 --> 00:05:36,620
+You'll need to loop through
+the characters the word one at a time
+
+108
+00:05:36,620 --> 00:05:38,710
+to count the syllables.
+
+109
+00:05:38,710 --> 00:05:42,040
+So that's all for part one, for
+the first part of this assignment.
+
+110
+00:05:42,040 --> 00:05:46,130
+And make sure you read this text
+carefully and be very clear
+
+111
+00:05:46,130 --> 00:05:51,400
+about what constitutes a word, a sentence,
+and a syllable using our definition,
+
+112
+00:05:51,400 --> 00:05:55,530
+because we're going to be grading you
+using our definition of words, sentences,
+
+113
+00:05:55,530 --> 00:05:58,770
+and syllables,
+not using whatever you want to use.
+
+114
+00:05:58,770 --> 00:06:02,530
+It has to be our definition, because
+that's what our auto-grader is going
+
+115
+00:06:02,530 --> 00:06:04,660
+to use when we grade your assignment.
+
+116
+00:06:04,660 --> 00:06:07,670
+So, once you've got everything working,
+go ahead and test your code.
+
+117
+00:06:07,670 --> 00:06:11,700
+And we've provided a method called Test
+Case in the document class, and we've got
+
+118
+00:06:11,700 --> 00:06:17,400
+some examples of how to cull that method
+in the main method inside basic documents.
+
+119
+00:06:17,400 --> 00:06:20,110
+So take a look at the tests we provide,
+add your own,
+
+120
+00:06:20,110 --> 00:06:22,580
+and get those methods working.
+
+121
+00:06:22,580 --> 00:06:25,430
+Notice we've got a few hints for
+this first part of the assignment here,
+
+122
+00:06:25,430 --> 00:06:29,490
+so read through those hints they
+kind of have talked about what I've
+
+123
+00:06:29,490 --> 00:06:30,590
+already said in this video.
+
+124
+00:06:31,980 --> 00:06:34,760
+Then we've got an optional
+part which is that you can
+
+125
+00:06:34,760 --> 00:06:38,980
+make your basic document code work
+with the text center application.
+
+126
+00:06:38,980 --> 00:06:42,710
+By default implementing the methods and
+basic document and
+
+127
+00:06:42,710 --> 00:06:47,580
+then later the flash core which we will
+do in part b it's not going to show up.
+
+128
+00:06:47,580 --> 00:06:50,870
+It's not going to work in that
+Text Editor application I just showed you
+
+129
+00:06:50,870 --> 00:06:55,900
+because currently we use a different
+implementation of the documents class for
+
+130
+00:06:55,900 --> 00:06:57,010
+the Text Editor.
+
+131
+00:06:57,010 --> 00:07:02,040
+So, if you want to have this first
+assignment change how the Text Editor
+
+132
+00:07:02,040 --> 00:07:05,690
+functions, then what you're going
+to need to do is, I'll show you.
+
+133
+00:07:05,690 --> 00:07:10,040
+You go over here and
+you go into the application folder and
+
+134
+00:07:10,040 --> 00:07:13,073
+into this file called LaunchClass.java.
+
+135
+00:07:13,073 --> 00:07:18,640
+And in LaunchClass.java you'll see
+this method called get document and
+
+136
+00:07:18,640 --> 00:07:20,210
+we've annotated it with a comment.
+
+137
+00:07:20,210 --> 00:07:23,320
+You're going to change this line
+right here that says return
+
+138
+00:07:23,320 --> 00:07:25,630
+new document.EfficientDocument.
+
+139
+00:07:25,630 --> 00:07:30,140
+You're just going to go ahead and
+change that to say, basic document.
+
+140
+00:07:30,140 --> 00:07:30,980
+That's all you need to do.
+
+141
+00:07:30,980 --> 00:07:32,790
+I'll put it back to efficient.
+
+142
+00:07:34,380 --> 00:07:35,920
+And then you would put
+it back to efficient,
+
+143
+00:07:35,920 --> 00:07:39,470
+as well, when you go on to next
+last week's programming assignment.
+
+144
+00:07:39,470 --> 00:07:41,450
+So don't forget to do that.
+
+145
+00:07:41,450 --> 00:07:42,390
+So that's it for part 1.
+
+146
+00:07:42,390 --> 00:07:45,100
+In part 2 you'll implement
+the Flesch score method,
+
+147
+00:07:45,100 --> 00:07:47,780
+the getFleschScore method
+in the document class.
+
+148
+00:07:47,780 --> 00:07:52,620
+So, all you have to do is go over here
+to Document.java and you'll see that one
+
+149
+00:07:52,620 --> 00:07:56,040
+of these to do is I think this one down
+here, says, implement this method.
+
+150
+00:07:56,040 --> 00:08:00,080
+Right now, the method returns at 0.0
+which is obviously is incorrect.
+
+151
+00:08:00,080 --> 00:08:03,750
+What you wanted to do is you
+wanted to return the results of
+
+152
+00:08:03,750 --> 00:08:07,647
+this calculation here and so, you'll use
+your getNumWords, getNumSentences, and
+
+153
+00:08:07,647 --> 00:08:11,860
+getNumSyllables method in order to
+calculate the results of this formula and
+
+154
+00:08:11,860 --> 00:08:12,940
+then, you just return it.
+
+155
+00:08:12,940 --> 00:08:17,340
+That's it Once you finished part 1 and
+part 2 you're ready to submit.
+
+156
+00:08:17,340 --> 00:08:20,360
+We do have an optional part 3 for
+you which is which is just to have fun
+
+157
+00:08:20,360 --> 00:08:23,590
+calculating the Flesch readability
+score for any text that you want.
+
+158
+00:08:23,590 --> 00:08:27,630
+So find some text online,
+use some of your own text and
+
+159
+00:08:27,630 --> 00:08:30,485
+set up your text editor application.
+
+160
+00:08:30,485 --> 00:08:32,755
+Like we talked to you about
+before in this video, so
+
+161
+00:08:32,755 --> 00:08:36,545
+that you can load the code in there and
+just see its Flesch readability score.
+
+162
+00:08:36,545 --> 00:08:38,245
+So there's nothing to submit for part 3.
+
+163
+00:08:38,245 --> 00:08:40,045
+Just have fun with it.
+
+164
+00:08:40,045 --> 00:08:44,015
+What you are going to submit is you're
+going to submit files for part 1 and
+
+165
+00:08:44,015 --> 00:08:44,655
+part 2.
+
+166
+00:08:44,655 --> 00:08:47,204
+You're actually going to
+submit the same file.
+
+167
+00:08:47,204 --> 00:08:51,470
+For part 1 and part 2, so
+all you need to do is create a zip file
+
+168
+00:08:51,470 --> 00:08:56,150
+containing your Document.java and
+BasicDocument.java files, so put those two
+
+169
+00:08:56,150 --> 00:08:59,880
+files into a zip file you call whatever
+you like, you need to find those files in
+
+170
+00:08:59,880 --> 00:09:02,510
+your work space into the direct that you
+set up in your computer file system,
+
+171
+00:09:02,510 --> 00:09:07,380
+and then upload this file twice,
+once for part 1 and once for part 2.
+
+172
+00:09:07,380 --> 00:09:10,300
+We're going to grade different
+aspects of these files
+
+173
+00:09:10,300 --> 00:09:12,210
+in each of these different parts.
+
+174
+00:09:12,210 --> 00:09:13,310
+Then submit.
+
+175
+00:09:13,310 --> 00:09:16,290
+And submission will take a little bit but
+eventually you'll see some grading
+
+176
+00:09:16,290 --> 00:09:20,075
+feedback, so if you have any trouble at
+all, you can figure out what went wrong.
+
+177
+00:09:20,075 --> 00:09:21,315
+By running our grader.
+
+178
+00:09:21,315 --> 00:09:23,245
+We provide you with this grader.
+
+179
+00:09:23,245 --> 00:09:26,595
+It's in a file called basic
+document grader dot Java, and
+
+180
+00:09:26,595 --> 00:09:28,205
+it's in the document package.
+
+181
+00:09:28,205 --> 00:09:29,805
+So, just go ahead and
+run the grader locally,
+
+182
+00:09:29,805 --> 00:09:34,275
+figure out what went wrong, fix your code,
+and resubmit, until you get it right.
+
+183
+00:09:34,275 --> 00:09:35,195
+Have fun with this assignment.

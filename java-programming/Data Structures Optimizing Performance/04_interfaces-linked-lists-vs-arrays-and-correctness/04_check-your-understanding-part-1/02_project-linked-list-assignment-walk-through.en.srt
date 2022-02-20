@@ -1,0 +1,586 @@
+1
+00:00:00,000 --> 00:00:04,849
+[MUSIC]
+
+2
+00:00:04,849 --> 00:00:05,708
+Hi everybody.
+
+3
+00:00:05,708 --> 00:00:10,902
+In this video we're going to do a walk
+through of the program assignment for
+
+4
+00:00:10,902 --> 00:00:16,210
+Module 3, Part 1, and that's
+implementing and testing a linked list.
+
+5
+00:00:16,210 --> 00:00:17,700
+First off, with all these assignments,
+
+6
+00:00:17,700 --> 00:00:22,490
+what we're gonna do is essentially start
+by making sure we have the starter code.
+
+7
+00:00:22,490 --> 00:00:25,090
+Now if you pull up your code for
+
+8
+00:00:25,090 --> 00:00:30,030
+the project you're going to find
+that there's a textgen package and
+
+9
+00:00:30,030 --> 00:00:33,670
+within that textgen package there's
+MyLinkedList and MyLinkedListTester.
+
+10
+00:00:33,670 --> 00:00:37,330
+Those are the two files we're going to be
+focusing on in this video walk-through.
+
+11
+00:00:37,330 --> 00:00:40,860
+So the first thing to do is essentially
+just run MyLinkedListTester to make sure
+
+12
+00:00:40,860 --> 00:00:41,790
+everything's set up properly.
+
+13
+00:00:41,790 --> 00:00:43,650
+So if I run MyLinkedListTester,
+
+14
+00:00:43,650 --> 00:00:46,720
+what it's gonna tell me is that
+essentially my tests have failed.
+
+15
+00:00:46,720 --> 00:00:50,090
+And the reason for that is I've
+already put in some tests, but
+
+16
+00:00:50,090 --> 00:00:52,140
+we haven't actually ran
+any of the implementation.
+
+17
+00:00:52,140 --> 00:00:53,520
+So this is what you should expect to see.
+
+18
+00:00:55,910 --> 00:00:59,010
+After you've got this
+MyLinkedListTester running,
+
+19
+00:00:59,010 --> 00:01:02,220
+next step is to essentially open up and
+examine the starter code.
+
+20
+00:01:02,220 --> 00:01:06,630
+And the way to do that is to essentially
+to open up the mylinklist file itself,
+
+21
+00:01:06,630 --> 00:01:09,570
+look to see the methods that you're
+essentially gonna implement.
+
+22
+00:01:09,570 --> 00:01:12,253
+And then to go through
+MyLinkedListTester and
+
+23
+00:01:12,253 --> 00:01:17,220
+to see that we've actually created a setup
+method for you which sets up the test, and
+
+24
+00:01:17,220 --> 00:01:19,830
+we've already created a testGet method,
+
+25
+00:01:19,830 --> 00:01:24,110
+which does all the tests that you really
+should need to do for for the get method.
+
+26
+00:01:24,110 --> 00:01:27,304
+And then lastly, we have some
+initial tests already in there for
+
+27
+00:01:27,304 --> 00:01:29,400
+you for test removed and then space for
+
+28
+00:01:29,400 --> 00:01:31,630
+the other methods that you're
+going to need to write.
+
+29
+00:01:31,630 --> 00:01:32,960
+If you look back to my link list,
+
+30
+00:01:32,960 --> 00:01:37,130
+you're going to find that we've already
+written a linklist node class for
+
+31
+00:01:37,130 --> 00:01:40,280
+you that has a previous element,
+a next element, and data.
+
+32
+00:01:40,280 --> 00:01:44,830
+And I just wanna point out that you might
+wanna add another constructor to this, but
+
+33
+00:01:44,830 --> 00:01:47,900
+we're giving you a constructor to
+essentially start working with this class.
+
+34
+00:01:47,900 --> 00:01:51,960
+On this class has, these have package
+access so you can access previous and
+
+35
+00:01:51,960 --> 00:01:55,450
+next from within your
+My Linked list class.
+
+36
+00:01:57,380 --> 00:01:59,700
+When you go to submit, you're gonna
+essentially submit two things.
+
+37
+00:01:59,700 --> 00:02:03,720
+You're gonna submit the code
+which implements linked list,
+
+38
+00:02:03,720 --> 00:02:07,030
+which was the my linked list class,
+as well as your code which is gonna
+
+39
+00:02:07,030 --> 00:02:10,910
+test the linked list implementation,
+which is mylinikedlisttester.java.
+
+40
+00:02:10,910 --> 00:02:14,560
+And you're gonna submit separately,
+but what I want to point out is I
+
+41
+00:02:14,560 --> 00:02:18,080
+don't want you to code this essentially
+by writing the whole implementation.
+
+42
+00:02:18,080 --> 00:02:20,210
+And then thinking about
+the tests you want to write.
+
+43
+00:02:20,210 --> 00:02:23,830
+I want you to do this essentially the same
+way you do an industry which is write some
+
+44
+00:02:23,830 --> 00:02:27,650
+tests as you write your implementation and
+just keep going back an forth so
+
+45
+00:02:27,650 --> 00:02:30,820
+that each step of your implementation
+is tested before you go forward.
+
+46
+00:02:31,830 --> 00:02:36,860
+So to do this what we'll do is- we
+already gave you the testGet method.
+
+47
+00:02:36,860 --> 00:02:41,340
+And what we'll do then is write enough of
+the LinkedList class so that you're able
+
+48
+00:02:41,340 --> 00:02:46,770
+to run that tester and see if your
+MyLinkedList notation's working for that.
+
+49
+00:02:46,770 --> 00:02:51,330
+So, after reviewing the testGet method
+to see what's actually being performed,
+
+50
+00:02:51,330 --> 00:02:53,320
+go into MyLinkedList.java.
+
+51
+00:02:53,320 --> 00:02:55,080
+Author the constructor.
+
+52
+00:02:55,080 --> 00:02:57,110
+I do wanna point out that
+it's up to you whether or
+
+53
+00:02:57,110 --> 00:02:59,150
+not you wanna use the same sentinel nodes.
+
+54
+00:02:59,150 --> 00:03:02,340
+We had a sentinel node and
+a sentinel tail in all the videos.
+
+55
+00:03:02,340 --> 00:03:04,250
+Or if you just wanna go
+without the sentinel nodes.
+
+56
+00:03:04,250 --> 00:03:05,650
+That's completely okay.
+
+57
+00:03:05,650 --> 00:03:06,920
+Either way will work for this assignment.
+
+58
+00:03:08,260 --> 00:03:11,630
+Anyway, so you're gonna create your
+constructor, you're gonna create then
+
+59
+00:03:11,630 --> 00:03:15,370
+the get method which should return
+the elements at that index.
+
+60
+00:03:15,370 --> 00:03:16,700
+If you're asking for an invalid index,
+
+61
+00:03:16,700 --> 00:03:18,880
+it should throw an index
+out of bounds assumption.
+
+62
+00:03:18,880 --> 00:03:22,990
+You then wanna add an add method or
+create an add method, and
+
+63
+00:03:22,990 --> 00:03:26,420
+this method is gonna add
+an element to the end of the list.
+
+64
+00:03:26,420 --> 00:03:28,170
+It's always gonna add it
+to the end of the list.
+
+65
+00:03:29,320 --> 00:03:34,900
+Once you've ran those methods,
+you can go back into your tester,
+
+66
+00:03:34,900 --> 00:03:37,040
+run the tester, run the J Unit test.
+
+67
+00:03:37,040 --> 00:03:42,970
+And if things work properly, your test for
+the get method should work properly now.
+
+68
+00:03:44,570 --> 00:03:46,700
+Notice that we've added a method,
+the add method,
+
+69
+00:03:46,700 --> 00:03:48,740
+without actually adding any tests for it.
+
+70
+00:03:48,740 --> 00:03:51,640
+So the last step here is
+to test your add method
+
+71
+00:03:51,640 --> 00:03:53,716
+to make sure that it's
+working properly as well.
+
+72
+00:03:53,716 --> 00:03:58,365
+Once you've done this cycle of
+creating some code and testing it and
+
+73
+00:03:58,365 --> 00:04:00,205
+going back and forth.
+
+74
+00:04:00,205 --> 00:04:03,280
+What you'll wanna do is do the same
+process for the remaining methods in my
+
+75
+00:04:03,280 --> 00:04:07,985
+linked list, and those remaining methods
+include size, which is how big the list
+
+76
+00:04:07,985 --> 00:04:13,260
+is, a method that adds an element
+at a certain index within the list.
+
+77
+00:04:13,260 --> 00:04:15,270
+Or essentially inserts
+an element at that index.
+
+78
+00:04:16,470 --> 00:04:21,350
+You'll want a remove method, which allows
+you to remove an element from the list.
+
+79
+00:04:21,350 --> 00:04:24,250
+And notice, in all these cases,
+if someone does something inappropriate,
+
+80
+00:04:24,250 --> 00:04:27,160
+like tries to add an element and
+index that doesn't exist,
+
+81
+00:04:27,160 --> 00:04:30,000
+you should be throwing it
+out of bounds exception.
+
+82
+00:04:30,000 --> 00:04:32,560
+If someone tries to remove an element,
+an index that doesn't exist,
+
+83
+00:04:32,560 --> 00:04:35,530
+you should be throwing an index out
+of bounds exception, and so on.
+
+84
+00:04:35,530 --> 00:04:37,180
+You should also author the set method,
+
+85
+00:04:37,180 --> 00:04:40,940
+which will change an element's
+added index to a different value.
+
+86
+00:04:43,070 --> 00:04:48,530
+Now if someone tries to set or
+add an element that has a null element.
+
+87
+00:04:48,530 --> 00:04:53,497
+You should also be throwing a null pointer
+exception because people shouldn't
+
+88
+00:04:53,497 --> 00:04:56,029
+be putting a null element into the list.
+
+89
+00:04:56,029 --> 00:04:59,263
+I've already mentioned that you may want
+to add an additional constructor for
+
+90
+00:04:59,263 --> 00:05:02,693
+linkless nodes, and the reason you want to
+do this is when you first start authoring
+
+91
+00:05:02,693 --> 00:05:05,976
+your add method, that first add method,
+what you'll notice is that if you're
+
+92
+00:05:05,976 --> 00:05:09,112
+seeing the same code in repeated places,
+you might just want to put that code
+
+93
+00:05:09,112 --> 00:05:11,515
+in one place within
+the linked list node class.
+
+94
+00:05:11,515 --> 00:05:15,450
+You also potentially want a two
+string method to be able to print
+
+95
+00:05:15,450 --> 00:05:19,820
+out both the list as well as
+the nodes within the list.
+
+96
+00:05:19,820 --> 00:05:22,140
+So how are you gonna submit this?
+
+97
+00:05:22,140 --> 00:05:23,860
+Well again,
+you're gonna submit two things.
+
+98
+00:05:23,860 --> 00:05:27,610
+And you should feel free to submit,
+either in isolation, but
+
+99
+00:05:27,610 --> 00:05:29,890
+really if you follow the process
+that we're recommending here,
+
+100
+00:05:29,890 --> 00:05:32,650
+you should have completed your whole
+MyLinkedList implementation at
+
+101
+00:05:32,650 --> 00:05:36,060
+the exact same time that you've completed
+your whole MyLinkedList Testing.
+
+102
+00:05:37,120 --> 00:05:39,990
+To do this, what you'll do is
+you go into the interface and
+
+103
+00:05:39,990 --> 00:05:42,490
+you'll go up to the submit button.
+
+104
+00:05:42,490 --> 00:05:46,758
+You'll go into My Submissions and
+you'll create a new submission and
+
+105
+00:05:46,758 --> 00:05:49,390
+you'll notice that I've actually
+done a whole bunch of tests here
+
+106
+00:05:49,390 --> 00:05:52,160
+in the process of creating your graders.
+
+107
+00:05:52,160 --> 00:05:55,370
+Anyway what you'll do is you'll do
+an upload files and submit, and
+
+108
+00:05:55,370 --> 00:05:58,900
+you'll put in your linklist.java file.
+
+109
+00:05:58,900 --> 00:06:02,020
+You'll put in your mylink.tester file.
+
+110
+00:06:02,020 --> 00:06:03,580
+You'll submit these, and
+
+111
+00:06:03,580 --> 00:06:07,070
+after a brief time period,
+you'll get back the graded results.
+
+112
+00:06:07,070 --> 00:06:10,330
+And I encourage you to, essentially,
+if you don't get a full score, to look at
+
+113
+00:06:10,330 --> 00:06:13,990
+the grader output to figure, and it should
+tell you essentially what went wrong.
+
+114
+00:06:13,990 --> 00:06:15,840
+You should also feel comfortable, though,
+
+115
+00:06:15,840 --> 00:06:18,240
+looking at the tester,
+the greater code itself.
+
+116
+00:06:18,240 --> 00:06:19,360
+This is for the implementation,
+
+117
+00:06:19,360 --> 00:06:22,730
+and it'll essentially tell you
+what tasks were performed.
+
+118
+00:06:22,730 --> 00:06:26,470
+So you should feel free to go into
+the my linked list creator class and
+
+119
+00:06:26,470 --> 00:06:29,560
+look at what methods are being tested.
+
+120
+00:06:29,560 --> 00:06:30,130
+All right.
+
+121
+00:06:30,130 --> 00:06:30,950
+Good luck on the assignment.
+
+122
+00:06:30,950 --> 00:06:31,620
+If you have questions,
+
+123
+00:06:31,620 --> 00:06:35,250
+feel free to post in the forums and also
+feel free to go back and review the videos
+
+124
+00:06:35,250 --> 00:06:39,740
+on how to write a MyLinkList test and
+how to write good tests for MyLinkList.

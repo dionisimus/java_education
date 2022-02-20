@@ -1,0 +1,291 @@
+1
+00:00:00,050 --> 00:00:04,968
+[SOUND] Now that we've seen what tris are,
+let's compare
+
+2
+00:00:04,968 --> 00:00:10,101
+them in terms of their performance
+to binary search trees.
+
+3
+00:00:10,101 --> 00:00:13,160
+So by the end of this video,
+you'll be able to do just that.
+
+4
+00:00:13,160 --> 00:00:16,340
+Compare the performance of binary
+search trees and tries for
+
+5
+00:00:16,340 --> 00:00:17,800
+storing dictionaries of words.
+
+6
+00:00:19,450 --> 00:00:24,866
+So to start off, let's think about storing
+our dictionary as a binary search tree.
+
+7
+00:00:24,866 --> 00:00:28,470
+So what I wanna know is,
+if you have n words in your dictionary,
+
+8
+00:00:28,470 --> 00:00:33,730
+how long in the worst case might it
+take to find a word in this dictionary.
+
+9
+00:00:33,730 --> 00:00:37,460
+In particular to find out that
+a word is not in this dictionary.
+
+10
+00:00:37,460 --> 00:00:40,041
+And you can assume that the binary
+search tree will always stay balanced.
+
+11
+00:00:44,490 --> 00:00:45,200
+Okay.
+
+12
+00:00:45,200 --> 00:00:49,462
+So it takes order logn
+because this balance tree
+
+13
+00:00:49,462 --> 00:00:54,268
+is guaranteed to have a bound
+on it's height of logn.
+
+14
+00:00:54,268 --> 00:00:58,268
+And in order to conclude that a word is
+not in the tree you essentially need to
+
+15
+00:00:58,268 --> 00:01:01,430
+search it all the way from
+the root down to the bottom.
+
+16
+00:01:01,430 --> 00:01:05,160
+So it's going to be, it's going to
+depend on the height of the tree.
+
+17
+00:01:05,160 --> 00:01:06,810
+So logn is not bad.
+
+18
+00:01:06,810 --> 00:01:09,440
+As I mentioned,
+binary search trees are not a bad way
+
+19
+00:01:09,440 --> 00:01:14,240
+to store dictionaries of words, but
+let's ask the same question now for a tri.
+
+20
+00:01:15,650 --> 00:01:20,500
+Let's consider the worst case, finding
+a word that's not in the dictionary.
+
+21
+00:01:20,500 --> 00:01:23,337
+How long is that going to take
+using a tri representation?
+
+22
+00:01:28,377 --> 00:01:32,440
+Okay, so again this relates
+to the height of the tri.
+
+23
+00:01:32,440 --> 00:01:36,300
+But this time, what determines
+the height is not the number of words
+
+24
+00:01:36,300 --> 00:01:40,670
+in the dictionary, but
+in fact the length of the longest word.
+
+25
+00:01:40,670 --> 00:01:42,830
+So, in the worst case,
+if we're looking for
+
+26
+00:01:42,830 --> 00:01:47,520
+a really long word that's not in the
+dictionary we're going to have to traverse
+
+27
+00:01:47,520 --> 00:01:51,310
+that many levels down the tri,
+one level for each character in the word.
+
+28
+00:01:52,730 --> 00:01:57,151
+So, now we've got one situation
+where it's taking logn steps,
+
+29
+00:01:57,151 --> 00:02:01,190
+logn comparisons to figure out that
+the word is not in the dictionary.
+
+30
+00:02:01,190 --> 00:02:04,690
+And the other situation, where we've
+got on the order of the number of
+
+31
+00:02:04,690 --> 00:02:09,440
+characters in the word to figure out
+whether the word is not in the dictionary.
+
+32
+00:02:09,440 --> 00:02:12,100
+So which one is better,
+how does this compare?
+
+33
+00:02:12,100 --> 00:02:15,371
+Well we need to sort of thing
+about what could n be and
+
+34
+00:02:15,371 --> 00:02:17,589
+how long are our words in general.
+
+35
+00:02:17,589 --> 00:02:23,390
+If we take an estimate of a number of
+words in a complete English dictionary,
+
+36
+00:02:23,390 --> 00:02:26,486
+might be around, say 250,000.
+
+37
+00:02:26,486 --> 00:02:30,820
+If we take logn of 250,000
+that's about more or less 18.
+
+38
+00:02:30,820 --> 00:02:35,780
+So in the worst case, if our words are not
+in the dictionary we're going to have
+
+39
+00:02:35,780 --> 00:02:40,040
+to take 18 comparisons to conclude
+that word is not in the dictionary.
+
+40
+00:02:40,040 --> 00:02:43,620
+And if the word is not in the dictionary,
+we'll always need about 18 comparisons,
+
+41
+00:02:43,620 --> 00:02:46,800
+because the height of that tree is
+about 18, because it's balanced.
+
+42
+00:02:48,330 --> 00:02:52,410
+On the other hand, for our try,
+we would only need 18 steps
+
+43
+00:02:52,410 --> 00:02:56,330
+if we were trying to check a word
+that was 18 characters long.
+
+44
+00:02:56,330 --> 00:02:58,410
+That's a pretty long word.
+
+45
+00:02:58,410 --> 00:02:59,870
+And yes, in the worst case,
+
+46
+00:02:59,870 --> 00:03:03,530
+you're going to have to deal with words
+that are 18 characters or even longer.
+
+47
+00:03:03,530 --> 00:03:06,910
+But in general, most of the words
+that you're going to be looking for
+
+48
+00:03:06,910 --> 00:03:11,150
+that are not in your dictionary, most
+misspelled words are relatively short.
+
+49
+00:03:11,150 --> 00:03:14,150
+They're going to be five characters,
+six characters, seven characters long.
+
+50
+00:03:15,410 --> 00:03:19,212
+So this kind of illustrates that
+tris are going to be faster.
+
+51
+00:03:19,212 --> 00:03:21,240
+Right?
+I'd rather do seven comparisons
+
+52
+00:03:21,240 --> 00:03:23,960
+to conclude that my word's
+not in my dictionary
+
+53
+00:03:23,960 --> 00:03:29,320
+than 18 comparisons every time I need to
+conclude the word is not in my dictionary.
+
+54
+00:03:29,320 --> 00:03:33,960
+So these are both good representations but
+tris turn out to be slightly better
+
+55
+00:03:33,960 --> 00:03:36,700
+than binary search trees for
+that performance reason alone.
+
+56
+00:03:38,170 --> 00:03:41,549
+Now in the next video we're gonna talk
+about some implementation details,
+
+57
+00:03:41,549 --> 00:03:44,629
+because you'll be implementing
+these tris as part of your project.
+
+58
+00:03:44,629 --> 00:03:48,340
+As well as talk about one more advantage
+that tris have over binary search trees,
+
+59
+00:03:48,340 --> 00:03:52,109
+which is the ability to implement the
+autocomplete functionality that you'll be
+
+60
+00:03:52,109 --> 00:03:53,491
+building into your project.

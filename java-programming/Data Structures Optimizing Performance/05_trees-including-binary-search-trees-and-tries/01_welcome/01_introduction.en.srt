@@ -1,0 +1,23 @@
+1
+00:00:00,000 --> 00:00:06,420
+[MUSIC]
+
+2
+00:00:06,420 --> 00:00:08,184
+Welcome to the fourth
+module in our course.
+
+3
+00:00:08,184 --> 00:00:10,367
+In this module,
+we're gonna start looking at trees.
+
+4
+00:00:10,367 --> 00:00:13,760
+We're gonna look at binary search trees
+and we're gonna analyze their efficiency.
+
+5
+00:00:13,760 --> 00:00:16,005
+We're also gonna look at a more advanced
+data structure known as a trie.

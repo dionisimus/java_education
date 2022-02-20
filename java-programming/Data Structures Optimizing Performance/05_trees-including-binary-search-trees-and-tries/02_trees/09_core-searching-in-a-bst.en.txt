@@ -1,0 +1,43 @@
+[MUSIC] Now that we have a good idea of
+what a binary search tree is, let's talk about how we do
+a search in a binary search tree. So by the end of this video, you should be able to perform
+searches within a binary search tree. So the idea behind a binary search tree is
+very similar to binary search of an array. So what we're gonna do is I'm just going
+to give you a few examples of this and then we'll talk about how we
+could solve this with code. So first off, let's say I'm trying to find
+element C, well how am I gonna get there? Well I'm gonna start with the root and
+we'll look and I'm gonna say is E C? Are those the same things? No they are not. E is actually greater than C. And because E is greater than C, it tells
+me to look in the left sub tree of E. So, my next step is to move my
+current notion of tree node down to B. I'm going to look at B and compare B to C. Are they the same? They're not. B is less than C. So I now need to look at
+the right sub tree of B. So now I'm gonna head and look at C. So in other words in node C where
+going to ask is C equal to C. It is, yay, we found it! We're done,
+all we have to is return true or return the node depending on what
+we're doing with the search. We found this binary search
+tree contains the element C. So, let's do one more example here. Let's start searching for P. So, what I'm gonna do is
+again start at the root. I'm going to look at E. I'm gonna ask. I'm gonna compare E and P, and
+I'm gonna ask are they the same. They're not.
+E is less than P, so I'm gonna go into the right sub tree of E. So now I'm gonna look at M. I'm gonna ask again,
+what's the relationship between M and P? Well, M is still less than P so
+I need to go to the right sub-tree of M. And now I'm gonna look at Q. And I'm gonna see that,
+do the same comparison, Q is not P. I'm gonna see that Q is greater than P, therefore I need to look
+in the left sub tree of Q. There is no left sub tree of Q. P is not in this array, so
+it's no here and I can return false. Essentially that's not found. So now that we have the idea
+of how to do this search, the question is how are we
+gonna put this into code? Well first off, you could solve this
+fairly cleanly using recursion. And the way I want you to think about this
+is that if I'm thinking about what do I wanna do at node E, so
+the tree rooted at node E. It's very similar to what I'm gonna want
+to do when I'm looking at the sub tree rooted at node B, which is very similar
+to the comparisons I might make for the sub tree rooted at C. So because it's the same behavior at each
+step, this lends itself well to recursion. You can also solve this very
+cleanly using iteration. And here you would just have a loop where
+you're essentially keeping track of your current node. So just like we did before, you'd have
+your current node be E, then B, then C and you can just essentially walk
+through the tree that way. Now at this point,
+I want you to try this on your own. So you're gonna be searching
+in the project for an element. And I'd like you to try that code
+on your own before you look for any support videos. But if you want some more support, and
+you're a little bit stuck on how to search a tree, we have a more thorough
+walk through of doing search in one of our support videos, so
+you can always look at that there. Next, we're gonna start looking
+at how to do insertion and deletion from this binary search tree.

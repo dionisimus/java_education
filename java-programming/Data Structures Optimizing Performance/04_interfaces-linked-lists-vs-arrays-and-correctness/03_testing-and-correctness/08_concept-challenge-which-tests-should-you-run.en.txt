@@ -1,0 +1,123 @@
+[CROSSTALK]. This concept challenge
+is about testing and in particular how to write code to
+verify that your test actually worked. This is a subtle skill and one that you'll
+need to get good at in order to make sure that you're writing correct code. So same format as before. Try to answer the question yourself first,
+discuss it and watch the UC San Diego
+learners discussing it. Then answer the question again and confirm
+your understanding with our explanation. So we're gonna be writing a tester for
+the remove method in the link list class. So you've perhaps gotten this link
+list setup in your setup method in your tester and
+you wanna test the remove method. Now just a remind what the remove
+method is supposed to do. It's supposed to take
+an index position and then remove the element
+at that index position, returning the element that was there and
+getting rid of the element from the list. So, let's say you're now
+writing your test code. And, again, you've got this list
+already set up in the setup method. So, you can now work with this list. It's called list one. And, the first thing you're going to
+do is you're going to test removing the element at position zero. Now again, this is just one of the tests
+that you're going to write to test remove. There are other things you might want to
+test, like testing trying to remove off the ends of the list, testing removal of
+a element in the middle of the list, but you're focused right now on testing
+removal of the element at position zero. Now you can write this line
+of code in your tester. And if it doesn't crash,
+that's a good sign. But it's not enough to verify
+that this code actually worked, that you correctly removed
+the element at index permission zero. So the question for you to work on on this
+concept challenge is, what code to you need to write to verify that this
+remove call worked correctly? >> The first thing that you always need
+to do is verify that the actual number you're removing is the correct one because you might think that you're
+removing the one at position zero, but then if something goes wrong
+you actually remove another one. So you want to, do actually want to
+verify that the value that you're returning actually matches with
+which one you want to remove. >> And I think the next thing we
+need to do is check the next node which goes after the first one. And since we remove the node
+which contents value 65. And then the other node,
+which contains 21, would become the first node,
+which has index zero. So I think we do need to check
+if it has value of 21, and then we can know that we
+did the correct remove. >> Yeah. Yeah, I think both of you are correct. And I think that the option two and option five both talking about
+the null pointer exceptions. I think we need to check them, cause the
+remove does nothing modification to them. So I think we can just
+do not handle those. >> Yeah, I think that, well, part of
+the reason is because when you check get negative one, negative one will
+return a null pointer exception no matter what you do to the rest of them,
+so I don't think it's really necessary, and then also to add to that I also don't
+think it's necessary to check that. Get one has a value of 42. Because you're not actually modifying, so
+when you remove 65 all you're doing is modifying the reference of 21 but you're
+not modifying the one that goes after. >> Yeah, definitely.
+Right. >> You're only modifying
+the ones that goes before. So it's not necessary to check. It's just I guess you can check but
+it's [CROSSTALK], it would be an unnecessary step. >> Yeah. >> Do you think there's anything
+else we need to check besides that? >> Yeah, I think we need to keep track
+of the size because size of the list is stored as a separate reference. So we want to check whether it's two or
+not. >> Yeah, to make sure that we actually
+remember to update the size whenever we remove an element. >> All right, so now that you've worked on
+the problem yourself, let's go over each of these possible pieces of code that
+you could include in order to verify. That this line of code worked correctly. And in essence what we
+really need to do is test the essential pieces
+of that remove method. So what are the essential pieces? The essential pieces are to actually
+return the element that was removed, to remove it from the list, and to make sure the list is now
+one smaller than it was before. So those are the verification
+steps that we're going to include. And let's go through the list of all
+those verification steps that we gave you as possibilities, to see which of those matches those
+essential pieces of the remove method. This first statement here says that
+we should verify that the variable a contains the value 65. Absolutely. That's definitely something you should do. Because that's one of
+the things remove has to do, it has to return the value that was at
+position zero, which in this case is 65, which would now be in the variable a. So definitely need to check that. The next possibility
+said we should call get negative one to make sure that causes
+an index out of bounds exception. Well that's not really essential. It's not an essential piece
+of the remove operation. You absolutely should test this but it would be more appropriately tested
+when your testing the get method. That's not part of testing whether
+removing the element at an exposition zero actually worked. So don't bother with that right here. The next thing said we should call
+list one dot get in its position zero to make sure it now has the value 21. This is what another piece
+that's essential for the remove method, so yes,
+definitely include this test. When 65 is removed, 21 better have
+shifted over to take its place. So include that test. What about this next one? Should we call get at index
+permission one to make sure that 42 has also shifted over? And the answer to that one is, that's not
+an essential test that we need to run here, that's not an essential
+verification step. Because we're not testing add,
+we're not testing get. We're testing remove and
+if we've tested these other methods well, we can be pretty sure that the integrity
+of the list is such that if 21 got moved over correctly,
+then 42 also got moved over correctly. So that's not an essential
+verification step here. Next question, should we test off
+the other end of the list to see if that throws a null pointer exception. And again, going back to what we said
+about the essential pieces of testing remove, that's probably
+not necessary here. We're not trying to test the get method. We're just trying to test remove. However, there is one more
+thing we need to test to make sure this remove zero worked. And that's whether or not the size
+of the list was actually reduced. So this last step here,
+calling list at size to check to make sure that it's equal to two is
+definitely something you need to do. So in summary,
+we have three essential verification steps to make sure remove at position
+zero worked correctly. We need to make sure it
+return the correct value. We need to make sure that the element
+that was at position zero moved up, sorry position one moved
+up to position zero and we need to check to make sure that the
+size of the list has been reduced by one, so those are the three essential
+verification steps, now before we go let me just ask you a question,
+what about this bug? So, this bug is where we've updated
+the head pointer correctly, head dot next, but
+we've failed to update that node 21, we haven't updated its previous pointer so
+that it connects back to the head. And, this is definitely a bug,
+that red arrow there is not correct. But my question is will our verifications
+steps, those three steps we laid out over this concept challenge,
+will they correctly detect this bug? And the answer, of course,
+is no they won't. So we're kind of stuck here because
+we've actually tested the verification. We've verified all of the essential
+behavior of the remove method and it seems like it's working correctly. The problem here is to really test
+that this pointer is correct, we need to get into the structure of this
+list because we don't have a great way of figuring out, when you're going in
+the opposite direction, whether or not all those pointers
+are correctly positioned. So what we'll recommend for
+you to do is we'll recommend for you to actually break the boundaries
+of black box testing just a bit. And, go in and put in a test to
+make sure that list get zero, which should get back that
+node that contains 21, make sure its previous pointer actually
+points to that sentinel head element. Now, again, this does break
+the spirit of black box testing, because you're no longer testing the list
+from outside its abstraction barrier. But for your sanity and
+to make sure that you don't have any of these nasty bugs that are very
+hard to discover with black box testing, given me a methods that you have access
+to, we are going to allow you and even encourage you to break that barrier, and
+go in and test these pointers directly. So good luck with your link list and
+its testing.

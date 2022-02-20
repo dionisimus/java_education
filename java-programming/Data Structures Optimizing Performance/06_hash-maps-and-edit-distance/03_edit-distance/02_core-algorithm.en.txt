@@ -1,0 +1,77 @@
+[MUSIC] All right, in that last video you saw the
+idea behind how we're going to generate spelling suggestions for misspelled words. In this video we'll get into a little bit
+more details of the algorithm, and this will help you with your implementation for
+part of the project in this module. So by the end of this video you'll be able
+to describe the details of the algorithm that your gonna to implement in order
+to generate these spelling suggestions. So here is the algorithm, in a little
+bit more detail than you saw last time. It's actually going to generate
+the list of suggested words for a misspelled word that the user types. And I'm gonna walk you through
+this algorithm step by step. What you can see, at the top,
+is the algorithm and then at the bottom I'm going to
+maintain two data structures. A queue, which Leo has talked to you
+about before, in which you've used in the auto completion component of
+the assignment in the last module. And then the list of suggestions
+that you ultimately the functions gonna return back as suggestions for
+this misspelled word. And you'll see how those get filled
+in as the algorithm progresses. So, first step in the algorithm. I'm going to take that misspelled word,
+that string and I'm going to add it to my queue. Then, I'm going to enter a loop. So, this loop says, while I don't have
+enough suggestions, right now I have none, so I definitely don't have enough. And my queue still has more
+elements in it, it's not empty, I'll proceed to the body of the loop. So in the body of the loop, the first thing we do, is we take
+that first string off of the queue. So in this case,
+it's my original misspelled word, speel. So I'll take that off of the queue, and I'll set it aside because
+I'm gonna work with it. So you can see it off to the side there. Then I'm going to generate all of
+the strings that are one step away from that thing I removed from my
+queue as we saw in the last video. So, all of the strings that have
+produced with substitutions, insertions, or deletions. And I'll put those into the queue. Then what I'll do, is I'll take, of those, the things
+that actually represent real words. And I'll add them to my
+list of suggestions. Then I'm going to go back
+to the top of the loop and check, am I done, do I have enough
+suggestions, and is my queue empty? Well my queue is not empty, and let's say I don't have enough
+suggestions yet, I want to keep going. So, what do I do? I repeat the process. I go into the loop. I remove the first string from the queue. I set it aside. It's going to be a special word that
+I'm going to use in the next few steps. And then I'll generate all
+the strings that are one step away from that new word that I've removed, and
+I'll add those to the queue at the end. From there, I just repeat the process
+of what I did originally. From that new list of words I generated,
+or strings I generated, I take the ones that are actually words, and I move them
+down into the suggestions list, and so on. And this process is just going to repeat,
+taking new words off the queue, generating potential words to explore. And adding the real words we found
+to the list of spelling suggestions. When I've got enough suggestions,
+I'll return that list of suggestions. That's really it. That's the algorithm that you're
+going to be implementing. See, I told you,
+it's not really that complicated. There is one optimization that you can do. You may have noticed that in this process of doing this generation of possible
+words, we're gonna see some repeats. So for example, from apeel,
+we can get right back to speel, which was the original
+misspelled word we started with. So, an optimization you can do,
+is you can keep track of the words or strings you've already generated and
+not revisit those strings, so don't add them back into the queue. You have to be a little bit careful about
+how you implement this optimization, because if you don't implement it well,
+you could end up doing more work to optimize than you would do if you just let
+those strings exist in the queue again. And the last thing that we need to think
+about is, now that we have this list of suggestions, in what order should
+we present these to the user? Now this is kind of a subtle question and
+one that we're not going to ask you to explore for
+the required part of the project but that you can explore in
+extension if you're interested. So, if you were to turn these words in
+the order that they were to appear in the suggestions list, what order they're
+going to be in, is just ordered from close to the original word typed, to
+farther away to the original word typed. In terms of those number
+of transformations applied. Now that may be the right thing to do, but you also might want to
+get a little bit smarter. Because some of those words are going to
+be more likely to appear in the English language than others. So you might want to do something like,
+take the more commonly occurring words and move them to the front
+of the suggestions list. That's something you could explore doing. Another thing you might
+want to think about is, some transformations
+are more likely than others. For example, it's pretty likely that you accidentally
+type two letters in the reverse order. Well, in order to
+generate that suggestion, you would need to go two steps
+away from your original word because you need to transform both
+of the transpose letters. But you may decide that that
+transposition is actually more likely to occur than one
+of your one step away words. So you might decide to move that sort of
+transformation up in the list as well. So those are just two ideas for optimizations on the list of spelling
+suggestions that you could explore. And those kinds of optimizations
+are some of the things that are built in to real world spell checkers and
+spell suggesters. So with this in mind, you can
+implement this piece of the project. And next, we'll talk about the very
+last piece of the project, which is to implement, to extend on these ideas,
+to find paths between two different words.

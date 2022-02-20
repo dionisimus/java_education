@@ -1,0 +1,66 @@
+[MUSIC] So in this video we're going to
+continue our work from last video, where we're looking for
+the runtime of more complicated code. But what we're focusing on now is how to calculate the big-O class
+of code that has nested for loops. So not consecutive for loops,
+but one loop inside another. So let's do an example and
+this example is called maxDifference. It's a method that takes in as its
+argument an array of integers. And as we did before, start off by
+thinking about what this method actually does and it's a great idea to get into
+the habit of describing the higher level functionality of pieces of code,
+so let's start with that. So now that you've looked at what
+max difference does as a method, let's analyze its performance. And as we did before, it's useful to chunk
+up the method into the pieces that really don't interact too much with one another,
+especially when it comes to run time. And so for this context we have
+the initialization piece at the beginning, then we have some nested piece
+of code in the middle, and then we have the return
+statement at the end. Okay, so, easy stuff first. Let's look at the beginning at the end and these are single instructions that
+get executed in constant time. And so, each of those we
+don't need to worry about. And let's focus in on really
+the meaty part of this method. And we've got a for
+loop within a for loop. And so, it might be a little bit daunting. How do we analyze its run time? And so a rule of thumb is to
+count from the inside out. And so let's go as far,
+as deep into the nesting as we can and then work our way out. And so inside the inner for
+loop, we have an if branch and we've worked with those before. And so we notice that what happens here
+is we're doing a test that can happen in constant time, we're comparing
+the values of two entries in the array. And then, based on the result
+of that test, we may or may not do a single operation. And so, that entire conditional statement
+will either be one operation or two depending on the result of the test. But one, two,
+those are both constant numbers. They don't depend on the size
+of the input, and so that entire if branch
+is just big O of one. And so, the advantage of working from
+inside out is that now we don't need to worry about what operations we had
+over there, or what code we executed. All we need to worry about Is that it
+was a big O of one piece of the program. And so now, we can work our
+way back up to say how many times does that big O of one piece of work
+have to get repeated and executed and so, accumulate together how
+much time we need overall. Okay so, in the inner for loop,
+what we're doing is we're going from j=0, all the way to the end of the array. So we're stepping through the input array,
+and at each point, we're doing that constant amount of work. And so that means that if we're focusing
+in on that inner for loop, we're doing a constant amount of work and many
+times where n is the size of the array. And so, overall, we're doing
+a constant times n amount of work, but we drop constants, so
+that's big O(n) amount of work. So that inner for loop, every time we go through it,
+we're doing a big O(n) amount of work. Now how many times do we go
+through that inner for loop? Well, let's step back out one more
+level and we've got the outer for loop. And so that outer for loop you can think
+of as going through the entire array, from i=0 to the end of the array,
+and for each new value of i, we have to do that inner piece of work,
+that big O(n) amount of work. Okay, so
+every time we go through the outer for loop, we're doing O(n) amount of work. How many times do we go
+through the outer for loop? Well the length of the array many times. So that's n many times. And so
+n many times do we do O(n) amount of work, that's n squared amount of work overall. So, what we're seeing here is that when
+we nest to the for loops, what we end up doing is we're multiplying the amount
+of times we go through the outer for loop by the run time of that inner for
+loop. Okay, so we've got multiplication
+happening here because that inner for loop is repeated every single time
+we step through that outer for loop. All right, so
+now what we've done is we've analyzed the runtime of each of the three
+chunks of the algorithm. But now we've reduced our analysis to
+the case that we had in the previous video where we have consecutive pieces of code. And remember that when we had
+consecutive pieces of code, the total run time is just the dominant
+term from each of those three pieces. And so we have, in this case, big O(1) followed by big O(n
+squared) followed by big O(1). 1 doesn't grow at all with n, so it's definitely not as
+fast growing as n squared. N squared definitely grows as
+our input size gets bigger. And so overall,
+this algorithm is a quadratic algorithm or it runs in big O (n squared) time. So that's an example of
+dealing with nested for loops.

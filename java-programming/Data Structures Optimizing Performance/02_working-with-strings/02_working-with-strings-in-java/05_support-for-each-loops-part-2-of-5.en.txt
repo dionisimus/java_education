@@ -1,0 +1,59 @@
+[APPLAUSE]
+>> So let's trace through the execution of this
+particular implementation of the method. And see what it does on
+a sample piece of input. And then we'll have a sense of
+whether it's gonna work for us or not. So when we're tracing through code,
+we're going to use the concept of Memory Model Diagrams,
+and if you were with us for course one of the specialization,
+this will be very familiar. So what we're going to do here is
+illustrate the values of the variables and how they change as we execute the code. And so we're going to keep track of the
+scope of the variables in different parts of our diagram. So in this method we're going
+to be in the scope of replace, which is the name of our method. First, are the arguments or
+the parameters to this method. And so we know we've got the word
+variable, and so we have a box next to the name of the variable that is going
+to store the contents of that variable, the other parameters are gone and here. And in this particular example, let's figure out what the values
+of these variables will be, we're passing in a happy,
+which is a string to the variable word. Now strings are objects in Java,
+which means over here in the heap. When we put a happy in the quotes,
+we create a new string object. And within that string object is the array
+of characters that are in that string. And so we'll have that a happy. Okay, so that's our string object
+living here in memory, and when we pass that object into our method,
+what we're doing is we're creating a reference from the variable
+to that object in the heap. All right, so
+that's the first argument to our method. The second two arguments are characters
+and those are primitive type data. And so that means that when we
+pass them in we're actually going to have copies of those characters
+that are stored in these variables. So gone is the character a and
+here is the character i. That's our memory model so
+far for this method. Now we can go into the body of
+the method and see what happens. The first line allocates space and
+memory for a character array. And so we're going to have the variable cArray as part of our
+memory model diagram. And we have to figure out
+what to put in the box, the value of that variable and
+that's the value that it's initialized to. And what we see is that we
+are going to give that variable the value of word.toCharArray. And so what that means is we're calling
+the method toCharArray on the object word. And so when we are trying to figure
+out where the methods are and how they behave, we're following the dots,
+following the arrows. And so we go to word,
+that's in our memory model over here, and then we follow the arrow and we see
+that word refers to a string object. And string objects have
+these methods toCharArray. The return, well, they don't
+return the actual character array that's stored in the object
+because strings are immutable. So Java doesn't want us to have
+access to this particular CharArray. Instead, it's going to create a copy
+of this character array, a memory, and then return to us a pointer
+to this new array of characters. And so cArray will point to this copy of the character array that
+was stored in the string. And so now we can go on to the rest
+of the method that we've written in replace, and we notice that in this for loop, and throughout the rest of
+the execution of the method, all we're working with is cArray, and
+then characters associated with it. And then at the end we're
+trying to return word. And so what we're going to return
+is the object that was pointed to by this variable, but
+all of our work is over here. And so there's no way for us to change
+anything to do with this variable, because all we're working
+with is the copy. So in this method,
+what we return will just be a pointer to the original string
+that we came with, and it won't have had any of the functionality to it that
+we hoped for in the replace method. In particular, all the a will still be a,
+they won't have magically turned into i. And so
+this implementation is not going to work

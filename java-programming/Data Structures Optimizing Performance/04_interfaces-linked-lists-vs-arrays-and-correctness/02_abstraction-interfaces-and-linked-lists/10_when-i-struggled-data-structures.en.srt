@@ -1,0 +1,118 @@
+1
+00:00:00,000 --> 00:00:03,889
+[MUSIC]
+
+2
+00:00:03,889 --> 00:00:08,464
+When I first started computer science,
+I was cruising the first few months
+
+3
+00:00:08,464 --> 00:00:12,167
+because the practice that I did
+was just taking a function and
+
+4
+00:00:12,167 --> 00:00:14,220
+just giving it what it needed.
+
+5
+00:00:14,220 --> 00:00:15,960
+Just giving it the right
+answer straight on.
+
+6
+00:00:16,970 --> 00:00:20,540
+And I didn't think too much
+about the data structure.
+
+7
+00:00:20,540 --> 00:00:23,470
+I didn't know anything about
+data structures back then.
+
+8
+00:00:23,470 --> 00:00:28,320
+And then I got into data structures,
+and that was when my whole happy CS
+
+9
+00:00:28,320 --> 00:00:30,840
+world turned upside down and
+I was struggling with it.
+
+10
+00:00:30,840 --> 00:00:34,550
+I pulled so many all-nighters
+trying to finish projects that
+
+11
+00:00:34,550 --> 00:00:38,430
+just involved data structures,
+just randomly implementing them.
+
+12
+00:00:38,430 --> 00:00:41,950
+And I was really frustrated, and
+
+13
+00:00:41,950 --> 00:00:46,350
+really wondering if CS was
+something I would like to continue.
+
+14
+00:00:46,350 --> 00:00:51,171
+Or if that was my route, or
+if I was even fit for it.
+
+15
+00:00:51,171 --> 00:00:54,401
+But, then I got involved
+into this project that
+
+16
+00:00:54,401 --> 00:00:57,568
+needed to implement Dijkstra's algorithm.
+
+17
+00:00:57,568 --> 00:01:04,350
+And it was to determine the shortest
+path from one place to another.
+
+18
+00:01:04,350 --> 00:01:06,500
+And then, that's when I realized,
+
+19
+00:01:06,500 --> 00:01:11,090
+that data structures are like
+paintbrushes and paint.
+
+20
+00:01:11,090 --> 00:01:14,130
+And, your computer is like the canvas.
+
+21
+00:01:14,130 --> 00:01:16,910
+And with those data structures,
+you can create masterpieces.
+
+22
+00:01:17,950 --> 00:01:22,710
+And the moral of the story
+is that in computer science,
+
+23
+00:01:22,710 --> 00:01:28,100
+if you come across anything really
+difficult or really hard, in the end,
+
+24
+00:01:28,100 --> 00:01:32,010
+they're usually the things that help you
+the most, they're usually the things that
+
+25
+00:01:32,010 --> 00:01:35,330
+help you understand the beauty
+behind computer science.

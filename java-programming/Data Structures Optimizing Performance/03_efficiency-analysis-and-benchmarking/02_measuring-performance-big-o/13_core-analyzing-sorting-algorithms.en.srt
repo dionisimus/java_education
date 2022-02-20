@@ -1,0 +1,715 @@
+1
+00:00:00,000 --> 00:00:03,827
+[MUSIC]
+
+2
+00:00:03,827 --> 00:00:06,912
+So now we're ready to analyze
+the performance of some of the sorting
+
+3
+00:00:06,912 --> 00:00:09,500
+algorithms that we've
+already talked about.
+
+4
+00:00:09,500 --> 00:00:10,900
+So by the end of this video,
+
+5
+00:00:10,900 --> 00:00:14,450
+you'll be able to state and
+justify the asymptotic performance, so
+
+6
+00:00:14,450 --> 00:00:19,320
+the big O classes for the running time,
+of both selection sort and insertion sort.
+
+7
+00:00:19,320 --> 00:00:22,980
+And we'll be thinking about them, both
+in the best case and in the worst case.
+
+8
+00:00:22,980 --> 00:00:26,370
+Now, for both of these sorting algorithms
+if you need a refresher just go back
+
+9
+00:00:26,370 --> 00:00:28,620
+to the first course in the specialization.
+
+10
+00:00:28,620 --> 00:00:30,860
+That's when we talked about
+them in quite a bit of detail.
+
+11
+00:00:30,860 --> 00:00:33,570
+But, we'll be doing an overview now,
+as well.
+
+12
+00:00:33,570 --> 00:00:39,820
+So, our goal is to fill in this table with
+big O classes that represent the best and
+
+13
+00:00:39,820 --> 00:00:42,519
+worst case performance for
+these two sorting algorithms.
+
+14
+00:00:43,620 --> 00:00:45,850
+So let's start with selection sort, and
+
+15
+00:00:45,850 --> 00:00:49,560
+in selection sort we take a list or
+an array of data.
+
+16
+00:00:49,560 --> 00:00:54,900
+And what we'd like to do is organize it so
+that it's presented
+
+17
+00:00:54,900 --> 00:01:00,020
+in order from smallest to biggest based
+on some measure of smallest and biggest.
+
+18
+00:01:00,020 --> 00:01:04,800
+And so our strategy is going to look
+at each position in the array in turn.
+
+19
+00:01:04,800 --> 00:01:08,430
+And for each of those positions,
+find the right element to put in there.
+
+20
+00:01:08,430 --> 00:01:12,280
+And so we look at all of the possible
+elements remaining in the array.
+
+21
+00:01:12,280 --> 00:01:15,931
+And figure out which one
+of those is smallest and
+
+22
+00:01:15,931 --> 00:01:18,495
+put it in this current position.
+
+23
+00:01:18,495 --> 00:01:20,900
+Okay, so that's the algorithm.
+
+24
+00:01:20,900 --> 00:01:28,520
+And so now, let's think ahead about what
+insertion sort algorithm is going to do.
+
+25
+00:01:28,520 --> 00:01:29,790
+It's a little bit different.
+
+26
+00:01:29,790 --> 00:01:33,490
+We're still going through all of
+the positions in the array in turn.
+
+27
+00:01:33,490 --> 00:01:37,804
+But instead of looking for
+the correct elements to put in each time,
+
+28
+00:01:37,804 --> 00:01:42,952
+what we're doing is looking at the current
+value that we're focused in and nudge
+
+29
+00:01:42,952 --> 00:01:48,940
+it over to its correct position relative
+to the elements that are already listed.
+
+30
+00:01:48,940 --> 00:01:52,830
+So we're still going step by step and
+increasing the part of the array that's
+
+31
+00:01:52,830 --> 00:01:56,280
+sorted each time, but
+doing it in a slightly different strategy.
+
+32
+00:01:56,280 --> 00:01:59,180
+And we'll see the impact of
+these different strategies
+
+33
+00:01:59,180 --> 00:02:02,120
+on their performance
+of the two algorithms.
+
+34
+00:02:02,120 --> 00:02:04,130
+So let's start with selection sort, and
+
+35
+00:02:04,130 --> 00:02:08,616
+let's think about the performance
+of this sorting algorithm.
+
+36
+00:02:08,616 --> 00:02:15,160
+So we actually used selection sort
+in a previous support video where
+
+37
+00:02:15,160 --> 00:02:20,500
+we went through the code for selection
+sort and computed its performance.
+
+38
+00:02:20,500 --> 00:02:22,415
+This was an example of nested for
+
+39
+00:02:22,415 --> 00:02:27,380
+loops that were really interesting to
+analyze and we used some cool identities.
+
+40
+00:02:27,380 --> 00:02:30,060
+But notice that when we did that analysis,
+we could say,
+
+41
+00:02:30,060 --> 00:02:34,770
+this algorithm is big O of n squared,
+it's quadratic, and when we did that,
+
+42
+00:02:34,770 --> 00:02:38,790
+it was before we said anything about
+best case, worst case, average case.
+
+43
+00:02:38,790 --> 00:02:40,490
+We weren't even thinking
+about the input or
+
+44
+00:02:40,490 --> 00:02:45,000
+how it was organized, because this
+sorting algorithm, if you think about it,
+
+45
+00:02:45,000 --> 00:02:50,110
+doesn't really care what the input
+looks like when you first get it.
+
+46
+00:02:50,110 --> 00:02:51,820
+It goes through and
+
+47
+00:02:51,820 --> 00:02:57,300
+does the same sequence of steps no
+matter how its input is organized.
+
+48
+00:02:57,300 --> 00:03:00,810
+So the number of steps,
+the performance of the sorting algorithm,
+
+49
+00:03:00,810 --> 00:03:05,510
+only depends on the size of
+the array that it starts with.
+
+50
+00:03:05,510 --> 00:03:10,260
+It doesn't depend on how the contents
+of the array are organized and
+
+51
+00:03:10,260 --> 00:03:12,360
+that means that the best case and
+
+52
+00:03:12,360 --> 00:03:16,580
+the worst case performance of this
+algorithm are exactly the same.
+
+53
+00:03:16,580 --> 00:03:17,890
+It's the same as the average case.
+
+54
+00:03:17,890 --> 00:03:22,760
+It's the same as any case, so for
+any array of size n, the best case and
+
+55
+00:03:22,760 --> 00:03:25,720
+worst case performance of selection sort,
+is big O of n squared.
+
+56
+00:03:26,800 --> 00:03:29,310
+Okay, so that's the one algorithm.
+
+57
+00:03:29,310 --> 00:03:32,650
+Now let's think about
+the insertion sort algorithm, and
+
+58
+00:03:32,650 --> 00:03:36,660
+try to fill in some of those questions
+marks, and we haven't analyzed it yet.
+
+59
+00:03:36,660 --> 00:03:40,508
+So let's do it now, and
+what we're trying to do,
+
+60
+00:03:40,508 --> 00:03:46,202
+as I mentioned earlier, is focus on one
+new element of the array at a time.
+
+61
+00:03:46,202 --> 00:03:50,763
+And for that new element put it in its
+correct location relative to the earlier
+
+62
+00:03:50,763 --> 00:03:53,620
+ones that have been sorted already.
+
+63
+00:03:53,620 --> 00:03:56,800
+And so we assume that at each
+point we have that initial
+
+64
+00:03:56,800 --> 00:03:59,240
+piece of the arrays already sorted.
+
+65
+00:03:59,240 --> 00:04:03,120
+And so what we need to do is figure
+out where the next element goes and
+
+66
+00:04:03,120 --> 00:04:07,410
+we do that by comparing
+that next element to,
+
+67
+00:04:07,410 --> 00:04:11,730
+well, the highest element in
+the sorted part of the array and
+
+68
+00:04:11,730 --> 00:04:15,390
+see, well should I swap their locations or
+not?
+
+69
+00:04:15,390 --> 00:04:17,280
+And then maybe I'm gonna
+need to swap again, and
+
+70
+00:04:17,280 --> 00:04:21,760
+maybe I need to swap again until
+the new element gets to its correct
+
+71
+00:04:21,760 --> 00:04:26,760
+relative location based on the previously
+sorted pieces of the array.
+
+72
+00:04:26,760 --> 00:04:32,700
+Okay, so what would the best case
+of this algorithm look like?
+
+73
+00:04:32,700 --> 00:04:35,980
+And in order to do that,
+we need to focus in on that for loop.
+
+74
+00:04:35,980 --> 00:04:40,460
+Where that for loop looks at
+each position in the array and
+
+75
+00:04:40,460 --> 00:04:44,640
+says, I'm going to put the element in
+this position, in its correct location.
+
+76
+00:04:44,640 --> 00:04:49,356
+And the piece that really depends on
+the values is the inner while loop.
+
+77
+00:04:49,356 --> 00:04:54,250
+So, the inner while loop
+maybe gets executed
+
+78
+00:04:54,250 --> 00:04:58,180
+a different number of times,
+based on the relative
+
+79
+00:04:58,180 --> 00:05:02,000
+size of the consecutive pairs
+of elements in the array.
+
+80
+00:05:02,000 --> 00:05:05,410
+So, let's think about the best case first.
+
+81
+00:05:05,410 --> 00:05:07,870
+So, in the best case,
+
+82
+00:05:07,870 --> 00:05:11,760
+what we would have, is that we don't
+need to make very many swaps at all.
+
+83
+00:05:11,760 --> 00:05:15,940
+So we're looking at a new element in the
+array, and we'd like to find its correct
+
+84
+00:05:15,940 --> 00:05:19,480
+relative position, relative to
+the earlier elements in the array.
+
+85
+00:05:19,480 --> 00:05:22,830
+And if we're really lucky then it's
+already going to be in that position.
+
+86
+00:05:22,830 --> 00:05:25,430
+Well what that would
+mean is that it's bigger
+
+87
+00:05:25,430 --> 00:05:28,600
+than the biggest element in
+the already sorted part of the array.
+
+88
+00:05:28,600 --> 00:05:34,390
+And so, what we need to check
+is that the current index has,
+
+89
+00:05:35,500 --> 00:05:39,395
+the value of that current index
+is already bigger than the value
+
+90
+00:05:39,395 --> 00:05:45,880
+at the last piece of the already
+sorted part of the array.
+
+91
+00:05:45,880 --> 00:05:47,730
+So when does that happen?
+
+92
+00:05:47,730 --> 00:05:50,840
+Well, it happens when the array that
+we start with is already sorted.
+
+93
+00:05:50,840 --> 00:05:55,289
+Every time we look at a new element,
+it's already in its correct location
+
+94
+00:05:55,289 --> 00:05:59,570
+relative to the earlier ones, so
+we don't need to do anything.
+
+95
+00:05:59,570 --> 00:06:02,310
+The body of the while loop never executes.
+
+96
+00:06:02,310 --> 00:06:05,331
+And so when we look at
+the performance in this case,
+
+97
+00:06:05,331 --> 00:06:09,339
+that means that every time we try
+to start executing the while loop,
+
+98
+00:06:09,339 --> 00:06:14,010
+all we need to do is do that just one
+test, and it's going to evaluate to false.
+
+99
+00:06:14,010 --> 00:06:17,840
+And we go away from it, and we go to
+the next iteration of the for loop.
+
+100
+00:06:17,840 --> 00:06:20,743
+And so that means that the body of the for
+loop in this case,
+
+101
+00:06:20,743 --> 00:06:24,418
+when the array's already sorted,
+every time we go through the for loop,
+
+102
+00:06:24,418 --> 00:06:27,440
+we just execute a constant
+number of instructions.
+
+103
+00:06:27,440 --> 00:06:32,260
+And so all in all, we have n iterations
+of the for loop, each time doing
+
+104
+00:06:32,260 --> 00:06:36,870
+just a constant amount of work, and
+so all in all we have just O(n) work.
+
+105
+00:06:36,870 --> 00:06:40,460
+So when the array is already sorted,
+in this best-case lucky,
+
+106
+00:06:40,460 --> 00:06:44,820
+lucky scenario,
+insertion sort just takes big O(n) time.
+
+107
+00:06:44,820 --> 00:06:47,381
+Cool.
+That's much, much better than quadratic,
+
+108
+00:06:47,381 --> 00:06:48,662
+which was selection sort.
+
+109
+00:06:48,662 --> 00:06:51,680
+So that's interesting, okay.
+
+110
+00:06:51,680 --> 00:06:53,000
+Is it gonna be good all the time?
+
+111
+00:06:53,000 --> 00:06:54,450
+Is it a big win?
+
+112
+00:06:54,450 --> 00:06:56,810
+Well, so let's think about the worst case.
+
+113
+00:06:56,810 --> 00:07:02,500
+So what input might we get that would
+require us to run many, many steps?
+
+114
+00:07:02,500 --> 00:07:06,480
+And remember the piece that we're
+focusing in on is that inner while loop.
+
+115
+00:07:06,480 --> 00:07:12,180
+Where we're nudging the current value that
+we're looking at to its correct location
+
+116
+00:07:12,180 --> 00:07:16,240
+within that first part of
+the array that's already sorted.
+
+117
+00:07:16,240 --> 00:07:20,140
+So, if we think about what
+might make us really unlucky
+
+118
+00:07:20,140 --> 00:07:23,960
+is if we have to do a lot of the nudging,
+a lot of the swaps over.
+
+119
+00:07:23,960 --> 00:07:28,490
+And so, if we think of our arrays being
+really far from sorted, then we're gonna
+
+120
+00:07:28,490 --> 00:07:32,760
+have to do a lot of work to keep moving
+these elements to their correct location,
+
+121
+00:07:32,760 --> 00:07:34,880
+relative to the sorted part of the array.
+
+122
+00:07:34,880 --> 00:07:39,040
+So, thinking about an array that's
+given to us in reverse sorted order,
+
+123
+00:07:39,040 --> 00:07:43,070
+we're going to have to do a lot of work
+in this algorithm in order to get it
+
+124
+00:07:43,070 --> 00:07:44,800
+to the correct form,
+
+125
+00:07:44,800 --> 00:07:49,050
+namely going from one through five,
+rather than from five through one.
+
+126
+00:07:49,050 --> 00:07:54,370
+So in this worst case analysis what we
+see is that when we are looking at,
+
+127
+00:07:54,370 --> 00:07:58,537
+for example, at the second position,
+so position equals 1,
+
+128
+00:07:58,537 --> 00:08:04,550
+then when we want to nudge 4 over to its
+correct location we have to do a swap.
+
+129
+00:08:04,550 --> 00:08:09,442
+And then when we look at the next index
+at position 2, then in order to move 3
+
+130
+00:08:09,442 --> 00:08:12,960
+to its correct location we're
+going to have to swap it twice.
+
+131
+00:08:12,960 --> 00:08:17,790
+And so every time we're going to
+have to swap all the way over to
+
+132
+00:08:17,790 --> 00:08:22,680
+the head of the array and so all
+together what's going to happen is that
+
+133
+00:08:22,680 --> 00:08:27,520
+on average we're gonna have about
+O(n) many swaps for each position.
+
+134
+00:08:27,520 --> 00:08:30,740
+And that happens n many times as
+we go through all the positions.
+
+135
+00:08:30,740 --> 00:08:33,454
+And so
+we get to O(n) squared amount of work.
+
+136
+00:08:33,454 --> 00:08:36,045
+And so the analysis at the end
+was a little brief but
+
+137
+00:08:36,045 --> 00:08:40,257
+it's really similar to what we do when
+we think about analyzing selection sort.
+
+138
+00:08:40,257 --> 00:08:40,900
+So go back and
+
+139
+00:08:40,900 --> 00:08:45,390
+revisit that support video if you'd
+like to see a little bit more detail.
+
+140
+00:08:45,390 --> 00:08:48,930
+Now what we wanna keep in mind,
+though, is that the worse case for
+
+141
+00:08:48,930 --> 00:08:53,600
+insertion sort happened when our
+input array was in reverse order.
+
+142
+00:08:53,600 --> 00:08:56,860
+And so this is really illustrating how
+
+143
+00:08:56,860 --> 00:09:01,250
+the structure of the input can determine
+the performance of our algorithm.
+
+144
+00:09:01,250 --> 00:09:04,580
+And when we're thinking about worst-case
+analysis, we want to think about
+
+145
+00:09:04,580 --> 00:09:08,830
+the kinds of inputs that will make
+us do the most amount of work.
+
+146
+00:09:10,140 --> 00:09:14,950
+So here is our table so
+far for sorting algorithms.
+
+147
+00:09:14,950 --> 00:09:18,440
+And in the next video we'll introduce
+a couple of new sorting algorithms
+
+148
+00:09:18,440 --> 00:09:23,150
+just to expand our vocabulary, expand
+our toolbox of sorting algorithms and
+
+149
+00:09:23,150 --> 00:09:25,150
+compare how they're run as well.

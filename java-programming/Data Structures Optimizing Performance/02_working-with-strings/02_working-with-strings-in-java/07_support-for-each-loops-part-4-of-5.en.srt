@@ -1,0 +1,668 @@
+1
+00:00:00,025 --> 00:00:05,390
+[APPLAUSE]
+>> As you saw,
+
+2
+00:00:05,390 --> 00:00:09,350
+again we ran into difficulties,
+and this time,
+
+3
+00:00:09,350 --> 00:00:12,280
+the error was in a slightly
+different place.
+
+4
+00:00:12,280 --> 00:00:18,150
+What happens when we do a for
+each loop, is that when we ask for
+
+5
+00:00:18,150 --> 00:00:23,320
+every character c in the character
+array cArray, what we get
+
+6
+00:00:23,320 --> 00:00:29,290
+is a copy of each value from the character
+array stored in the variable c.
+
+7
+00:00:29,290 --> 00:00:34,080
+And so when we change the variable c,
+we're changing that copy of the character.
+
+8
+00:00:34,080 --> 00:00:37,550
+We're not changing the contents of cArray.
+
+9
+00:00:37,550 --> 00:00:40,680
+And so
+this implementation didn't work either.
+
+10
+00:00:40,680 --> 00:00:43,540
+And so try, try again, we don't give up.
+
+11
+00:00:43,540 --> 00:00:45,690
+Let's look at yet another implementation.
+
+12
+00:00:45,690 --> 00:00:50,660
+In here we're thinking, okay,
+let's create a new array of characters and
+
+13
+00:00:50,660 --> 00:00:54,090
+let's access its elements one by one.
+
+14
+00:00:54,090 --> 00:00:58,510
+And maybe now we're going to have
+a successful implementation.
+
+15
+00:00:58,510 --> 00:01:00,960
+And so what we're going to
+do is trace through and
+
+16
+00:01:00,960 --> 00:01:02,660
+start our memory model from scratch.
+
+17
+00:01:02,660 --> 00:01:04,700
+So we can see how
+everything fits together.
+
+18
+00:01:04,700 --> 00:01:05,616
+Cuz as you can see,
+
+19
+00:01:05,616 --> 00:01:09,430
+there's a little bit more code to
+this candidate implementation.
+
+20
+00:01:09,430 --> 00:01:12,300
+So, we're working with
+a replace method and so,
+
+21
+00:01:12,300 --> 00:01:17,710
+we're working in the scope of this
+replace method call at the moment.
+
+22
+00:01:17,710 --> 00:01:21,440
+And, let's think about the candidate
+method call down here.
+
+23
+00:01:21,440 --> 00:01:26,300
+And so, we start our memory model
+with the parameters for this method.
+
+24
+00:01:26,300 --> 00:01:33,880
+So we have three parameters, we've got
+word, we've got gone, and we've got here.
+
+25
+00:01:33,880 --> 00:01:39,340
+And remember that word is of type string,
+
+26
+00:01:39,340 --> 00:01:42,480
+and so that's an object type in Java.
+
+27
+00:01:42,480 --> 00:01:46,560
+And what we're going to be referring
+to is an object in the heap
+
+28
+00:01:47,730 --> 00:01:50,960
+which we're going to denote in
+our memory model over here.
+
+29
+00:01:50,960 --> 00:01:55,424
+And so in this object we have
+stored the character array for
+
+30
+00:01:55,424 --> 00:01:57,884
+this particular string, and so
+
+31
+00:01:57,884 --> 00:02:02,546
+this character array is riding
+out the string a space happy.
+
+32
+00:02:06,500 --> 00:02:11,010
+And so here's its representation
+in our memory model.
+
+33
+00:02:12,270 --> 00:02:16,350
+For gone and here,
+they're variables of type characters.
+
+34
+00:02:16,350 --> 00:02:21,610
+And so we're going to store copies of
+those characters inside these boxes,
+
+35
+00:02:21,610 --> 00:02:24,360
+because these are primitive types in Java.
+
+36
+00:02:24,360 --> 00:02:29,340
+And so we've got gone is the argument,
+the first argument and
+
+37
+00:02:29,340 --> 00:02:32,280
+it's got the character a,
+and here is the character i.
+
+38
+00:02:32,280 --> 00:02:36,430
+All right, so far very similar to before.
+
+39
+00:02:36,430 --> 00:02:39,060
+But now let's look at
+the body of the method and
+
+40
+00:02:39,060 --> 00:02:40,930
+what we've implemented this time.
+
+41
+00:02:40,930 --> 00:02:45,519
+So our first line declares
+this variable c array.
+
+42
+00:02:47,270 --> 00:02:52,880
+And so, this is pointing
+to an array of characters.
+
+43
+00:02:52,880 --> 00:02:57,530
+And in this case like before,
+what we'd like to point to is
+
+44
+00:02:57,530 --> 00:03:02,270
+the array of characters that were
+in this string pointed to by word.
+
+45
+00:03:02,270 --> 00:03:06,840
+But because strings are immutable
+the method to character array
+
+46
+00:03:06,840 --> 00:03:11,700
+doesn't give us access to this particular
+array, it gives us access to a copy of it.
+
+47
+00:03:11,700 --> 00:03:17,550
+And so in the heap we have a cop of this
+array of characters and so here it is.
+
+48
+00:03:18,920 --> 00:03:23,160
+And then the method that we
+called will give us a reference
+
+49
+00:03:23,160 --> 00:03:25,469
+to that copy of the array of characters.
+
+50
+00:03:26,880 --> 00:03:30,340
+Now what we're doing is we're creating yet
+another array of characters.
+
+51
+00:03:30,340 --> 00:03:31,790
+Who knew we needed so many?
+
+52
+00:03:31,790 --> 00:03:35,710
+So now we're going to define
+the variable cArrayMod
+
+53
+00:03:40,170 --> 00:03:46,750
+and what we're initialize this variable
+to is a new array of characters.
+
+54
+00:03:46,750 --> 00:03:49,410
+Now remember,
+when we declare an array of characters,
+
+55
+00:03:49,410 --> 00:03:51,860
+we need to specify
+the length of that array.
+
+56
+00:03:51,860 --> 00:03:57,040
+And so the length that we wanna use is
+the same length as the character array
+
+57
+00:03:57,040 --> 00:04:02,190
+pointed to by cArray, and
+so that's length seven.
+
+58
+00:04:02,190 --> 00:04:06,020
+And so we're going to
+allocate space in memory for
+
+59
+00:04:06,020 --> 00:04:09,820
+an array of characters that
+will store seven characters.
+
+60
+00:04:11,580 --> 00:04:15,520
+Now we haven't said what the contents
+of this array yet will be,
+
+61
+00:04:15,520 --> 00:04:20,050
+what the characters in there are, but
+we've just got this space in memory and
+
+62
+00:04:20,050 --> 00:04:22,940
+then, cArrayMod will point to this array.
+
+63
+00:04:24,240 --> 00:04:30,190
+All right, one more variable declaration,
+and that's this i over here.
+
+64
+00:04:30,190 --> 00:04:34,190
+And so
+we create a box in our memory model for
+
+65
+00:04:34,190 --> 00:04:39,242
+this variable of type int,
+and it's initialized to zero.
+
+66
+00:04:39,242 --> 00:04:43,680
+All right, so we've done all of the
+preparation before getting into the for
+
+67
+00:04:43,680 --> 00:04:47,280
+each loop, and so now we're ready to
+dive right into that for each loop.
+
+68
+00:04:47,280 --> 00:04:51,900
+And remember, what we're hoping that this
+method does, is take this input string and
+
+69
+00:04:51,900 --> 00:04:56,840
+somehow return to us at
+the end a version of this
+
+70
+00:04:56,840 --> 00:05:00,500
+array of characters where
+each a is replaced by an i.
+
+71
+00:05:00,500 --> 00:05:04,320
+So we're really hoping to
+see i hippy come back.
+
+72
+00:05:04,320 --> 00:05:06,130
+All right.
+So in this, for
+
+73
+00:05:06,130 --> 00:05:11,450
+each loop we're going to step
+through the characters in cArray.
+
+74
+00:05:11,450 --> 00:05:13,750
+And for each one of those characters,
+
+75
+00:05:13,750 --> 00:05:16,870
+we're going to store
+them in the variable c.
+
+76
+00:05:16,870 --> 00:05:23,730
+So we also, in our memory model,
+need space for this variable c that stores
+
+77
+00:05:23,730 --> 00:05:29,100
+the characters that come from stepping
+through the array pointed to by cArray.
+
+78
+00:05:29,100 --> 00:05:33,280
+So the first one that we
+point to is the one located
+
+79
+00:05:33,280 --> 00:05:36,850
+at the very beginning of the array and
+that is a.
+
+80
+00:05:36,850 --> 00:05:40,320
+So the first value of
+c is the character a.
+
+81
+00:05:41,710 --> 00:05:45,720
+And now what we do with that
+first iteration of the for
+
+82
+00:05:45,720 --> 00:05:50,540
+loop is we first of all go immediately
+into this conditional statement.
+
+83
+00:05:50,540 --> 00:05:56,720
+And we check whether the value of c is
+equal to the value of the variable gone.
+
+84
+00:05:56,720 --> 00:05:59,515
+And in this particular case
+those values are equal,
+
+85
+00:05:59,515 --> 00:06:02,220
+they're both have the value
+of the character a.
+
+86
+00:06:02,220 --> 00:06:08,830
+So what we need to do is update the value
+of cArrayMod at the index i, so zero.
+
+87
+00:06:08,830 --> 00:06:13,575
+And so what we wanna do is copy this
+a into this position of the array,
+
+88
+00:06:13,575 --> 00:06:14,840
+and so here we go.
+
+89
+00:06:15,910 --> 00:06:18,950
+All right, so
+we've completed the conditional branch.
+
+90
+00:06:18,950 --> 00:06:21,980
+And so we notice that at the end
+of the body of the for loop,
+
+91
+00:06:21,980 --> 00:06:25,300
+what we still have to do is increment i,
+the variable i.
+
+92
+00:06:25,300 --> 00:06:31,690
+And so we have a new value for
+the variable i, it's going to be one.
+
+93
+00:06:31,690 --> 00:06:35,830
+And so we go back up to the top of the for
+each loop and what that means is we want
+
+94
+00:06:35,830 --> 00:06:41,080
+to pick up the next character in
+the array of characters cArray.
+
+95
+00:06:41,080 --> 00:06:45,170
+We've taken care of the first one and
+now we're going onto the next one.
+
+96
+00:06:45,170 --> 00:06:48,830
+Now, what that means in terms of our
+memory model, is that we update the value
+
+97
+00:06:48,830 --> 00:06:55,730
+of the variable c, to now be the value
+that is next from that cArray.
+
+98
+00:06:55,730 --> 00:06:59,650
+Okay, so we go back to the top of the for
+each loop, and
+
+99
+00:06:59,650 --> 00:07:02,120
+we do the same conditional branch.
+
+100
+00:07:02,120 --> 00:07:05,690
+We compare the value of c,
+with the value of gone.
+
+101
+00:07:05,690 --> 00:07:09,050
+In this case, they're different,
+they've got different values.
+
+102
+00:07:09,050 --> 00:07:12,620
+And so we have to look at the else
+branch of the conditional statement.
+
+103
+00:07:12,620 --> 00:07:18,140
+And in this case, what we need to do is
+still to update cArrayMod at index i.
+
+104
+00:07:18,140 --> 00:07:21,120
+So now we're at this
+location in this array.
+
+105
+00:07:21,120 --> 00:07:24,350
+But instead of updating
+it with the value here,
+
+106
+00:07:24,350 --> 00:07:30,240
+what we're updating it with is the value,
+stored in c, and so that's a space.
+
+107
+00:07:30,240 --> 00:07:34,410
+Okay, we've done that, I'm not gonna draw
+a space here, we'll just have the space,
+
+108
+00:07:34,410 --> 00:07:37,280
+and so we're done with the conditional and
+we increment i.
+
+109
+00:07:37,280 --> 00:07:42,930
+And so i now becomes 2, and
+we finish with this go around of the for
+
+110
+00:07:42,930 --> 00:07:47,040
+loop, we've taken care of
+this character from cArray.
+
+111
+00:07:47,040 --> 00:07:48,840
+And so, next up would be h and so,
+
+112
+00:07:48,840 --> 00:07:52,640
+we'd have to update the value of c,
+and we'd keep on going.
+
+113
+00:07:52,640 --> 00:07:56,500
+And, notice that, if we think
+about this in a high level view,
+
+114
+00:07:56,500 --> 00:08:01,970
+as we iterate through the values of
+cArray, updating c and updating i.
+
+115
+00:08:01,970 --> 00:08:06,860
+What we're doing each time of execution
+of the conditional branch is whenever
+
+116
+00:08:06,860 --> 00:08:11,365
+this character happens to be an a,
+we would replace it with
+
+117
+00:08:11,365 --> 00:08:17,650
+i.
+
+118
+00:08:17,650 --> 00:08:25,940
+Over here I put the value of gone instead
+of here, so both of these should be i's.
+
+119
+00:08:25,940 --> 00:08:31,070
+But in all of the other locations, we just
+maintain exactly the value that we had
+
+120
+00:08:31,070 --> 00:08:37,540
+in cArray as we go on and go on and
+go on throughout the entire cArray.
+
+121
+00:08:37,540 --> 00:08:42,830
+Okay, so the only two places where we
+have a different value in cArrayMod
+
+122
+00:08:42,830 --> 00:08:47,820
+from where we did in cArray are those
+places where the character from cArray was
+
+123
+00:08:47,820 --> 00:08:53,680
+the one that is stored in gone which was
+our cue for making sure that it gets gone.
+
+124
+00:08:53,680 --> 00:08:56,390
+Alright, so
+after we've completed the for loop,
+
+125
+00:08:56,390 --> 00:09:01,140
+the for each loop, then we're ready
+to return a value to the user.
+
+126
+00:09:01,140 --> 00:09:04,180
+And what we're returning
+is a new string object.
+
+127
+00:09:04,180 --> 00:09:08,040
+That new string object is
+constructed out of this new
+
+128
+00:09:09,120 --> 00:09:14,550
+character array that we created over here,
+cArrayMod, and then filled in with values.
+
+129
+00:09:14,550 --> 00:09:19,610
+And so, the characters that are returned
+to the user into the form of a string
+
+130
+00:09:19,610 --> 00:09:25,220
+Are really what we wanted, i space
+hippy just like we created over here.
+
+131
+00:09:25,220 --> 00:09:28,650
+Which is fantastic because we've been
+working on this replace method and trying,
+
+132
+00:09:28,650 --> 00:09:30,810
+and trying, and trying and
+finally we go it.
+
+133
+00:09:30,810 --> 00:09:33,460
+But notice how much work we had to put in.
+
+134
+00:09:33,460 --> 00:09:36,640
+We had to create not only one but
+two copies
+
+135
+00:09:36,640 --> 00:09:41,380
+of the character array that was given
+to us inside that word string object.
+
+136
+00:09:41,380 --> 00:09:45,530
+And then we had to do some fancy
+things with indices, as well.
+
+137
+00:09:45,530 --> 00:09:48,700
+So, we'll talk in a minute about
+what this solution does and
+
+138
+00:09:48,700 --> 00:09:51,910
+what it tells us about for-each
+loops in this context.

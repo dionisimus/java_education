@@ -1,0 +1,92 @@
+[MUSIC] So finally in this video, we're gonna look
+at the implementation details of Tries, and we'll also look at the algorithm for
+doing auto-complete. So by the end of this video,
+you'll be able to implement these Tries. So you'll be all set to go for
+your project, and you'll also be able to implement
+that auto-complete algorithm. So going back to our Trie,
+we'll see that just like the link structures we looked at before,
+just like trees. The key structural piece of the Trie
+implementation is going to be the node class. We're gonna implement a class called
+TrieNode, and let's focus on that first. So the TrieNode has a number of
+things it needs to represent. One of the things it needs to keep
+track of is, does this node end a word? Because some of the nodes in the Trie
+end words, while others do not. So we'll keep a boolean flag to indicate
+whether this particular node represents a complete word or not. Another thing that we wanna
+store in these nodes, is the actual text representing the word
+that is represented by this node. We only really need to represent this
+text if it actually does end a word. So otherwise, it'll just be empty. And again as I mentioned before,
+this is an optional field. You don't have to maintain this field, because you can always recover
+it by tracing down the Trie. But it makes things a little bit easier to
+implement if you do maintain this field. So, we'll recommend in your implementation
+that you do keep this field. The last piece of the TrieNode, the most important piece are the links
+to the children of this node. Now, in a binary search tree, you could represent these links as just
+a left pointer and a right pointer. But in a Trie we have more than
+two children, potentially. So one way we can
+represent this is an array. So we might have an array of, in this case, length five, because we
+have five characters we're dealing with. But if we were using the whole
+alphabet we might have 26 characters. Or if we wanted to use both lower case and upper case letters,
+we might have twice that many. And in every single node,
+we would want that big array to have a potential pointer to
+a child coming from that character. So, we might represent that just
+like this using an array list. But if we go back and look at the tribe,
+what we can see is that most of the time a lot of these
+entries are going to be empty. So even in a complete dictionary
+we're gonna have a very sparse usage of this array of pointers
+to the next level down. So that's a lot of wasted space, because
+an arrays have to be declared to be a certain length in order to
+access each element in that array. And we don't necessarily want
+to waste all that space. So at this point, you may be thinking aha,
+I know what we can use. We can use a linked list,
+because linked lists grow dynamically, to accommodate the number
+of elements in them. Well that's true, but the problem with using a linked list is
+that then we don't have that association. Between a particular position in the list
+and the character that it represents. Here, we're really relying on that
+association in order to do those links. So for these reasons, we're not going to use an array
+list to represent the children. And we're not going to
+use a linked list either, what we're going to use is
+something called a hash map. Now, we'll go into much more
+detail about hash maps and hash tables in the next
+module in this course. But if you took our course one then you're
+already familiar with the concept of a hash map. We used then back in our course
+one in this specialization. The idea behind a hash map
+is it's going to associate a key with a particular value. And in this case, our keys are gonna to
+be the characters that are in our words. And the values are going to be
+the children nodes in our tribe. So you have here
+the documentation page for the hash map class that's built into java. And we encourage you to look around and figure out which methods you want
+to use in your implementation. And pay particular attention to
+the methods put, which associates a key with the value, and get which gets
+back a value for a particular key. They'll be a couple more
+methods you want to use. Those are gonna be the main ones you'll
+be using when you implement the find and insert methods in your Trie. So that's the gist of a TrieNode. Now let's bring that back to
+the trie data structure itself. Of course,
+a trie consists of a bunch of trie nodes, which are all linked together
+via these children links. So in order to store the entire trie, all you really need to do is store
+a point or a reference to the root node. So your overall trie data structure,
+your dictionary trie, is really just gonna have one main
+pointer, which is the pointer to the root. And then it's going to implement all the
+functionality that we just talked about, so finding a word in the trie,
+inserting a word into the trie. And then for the last piece of
+functionality you'll need for your project, it's going to implement
+this auto-complete functionality. So let's take a look at how we can
+do auto-complete using the trie data structure. So we have our partial word,
+our word stem ea, and we want to auto-complete that word. So what are all the possible completions
+that could result from the stem ea? Well the first step to
+solving this problem is to first find the stem in the trie. So to do that you use the same
+algorithm that we talked about before. You start at the root and navigate down by
+following the appropriate child pointers, given the characters in the stem. And maybe you'll find yourself at that
+bottom most highlighted yellow node. And from there you're out of stem words,
+so now you're ready to generate
+the auto complete options. Now notice that you may end up may
+be a word and may not be a word, depending on whether the stem is a word or
+not. But from there, all you need to do
+is explore downward from that node. Finding all the words that you can
+find down from that particular node. And this is just a tree traversal, which
+Leo talked to you about in the first or second lesson in this module. You can do any kind of tree traversal, and that will give you a number
+of auto-complete options. But if you want to generate the auto
+completions from shortest to longest, then what you're going to want to do is
+perform a level order tree traversal. Or as Leo explained,
+a breath first search, starting from the node you found when
+you navigated based on your stem. All the way down either to
+the bottom of your trie or until you've generated enough words for
+the auto-complete. So that's it, that's all you
+need to know about Tries and you're ready to do your project.

@@ -1,0 +1,135 @@
+1
+00:00:00,025 --> 00:00:07,523
+[APPLAUSE] So we finally succeeded in
+implementing the method that we wanted to.
+
+2
+00:00:07,523 --> 00:00:09,102
+But it was a lot of work.
+
+3
+00:00:09,102 --> 00:00:13,820
+And, what you'll notice when you think
+back to the work that we did is that we
+
+4
+00:00:13,820 --> 00:00:18,941
+were kind of implementing the usual old
+for loop, where we start with some index.
+
+5
+00:00:18,941 --> 00:00:24,170
+And we incremented as we go through and
+iterate the for-loop a bunch of times.
+
+6
+00:00:24,170 --> 00:00:27,867
+And so, even though we have
+a for-each loop in our method body,
+
+7
+00:00:27,867 --> 00:00:30,473
+we're not really using the for-each loop.
+
+8
+00:00:30,473 --> 00:00:35,370
+We kind of have to do a regular old
+indexed for loop in addition to it.
+
+9
+00:00:35,370 --> 00:00:38,798
+And when you see yourself trying to work
+really too hard to implement some sort of
+
+10
+00:00:38,798 --> 00:00:42,196
+functionality, that's a clue that
+maybe we're using the wrong construct.
+
+11
+00:00:42,196 --> 00:00:46,812
+And what's at the heart here with the
+trouble with using the for-each loop is
+
+12
+00:00:46,812 --> 00:00:49,805
+we're trying to change
+the contents of an array.
+
+13
+00:00:49,805 --> 00:00:53,326
+So, the moral of this story
+is that in this context,
+
+14
+00:00:53,326 --> 00:00:56,860
+the for-each loop is not
+the right tool for the job.
+
+15
+00:00:58,060 --> 00:01:03,534
+The other thing we'd like to keep in
+mind is that even when we successfully
+
+16
+00:01:03,534 --> 00:01:09,803
+implemented this method, when you think
+back to the parameters that we were given,
+
+17
+00:01:09,803 --> 00:01:14,569
+and the fact that we were given
+a string to begin with, the word,
+
+18
+00:01:14,569 --> 00:01:18,541
+even though we return
+a modified version of the word,
+
+19
+00:01:18,541 --> 00:01:23,614
+we output something that looks
+like i-hippy instead of a-happy.
+
+20
+00:01:23,614 --> 00:01:27,429
+What we're outputting doesn't actually
+change the parameter that we gave,
+
+21
+00:01:27,429 --> 00:01:28,535
+that we started with.
+
+22
+00:01:28,535 --> 00:01:34,095
+So the input variable, the parameter that
+we have, that string object doesn't get
+
+23
+00:01:34,095 --> 00:01:39,760
+changed, doesn't get impacted by the work
+that we've done in this replace method.
+
+24
+00:01:39,760 --> 00:01:42,175
+And that's because strings are immutable.
+
+25
+00:01:42,175 --> 00:01:45,394
+So, even though we were
+able to produce hippy,
+
+26
+00:01:45,394 --> 00:01:49,902
+even though we were able to do that
+replacement of the characters,
+
+27
+00:01:49,902 --> 00:01:56,010
+in terms of giving back a return object,
+the original string object didn't change.
+
+28
+00:01:56,010 --> 00:02:00,080
+And that is a useful thing to keep in mind
+when we're working with strings in Java.

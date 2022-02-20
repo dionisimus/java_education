@@ -1,0 +1,326 @@
+1
+00:00:00,000 --> 00:00:04,128
+[MUSIC]
+
+2
+00:00:04,128 --> 00:00:06,964
+In the last video we saw how to
+search a binary search tree but
+
+3
+00:00:06,964 --> 00:00:10,180
+we didn't really see how to
+add elements to it just yet.
+
+4
+00:00:10,180 --> 00:00:13,450
+So let's talk about how to insert
+into a binary search tree.
+
+5
+00:00:13,450 --> 00:00:17,110
+And again, this is part of the motivation
+for having a binary search tree.
+
+6
+00:00:17,110 --> 00:00:20,440
+Sorted arrays are great for search but
+if you wanna do an insertion or
+
+7
+00:00:20,440 --> 00:00:23,410
+removal, linked lists or
+trees are much better for performance.
+
+8
+00:00:25,530 --> 00:00:28,390
+So, by the end of this video
+you should be able to insert
+
+9
+00:00:28,390 --> 00:00:29,750
+an item into the binary search tree.
+
+10
+00:00:31,490 --> 00:00:33,310
+So here's a binary search tree.
+
+11
+00:00:33,310 --> 00:00:37,760
+I have 20 as my root, and
+then I've got children below those.
+
+12
+00:00:37,760 --> 00:00:42,220
+And the question is,
+where should I insert 7 into this tree?
+
+13
+00:00:43,300 --> 00:00:45,260
+Now I have some options for you.
+
+14
+00:00:45,260 --> 00:00:47,750
+I could insert it in Option A,
+Option B, Option C.
+
+15
+00:00:47,750 --> 00:00:51,171
+Is it okay to do either Option A or
+Option B?
+
+16
+00:00:51,171 --> 00:00:54,019
+What I want you to do is answer this in
+the in-video quiz and we'll come back and
+
+17
+00:00:54,019 --> 00:00:54,589
+talk about it.
+
+18
+00:00:56,150 --> 00:00:59,540
+I hope the in-video quiz helped you see
+some of the limitations you have with
+
+19
+00:00:59,540 --> 00:01:03,040
+the binary search tree in where
+you can place your nodes.
+
+20
+00:01:03,040 --> 00:01:05,220
+So lets talk through these one by one.
+
+21
+00:01:05,220 --> 00:01:08,205
+first off, option C isn't allowed.
+
+22
+00:01:08,205 --> 00:01:13,460
+7 is much less than 30, it can not
+be part of the right sub-tree of 30.
+
+23
+00:01:13,460 --> 00:01:18,255
+Similarly though Option B
+isn't allowed either, right?
+
+24
+00:01:18,255 --> 00:01:20,440
+7 is still less than ten, so
+
+25
+00:01:20,440 --> 00:01:26,170
+you can't have seven be part
+of the right sub-tree of ten.
+
+26
+00:01:26,170 --> 00:01:30,500
+That eliminates Option D as well,
+leaving us just with Option A.
+
+27
+00:01:30,500 --> 00:01:34,980
+In fact, this is the only place you can
+place seven into this binary search tree.
+
+28
+00:01:34,980 --> 00:01:36,000
+With binary search trees,
+
+29
+00:01:36,000 --> 00:01:38,380
+there's only one place you can
+insert a node when you do so.
+
+30
+00:01:39,750 --> 00:01:44,250
+So let's add in 7 into
+this binary search tree.
+
+31
+00:01:45,830 --> 00:01:47,410
+Let's do a couple more of these.
+
+32
+00:01:47,410 --> 00:01:49,380
+Where should I add 27?
+
+33
+00:01:49,380 --> 00:01:54,417
+So what I'm gonna do, same idea as before,
+is I'm gonna look at 20, 27 is greater
+
+34
+00:01:54,417 --> 00:01:59,590
+than 20, so I'm gonna go into the right
+sub-tree of 20 and I'm gonna look at 30.
+
+35
+00:01:59,590 --> 00:02:03,505
+27 is less so
+I have to go into 30's left sub-tree.
+
+36
+00:02:04,630 --> 00:02:07,810
+Then I'm going to do 25,
+and 25 is less than 27.
+
+37
+00:02:07,810 --> 00:02:12,770
+So I go into 27's right sub-tree
+only to find that 25 doesn't have
+
+38
+00:02:12,770 --> 00:02:14,130
+a right sub-tree.
+
+39
+00:02:14,130 --> 00:02:16,510
+Perfect, this is the place
+I'm gonna put it.
+
+40
+00:02:16,510 --> 00:02:20,754
+I'm gonna insert right as
+the right child of 25.
+
+41
+00:02:20,754 --> 00:02:23,450
+What am I gonna do then
+if I'm want to insert 8?
+
+42
+00:02:23,450 --> 00:02:25,390
+Same algorithm applies.
+
+43
+00:02:25,390 --> 00:02:29,790
+You're gonna start at 20, you're gonna see
+8 is less than 20, you're gonna go to 10,
+
+44
+00:02:29,790 --> 00:02:31,960
+8 is still less than 10.
+
+45
+00:02:31,960 --> 00:02:33,932
+So you're gonna go down to 5.
+
+46
+00:02:33,932 --> 00:02:36,391
+8 is greater than five so
+you are going to 7.
+
+47
+00:02:36,391 --> 00:02:40,160
+8 is greater than 7 and here you find
+your spot where you can insert that node.
+
+48
+00:02:40,160 --> 00:02:44,570
+Now what want to point out at
+this point is that when you
+
+49
+00:02:44,570 --> 00:02:47,750
+commonly see Binary Search Trees
+they're almost always full tress and
+
+50
+00:02:47,750 --> 00:02:51,730
+what I mean by that is all of
+the levels are completely filled.
+
+51
+00:02:51,730 --> 00:02:54,910
+There is no constraint on insert or
+
+52
+00:02:54,910 --> 00:02:58,750
+binary search tree in itself that it
+has to be full or essentially balanced.
+
+53
+00:02:58,750 --> 00:03:02,100
+You can have just a long string of
+nodes in a binary search tree and
+
+54
+00:03:02,100 --> 00:03:04,160
+it's still a binary search tree.
+
+55
+00:03:04,160 --> 00:03:08,710
+Mia in the next lesson is actually going
+to get into the details of how this
+
+56
+00:03:08,710 --> 00:03:15,170
+affects run times in asymptotic
+run time Again, if you
+
+57
+00:03:15,170 --> 00:03:19,900
+want to go to code this, you can do this
+either with recursion or with iteration.
+
+58
+00:03:21,200 --> 00:03:25,640
+So, if you want to do it recursively, you
+again notice that at any given node you're
+
+59
+00:03:25,640 --> 00:03:30,920
+essentially solving the same problem as
+you would have for the previous node.
+
+60
+00:03:30,920 --> 00:03:33,890
+So recursion applies here really cleanly,
+but so does iteration.
+
+61
+00:03:33,890 --> 00:03:36,410
+With iteration you're just gonna
+keep track of your current node and
+
+62
+00:03:36,410 --> 00:03:38,050
+essentially walk through
+the tree that way.
+
+63
+00:03:39,920 --> 00:03:43,090
+We'll show you how to do that iterative
+approach in our support video.
+
+64
+00:03:43,090 --> 00:03:46,150
+But again I wanna encourage you
+to try this on your own first.
+
+65
+00:03:46,150 --> 00:03:48,670
+I think just knowing the details
+of the algorithm is enough for
+
+66
+00:03:48,670 --> 00:03:50,850
+you to try to code this
+on your own in a project.
+
+67
+00:03:50,850 --> 00:03:55,171
+And then if you get stuck, come back and
+try watching the support video.
+
+68
+00:03:55,171 --> 00:03:58,424
+What we'll do lastly with binary
+search trees is look at deletion and
+
+69
+00:03:58,424 --> 00:04:00,004
+we'll do that in the next video.

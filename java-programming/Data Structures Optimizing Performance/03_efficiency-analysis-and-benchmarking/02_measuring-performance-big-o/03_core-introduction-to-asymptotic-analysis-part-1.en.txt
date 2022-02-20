@@ -1,0 +1,120 @@
+[MUSIC]
+So in the last video, we got all tied up in questions
+of what an operation is. How do we count every
+single last operation when we execute a piece
+of code on a given input? And now, what we'd like to do is
+just clean away all that clutter, clean away all that mess, and
+talk about asymptotic analysis. So by the end of this video, you'll be
+able to explain why asymptotic analysis is so useful, and
+then start calculating the big O class, which is that indicator of asymptotics
+of particular code snippets. So we've already got some of that
+motivation based on the pain that we went through in the previous video. What we'd like to do is not have to worry
+about things that we can't control. So we'd like to let go
+some of the details, and think about the big picture of how our
+algorithm or our problem solving strategy behaves, in particular,
+relative to big data and big inputs. So we're going to think about putting away
+the details of the initialization time of the execution. So if there are certain things that
+we need to do at the beginning, some variables we need to declare. Or some tidying up stuff that we need
+to do at the beginning of our code. We don't want to have to worry about that. We also want to not have to worry about
+implementing specific operations. How do those happen? Especially if they don't have anything
+to do with how our input size determines the runtime. We don't need to think about them at all. And so what we'd like to do is come up
+with a principled theoretical way of analyzing our algorithm. But something that's a little bit
+more sophisticated than counting each instruction and that has this
+wider purpose of not having to worry about the nitty picky details
+of the specific operations and things that have to do with initialization
+time or small inputs for our algorithm. Okay, so our focus is going to be
+on how the performance scales, how our algorithm runs as we give
+it bigger and bigger inputs. So, that motivating question
+that we talked about earlier is, if our input is twice as big, how many
+more operations do we need in general? Okay, and so, that's going to
+be motivating us throughout. So let's start to think about
+some specific code snippets. And these are, you'll recognize them, taken from that hasLetter method
+that we were thinking about before. So let's think about this, just the if
+branch that we have right over here. And think about how it behaves,
+with respect to word. So our input here is that string word. And when we're thinking about performance, we're thinking about it
+relative to the input size. So if we have a string, then the size
+of that string is the length, the number of characters in that string. And you'll notice that whenever we
+talk about asymptotic analysis, when we talk about inputs,
+we usually use the letter n to represent the size of
+the inputs that we're given. So as we work through these examples,
+whenever you see a little n pop up, that's our representation of
+the size of the input, okay. So for this particular piece of code,
+when the word is our input, and so its size is n,
+the number of characters in the string. What we'd like to think about is how long
+does it take to execute this if branch. And so, in our previous model,
+we counted operations. But right now what we'd like to
+do is maybe not have to count all the operations, but think about how
+does the number of operations change as the word gets bigger or smaller,
+as we have different inputs? And if we think about what we're
+doing in this if branch, we're doing one comparison, comparing a particular
+character with another character, and then either doing zero operations,
+or one operation. Okay, so this if branch is either going
+to have one operation associated with it, just the comparison, or two operations
+associated with it, the comparison and the return statement. And notice that all of that calculation, what we just did, didn't depend
+on the size of the word at all. We had to think about two cases based
+on the particular character, but nothing to do with the size of the input. And so the number of operations is
+constant if all we're thinking about is the size of the input. Okay, so this is an example of
+a constant time code snippet. So let's look at another code snippet,
+and in this code snippet, what we're doing really is just counting
+the number of characters in our string. And so let's think about how the runtime
+of this code snippet changes as our input string grows and
+grows and grows. And so what we're doing over is here is
+we're taking the input, which is still the string word, and notice that here
+we're still going to call the size n. And again it's the number
+of characters in the word. But now the size is starting to play
+a role in the execution of the code. Because what we're doing here is
+we're stepping through, in this for loop, through each character
+in the string, and so the number of operations is going
+to grow as the string grows. And how is it going to grow? For every new character in the string, we're going to have to go through
+one more iteration of the for loop. Because the length is going
+to be just one bigger. So every time we add one character
+to our input, one additional character to our string, we're adding
+one more iteration to the for loop. And in that for loop, well,
+we're just doing one instruction. So, every new character in our string
+adds one more instruction overall. And this relationship, well,
+if we go through that calculation, we have one instruction for the initial
+variable, declaration and assignment. And then, n times through this loop,
+we're going to check our loop counter, increment the count,
+and then add one to our loop counter. And that's gonna happen n times. So overall, the run time of this
+piece of code is going to be one for that initial piece, and
+then within that body of the for loop, we're going to have one for
+declaring the loop counter i. And then for
+each iteration of the for loop, we're going to have three instructions. And then we're going to have one
+additional instruction at the very end, when we've incremented the i too
+many times and it's bigger than the length of the string, and
+that's gonna kick us out of the for loop. Okay, so overall the number of
+instructions that we execute is 3n + 3, putting all of those pieces together. Notice that that's a linear function of n. Okay so thinking back to calculus and
+definitions of linear functions, when we have an input being mapped
+to some constant times that input, maybe plus another constant,
+that's a linear function. Okay, so the run time in terms of the
+number of operations of this piece of code is linear, so it's linear time. So we've seen a code snippet
+that was constant time, relative to the size of its input. And now we've seen another code
+snippet that's linear time, relative to the size of its input. And now what we'd like to do,
+is phrase this more broadly, in the sense of big O classes. And so, when we say that one function
+is big O of another function, what we mean by that is that those two functions
+grow in the same way as their input grows. Because what we'd like to do in this
+big O notation is say I don't wanna care about the constants I don't wanna
+have to keep track of the plus one here, and the plus three there. What I like to think about is
+the rate of growth of the functions. And so when we looked at that
+second function over there, the one that had the linear time, we don't
+want to focus on the fact that it was three n plus three, but rather that notion
+of it being a linear function of n. That it grew just a little bit with
+every time that we increased the input by a little bit. Okay, and so this big O notation is
+going to be our way of capturing the rate of growth of two functions,
+and so we say that two functions are in the same big O class
+if they have the same rate of growth. Okay, now disclaimer, in industry and in practice, this is the way
+that most people use big O. The way I just said it. The big O class means that the two
+functions grow in the same way. Now, if you look at the text books,
+if you Google asymptotics, you'll notice that there are a lot of
+different ways of measuring asymptotics. So, there's big O,
+which we'll be talking about. There's also something called big theta,
+big omega, little o,
+all of these different kinds of classes. And they're going to represent a
+finer-grained analysis of the asymptotics. Sometimes we just care
+about lower bounds or upper bounds, and
+that's going to be useful as well. But what we're going to do in
+this course and in our analysis, is focus on the big O, and we're going to
+use that as shorthand for the tight bound. Now, that's not exactly how it's
+used In the formal definition, but for us big O is gonna be
+the tightest description of the asymptotics of the function
+that we can come up with.

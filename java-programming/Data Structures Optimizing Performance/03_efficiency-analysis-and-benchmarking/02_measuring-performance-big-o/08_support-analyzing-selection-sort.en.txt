@@ -1,0 +1,117 @@
+[APPLAUSE]
+>> In this video, we're gonna do a runtime
+analysis of selection sort. So by the end of this video, you should be able to do this
+kind of analysis on your own. Let's just get started by remembering
+what selection sort does. So the idea behind selection sort is to
+find essentially the smallest value in the remaining unsorted array and
+put that at the start. And then just keep repeating
+that process over and over. It may be easier with an example. What we have here is
+an array that's unsorted. The first step is gonna be find
+the smallest value in this array. So you're gonna walk all the way through,
+you're gonna look at 4, 7, 2, 10, 1, and 8, and figure out that 1 is the smallest. And you'll put 1 at the start,
+as you swap 1 and 4 in the process. So now you essentially have your
+sorted array on the left, and you have your unsorted array on the right. You're gonna do the same process again
+now for the unsorted array on the right. You're gonna try to find
+the smallest value. You're gonna look through all
+the elements, 7, 2, 10, 4, and 8, and find that 2 is the smallest, and swap
+that with 7, to put that at the start. Let's do one more example of this, so
+we look at the unsorted array again, we're gonna find the smallest value,
+this time the smallest value's gonna be 4. We're gonna swap 4 and
+7 to put 4 at the front. At this point we just
+continue this process and essentially you end up
+with a sorted array. So that's the idea behind selection sort,
+but now let's talk about the analysis. Here's the code to
+essentially do selectionSort. We have our method name is selectionSort. It takes in an array of ints which are
+just the values that we're trying to sort. In terms of analysis we can kinda
+start walking through these steps. The first is just the initial
+values that you're declaring. You don't need to worry about
+this variable assignment. This is a constant time operation. But then we immediately get into a loop. And when we get to loops we know that
+we're gonna wanna do a more careful analysis. In fact this is a nested loop and we'll
+talk about those details in a moment. But the idea here is gonna be very similar
+to the previous ones that we've done and we're gonna try to reason about how
+many times the outer loop runs and how many times the inner loop runs. This isn't gonna quite work out for
+us, and we'll see how that turns out here shortly. So, let's keep with this approach, though. So let's try and figure out how
+many times the outer loop runs. The outer loop is actually
+pretty easy to reason about. It's gonna run n times. So now,
+looking at more detail in the inner loop, what we see that it starts
+off with indexMin = i. This is just a single statement, so
+this is a constant time operation. At the very end of the inner loop
+we're gonna do a swap operation. And though it looks like I'm just
+calling it a nice function here, we have to think about what are the actual
+statements within that method. To do swap it only takes
+actually three statements. So this again,
+is essentially a constant time operation. Now we can dive into
+the details of the inner loop. See, inner loop is gonna do
+essentially this testing for keeping a running count of
+the minimum values that it's seeing. So as it's going through,
+it's keeping track of, again, the smallest value that it's seeing,
+and in doing so it's doing a conditional operation and
+then setting that value. A conditional, along with a value
+setting is, again, just two statements. So we can consider this
+a constant time operation. So now we have this constant
+time operation here, we have to start reasoning about how
+many times does this loop execute? Well, it's gonna execute, essentially, (n-
+( i+1) ) and where did I get that from? n is the essentially
+the length of the array, and if you notice,
+j always starts at i + 1. So it's gonna keep increasing as
+we go through, as i increases. This is going to cause problems for
+me in a little bit, but we'll get back to that in just a second. So let's assume that our inner loop
+essentially fills in this runtime. We know that those first and
+the last operations are constant time. I can combine all of this into
+now one larger statement. I know those constant time operations
+can essentially be dropped, and I'm left with a fairly clean
+term which is just O ( n-i ). What I'd like to do then is do the same
+kind of analysis we've done in the past. Just take the number of iterations
+that executed in the outer loop and multiply it by the number of
+iterations on the inner loop. If I do that,
+I essentially get this nice form. The problem here is, what is O (n- i)? That's not what we want,
+we want this to be in terms of n. And i is gonna be changing on me,
+so this is really problematic. I need to know specifically what
+does this mean in terms of n? Now the way I can do this is essentially
+look at the fact that as i increases, this term is gonna decrease. But it's not enough just to say that. Because if i increases rapidly and
+the term decreases rapidly, I may get a very different
+runtime analysis. The way I'm gonna wanna do this, is to instead of doing one loop at a time,
+let's look at them together. So what I'm gonna do then is
+look at the entire operation, the outer loop along with the inner loop, to figure out at each step how many
+iterations have to run of the inner loop. So when i = 0, how many iterations
+have to happen on the inner loop? Well, when i = 0, n- 0 is n,
+and that just gives me n. Next iteration of the outer loop,
+I'm now gonna have i be 1. n-1 is how many times it's gonna execute. i is gonna go to 2,
+we're gonna have n-2 and this is gonna go until we hit the end of
+the array in that iteration of the loop. When i is n-1, we're gonna have just 1. So this sequence is what we're
+gonna start reasoning about. How long does this take? How many steps is this? We have the entire performance
+within this series, but let's reverse it to work
+with it more easily. When we reverse it it's
+just swap the order. And now I'm seeing a series that
+might be more easy to work with. I see that's 1+2+3 all the way up to +n. And this might be a series
+you've recognized before. But let's talk a little bit more detail
+about how we might solve for this series. What exactly is this? Well, there's a way to solve this. I actually wanna derive the equation for
+this, this is not that hard to do. And the way to derive this essentially
+is by looking at pairings. We want you to see is that this pairing,
+1 and n-1 adds up to n. Likewise, 2 and n-2 also add up to n. And you can keep going this
+way through the entire list. So, what I want you to do
+is just take a moment and think about how many total pairs
+add up to n within that range. All right. So, if you came up with essentially
+the number of elements here is n-1. Each of them have to be paired up so it would be n-1 over 2 is
+the number of pairs that sum to n. That'd be exactly right. So, how many operations
+are occurring here? Well, if each of these sums up to n,
+I can just say n(n-1) over 2. This is a pretty clean form. Now you may notice,
+I'm missing one term here. I'm not adding on the n at the end,
+and I can just do that right here. Now this is a fairly recognizable series. And the reason why,
+is because there's a fun fact about it. The legend goes that Gauss was
+assigned some busywork as a student. And in doing so,
+he essentially derived this formula, and the busywork that he was assigned was
+to add all the numbers from 1 to 100. And when the teacher assigned this, she
+thought, okay, well everyone's gonna go 1 + 2 + 3 + 4, and it's gonna take them
+a while, and I can get a little break. The problem is Gauss derived
+this equation fairly quickly. He just plugs in the numbers, and
+out comes the answer of 5,050. His work's done, he can move on. This is a fun story,
+I always enjoy hearing about this. But this is where this equation come from. All right, let's wrap this up
+by looking at the analysis. So we've got it down to this equation. What's the tightest correct
+classification, then, for this equation? Nice work! There's a lot of different ways that
+you may have solved this problem. But almost certainly what you did is
+you expanded out that first set to say, n times n is n2, and then you saw
+that the rest were all constants or just terms of n. Since n2 is the dominant term,
+this is gonna be O(n2), and we've essentially solved this problem. So working through selection sort wasn't
+incredibly straightforward from the start. You can see if you do
+a careful analysis of it. You can come up with the solution.

@@ -1,0 +1,148 @@
+[MUSIC] So, in the previous video, we talked
+about this concept of using Markov processes to generate random text
+after we train on some data set. And so, now we're going to dive into
+the implementation of this idea. So by the end of this video, you'll
+be able to describe the class design of the Java classes that we're going
+to be using, both in the video and in your project,
+to create a Markov text generator. And then you'll also be able to implement
+some of the code that's needed for the project. So let's think back to what we said. So at the beginning, we're going to build
+a model of the patterns that are implicit in the data that we want to
+emulate by training on that data. And the model that we're building
+will have these estates that represent the current
+situation that we're in. And then transitions between those
+states to say how to go forward and how to generate more and more text. And then once we've built our model,
+we're ready to go into that second stage of the process and
+actually generate some text. So let's focus the class design first. So remember that when we talk about class
+design we have the notion of interfaces. And with the interfaces we can
+specify what's the desired behavior of our classes without going into
+the details of the implementation. So when we have a MarkovTextGenerator what we want it to be able to do is
+train on some input data or string. And then we also wanted to
+be able to generate text, perhaps a certain amount of text,
+and so we want to be able to give it an integer which says the number
+of words we want to generate. Now just to make our
+objects more useable and more flexible, we're also going to
+add the functionality of retraining. So we want to be able to
+train on some data and then maybe generate some text based
+on that model, then throw it away and then retrain on new data
+generate more text etc. So that’s going to be the interface and these are the methods that we’re
+specifying in this interface. So, if we want to go ahead and implement
+that interface we need to define a class that’s going to implement
+each one of these methods. And let’s focus on
+the training piece first. So, when we train on data,
+what we're training on is an input string. And we're going to go back to the example
+from last time where we have that Beatles song, Hello, Goodbye. And so we want to think about our
+model capturing the quirks and patterns in that body of text. So that when we generate new text,
+we're going to emulate those quirks and patterns as well. So for each new word, what we need
+to do is keep track of the current word that we're looking at and then
+what words might follow after that word. Because our model is going to predict what
+next word to generate based on the current state which we are going to
+think of as the current word. And so what were looking for are likely
+consecutive pairs of words, and so as we process the input string that
+we are looking at that's our training set what we are trying to track is
+which words come after other words so that we can mimic that later. So, in order to put that into our class
+design, our concrete class that implements the interface MarkovTextGenerator
+is going to have a list. And we're going to use a generic to say,
+well, what kind of lists, what objects are stored in this list. Well, each object that stored
+in this list is a word node. It's going to be something
+that captures what the information that's contained
+in a word ought to be. And so when we look at a specific word,
+what we care about is what are the possible next
+moves after we see that word. And so we're going to define another
+class called WordNode that keeps track of the value of the word that we're
+thinking about, the current word. And so that's our private String word. And then it is going to keep a list of the
+possible next words that come after it. Now from a WordNode we
+might want some methods. We might want to get the value
+of the current word. We might need to add a possible next
+word as we're training on the data. If we come across this word again, and we wanna add a new word to
+the collection of possible next moves. And then when we actually generate text
+afterwards, we're going to need it to get a random next word based on the current
+location we are in our state model. And we'll come back to how we use
+that method in a little bit, but basically what we're doing when we're
+training on data is we're going through the array or
+list of words that we have, and for each one of those words that
+we're looking at in our training set. We have to decide wether we want to create
+a new WordNode object that is going to basically be a state in our model. So let's get a bit of
+a sense of how we do that. And so
+when we start at the very beginning, we've never seen the word you before,
+because this is the very beginning and so you have to create a new WordNode
+object with the value for the word you. And then we look at what word comes
+immediately after you at this point in the input data set, and
+we say that say comes next. And so the next words list for this
+particular instance of the object, for this particular object
+at least contain say. It's got to have that as
+a possible next word to you. Now we come to the next word in our
+training set and it's a word that we haven't seen before, so we have to create
+a new instance of the word node class. That instance is going to have
+the instance variable word set to the value say and it's possible
+next words is going to contain yes. And so on and so
+forth as we go through this list. And now the first interesting
+thing happens when we get to the second time that we see the word say. So in the song it goes,
+you say yes, I say no. And so
+the second time we see the word say, we don't want to create a new object that
+has the same value for the word in it. Because what we're trying to do
+with this model is keep track of the distinct possible words that
+we might have in our data set, and for each one of those,
+what are all possible next words. And so what we'd like to do is update the
+object that we already created whose value for the variable word was say, and we want
+to add a new possible next word to it. Now say is followed by the word no. All right and so that's what we did
+with the object whose value for the variable word was say. All right. So we keep on going and
+we keep on going, but remember that our model actually had
+this notion of probabilities, right? When we were thinking
+about the Markov model, what we had was each word defined as
+state and then we had probabilities. On the transitions for how likely was it each of the possible next words
+was actually going to be given? So, if we have the word hello
+at the end of a sentence, so hello with a period, half the time, we
+a re going to have the word I afterwards, but a sixth of the time,
+we are going to have the word why, or a third of the time we are going
+to have the word you afterwards. And it's not clear that we've captured
+that in our algorithm, so far, of training through the data and just
+adding words to the list of next words. But let's think about what we've done. And in particular, let's see what happens to the object
+who's word points to the word hello. So, the first time we encounter
+hello in our song, and you can go through the lyrics and
+see, it's followed by I. And so the list nextWords gets the value,
+or gets I put into it. And then the next time I comes again. And notice that we just insert a second
+copy of the string I into this list. Okay? Next time we insert why, and
+next time we insert I again, and then you, and
+then the next time will be a you as well. And so as we're training on the data set,
+what we're doing is we're concerned about whether the current word
+that we're looking at is new or not. And every time we've got a new word,
+then we add a new object. But then when we look up what the next
+word is, we don't care if we've seen it before, we always just stick
+it into the list of nextWords. And that's gonna be really important,
+because then when we go ahead and generate text, what we're going to do, is
+when we generate the next random word for a particular word, we're just
+going to pick randomly, uniformly, between all of the words
+in our next word's list. And that's gonna do exactly what we
+need in terms of the probabilities because the probability of picking
+I from a list of six elements, three of which are I is
+exactly three out of six. If we pick each one of those elements with
+equal probability, and so what we've done is we've stacked the list of next words so
+that the distribution of probabilities for each distinct word matches
+exactly what we need. And so that simple algorithm
+that we talked about where, when we process each word we just stick
+the next word into the list of next words, not caring if we've seen it before or
+not, does exactly the right thing for generating the next words with
+the correct probabilities. So now let's talk about how we would
+Implement this algorithm at a high level, so we want to think about
+how we generate words using the model that we've already built. So we have at our disposal
+a list of word nodes. And now what we'd like to do is use that
+list of word nodes to generate some text. And so until we have enough words,
+because remember we've got that integer argument that tells us how
+many words we're supposed to produce, what we're going to do is look for
+the current word that we're currently at through the list of word
+notes that we have. We're going to look for which word
+note has that word as its value, and in that node, we're going to
+generate a random number between 0 and the number of words in
+that list of nextWords. And we can generate random numbers in
+Java because we have this great package called random. And so we just pick a random number between 0 and
+the size of the list, minus 1. And just pick the next word whose
+index is that number, and so each of the possible next words in that list will
+have equal probability of being picked. And because we've stacked the list, then we'll get the right
+distribution that we want. And so
+we'll just print the word at that index. We update what the currentWord is and
+we look for the currentWord node, and we just keep on going and keep on going. And now you're ready to
+begin your project and implement this high
+level algorithm in Java. So enjoy the class design,
+enjoy generating some really cool text. And play around with what starter
+text you want to train on, what training data sets you'll have. And you'll notice that this
+can be a little bit absorbing. Hours of fun can be had.

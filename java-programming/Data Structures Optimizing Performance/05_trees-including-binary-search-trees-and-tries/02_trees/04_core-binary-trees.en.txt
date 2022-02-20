@@ -1,0 +1,61 @@
+[MUSIC] In the past few videos we've
+seen why trees matter and how you can define a tree
+in computer science. What we're going to do next is look at
+how to actually code a tree in Java. So by the end of this tree you
+should know what a binary tree is. And you should be able author
+essentially a tree node class. So with a generic tree,
+a parent can have any number of children. So you can see here that
+Tywin has three children. Now, there are many cases in which
+you're gonna want a generic tree, but when we start coding this it's gonna
+be a little bit easier to start with something known as a binary tree. And a binary tree just restricts parents
+to having, at most, two children. So I can prune this tree
+to essentially create it so it's a binary tree just by making sure
+that Tywin has only two children, and Cersei only has two children. And that's what we mean by a binary tree. So then how are we gonna construct this? How are we gonna write the code for this? Well let's look at what we're gonna need. First off,
+that's gonna have a linked list structure. So, just like linked lists, trees are gonna be built essentially just
+by connections to different references. It's gonna seem very similar in nature to
+the linked list that Christine described. The tree itself only needs a root node, kind of just like a linked
+list only needs a head. It can also have a tail, but for a binary
+tree, we only just want this root node. So that's pretty easy. You just have one reference to a node. But then, what do the nodes look like? So if we focus in on Cersei, we can realize that there are four things
+that you'll need with a binary tree node. The first is a value. You know that this node is Cersei. You also need a parent. So in this case, Cersei's parent is Tywin. You need a left child,
+in this case, Joffrey, and a right child, in this case, Tommen. So these four components
+are all we're going to need for instance variables in our
+binary tree node class. Lastly, what if we were doing this just
+for the general tree that we first started talking about, the generic tree where
+you could have any number of children? Well, for that general tree, all we'd
+change here is replace this left child and right child with a list of my children. So it's actually not a large change to
+go from a binary tree to a generic tree. When we start looking at the code, what
+we have here is our class BinaryTree and all it's going to have is a single root,
+a reference to a tree node element. You'll notice that we're using generics
+again just like they were described in the linked lists by Christine. So we've got a TreeNode root. And that's gonna be most of
+what we're gonna need for the BinaryTree to get started. But I can't have a reference to a TreeNode
+until I define what a TreeNode is. So let's look at what
+we mean by a TreeNode. And I could have called
+this a BinaryTreeNode. I just kept it TreeNode for simplicity. All right, here is my TreeNode. I've already filled in the private
+instance variables that we already just described. It's gonna have a value,
+a parent, a left, and a right. So with those four instance variables,
+we can essentially describe our TreeNode. So what we wanna do next is just
+briefly code the constructor together. So what I'm going to create for a constructor here is a constructor that
+takes the value, but also the parent. So it's gonna help us by
+essentially starting the linking right at the beginning. In order to write this constructor, first
+thing I'm gonna do is set value to be the parameter val, just like we've
+done it in many classes already. Next I'm gonna set my parent
+to be that parent parameter. And that now set up that link, so
+that node has a parent automatically. Now you might say but wait,
+what do I do if this is the root? Well you would just pass
+null as the parent. Then I'm gonna set up this.left and this.right, and I'm just gonna make
+sure they're null for my own clarity. Now the next step now that we have this
+constructor is to think about how we would write code for a setter and
+a getter of children. So first off, getters for
+the children isn't gonna be too difficult. You're just gonna write getLeftChild,
+and you're gonna return left. But let's look at adding a left child or
+a right child, I think that's more interesting. So what I have here is, I've blocked out
+the TreeNode constructor code just for space on the slide, and what we have
+then is the addLeftChild method. So I'm gonna set this.left
+to be a new TreeNode. I'm gonna pass it that value that
+we want for the left child, but I need to pass it one other thing. What I want you to do is take a moment and
+go to the in video quiz. See what you think we should put there and
+come back, and I'll see you in a moment. Welcome back. So what do we put here? I need to essentially hook
+up the parent through this, the second section that's
+fill in the blank. Who's gonna be a parent of this node? Well, this TreeNode is, right? So all I have to do is pass this. So our next step, now that we have
+an idea of essentially how to write these tree nodes, is to start thinking about how
+we might want to walk through the tree, or how we might traverse the tree. And we'll do that in the next video.

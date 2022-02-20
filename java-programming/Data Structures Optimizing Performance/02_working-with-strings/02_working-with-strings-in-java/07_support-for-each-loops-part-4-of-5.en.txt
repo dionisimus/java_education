@@ -1,0 +1,118 @@
+[APPLAUSE]
+>> As you saw, again we ran into difficulties,
+and this time, the error was in a slightly
+different place. What happens when we do a for
+each loop, is that when we ask for every character c in the character
+array cArray, what we get is a copy of each value from the character
+array stored in the variable c. And so when we change the variable c,
+we're changing that copy of the character. We're not changing the contents of cArray. And so
+this implementation didn't work either. And so try, try again, we don't give up. Let's look at yet another implementation. In here we're thinking, okay,
+let's create a new array of characters and let's access its elements one by one. And maybe now we're going to have
+a successful implementation. And so what we're going to
+do is trace through and start our memory model from scratch. So we can see how
+everything fits together. Cuz as you can see, there's a little bit more code to
+this candidate implementation. So, we're working with
+a replace method and so, we're working in the scope of this
+replace method call at the moment. And, let's think about the candidate
+method call down here. And so, we start our memory model
+with the parameters for this method. So we have three parameters, we've got
+word, we've got gone, and we've got here. And remember that word is of type string, and so that's an object type in Java. And what we're going to be referring
+to is an object in the heap which we're going to denote in
+our memory model over here. And so in this object we have
+stored the character array for this particular string, and so this character array is riding
+out the string a space happy. And so here's its representation
+in our memory model. For gone and here,
+they're variables of type characters. And so we're going to store copies of
+those characters inside these boxes, because these are primitive types in Java. And so we've got gone is the argument,
+the first argument and it's got the character a,
+and here is the character i. All right, so far very similar to before. But now let's look at
+the body of the method and what we've implemented this time. So our first line declares
+this variable c array. And so, this is pointing
+to an array of characters. And in this case like before,
+what we'd like to point to is the array of characters that were
+in this string pointed to by word. But because strings are immutable
+the method to character array doesn't give us access to this particular
+array, it gives us access to a copy of it. And so in the heap we have a cop of this
+array of characters and so here it is. And then the method that we
+called will give us a reference to that copy of the array of characters. Now what we're doing is we're creating yet
+another array of characters. Who knew we needed so many? So now we're going to define
+the variable cArrayMod and what we're initialize this variable
+to is a new array of characters. Now remember,
+when we declare an array of characters, we need to specify
+the length of that array. And so the length that we wanna use is
+the same length as the character array pointed to by cArray, and
+so that's length seven. And so we're going to
+allocate space in memory for an array of characters that
+will store seven characters. Now we haven't said what the contents
+of this array yet will be, what the characters in there are, but
+we've just got this space in memory and then, cArrayMod will point to this array. All right, one more variable declaration,
+and that's this i over here. And so
+we create a box in our memory model for this variable of type int,
+and it's initialized to zero. All right, so we've done all of the
+preparation before getting into the for each loop, and so now we're ready to
+dive right into that for each loop. And remember, what we're hoping that this
+method does, is take this input string and somehow return to us at
+the end a version of this array of characters where
+each a is replaced by an i. So we're really hoping to
+see i hippy come back. All right.
+So in this, for each loop we're going to step
+through the characters in cArray. And for each one of those characters, we're going to store
+them in the variable c. So we also, in our memory model,
+need space for this variable c that stores the characters that come from stepping
+through the array pointed to by cArray. So the first one that we
+point to is the one located at the very beginning of the array and
+that is a. So the first value of
+c is the character a. And now what we do with that
+first iteration of the for loop is we first of all go immediately
+into this conditional statement. And we check whether the value of c is
+equal to the value of the variable gone. And in this particular case
+those values are equal, they're both have the value
+of the character a. So what we need to do is update the value
+of cArrayMod at the index i, so zero. And so what we wanna do is copy this
+a into this position of the array, and so here we go. All right, so
+we've completed the conditional branch. And so we notice that at the end
+of the body of the for loop, what we still have to do is increment i,
+the variable i. And so we have a new value for
+the variable i, it's going to be one. And so we go back up to the top of the for
+each loop and what that means is we want to pick up the next character in
+the array of characters cArray. We've taken care of the first one and
+now we're going onto the next one. Now, what that means in terms of our
+memory model, is that we update the value of the variable c, to now be the value
+that is next from that cArray. Okay, so we go back to the top of the for
+each loop, and we do the same conditional branch. We compare the value of c,
+with the value of gone. In this case, they're different,
+they've got different values. And so we have to look at the else
+branch of the conditional statement. And in this case, what we need to do is
+still to update cArrayMod at index i. So now we're at this
+location in this array. But instead of updating
+it with the value here, what we're updating it with is the value,
+stored in c, and so that's a space. Okay, we've done that, I'm not gonna draw
+a space here, we'll just have the space, and so we're done with the conditional and
+we increment i. And so i now becomes 2, and
+we finish with this go around of the for loop, we've taken care of
+this character from cArray. And so, next up would be h and so, we'd have to update the value of c,
+and we'd keep on going. And, notice that, if we think
+about this in a high level view, as we iterate through the values of
+cArray, updating c and updating i. What we're doing each time of execution
+of the conditional branch is whenever this character happens to be an a,
+we would replace it with i. Over here I put the value of gone instead
+of here, so both of these should be i's. But in all of the other locations, we just
+maintain exactly the value that we had in cArray as we go on and go on and
+go on throughout the entire cArray. Okay, so the only two places where we
+have a different value in cArrayMod from where we did in cArray are those
+places where the character from cArray was the one that is stored in gone which was
+our cue for making sure that it gets gone. Alright, so
+after we've completed the for loop, the for each loop, then we're ready
+to return a value to the user. And what we're returning
+is a new string object. That new string object is
+constructed out of this new character array that we created over here,
+cArrayMod, and then filled in with values. And so, the characters that are returned
+to the user into the form of a string Are really what we wanted, i space
+hippy just like we created over here. Which is fantastic because we've been
+working on this replace method and trying, and trying, and trying and
+finally we go it. But notice how much work we had to put in. We had to create not only one but
+two copies of the character array that was given
+to us inside that word string object. And then we had to do some fancy
+things with indices, as well. So, we'll talk in a minute about
+what this solution does and what it tells us about for-each
+loops in this context.

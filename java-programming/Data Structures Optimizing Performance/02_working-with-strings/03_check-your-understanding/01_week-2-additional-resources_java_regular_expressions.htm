@@ -1,0 +1,959 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<title>Java - Regular Expressions - Tutorialspoint</title>
+<meta charset="utf-8">
+<meta name="description" content="Java - Regular Expressions - Java provides the java.util.regex package for pattern matching with regular expressions. Java regular expressions are very similar to the Perl programming langu"/>
+<meta name="keywords" content="C, C++, Python, Java, HTML, CSS, JavaScript, SQL, PHP, jQuery, XML, DOM, Bootstrap, Tutorials, Articles, Programming, training, learning, quiz, preferences, examples, code"/>
+<link rel="canonical" href="https://www.tutorialspoint.com/java/java_regular_expressions.htm" />
+<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+<meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=yes">
+<link rel="stylesheet" href="/themes/css/style-min-v1.css?v=3.1.2.336">
+<script src="/themes/js/script-min-v1.js?v=3.0.2040229"></script>
+<script>
+function printPage() { window.print(); }
+function readCookie(name) {
+     var nameEQ = name + "=";
+     var ca = document.cookie.split(';');
+     for (var i = 0; i < ca.length; i++) {
+          var c = ca[i];
+          while (c.charAt(0) == ' ') c = c.substring(1, c.length);
+          if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length, c.length);
+     }
+     return null;
+}
+</script>
+<script id="adp1" data-cfasync="false" type="text/javascript">(function(w, d) { var s = d.createElement('script'); s.src = '//cdn.adpushup.com/40046/adpushup.js'; s.type = 'text/javascript'; s.async = true; (d.getElementsByTagName('head')[0] || d.getElementsByTagName('body')[0]).appendChild(s); })(window, document);</script>
+<script id="adp2" data-cfasync="false" type="text/javascript">(function(w, d) {var cval = readCookie('subscription_purchased');if(cval == '1'){ return; } var s = d.createElement('script'); s.src = '//delivery.adrecover.com/18107/adRecover.js'; s.type = 'text/javascript'; s.async = true; (d.getElementsByTagName('head')[0] || d.getElementsByTagName('body')[0]).appendChild(s); })(window, document);</script>
+<style>
+.butnn-save a{color:#fff;} .notes_msg{color:green; margin-left:20px; margin-top:15px;}
+.right-menu .mui-btn {
+    background-color:#eb4847;
+}
+a.demo {
+    background:#eb4847;
+}
+li.heading {
+    background:#eb4847;
+}
+.course-box{background:#eb4847}
+.home-intro-sub p{color:#eb4847}
+a.demo{
+   top: 12px;
+   float:right;
+}
+.prettyprint{
+   width: 99%;
+}
+</style>
+</head>
+<body>
+<header id="header">
+<!-- pop-up -->
+<div class="pop-modal overlay-pop popdiv">
+<div class="modal-window small">
+<span class="close" title="close">×</span>
+<div class="pop-content">
+</div>
+<span class="msg" ></span>
+</div>
+</div>
+<div class="wrap_loader">
+<div class="imgLoader"><img src="/videotutorials/images/loader.gif" alt="Tutorialspoint" width="70" height="70"></div>
+</div>
+<input type="hidden" id="vu" name="vu" value="" />
+<!-- pop-up -->
+
+<!-- Top sub-menu Starts Here -->
+<div class="mui-appbar mui-container-fulid top-menu">
+<div class="mui-container">
+<div class="top-menu-item home">
+<a href="https://www.tutorialspoint.com/index.htm" target="_blank" title="TutorialsPoint - Home"><i class="fal fa-home"></i> <span>Home</span></a>
+</div>
+<div class="top-menu-item qa">
+<a href="https://www.tutorialspoint.com/about/about_careers.htm" target="_blank" title="Job @ Tutorials Point"><i class="fa fa-suitcase"></i> <span>Jobs</span></a>
+</div>
+<div class="top-menu-item tools">
+<a href="https://www.tutorialspoint.com/online_dev_tools.htm" target="_blank" title="Tools - Online Development and Testing Tools"><i class="fal fa-cogs"></i> <span>Tools</span></a>
+</div>
+<div class="top-menu-item coding-ground">
+<a href="https://www.tutorialspoint.com/codingground.htm" target="_blank" title="Coding Ground - Free Online IDE and Terminal"><i class="fal fa-code"></i> <span>Coding Ground </span></a> 
+</div>
+<div class="top-menu-item current-affairs">
+<a href="https://www.tutorialspoint.com/current_affairs.htm" target="_blank" title="Daily Current Affairs"><i class="fal fa-layer-plus"></i> <span>Current Affairs</span></a>
+</div>
+<div class="top-menu-item upsc-notes">
+<a href="https://www.tutorialspoint.com/upsc_ias_exams.htm" target="_blank" title="UPSC IAS Exams Notes - TutorialsPoint"><i class="fal fa-user-tie"></i> <span>UPSC Notes</span></a>
+</div>      
+<div class="top-menu-item articles">
+<a href="https://www.tutorialspoint.com/tutor_connect/index.php" target="_blank" title="Top Online Tutors - Tutor Connect"><i class="fal fa-user"></i> <span>Online Tutors</span></a>
+</div>
+<div class="top-menu-item whiteboard">
+<a href="https://www.tutorialspoint.com/whiteboard.htm" target="_blank" title="Free Online Whiteboard"><i class="fal fa-chalkboard"></i> <span>Whiteboard</span></a>
+</div>
+<div class="top-menu-item net-meeting">
+<a href="https://www.tutorialspoint.com/netmeeting.php" target="_blank" title="A free tool for online video conferencing"><i class="fal fa-chalkboard-teacher"></i> <span>Net Meeting</span></a> 
+</div>
+<div class="top-menu-item articles">
+<a href="https://www.tutorix.com" target="_blank" title="Tutorx - The Best Learning App" rel="nofollow"><i class="fal fa-video"></i> <span>Tutorix</span></a> 
+</div>        
+<div class="social-menu-item">
+<a href="https://www.facebook.com/tutorialspointindia" target="_blank" rel="nofollow" data-placement="bottom" title="tutorialspoint @ Facebook"><i class="fab fa-facebook-f"></i></a> 
+<a href="https://www.twitter.com/tutorialspoint" target="_blank" rel="nofollow" data-placement="bottom" title="tutorialspoint @ Twitter"><i class="fab fa-twitter"></i></a>
+<a href="https://www.linkedin.com/company/tutorialspoint" target="_blank" rel="nofollow" data-placement="bottom" title="tutorialspoint @ Linkedin"><i class="fab fa-linkedin-in"></i></a>
+<a href="https://www.youtube.com/channel/UCVLbzhxVTiTLiVKeGV7WEBg" target="_blank" rel="nofollow" data-placement="bottom" title="tutorialspoint YouTube"><i class="fab fa-youtube"></i></a>
+</div>        
+</div>
+</div>
+<!-- Top sub-menu Ends Here -->
+<!-- Top main-menu Starts Here -->
+<div class="mui-appbar mui-container-fulid mui--appbar-line-height mui--z1" id="logo-menu">
+<div class="mui-container">
+<div class="left-menu">
+<a href="https://www.tutorialspoint.com/index.htm" title="Tutorialspoint">
+<img class="tp-logo" alt="tutorialspoint" src="/java/images/logo.png">
+</a>
+<div class="mui-dropdown">
+<a class="mui-btn mui-btn--primary categories" data-mui-toggle="dropdown"><i class="fa fa-th-large"></i> 
+<span>Categories <span class="mui-caret"></span></span></a>            
+<ul class="mui-dropdown__menu cat-menu">
+<li>
+<ul>
+<li><a href="/academic_tutorials.htm"><i class="fa fa-caret-right"></i> Academic Tutorials</a></li>
+<li><a href="/big_data_tutorials.htm"><i class="fa fa-caret-right"></i> Big Data &amp; Analytics </a></li>
+<li><a href="/computer_programming_tutorials.htm"><i class="fa fa-caret-right"></i> Computer Programming </a></li>
+<li><a href="/computer_science_tutorials.htm"><i class="fa fa-caret-right"></i> Computer Science </a></li>
+<li><a href="/database_tutorials.htm"><i class="fa fa-caret-right"></i> Databases </a></li>
+<li><a href="/devops_tutorials.htm"><i class="fa fa-caret-right"></i> DevOps </a></li>
+<li><a href="/digital_marketing_tutorials.htm"><i class="fa fa-caret-right"></i> Digital Marketing </a></li>
+<li><a href="/engineering_tutorials.htm"><i class="fa fa-caret-right"></i> Engineering Tutorials </a></li>
+<li><a href="/upsc_ias_exams.htm"><i class="fa fa-caret-right"></i> Exams Syllabus </a></li>
+<li><a href="/famous_monuments.htm"><i class="fa fa-caret-right"></i> Famous Monuments </a></li>
+<li><a href="/gate_exams_tutorials.htm"><i class="fa fa-caret-right"></i> GATE Exams Tutorials</a></li>
+<li><a href="/latest_technologies.htm"><i class="fa fa-caret-right"></i> Latest Technologies </a></li>
+<li><a href="/machine_learning_tutorials.htm"><i class="fa fa-caret-right"></i> Machine Learning </a></li>
+<li><a href="/mainframe_tutorials.htm"><i class="fa fa-caret-right"></i> Mainframe Development </a></li>
+<li><a href="/management_tutorials.htm"><i class="fa fa-caret-right"></i> Management Tutorials </a></li>
+<li><a href="/maths_tutorials.htm"><i class="fa fa-caret-right"></i> Mathematics Tutorials</a></li>
+<li><a href="/microsoft_technologies_tutorials.htm"><i class="fa fa-caret-right"></i> Microsoft Technologies </a></li>
+<li><a href="/misc_tutorials.htm"><i class="fa fa-caret-right"></i> Misc tutorials </a></li>
+<li><a href="/mobile_development_tutorials.htm"><i class="fa fa-caret-right"></i> Mobile Development </a></li>
+<li><a href="/java_technology_tutorials.htm"><i class="fa fa-caret-right"></i> Java Technologies </a></li>
+<li><a href="/python_technologies_tutorials.htm"><i class="fa fa-caret-right"></i> Python Technologies </a></li>
+<li><a href="/sap_tutorials.htm"><i class="fa fa-caret-right"></i> SAP Tutorials </a></li>
+<li><a href="/scripting_lnaguage_tutorials.htm"><i class="fa fa-caret-right"></i>Programming Scripts </a></li>
+<li><a href="/selected_reading.htm"><i class="fa fa-caret-right"></i> Selected Reading </a></li>
+<li><a href="/software_quality_tutorials.htm"><i class="fa fa-caret-right"></i> Software Quality </a></li>
+<li><a href="/soft_skill_tutorials.htm"><i class="fa fa-caret-right"></i> Soft Skills </a></li>
+<li><a href="/telecom_tutorials.htm"><i class="fa fa-caret-right"></i> Telecom Tutorials </a></li>
+<li><a href="/upsc_ias_exams.htm"><i class="fa fa-caret-right"></i> UPSC IAS Exams </a></li>
+<li><a href="/web_development_tutorials.htm"><i class="fa fa-caret-right"></i> Web Development </a></li>
+<li><a href="/sports_tutorials.htm"><i class="fa fa-caret-right"></i> Sports Tutorials </a></li>
+<li><a href="/xml_technologies_tutorials.htm"><i class="fa fa-caret-right"></i> XML Technologies </a></li>
+<li><a href="/multi_language_tutorials.htm"><i class="fa fa-caret-right"></i> Multi-Language</a></li>
+<li><a href="/questions_and_answers.htm"><i class="fa fa-caret-right"></i> Interview Questions</a></li>
+</ul>
+</li>
+</ul>
+<div class="clear"></div>
+</div> 
+</div>
+<div class="right-menu">
+<div class="toc-toggle">
+<a href="javascript:void(0);"><i class="fa fa-bars"></i></a>
+</div>
+<div class="mobile-search-btn">
+<a href="https://www.tutorialspoint.com/index.htm"><i class="fal fa-search"></i></a>
+</div>
+<div class="search-box">
+<script async src="https://cse.google.com/cse.js?cx=000263362972888060243:yfed6eu421q"></script>
+<div class='gcse-search'></div>
+</div>
+<div class="menu-btn library-btn">
+<a href="https://www.tutorialspoint.com/tutorialslibrary.htm"><i class="fal fa-cubes"></i> <span>Library</span></a>
+</div>
+<div class="menu-btn videos-btn">
+<a href="https://www.tutorialspoint.com/courses"><i class="fal fa-video"></i> <span>Videos</span></a> 
+</div>
+<div class="menu-btn videos-btn">
+<a href="https://www.tutorialspoint.com/questions/index.php"><i class="fa fa-location-arrow"></i> <span>Q/A</span></a>
+</div>
+<div class="menu-btn ebooks-btn">
+<a href="https://store.tutorialspoint.com"><i class="fal fa-book"></i> <span>eBooks</span></a>
+</div>
+<div class="mui-dropdown">
+<button class="mui-btn mui-btn--primary mobile-menu" data-mui-toggle="dropdown">
+<span class="mui-caret"></span>
+</button>
+<ul class="mui-dropdown__menu">
+<li><a href="https://www.tutorialspoint.com/tutorialslibrary.htm"><i class="fal fa-cubes"></i> <span>Library</span></a></li>
+<li><a href="https://www.tutorialspoint.com/courses"><i class="fal fa-video"></i> <span>Videos</span></a></li>
+<li><a href="https://www.tutorialspoint.com/ebooks"><i class="fal fa-book"></i> <span>eBooks</span></a></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<!-- Top main-menu Ends Here -->
+</header>
+<div class="mui-container-fluid content">
+<div class="mui-container">
+<!-- Tutorial ToC Starts Here -->
+<div class="mui-col-md-3 tutorial-toc">
+<div class="mini-logo">
+<img src="/java/images/java-mini-logo.jpg" alt="Java Tutorial" />
+</div>
+<ul class="toc chapters">
+<li><a class="videolink" href="/java_online_training/index.asp" target="_blank"><img src="/java/images/java-video-tutorials.jpg" alt="Java Video Tutorials" /></a></li>
+</ul>
+<ul class="toc chapters">
+<li class="heading">Java Tutorial</li>
+<li><a href="/java/index.htm">Java - Home</a></li>
+<li><a href="/java/java_overview.htm">Java - Overview</a></li>
+<li><a href="/java/java_environment_setup.htm">Java - Environment Setup</a></li>
+<li><a href="/java/java_basic_syntax.htm">Java - Basic Syntax</a></li>
+<li><a href="/java/java_object_classes.htm">Java - Object &amp; Classes</a></li>
+<li><a href="/java/java_constructors.htm">Java - Constructors</a></li>
+<li><a href="/java/java_basic_datatypes.htm">Java - Basic Datatypes</a></li>
+<li><a href="/java/java_variable_types.htm">Java - Variable Types</a></li>
+<li><a href="/java/java_modifier_types.htm">Java - Modifier Types</a></li>
+<li><a href="/java/java_basic_operators.htm">Java - Basic Operators</a></li>
+<li><a href="/java/java_loop_control.htm">Java - Loop Control</a></li>
+<li><a href="/java/java_decision_making.htm">Java - Decision Making</a></li>
+<li><a href="/java/java_numbers.htm">Java - Numbers</a></li>
+<li><a href="/java/java_characters.htm">Java - Characters</a></li>
+<li><a href="/java/java_strings.htm">Java - Strings</a></li>
+<li><a href="/java/java_arrays.htm">Java - Arrays</a></li>
+<li><a href="/java/java_date_time.htm">Java - Date &amp; Time</a></li>
+<li><a href="/java/java_regular_expressions.htm">Java - Regular Expressions</a></li>
+<li><a href="/java/java_methods.htm">Java - Methods</a></li>
+<li><a href="/java/java_files_io.htm">Java - Files and I/O</a></li>
+<li><a href="/java/java_exceptions.htm">Java - Exceptions</a></li>
+<li><a href="/java/java_innerclasses.htm">Java - Inner classes</a></li>
+</ul>
+<ul class="toc chapters">
+<li class="heading">Java Object Oriented</li>
+<li><a href="/java/java_inheritance.htm">Java - Inheritance</a></li>
+<li><a href="/java/java_overriding.htm">Java - Overriding</a></li>
+<li><a href="/java/java_polymorphism.htm">Java - Polymorphism</a></li>
+<li><a href="/java/java_abstraction.htm">Java - Abstraction</a></li>
+<li><a href="/java/java_encapsulation.htm">Java - Encapsulation</a></li>
+<li><a href="/java/java_interfaces.htm">Java - Interfaces</a></li>
+<li><a href="/java/java_packages.htm">Java - Packages</a></li>
+</ul>
+<ul class="toc chapters">
+<li class="heading">Java Advanced</li>
+<li><a href="/java/java_data_structures.htm">Java - Data Structures</a></li>
+<li><a href="/java/java_collections.htm">Java - Collections</a></li>
+<li><a href="/java/java_generics.htm">Java - Generics</a></li>
+<li><a href="/java/java_serialization.htm">Java - Serialization</a></li>
+<li><a href="/java/java_networking.htm">Java - Networking</a></li>
+<li><a href="/java/java_sending_email.htm">Java - Sending Email</a></li>
+<li><a href="/java/java_multithreading.htm">Java - Multithreading</a></li>
+<li><a href="/java/java_applet_basics.htm">Java - Applet Basics</a></li>
+<li><a href="/java/java_documentation.htm">Java - Documentation</a></li>
+</ul>
+<ul class="toc chapters">
+<li class="heading">Java Useful Resources</li>
+<li><a href="/java/java_questions_answers.htm">Java - Questions and Answers</a></li>
+<li><a href="/java/java_quick_guide.htm">Java - Quick Guide</a></li>
+<li><a href="/java/java_useful_resources.htm">Java - Useful Resources</a></li>
+<li><a href="/java/java_discussion.htm">Java - Discussion</a></li>
+<li><a href="/javaexamples/index.htm">Java - Examples</a></li>
+</ul>
+<ul class="toc reading">
+<li class="sreading">Selected Reading</li>
+<li><a target="_top" href="/upsc_ias_exams.htm">UPSC IAS Exams Notes</a></li>
+<li><a target="_top" href="/developers_best_practices/index.htm">Developer's Best Practices</a></li>
+<li><a target="_top" href="/questions_and_answers.htm">Questions and Answers</a></li>
+<li><a target="_top" href="/effective_resume_writing.htm">Effective Resume Writing</a></li>
+<li><a target="_top" href="/hr_interview_questions/index.htm">HR Interview Questions</a></li>
+<li><a target="_top" href="/computer_glossary.htm">Computer Glossary</a></li>
+<li><a target="_top" href="/computer_whoiswho.htm">Who is Who</a></li>
+</ul>
+<div id="stickyparent">
+<div style="height:250px;width:300px;" id="sticky-ad">
+<div id="430c9911-782f-495d-88f9-69f58ca8c9a4" class="_ap_apex_ad" >
+<script>
+var adpushup = adpushup || {};
+adpushup.que = adpushup.que || [];
+adpushup.que.push(function() {
+adpushup.triggerAd("430c9911-782f-495d-88f9-69f58ca8c9a4");
+});
+</script>
+</div>
+</div>
+</div>
+</div>
+<!-- Tutorial ToC Ends Here -->
+<!-- Tutorial Content Starts Here -->
+<div class="mui-col-md-6 tutorial-content">
+<h1>Java - Regular Expressions</h1>
+<hr />
+<div id="google-top-ads">
+<div class="top-ad-heading">Advertisements</div>
+<div style="text-align:center" class="google-top-ads">
+<div id="adp_top_ads" style="text-align:center!important;min-height:90px!important"></div>
+<script>
+     var adPos = document.getElementById('adp_top_ads');
+     var ad_id_720 = "8014640d-fd34-4b2e-9b1b-cc67234a2325";
+     var ad_id_650 = "2d1bb2c4-eb72-471d-9c80-1bf5514728c1";
+     var ad_id_300 = "df94a1a9-ae2f-432d-9a92-d93823ff4503";
+     var width = window.innerWidth;
+     var ad_id = ad_id_720;
+     if( width <= 768 ){
+        ad_id =  ad_id_300;
+     }else if( width <= 1435 ){
+        ad_id =  ad_id_650;
+     }
+     adPos.innerHTML = '<div id="' + ad_id + '" class="_ap_apex_ad"></div>';
+     var adpushup = adpushup || {};
+     adpushup.que = adpushup.que || [];
+     adpushup.que.push(function() {
+     adpushup.triggerAd(ad_id);
+     });
+</script>
+</div>
+</div>
+<br>
+<div class="mui-container-fluid button-borders">
+<div class="pre-btn">
+<a href="/java/java_date_time.htm"><i class="fal fa-chevron-circle-left"></i> Previous Page</a>
+</div>
+<div class="nxt-btn">
+<a href="/java/java_methods.htm">Next Page <i class="fal fa-chevron-circle-right"></i>&nbsp;</a>
+</div>
+</div>
+<div class="clearer"></div>
+<p>Java provides the java.util.regex package for pattern matching with regular expressions. Java regular expressions are very similar to the Perl programming language and very easy to learn.</p>
+<p>A regular expression is a special sequence of characters that helps you match or find other strings or sets of strings, using a specialized syntax held in a pattern. They can be used to search, edit, or manipulate text and data.</p>
+<p>The java.util.regex package primarily consists of the following three classes &minus;</p>
+<ul class="list">
+<li><p><b>Pattern Class</b> &minus; A Pattern object is a compiled representation of a regular expression. The Pattern class provides no public constructors. To create a pattern, you must first invoke one of its public static <b>compile()</b> methods, which will then return a Pattern object. These methods accept a regular expression as the first argument.</p></li>
+<li><p><b>Matcher Class</b> &minus; A Matcher object is the engine that interprets the pattern and performs match operations against an input string. Like the Pattern class, Matcher defines no public constructors. You obtain a Matcher object by invoking the <b>matcher()</b> method on a Pattern object.</p></li>
+<li><p><b>PatternSyntaxException</b> &minus; A PatternSyntaxException object is an unchecked exception that indicates a syntax error in a regular expression pattern.</p></li>
+</ul>
+<h2>Capturing Groups</h2>
+<p>Capturing groups are a way to treat multiple characters as a single unit. They are created by placing the characters to be grouped inside a set of parentheses. For example, the regular expression (dog) creates a single group containing the letters "d", "o", and "g".</p>
+<p>Capturing groups are numbered by counting their opening parentheses from the left to the right. In the expression ((A)(B(C))), for example, there are four such groups &minus;</p>
+<ul class="list">
+<li>((A)(B(C)))</li>
+<li>(A)</li>
+<li>(B(C))</li>
+<li>(C)</li>
+</ul>
+<p>To find out how many groups are present in the expression, call the groupCount method on a matcher object. The groupCount method returns an <b>int</b> showing the number of capturing groups present in the matcher's pattern.</p>
+<p>There is also a special group, group 0, which always represents the entire expression. This group is not included in the total reported by groupCount.</p>
+<p><b>Example</b></p>
+<p>Following example illustrates how to find a digit string from the given alphanumeric string &minus;</p>
+<div class="demo-view">
+<a href="http://tpcg.io/uY6IP9" target="_blank" class="demo" rel="nofollow"><i class="fa-external-link"></i> Live Demo</a>
+</div>
+<pre class="prettyprint notranslate">
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
+public class RegexMatches {
+
+   public static void main( String args[] ) {
+      // String to be scanned to find the pattern.
+      String line = "This order was placed for QT3000! OK?";
+      String pattern = "(.*)(\\d+)(.*)";
+
+      // Create a Pattern object
+      Pattern r = Pattern.compile(pattern);
+
+      // Now create matcher object.
+      Matcher m = r.matcher(line);
+      if (m.find( )) {
+         System.out.println("Found value: " + m.group(0) );
+         System.out.println("Found value: " + m.group(1) );
+         System.out.println("Found value: " + m.group(2) );
+      }else {
+         System.out.println("NO MATCH");
+      }
+   }
+}
+</pre>
+<p>This will produce the following result &minus;</p>
+<p><b>Output</b></p>
+<pre class="result notranslate">
+Found value: This order was placed for QT3000! OK?
+Found value: This order was placed for QT300
+Found value: 0
+</pre>
+<h2>Regular Expression Syntax</h2>
+<p>Here is the table listing down all the regular expression metacharacter syntax available in Java &minus;</p>
+<table class="table table-bordered">
+<tr>
+<th>Subexpression</th>
+<th style="text-align:center;">Matches</th>
+</tr>
+<tr>
+<td style="text-align:center;">&#94;</td>
+<td>Matches the beginning of the line.</td>
+</tr>
+<tr>
+<td style="text-align:center;">$</td>
+<td>Matches the end of the line.</td>
+</tr>
+<tr>
+<td class="ts">.</td>
+<td>Matches any single character except newline. Using <b>m</b> option allows it to match the newline as well.</td>
+</tr>
+<tr>
+<td style="text-align:center;">[...]</td>
+<td>Matches any single character in brackets.</td>
+</tr>
+<tr>
+<td style="text-align:center;">[&#94;...]</td>
+<td>Matches any single character not in brackets.</td>
+</tr>
+<tr>
+<td style="text-align:center;">\A</td>
+<td>Beginning of the entire string.</td>
+</tr>
+<tr>
+<td style="text-align:center;">\z</td>
+<td>End of the entire string.</td>
+</tr>
+<tr>
+<td class="ts">\Z</td>
+<td>End of the entire string except allowable final line terminator.</td>
+</tr>
+<tr>
+<td class="ts">re*</td>
+<td>Matches 0 or more occurrences of the preceding expression.</td>
+</tr>
+<tr>
+<td style="text-align:center;">re&plus;</td>
+<td>Matches 1 or more of the previous thing.</td>
+</tr>
+<tr>
+<td style="text-align:center;">re?</td>
+<td>Matches 0 or 1 occurrence of the preceding expression.</td>
+</tr>
+<tr>
+<td class="ts">re{ n}</td>
+<td>Matches exactly n number of occurrences of the preceding expression.</td>
+</tr>
+<tr>
+<td class="ts">re{ n,}</td>
+<td>Matches n or more occurrences of the preceding expression.</td>
+</tr>
+<tr>
+<td class="ts">re{ n, m}</td>
+<td>Matches at least n and at most m occurrences of the preceding expression.</td>
+</tr>
+<tr>
+<td style="text-align:center;">a| b</td>
+<td>Matches either a or b.</td>
+</tr>
+<tr>
+<td class="ts">(re)</td>
+<td>Groups regular expressions and remembers the matched text.</td>
+</tr>
+<tr>
+<td class="ts">(?: re)</td>
+<td>Groups regular expressions without remembering the matched text.</td>
+</tr>
+<tr>
+<td style="text-align:center;">(?&gt; re)</td>
+<td>Matches the independent pattern without backtracking.</td>
+</tr>
+<tr>
+<td style="text-align:center;">\w</td>
+<td>Matches the word characters.</td>
+</tr>
+<tr>
+<td style="text-align:center;">\W</td>
+<td>Matches the nonword characters.</td>
+</tr>
+<tr>
+<td style="text-align:center;">\s</td>
+<td>Matches the whitespace. Equivalent to [\t\n\r\f].</td>
+</tr>
+<tr>
+<td style="text-align:center;">\S</td>
+<td>Matches the nonwhitespace.</td>
+</tr>
+<tr>
+<td style="text-align:center;">\d</td>
+<td>Matches the digits. Equivalent to [0-9].</td>
+</tr>
+<tr>
+<td style="text-align:center;">\D</td>
+<td>Matches the nondigits.</td>
+</tr>
+<tr>
+<td style="text-align:center;">\A</td>
+<td>Matches the beginning of the string.</td>
+</tr>
+<tr>
+<td class="ts">\Z</td>
+<td>Matches the end of the string. If a newline exists, it matches just before newline.</td>
+</tr>
+<tr>
+<td style="text-align:center;">\z</td>
+<td>Matches the end of the string.</td>
+</tr>
+<tr>
+<td style="text-align:center;">\G</td>
+<td>Matches the point where the last match finished.</td>
+</tr>
+<tr>
+<td style="text-align:center;">\n</td>
+<td>Back-reference to capture group number "n".</td>
+</tr>
+<tr>
+<td class="ts">\b</td>
+<td>Matches the word boundaries when outside the brackets. Matches the backspace (0x08) when inside the brackets.</td>
+</tr>
+<tr>
+<td style="text-align:center;">\B</td>
+<td>Matches the nonword boundaries.</td>
+</tr>
+<tr>
+<td style="text-align:center;">\n, \t, etc.</td>
+<td>Matches newlines, carriage returns, tabs, etc.</td>
+</tr>
+<tr>
+<td style="text-align:center;">\Q</td>
+<td>Escape (quote) all characters up to \E.</td>
+</tr>
+<tr>
+<td style="text-align:center;">\E</td>
+<td>Ends quoting begun with \Q.</td>
+</tr>
+</table>
+<h2>Methods of the Matcher Class</h2>
+<p>Here is a list of useful instance methods &minus;</p>
+<h3>Index Methods</h3>
+<p>Index methods provide useful index values that show precisely where the match was found in the input string &minus;</p>
+<table class="table table-bordered">
+<tr>
+<th>Sr.No.</th>
+<th style="text-align:center;">Method &amp; Description</th>
+</tr>
+<tr>
+<td class="ts">1</td>
+<td><p><b>public int start()</b></p>
+<p>Returns the start index of the previous match.</p></td>
+</tr>
+<tr>
+<td class="ts">2</td>
+<td><p><b>public int start(int group)</b></p>
+<p>Returns the start index of the subsequence captured by the given group during the previous match operation.</p></td>
+</tr>
+<tr>
+<td class="ts">3</td>
+<td><p><b>public int end()</b></p>
+<p>Returns the offset after the last character matched.</p></td>
+</tr>
+<tr>
+<td class="ts">4</td>
+<td><p><b>public int end(int group)</b></p>
+<p>Returns the offset after the last character of the subsequence captured by the given group during the previous match operation.</p></td>
+</tr>
+</table>
+<h3>Study Methods</h3>
+<p>Study methods review the input string and return a Boolean indicating whether or not the pattern is found &minus;</p>
+<table class="table table-bordered">
+<tr>
+<th>Sr.No.</th>
+<th style="text-align:center;">Method &amp; Description</th>
+</tr>
+<tr>
+<td class="ts">1</td>
+<td><p><b>public boolean lookingAt()</b></p>
+<p>Attempts to match the input sequence, starting at the beginning of the region, against the pattern.</p>
+</td>
+</tr>
+<tr>
+<td class="ts">2</td>
+<td><p><b>public boolean find()</b></p>
+<p>Attempts to find the next subsequence of the input sequence that matches the pattern.</p>
+</td>
+</tr>
+<tr>
+<td class="ts">3</td>
+<td><p><b>public boolean find(int start)</b></p>
+<p>Resets this matcher and then attempts to find the next subsequence of the input sequence that matches the pattern, starting at the specified index.</p>
+</td>
+</tr>
+<tr>
+<td class="ts">4</td>
+<td><p><b>public boolean matches()</b></p>
+<p>Attempts to match the entire region against the pattern.</p>
+</td>
+</tr>
+</table>
+<h2>Replacement Methods</h2>
+<p>Replacement methods are useful methods for replacing text in an input string &minus;</p>
+<table class="table table-bordered">
+<tr>
+<th>Sr.No.</th>
+<th style="text-align:center;">Method &amp; Description</th>
+</tr>
+<tr>
+<td class="ts">1</td>
+<td><p><b>public Matcher appendReplacement(StringBuffer sb, String replacement)</b></p>
+<p>Implements a non-terminal append-and-replace step.</p>
+</td>
+</tr>
+<tr>
+<td class="ts">2</td>
+<td><p><b>public StringBuffer appendTail(StringBuffer sb)</b></p>
+<p>Implements a terminal append-and-replace step.</p>
+</td>
+</tr>
+<tr>
+<td class="ts">3</td>
+<td><p><b>public String replaceAll(String replacement)</b></p>
+<p>Replaces every subsequence of the input sequence that matches the pattern with the given replacement string.</p>
+</td>
+</tr>
+<tr>
+<td class="ts">4</td>
+<td><p><b>public String replaceFirst(String replacement)</b></p>
+<p>Replaces the first subsequence of the input sequence that matches the pattern with the given replacement string.</p>
+</td>
+</tr>
+<tr>
+<td class="ts">5</td>
+<td><p><b>public static String quoteReplacement(String s)</b></p>
+<p>Returns a literal replacement String for the specified String. This method produces a String that will work as a literal replacement <b>s</b> in the appendReplacement method of the Matcher class.</p>
+</td>
+</tr>
+</table>
+<h3>The start and end Methods</h3>
+<p>Following is the example that counts the number of times the word "cat" appears in the input string &minus;</p>
+<p><b>Example</b></p>
+<div class="demo-view">
+<a href="http://tpcg.io/xC7Jt9" target="_blank" class="demo" rel="nofollow"><i class="fa-external-link"></i> Live Demo</a>
+</div>
+<pre class="prettyprint notranslate">
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
+public class RegexMatches {
+
+   private static final String REGEX = "\\bcat\\b";
+   private static final String INPUT = "cat cat cat cattie cat";
+
+   public static void main( String args[] ) {
+      Pattern p = Pattern.compile(REGEX);
+      Matcher m = p.matcher(INPUT);   // get a matcher object
+      int count = 0;
+
+      while(m.find()) {
+         count++;
+         System.out.println("Match number "+count);
+         System.out.println("start(): "+m.start());
+         System.out.println("end(): "+m.end());
+      }
+   }
+}
+</pre>
+<p>This will produce the following result &minus;</p>
+<p><b>Output</b></p>
+<pre class="result notranslate">
+Match number 1
+start(): 0
+end(): 3
+Match number 2
+start(): 4
+end(): 7
+Match number 3
+start(): 8
+end(): 11
+Match number 4
+start(): 19
+end(): 22
+</pre>
+<p>You can see that this example uses word boundaries to ensure that the letters "c" "a" "t" are not merely a substring in a longer word. It also gives some useful information about where in the input string the match has occurred.</p>
+<p>The start method returns the start index of the subsequence captured by the given group during the previous match operation, and the end returns the index of the last character matched, plus one.</p>
+<h3>The matches and lookingAt Methods</h3>
+<p>The matches and lookingAt methods both attempt to match an input sequence against a pattern. The difference, however, is that matches requires the entire input sequence to be matched, while lookingAt does not.</p>
+<p>Both methods always start at the beginning of the input string. Here is the example explaining the functionality &minus;</p>
+<p><b>Example</b></p>
+<div class="demo-view">
+<a href="http://tpcg.io/pH3GXf" target="_blank" class="demo" rel="nofollow"><i class="fa-external-link"></i> Live Demo</a>
+</div>
+<pre class="prettyprint notranslate">
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
+public class RegexMatches {
+
+   private static final String REGEX = "foo";
+   private static final String INPUT = "fooooooooooooooooo";
+   private static Pattern pattern;
+   private static Matcher matcher;
+
+   public static void main( String args[] ) {
+      pattern = Pattern.compile(REGEX);
+      matcher = pattern.matcher(INPUT);
+
+      System.out.println("Current REGEX is: "+REGEX);
+      System.out.println("Current INPUT is: "+INPUT);
+
+      System.out.println("lookingAt(): "+matcher.lookingAt());
+      System.out.println("matches(): "+matcher.matches());
+   }
+}
+</pre>
+<p>This will produce the following result &minus;</p>
+<p><b>Output</b></p>
+<pre class="result notranslate">
+Current REGEX is: foo
+Current INPUT is: fooooooooooooooooo
+lookingAt(): true
+matches(): false
+</pre>
+<h3>The replaceFirst and replaceAll Methods</h3>
+<p>The replaceFirst and replaceAll methods replace the text that matches a given regular expression. As their names indicate, replaceFirst replaces the first occurrence, and replaceAll replaces all occurrences.</p>
+<p>Here is the example explaining the functionality &minus;</p>
+<p><b>Example</b></p>
+<div class="demo-view">
+<a href="http://tpcg.io/hPbUKo" target="_blank" class="demo" rel="nofollow"><i class="fa-external-link"></i> Live Demo</a>
+</div>
+<pre class="prettyprint notranslate">
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
+public class RegexMatches {
+
+   private static String REGEX = "dog";
+   private static String INPUT = "The dog says meow. " + "All dogs say meow.";
+   private static String REPLACE = "cat";
+
+   public static void main(String[] args) {
+      Pattern p = Pattern.compile(REGEX);
+      
+      // get a matcher object
+      Matcher m = p.matcher(INPUT); 
+      INPUT = m.replaceAll(REPLACE);
+      System.out.println(INPUT);
+   }
+}
+</pre>
+<p>This will produce the following result &minus;</p>
+<p><b>Output</b></p>
+<pre class="result notranslate">
+The cat says meow. All cats say meow.
+</pre>
+<h3>The appendReplacement and appendTail Methods</h3>
+<p>The Matcher class also provides appendReplacement and appendTail methods for text replacement.</p>
+<p>Here is the example explaining the functionality &minus;</p>
+<p><b>Example</b></p>
+<div class="demo-view">
+<a href="http://tpcg.io/AvfsqL" target="_blank" class="demo" rel="nofollow"><i class="fa-external-link"></i> Live Demo</a>
+</div>
+<pre class="prettyprint notranslate">
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
+public class RegexMatches {
+
+   private static String REGEX = "a*b";
+   private static String INPUT = "aabfooaabfooabfoob";
+   private static String REPLACE = "-";
+   public static void main(String[] args) {
+
+      Pattern p = Pattern.compile(REGEX);
+      
+      // get a matcher object
+      Matcher m = p.matcher(INPUT);
+      StringBuffer sb = new StringBuffer();
+      while(m.find()) {
+         m.appendReplacement(sb, REPLACE);
+      }
+      m.appendTail(sb);
+      System.out.println(sb.toString());
+   }
+}
+</pre>
+<p>This will produce the following result &minus;</p>
+<p><b>Output</b></p>
+<pre class="result notranslate">
+-foo-foo-foo-
+</pre>
+<h3>PatternSyntaxException Class Methods</h3>
+<p>A PatternSyntaxException is an unchecked exception that indicates a syntax error in a regular expression pattern. The PatternSyntaxException class provides the following methods to help you determine what went wrong &minus;</p>
+<table class="table table-bordered">
+<tr>
+<th>Sr.No.</th>
+<th style="text-align:center;">Method &amp; Description</th>
+</tr>
+<tr>
+<td class="ts">1</td>
+<td><p><b>public String getDescription()</b></p>
+<p>Retrieves the description of the error.</p>
+</td>
+</tr>
+<tr>
+<td class="ts">2</td>
+<td><p><b>public int getIndex()</b></p>
+<p>Retrieves the error index.</p>
+</td>
+</tr>
+<tr>
+<td class="ts">3</td>
+<td><p><b>public String getPattern()</b></p>
+<p>Retrieves the erroneous regular expression pattern.</p>
+</td>
+</tr>
+<tr>
+<td class="ts">4</td>
+<td><p><b>public String getMessage()</b></p>
+<p>Returns a multi-line string containing the description of the syntax error and its index, the erroneous regular expression pattern, and a visual indication of the error index within the pattern.</p>
+</td>
+</tr>
+</table>
+<div class="mui-container-fluid button-borders show" id="bottom_navigation">
+<div class="pre-btn">
+<a href="/java/java_date_time.htm"><i class="fal fa-chevron-circle-left"></i> Previous Page</a>
+<a class="hide-on-mobile" href="javascript:printPage();"><i class="fa fa-print"></i> Print Page</a>
+</div>
+<div class="nxt-btn">
+<a href="/java/java_methods.htm">Next Page <i class="fal fa-chevron-circle-right"></i>&nbsp;</a>
+</div>
+</div>
+<div class="space-bottom" style="margin-bottom:20px;"></div>
+<div class="google-bottom-ads" id="google-bottom-ads">
+<div>Advertisements</div>
+<div>
+<div id="adp_bottom_ads"></div>
+<script>
+var adPos = document.getElementById('adp_bottom_ads');
+var mobile_ad_id = "a8a632a6-046e-4f5c-b25f-8bc82ac89fb2";
+var desktop_ad_id = "e7ddd6f7-1ab0-494a-bade-887daa4373a0";
+var adpushup = adpushup || {};
+adpushup.que = adpushup.que || [];
+adpushup.que.push(function() {
+var ad_id = window.innerWidth <= 768 ? mobile_ad_id : desktop_ad_id;
+adPos.innerHTML = '<div id="' + ad_id + '" class="_ap_apex_ad"></div>';
+adpushup.triggerAd(ad_id);
+});
+</script>
+</div>
+<div class="space-bottom"></div>
+</div>
+</div>
+<!-- Tutorial Content Ends Here -->
+<!-- Right Column Starts Here -->
+<div class="mui-col-md-2 google-right-ads" id="chapter-menu" style="display: none;">
+<input type="hidden" id="vu" name="vu" value=""/>
+<div class="space-top"></div>
+<div class="mui-panel">
+<ul class="paid-menu" id="div-right-menu">
+<li><a class="hide-on-mobile" href="javascript:printPage();" title="Print this page"><i class="fa fa-print"></i> Print</a></li>
+<li><a href="javascript:void(0)" class="add_notes" title="Add Custom Notes" onclick="add_notes();"><i class="fa fa-edit"></i>&nbsp;Add Notes</a></li>
+<li><a href="javascript:void(0)" class="clsPage text-bookmark" id="text-bookmark" title="Add Bookmark" onclick="text_bookmark()"><i class="fal fa-bookmark"></i>&nbsp;Bookmark this page </a></li>
+<li><a href="javascript:void(0);" id="report_error_popup" onclick="report_error_popup();" title="Report Error"><i class="fal fa-bell"></i>&nbsp;Report Error</a></li>
+<li><a href="javascript:void(0);" id="suggestion_popup" title="Give Suggestions" onclick="suggestion_popup();"><i class="fal fa-badge-check"></i>&nbsp;Suggestions</a></li>
+</ul>
+<div class="profile-my-notes" id="text_notes_div" style="display:none;">
+<textarea rows="10" class="text_notes" id="text_notes" name="text_notes" placeholder="Enter your custom notes..."></textarea>
+<br>
+<a href="javascript:void(0);" id="submit_text_notes" class="butn-save" onclick="submit_text_notes();"> Save</a>
+<a href="javascript:void(0);" class="pop-no butn-cancel" onclick="notesClose();"> Close</a>
+<p class="notes_msg"  ></p>
+</div>
+<div class="bottom-menu">
+<button class="tp-btn"><i class="fal fa-box-up"></i> <a href="/videotutorials/dashboard.php">Dashboard</a></button>
+<button class="tp-btn"><i class="fal fa-sign-out-alt"></i> <a href="/videotutorials/userlogout.php">Logout</a></button>
+</div>
+</div>
+</div>
+<div class="mui-col-md-2 google-right-ads" id="google-right-ads">
+<div class="space-top"></div>
+<div class="google-right-ad" style="margin: 0px auto !important;margin-top:5px;min-height:250px!important">
+<div id="f0f6cff6-393d-4170-b63a-d9ff06ca9f25" class="_ap_apex_ad">
+<script>
+var adpushup = adpushup || {};
+adpushup.que = adpushup.que || [];
+adpushup.que.push(function() {
+adpushup.triggerAd("f0f6cff6-393d-4170-b63a-d9ff06ca9f25");
+});
+</script>
+</div>
+</div>
+<div class="google-right-ad" style="margin-top:16px;min-height:250px!important">
+<div id="5c0affd5-724a-475c-bfcd-cecbc7660c36" class="_ap_apex_ad">
+<script>
+var adpushup = adpushup || {};
+adpushup.que = adpushup.que || [];
+adpushup.que.push(function() {
+adpushup.triggerAd("5c0affd5-724a-475c-bfcd-cecbc7660c36");
+});
+</script>
+</div>
+</div>
+<div class="google-right-ad" style="margin-top:16px;margin-bottom:15px;min-height:600px!important">
+<div id="8f8814c2-d64c-4d26-9cb9-543653c0b48f" class="_ap_apex_ad">
+<script>
+var adpushup = adpushup || {};
+adpushup.que = adpushup.que || [];
+adpushup.que.push(function() {
+adpushup.triggerAd("8f8814c2-d64c-4d26-9cb9-543653c0b48f");
+});
+</script>
+</div>
+</div>
+<div class="space-bottom" style="margin-bottom:15px;"></div>
+</div>
+<!-- Right Column Ends Here -->
+</div>
+</div>
+<div class="clear"></div>
+<footer id="footer">
+<div class="mui--text-center">
+<div class="mui--text-caption mui--text-light">
+<a href="/index.htm" class="logo"><img class="img-responsive" src="/images/logo-black.png" alt="Tutorials Point" title="Tutorials Point"></a>
+</div>
+<ul class="mui-list--inline mui--text-body2 mui--text-light">
+<li><a href="/about/index.htm"><i class="fal fa-globe"></i> About us</a></li>
+<li><a href="/about/return_refund_policy.htm"> <i class="fal fa-asterisk"></i> Refund Policy</a></li>
+<li><a href="/about/about_terms_of_use.htm"><i class="fal fa-asterisk"></i> Terms of use</a></li>
+<li><a href="/about/about_privacy.htm"> <i class="fal fa-shield-check"></i> Privacy Policy</a></li>
+<li><a href="/about/faq.htm"><i class="fal fa-question-circle"></i> FAQ's</a></li>
+<li><a href="/about/contact_us.htm"><i class="fal fa-map-marker-alt"></i> Contact</a></li>
+</ul>
+<div class="mui--text-caption mui--text-light bottom-copyright-text">&copy; Copyright 2021. All Rights Reserved.</div>
+</div>
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-232293-6"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'UA-232293-6');
+</script>
+<!--<script src="https://www.tutorialspoint.com/videotutorials/js/text_menu.js?v=1"></script>-->
+<script src="https://www.tutorialspoint.com/market/public/assets/js/text_menu.js?v=2.4"></script>
+<script>
+$(document).ready(function (){
+    var cval = readCookie('subscription_purchased');
+    if(cval == '1'){
+          // logged in and purchased subscription.
+          $('#google-right-ads').remove();
+          $('#adp1').remove();
+          $('#adp2').remove();
+          $('#stickyparent').remove();
+          $('#google-top-ads').remove();
+          $('#adp_top_ads').remove();
+          $('#google-bottom-ads').remove();
+          $('.tutorial-content hr').remove();
+          $('.login').remove();
+          $('#chapter-menu').show();
+          $('.content h1').css("border-bottom", "none");
+          $('.google-right-ads').css("padding-right", "0px");
+          $('.tutorial-content').css("border-radius", "10px");
+          $('#chapter-menu .mui-panel').css("border-radius", "10px");
+     }
+});
+</script>
+</footer>
+</body>
+</html>

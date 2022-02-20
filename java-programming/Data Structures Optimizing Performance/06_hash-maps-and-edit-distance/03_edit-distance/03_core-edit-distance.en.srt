@@ -1,0 +1,768 @@
+1
+00:00:00,000 --> 00:00:03,647
+[MUSIC]
+
+2
+00:00:03,647 --> 00:00:08,050
+All right, in this video we're gonna talk
+about something called edit distance, and
+
+3
+00:00:08,050 --> 00:00:11,548
+also talk about the very last piece
+of your programming assignment,
+
+4
+00:00:11,548 --> 00:00:15,850
+which is to find the path between
+two words in the English language.
+
+5
+00:00:15,850 --> 00:00:16,790
+So by the end of this video,
+
+6
+00:00:16,790 --> 00:00:19,760
+you'll be able to define
+the notion of edit distance.
+
+7
+00:00:19,760 --> 00:00:22,800
+You'll be able to describe a naive
+algorithm, very naive, for
+
+8
+00:00:22,800 --> 00:00:26,310
+solving the edit distance problem, and
+you'll also be able to talk about how
+
+9
+00:00:26,310 --> 00:00:30,280
+pruning can help restrict
+the size of a search space, and
+
+10
+00:00:30,280 --> 00:00:32,619
+make problems, big problems,
+more manageable.
+
+11
+00:00:34,130 --> 00:00:37,580
+So let's start off with a little game and
+this is game you'll be implementing
+
+12
+00:00:37,580 --> 00:00:40,760
+the solution for
+in your programming assignment.
+
+13
+00:00:40,760 --> 00:00:44,300
+And the game is to take any two
+words in the English language and
+
+14
+00:00:44,300 --> 00:00:48,440
+find a path between those words
+such that each step in the path
+
+15
+00:00:48,440 --> 00:00:52,020
+only does one transformation,
+either a substitution.
+
+16
+00:00:52,020 --> 00:00:57,070
+A, an insertion or deletion like we
+talked about in the previous videos, and
+
+17
+00:00:57,070 --> 00:01:01,520
+it produces a word that's also
+valid in the English language.
+
+18
+00:01:01,520 --> 00:01:05,450
+So for example, to get from spell to mine,
+I could take the e in spell and
+
+19
+00:01:05,450 --> 00:01:10,020
+replace it with an i, to get me spill,
+I could then drop the first
+
+20
+00:01:10,020 --> 00:01:15,640
+s to give me pill take that last l and
+turn it into an e to get pile.
+
+21
+00:01:15,640 --> 00:01:18,720
+Take that l and
+turn it into an n to get pine.
+
+22
+00:01:18,720 --> 00:01:23,140
+And then, take the p and
+turn it into an m and I've got mine.
+
+23
+00:01:23,140 --> 00:01:28,440
+So in this case, I've got five steps that
+it took me to get from spell to mine.
+
+24
+00:01:29,800 --> 00:01:33,970
+Now this game is actually an illustration
+of a more general problem
+
+25
+00:01:33,970 --> 00:01:36,490
+called the edit distance problem.
+
+26
+00:01:36,490 --> 00:01:40,570
+Our spelling error word path game is
+a restricted version of this problem
+
+27
+00:01:40,570 --> 00:01:45,120
+because the general edit distance
+between two sequences is just the number
+
+28
+00:01:45,120 --> 00:01:49,440
+of transformations you have to make
+to turn one sequence of characters or
+
+29
+00:01:49,440 --> 00:01:52,760
+things into another sequence
+of characters or things.
+
+30
+00:01:52,760 --> 00:01:57,220
+And you don't actually necessarily care
+about whether those intermediate strings
+
+31
+00:01:57,220 --> 00:01:58,540
+are valid words.
+
+32
+00:02:00,510 --> 00:02:05,880
+So this tree illustrates the notion
+of edit distance very nicely.
+
+33
+00:02:05,880 --> 00:02:09,940
+So at the first layer in this tree,
+you can see all the words that are just
+
+34
+00:02:09,940 --> 00:02:13,600
+one transformation away
+from my original word.
+
+35
+00:02:13,600 --> 00:02:14,920
+They're at a distance one.
+
+36
+00:02:15,980 --> 00:02:20,700
+The next layer in the tree shows me all
+the strings that are edit distance two
+
+37
+00:02:20,700 --> 00:02:24,120
+away from the original word,
+and so on and so forth.
+
+38
+00:02:24,120 --> 00:02:29,070
+So you can see that you can actually
+solve the general edit distance problem
+
+39
+00:02:29,070 --> 00:02:32,280
+by just building out this tree,
+layer by layer.
+
+40
+00:02:32,280 --> 00:02:36,480
+Looking for the word that you're
+trying to transform into.
+
+41
+00:02:36,480 --> 00:02:39,220
+So I start with my
+original word at the top.
+
+42
+00:02:39,220 --> 00:02:41,950
+I generate layer by layer
+by layer in this tree,
+
+43
+00:02:41,950 --> 00:02:44,850
+until I find the word that
+I'm actually looking for.
+
+44
+00:02:44,850 --> 00:02:49,510
+And then I have a nice path as well
+as a distance from my original word
+
+45
+00:02:49,510 --> 00:02:51,310
+down to the word that I'm looking for.
+
+46
+00:02:52,430 --> 00:02:54,250
+This is a very naive implementation, and
+
+47
+00:02:54,250 --> 00:02:58,290
+we'll talk about limitations of
+that solution in a little bit.
+
+48
+00:02:58,290 --> 00:03:02,670
+But before we go on, I wanna say that
+edit distance problem is actually
+
+49
+00:03:02,670 --> 00:03:08,340
+a general problem used in a number of
+fields, not just in spelling suggestions.
+
+50
+00:03:08,340 --> 00:03:10,400
+So it's used in computational biology.
+
+51
+00:03:10,400 --> 00:03:14,890
+For example, when you're comparing two
+DNA sequences to try to figure out
+
+52
+00:03:14,890 --> 00:03:18,400
+how far apart are those
+two DNA sequences really?
+
+53
+00:03:18,400 --> 00:03:20,950
+It's also used in natural
+language processing.
+
+54
+00:03:20,950 --> 00:03:21,510
+For example,
+
+55
+00:03:21,510 --> 00:03:26,119
+to align two different sentences
+to see how close they really are.
+
+56
+00:03:27,270 --> 00:03:31,320
+So it has a number of applications
+beyond what we're using it for here.
+
+57
+00:03:31,320 --> 00:03:35,120
+Your assignment will just introduce you
+to the idea then to an algorithm for
+
+58
+00:03:35,120 --> 00:03:38,350
+solving it.
+
+59
+00:03:38,350 --> 00:03:43,350
+This tree based structure illustrates
+a general problem solving strategy
+
+60
+00:03:43,350 --> 00:03:48,430
+that involves exhaustively searching
+a space looking for a solution.
+
+61
+00:03:48,430 --> 00:03:52,640
+So this is a strategy that's used in a lot
+of artificial intelligence problems,
+
+62
+00:03:52,640 --> 00:03:57,050
+where again the goal is to just
+really search an entire problem space
+
+63
+00:03:57,050 --> 00:03:59,350
+until you find a particular solution.
+
+64
+00:03:59,350 --> 00:04:04,110
+So each layer in the tree basically
+transforms the state of the problem into
+
+65
+00:04:04,110 --> 00:04:08,080
+a slightly different state, until you've
+found the state that is the solution.
+
+66
+00:04:08,080 --> 00:04:11,100
+So in this case, our original
+state was our original word, and
+
+67
+00:04:11,100 --> 00:04:15,220
+our solution is going to be the word
+that we're looking to transform into.
+
+68
+00:04:15,220 --> 00:04:20,510
+Then we can get a path to the solution by
+following the path to the tree from start
+
+69
+00:04:20,510 --> 00:04:21,100
+to solution.
+
+70
+00:04:22,880 --> 00:04:26,390
+However, one problem that comes up
+with building these trees to do these
+
+71
+00:04:26,390 --> 00:04:30,570
+exhaustive searches,
+is that they tend to get really large.
+
+72
+00:04:30,570 --> 00:04:33,800
+And we're going to do a little bit of
+analysis to kind of get a ballpark
+
+73
+00:04:33,800 --> 00:04:36,250
+estimate of how big does this tree get.
+
+74
+00:04:37,320 --> 00:04:40,360
+So let's think about that
+first layer down in the tree.
+
+75
+00:04:40,360 --> 00:04:45,120
+How many strings do we produce that
+are just one away from my original word.
+
+76
+00:04:45,120 --> 00:04:48,150
+If that original word
+has k characters in it.
+
+77
+00:04:48,150 --> 00:04:49,390
+In this case k equals five.
+
+78
+00:04:50,400 --> 00:04:54,160
+Well in order to reason about that,
+we need to think about the number of
+
+79
+00:04:54,160 --> 00:04:57,890
+strings that are produced via
+substitutions, via insertions, and
+
+80
+00:04:57,890 --> 00:05:00,880
+via deletions, and
+just add those all together.
+
+81
+00:05:00,880 --> 00:05:02,660
+So thinking about substitutions,
+
+82
+00:05:02,660 --> 00:05:07,260
+we have k different characters in
+my string that we can substitute.
+
+83
+00:05:07,260 --> 00:05:11,290
+And there are 25 other characters that we
+could put in in place of the character
+
+84
+00:05:11,290 --> 00:05:12,980
+that's already there.
+
+85
+00:05:12,980 --> 00:05:17,590
+So we have 25 times k strings that
+are produced via substitution.
+
+86
+00:05:18,870 --> 00:05:20,530
+Moving on to insertion.
+
+87
+00:05:20,530 --> 00:05:25,780
+We actually have k plus 1 locations in the
+string where we can insert a character.
+
+88
+00:05:25,780 --> 00:05:27,710
+We can insert before
+the beginning of the string,
+
+89
+00:05:27,710 --> 00:05:31,020
+between any of the characters of the
+string, and then after the last character.
+
+90
+00:05:31,020 --> 00:05:32,690
+So that's k plus 1.
+
+91
+00:05:32,690 --> 00:05:36,550
+And we can insert any of the 26
+characters that we have available to us.
+
+92
+00:05:36,550 --> 00:05:41,220
+So that's going to be 26 times k+1,
+stings that are produced via insertion.
+
+93
+00:05:42,580 --> 00:05:44,620
+Finally, we get to deletions.
+
+94
+00:05:44,620 --> 00:05:49,980
+Deletions are much smaller class, because
+we can only delete each character once.
+
+95
+00:05:49,980 --> 00:05:52,550
+So in this case,
+we could delete five characters.
+
+96
+00:05:52,550 --> 00:05:56,600
+But in general, we can delete k
+characters, leading us to k new strings.
+
+97
+00:05:56,600 --> 00:05:58,410
+Produced via deletions.
+
+98
+00:05:58,410 --> 00:06:02,370
+So we add those all together, and we get
+that in the first layer of this tree,
+
+99
+00:06:02,370 --> 00:06:07,920
+we're going to have 52 k,
+plus 26 new strings produced.
+
+100
+00:06:07,920 --> 00:06:09,205
+Plus the one that we had.
+
+101
+00:06:09,205 --> 00:06:11,645
+Originally up at the top of the tree.
+
+102
+00:06:11,645 --> 00:06:15,765
+So that may not seem too bad, but
+that's just the first layer of this tree.
+
+103
+00:06:15,765 --> 00:06:18,305
+Now let's consider searching
+deeper in the tree.
+
+104
+00:06:18,305 --> 00:06:21,781
+What happens if we go down to level two,
+to add a distance two?
+
+105
+00:06:22,892 --> 00:06:28,052
+Well, now we're going to have each of
+these 52k plus 26 strings in the first
+
+106
+00:06:28,052 --> 00:06:34,812
+layer, expand out in the exact same way
+as that very first word expanded out.
+
+107
+00:06:34,812 --> 00:06:39,052
+So for each of the 52k plus 26 strings,
+
+108
+00:06:39,052 --> 00:06:44,130
+we're going to have another
+52k plus 26 strings produced.
+
+109
+00:06:44,130 --> 00:06:48,900
+And in fact that's a slight
+underestimate because our k,
+
+110
+00:06:48,900 --> 00:06:52,430
+our length of our string,
+is actually getting bigger.
+
+111
+00:06:52,430 --> 00:06:56,230
+Many of those strings in the first
+layer are actually 1 longer
+
+112
+00:06:56,230 --> 00:06:58,740
+than the original string
+with started with.
+
+113
+00:06:58,740 --> 00:07:00,940
+So our k is not just gonna be k anymore.
+
+114
+00:07:00,940 --> 00:07:04,550
+It's actually going to have
+grown to somewhere between k and
+
+115
+00:07:04,550 --> 00:07:07,700
+k + 1 on the next layer down.
+
+116
+00:07:07,700 --> 00:07:12,850
+So I'm representing the total
+number as 52k plus 26 squared,
+
+117
+00:07:12,850 --> 00:07:17,240
+but that's actually an underestimate for
+the number of strings in the tree.
+
+118
+00:07:17,240 --> 00:07:20,380
+That's okay, because this number's
+gonna get big enough even with
+
+119
+00:07:20,380 --> 00:07:23,859
+the underestimate, and this makes it a
+little bit more simple to do the analysis.
+
+120
+00:07:25,280 --> 00:07:29,780
+So moving up, what if I want to look
+at an arbitrary level in the tree and
+
+121
+00:07:29,780 --> 00:07:31,130
+layers deep?
+
+122
+00:07:31,130 --> 00:07:33,110
+Well, when I go n away,
+
+123
+00:07:33,110 --> 00:07:37,920
+that just changes the power that
+I raise that 52k plus 26 to.
+
+124
+00:07:37,920 --> 00:07:43,540
+Every time I add a layer, I have to
+multiply again by the 52k plus 26.
+
+125
+00:07:43,540 --> 00:07:47,600
+So by the time I get n layers deep in the
+tree, and now this is going to be a vast
+
+126
+00:07:47,600 --> 00:07:54,270
+underestimate for the size of the tree,
+I've got 52 k plus 26 to the n.
+
+127
+00:07:55,280 --> 00:07:59,680
+And anytime you see something that's
+to the n you should be very worried.
+
+128
+00:07:59,680 --> 00:08:02,860
+That's a number that's
+going to grow very quickly.
+
+129
+00:08:02,860 --> 00:08:07,460
+We're not going to be able to
+go much deeper than say, four or
+
+130
+00:08:07,460 --> 00:08:11,770
+five layers deep in that tree
+without getting a huge explosion and
+
+131
+00:08:11,770 --> 00:08:13,690
+way too many possibilities to consider.
+
+132
+00:08:14,880 --> 00:08:16,890
+So, how are we going
+to solve this problem?
+
+133
+00:08:16,890 --> 00:08:21,380
+There are two possible solutions to making
+the solutions to the edit distance problem
+
+134
+00:08:21,380 --> 00:08:22,760
+faster.
+
+135
+00:08:22,760 --> 00:08:26,140
+If we want to consider the general
+edit distance problem.
+
+136
+00:08:26,140 --> 00:08:29,030
+Then it turns out this tree based approach
+
+137
+00:08:29,030 --> 00:08:32,320
+is not the way we would to go
+about solving the problem at all.
+
+138
+00:08:32,320 --> 00:08:36,810
+There's a much faster algorithm, using
+something called dynamic programming.
+
+139
+00:08:36,810 --> 00:08:42,640
+That can solve the general edit distance
+problem in order k squared time.
+
+140
+00:08:42,640 --> 00:08:46,210
+So it's really cool,
+it's a great algorithm, and
+
+141
+00:08:46,210 --> 00:08:49,130
+unfortunately we're not going
+to be covering it in this class.
+
+142
+00:08:49,130 --> 00:08:52,990
+But you will see this algorithm
+covered if you take, say,
+
+143
+00:08:52,990 --> 00:08:57,200
+a computational biology class and you'll
+see the general concept of a programming
+
+144
+00:08:57,200 --> 00:09:00,810
+technique called dynamic programming,
+which is really cool.
+
+145
+00:09:00,810 --> 00:09:03,510
+When you go on to take
+a course on algorithms.
+
+146
+00:09:03,510 --> 00:09:06,140
+But again, it's a bit beyond
+the scope of this particular course.
+
+147
+00:09:07,720 --> 00:09:11,870
+The way we're going to structure the
+problem is we're actually going to look
+
+148
+00:09:11,870 --> 00:09:15,180
+at a slightly different problem that I
+mentioned at the very beginning of this
+
+149
+00:09:15,180 --> 00:09:19,640
+video, which is that we're going
+to restrict our edit distance path
+
+150
+00:09:19,640 --> 00:09:23,740
+to going through real words
+in the English language.
+
+151
+00:09:23,740 --> 00:09:26,510
+So we won't have to
+explore this entire tree.
+
+152
+00:09:27,520 --> 00:09:31,570
+We're going to employ heavy
+pruning of this tree.
+
+153
+00:09:31,570 --> 00:09:35,230
+So what that means is that at each layer,
+each level of the tree,
+
+154
+00:09:35,230 --> 00:09:38,760
+instead of letting it span
+out to its full breadth,
+
+155
+00:09:39,760 --> 00:09:44,800
+we'll remove all the strings that are not
+actually words in the english language.
+
+156
+00:09:46,200 --> 00:09:49,660
+So then this tree-based structure is going
+to allow us to solve the problem that we
+
+157
+00:09:49,660 --> 00:09:51,230
+want to solve, and
+
+158
+00:09:51,230 --> 00:09:56,230
+it's going to avoid that huge explosion
+of possibilities at each level.
+
+159
+00:09:56,230 --> 00:10:00,400
+So this is the algorithm you'll be
+implementing for your project and
+
+160
+00:10:00,400 --> 00:10:03,220
+you'll be able to solve
+this word path problem.

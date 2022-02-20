@@ -1,0 +1,459 @@
+1
+00:00:00,170 --> 00:00:04,111
+[MUSIC]
+
+2
+00:00:04,111 --> 00:00:08,016
+Hi, I'm Mia Minnes, and I'd like to think
+with you for a minute about computer
+
+3
+00:00:08,016 --> 00:00:11,540
+science and the various roles that
+we can play as computer scientists.
+
+4
+00:00:11,540 --> 00:00:15,120
+So, when you think about building your
+project or building a new application,
+
+5
+00:00:15,120 --> 00:00:18,600
+there's a spark at the beginning which is
+the idea for what you want to build and
+
+6
+00:00:18,600 --> 00:00:19,800
+what you wanna do.
+
+7
+00:00:19,800 --> 00:00:22,720
+And then there's a process where you
+do some algorithm development and
+
+8
+00:00:22,720 --> 00:00:26,410
+decide how you're going to solve
+the problem and perform that task.
+
+9
+00:00:26,410 --> 00:00:28,630
+And then you go into
+the implementation phase,
+
+10
+00:00:28,630 --> 00:00:32,750
+testing, maybe doing some use cases and
+use error analysis.
+
+11
+00:00:32,750 --> 00:00:36,980
+And then think about that user experience,
+and the human computer interaction.
+
+12
+00:00:36,980 --> 00:00:39,810
+Now within computer science we
+have sub disciplines that really
+
+13
+00:00:39,810 --> 00:00:43,360
+think about each one of these stages and
+go even further.
+
+14
+00:00:43,360 --> 00:00:47,140
+And, in this course, we invite you
+to try on some of these hats and
+
+15
+00:00:47,140 --> 00:00:51,960
+to work in each one of these roles,
+but the focus will be
+
+16
+00:00:51,960 --> 00:00:56,400
+on the first few pieces that we
+talked about, those first few stages.
+
+17
+00:00:56,400 --> 00:01:00,800
+The algorithm development, which is where
+my research area really focuses, but
+
+18
+00:01:00,800 --> 00:01:05,520
+then also the implementation and
+analysis of performance, and
+
+19
+00:01:05,520 --> 00:01:10,250
+different data structures that support the
+project and the performance of our code.
+
+20
+00:01:10,250 --> 00:01:12,670
+So what we'll be doing
+in this project demo,
+
+21
+00:01:12,670 --> 00:01:16,850
+is showing you a prototype of the project
+that you'll be developing in this course.
+
+22
+00:01:16,850 --> 00:01:19,350
+And I hope that you'll be as
+excited about it as I am.
+
+23
+00:01:20,390 --> 00:01:24,340
+So what you can see here is a prototype
+of the project that you'll be building.
+
+24
+00:01:24,340 --> 00:01:28,650
+Now you'll be focusing on the backend
+algorithm design and implementation,
+
+25
+00:01:28,650 --> 00:01:30,700
+and the performance implications.
+
+26
+00:01:30,700 --> 00:01:35,150
+But we've built a front-end prototype,
+very simple user interface.
+
+27
+00:01:35,150 --> 00:01:38,920
+So you can see your work come to life and
+really interact with it.
+
+28
+00:01:38,920 --> 00:01:43,800
+Now from the get go you'll already be able
+to type in some text into this text box.
+
+29
+00:01:43,800 --> 00:01:47,484
+For example the cat is on the mat.
+
+30
+00:01:47,484 --> 00:01:50,424
+But now let's think about
+the functionality that you'll add in.
+
+31
+00:01:50,424 --> 00:01:55,140
+And so for example,
+you'll be able to do spell check.
+
+32
+00:01:55,140 --> 00:02:01,070
+And so when we go on and try to write
+more we might wanna write the cat.
+
+33
+00:02:01,070 --> 00:02:04,120
+Look, there's already a mistake,
+T-E isn't a word.
+
+34
+00:02:04,120 --> 00:02:08,260
+And so, your code will be able to
+highlight those spelling errors and
+
+35
+00:02:08,260 --> 00:02:09,910
+indicate that there's a problem.
+
+36
+00:02:09,910 --> 00:02:15,500
+Moreover, when we right click on that
+error, we can look for suggestions.
+
+37
+00:02:15,500 --> 00:02:21,081
+And so, the, which is what I intended to
+spell, comes off as a suggested word.
+
+38
+00:02:21,081 --> 00:02:23,635
+And so if we say the cat is black,
+
+39
+00:02:23,635 --> 00:02:28,554
+then already when I'm just
+starting off to type B-L-A-C,
+
+40
+00:02:28,554 --> 00:02:32,880
+I haven't gotten to a fully
+correct spelled word.
+
+41
+00:02:32,880 --> 00:02:36,670
+And so my text editor is saying hold on,
+you haven't spelled the word correctly
+
+42
+00:02:36,670 --> 00:02:41,600
+yet, and
+I might ask my word processor for help.
+
+43
+00:02:41,600 --> 00:02:44,020
+Could you help me autocomplete the word?
+
+44
+00:02:44,020 --> 00:02:49,960
+And so in that if I turn on
+autocomplete then, now I have
+
+45
+00:02:49,960 --> 00:02:54,900
+a list of suggestions as I'm developing
+the new text and as I'm writing more.
+
+46
+00:02:54,900 --> 00:03:01,190
+So for example I can write the and without
+having to spell the whole word, I'm
+
+47
+00:03:01,190 --> 00:03:04,830
+coming up, I'm getting suggestions about
+how I might want to complete my word.
+
+48
+00:03:04,830 --> 00:03:08,331
+So the cat is [SOUND] happy.
+
+49
+00:03:08,331 --> 00:03:11,270
+That sounds good, that's the word I want.
+
+50
+00:03:11,270 --> 00:03:15,558
+And now I have three sentences, two of
+which were helped by the code that you'll
+
+51
+00:03:15,558 --> 00:03:19,526
+be running, namely Spell Check,
+Spell Suggest, and Auto-Complete,
+
+52
+00:03:19,526 --> 00:03:23,814
+which I think is really cool because we
+use these functionalities every day when
+
+53
+00:03:23,814 --> 00:03:28,166
+we're typing on our really modern word
+processors, but now you get to peek under
+
+54
+00:03:28,166 --> 00:03:32,651
+the hood and see how those functionalities
+really get developed and implemented.
+
+55
+00:03:32,651 --> 00:03:37,572
+Now in addition to the pieces that we've
+already seen, we'll also be implementing
+
+56
+00:03:37,572 --> 00:03:41,471
+what's called the Flesch Index,
+which is this button over here.
+
+57
+00:03:41,471 --> 00:03:46,302
+And what the Flesch Index lets us
+calculate is how hard it is to
+
+58
+00:03:46,302 --> 00:03:47,880
+read this text.
+
+59
+00:03:47,880 --> 00:03:52,040
+And so, for example, if we compute the
+Flesch Index of the text that we have over
+
+60
+00:03:52,040 --> 00:03:55,450
+here, we get a really high number which
+indicates that these sentences are really
+
+61
+00:03:55,450 --> 00:03:59,100
+quite simple, and we expect beginning
+readers to be able to read and
+
+62
+00:03:59,100 --> 00:04:00,920
+understand what's going on in them.
+
+63
+00:04:00,920 --> 00:04:02,090
+And that kind of makes sense too.
+
+64
+00:04:02,090 --> 00:04:04,690
+So you'll be implementing that and
+moreover,
+
+65
+00:04:04,690 --> 00:04:07,750
+you'll be implementing something
+called the edit distance,
+
+66
+00:04:07,750 --> 00:04:13,540
+which lets us compare two words to see
+how far they are from one to the other.
+
+67
+00:04:13,540 --> 00:04:15,470
+And you can see how that might
+be connected with some of
+
+68
+00:04:15,470 --> 00:04:19,690
+the other functionality that we've already
+jammed into this really cool project
+
+69
+00:04:19,690 --> 00:04:22,940
+like autocomplete because then
+you want to find nearby words.
+
+70
+00:04:22,940 --> 00:04:27,040
+So, let's try the words hi and
+
+71
+00:04:27,040 --> 00:04:31,810
+bye and let's see how far apart
+they are from one another.
+
+72
+00:04:31,810 --> 00:04:35,700
+And so if we think about
+connecting those two words,
+
+73
+00:04:35,700 --> 00:04:38,940
+we see that we could switch the word hi
+
+74
+00:04:38,940 --> 00:04:43,755
+by switching one word at a time to get all
+the way to bye in just first three steps.
+
+75
+00:04:43,755 --> 00:04:49,425
+And so, you'll be implementing that game
+too as well as generating mark off text.
+
+76
+00:04:49,425 --> 00:04:53,565
+Which means start with the words that
+are already in that text box and
+
+77
+00:04:53,565 --> 00:04:57,955
+try to create new text
+based on the patterns or
+
+78
+00:04:57,955 --> 00:05:03,055
+the quirks that we see in the text
+that we trained on or we started with.
+
+79
+00:05:03,055 --> 00:05:07,730
+If we want, for example, to generate
+maybe 20 more words, based on the cat is
+
+80
+00:05:07,730 --> 00:05:11,550
+on the mat, the cat is black, the cat is
+happy, then we see the cat is on the mat.
+
+81
+00:05:11,550 --> 00:05:12,220
+The cat is black.
+
+82
+00:05:12,220 --> 00:05:13,670
+The cat is black.
+
+83
+00:05:13,670 --> 00:05:14,610
+The cat is happy.
+
+84
+00:05:14,610 --> 00:05:15,480
+The cat.
+
+85
+00:05:15,480 --> 00:05:18,682
+And so notice that these sentences
+are a little bit different from what we
+
+86
+00:05:18,682 --> 00:05:21,160
+had before, but
+they have some of the same feel.
+
+87
+00:05:21,160 --> 00:05:24,510
+And so we're able to do this
+predictive text creation
+
+88
+00:05:24,510 --> 00:05:29,130
+as part of the nifty word processor
+that you will be creating.
+
+89
+00:05:29,130 --> 00:05:34,480
+So these are the functionalities that you
+will be developing throughout this course.
+
+90
+00:05:34,480 --> 00:05:38,250
+But what's really important aside from
+having a sense of satisfaction in building
+
+91
+00:05:38,250 --> 00:05:43,170
+this application, is that you'll be using
+really important fundamental computer
+
+92
+00:05:43,170 --> 00:05:45,570
+science concepts throughout.
+
+93
+00:05:45,570 --> 00:05:49,602
+And you'll be thinking about how these
+roles of back-end developers and
+
+94
+00:05:49,602 --> 00:05:54,030
+front-end developers interact with one
+another, and how the algorithm design and
+
+95
+00:05:54,030 --> 00:05:58,050
+the foundational concept of computer
+science really drive us forwards
+
+96
+00:05:58,050 --> 00:05:59,630
+as we develop more and more projects.

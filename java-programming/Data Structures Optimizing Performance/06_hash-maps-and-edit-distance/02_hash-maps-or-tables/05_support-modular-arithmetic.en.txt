@@ -1,0 +1,59 @@
+[NOISE]
+>> So in Leo's videos you heard about
+HashMaps and how useful they can be. And, in particular, we talked
+already about mod this and mod that. And so this support video is
+an opportunity to remind ourselves what modular arithmetic is and how it can be useful when we're
+dealing with hash sets and HashMaps. So, by the end of this video,
+you'll be able to explain how and why to use modular
+arithmetic in this context. So, let's go back to the example
+that Leo worked through. And if we're thinking about
+an array that has five elements and we want to hash elements into that array,
+then a very useful function or a common function is to say K mod N,
+where K is the key or so it's a code for the element that
+we're trying to put into the array. And N is the size of
+the hash table that we have. And so we might wanna do K mod N,
+but then why? It seems kinda arbitrary,
+why do we wanna use this mod function? And so, it's worthwhile to think back
+to what the mod function actually does. And if you think back about
+the definition of a mod function and what it's possible values are, when we
+say K mod N, we're saying I want to give back the remainder of the long division
+that happens when we divide K by N. Okay and so, if we think about what
+the possible remainders might be, well a remainder when we do
+long division is either 0, if the number divides evenly, or
+it's some number no bigger than N- 1. Because if the remainder was as big as N,
+well, then it wouldn't be a remainder anymore,
+we could fit more copies of N into K. Okay, so the remainder is
+an integer between 0 and N-1, but integers between 0 and N-1 are exactly
+the indices of an array of size N and so, the set of possible values for
+the mod function is perfect for storing values into a table of size N. All right, so at least we know that
+the mod function, or mod N, is going to be related in some way to indices in
+a collection or a table of size N. And so let's think about how even the
+definition of this function that has these values is already gonna help
+us calculate hash codes. So when we think about remainders,
+we think about long division and long division is this algorithmic
+process to compare two numbers. And so we have an algorithm for
+comparing the hash codes. So going back to the examples that
+Leo presented, if we think about for example the hash code of the key 11. We wanna compute 11 mod 5 and so
+that means that we need to do, the long division of 11 by 5. And so a way of thinking about
+that is that we want to write 11 as some multiple of 5 plus a remainder. Okay, what multiple of 5? I want the biggest possible
+multiple of 5 that we can. And so it's 2 because 10 fits into 11. And so we got 11 equals 2 times
+5 plus our remainder 1 and that remainder is what we get when we say
+mod and so the hash code is just one. Now with three, it's a little bit tricky. It seems a little bit tricky. What happens when we divide three by five? Well, three is smaller than five,
+how do we divide it? Well, we're still looking for some multiple of five plus a remainder
+should all equal to three. And so the multiple of 5
+that we end up using is 0, because no positive integer
+copies of 5 fit into 3. So 3 = 0 * 5 + the remainder 3. And so then MOD function outputs 3. And that's the hash code for 3. All right, so we now know why MOD
+is useful, because it gives us this limited range of possible values,
+and we know how to compute MOD. But then there was this comment that Leo
+made about collisions that we have to worry about what happens
+when different keys, different values mapped to the same
+position in the hash table. They collide, we wanna have the same
+hash code for two different numbers. And so you might wonder, well,
+do we need to even worry about that? Will that ever happen? And so let's think about
+an example of the keys 3 and 13 when we try to put them
+into a hash table of size 5. If we do the long division in each of
+those cases, the remainder, or the mod, comes out as 3 for both of them. And in fact, many, many, many different integers all will
+have the same remainder mod 5. And, so, we will potentially
+deal with collisions and so we have to worry about how our hash
+table's going to accommodate those. And that's what Leo talks about
+in those videos about collisions.

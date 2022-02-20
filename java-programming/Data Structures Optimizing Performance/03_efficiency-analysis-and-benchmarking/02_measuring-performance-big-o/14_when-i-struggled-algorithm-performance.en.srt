@@ -1,0 +1,135 @@
+1
+00:00:00,151 --> 00:00:03,565
+[MUSIC]
+
+2
+00:00:03,565 --> 00:00:06,450
+So this is a slightly different
+kind of When I Struggle video.
+
+3
+00:00:06,450 --> 00:00:09,570
+This isn't when I struggled when
+I first learned the material.
+
+4
+00:00:09,570 --> 00:00:12,200
+This is when I struggled
+basically last week.
+
+5
+00:00:12,200 --> 00:00:16,023
+What happened was,
+I bought a padlock for my backyard.
+
+6
+00:00:16,023 --> 00:00:19,280
+So that my son isn't able to get out of
+the yard when he's playing back there.
+
+7
+00:00:19,280 --> 00:00:22,310
+And as you know, with padlocks,
+you can set the combination.
+
+8
+00:00:22,310 --> 00:00:25,200
+Well, something went wrong when I was
+trying to set the combination and
+
+9
+00:00:25,200 --> 00:00:29,150
+somehow or another it was locked and
+I didn't know the combination.
+
+10
+00:00:29,150 --> 00:00:33,696
+So I'm stuck with this quandary, go buy
+a new lock or essentially brute force.
+
+11
+00:00:33,696 --> 00:00:36,296
+One by one, check every combination.
+
+12
+00:00:36,296 --> 00:00:40,880
+And this ties in so well to what Mia's
+been explaining about algorithm analysis.
+
+13
+00:00:40,880 --> 00:00:43,985
+Because, I essentially have a best case,
+an average case, and a worst case, and
+
+14
+00:00:43,985 --> 00:00:47,130
+I had to compare that against
+the cost of buying a new one.
+
+15
+00:00:47,130 --> 00:00:50,980
+So the best case, is I try the very
+first combination, say zero, zero, zero,
+
+16
+00:00:50,980 --> 00:00:52,800
+and it works.
+
+17
+00:00:52,800 --> 00:00:55,724
+That'd be fantastic,
+the worst case though,
+
+18
+00:00:55,724 --> 00:00:58,583
+is I might go from 000 all the way to 999.
+
+19
+00:00:58,583 --> 00:01:00,160
+And that could take a really long time.
+
+20
+00:01:00,160 --> 00:01:02,170
+And that'd be really bad.
+
+21
+00:01:02,170 --> 00:01:08,500
+And then the average case really is well,
+on average I'm gonna find this around 500.
+
+22
+00:01:08,500 --> 00:01:12,085
+So being a bit frugal,
+I decided I actually want to try it and
+
+23
+00:01:12,085 --> 00:01:14,329
+I ran through all the combinations.
+
+24
+00:01:14,329 --> 00:01:17,214
+I actually got to 338 when it opened.
+
+25
+00:01:17,214 --> 00:01:17,934
+So I got lucky.
+
+26
+00:01:17,934 --> 00:01:22,150
+It's a little bit better than my
+average case expectation on the time.
+
+27
+00:01:22,150 --> 00:01:25,670
+So what I encourage you to do when you are
+learning about all these abstract concepts
+
+28
+00:01:25,670 --> 00:01:28,100
+related to computer science,
+try to relate it to the real world.
+
+29
+00:01:28,100 --> 00:01:30,180
+See how it's applying to
+you in your everyday life.

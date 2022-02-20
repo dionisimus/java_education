@@ -1,0 +1,100 @@
+[MUSIC] Welcome back. In this video, we're gonna do a walk
+through of the program assignment for module 5 focused on spelling suggestions. Now, this project consists
+fo two major parts. The first part is creating a class that
+allows us to do single operation mutations on words. So for example it'll let us
+do the changing of the word his to the word this by adding
+the letter T at the start of the word. We're gonna use that in the second
+part where we're gonna now look at these quote nearby words to
+provide spelling suggestions. So you happened to mistype and
+you write swone, it will suggest to you words like stone. So those are the two main
+parts of this project. And like all the other projects the first
+thing to do is to make sure you have the starter code. So the two main classes that we're
+going to be focused on in this project are spellingsuggest.java and
+nearbywords.java. Let's focus on nearbywords first. So NearbyWords is gonna take in
+a dictionary that you're gonna need to use for a number of features of the project. Essentially, just determine whether or
+not a string is, in fact, a word in our dictionary. The main method that you're gonna
+worry about here is DistanceOne. And the purpose of this method is to
+return all words that are essentially one letter mutation away from the original
+string that's provided to you. And you can use this boolean ords
+only to essentially select I only want the strings that are actually
+words to be returned back to me. If you have this as false it will give
+you back all possible mutations based on insertions, substitutions, or deletions. So the thing I'll need to do then is write
+insertions, substitutions and deletions. Now doing these kinds of manipulations
+of strings can be a little bit tricky. So we've done,
+is we've given you substitution for you. So you can take in the string s. That's the original string. You’re gonna pass it into the current list
+that you're gonna be adding words to. And then you also take this
+flag again which is words only. Which allows you to essentially select
+only those strings which are in fact words in the dictionary. I would recommend that you walk through
+this code carefully to see what it's doing. You'll then need to write the insertions
+method and the deletions method which are going to be very similar to that
+initial substitutions method that we gave to you. And that's essentially the whole
+first part of this project. So if you scroll through this you'll see
+that I've given you more details on what these methods do and
+how they should function. Both the ones I've given to you as well as
+the ones you're going to write yourself. And again, focusing on the fact that you’ll
+only need to write insertions and deletions. And as you write them, as with everything
+else we've ever done, I encourage you, test your methods. So it's a great point for you to print
+out all the different mutations that are suggesting to make sure it's in fact
+doing all the mutations that it should. This leads you then to part two, which is to complete the method
+suggestion in NearbyWords. And if you go back to the source code,
+what you'll see is spelling suggest is an interface and it requires just
+one method, and that's suggestions. So the idea here is if I feed in
+a string which is a misspelled word, I should be able to ask for some number
+of suggestions as the maximum number of suggestions to be given back to me. And it'll return back a list of words up
+to the length of the number of suggestions of real words in the dictionary. That's essentially how spelling
+suggest would work and we are all familiar with spelling suggest
+because we've used text editors before. So then you'd write words, that actual
+method s going to exist right here. I've done some setup for you, and I'll show you why I've done
+some setup with this initial algorithm. So if you look back at suggestions
+in the project writeup, what you'll see is I've actually
+done a fair amount for you. And if you want to take
+on an extra challenge for this project, don't read
+the algorithm that I'm giving you. Because essentially the algorithm that
+you're gonna be doing here is very similar to the Breadth First Search that
+you did in the last week's project. So you did a Breadth First Search
+of the tree to simply find words that you should suggest for
+auto completions. This is the same idea except now what
+we're doing is we're gonna be looking a Breadth First Search out based on words
+that are mutations of my initial word. Now, if you do want to look at it,
+continue on. And you can see that I've actually
+given you the algorithm for essentially breadth first
+search in this space. Again, I encourage you to
+look carefully at this and understand it before you
+attempt to write the code. There are some hints that
+I like to provide as well. And first you almost certainly want
+feedback from your code as you're writing this method. So to do this, what you'll wanna do
+is print the contents of the queue, essentially per while loop iteration. That's a great first step
+to essentially just see, is my queue growing the way
+I would expect it to. Notice that we've also
+added a few suggestions to our NearbyWords class itself. So if you scroll to the very bottom of
+NearbyWords, what you'll find is a main method that has essentially some
+test cases already built in here. And this is a great place to
+essentially run some tests. There is an optimization that
+is worth considering for this. And given the algorithm that we have
+above, if you attempt to run your spelling suggests on a misspelled word like
+kangaroo, it's gonna cause some problems. And it's worthwhile thinking about
+why it's gonna cause these problems on your own. But what you're gonna attempt to do to
+solve this is you're gonna make it so that you've searched for a while and you
+still haven't found any correctly spelled words, you may be off on a tangent. You may be off looking at space
+that's never gonna arrive at a correctly spelled word. Moreover, by the time you actually
+do arrive on a spelling suggestion, it's gonna not resemble the initial
+word at all because there have been so many mutations done to the letters. So the optimization here is to use
+the threshold variable that we gave you in the source code to essentially
+stop looking at a certain point. So you've explored for
+some amount of time, and you stop looking. This is an optional optimization,
+but I encourage you to do it. Especially if you want to
+use your text editor, or show off your text editor to your friends. All right, last piece,
+how are you gonna cement this code? Just like the previous ones,
+you're gonna go up to my submission. You're gonna create a new submission. And you'll recognise that we ask for
+nearby words, such java twice. And the reason we did this,
+is that you can actually submit just for the mutations and get those tested and get feedback on that
+before you go on to spelling suggestions. If there are errors in your insertions or
+deletions method that's gonna cause compounding errors when
+we get to suggestions. So I actually encourage you to submit
+the NearbyWords.java first to test your mutations, get full feedback, see if you
+need a full score, and then after that, submit again for suggestions. Like with all our previous assignments, you can always click on Show Greater
+Output to find out what you got right or what you may have gotten wrong. And then we've also given you
+The text cases in the source code. Nearby words greater one, nearby words
+greater two, to essentially look at, to help me figure out what
+essentially went wrong. If you need help, check the lesson videos,
+as well as look in the learner forums. Good luck on the assignment!

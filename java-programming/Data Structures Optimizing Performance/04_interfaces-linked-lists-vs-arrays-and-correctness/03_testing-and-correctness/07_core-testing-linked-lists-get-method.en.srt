@@ -1,0 +1,667 @@
+1
+00:00:00,000 --> 00:00:04,501
+[MUSIC]
+
+2
+00:00:04,501 --> 00:00:08,710
+In the last few videos, we started looking
+at more details about how to do testing.
+
+3
+00:00:08,710 --> 00:00:10,480
+And so
+far we've looked at a really high level.
+
+4
+00:00:10,480 --> 00:00:13,280
+We've been talking about
+why testing's important,
+
+5
+00:00:13,280 --> 00:00:15,490
+how you can do it in
+the development cycle, and
+
+6
+00:00:15,490 --> 00:00:18,950
+we kinda ended at this point of saying,
+well, we need to be able to test methods.
+
+7
+00:00:18,950 --> 00:00:23,800
+For me, testing didn't quite make sense
+until I saw it in a clear example.
+
+8
+00:00:23,800 --> 00:00:25,860
+So what we're gonna do
+here is do exactly that.
+
+9
+00:00:25,860 --> 00:00:29,590
+We're gonna walk through a single
+example of testing a single method
+
+10
+00:00:29,590 --> 00:00:30,370
+from your linked list.
+
+11
+00:00:30,370 --> 00:00:34,600
+So the goal by the end of this video is to
+be able to write tests for linked lists,
+
+12
+00:00:34,600 --> 00:00:36,859
+which is what you're being asked to do for
+the project.
+
+13
+00:00:39,927 --> 00:00:42,470
+So let's start with a doubly linked
+list like we been working with before.
+
+14
+00:00:42,470 --> 00:00:46,660
+We've still got a head pointer
+pointing to the sentinel node.
+
+15
+00:00:46,660 --> 00:00:50,400
+You got tail pointer pointing to the tail
+sentinel and we've got both next and
+
+16
+00:00:50,400 --> 00:00:52,400
+previous pointers all the way throughout.
+
+17
+00:00:54,750 --> 00:00:56,540
+We're gonna be testing the method get.
+
+18
+00:00:56,540 --> 00:00:58,540
+This is a quick reminder, get takes and
+
+19
+00:00:58,540 --> 00:01:04,370
+is an index, and it's gonna return back
+the value of that element at that index.
+
+20
+00:01:04,370 --> 00:01:08,241
+So it's gonna walk through the link list,
+
+21
+00:01:08,241 --> 00:01:12,226
+find index say 1 and return back 42 here.
+
+22
+00:01:12,226 --> 00:01:16,596
+Now if you ask for something that's
+invalid like I asked for index 10 for
+
+23
+00:01:16,596 --> 00:01:20,262
+a list that only has two elements
+it should throw an index out of
+
+24
+00:01:20,262 --> 00:01:22,170
+bounds exception.
+
+25
+00:01:22,170 --> 00:01:24,260
+So we need to be able to
+test that behavior too.
+
+26
+00:01:24,260 --> 00:01:25,330
+We'll get to that in just a bit.
+
+27
+00:01:26,370 --> 00:01:28,910
+So I have the idea now to
+essentially test this git method.
+
+28
+00:01:30,220 --> 00:01:31,300
+But what test should I run?
+
+29
+00:01:33,140 --> 00:01:35,230
+Now here are the scenarios.
+
+30
+00:01:35,230 --> 00:01:36,830
+These are all different tests
+I could potentially run.
+
+31
+00:01:36,830 --> 00:01:40,730
+And I want you to select which
+ones you think apply, and
+
+32
+00:01:40,730 --> 00:01:43,950
+try to avoid ones that might be redundant,
+compared to previous ones.
+
+33
+00:01:43,950 --> 00:01:45,770
+So if you think it's already been tested,
+
+34
+00:01:45,770 --> 00:01:48,030
+you can essentially say
+that this is redundant.
+
+35
+00:01:48,030 --> 00:01:49,120
+I don't need to test this anymore.
+
+36
+00:01:49,120 --> 00:01:51,986
+Go ahead and
+take a few minutes to work on this quiz.
+
+37
+00:01:51,986 --> 00:01:54,732
+I'll see you back in a moment.
+
+38
+00:01:54,732 --> 00:01:56,120
+Welcome back.
+
+39
+00:01:56,120 --> 00:01:59,000
+I hope that working through this
+helped you understand better
+
+40
+00:01:59,000 --> 00:02:02,660
+what kind of tests we should run and
+which ones we shouldn't.
+
+41
+00:02:02,660 --> 00:02:04,530
+So let's walk through each
+of these in more detail.
+
+42
+00:02:06,190 --> 00:02:09,430
+So first off should I test
+get (0) on an empty list?
+
+43
+00:02:10,690 --> 00:02:11,820
+Where would this be important?
+
+44
+00:02:11,820 --> 00:02:16,020
+Well this is a very good example of
+a corner case where you have empty lists,
+
+45
+00:02:16,020 --> 00:02:19,220
+you better be sure that you're testing
+that it's gonna throw an out of bounds
+
+46
+00:02:19,220 --> 00:02:21,430
+exception if you're trying
+to get an element from it.
+
+47
+00:02:21,430 --> 00:02:23,480
+So this is a perfect
+test of a corner case.
+
+48
+00:02:24,830 --> 00:02:26,420
+How do I do this test?
+
+49
+00:02:26,420 --> 00:02:29,070
+Well if we're working in JUnit,
+like we talked about in the last video,
+
+50
+00:02:29,070 --> 00:02:31,990
+what you're gonna do is
+simply write this test.
+
+51
+00:02:31,990 --> 00:02:33,010
+You're gonna say try.
+
+52
+00:02:33,010 --> 00:02:35,740
+You're gonna put, because
+emptList.get can throw an exception,
+
+53
+00:02:35,740 --> 00:02:37,010
+you're gonna put this in a try block.
+
+54
+00:02:38,130 --> 00:02:41,450
+And the correct behavior is for
+it to throw an exception.
+
+55
+00:02:41,450 --> 00:02:43,980
+So you want it to throw
+an IndexOutOfBoundsException, and
+
+56
+00:02:43,980 --> 00:02:45,440
+you want that to get caught.
+
+57
+00:02:45,440 --> 00:02:47,730
+That is actually the right behavior here.
+
+58
+00:02:47,730 --> 00:02:51,700
+The wrong behavior is for it to just
+get without throwing that exception, or
+
+59
+00:02:51,700 --> 00:02:53,200
+to throw some other kind of exception.
+
+60
+00:02:54,400 --> 00:02:56,041
+So if you do emptyList.get and
+
+61
+00:02:56,041 --> 00:02:59,008
+you get something back instead
+of throwing exception,
+
+62
+00:02:59,008 --> 00:03:03,064
+you'll then execute the code fail
+which is essentially, you failed here.
+
+63
+00:03:03,064 --> 00:03:06,871
+This should have thrown an exception.
+
+64
+00:03:06,871 --> 00:03:08,060
+Next test.
+
+65
+00:03:08,060 --> 00:03:10,810
+Should we be testing get
+on a negative value?
+
+66
+00:03:12,210 --> 00:03:14,890
+Well there's a lot of scenarios you
+can think about in code where you
+
+67
+00:03:14,890 --> 00:03:17,200
+might accidentally ask for negative index.
+
+68
+00:03:17,200 --> 00:03:20,510
+It's important if you're asking for
+negative index, for that to fail as well.
+
+69
+00:03:20,510 --> 00:03:23,170
+This is another great
+example of a corner case.
+
+70
+00:03:23,170 --> 00:03:27,600
+The way you'd test this is very
+similar to the test we just saw.
+
+71
+00:03:28,800 --> 00:03:29,760
+And we have a short list.
+
+72
+00:03:29,760 --> 00:03:34,310
+This is a list I have instantiated to have
+the elements that you see up at the top.
+
+73
+00:03:34,310 --> 00:03:39,530
+It's got just that one element 65 and
+we're gonna try get -1 on it.
+
+74
+00:03:39,530 --> 00:03:40,240
+And that should fail.
+
+75
+00:03:40,240 --> 00:03:42,850
+That should throw
+an IndexOutOfBoundsException.
+
+76
+00:03:42,850 --> 00:03:46,060
+If it fails to do that,
+we should essentially fail a test.
+
+77
+00:03:46,060 --> 00:03:47,264
+That's exactly what this code does.
+
+78
+00:03:50,050 --> 00:03:53,410
+Next one, should a test get 0
+from a list with 1 element.
+
+79
+00:03:53,410 --> 00:03:55,670
+Is this worth running?
+
+80
+00:03:55,670 --> 00:03:56,590
+Absolutely.
+
+81
+00:03:56,590 --> 00:03:58,540
+This is a standard use case.
+
+82
+00:03:58,540 --> 00:04:01,370
+I definitely wanna be able to get
+the first element from a list that
+
+83
+00:04:01,370 --> 00:04:02,099
+has one element.
+
+84
+00:04:03,360 --> 00:04:04,750
+How would I write that in JUnit?
+
+85
+00:04:04,750 --> 00:04:08,610
+I would essentially say assertEquals and
+
+86
+00:04:08,610 --> 00:04:12,290
+that means these two better be equal,
+or this test fails.
+
+87
+00:04:12,290 --> 00:04:13,310
+That's what assertEquals means.
+
+88
+00:04:13,310 --> 00:04:16,550
+And then what I do is I put
+a string in there first to say,
+
+89
+00:04:16,550 --> 00:04:18,130
+check to make sure
+the first element's there.
+
+90
+00:04:18,130 --> 00:04:21,683
+And then I'm gonna test,
+I'm gonna give the value that I expect,
+
+91
+00:04:21,683 --> 00:04:23,977
+which is the (Interger) value for 65.
+
+92
+00:04:23,977 --> 00:04:27,710
+And then I'm gonna call the shortlist,
+which has just this one element, .get(0).
+
+93
+00:04:27,710 --> 00:04:32,650
+And that should return back 65,
+these two should match.
+
+94
+00:04:32,650 --> 00:04:35,550
+If the assertEquals succeeds, we're fine.
+
+95
+00:04:35,550 --> 00:04:39,150
+If those two don't match,
+it'll fail, and my test will fail.
+
+96
+00:04:42,417 --> 00:04:43,420
+All right.
+
+97
+00:04:43,420 --> 00:04:46,940
+Do we wanna try,
+get one from a list with two elements, or
+
+98
+00:04:46,940 --> 00:04:48,329
+do we think this is potentially redundant?
+
+99
+00:04:50,250 --> 00:04:51,530
+Well this one's a bit debatable.
+
+100
+00:04:52,530 --> 00:04:56,330
+If you're thinking of black box testing,
+you might say this is redundant.
+
+101
+00:04:56,330 --> 00:04:59,840
+But if we know just a little
+bit about the implementation,
+
+102
+00:04:59,840 --> 00:05:02,100
+it's completely reasonable
+to run this test,
+
+103
+00:05:02,100 --> 00:05:05,910
+because we want to be able to know that we
+can get more than just the first element.
+
+104
+00:05:05,910 --> 00:05:08,620
+For example,
+your code could work just to say
+
+105
+00:05:08,620 --> 00:05:11,980
+essentially head.next to
+get the first element
+
+106
+00:05:11,980 --> 00:05:16,790
+without ever running any loops to get to
+the most appropriate element on the list.
+
+107
+00:05:16,790 --> 00:05:19,420
+So because I know that my code
+is gonna have loops in it,
+
+108
+00:05:19,420 --> 00:05:22,630
+I kind of know a bit of the details
+about the implementation, and
+
+109
+00:05:22,630 --> 00:05:26,480
+I want to test to make sure I can get
+any element, not just the first one.
+
+110
+00:05:26,480 --> 00:05:28,750
+So this is a completely
+reasonable test to run, but
+
+111
+00:05:28,750 --> 00:05:31,909
+again I'm kind of knowing a bit of
+the details about the implementation.
+
+112
+00:05:34,020 --> 00:05:35,150
+All right.
+
+113
+00:05:35,150 --> 00:05:37,200
+The way I would do this is
+just like the last one.
+
+114
+00:05:37,200 --> 00:05:41,074
+I'm gonna say assertEquals, I wanna
+make sure that if I call shortlist2,
+
+115
+00:05:41,074 --> 00:05:44,342
+this is the one that has these
+two elements, that get(1)),
+
+116
+00:05:44,342 --> 00:05:46,660
+it should return back
+to me the value of 42.
+
+117
+00:05:46,660 --> 00:05:49,570
+I'm just gonna make sure
+those two values are equal.
+
+118
+00:05:49,570 --> 00:05:51,180
+If they are, the test passes.
+
+119
+00:05:51,180 --> 00:05:53,180
+If they're not, my test will fail.
+
+120
+00:05:55,280 --> 00:05:56,472
+All right, last one.
+
+121
+00:05:56,472 --> 00:06:00,140
+Should I test to get 2 from
+a list that has 3 elements, and
+
+122
+00:06:00,140 --> 00:06:01,530
+that's the 3 elements we see up above.
+
+123
+00:06:03,580 --> 00:06:04,940
+Well, now we're being redundant.
+
+124
+00:06:04,940 --> 00:06:06,730
+I already know that I can test,
+
+125
+00:06:06,730 --> 00:06:10,940
+I can find more than the first
+element because of the last test d.
+
+126
+00:06:10,940 --> 00:06:14,360
+What you could argue is,
+maybe this is a better test than d,
+
+127
+00:06:14,360 --> 00:06:18,290
+than option d which is just find
+the second elements in the list.
+
+128
+00:06:18,290 --> 00:06:21,940
+One of these tests is required to
+essentially find, to test whether or
+
+129
+00:06:21,940 --> 00:06:25,500
+not can find more than the first element,
+but only one of them.
+
+130
+00:06:25,500 --> 00:06:27,470
+At a certain point if you just
+keep running this over and
+
+131
+00:06:27,470 --> 00:06:29,089
+over, it's gonna get a bit redundant.
+
+132
+00:06:30,580 --> 00:06:34,045
+In summary, the most important thing
+is to consider both the corner cases we
+
+133
+00:06:34,045 --> 00:06:36,830
+are testing as well as the common case.
+
+134
+00:06:36,830 --> 00:06:38,220
+Again this is the most important piece.
+
+135
+00:06:38,220 --> 00:06:40,680
+Make sure you test these components and
+test them well.
+
+136
+00:06:42,110 --> 00:06:45,810
+Less important there is a cost
+associated with testing.
+
+137
+00:06:45,810 --> 00:06:48,260
+Most companies run unit
+tests overnight and
+
+138
+00:06:48,260 --> 00:06:50,010
+this is gonna take some number of hours.
+
+139
+00:06:50,010 --> 00:06:53,850
+When you're running code overnight, you're
+running code usually on your servers
+
+140
+00:06:53,850 --> 00:06:58,630
+which means you're paying power costs
+associated with running these tests.
+
+141
+00:06:58,630 --> 00:07:02,320
+So if you have a lot of extra redundant
+tests that could be problematic.
+
+142
+00:07:02,320 --> 00:07:06,670
+But in general,
+the rule is just err on the safe side.
+
+143
+00:07:06,670 --> 00:07:08,590
+Test the things that you
+think should be tested and
+
+144
+00:07:08,590 --> 00:07:10,950
+then worry about those redundant
+cases eventually later.

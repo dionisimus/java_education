@@ -1,0 +1,630 @@
+1
+00:00:00,098 --> 00:00:03,221
+[MUSIC]
+
+2
+00:00:05,425 --> 00:00:06,402
+Welcome back.
+
+3
+00:00:06,402 --> 00:00:09,678
+In this video, we're gonna do a walk
+through of the program assignment for
+
+4
+00:00:09,678 --> 00:00:12,190
+module 5 focused on spelling suggestions.
+
+5
+00:00:12,190 --> 00:00:14,630
+Now, this project consists
+fo two major parts.
+
+6
+00:00:14,630 --> 00:00:19,478
+The first part is creating a class that
+allows us to do single operation mutations
+
+7
+00:00:19,478 --> 00:00:20,128
+on words.
+
+8
+00:00:20,128 --> 00:00:24,138
+So for example it'll let us
+do the changing of the word
+
+9
+00:00:24,138 --> 00:00:29,055
+his to the word this by adding
+the letter T at the start of the word.
+
+10
+00:00:29,055 --> 00:00:33,105
+We're gonna use that in the second
+part where we're gonna now look
+
+11
+00:00:33,105 --> 00:00:37,270
+at these quote nearby words to
+provide spelling suggestions.
+
+12
+00:00:37,270 --> 00:00:39,640
+So you happened to mistype and
+you write swone,
+
+13
+00:00:39,640 --> 00:00:42,230
+it will suggest to you words like stone.
+
+14
+00:00:42,230 --> 00:00:44,672
+So those are the two main
+parts of this project.
+
+15
+00:00:44,672 --> 00:00:48,641
+And like all the other projects the first
+thing to do is to make sure you have
+
+16
+00:00:48,641 --> 00:00:49,675
+the starter code.
+
+17
+00:00:49,675 --> 00:00:54,063
+So the two main classes that we're
+going to be focused on in this project
+
+18
+00:00:54,063 --> 00:00:57,442
+are spellingsuggest.java and
+nearbywords.java.
+
+19
+00:00:57,442 --> 00:00:59,624
+Let's focus on nearbywords first.
+
+20
+00:00:59,624 --> 00:01:03,017
+So NearbyWords is gonna take in
+a dictionary that you're gonna need to use
+
+21
+00:01:03,017 --> 00:01:05,060
+for a number of features of the project.
+
+22
+00:01:05,060 --> 00:01:08,450
+Essentially, just determine whether or
+not a string is, in fact,
+
+23
+00:01:08,450 --> 00:01:10,270
+a word in our dictionary.
+
+24
+00:01:10,270 --> 00:01:13,979
+The main method that you're gonna
+worry about here is DistanceOne.
+
+25
+00:01:13,979 --> 00:01:18,469
+And the purpose of this method is to
+return all words that are essentially one
+
+26
+00:01:18,469 --> 00:01:22,766
+letter mutation away from the original
+string that's provided to you.
+
+27
+00:01:22,766 --> 00:01:26,190
+And you can use this boolean ords
+only to essentially select I
+
+28
+00:01:26,190 --> 00:01:30,231
+only want the strings that are actually
+words to be returned back to me.
+
+29
+00:01:30,231 --> 00:01:34,740
+If you have this as false it will give
+you back all possible mutations based on
+
+30
+00:01:34,740 --> 00:01:37,567
+insertions, substitutions, or deletions.
+
+31
+00:01:37,567 --> 00:01:42,500
+So the thing I'll need to do then is write
+insertions, substitutions and deletions.
+
+32
+00:01:42,500 --> 00:01:45,448
+Now doing these kinds of manipulations
+of strings can be a little bit tricky.
+
+33
+00:01:45,448 --> 00:01:48,164
+So we've done,
+is we've given you substitution for you.
+
+34
+00:01:48,164 --> 00:01:52,226
+So you can take in the string s.
+
+35
+00:01:52,226 --> 00:01:53,555
+That's the original string.
+
+36
+00:01:53,555 --> 00:01:57,619
+You’re gonna pass it into the current list
+that you're gonna be adding words to.
+
+37
+00:01:57,619 --> 00:02:00,540
+And then you also take this
+flag again which is words only.
+
+38
+00:02:00,540 --> 00:02:04,515
+Which allows you to essentially select
+only those strings which are in fact words
+
+39
+00:02:04,515 --> 00:02:05,518
+in the dictionary.
+
+40
+00:02:05,518 --> 00:02:08,530
+I would recommend that you walk through
+this code carefully to see what
+
+41
+00:02:08,530 --> 00:02:09,150
+it's doing.
+
+42
+00:02:10,880 --> 00:02:14,953
+You'll then need to write the insertions
+method and the deletions method which
+
+43
+00:02:14,953 --> 00:02:18,660
+are going to be very similar to that
+initial substitutions method that we
+
+44
+00:02:18,660 --> 00:02:19,345
+gave to you.
+
+45
+00:02:19,345 --> 00:02:21,584
+And that's essentially the whole
+first part of this project.
+
+46
+00:02:21,584 --> 00:02:25,188
+So if you scroll through this you'll see
+that I've given you more details on what
+
+47
+00:02:25,188 --> 00:02:27,308
+these methods do and
+how they should function.
+
+48
+00:02:27,308 --> 00:02:30,547
+Both the ones I've given to you as well as
+the ones you're going to write yourself.
+
+49
+00:02:30,547 --> 00:02:34,331
+And again, focusing on the fact that you’ll
+only need to write insertions and deletions.
+
+50
+00:02:34,331 --> 00:02:37,942
+And as you write them, as with everything
+else we've ever done, I encourage you,
+
+51
+00:02:37,942 --> 00:02:38,900
+test your methods.
+
+52
+00:02:38,900 --> 00:02:42,720
+So it's a great point for you to print
+out all the different mutations that
+
+53
+00:02:42,720 --> 00:02:46,980
+are suggesting to make sure it's in fact
+doing all the mutations that it should.
+
+54
+00:02:46,980 --> 00:02:48,660
+This leads you then to part two,
+
+55
+00:02:48,660 --> 00:02:53,250
+which is to complete the method
+suggestion in NearbyWords.
+
+56
+00:02:53,250 --> 00:02:57,856
+And if you go back to the source code,
+what you'll see is spelling suggest
+
+57
+00:02:57,856 --> 00:03:02,628
+is an interface and it requires just
+one method, and that's suggestions.
+
+58
+00:03:02,628 --> 00:03:05,965
+So the idea here is if I feed in
+a string which is a misspelled word,
+
+59
+00:03:05,965 --> 00:03:09,852
+I should be able to ask for some number
+of suggestions as the maximum number of
+
+60
+00:03:09,852 --> 00:03:11,700
+suggestions to be given back to me.
+
+61
+00:03:11,700 --> 00:03:17,180
+And it'll return back a list of words up
+to the length of the number of suggestions
+
+62
+00:03:17,180 --> 00:03:18,450
+of real words in the dictionary.
+
+63
+00:03:19,590 --> 00:03:22,290
+That's essentially how spelling
+suggest would work and
+
+64
+00:03:22,290 --> 00:03:25,510
+we are all familiar with spelling suggest
+because we've used text editors before.
+
+65
+00:03:25,510 --> 00:03:29,060
+So then you'd write words, that actual
+method s going to exist right here.
+
+66
+00:03:29,060 --> 00:03:30,324
+I've done some setup for
+
+67
+00:03:30,324 --> 00:03:34,366
+you, and I'll show you why I've done
+some setup with this initial algorithm.
+
+68
+00:03:34,366 --> 00:03:36,972
+So if you look back at suggestions
+in the project writeup,
+
+69
+00:03:36,972 --> 00:03:40,590
+what you'll see is I've actually
+done a fair amount for you.
+
+70
+00:03:40,590 --> 00:03:42,950
+And if you want to take
+on an extra challenge for
+
+71
+00:03:42,950 --> 00:03:46,190
+this project, don't read
+the algorithm that I'm giving you.
+
+72
+00:03:46,190 --> 00:03:49,909
+Because essentially the algorithm that
+you're gonna be doing here is very similar
+
+73
+00:03:49,909 --> 00:03:53,004
+to the Breadth First Search that
+you did in the last week's project.
+
+74
+00:03:53,004 --> 00:03:56,562
+So you did a Breadth First Search
+of the tree to simply find words
+
+75
+00:03:56,562 --> 00:03:59,260
+that you should suggest for
+auto completions.
+
+76
+00:03:59,260 --> 00:04:04,153
+This is the same idea except now what
+we're doing is we're gonna be looking
+
+77
+00:04:04,153 --> 00:04:09,372
+a Breadth First Search out based on words
+that are mutations of my initial word.
+
+78
+00:04:09,372 --> 00:04:12,169
+Now, if you do want to look at it,
+continue on.
+
+79
+00:04:12,169 --> 00:04:14,683
+And you can see that I've actually
+given you the algorithm for
+
+80
+00:04:14,683 --> 00:04:16,721
+essentially breadth first
+search in this space.
+
+81
+00:04:16,721 --> 00:04:19,023
+Again, I encourage you to
+look carefully at this and
+
+82
+00:04:19,023 --> 00:04:21,340
+understand it before you
+attempt to write the code.
+
+83
+00:04:22,370 --> 00:04:24,597
+There are some hints that
+I like to provide as well.
+
+84
+00:04:24,597 --> 00:04:27,709
+And first you almost certainly want
+feedback from your code as you're
+
+85
+00:04:27,709 --> 00:04:28,719
+writing this method.
+
+86
+00:04:28,719 --> 00:04:32,379
+So to do this, what you'll wanna do
+is print the contents of the queue,
+
+87
+00:04:32,379 --> 00:04:34,464
+essentially per while loop iteration.
+
+88
+00:04:34,464 --> 00:04:37,040
+That's a great first step
+to essentially just see,
+
+89
+00:04:37,040 --> 00:04:39,390
+is my queue growing the way
+I would expect it to.
+
+90
+00:04:39,390 --> 00:04:42,603
+Notice that we've also
+added a few suggestions
+
+91
+00:04:42,603 --> 00:04:44,980
+to our NearbyWords class itself.
+
+92
+00:04:44,980 --> 00:04:49,157
+So if you scroll to the very bottom of
+NearbyWords, what you'll find is a main
+
+93
+00:04:49,157 --> 00:04:52,843
+method that has essentially some
+test cases already built in here.
+
+94
+00:04:52,843 --> 00:04:55,779
+And this is a great place to
+essentially run some tests.
+
+95
+00:04:55,779 --> 00:04:59,262
+There is an optimization that
+is worth considering for this.
+
+96
+00:04:59,262 --> 00:05:03,421
+And given the algorithm that we have
+above, if you attempt to run your spelling
+
+97
+00:05:03,421 --> 00:05:08,650
+suggests on a misspelled word like
+kangaroo, it's gonna cause some problems.
+
+98
+00:05:08,650 --> 00:05:11,455
+And it's worthwhile thinking about
+why it's gonna cause these problems
+
+99
+00:05:11,455 --> 00:05:11,960
+on your own.
+
+100
+00:05:11,960 --> 00:05:15,753
+But what you're gonna attempt to do to
+solve this is you're gonna make it so
+
+101
+00:05:15,753 --> 00:05:20,032
+that you've searched for a while and you
+still haven't found any correctly spelled
+
+102
+00:05:20,032 --> 00:05:21,860
+words, you may be off on a tangent.
+
+103
+00:05:21,860 --> 00:05:25,340
+You may be off looking at space
+that's never gonna arrive at
+
+104
+00:05:25,340 --> 00:05:26,910
+a correctly spelled word.
+
+105
+00:05:26,910 --> 00:05:30,420
+Moreover, by the time you actually
+do arrive on a spelling suggestion,
+
+106
+00:05:30,420 --> 00:05:33,987
+it's gonna not resemble the initial
+word at all because there have been so
+
+107
+00:05:33,987 --> 00:05:35,789
+many mutations done to the letters.
+
+108
+00:05:35,789 --> 00:05:39,789
+So the optimization here is to use
+the threshold variable that we gave you in
+
+109
+00:05:39,789 --> 00:05:43,231
+the source code to essentially
+stop looking at a certain point.
+
+110
+00:05:43,231 --> 00:05:47,010
+So you've explored for
+some amount of time, and you stop looking.
+
+111
+00:05:47,010 --> 00:05:49,974
+This is an optional optimization,
+but I encourage you to do it.
+
+112
+00:05:49,974 --> 00:05:52,356
+Especially if you want to
+use your text editor, or
+
+113
+00:05:52,356 --> 00:05:54,408
+show off your text editor to your friends.
+
+114
+00:05:54,408 --> 00:05:58,134
+All right, last piece,
+how are you gonna cement this code?
+
+115
+00:05:58,134 --> 00:06:01,535
+Just like the previous ones,
+you're gonna go up to my submission.
+
+116
+00:06:01,535 --> 00:06:03,069
+You're gonna create a new submission.
+
+117
+00:06:03,069 --> 00:06:06,650
+And you'll recognise that we ask for
+nearby words, such java twice.
+
+118
+00:06:06,650 --> 00:06:09,699
+And the reason we did this,
+is that you can actually submit just for
+
+119
+00:06:09,699 --> 00:06:10,515
+the mutations and
+
+120
+00:06:10,515 --> 00:06:14,336
+get those tested and get feedback on that
+before you go on to spelling suggestions.
+
+121
+00:06:14,336 --> 00:06:17,821
+If there are errors in your insertions or
+deletions method that's gonna cause
+
+122
+00:06:17,821 --> 00:06:20,002
+compounding errors when
+we get to suggestions.
+
+123
+00:06:20,002 --> 00:06:24,166
+So I actually encourage you to submit
+the NearbyWords.java first to test your
+
+124
+00:06:24,166 --> 00:06:28,578
+mutations, get full feedback, see if you
+need a full score, and then after that,
+
+125
+00:06:28,578 --> 00:06:30,300
+submit again for suggestions.
+
+126
+00:06:30,300 --> 00:06:32,042
+Like with all our previous assignments,
+
+127
+00:06:32,042 --> 00:06:35,126
+you can always click on Show Greater
+Output to find out what you got right or
+
+128
+00:06:35,126 --> 00:06:36,487
+what you may have gotten wrong.
+
+129
+00:06:36,487 --> 00:06:39,785
+And then we've also given you
+The text cases in the source code.
+
+130
+00:06:39,785 --> 00:06:43,634
+Nearby words greater one, nearby words
+greater two, to essentially look at,
+
+131
+00:06:43,634 --> 00:06:46,111
+to help me figure out what
+essentially went wrong.
+
+132
+00:06:46,111 --> 00:06:52,090
+If you need help, check the lesson videos,
+as well as look in the learner forums.
+
+133
+00:06:52,090 --> 00:06:52,860
+Good luck on the assignment!

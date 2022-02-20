@@ -1,0 +1,676 @@
+1
+00:00:03,712 --> 00:00:07,399
+So in this support video, our goal is
+to walk through some of the regular
+
+2
+00:00:07,399 --> 00:00:10,590
+expressions that you'll
+be using in the project.
+
+3
+00:00:10,590 --> 00:00:13,370
+So, by the end of this video,
+you will be able to
+
+4
+00:00:13,370 --> 00:00:16,720
+write the regular expressions that you
+will need in the programming assignment.
+
+5
+00:00:16,720 --> 00:00:19,940
+So, big caution, spoiler alert,
+
+6
+00:00:19,940 --> 00:00:22,800
+by the end of this video,
+you will really see the solution.
+
+7
+00:00:22,800 --> 00:00:27,075
+So if, like me, you like to try to
+figure these things out on your own
+
+8
+00:00:27,075 --> 00:00:31,286
+before someone spoils the end and
+tells you the answer, stop now.
+
+9
+00:00:31,286 --> 00:00:34,850
+Try to work through it yourself, and
+then if you get stuck, do come back and
+
+10
+00:00:34,850 --> 00:00:36,880
+we'll work through it together.
+
+11
+00:00:36,880 --> 00:00:39,890
+But if you watch this video,
+you will see the solution.
+
+12
+00:00:39,890 --> 00:00:42,040
+So let's get to it.
+
+13
+00:00:42,040 --> 00:00:44,798
+But if you need to go away and
+then come back, please do that.
+
+14
+00:00:44,798 --> 00:00:48,400
+All right, so just remember the context
+what we're doing in this project
+
+15
+00:00:48,400 --> 00:00:51,490
+is we're processing this text document.
+
+16
+00:00:51,490 --> 00:00:55,710
+And what we'd like to do is break it
+apart into constituent pieces, and
+
+17
+00:00:55,710 --> 00:00:59,025
+then we'll be able to compute that flush
+index by looking at the numbers of words
+
+18
+00:00:59,025 --> 00:01:01,630
+and the number of syllables and
+the number of sentences.
+
+19
+00:01:01,630 --> 00:01:05,780
+And so we have the helper method that's
+given to us in the abstract class
+
+20
+00:01:05,780 --> 00:01:10,140
+Document, and
+this helper method is called, getTokens.
+
+21
+00:01:10,140 --> 00:01:16,000
+And what we do is we feed it in a string,
+and it outputs a list of strings.
+
+22
+00:01:16,000 --> 00:01:21,420
+So what we give the getTokens document,
+sorry, getTokens method
+
+23
+00:01:21,420 --> 00:01:26,730
+is a regular expression that defines
+the tokens that we want out.
+
+24
+00:01:26,730 --> 00:01:32,250
+So that regular expression is going
+to match to what we want to see
+
+25
+00:01:32,250 --> 00:01:35,630
+out of the big text that we give it,
+the big string that we give it.
+
+26
+00:01:35,630 --> 00:01:38,390
+Okay, and
+then what's returned to us is a list
+
+27
+00:01:38,390 --> 00:01:43,260
+of all those pieces of the big text
+that match the regular expression.
+
+28
+00:01:43,260 --> 00:01:46,390
+So then, our task is to fill in what
+
+29
+00:01:47,410 --> 00:01:50,490
+regular expression we want
+depending on the context.
+
+30
+00:01:50,490 --> 00:01:54,650
+So, for example, one of the first methods
+that you'll be writing in this project
+
+31
+00:01:54,650 --> 00:01:56,770
+is the getNumWords method.
+
+32
+00:01:56,770 --> 00:02:01,530
+And so what we'd like to do is figure out
+what the words are that are part of this
+
+33
+00:02:01,530 --> 00:02:05,920
+big, big string that represents
+the document that we're processing.
+
+34
+00:02:05,920 --> 00:02:08,961
+And so
+we'd like to separate out each word, and
+
+35
+00:02:08,961 --> 00:02:11,708
+then we'll have a big list of those words.
+
+36
+00:02:11,708 --> 00:02:15,420
+And then all we'll have to do afterwards
+is look at the size of that list, and
+
+37
+00:02:15,420 --> 00:02:19,248
+that size of that list of tokens that are
+returned is exactly the number of words
+
+38
+00:02:19,248 --> 00:02:20,450
+in the document.
+
+39
+00:02:20,450 --> 00:02:25,850
+So, the big conceptual challenge and
+nugget in this getNumWords method
+
+40
+00:02:25,850 --> 00:02:30,710
+is really focusing in on what
+the regular expression it is that we
+
+41
+00:02:30,710 --> 00:02:36,300
+should be using to separate out
+the words in the big document.
+
+42
+00:02:36,300 --> 00:02:39,330
+Okay, so we want to fill in
+those red question marks.
+
+43
+00:02:39,330 --> 00:02:42,560
+And what we'll be filling in
+those red question marks with
+
+44
+00:02:42,560 --> 00:02:45,810
+is the regular expression
+that will match any word.
+
+45
+00:02:45,810 --> 00:02:48,690
+Now, in order to understand what
+it means to match any word,
+
+46
+00:02:48,690 --> 00:02:51,200
+we need to figure out
+what constitutes a word.
+
+47
+00:02:51,200 --> 00:02:57,180
+So we're going to not try to
+delve too deeply into grammar and
+
+48
+00:02:57,180 --> 00:03:00,470
+dictionaries and language theory.
+
+49
+00:03:00,470 --> 00:03:04,230
+And we're going to use the definition of
+a word that we suggest in the project
+
+50
+00:03:04,230 --> 00:03:08,370
+description, and we're going to say
+that a word is a contiguous sequence of
+
+51
+00:03:08,370 --> 00:03:10,180
+alphabetic characters.
+
+52
+00:03:10,180 --> 00:03:13,153
+So that means that we're going to
+ignore things like apostrophes.
+
+53
+00:03:13,153 --> 00:03:17,773
+We're going to ignore numbers,
+numerals, and we're just going to
+
+54
+00:03:17,773 --> 00:03:22,766
+focus in on consecutive sequences
+of alphabetical characters.
+
+55
+00:03:22,766 --> 00:03:26,920
+Okay, and so
+let's take a minute or second and
+
+56
+00:03:26,920 --> 00:03:31,244
+try to think about how we would fill in a
+regular expression that represents whether
+
+57
+00:03:31,244 --> 00:03:34,240
+it matches any contiguous sequence
+of alphabetic characters.
+
+58
+00:03:34,240 --> 00:03:35,660
+So pause if you'd like and think about it.
+
+59
+00:03:38,270 --> 00:03:41,700
+And now let's at least try one approach.
+
+60
+00:03:41,700 --> 00:03:44,121
+So perhaps we might fill it with saying,
+well,
+
+61
+00:03:44,121 --> 00:03:48,580
+alphabetic characters are anything
+that's either lowercase or uppercase.
+
+62
+00:03:48,580 --> 00:03:53,660
+And I would like my regular expression
+to match any character in the set
+
+63
+00:03:53,660 --> 00:03:59,270
+a through z lowercase, or
+A through Z, uppercase.
+
+64
+00:03:59,270 --> 00:04:02,930
+And that seems like a reasonable approach.
+
+65
+00:04:02,930 --> 00:04:06,486
+So let's think about what's now
+circled in the regular expression, and
+
+66
+00:04:06,486 --> 00:04:07,987
+think about whether it works.
+
+67
+00:04:07,987 --> 00:04:10,520
+Well, what do you think?
+
+68
+00:04:10,520 --> 00:04:13,300
+There's a bit of a bug here, and
+
+69
+00:04:13,300 --> 00:04:17,760
+the bug comes with wanting words
+that have more than one character.
+
+70
+00:04:17,760 --> 00:04:20,350
+So, if you remember
+the square brackets notation,
+
+71
+00:04:20,350 --> 00:04:25,820
+what it means is I wanna match a single
+character that is within the collection of
+
+72
+00:04:25,820 --> 00:04:28,970
+symbols that I'm putting
+in the square brackets.
+
+73
+00:04:28,970 --> 00:04:32,766
+But for our words what we'd like
+is a sequence of characters.
+
+74
+00:04:32,766 --> 00:04:38,000
+And so what we're going to say one or
+more of the following set of characters.
+
+75
+00:04:38,000 --> 00:04:43,390
+And so what we need to do is to add that
+plus symbol after the square brackets,
+
+76
+00:04:43,390 --> 00:04:48,160
+and that will let us match to any
+contiguous non-empty sequence
+
+77
+00:04:48,160 --> 00:04:49,417
+of alphabetic characters.
+
+78
+00:04:49,417 --> 00:04:56,369
+All right, so this is the correct regular
+expression now for matching two words.
+
+79
+00:04:56,369 --> 00:05:00,628
+And so now the getNumWords method
+will process our big string that
+
+80
+00:05:00,628 --> 00:05:05,585
+represents our document and separate
+out each of the consecutive sequences
+
+81
+00:05:05,585 --> 00:05:10,930
+of alphabetic characters, and spit
+them out into one big list of strings.
+
+82
+00:05:10,930 --> 00:05:13,610
+And then we'll be able to
+return the size of that list
+
+83
+00:05:13,610 --> 00:05:15,970
+as the number of words in our document.
+
+84
+00:05:15,970 --> 00:05:19,460
+Okay, so we've got this method sorted out.
+
+85
+00:05:19,460 --> 00:05:23,570
+And now let's move on to the next method
+that you're implementing in the project.
+
+86
+00:05:23,570 --> 00:05:28,110
+And this would be a good point as well to
+pause if you feel pretty confident about
+
+87
+00:05:28,110 --> 00:05:31,580
+how, about this solution, and
+you want to try yourself for the next one.
+
+88
+00:05:31,580 --> 00:05:35,370
+The next method that we'll
+tackle is the getNumSentences.
+
+89
+00:05:35,370 --> 00:05:38,130
+So take this opportunity to work
+on it yourself, if you like.
+
+90
+00:05:38,130 --> 00:05:42,820
+And then come back to confirm your answer,
+if that's what you would like to do.
+
+91
+00:05:42,820 --> 00:05:47,590
+Okay, now that we're here, let's
+remember what constitutes a sentence.
+
+92
+00:05:47,590 --> 00:05:51,950
+So a sentence, well again we're not going
+to be to worried about grammatical,
+
+93
+00:05:51,950 --> 00:05:54,390
+and this isn't going to
+be a perfect solution.
+
+94
+00:05:54,390 --> 00:05:59,290
+But a pretty good approximation of what
+a sentence looks like is a sequence of
+
+95
+00:05:59,290 --> 00:06:04,610
+characters that at their end have
+an end of sentence punctuation.
+
+96
+00:06:04,610 --> 00:06:09,447
+So when we think about a sentence,
+we know that it's usually ended by either
+
+97
+00:06:09,447 --> 00:06:12,713
+a period or an exclamation mark or
+a question mark.
+
+98
+00:06:12,713 --> 00:06:15,964
+And so what we're going to do is that
+think about any sequence of characters
+
+99
+00:06:15,964 --> 00:06:19,390
+that has that at the end,
+we'd like to consider a sentence.
+
+100
+00:06:19,390 --> 00:06:24,070
+Now, we don't wanted to include that
+last symbol as part of our sentence.
+
+101
+00:06:24,070 --> 00:06:27,990
+And so we'd like just the beginning
+part to be considered the sentence.
+
+102
+00:06:27,990 --> 00:06:32,030
+And so now what we have to do is
+figure out what regular expression
+
+103
+00:06:32,030 --> 00:06:37,292
+will exactly match to the sentence part,
+without the punctuation at the end.
+
+104
+00:06:37,292 --> 00:06:41,740
+All right, so
+how do we fill in those question marks?
+
+105
+00:06:41,740 --> 00:06:45,380
+And this is a little bit different from
+what we were doing with the words before.
+
+106
+00:06:45,380 --> 00:06:49,570
+With the words, we were talking about what
+each character in the word would look
+
+107
+00:06:49,570 --> 00:06:52,260
+like, and we knew that they
+were alphabetical characters.
+
+108
+00:06:52,260 --> 00:06:57,150
+Whereas here, we're talking
+about some perhaps ill-defined
+
+109
+00:06:57,150 --> 00:06:59,830
+collection of characters, but
+all we care about it the very end.
+
+110
+00:07:00,900 --> 00:07:03,350
+And so
+that seems a little bit harder to do.
+
+111
+00:07:03,350 --> 00:07:08,280
+In order to rephrase this definition into
+something that maybe is more amenable to
+
+112
+00:07:08,280 --> 00:07:13,170
+writing as a regular expression,
+we wanna think about a sentence as, well,
+
+113
+00:07:13,170 --> 00:07:17,029
+it's a collection of things that don't
+in the middle of them include the end
+
+114
+00:07:17,029 --> 00:07:18,470
+of sentence punctuation.
+
+115
+00:07:18,470 --> 00:07:22,810
+So a way of working with this
+definition in a way that lets us
+
+116
+00:07:22,810 --> 00:07:26,320
+write it as a regular expression
+is to actually tweak it a bit, and
+
+117
+00:07:26,320 --> 00:07:30,160
+try to find an equivalent formulation
+that maybe matches the operations that we
+
+118
+00:07:30,160 --> 00:07:31,570
+have a little bit better.
+
+119
+00:07:31,570 --> 00:07:35,740
+And so, one way of thinking about this
+definition is that it says, we want
+
+120
+00:07:35,740 --> 00:07:40,830
+a sequence of characters that doesn't
+include the end of sentence punctuation.
+
+121
+00:07:40,830 --> 00:07:46,100
+So we want all of the characters
+in the string that we matched to
+
+122
+00:07:46,100 --> 00:07:48,960
+not to be end of sentence punctuation.
+
+123
+00:07:48,960 --> 00:07:51,610
+And we have a way of doing
+that in regular expressions.
+
+124
+00:07:51,610 --> 00:07:54,070
+So remember the caret symbol.
+
+125
+00:07:54,070 --> 00:07:57,690
+So this caret symbol says,
+I don't want things
+
+126
+00:07:57,690 --> 00:08:02,010
+from the following collection of
+characters in the string that I match to.
+
+127
+00:08:02,010 --> 00:08:04,600
+And so, which characters don't we want?
+
+128
+00:08:04,600 --> 00:08:06,103
+We don't want exclamation marks.
+
+129
+00:08:06,103 --> 00:08:08,910
+We don't want question marks,
+and we don't want periods.
+
+130
+00:08:08,910 --> 00:08:10,930
+But all the other characters are okay.
+
+131
+00:08:10,930 --> 00:08:12,598
+And we want any number of them.
+
+132
+00:08:12,598 --> 00:08:15,448
+So that + at the end of
+the regular expression
+
+133
+00:08:15,448 --> 00:08:19,880
+says that we would like to match
+a non-empty sequence of characters.
+
+134
+00:08:19,880 --> 00:08:23,523
+And all the characters that are not
+in that non-empty sequence have to
+
+135
+00:08:23,523 --> 00:08:27,420
+be something other than
+the end-of-sentence punctuation.
+
+136
+00:08:27,420 --> 00:08:31,520
+And so here we have the regular
+expression that will correctly match to
+
+137
+00:08:31,520 --> 00:08:33,000
+each of the sentences.
+
+138
+00:08:33,000 --> 00:08:38,560
+And so once we call getTokens
+with this pattern as its input,
+
+139
+00:08:38,560 --> 00:08:41,590
+then the result is going
+to be a list of strings.
+
+140
+00:08:41,590 --> 00:08:45,450
+Each string is going to be a sentence,
+and we can count the size of that list
+
+141
+00:08:45,450 --> 00:08:48,148
+to give us the number of
+sentences in our document.

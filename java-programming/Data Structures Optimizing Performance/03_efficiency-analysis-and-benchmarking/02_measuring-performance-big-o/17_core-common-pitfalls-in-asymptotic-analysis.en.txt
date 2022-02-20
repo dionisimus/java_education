@@ -1,0 +1,78 @@
+[SOUND] All right, we're ready to wrap
+up our discussion of performance, and I just wanna mention that
+we're really only touching the tip of the iceberg here in
+terms of performance. But we'll talk a lot more
+about big O analysis and asymptotics as the course progresses and
+throughout the rest of the specialization. So by the end of this particular video and this lesson, you'll have a sense
+of organizing the big O classes according to their rate of growth, so
+you'll be able to compare two classes. And you'll also be able to avoid
+some of the common pitfalls in asymptotic analysis. So let's start by thinking about
+the classes that we've been talking about. We talked about constant time, so O(1). And those are really operations or pieces of code that don't depend
+on the size of the input at all. And then we went on and
+talked about O(log n). And so, here you saw in the concept
+challenge earlier on that the base of the logarithm doesn't matter,
+but log n does grow as n grows. And then O(n) even faster,
+and so we have linear time, which grows more quickly than log n time. And then as we keep going,
+we see the, for example, quadratic goes even faster than O(n). Now, we haven't even touched
+most of the complexity classes. These are some standard ones
+that are very useful for the analysis of the code snippets
+that we've been thinking about. But there are others that come into
+play very often when we do complexity. For example,
+exponential functions come in quite often. And we'll talk about those
+a little bit later on. But also, basically any normal
+usual function on integers can be use as a complexity
+function often if it's increasing. And you can do similar
+asymptotic analysis with those. What you wanna keep in mind isn't all of
+the complexity that comes into play there, but rather, that these are useful
+measures for giving us a sense of how we can expect our algorithm
+to perform as our input size grows. And what we'd like is for
+our run time not to go too fast so that we can actually run our code and run
+our algorithms on really big data, okay? So that's one thing to keep in mind. Now, let's think about if we have
+two separate algorithms, and we've done this computation, and
+we've looked at the asymptotics of their run time, of their performance, and we've
+decided that algorithm 1 is O(log n) and algorithm 2 is quadratic, so
+its big O time is n squared. So thinking back to the progression of
+complexity classes that we just saw, we might think that algorithm 2
+is way worse than algorithm 1, it's quadratic instead of logarithmic. And so the question that
+we might ask ourselves is, does Algorithm 1 always run
+faster than Algorithm 2? Is it always going to be the case that
+Algorithm 1 uses fewer operations? And this is a really common
+misconception that just because log n grows more slowly than n squared, that
+Algorithm 1 will always beat Algorithm 2. And what you wanna keep in mind is that
+the answer is no, it's not always going to be the case that a logarithmic algorithm
+will outperform the quadratic algorithm. But in the long run,
+as you get to bigger and bigger inputs and really huge data sets that you're
+processing, in that case then yes. In that case,
+the quadratic algorithm will be slower. But, at the beginning, we might
+have some initialization processes. We might have some constants that will
+mean for small cases, you might wanna go with the n squared algorithm,
+maybe because it's easier to implement. It's easier to code up. And so, you might want to go with
+a slightly slower algorithm. Slower in the worst-case, but one that,
+for the cases that you care about, the inputs, the real-world inputs
+that you're using might be just fine. And so that's a useful piece of
+thinking of an asymptotics and bringing it back to the real world. All right, last but not least, we have
+to think about what's an operation. When we've been doing all of this
+asymptotic analysis, really at the heart, we've been counting operations. At the heart of this process,
+we've been counting operations. And at the beginning, we said that
+an operation is some basic unit of computation whose time doesn't depend on
+the size of the input that we've given it. And so the example that we started
+with was this hasLetter method, and we were going ahead and counting all
+sorts of pieces of this code, and each of the statements that
+are boxed in yellow on the slide, we counted as a single operation. But, I wanna caution you about
+counting methods as single operations, because here for example, what we're doing
+with this charAt method, is we're asking for the character that occurs in index
+i in a string, in the string word. And so what the means is that we need
+to interact with the string object and ask for it to give us some piece of it,
+the character at a particular index. And what's going to happen is that
+the run time of that operation may depend on what that object looks like
+and the internals of that object and what that method charAt does. And so when we're actually looking at
+method calls as part of the analysis of a bigger code snippet,
+we really have to think about whether that method call represents O(1)
+work, just a constant amount of work. Or whether that single
+method call might represent a whole lot more time that we might need
+to include in our asymptotic analysis. So as I said, this is really just the tip
+of the iceberg, but we'll be continuing to revisit this cycle of thinking about the
+algorithm and data structure design, and then thinking about the performance
+implications of those designs. And then going back and maybe refining
+our algorithm or data structure design to get better performance, and going
+back and forth in this productive loop

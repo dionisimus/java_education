@@ -1,0 +1,17 @@
+[MUSIC] Hi, my name is Jesse Chuy Chavez and I and a software engineer on the Google privacy
+team in the Google office in Chicago. I world on products that help keep
+our users' data safe and secure. I'm Aaron Sure, and I'm a software engineer working on
+shopping at Google's Pittsburgh office. >> Hi, I'm Kelly. >> Hi, I'm Quti. >> And we're software engineers at
+Google on the Google Docs team. >> Hi
+>> I'm Matt Healey. I'm a Google engineer working on
+conversational shopping in our Pittsburgh office. >> Hi there.
+My name is John Taylor, and I'm an engineer in
+Google's Pittsburgh office. I'd like to welcome you to
+Intermediate Programming. Now, I find programming a lot of fun. Not only can you do some
+extremely useful things with it, the act of programming itself can
+be very satisfying and creative. For any particular problem there
+are lots of different ways you could write a program to solve it. But a good program has
+a certain beauty and elegance about it and an elegant program
+is easy for other people to understand and it's also easy for you to extend and
+adapt later as requirements change. And this course will help you write
+beautiful and elegant programs.

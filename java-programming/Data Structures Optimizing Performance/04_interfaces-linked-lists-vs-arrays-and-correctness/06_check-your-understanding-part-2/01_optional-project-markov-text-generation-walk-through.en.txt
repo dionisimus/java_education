@@ -1,0 +1,146 @@
+[MUSIC] This video is a walk-through of
+the Programming Assignment for Module 3, Part 2,
+which is the Markov Text Generator. And again, this assignment should be
+a fair amount of fun because essentially when you're done with this you're gonna be
+able to generate random texts which look a lot like original source text. And I've had a lot of fun
+playing with this myself. To do this what you're gonna do is,
+just like all the previous assignments, make sure that you have the starting code. So here is the startup code
+that we've provided to you. The two files that we're gonna focus
+on are the MarkovTextGenerator.java and then MarkovTextGeneratorLoL.java file,
+or LoL file. So what you'll notice initially is that
+the MarkovTextGenerator is actually an interface, and the interface just
+requires that you implement three methods. The train method, which is
+essentially given some source text, train my MarkovTextGenerator
+based on the source text. The second is the generateText method,
+which is what you're gonna call if you wanna generate say 50 words, and get back
+some random text that looks like this. The last method is, you should be able to
+retrain your generator from scratch, and base in some new source text. So, all you're gonna have to is implement
+those three methods within your MarkovTextGeneratorLoL class for
+this to work properly. So if you look at your
+MarkovTextGeneratorLoL class, you'll find that what it has is a three
+instance variables that I want to point out real quickly. The first is,
+it's gonna have a list of list nodes. I'll show you what a list node
+looks like here in just a moment. And this is why it's
+called a list of list, because each of the ListNodes is actually
+gonna have a list within itself. You wanna have essentially
+a starting word which says at what word should we start with
+when we wanna generate some new text. And then lastly you're gonna have
+random generator that's past you. We already wrote
+the MarkovTextGeneratorLoL constructor for you, which takes in a random generator,
+hooks that up right here, and also sets up your word list
+via a linked list of list nodes as well as to set your starter
+string to be the empty string. Now you may ask but why am I taking in
+a random generator as per the constructor? And the reason for
+that is to help with testing. If you take in a random generator
+that is seeded with a value, say 10, it will always produce the same
+random numbers after that. And that's quite useful for testing. And you'll find this useful
+when you test your own code. As you'd expect because this
+is implementing the Markov text generator interface. It's got a train method
+a generate text method. And it's also got a retrain method. You'll notice that we've also
+given you a two-string method to essentially help print out this
+list when you're debugging it. We've also given you a main method which
+does some primary tests and you should feel free to use this however you feel
+fit in terms of testing your own code. Lastly, we've given you a list node itself
+and a list node, I'll show you a graphic for this in a moment, contains a word
+which is the word in the original source text, along with all of the possible words
+that follow that and that, of course, is going to have to be a list
+because you can have more than one word Have falling each
+original word in the text. And we already set up an instructor for
+this, we already created a getter method, we also created a method that lets you
+to add additional words to this list. And we've also given you
+a two-string method, and again a two string method is for
+testing. What we haven't given you
+is a getRandomNextWord. And this is where you're gonna have
+to produce a single random next word. So your MarkovTextGenerator class
+is gonna call your linked list node object's getRandomNextWord method and it should give you back a random word,
+that follows this. And again, I'll show you some
+graphics of this in just a moment. But this is essentially the code
+that you have to start with. So again, I encourage you to
+look first at the starter code, go through the code itself. Look at the train method,
+the journey text method. The retrain methods and see what you
+need to implement for this assignment. After you have done that I encourage you
+to read this write correctly we've given you the algorithms that you will need
+to implement as part of this write up. If you want an extra added challenge
+go head and skip these parts and try to do this on your own but I do encourage you to look at the
+algorithms if you want that extra help. So the algorithms you're gonna be
+implementing are actually fairly well defined. First, the train method. So to train,
+you're gonna take an imput text and you're gonna generate a data
+structure that's gonna help you perform the MarkovTextGenerator
+based on that imput text. And you can see that, I have the algorithm
+essentially outlined right here. What I wanna show you is essentially
+the output of the data structure. So if you were to train on the phrase,
+hi there, hi Leo, what you'd end up with is
+three nodes in your list of lists. The first node would have the word hi. That's the start word, and there's two
+possible words that follow from hi. As you can tell from the original text,
+there was hi there, so there is included. There's also hi Leo, so Leo is included. So, if you have the word, hi, you potentially generate
+either the words there or Leo. The word there is only followed
+by the word hi in this text. So, if you produce the word there,
+the only word that can follow it, again, is hi. And the last node to focus
+on is the node for Leo. So there are no words to follow
+Leo in this initial text. Let's make your generate
+text method easier, what you're gonna do is have it followed
+by the very first work in the text. So, when you hit the word Leo, you're gonna make sure that it's
+followed by the very first word. Now if Leo had appeared multiple
+times in this text already, again you'd still wanna pan
+the word hi to make sure that it could have been eventually
+start over without the very first word. So your goal for the train method is
+essentially produce this data structure. And what we've given you again is a method
+that allows you to print out the output. So, if you train on hi there, hi Leo, what you want then is when you
+print it is to get this output. The second step, and I encourage you to
+heavily test your train method before you move on to the generate text method. Well, once you've tested your code
+carefully for train, move on to generate text and what you'll do is again
+follow the algorithm that we've given you. And let me go back up to
+our visual representation. And the idea for generating text is
+essentially start with the start word, which is hi, and
+then pick one of the possible words. And you're gonna use a random number
+to essentially pick which one that you wanna use. So you'll pick hi initially because it's
+the first word, it's the starter word. And then you'll randomly select one. Let's say we pick the word bear. So, we're gonna go there. There can only produce the word, hi. So you're gonna print hi and there,
+you're back at the high note. So, hi can produce either there or Leo,
+and let's say we randomly now select Leo. So, got a Leo, Leo can only produce hi. We're back to hi, and
+we just continue this process for as many words as the user has asked for. Again, if you want more details,
+the algorithm is provided right here. Last step is to do retrain. So retrain is going to look a lot like the
+train method its just that you're going to have to clear out the data structures
+that you've already created and just start over again. So retrain is basically just
+train except that you discard the train that you already had. So some hint's, you're almost only gonna really use that
+two string method both within the list and within each node when you're trying
+to test and debug what's going on. The second is I encourage you
+to train on small inputs and then draw your expected list of lists
+by hand before you run the code itself. And then run the code and see if it actually generates that
+list of lists that you inspected. This kinda very careful debugging
+process is gonna be incredibly valuable in terms of solving this
+project efficiently. When you pick a random next word, there
+are a couple of things that can go wrong. The first is you wanna make sure that
+you can produce all possible words. So, if your current word
+could produce hi there or this, make sure that you can produce all
+of those, by running essentially a large enough generate text that
+you see all of them occur. Really common bugs are to
+omit ever outputting hi or this, just in terms of which
+one you pick randomly. The other thing to focus on when you're
+generating random words is to recognize that you should be able to
+repeat words in your list. For example, if your word is
+followed by the word hi, and then it's followed again by the word
+hi later in this source text. And it's followed again by the word
+hi 'later in the source text and then it's followed by the word
+hello in the source text. Your list should actually contain hi,
+hi, hi, and hello. And the reason for this is because you
+wanna make sure that hi gets generated more commonly, than the word hello does. And the way you're going to test this
+again, is to generate a large enough segment of text that you can make
+sure that the word in question here generates hi following it more often
+than it generates hello following it. And if you generate next word
+methods working properly, it will do this just fine. When you're all done writing you
+MarkovTextGenerator class and testing it, you're gonna upload this
+to our servers for automated testing. And just like the previous one,
+you'll go to my submission, you'll notice that I've already been doing some
+testing in terms of testing the graders. You'll go to create submissioa And
+you will upload your MarkovTextGeneratorLoL.java
+file and you'll submit it. And then if you get a full score grade, if you miss some test cases
+that's not a big deal at all. The grader output should tell you
+the things that you missed, but if you're still unclear on it feel free
+to go back into the original source code pull up, MarkovTextGeneratorGrader,
+and you'll see the test that we run. And you'll get a better feel for
+what we're testing and then you'll be able to fix your code. It's almost certain you'll have a couple
+of bugs in your code the first time around, and that's totally fine. Once you fix your code, keep
+submitting until you get a full score. And again, I encourage you,
+as you're working on this project, to always feel free to go back to
+the videos on MarkovTextGenerator. If you have any questions,
+post in the forums. Good luck.

@@ -1,0 +1,88 @@
+All right, we've looked at quite a bit
+of the linked list implementation, and now it's time to take it all the way to
+Java code, which is what you're going to do in the first part of this
+programming assignment in this module. So by the end of this video, you'll be able to implement
+a doubly linked list in Java. And if you don't quite get there we've got
+some support videos and concept challenges that will help you a little beyond
+what I cover in this particular video. So let's go back to our diagram. You can see here the two classes
+that we're going to implement. The list node class and
+the my linked list class. So let's start by looking
+at the ListNode class. And we looked at some of the details
+of this class in the last video, the generics, how we're gonna
+throw exceptions on bad input. Let's dive in now to what
+the class actually looks like. It's actually a fairly simple class. It's got three fields,
+there's the previous reference, the next reference, and the data field. And then we've got a simple constructor
+here that just sets the data field to an argument that we pass
+into the constructor. Now, a couple things to
+notice about this class. The first one that might seem a little
+weird, or a little uncomfortable, is that this is actually what's
+called a recursive class. It's a recursive definition. What that means is that we're using
+references of the class itself inside the class we're defining. So we're defining the ListNode class, and inside that ListNode class, we have
+two references to ListNode objects. Now this might seem a little weird. Like how can we use a class when
+we're not even done defining it, but this is what recursion is all about. We're not gonna talk too
+much about recursion. Mia will talk about it a little bit in
+the next module when she talks about merge sort, but just be comfortable with
+the idea that this is totally okay. Because by the time Java actually
+creates any of these ListNode objects, the class definition will be finished,
+and so it'll be totally okay to do this. Feels weird, but it's totally okay. The next thing I wanna point out is that
+we're using this generic type parameter E to indicate the type of the thing
+that the list node stores. Notice that we've got it in
+the type of the previous and next pointers, but
+it doesn't appear here in the constructor. And that's just the way you
+define generic classes, you don't need to put the type
+parameter In the constructor. And if you do,
+if you accidentally forget and put it there ,you're gonna get
+a really weird compile error. So it's not supposed to be there. So that's basically it. This is our entire list node class we've
+got the forward, the previous pointer, the next pointer, the data that we're
+trying to store and the constructor which sets the data element to be whatever
+we pass in to the constructor. One thing to note about this
+is that the constructor will by default set the previous and
+next pointers to null. So we don't have to do that explicitly,
+though we could if we wanted to. So with that under our belt,
+let's go ahead and look at how we define
+the my linked list class. This is gonna be the class that
+actually does all the operations on the linked list. So what we need first is our data fields,
+and looking at that diagram you can see that
+there's going to be three data fields. There's the head pointer, the tail
+pointer, and the size of the length list. So I've got a couple blanks
+in my Java code there, and I want you to tell me what are the types
+that should go in those blanks for the head pointer and the tail pointer. Okay, hopefully you figured that out
+that they should be ListNodes, and they should be ListNode of type E. So the same type of data we wanna store in
+the LinkList has to be the type of data that we store in each individual node, and that makes sense,
+because the nodes actually are the list. So now we've got our data fields set up. Let's look at the constructor. What we want the constructor
+to do is create an empty list as you can see in this diagram here. An empty list is not
+actually devoid of nodes. We still need those sentinel head and
+tail nodes. So the constructor is going to have to
+create those two nodes that you see in the diagram. So here's our first attempt
+at writing this constructor. We're gonna set the size
+of the list to zero. There are no elements in it. And then we'll create a new node for the
+head and create a new node for the tail. And link the member variable head
+to that first node we created, and link the member variable tail to
+the the second node that we create. So now my question for
+you is, is this code correct? Does this correctly set up this empty
+link list, as you see in the diagram? You found out that the answer is no, it
+doesn't correctly set up this link list. Why not? Well it's missing the links that will
+link together this dummy head node to the dummy tail node, and
+those links are shown there in red. Remember, the ListNode constructor
+just sets the previous and next pointers to null. So, when we first create those nodes,
+those previous and next pointers in both the nodes are null,
+they don't point to each other. So, we need to explicitly set the next
+pointer of the head node to point to the tail, and the previous pointer
+of the tail node to point to the head. And we can do that using
+these two lines of code here. So we say head.next, which is that
+next pointer in the head node, is going to get the value of
+the reference to the tail node. And tail.prev is going to get the value
+of the reference to the head node. Then our linked list, our empty linked
+list, we correctly set up those head and tail dummy nodes will be
+properly linked together. All right, so now you've really got
+all you need to go ahead and dive in, and do your first part of your homework
+assignment which is to implement the methods size, get, set, add, and
+remove in the MyLinkedList class. So if you're feeling ready,
+we've got a concept challenge for you just to really solidify
+your understanding, and then feel free to dive into
+that programming assignment, but I'll warn you that implementing these
+linked list methods is pretty tricky. So if you are having any doubts,
+or you're at all uncomfortable, or you try to start implementing these
+methods, and find yourself getting stuck. We've got a support video for you that's
+gonna walk you through in a little bit more detail some of the subtleties of
+implementing these linkless methods. So good luck and have fun.

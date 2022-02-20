@@ -1,0 +1,78 @@
+[APPLAUSE]
+>> All right, so now you've seen the algorithm for insert
+and Leo walked you through some examples. Let's implement it in Java code. Again, this is going to be similar to
+code that you're going to write for this part of your project,
+but not identical. But doing this exercise will help you
+write the code for your project as well. So, the algorithm for insert is actually
+pretty similar to the algorithm for find. And in those examples that Leo walked you
+through, you saw that essentially what we're doing here is that we're finding
+the element that we're trying to insert. And if it's in the tree,
+we don't do anything. But if it's not in the tree, then what we
+want to do is insert it where we ended up with our search down through the tree. Because we're always going to be
+inserting as a leaf node in the tree. So one idea that might occur to you
+is well, we've already written find. So let's just take that code for
+find, here it is. This is the exact same code
+that we wrote last time. Just put it there, and
+then wherever we end up, wherever curr ends up,
+we'll just insert our new node there. We might write a statement like this. What I want you to do is
+think about does this work? Okay, so hopefully you said no,
+that doesn't work, and here's why. The key reason why this doesn't work
+is because of this while loop condition that we have here. We're running that loop as long
+as curr is not equal to null. Meaning that once that loop stops and
+breaks out, curr is equal to null. It's actually fallen all the way off the
+bottom of that tree, it points to nothing. Well, that's no good because
+now when we create a new node, we end up creating it just
+off the bottom of the tree. So we can create it,
+have curr point to it, but it's not connected into the tree at all. So it hasn't successfully been
+inserted into the binary search tree. In fact, what we have done here in this
+statement is we've linked that node's parent to curr, which was null, and so
+it's just floating off there in space. Once curr goes away, it'll go away too. So that didn't quite work. The key to this algorithm is,
+and the implementation is, we need to stop curr before it
+falls off the bottom of the tree. So, in order to do that, we're gonna need to change the structure
+of our while loop just a bit. So here's what we're going to do. In some cases, like this one here,
+where curr is pointing to C, which is a leaf node,
+it might be pretty straightforward. If the node curr is pointing to is a leaf, it has no children at all, then it's
+easy to tell that we should stop. But other cases is
+a little bit more subtle. So what if curr is pointing to this node,
+B? B has one child. How do we know if curr should stop? Curr should stop if the node is supposed
+to be inserted to the left, but it shouldn't stop if the node is
+supposed to be inserted to the right. So we're gonna need to do something
+a little more clever than just check to see if the node is a leaf. And I've alluded to
+what we're going to do, which is we need to check
+the direction we're going to go first, in order to determine whether
+we wanna stop or keep going. So what we're going to do here is we're
+gonna create a while loop whose condition checks first which direction
+curr is trying to go, and then verifies to see whether that
+direction it's tried to go is not null. So, if comp, as we saw before,
+if comp < 0, curr wants to go left. And as long as that left child
+is not null, it can go left, so the while loop should continue. If comp > 0, curr wants to go right, and as long as that right child is not null,
+it can continue. So there's our while condition. Now, inside the loop, our goal is
+just to walk curr down the tree. Again, we need to check comp. If comp < 0, curr goes to the left. If comp > 0, curr goes to the right. Now there's one more thing we need to do,
+which is we need to update comp so that it's ready to go for
+the next while loop check. Now you'll notice that this while
+loop doesn't handle the case that comp is actually equal to 0, and
+we'll talk about that in just a moment. So, what should we do next? Well let's consider what might be
+true when this while loop ends. So when does this while loop
+actually break out of its loop? It breaks out if either of
+these two conditions is true. So, either curr is pointing to a node
+that's about to fall off the end, so it's ready to insert the new
+thing that it's trying to insert. Or, it's found the thing
+it's trying to insert. And the code that appears after this
+while loop just has to distinguish between those two different conditions and
+do the right thing as appropriate. So let's consider this first scenario
+that we'd be in, that curr points to the last node that it wants to search for
+and it's ready to insert the new node. In that case, again,
+we just need to figure out, should we insert it to the left, or
+should we insert it to the right. So again we check comp, if comp < 0, we create a new node,
+link it in as a left child of curr. And if comp > 0, we create a new node
+link it in as the right child of curr. Finally, if the other scenario is true, if we didn't break out because we'd found
+the place to insert, but we broke out of the while loop because we actually found
+the element we were trying to insert. Then we should just simply return false, indicating that we didn't
+do anything to the tree. We didn't insert the value
+because it was already there. So that's just about it. The last thing we have to do is we have to
+indicate that if we didn't return false, then we must have successfully
+inserted that node. So ultimately, if we ever get to the very
+end of this method, will return true. So that's it, it's just slightly
+more complicated than find. But you can see it has a little
+bit of the same flavor as that find method we wrote last time. And here's the full code for
+the insert method.

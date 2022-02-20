@@ -1,0 +1,424 @@
+1
+00:00:03,672 --> 00:00:08,533
+In this concept challenge we're gonna look
+at a nested for loop, in fact a triply
+
+2
+00:00:08,533 --> 00:00:13,880
+nested for loop, to try to figure out what
+the big-O running time of this code is.
+
+3
+00:00:13,880 --> 00:00:16,370
+So same format as the other
+concept challenges.
+
+4
+00:00:16,370 --> 00:00:17,670
+Work on it on your own.
+
+5
+00:00:17,670 --> 00:00:21,680
+Discuss it and
+watch the UC San Diego's learners discuss.
+
+6
+00:00:21,680 --> 00:00:22,530
+Try the problem again.
+
+7
+00:00:22,530 --> 00:00:25,670
+And then, confirm your
+understanding with our explanation.
+
+8
+00:00:25,670 --> 00:00:27,060
+So here's the problem.
+
+9
+00:00:27,060 --> 00:00:29,380
+We've got this code that you can see here.
+
+10
+00:00:29,380 --> 00:00:31,890
+It's a triply nested for
+loop, and the question is,
+
+11
+00:00:31,890 --> 00:00:36,510
+in terms of n, what is the big-O running
+time, tightest bound, for this code?
+
+12
+00:00:37,660 --> 00:00:38,820
+>> Hi, I'm Tina.
+
+13
+00:00:38,820 --> 00:00:39,707
+>> Hi, my name is Gev.
+
+14
+00:00:39,707 --> 00:00:41,219
+>> Hi, my name is Robert.
+
+15
+00:00:42,690 --> 00:00:47,793
+>> So what I noticed with this code is,
+that we have three nested for loop lines,
+
+16
+00:00:47,793 --> 00:00:52,423
+and so I would think that we could
+figure out the run time for each line,
+
+17
+00:00:52,423 --> 00:00:57,243
+and then multiply those three together,
+and see what we get from there.
+
+18
+00:00:57,243 --> 00:01:00,882
+>> Okay, well for the first outer loop,
+
+19
+00:01:00,882 --> 00:01:05,920
+that starts at i=0 and
+goes all the way up to 2*n.
+
+20
+00:01:05,920 --> 00:01:08,650
+So that's, I think,
+the run time for the first loop.
+
+21
+00:01:09,970 --> 00:01:13,798
+And then, the second loop looks a little
+bit more confusing cuz if we start
+
+22
+00:01:13,798 --> 00:01:16,910
+it at n- 1000,
+I'm a little bit confused about that.
+
+23
+00:01:16,910 --> 00:01:22,435
+>> So, I think for the second one,
+since you're subtracting 1000,
+
+24
+00:01:22,435 --> 00:01:26,301
+so all you have to do is
+increment the 1000, so
+
+25
+00:01:26,301 --> 00:01:30,370
+that would just be 1000 counts for
+the run time.
+
+26
+00:01:32,630 --> 00:01:38,650
+>> And for the last one, I noticed
+our first starting index has n in it,
+
+27
+00:01:38,650 --> 00:01:44,680
+or in this case n over 2, but
+it looks like it's from n over 2 to n.
+
+28
+00:01:44,680 --> 00:01:49,042
+So I'd think it'd be, overall the run
+time for that line would be n over 2,
+
+29
+00:01:49,042 --> 00:01:50,419
+does that seem like it?
+
+30
+00:01:50,419 --> 00:01:56,360
+>> Yeah, and you said we had to multiply
+them, all of them, to get the run time?
+
+31
+00:01:56,360 --> 00:01:58,020
+>> Yeah.
+>> Yeah, that sounds right.
+
+32
+00:01:58,020 --> 00:02:02,960
+>> So, I think that comes out to be 2*n,
+times 1000,
+
+33
+00:02:02,960 --> 00:02:08,050
+times n over 2, and I think we can ignore
+the 1000, because it's a constant.
+
+34
+00:02:08,050 --> 00:02:10,644
+So, that comes out to be n squared,
+I believe.
+
+35
+00:02:10,644 --> 00:02:12,780
+>> Yeah, n squared.
+
+36
+00:02:12,780 --> 00:02:14,040
+>> Right.
+
+37
+00:02:15,170 --> 00:02:20,870
+>> All right, so the key to analyzing this
+triply nested for loop, as Mia showed you,
+
+38
+00:02:20,870 --> 00:02:25,000
+is to analyze the number of instructions
+that are done in each body of the for
+
+39
+00:02:25,000 --> 00:02:27,058
+loop from the inside out.
+
+40
+00:02:27,058 --> 00:02:31,280
+Because the innermost for loop here
+is going to be executed to completion
+
+41
+00:02:31,280 --> 00:02:34,390
+every time the next-outermost for
+loops runs once.
+
+42
+00:02:34,390 --> 00:02:36,779
+Similarly, for
+this next outermost for loop,
+
+43
+00:02:36,779 --> 00:02:40,249
+it will be run to completion every
+time this outermost for loop runs.
+
+44
+00:02:40,249 --> 00:02:42,950
+So let's begin at the very inner layer,
+
+45
+00:02:42,950 --> 00:02:47,806
+this instruction right here which is
+the body of the innermost for loop.
+
+46
+00:02:47,806 --> 00:02:51,230
+And we need to count the number
+of instructions in that body.
+
+47
+00:02:51,230 --> 00:02:56,460
+Well, of course there is just one
+instruction in that body, that sum++.
+
+48
+00:02:56,460 --> 00:03:01,740
+So, the amount of time that that
+body takes is just order 1.
+
+49
+00:03:01,740 --> 00:03:05,732
+So, now we can calculate how many
+times does this innermost for
+
+50
+00:03:05,732 --> 00:03:10,170
+loop run its body,
+which just has one instruction in it.
+
+51
+00:03:10,170 --> 00:03:14,740
+So, to do that, we need to look at the
+loop bounds and where the control variable
+
+52
+00:03:14,740 --> 00:03:19,390
+starts, where it ends, and
+how much we add to it each time through.
+
+53
+00:03:19,390 --> 00:03:21,660
+So, we have this control variable k.
+
+54
+00:03:21,660 --> 00:03:23,682
+It starts at n over 2.
+
+55
+00:03:23,682 --> 00:03:27,000
+It goes as long as k is less than n, and
+
+56
+00:03:27,000 --> 00:03:30,060
+we add one to k each
+time through the loop.
+
+57
+00:03:30,060 --> 00:03:32,260
+So, how many times is
+that going to execute?
+
+58
+00:03:32,260 --> 00:03:36,836
+Well, it's going to execute all
+the way up from n over 2 to n,
+
+59
+00:03:36,836 --> 00:03:41,866
+stepping along one each time, and
+that's gonna be n over 2 times.
+
+60
+00:03:41,866 --> 00:03:46,556
+But n over 2 in big-O notation
+is really just order n, so
+
+61
+00:03:46,556 --> 00:03:52,400
+this loop runs order n times,
+executing 1 each time in its body.
+
+62
+00:03:52,400 --> 00:03:56,990
+And so
+the entire loop Is going to be order n.
+
+63
+00:03:56,990 --> 00:04:02,010
+So, from start to finish, that entire
+inner loop is going to take order n steps.
+
+64
+00:04:03,090 --> 00:04:08,050
+So now let's back out, and figure out how
+many times this next most inner loop runs.
+
+65
+00:04:08,050 --> 00:04:09,860
+Again, we look at the loop header.
+
+66
+00:04:09,860 --> 00:04:16,750
+We have j starting at n- 1000, going up
+to n, and we're adding one each time.
+
+67
+00:04:16,750 --> 00:04:21,420
+Now, this one's a little bit tricky,
+because if we count the number of steps,
+
+68
+00:04:21,420 --> 00:04:27,100
+even though there's an n here, this loop
+is actually only going to run 1000 times.
+
+69
+00:04:28,310 --> 00:04:33,310
+Because we're starting at n- 1000,
+going up to n.
+
+70
+00:04:33,310 --> 00:04:37,552
+So, there's only 1000 steps
+between n- 1000 and n, and
+
+71
+00:04:37,552 --> 00:04:40,650
+we're going to do each step once.
+
+72
+00:04:40,650 --> 00:04:43,681
+So this whole loop only runs 1000 times.
+
+73
+00:04:43,681 --> 00:04:48,138
+So the total amount of work that it does,
+including its body,
+
+74
+00:04:48,138 --> 00:04:53,150
+is just 1000 times the work of the body,
+which is n.
+
+75
+00:04:53,150 --> 00:04:58,050
+So 1000 times n is just
+n times a constant, so
+
+76
+00:04:58,050 --> 00:05:03,174
+we can replace that entire loop with the
+amount of work it does in big-O notation,
+
+77
+00:05:03,174 --> 00:05:05,830
+and that's just order n again.
+
+78
+00:05:05,830 --> 00:05:10,279
+Because again, it only ran 1000 times,
+which is a constant relative to n.
+
+79
+00:05:11,620 --> 00:05:16,340
+So, now we have that the body of
+the outermost for loop is order n.
+
+80
+00:05:16,340 --> 00:05:20,750
+So, let's count the times that the
+outermost for loop runs, and then we'll be
+
+81
+00:05:20,750 --> 00:05:26,140
+able to assert how many times
+the entire block of code actually runs.
+
+82
+00:05:26,140 --> 00:05:31,000
+So i this time starts at 0,
+and we go as long as
+
+83
+00:05:31,000 --> 00:05:35,970
+i is less than 2*n, and
+we add one to i each time.
+
+84
+00:05:35,970 --> 00:05:41,213
+So that's gonna be a total number of
+steps, total number of iterations of 2n,
+
+85
+00:05:41,213 --> 00:05:45,660
+because we're starting at 0,
+going up to 2*n.
+
+86
+00:05:45,660 --> 00:05:52,920
+So this outermost loop runs 2n times,
+it does order n work in its body,
+
+87
+00:05:52,920 --> 00:05:58,358
+so now we have 2n times
+n gives us 2n squared.
+
+88
+00:05:58,358 --> 00:06:03,390
+But in big-O notation,
+that 2 will go away, and we'll end up with
+
+89
+00:06:03,390 --> 00:06:08,370
+the work being done by this entire block,
+is just order n squared.

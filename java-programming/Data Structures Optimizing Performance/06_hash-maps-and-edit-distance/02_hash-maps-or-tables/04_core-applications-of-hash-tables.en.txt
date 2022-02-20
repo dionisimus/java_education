@@ -1,0 +1,38 @@
+[MUSIC] In the last couple of videos, we started
+to see how Hash Tables can be useful. We also looked at how Hash Tables
+deal with the problem of collisions. In this video, I want to focus in
+on how to use Hash Tables in Java. And specifically I'm going to focus on
+the difference between Hash Sets and Hash Maps, cause this is often
+a point of confusion for students. So by the end of this video, you should be
+able to explain the differences between those two data structures. So a hash set just tells you whether or
+not an item is in the set or not. So in this example, car is in a set. Boat is in a set. But train is not. So you just store the things
+that are in the set, and you don't store
+the things that are not. And this is gonna be incredibly useful for
+a dictionary. So if you wanna just store the words
+that are in the English dictionary, a set is probably
+the right way to do that. And the methods you'll wanna use for
+this are, add, which is essentially just add
+an element into the set, and contains, which just tells you whether or
+not the set contains that item or not. Think about hash maps. Hash maps actually store two things. They store a key, which is what
+we've been working with all along, along with with some extra data,
+or which we call value. Now this is nice if you wanna
+associate some data with each key. An example of this might be let's
+say you are working on Facebook and you have a friend. So I have my friend Ivan up here and we have had a whole bunch of
+text communications on Facebook. And Facebook decides to
+store that communication. Well what they might want to keep is
+essentially Ivan in the hash map because that's my friend and then we will have
+a whole bunch of a linked list there which is essentially just stores the various
+texts that I've had with him in the past. Another example might be if you just
+want to store a movie database. You might have the name of
+the movie in one place, and then you may have a list
+of actors as the value. So when you're working with a HashMap. You're gonna have to always
+have both a key and a value. And the methods you're almost
+certainly gonna use are get, which will get you back the value for
+a given key, and put, which allows you to put in both a key and
+a value into the HashMap. So now that we understand
+more how to do this in Java, I just wanna remind us really quickly
+about the Hash Table Key Points. Hash tables are fantastic
+in the average case. They're O one for lookup,
+insert, and remove. They do have some concerns associated
+with them, in terms of Resizing Costs. And the fact that they have no implicit
+data ordering as part of the structure.

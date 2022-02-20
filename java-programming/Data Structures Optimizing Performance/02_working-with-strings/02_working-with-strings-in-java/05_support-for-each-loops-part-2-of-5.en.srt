@@ -1,0 +1,329 @@
+1
+00:00:00,004 --> 00:00:03,719
+[APPLAUSE]
+>> So
+
+2
+00:00:03,719 --> 00:00:08,950
+let's trace through the execution of this
+particular implementation of the method.
+
+3
+00:00:08,950 --> 00:00:12,320
+And see what it does on
+a sample piece of input.
+
+4
+00:00:12,320 --> 00:00:16,120
+And then we'll have a sense of
+whether it's gonna work for us or not.
+
+5
+00:00:16,120 --> 00:00:18,910
+So when we're tracing through code,
+we're going to
+
+6
+00:00:18,910 --> 00:00:22,444
+use the concept of Memory Model Diagrams,
+and if you were with us for
+
+7
+00:00:22,444 --> 00:00:25,796
+course one of the specialization,
+this will be very familiar.
+
+8
+00:00:25,796 --> 00:00:30,172
+So what we're going to do here is
+illustrate the values of the variables and
+
+9
+00:00:30,172 --> 00:00:32,470
+how they change as we execute the code.
+
+10
+00:00:32,470 --> 00:00:36,232
+And so we're going to keep track of the
+scope of the variables in different parts
+
+11
+00:00:36,232 --> 00:00:37,360
+of our diagram.
+
+12
+00:00:37,360 --> 00:00:42,720
+So in this method we're going
+to be in the scope of replace,
+
+13
+00:00:42,720 --> 00:00:44,380
+which is the name of our method.
+
+14
+00:00:46,820 --> 00:00:50,630
+First, are the arguments or
+the parameters to this method.
+
+15
+00:00:50,630 --> 00:00:56,860
+And so we know we've got the word
+variable, and so we have a box next
+
+16
+00:00:56,860 --> 00:01:00,880
+to the name of the variable that is going
+to store the contents of that variable,
+
+17
+00:01:00,880 --> 00:01:05,920
+the other parameters are gone and here.
+
+18
+00:01:08,990 --> 00:01:10,970
+And in this particular example,
+
+19
+00:01:10,970 --> 00:01:13,550
+let's figure out what the values
+of these variables will be,
+
+20
+00:01:13,550 --> 00:01:18,130
+we're passing in a happy,
+which is a string to the variable word.
+
+21
+00:01:18,130 --> 00:01:24,380
+Now strings are objects in Java,
+which means over here in the heap.
+
+22
+00:01:24,380 --> 00:01:31,100
+When we put a happy in the quotes,
+we create a new string object.
+
+23
+00:01:31,100 --> 00:01:36,629
+And within that string object is the array
+of characters that are in that string.
+
+24
+00:01:36,629 --> 00:01:44,463
+And so we'll have that a happy.
+
+25
+00:01:44,463 --> 00:01:48,385
+Okay, so that's our string object
+living here in memory, and
+
+26
+00:01:48,385 --> 00:01:53,269
+when we pass that object into our method,
+what we're doing is we're creating
+
+27
+00:01:53,269 --> 00:01:57,650
+a reference from the variable
+to that object in the heap.
+
+28
+00:01:57,650 --> 00:02:02,430
+All right, so
+that's the first argument to our method.
+
+29
+00:02:02,430 --> 00:02:06,540
+The second two arguments are characters
+and those are primitive type data.
+
+30
+00:02:06,540 --> 00:02:09,100
+And so that means that when we
+pass them in we're actually
+
+31
+00:02:09,100 --> 00:02:13,920
+going to have copies of those characters
+that are stored in these variables.
+
+32
+00:02:13,920 --> 00:02:19,640
+So gone is the character a and
+here is the character i.
+
+33
+00:02:19,640 --> 00:02:23,400
+That's our memory model so
+far for this method.
+
+34
+00:02:23,400 --> 00:02:26,422
+Now we can go into the body of
+the method and see what happens.
+
+35
+00:02:26,422 --> 00:02:30,828
+The first line allocates space and
+memory for a character array.
+
+36
+00:02:30,828 --> 00:02:33,250
+And so we're going to have the variable
+
+37
+00:02:33,250 --> 00:02:37,320
+cArray as part of our
+memory model diagram.
+
+38
+00:02:37,320 --> 00:02:39,840
+And we have to figure out
+what to put in the box,
+
+39
+00:02:39,840 --> 00:02:43,090
+the value of that variable and
+that's the value that it's initialized to.
+
+40
+00:02:43,090 --> 00:02:47,410
+And what we see is that we
+are going to give that variable
+
+41
+00:02:47,410 --> 00:02:51,020
+the value of word.toCharArray.
+
+42
+00:02:51,020 --> 00:02:57,250
+And so what that means is we're calling
+the method toCharArray on the object word.
+
+43
+00:02:57,250 --> 00:03:00,520
+And so when we are trying to figure
+out where the methods are and
+
+44
+00:03:00,520 --> 00:03:04,560
+how they behave, we're following the dots,
+following the arrows.
+
+45
+00:03:04,560 --> 00:03:07,290
+And so we go to word,
+that's in our memory model over here,
+
+46
+00:03:07,290 --> 00:03:12,090
+and then we follow the arrow and we see
+that word refers to a string object.
+
+47
+00:03:12,090 --> 00:03:15,180
+And string objects have
+these methods toCharArray.
+
+48
+00:03:15,180 --> 00:03:19,610
+The return, well, they don't
+return the actual character array
+
+49
+00:03:19,610 --> 00:03:23,300
+that's stored in the object
+because strings are immutable.
+
+50
+00:03:23,300 --> 00:03:27,560
+So Java doesn't want us to have
+access to this particular CharArray.
+
+51
+00:03:27,560 --> 00:03:34,640
+Instead, it's going to create a copy
+of this character array, a memory,
+
+52
+00:03:36,280 --> 00:03:41,598
+and then return to us a pointer
+to this new array of characters.
+
+53
+00:03:41,598 --> 00:03:45,220
+And so cArray will point to this copy
+
+54
+00:03:45,220 --> 00:03:48,570
+of the character array that
+was stored in the string.
+
+55
+00:03:48,570 --> 00:03:52,250
+And so now we can go on to the rest
+of the method that we've written in replace,
+
+56
+00:03:52,250 --> 00:03:54,410
+and we notice that in this for loop, and
+
+57
+00:03:54,410 --> 00:03:57,590
+throughout the rest of
+the execution of the method,
+
+58
+00:03:57,590 --> 00:04:02,350
+all we're working with is cArray, and
+then characters associated with it.
+
+59
+00:04:02,350 --> 00:04:04,970
+And then at the end we're
+trying to return word.
+
+60
+00:04:04,970 --> 00:04:08,750
+And so what we're going to return
+is the object that was pointed
+
+61
+00:04:08,750 --> 00:04:11,980
+to by this variable, but
+all of our work is over here.
+
+62
+00:04:11,980 --> 00:04:16,710
+And so there's no way for us to change
+anything to do with this variable,
+
+63
+00:04:16,710 --> 00:04:19,110
+because all we're working
+with is the copy.
+
+64
+00:04:19,110 --> 00:04:22,220
+So in this method,
+what we return will just be
+
+65
+00:04:22,220 --> 00:04:25,690
+a pointer to the original string
+that we came with, and it won't have
+
+66
+00:04:25,690 --> 00:04:29,690
+had any of the functionality to it that
+we hoped for in the replace method.
+
+67
+00:04:29,690 --> 00:04:34,520
+In particular, all the a will still be a,
+they won't have magically turned into i.
+
+68
+00:04:34,520 --> 00:04:36,780
+And so
+this implementation is not going to work

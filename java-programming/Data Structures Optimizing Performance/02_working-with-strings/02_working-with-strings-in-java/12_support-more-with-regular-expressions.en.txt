@@ -1,0 +1,114 @@
+So in this support video, our goal is
+to walk through some of the regular expressions that you'll
+be using in the project. So, by the end of this video,
+you will be able to write the regular expressions that you
+will need in the programming assignment. So, big caution, spoiler alert, by the end of this video,
+you will really see the solution. So if, like me, you like to try to
+figure these things out on your own before someone spoils the end and
+tells you the answer, stop now. Try to work through it yourself, and
+then if you get stuck, do come back and we'll work through it together. But if you watch this video,
+you will see the solution. So let's get to it. But if you need to go away and
+then come back, please do that. All right, so just remember the context
+what we're doing in this project is we're processing this text document. And what we'd like to do is break it
+apart into constituent pieces, and then we'll be able to compute that flush
+index by looking at the numbers of words and the number of syllables and
+the number of sentences. And so we have the helper method that's
+given to us in the abstract class Document, and
+this helper method is called, getTokens. And what we do is we feed it in a string,
+and it outputs a list of strings. So what we give the getTokens document,
+sorry, getTokens method is a regular expression that defines
+the tokens that we want out. So that regular expression is going
+to match to what we want to see out of the big text that we give it,
+the big string that we give it. Okay, and
+then what's returned to us is a list of all those pieces of the big text
+that match the regular expression. So then, our task is to fill in what regular expression we want
+depending on the context. So, for example, one of the first methods
+that you'll be writing in this project is the getNumWords method. And so what we'd like to do is figure out
+what the words are that are part of this big, big string that represents
+the document that we're processing. And so
+we'd like to separate out each word, and then we'll have a big list of those words. And then all we'll have to do afterwards
+is look at the size of that list, and that size of that list of tokens that are
+returned is exactly the number of words in the document. So, the big conceptual challenge and
+nugget in this getNumWords method is really focusing in on what
+the regular expression it is that we should be using to separate out
+the words in the big document. Okay, so we want to fill in
+those red question marks. And what we'll be filling in
+those red question marks with is the regular expression
+that will match any word. Now, in order to understand what
+it means to match any word, we need to figure out
+what constitutes a word. So we're going to not try to
+delve too deeply into grammar and dictionaries and language theory. And we're going to use the definition of
+a word that we suggest in the project description, and we're going to say
+that a word is a contiguous sequence of alphabetic characters. So that means that we're going to
+ignore things like apostrophes. We're going to ignore numbers,
+numerals, and we're just going to focus in on consecutive sequences
+of alphabetical characters. Okay, and so
+let's take a minute or second and try to think about how we would fill in a
+regular expression that represents whether it matches any contiguous sequence
+of alphabetic characters. So pause if you'd like and think about it. And now let's at least try one approach. So perhaps we might fill it with saying,
+well, alphabetic characters are anything
+that's either lowercase or uppercase. And I would like my regular expression
+to match any character in the set a through z lowercase, or
+A through Z, uppercase. And that seems like a reasonable approach. So let's think about what's now
+circled in the regular expression, and think about whether it works. Well, what do you think? There's a bit of a bug here, and the bug comes with wanting words
+that have more than one character. So, if you remember
+the square brackets notation, what it means is I wanna match a single
+character that is within the collection of symbols that I'm putting
+in the square brackets. But for our words what we'd like
+is a sequence of characters. And so what we're going to say one or
+more of the following set of characters. And so what we need to do is to add that
+plus symbol after the square brackets, and that will let us match to any
+contiguous non-empty sequence of alphabetic characters. All right, so this is the correct regular
+expression now for matching two words. And so now the getNumWords method
+will process our big string that represents our document and separate
+out each of the consecutive sequences of alphabetic characters, and spit
+them out into one big list of strings. And then we'll be able to
+return the size of that list as the number of words in our document. Okay, so we've got this method sorted out. And now let's move on to the next method
+that you're implementing in the project. And this would be a good point as well to
+pause if you feel pretty confident about how, about this solution, and
+you want to try yourself for the next one. The next method that we'll
+tackle is the getNumSentences. So take this opportunity to work
+on it yourself, if you like. And then come back to confirm your answer,
+if that's what you would like to do. Okay, now that we're here, let's
+remember what constitutes a sentence. So a sentence, well again we're not going
+to be to worried about grammatical, and this isn't going to
+be a perfect solution. But a pretty good approximation of what
+a sentence looks like is a sequence of characters that at their end have
+an end of sentence punctuation. So when we think about a sentence,
+we know that it's usually ended by either a period or an exclamation mark or
+a question mark. And so what we're going to do is that
+think about any sequence of characters that has that at the end,
+we'd like to consider a sentence. Now, we don't wanted to include that
+last symbol as part of our sentence. And so we'd like just the beginning
+part to be considered the sentence. And so now what we have to do is
+figure out what regular expression will exactly match to the sentence part,
+without the punctuation at the end. All right, so
+how do we fill in those question marks? And this is a little bit different from
+what we were doing with the words before. With the words, we were talking about what
+each character in the word would look like, and we knew that they
+were alphabetical characters. Whereas here, we're talking
+about some perhaps ill-defined collection of characters, but
+all we care about it the very end. And so
+that seems a little bit harder to do. In order to rephrase this definition into
+something that maybe is more amenable to writing as a regular expression,
+we wanna think about a sentence as, well, it's a collection of things that don't
+in the middle of them include the end of sentence punctuation. So a way of working with this
+definition in a way that lets us write it as a regular expression
+is to actually tweak it a bit, and try to find an equivalent formulation
+that maybe matches the operations that we have a little bit better. And so, one way of thinking about this
+definition is that it says, we want a sequence of characters that doesn't
+include the end of sentence punctuation. So we want all of the characters
+in the string that we matched to not to be end of sentence punctuation. And we have a way of doing
+that in regular expressions. So remember the caret symbol. So this caret symbol says,
+I don't want things from the following collection of
+characters in the string that I match to. And so, which characters don't we want? We don't want exclamation marks. We don't want question marks,
+and we don't want periods. But all the other characters are okay. And we want any number of them. So that + at the end of
+the regular expression says that we would like to match
+a non-empty sequence of characters. And all the characters that are not
+in that non-empty sequence have to be something other than
+the end-of-sentence punctuation. And so here we have the regular
+expression that will correctly match to each of the sentences. And so once we call getTokens
+with this pattern as its input, then the result is going
+to be a list of strings. Each string is going to be a sentence,
+and we can count the size of that list to give us the number of
+sentences in our document.

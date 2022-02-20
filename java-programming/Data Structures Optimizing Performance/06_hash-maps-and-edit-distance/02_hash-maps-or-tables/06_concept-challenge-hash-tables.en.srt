@@ -1,0 +1,442 @@
+1
+00:00:00,025 --> 00:00:02,703
+[NOISE] Okay, we're ready for
+
+2
+00:00:02,703 --> 00:00:07,960
+our final concept challenge
+of the course on hash tables.
+
+3
+00:00:07,960 --> 00:00:11,341
+So, just like you've done before,
+you'll solve the problem yourself.
+
+4
+00:00:11,341 --> 00:00:14,690
+You'll discuss it,
+you'll watch the UC San Diego learners.
+
+5
+00:00:14,690 --> 00:00:17,190
+You'll try the problem again, and
+then you can watch our explanation.
+
+6
+00:00:18,440 --> 00:00:19,660
+So here is the problem.
+
+7
+00:00:19,660 --> 00:00:22,433
+You've got a hash table that
+has seven positions in it, and
+
+8
+00:00:22,433 --> 00:00:24,830
+it's got some elements
+already inserted into it.
+
+9
+00:00:24,830 --> 00:00:27,105
+So you'll need to know a few
+things about this hash table.
+
+10
+00:00:27,105 --> 00:00:30,307
+First thing you should know is that
+the hash function is that same hash
+
+11
+00:00:30,307 --> 00:00:33,676
+function we've been working with
+where you take your key and mod by 7,
+
+12
+00:00:33,676 --> 00:00:36,330
+to figure out where in the hash
+table your key should go.
+
+13
+00:00:37,820 --> 00:00:40,930
+The next thing you need to know is that
+it's going to use linear probing for
+
+14
+00:00:40,930 --> 00:00:41,870
+collision resolution.
+
+15
+00:00:41,870 --> 00:00:46,480
+And then the final thing you need to know
+about the next key we're going to insert
+
+16
+00:00:46,480 --> 00:00:50,260
+is that we're going to randomly
+choose a key to insert next, and
+
+17
+00:00:50,260 --> 00:00:54,830
+all the keys we could possibly choose,
+they're all equally likely to be chosen.
+
+18
+00:00:54,830 --> 00:00:59,410
+So our question for you is,
+what's the probability that that next key
+
+19
+00:00:59,410 --> 00:01:04,120
+that we choose will end up in each
+of the slots in this hash table?
+
+20
+00:01:04,120 --> 00:01:04,740
+>> I'm Daniel.
+
+21
+00:01:04,740 --> 00:01:05,490
+>> I'm Melissa.
+
+22
+00:01:05,490 --> 00:01:05,990
+>> I'm Sarah.
+
+23
+00:01:07,360 --> 00:01:11,050
+>> All right, so for this problem,
+I was started off thinking that
+
+24
+00:01:11,050 --> 00:01:15,180
+honestly all the probability will be one
+seventh, because in the problem it says
+
+25
+00:01:15,180 --> 00:01:18,400
+that all the integers
+are equally likely to be chosen.
+
+26
+00:01:18,400 --> 00:01:22,583
+So, my first inclination is that it'll be
+one seventh chance for all the open spots.
+
+27
+00:01:22,583 --> 00:01:27,784
+I thought it would be different for 0, 1,
+
+28
+00:01:27,784 --> 00:01:32,562
+2, or 6, spots 0, 1, 2, and 6,
+
+29
+00:01:32,562 --> 00:01:37,623
+in the way that if some
+number mod 7 was 3,
+
+30
+00:01:37,623 --> 00:01:42,280
+then it would go from 3 to 4, 5 to 6.
+
+31
+00:01:42,280 --> 00:01:45,153
+And if there was already something in 6,
+
+32
+00:01:45,153 --> 00:01:48,364
+then it would go 0, 1,
+2 and then go there.
+
+33
+00:01:48,364 --> 00:01:52,649
+So, it would come out to one seventh,
+three seventh,
+
+34
+00:01:52,649 --> 00:01:57,328
+one seventh and two seventh I
+believe in the end, in order.
+
+35
+00:01:57,328 --> 00:01:58,659
+>> Yeah.
+
+36
+00:01:58,659 --> 00:02:04,720
+>> I think it works like
+that if it lands on 3,
+
+37
+00:02:04,720 --> 00:02:08,510
+4, or 5, they'll all go to 6 if
+any one of them land on there,
+
+38
+00:02:08,510 --> 00:02:11,180
+because linear probing means it
+goes to the next open space.
+
+39
+00:02:12,620 --> 00:02:13,240
+>> All right.
+
+40
+00:02:13,240 --> 00:02:15,960
+So, the learners had
+a really good conversation
+
+41
+00:02:15,960 --> 00:02:17,850
+about how to solve this problem.
+
+42
+00:02:17,850 --> 00:02:18,760
+So let's take a look at it.
+
+43
+00:02:18,760 --> 00:02:21,630
+And I wanna start by looking
+at a blank hash table.
+
+44
+00:02:21,630 --> 00:02:24,030
+So let's consider that we
+have that same hash table,
+
+45
+00:02:24,030 --> 00:02:26,320
+only this time there's nothing in it.
+
+46
+00:02:26,320 --> 00:02:30,030
+So, we know that our hash function is
+that we're gonna take our key, and
+
+47
+00:02:30,030 --> 00:02:33,200
+mod it by 7,
+in order to figure out where to put it.
+
+48
+00:02:33,200 --> 00:02:36,930
+And we also know that all keys
+are equally likely to be chosen
+
+49
+00:02:36,930 --> 00:02:39,700
+as the next thing that we're
+going to put in this hash table.
+
+50
+00:02:39,700 --> 00:02:43,650
+So, basically what that means, because
+mod 7 will cover all the slots in this
+
+51
+00:02:43,650 --> 00:02:46,400
+hash table 0 through 6, is that there's
+
+52
+00:02:46,400 --> 00:02:50,870
+an equally likely chance that our next
+key will end up in any of these spots.
+
+53
+00:02:50,870 --> 00:02:52,300
+So that's if the hash table is empty.
+
+54
+00:02:53,370 --> 00:02:58,080
+But what happens now if we say
+insert 24 into this hash table?
+
+55
+00:02:58,080 --> 00:03:01,000
+How does that change the probabilities
+of the next key going into each of
+
+56
+00:03:01,000 --> 00:03:02,350
+these slots?
+
+57
+00:03:02,350 --> 00:03:06,370
+Well, we can start off by observing that
+all the keys are still equally likely
+
+58
+00:03:06,370 --> 00:03:07,860
+to occur.
+
+59
+00:03:07,860 --> 00:03:09,130
+So, in theory,
+
+60
+00:03:09,130 --> 00:03:13,870
+we should have an equal probability of
+putting them into each of these slots.
+
+61
+00:03:13,870 --> 00:03:17,040
+But, now we can see that
+this one slot is full so
+
+62
+00:03:17,040 --> 00:03:19,000
+we can't put another key into that.
+
+63
+00:03:20,380 --> 00:03:21,340
+What should we do?
+
+64
+00:03:21,340 --> 00:03:23,840
+Well, now we need to go to our
+collision resolution strategy which is
+
+65
+00:03:23,840 --> 00:03:25,140
+linear probing.
+
+66
+00:03:25,140 --> 00:03:30,560
+So with linear probing, if we try to
+put a key into that slot that's full,
+
+67
+00:03:30,560 --> 00:03:34,680
+instead we're going to move it over
+into the next slot that's empty.
+
+68
+00:03:34,680 --> 00:03:39,380
+So in this case, we would instead of
+putting it into slot 3, where there's
+
+69
+00:03:39,380 --> 00:03:44,370
+already 24, we'd put it now into slot 4,
+which means that that 1/7
+
+70
+00:03:44,370 --> 00:03:49,740
+probability of ending up in slot three
+now actually ends up in slot four.
+
+71
+00:03:49,740 --> 00:03:54,960
+So we take the 1/7, and we add it to
+the 1/7 that's already there for slot 4.
+
+72
+00:03:54,960 --> 00:03:57,730
+Giving us a final set of
+probabilities that look like this.
+
+73
+00:03:57,730 --> 00:04:01,020
+There's no chance it's going to go into
+slot three, because it's already full.
+
+74
+00:04:01,020 --> 00:04:04,810
+But there's a 2/7 chance that it
+will end up in that next slot over.
+
+75
+00:04:04,810 --> 00:04:08,600
+The 1/7 chance that it hit slot 3 and
+it had to go over one, and
+
+76
+00:04:08,600 --> 00:04:13,630
+the 1/7 chance that it was originally
+designed to go into slot 4.
+
+77
+00:04:13,630 --> 00:04:16,300
+All right, so with this we can
+continue our reasoning and
+
+78
+00:04:16,300 --> 00:04:18,230
+go back to our original problem.
+
+79
+00:04:18,230 --> 00:04:21,740
+What happens if all three of
+these positions are filled in?
+
+80
+00:04:21,740 --> 00:04:24,480
+What is the probability
+that the next key is gonna
+
+81
+00:04:24,480 --> 00:04:27,590
+end up in any of these
+different locations?
+
+82
+00:04:27,590 --> 00:04:32,210
+Just like before, those three slots
+are full, so we can't put a new key there.
+
+83
+00:04:32,210 --> 00:04:33,580
+So what's gonna happen?
+
+84
+00:04:33,580 --> 00:04:38,610
+Well, if a key tries to go in any
+of these spots via linear probing,
+
+85
+00:04:38,610 --> 00:04:44,010
+we're gonna move that key over, and
+over, and over, into that slot 6.
+
+86
+00:04:44,010 --> 00:04:46,378
+And by the way, if six had also been full,
+
+87
+00:04:46,378 --> 00:04:49,239
+we would've wrapped back
+around to position 0.
+
+88
+00:04:49,239 --> 00:04:54,118
+But in this case six is empty, so
+we'll take the 1/7 probability
+
+89
+00:04:54,118 --> 00:04:58,667
+from each of the full slots and
+move them over into that slot 6.
+
+90
+00:04:58,667 --> 00:05:03,579
+We add them all together and we're gonna
+end up that the first three slots still
+
+91
+00:05:03,579 --> 00:05:07,152
+have a 1/7 probability of
+getting a key put into them,
+
+92
+00:05:07,152 --> 00:05:10,203
+those three block slots
+are zero probability and
+
+93
+00:05:10,203 --> 00:05:14,540
+then that last slot has a 4/7
+probability of a key ending up there.
+
+94
+00:05:16,220 --> 00:05:16,720
+All right.

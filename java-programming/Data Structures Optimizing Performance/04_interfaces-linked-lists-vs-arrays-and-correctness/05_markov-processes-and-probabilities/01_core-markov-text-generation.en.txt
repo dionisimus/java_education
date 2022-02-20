@@ -1,0 +1,74 @@
+[MUSIC] So the programming assignment for
+the module you get to do something that, I think, is really fun. And that's called Markov Text Generation. This video is really about giving
+you the background that you need. Just a little bit on Markov processes and how Markov processes can
+be used to generate text. So let's think about all sorts of examples
+that we have in our interaction with technology where somehow the technology is
+magically able to predict what we want. And so thinking about even typing
+a search string into Google, I can start with the word song and all of a sudden the suggestion comes
+up underneath that says song lyrics. How did google know I wanted lyrics? Well there's a lot of really cool
+technology that goes on under the hood. We won't be able to get into the details
+of what exactly happens at Google but what I'd like to show you is
+one model of predicting what's going to come next based on training
+data that we may have accumulated. And then, this is not what's
+used in practice at Google, but it will give you a taste of how
+you might start and then tune and make more sophisticated after the fact. So what we'd like to
+think about is how we can predict what's going to come next
+based on the information that we have. And so what we're going to do is
+abstract the information that we have as the current state of
+the system that we might be in. And so the basic principle of a Markov
+process is that we should be able to predict or have a probability distribution
+on the next possible outcomes, just based on knowledge
+of our current situation. And so we try to encode everything
+that's going to be relevant to guessing what's going to happen
+next in this notion of state. And then what we'll do is assign
+probabilities to what's going to happen next, which state will have to transition
+to based on our current state. All right, so let's think about
+an example of what that might mean. Let's think about a song that I really
+like by the Beatles called Hello, Goodbye. And if you know this song, you'll notice
+that there's a lot of repeated phrases and it goes back and forth. There's some duality there. And so, we might try to generate
+additional verses of the song, if you really like it. And the Beatles aren't recording any more,
+you might want more of it. And so you might want to think about
+what patterns show up in this song. And so you might notice that after
+The Beatles say you then they say, say. And you might generate something. And so
+I did a little bit on the back end and I'll show you the machinery in a minute. But I generated a couple more
+sentences of the lyrics. Now, notice that these sentences
+don't exactly match the song, but they have a bit of the same flavor. So, you say hello. I don't know why you say hello, hello. I saw goodbye, oh no. You say no. And, so you notice that there's
+some similar patterns to it, but it's not quite the same,
+it's not copying the text from what we started with,
+from the Beatles' song lyrics to begin. And so let me show you how I would've
+created those couple of new sentences. What we want to do is try to capture what
+pairs of words typically go together, and what next word I can expect based
+on the current word I have. So in this model for this particular song, my state is going to be
+the current word in the lyric. And so what I'm going to do is predict
+what the next word is going to be, based on the current word. So for example,
+I can go through the entire song and see that every time the word you,
+with a capital Y, shows up in the lyrics. A capital Y is important because it's
+at the beginning of the sentence. Then every single time that happens,
+the word say follows. And so in my model,
+I wanna mimic that behavior, that pattern. And so I'm going to represent that
+with having a node for You and then always transitioning or having an
+arrow to the next word or the next state, which is the node for the word say. So how that pans out in the predicted
+text is that every time my model predicts that there is going to be a You,
+immediately afterwards you'll see a say. And that shows up in both times that I
+have a You at the beginning of a sentence. All right, but other words aren't
+always followed by the same one. So for example, if I have hello at the end
+of a sentence, looking through it what the Beatles wrote, about a half the time
+the next sentence started with I. And a sixth of the time the next
+sentence started with why. About a third of the time,
+the next sentence started with you. And so what I would like to do is, for the model that I create that's
+based on this song, to mimic that. So, you'll see that the frequencies in
+the short snippet that be have here, also mimic those relative frequencies. And if we generated more text, then you'd
+see those frequencies coming up as well. All right, so
+what's the point of all of this? What I'd really like you to
+get away from this video is that when we have a whole bunch of data, what we'd like to do is use that data
+to inform the model that we build. And so we're gonna build a model,
+in this case, each node, or each state in our model is a word. And what we'd like to do is fill in the
+probabilities of transitioning from one word to the next, and those probabilities
+are going to be based on the frequencies that we see those pairs of words
+in our data set, our training set. Once we have our model built,
+then what we can do is generate and use our model to predict the next text. And so we could start with
+some node in our model, and then just keep on randomly selecting
+what the next word is going to be based on the probabilities that we've determined
+for what those next words might be. And so in the next video, what we'll
+be doing is talking a little bit about the implementation details
+of doing this in Java so you'll be all ready for your project.

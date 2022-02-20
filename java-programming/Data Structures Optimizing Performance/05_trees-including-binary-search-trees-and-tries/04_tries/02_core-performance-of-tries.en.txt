@@ -1,0 +1,53 @@
+[SOUND] Now that we've seen what tris are,
+let's compare them in terms of their performance
+to binary search trees. So by the end of this video,
+you'll be able to do just that. Compare the performance of binary
+search trees and tries for storing dictionaries of words. So to start off, let's think about storing
+our dictionary as a binary search tree. So what I wanna know is,
+if you have n words in your dictionary, how long in the worst case might it
+take to find a word in this dictionary. In particular to find out that
+a word is not in this dictionary. And you can assume that the binary
+search tree will always stay balanced. Okay. So it takes order logn
+because this balance tree is guaranteed to have a bound
+on it's height of logn. And in order to conclude that a word is
+not in the tree you essentially need to search it all the way from
+the root down to the bottom. So it's going to be, it's going to
+depend on the height of the tree. So logn is not bad. As I mentioned,
+binary search trees are not a bad way to store dictionaries of words, but
+let's ask the same question now for a tri. Let's consider the worst case, finding
+a word that's not in the dictionary. How long is that going to take
+using a tri representation? Okay, so again this relates
+to the height of the tri. But this time, what determines
+the height is not the number of words in the dictionary, but
+in fact the length of the longest word. So, in the worst case,
+if we're looking for a really long word that's not in the
+dictionary we're going to have to traverse that many levels down the tri,
+one level for each character in the word. So, now we've got one situation
+where it's taking logn steps, logn comparisons to figure out that
+the word is not in the dictionary. And the other situation, where we've
+got on the order of the number of characters in the word to figure out
+whether the word is not in the dictionary. So which one is better,
+how does this compare? Well we need to sort of thing
+about what could n be and how long are our words in general. If we take an estimate of a number of
+words in a complete English dictionary, might be around, say 250,000. If we take logn of 250,000
+that's about more or less 18. So in the worst case, if our words are not
+in the dictionary we're going to have to take 18 comparisons to conclude
+that word is not in the dictionary. And if the word is not in the dictionary,
+we'll always need about 18 comparisons, because the height of that tree is
+about 18, because it's balanced. On the other hand, for our try,
+we would only need 18 steps if we were trying to check a word
+that was 18 characters long. That's a pretty long word. And yes, in the worst case, you're going to have to deal with words
+that are 18 characters or even longer. But in general, most of the words
+that you're going to be looking for that are not in your dictionary, most
+misspelled words are relatively short. They're going to be five characters,
+six characters, seven characters long. So this kind of illustrates that
+tris are going to be faster. Right?
+I'd rather do seven comparisons to conclude that my word's
+not in my dictionary than 18 comparisons every time I need to
+conclude the word is not in my dictionary. So these are both good representations but
+tris turn out to be slightly better than binary search trees for
+that performance reason alone. Now in the next video we're gonna talk
+about some implementation details, because you'll be implementing
+these tris as part of your project. As well as talk about one more advantage
+that tris have over binary search trees, which is the ability to implement the
+autocomplete functionality that you'll be building into your project.

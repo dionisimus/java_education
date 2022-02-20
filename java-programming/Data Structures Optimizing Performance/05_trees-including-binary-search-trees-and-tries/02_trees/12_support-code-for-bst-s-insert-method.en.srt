@@ -1,0 +1,484 @@
+1
+00:00:00,025 --> 00:00:05,162
+[APPLAUSE]
+>> All right, so
+
+2
+00:00:05,162 --> 00:00:09,447
+now you've seen the algorithm for insert
+and Leo walked you through some examples.
+
+3
+00:00:09,447 --> 00:00:11,720
+Let's implement it in Java code.
+
+4
+00:00:11,720 --> 00:00:14,980
+Again, this is going to be similar to
+code that you're going to write for
+
+5
+00:00:14,980 --> 00:00:17,730
+this part of your project,
+but not identical.
+
+6
+00:00:17,730 --> 00:00:21,900
+But doing this exercise will help you
+write the code for your project as well.
+
+7
+00:00:23,160 --> 00:00:29,380
+So, the algorithm for insert is actually
+pretty similar to the algorithm for find.
+
+8
+00:00:29,380 --> 00:00:32,170
+And in those examples that Leo walked you
+through, you saw that essentially what
+
+9
+00:00:32,170 --> 00:00:36,610
+we're doing here is that we're finding
+the element that we're trying to insert.
+
+10
+00:00:36,610 --> 00:00:38,800
+And if it's in the tree,
+we don't do anything.
+
+11
+00:00:38,800 --> 00:00:43,340
+But if it's not in the tree, then what we
+want to do is insert it where we ended
+
+12
+00:00:43,340 --> 00:00:45,490
+up with our search down through the tree.
+
+13
+00:00:45,490 --> 00:00:49,700
+Because we're always going to be
+inserting as a leaf node in the tree.
+
+14
+00:00:49,700 --> 00:00:53,890
+So one idea that might occur to you
+is well, we've already written find.
+
+15
+00:00:53,890 --> 00:00:56,530
+So let's just take that code for
+find, here it is.
+
+16
+00:00:56,530 --> 00:00:58,950
+This is the exact same code
+that we wrote last time.
+
+17
+00:00:58,950 --> 00:01:02,630
+Just put it there, and
+then wherever we end up,
+
+18
+00:01:02,630 --> 00:01:06,760
+wherever curr ends up,
+we'll just insert our new node there.
+
+19
+00:01:06,760 --> 00:01:08,390
+We might write a statement like this.
+
+20
+00:01:09,750 --> 00:01:12,909
+What I want you to do is
+think about does this work?
+
+21
+00:01:15,841 --> 00:01:21,200
+Okay, so hopefully you said no,
+that doesn't work, and here's why.
+
+22
+00:01:21,200 --> 00:01:24,450
+The key reason why this doesn't work
+is because of this while loop condition
+
+23
+00:01:24,450 --> 00:01:25,550
+that we have here.
+
+24
+00:01:25,550 --> 00:01:29,080
+We're running that loop as long
+as curr is not equal to null.
+
+25
+00:01:29,080 --> 00:01:34,139
+Meaning that once that loop stops and
+breaks out, curr is equal to null.
+
+26
+00:01:34,139 --> 00:01:39,600
+It's actually fallen all the way off the
+bottom of that tree, it points to nothing.
+
+27
+00:01:39,600 --> 00:01:43,450
+Well, that's no good because
+now when we create a new node,
+
+28
+00:01:43,450 --> 00:01:46,720
+we end up creating it just
+off the bottom of the tree.
+
+29
+00:01:46,720 --> 00:01:49,460
+So we can create it,
+have curr point to it, but
+
+30
+00:01:49,460 --> 00:01:52,080
+it's not connected into the tree at all.
+
+31
+00:01:52,080 --> 00:01:56,430
+So it hasn't successfully been
+inserted into the binary search tree.
+
+32
+00:01:56,430 --> 00:01:59,280
+In fact, what we have done here in this
+statement is we've linked that node's
+
+33
+00:01:59,280 --> 00:02:03,370
+parent to curr, which was null, and so
+it's just floating off there in space.
+
+34
+00:02:03,370 --> 00:02:06,690
+Once curr goes away, it'll go away too.
+
+35
+00:02:06,690 --> 00:02:08,730
+So that didn't quite work.
+
+36
+00:02:08,730 --> 00:02:12,310
+The key to this algorithm is,
+and the implementation is,
+
+37
+00:02:12,310 --> 00:02:17,290
+we need to stop curr before it
+falls off the bottom of the tree.
+
+38
+00:02:17,290 --> 00:02:18,170
+So, in order to do that,
+
+39
+00:02:18,170 --> 00:02:21,900
+we're gonna need to change the structure
+of our while loop just a bit.
+
+40
+00:02:21,900 --> 00:02:24,330
+So here's what we're going to do.
+
+41
+00:02:24,330 --> 00:02:29,540
+In some cases, like this one here,
+where curr is pointing to C,
+
+42
+00:02:29,540 --> 00:02:32,390
+which is a leaf node,
+it might be pretty straightforward.
+
+43
+00:02:32,390 --> 00:02:34,190
+If the node curr is pointing to is a leaf,
+
+44
+00:02:34,190 --> 00:02:38,310
+it has no children at all, then it's
+easy to tell that we should stop.
+
+45
+00:02:38,310 --> 00:02:40,540
+But other cases is
+a little bit more subtle.
+
+46
+00:02:40,540 --> 00:02:43,300
+So what if curr is pointing to this node,
+B?
+
+47
+00:02:43,300 --> 00:02:44,650
+B has one child.
+
+48
+00:02:44,650 --> 00:02:47,070
+How do we know if curr should stop?
+
+49
+00:02:47,070 --> 00:02:50,553
+Curr should stop if the node is supposed
+to be inserted to the left, but
+
+50
+00:02:50,553 --> 00:02:54,380
+it shouldn't stop if the node is
+supposed to be inserted to the right.
+
+51
+00:02:54,380 --> 00:02:57,310
+So we're gonna need to do something
+a little more clever than just check to
+
+52
+00:02:57,310 --> 00:02:58,930
+see if the node is a leaf.
+
+53
+00:02:58,930 --> 00:03:00,360
+And I've alluded to
+what we're going to do,
+
+54
+00:03:00,360 --> 00:03:03,750
+which is we need to check
+the direction we're going to go first,
+
+55
+00:03:03,750 --> 00:03:07,460
+in order to determine whether
+we wanna stop or keep going.
+
+56
+00:03:07,460 --> 00:03:12,800
+So what we're going to do here is we're
+gonna create a while loop whose condition
+
+57
+00:03:12,800 --> 00:03:17,200
+checks first which direction
+curr is trying to go, and
+
+58
+00:03:17,200 --> 00:03:22,975
+then verifies to see whether that
+direction it's tried to go is not null.
+
+59
+00:03:22,975 --> 00:03:28,066
+So, if comp, as we saw before,
+if comp < 0, curr wants to go left.
+
+60
+00:03:28,066 --> 00:03:31,426
+And as long as that left child
+is not null, it can go left, so
+
+61
+00:03:31,426 --> 00:03:33,327
+the while loop should continue.
+
+62
+00:03:33,327 --> 00:03:36,092
+If comp > 0, curr wants to go right, and
+
+63
+00:03:36,092 --> 00:03:40,145
+as long as that right child is not null,
+it can continue.
+
+64
+00:03:40,145 --> 00:03:42,750
+So there's our while condition.
+
+65
+00:03:42,750 --> 00:03:46,710
+Now, inside the loop, our goal is
+just to walk curr down the tree.
+
+66
+00:03:46,710 --> 00:03:47,962
+Again, we need to check comp.
+
+67
+00:03:47,962 --> 00:03:51,030
+If comp < 0, curr goes to the left.
+
+68
+00:03:51,030 --> 00:03:54,747
+If comp > 0, curr goes to the right.
+
+69
+00:03:54,747 --> 00:03:58,380
+Now there's one more thing we need to do,
+which is we need to update comp so
+
+70
+00:03:58,380 --> 00:04:01,740
+that it's ready to go for
+the next while loop check.
+
+71
+00:04:01,740 --> 00:04:05,340
+Now you'll notice that this while
+loop doesn't handle the case that
+
+72
+00:04:05,340 --> 00:04:09,650
+comp is actually equal to 0, and
+we'll talk about that in just a moment.
+
+73
+00:04:09,650 --> 00:04:11,980
+So, what should we do next?
+
+74
+00:04:11,980 --> 00:04:16,110
+Well let's consider what might be
+true when this while loop ends.
+
+75
+00:04:16,110 --> 00:04:19,760
+So when does this while loop
+actually break out of its loop?
+
+76
+00:04:19,760 --> 00:04:23,660
+It breaks out if either of
+these two conditions is true.
+
+77
+00:04:23,660 --> 00:04:29,290
+So, either curr is pointing to a node
+that's about to fall off the end,
+
+78
+00:04:29,290 --> 00:04:32,650
+so it's ready to insert the new
+thing that it's trying to insert.
+
+79
+00:04:33,680 --> 00:04:37,390
+Or, it's found the thing
+it's trying to insert.
+
+80
+00:04:37,390 --> 00:04:41,320
+And the code that appears after this
+while loop just has to distinguish
+
+81
+00:04:41,320 --> 00:04:45,910
+between those two different conditions and
+do the right thing as appropriate.
+
+82
+00:04:45,910 --> 00:04:50,670
+So let's consider this first scenario
+that we'd be in, that curr points to
+
+83
+00:04:50,670 --> 00:04:56,280
+the last node that it wants to search for
+and it's ready to insert the new node.
+
+84
+00:04:56,280 --> 00:04:58,400
+In that case, again,
+we just need to figure out,
+
+85
+00:04:58,400 --> 00:05:01,460
+should we insert it to the left, or
+should we insert it to the right.
+
+86
+00:05:01,460 --> 00:05:04,350
+So again we check comp, if comp < 0,
+
+87
+00:05:04,350 --> 00:05:07,050
+we create a new node,
+link it in as a left child of curr.
+
+88
+00:05:07,050 --> 00:05:11,180
+And if comp > 0, we create a new node
+link it in as the right child of curr.
+
+89
+00:05:12,490 --> 00:05:16,100
+Finally, if the other scenario is true,
+
+90
+00:05:16,100 --> 00:05:19,650
+if we didn't break out because we'd found
+the place to insert, but we broke out of
+
+91
+00:05:19,650 --> 00:05:24,210
+the while loop because we actually found
+the element we were trying to insert.
+
+92
+00:05:24,210 --> 00:05:26,240
+Then we should just simply return false,
+
+93
+00:05:26,240 --> 00:05:28,830
+indicating that we didn't
+do anything to the tree.
+
+94
+00:05:28,830 --> 00:05:31,839
+We didn't insert the value
+because it was already there.
+
+95
+00:05:33,080 --> 00:05:34,530
+So that's just about it.
+
+96
+00:05:34,530 --> 00:05:38,490
+The last thing we have to do is we have to
+indicate that if we didn't return false,
+
+97
+00:05:38,490 --> 00:05:41,250
+then we must have successfully
+inserted that node.
+
+98
+00:05:41,250 --> 00:05:45,130
+So ultimately, if we ever get to the very
+end of this method, will return true.
+
+99
+00:05:46,340 --> 00:05:49,760
+So that's it, it's just slightly
+more complicated than find.
+
+100
+00:05:49,760 --> 00:05:52,530
+But you can see it has a little
+bit of the same flavor
+
+101
+00:05:52,530 --> 00:05:54,840
+as that find method we wrote last time.
+
+102
+00:05:54,840 --> 00:05:57,161
+And here's the full code for
+the insert method.
