@@ -364,7 +364,7 @@ public class AutoSpellingTextArea extends StyledTextArea<Boolean> {
 	public void setSpelling(boolean state) {
 		spellingOn = state;
 
-		if (state = true && getText().length() > 0) {
+		if (state == true && getText().length() > 0) {
 			this.setStyleSpans(0, checkSpelling());
 		}
 		// change all text to true/correct style
