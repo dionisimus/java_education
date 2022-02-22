@@ -104,6 +104,7 @@ public abstract class Document {
 		int syllFound = doc.getNumSyllables();
 		int wordsFound = doc.getNumWords();
 		int sentFound = doc.getNumSentences();
+		
 		if (syllFound != syllables) {
 			System.out.println("\nIncorrect number of syllables.  Found " + syllFound 
 					+ ", expected " + syllables);
@@ -119,6 +120,8 @@ public abstract class Document {
 					+ ", expected " + sentences);
 			passed = false;
 		}
+		
+		
 		
 		if (passed) {
 			System.out.println("passed.\n");
@@ -151,7 +154,8 @@ public abstract class Document {
 	    // TODO: You will play with this method in week 1, and 
 		// then implement it in week 2
 	    double height = (206.835 - 1.015*(getNumWords()/getNumSentences()) - 84.6 * (getNumSyllables()/getNumWords()));
-	    return height;
+
+		return height;
 	}
 	
 	
