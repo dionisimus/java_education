@@ -34,15 +34,36 @@ public class DocumentBenchmarking {
 		// You can play around with this.
 		int start = 50000;
 		
+		
+		
 		// TODO: Fill in the rest of this method so that it runs two loops
 		// and prints out timing results as described in the assignment 
 		// instructions and following the pseudocode below.
+		System.out.println("\tBasicDoc\tEfficientDoc");
 		for (int numToCheck = start; numToCheck < numSteps*increment + start; 
 				numToCheck += increment)
 		{
+			String checkString = getStringFromFile(textfile,numToCheck);
+			// Document EfficientDoc = new EfficientDocument(getStringFromFile(textfile,numToCheck));	
 			// numToCheck holds the number of characters that you should read from the 
 			// file to create both a BasicDocument and an EfficientDocument.  
+			long startTimeBasic = System.nanoTime();
+			for (int i = 0; i < trials; i++) {
+				Document BasicDoc = new BasicDocument(getStringFromFile(textfile,numToCheck));
+				BasicDoc.getFleschScore();
+			}
+			long endTimeBasic = System.nanoTime();
+			double estTimeBasic = (endTimeBasic - startTimeBasic)/1_000_000_000.0;
 			
+			long startTimeEfficient = System.nanoTime();
+			for (int i = 0; i < trials; i++) {
+				Document EfficientDoc = new EfficientDocument(getStringFromFile(textfile,numToCheck));
+				EfficientDoc.getFleschScore();
+			}
+			long endTimeEfficient = System.nanoTime();
+			double estTimeEfficient = (endTimeEfficient - startTimeEfficient)/1_000_000_000.0;
+			
+			System.out.println(numToCheck+"\t"+String.format("%.3f",estTimeBasic)+"\t\t"+String.format("%.3f",estTimeEfficient));
 			/* Each time through this loop you should:
 			 * 1. Print out numToCheck followed by a tab (\t) (NOT a newline)
 			 * 2. Read numToCheck characters from the file into a String
@@ -50,6 +71,7 @@ public class DocumentBenchmarking {
 			 * 3. Time a loop that runs trials times (trials is the variable above) that:
 			 *     a. Creates a BasicDocument 
 			 *     b. Calls fleshScore on this document
+			 *     
 			 * 4. Print out the time it took to complete the loop in step 3 
 			 *      (on the same line as the first print statement) followed by a tab (\t)
 			 * 5. Time a loop that runs trials times (trials is the variable above) that:

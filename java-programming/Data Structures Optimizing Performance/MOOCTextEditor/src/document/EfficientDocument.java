@@ -56,11 +56,14 @@ public class EfficientDocument extends Document {
 		numSentences = 0;  // The number of sentences in the document
 		numSyllables = 0;  // The number of syllables in the document
 		
-		for (String value : tokens) {
-		
+		for (int i = 0; i < tokens.size();i++) {
+			String value = tokens.get(i);
 			if (isWord(value)) {
 				numWords++;
 				numSyllables += countSyllables(value);
+				if (i == tokens.size()-1) {
+					numSentences++;
+				}
 			}
 			else {
 				numSentences++;
@@ -71,7 +74,7 @@ public class EfficientDocument extends Document {
 		// TODO: Finish this method.  Remember the countSyllables method from 
 		// Document.  That will come in handy here.  isWord defined above will also help.
 	}
-
+	
 	
 	/**
 	 * Get the number of sentences in the document.
