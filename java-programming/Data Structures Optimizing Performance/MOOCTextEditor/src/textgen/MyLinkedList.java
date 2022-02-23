@@ -13,27 +13,49 @@ public class MyLinkedList<E> extends AbstractList<E> {
 	LLNode<E> head;
 	LLNode<E> tail;
 	int size;
+	E data;
 
 	/** Create a new empty LinkedList */
 	public MyLinkedList() {
 		// TODO: Implement this method
+		size = 0;
+		head = new LLNode<E>(null);
+		tail = new LLNode<E>(null);
+		head.next = tail;
+		tail.prev = head;
 	}
 
 	/**
 	 * Appends an element to the end of the list
 	 * @param element The element to add
 	 */
-	public boolean add(E element ) 
+	public boolean add(E element) 
 	{
 		// TODO: Implement this method
+		if (element == null) {
+			throw new NullPointerException("value can't be null");
+		}
+		LLNode <E> newNode = new LLNode<E>(element);
+		newNode.next = head.next;
+		head.next = newNode;
+		newNode.prev = head;
+		tail.prev = newNode;
+		size++;
+
+		
+		
 		return false;
 	}
 
 	/** Get the element at position index 
 	 * @throws IndexOutOfBoundsException if the index is out of bounds. */
-	public E get(int index) 
+	public E get(int index)
 	{
 		// TODO: Implement this method.
+		if (index < 0 || index >= size) {
+			throw new IndexOutOfBoundsException("invalid index: " + index);
+	    }
+		else
 		return null;
 	}
 
@@ -96,5 +118,7 @@ class LLNode<E>
 		this.prev = null;
 		this.next = null;
 	}
+	
+
 
 }
