@@ -15,6 +15,7 @@ public class AutoCompleteDictionaryTrie implements  Dictionary, AutoComplete {
 
     private TrieNode root;
     private int size;
+    private LinkedList<Character> characters;
     
 
     public AutoCompleteDictionaryTrie()
@@ -37,10 +38,25 @@ public class AutoCompleteDictionaryTrie implements  Dictionary, AutoComplete {
 	 * @return true if the word was successfully added or false if it already exists
 	 * in the dictionary.
 	 */
-	public boolean addWord(String word)
-	{
-	    //TODO: Implement this method.
-	    return false;
+    public boolean addWord(String word) {
+		// Implement this method.
+		word = word.toLowerCase();
+		TrieNode currentNode = root;
+		for (Character c : word.toCharArray()) {
+			TrieNode child = currentNode.getChild(c);
+			if (child == null)
+				currentNode = currentNode.insert(c);
+			else
+				currentNode = child;
+		}
+
+		// Word already exists.
+		if (currentNode.endsWord())
+			return false;
+
+		currentNode.setEndsWord(true);
+		size++;
+		return true;
 	}
 	
 	/** 
@@ -50,7 +66,7 @@ public class AutoCompleteDictionaryTrie implements  Dictionary, AutoComplete {
 	public int size()
 	{
 	    //TODO: Implement this method
-	    return 0;
+	    return size;
 	}
 	
 	
@@ -59,10 +75,16 @@ public class AutoCompleteDictionaryTrie implements  Dictionary, AutoComplete {
 	@Override
 	public boolean isWord(String s) 
 	{
-	    // TODO: Implement this method
-		return false;
+		s = s.toLowerCase();
+		TrieNode node = root;
+		for (char c : s.toCharArray()) {
+			if (node.getChild(c) == null) {
+				return false;
+			}
+			node = node.getChild(c);
+		}
+		return node.endsWord();
 	}
-
 	/** 
      * Return a list, in order of increasing (non-decreasing) word length,
      * containing the numCompletions shortest legal completions 
@@ -100,9 +122,34 @@ public class AutoCompleteDictionaryTrie implements  Dictionary, AutoComplete {
     	 //       If it is a word, add it to the completions list
     	 //       Add all of its child nodes to the back of the queue
     	 // Return the list of completions
+    	 // Return the list of completions
+    	 LinkedList<TrieNode> nodeQueue = new LinkedList<TrieNode>();
+    	 List<String> completions = new LinkedList<String>();
+    	 TrieNode node = root;
+    	 prefix = prefix.toLowerCase();
+    	 for (char c : prefix.toCharArray()) {
+    		 node = node.getChild(c);
+    		 if (node == null) {
+    			 return completions;
+    		 }
+    	 }
+    	 nodeQueue.add(node);
     	 
-         return null;
+    	 while (!nodeQueue.isEmpty() && completions.size() < numCompletions) {
+    		 node = nodeQueue.remove();
+    		 if (node.endsWord()) {
+    			 completions.add(node.getText());
+    		 }
+    		 
+    		 Set<Character> children = node.getValidNextCharacters();
+    		 for (char c : children) {
+    			 nodeQueue.add(node.getChild(c));
+    		 }
+    	 }
+    	 return completions;
      }
+
+
 
  	// For debugging
  	public void printTree()

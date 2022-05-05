@@ -32,7 +32,7 @@ public class AutoCompleteDictionaryTrieTester {
 		emptyDict = new AutoCompleteDictionaryTrie();
 		smallDict = new AutoCompleteDictionaryTrie();
 		largeDict = new AutoCompleteDictionaryTrie();
-
+		
 		smallDict.addWord("Hello");
 		smallDict.addWord("HElLo");
 		smallDict.addWord("help");
