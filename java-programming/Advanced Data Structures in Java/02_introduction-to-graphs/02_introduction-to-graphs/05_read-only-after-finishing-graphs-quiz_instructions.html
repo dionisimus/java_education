@@ -1,0 +1,159 @@
+<meta charset="utf-8"/>
+<co-content>
+ <h2 level="2">
+  Quiz answers and explanations
+ </h2>
+ <p>
+  Note: You are advised to view this reading AFTER you have passed the Graphs Quiz.
+ </p>
+ <p>
+  Congratulations on passing the Graphs quiz! Here are the answers for the quiz, with explanations provided. Correct answers are in
+  <strong>
+   bold
+  </strong>
+  . Incorrect answers are indicated in
+  <em>
+   italics
+  </em>
+  .
+ </p>
+ <p>
+  If after reading this document you feel you still need a little more information about Graphs, you can check out the
+  <a href="http://www.tutorialspoint.com/data_structures_algorithms/graph_data_structure.htm">
+   Tutorialspoint tutorial on graphs
+  </a>
+  .
+ </p>
+ <ol bullettype="numbers">
+  <li>
+   <p>
+    What's the maximum number of edges in a directed graph with n vertices?  Assume there are no self-loops. Assume there there is at most one edge from a given start vertex to a given end vertex.
+   </p>
+  </li>
+ </ol>
+ <p>
+  NOTE: you might wonder why we're asking you a math question. It turns out that the relationship between the number of vertices and the number of edges in our graph data structure will have a huge impact on the performance of our code. In order to analyze our algorithms and predict which problems we'll be able to feasibly solve, we need to get through some calculations.
+ </p>
+ <p>
+  Even though we haven't done the calculation in the slides, try it out yourself. If you don't get it right the first time, we have some hints to help you out.
+ </p>
+ <p>
+  One more note: the answer to this question is a math expression. Use the input tool to make sure your syntax matches up with the expected format. The syntax checker treats 'n' differently from 'N'.
+ </p>
+ <ul bullettype="bullets">
+  <li>
+   <p>
+    <strong>
+     n*(n-1) (correct)
+    </strong>
+   </p>
+  </li>
+ </ul>
+ <p>
+  Each edge is specified by its start vertex and end vertex. There are n choices for the start vertex. Since there are no self-loops, there are n-1 choices for the end vertex. Multiplying these together counts all possible choices.
+ </p>
+ <ul bullettype="bullets">
+  <li>
+   <p>
+    <em>
+     n^2 (common incorrect answer)
+    </em>
+   </p>
+  </li>
+ </ul>
+ <p>
+  Make sure not to include self-loops in your calculation.
+ </p>
+ <ul bullettype="bullets">
+  <li>
+   <p>
+    <em>
+     n*(n-1)/2 (common incorrect answer)
+    </em>
+   </p>
+  </li>
+ </ul>
+ <p>
+  For a
+  <u>
+   directed
+  </u>
+  graph, an edge that starts at v and ends at u needs to be counted separately from an edge that starts at u and ends at v.
+ </p>
+ <p>
+ </p>
+ <p>
+  2. What's the maximum number of edges in an undirected graph with n vertices?
+ </p>
+ <p>
+  Assume there are no self-loops.
+ </p>
+ <p>
+  Assume there there is at most one edge from a given start vertex to a given end vertex.
+ </p>
+ <ul bullettype="bullets">
+  <li>
+   <p>
+    <strong>
+     n*(n-1)/2 (correct)
+    </strong>
+   </p>
+  </li>
+ </ul>
+ <p>
+  In an undirected graph, each edge is specified by its two endpoints and order doesn't matter. The number of edges is therefore the number of subsets of size 2 chosen from the set of vertices. Since the set of vertices has size n, the number of such subsets is given by the binomial coefficient C(n,2) (also known as "n choose 2"). Using the formula for binomial coefficients, C(n,2) = n(n-1)/2.
+ </p>
+ <p>
+  Alternatively: we can compute the number of undirected edges using our earlier work counting the number of directed edges. We saw that there are n(n-1) directed edges possible in a graph with n vertices. These edges can be grouped into pairs: (u,v) and (v,u) have the same *set* of endpoints even though these endpoints play different roles in the two edges. Therefore, collapsing the set of edges (so that two edges are considered the same if they have the same set of endpoints) means dividing the number of edge in half. Thus, there are n(n-1)/2 undirected edges possible in a graph of size n.
+ </p>
+ <p>
+ </p>
+</co-content>
+<style>
+ body {
+    padding: 50px 85px 50px 85px;
+}
+
+table th, table td {
+    border: 1px solid #e0e0e0;
+    padding: 5px 20px;
+    text-align: left;
+}
+input {
+    margin: 10px;
+}
+}
+th {
+    font-weight: bold;
+}
+td, th {
+    display: table-cell;
+    vertical-align: inherit;
+}
+img {
+    height: auto;
+    max-width: 100%;
+}
+pre {
+    display: block;
+    margin: 20px;
+    background: #424242;
+    color: #fff;
+    font-size: 13px;
+    white-space: pre-wrap;
+    padding: 9.5px;
+    margin: 0 0 10px;
+    border: 1px solid #ccc;
+}
+</style>
+<script async="" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript">
+</script>
+<script type="text/x-mathjax-config">
+ MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$$','$$'], ['$','$'] ],
+      displayMath: [ ["\\[","\\]"] ],
+      processEscapes: true
+    }
+  });
+</script>

@@ -1,0 +1,337 @@
+<meta charset="utf-8"/>
+<co-content>
+ <p>
+  The quiz that is coming up next will ask you to run Dijkstra's algorithm and A* Search and ask you to report on the number of nodes each algorithm visited.  It is possible that you will not get the right answer (i.e. there are still bugs in your code) even if you passed our graders with 100%.  This is because our graders have no way of counting how many nodes your algorithms visit, so we need you to tell us.
+ </p>
+ <p>
+  To help you debug your code and maximize your chances of passing this quiz, copy the following test cases into the main method of MapGraph.java:
+ </p>
+ <pre language="java">    MapGraph simpleTestMap = new MapGraph();
+		GraphLoader.loadRoadMap("data/testdata/simpletest.map", simpleTestMap);
+		
+		GeographicPoint testStart = new GeographicPoint(1.0, 1.0);
+		GeographicPoint testEnd = new GeographicPoint(8.0, -1.0);
+		
+		System.out.println("Test 1 using simpletest: Dijkstra should be 9 and AStar should be 5");
+		List&lt;GeographicPoint&gt; testroute = simpleTestMap.dijkstra(testStart,testEnd);
+		List&lt;GeographicPoint&gt; testroute2 = simpleTestMap.aStarSearch(testStart,testEnd);
+		
+		
+		MapGraph testMap = new MapGraph();
+		GraphLoader.loadRoadMap("data/maps/utc.map", testMap);
+		
+		// A very simple test using real data
+		testStart = new GeographicPoint(32.869423, -117.220917);
+		testEnd = new GeographicPoint(32.869255, -117.216927);
+		System.out.println("Test 2 using utc: Dijkstra should be 13 and AStar should be 5");
+		testroute = testMap.dijkstra(testStart,testEnd);
+		testroute2 = testMap.aStarSearch(testStart,testEnd);
+		
+		
+		// A slightly more complex test using real data
+		testStart = new GeographicPoint(32.8674388, -117.2190213);
+		testEnd = new GeographicPoint(32.8697828, -117.2244506);
+		System.out.println("Test 3 using utc: Dijkstra should be 37 and AStar should be 10");
+		testroute = testMap.dijkstra(testStart,testEnd);
+		testroute2 = testMap.aStarSearch(testStart,testEnd);</pre>
+ <p>
+  Now, here are some tips for working with these test cases:
+ </p>
+ <ul bullettype="bullets">
+  <li>
+   <p>
+    Count the number of visited nodes as they come
+    <strong>
+     out
+    </strong>
+    of the priority queue.  Include the start and end nodes.
+   </p>
+  </li>
+  <li>
+   <p>
+    You'll likely find it helpful to add a print statement right after each node is removed from the priority queue so you can see what order the nodes are coming out and match it against our output.
+    <em>
+     Very minor
+    </em>
+    deviations from our output might be expected (e.g. if two nodes are the same distance away from the current node being explored), but there shouldn't be many so if you are not getting the output we are getting, there is a bug in your code.
+   </p>
+  </li>
+  <li>
+   <p>
+    Run the test cases that are provided in above. To help you debugging any errors you encounter, here is the order that our code visited the nodes for Dijkstra and A* for each of the provided test cases:
+   </p>
+  </li>
+ </ul>
+ <p>
+  <strong>
+   Test case 1 (simpletest.map):
+  </strong>
+ </p>
+ <pre language="plain_text">Test 1 using simpletest: Dijkstra should be 9 and AStar should be 5
+DIJKSTRA visiting[NODE at location (Lat: 1.0
+Lon: 1.0) intersects streets: main, ]
+DIJKSTRA visiting[NODE at location (Lat: 4.0
+Lon: 1.0) intersects streets: main, main, state, state, front, ]
+DIJKSTRA visiting[NODE at location (Lat: 4.0
+Lon: 2.0) intersects streets: state, ]
+DIJKSTRA visiting[NODE at location (Lat: 4.0
+Lon: 0.0) intersects streets: state, state, short, ]
+DIJKSTRA visiting[NODE at location (Lat: 5.0
+Lon: 1.0) intersects streets: first, main, short, ]
+DIJKSTRA visiting[NODE at location (Lat: 4.0
+Lon: -1.0) intersects streets: south, state, ]
+DIJKSTRA visiting[NODE at location (Lat: 6.5
+Lon: 0.0) intersects streets: first, next, ]
+DIJKSTRA visiting[NODE at location (Lat: 7.0
+Lon: 3.0) intersects streets: front, high, ]
+DIJKSTRA visiting[NODE at location (Lat: 8.0
+Lon: -1.0) intersects streets: south, high, next, ]
+Nodes visited in search: 9
+
+A* visiting[NODE at location (Lat: 1.0
+Lon: 1.0) intersects streets: main, ]
+Actual = 0.0, Pred: 0.0
+
+A* visiting[NODE at location (Lat: 4.0
+Lon: 1.0) intersects streets: main, main, state, state, front, ]
+Actual = 333.6894996887958, Pred: 830.5599063915854
+
+A* visiting[NODE at location (Lat: 5.0
+Lon: 1.0) intersects streets: first, main, short, ]
+Actual = 444.91933291839445, Pred: 845.158179026794
+
+A* visiting[NODE at location (Lat: 6.5
+Lon: 0.0) intersects streets: first, next, ]
+Actual = 645.1300615327015, Pred: 845.1587403818543
+
+A* visiting[NODE at location (Lat: 8.0
+Lon: -1.0) intersects streets: south, high, next, ]
+Actual = 845.1587403818543, Pred: 845.1587403818543
+Nodes visited in search: 5</pre>
+ <p>
+  <strong>
+   Test case 2 (using utc.map)
+  </strong>
+ </p>
+ <pre language="plain_text">Test 2 using utc: Dijkstra should be 13 and AStar should be 5
+DIJKSTRA visiting[NODE at location (Lat: 32.869423
+Lon: -117.220917) intersects streets: Mahaila Avenue, Danica Mae Drive, Mahaila Avenue, ]
+DIJKSTRA visiting[NODE at location (Lat: 32.8694268
+Lon: -117.2212856) intersects streets: Mahaila Avenue, ]
+DIJKSTRA visiting[NODE at location (Lat: 32.869488
+Lon: -117.220108) intersects streets: Crystal Dawn Lane, Mahaila Avenue, Mahaila Avenue, ]
+DIJKSTRA visiting[NODE at location (Lat: 32.8683381
+Lon: -117.2210633) intersects streets: Nobel Drive, Danica Mae Drive, Danica Mae Drive, ]
+DIJKSTRA visiting[NODE at location (Lat: 32.8682046
+Lon: -117.2211046) intersects streets: Danica Mae Drive, Nobel Drive, ]
+DIJKSTRA visiting[NODE at location (Lat: 32.869606
+Lon: -117.21839) intersects streets: Regents Road, Mahaila Avenue, Plaza de Palmas, ]
+DIJKSTRA visiting[NODE at location (Lat: 32.8696045
+Lon: -117.2182699) intersects streets: Regents Road, Plaza de Palmas, Plaza de Palmas, ]
+DIJKSTRA visiting[NODE at location (Lat: 32.8684958
+Lon: -117.2186475) intersects streets: Regents Road, Crystal Dawn Lane, ]
+DIJKSTRA visiting[NODE at location (Lat: 32.8674959
+Lon: -117.2191454) intersects streets: Nobel Drive, Regents Road, ]
+DIJKSTRA visiting[NODE at location (Lat: 32.8674388
+Lon: -117.2190213) intersects streets: Regents Road, Nobel Drive, ]
+DIJKSTRA visiting[NODE at location (Lat: 32.8675914
+Lon: -117.2189246) intersects streets: Nobel Drive, Regents Road, ]
+DIJKSTRA visiting[NODE at location (Lat: 32.8676364
+Lon: -117.2190487) intersects streets: Nobel Drive, Regents Road, ]
+DIJKSTRA visiting[NODE at location (Lat: 32.869255
+Lon: -117.216927) intersects streets: Las Palmas Square, Costa Verde Boulevard, Costa Verde Boulevard, Plaza de Palmas, ]
+Nodes visited in search: 13
+
+A* visiting[NODE at location (Lat: 32.869423
+Lon: -117.220917) intersects streets: Mahaila Avenue, Danica Mae Drive, Mahaila Avenue, ]
+Actual = 0.0, Pred: 0.0
+
+A* visiting[NODE at location (Lat: 32.869488
+Lon: -117.220108) intersects streets: Crystal Dawn Lane, Mahaila Avenue, Mahaila Avenue, ]
+Actual = 0.07700609232533466, Pred: 0.3753127831254024
+
+A* visiting[NODE at location (Lat: 32.869606
+Lon: -117.21839) intersects streets: Regents Road, Mahaila Avenue, Plaza de Palmas, ]
+Actual = 0.24047143052861675, Pred: 0.3826160264976043
+
+A* visiting[NODE at location (Lat: 32.8696045
+Lon: -117.2182699) intersects streets: Regents Road, Plaza de Palmas, Plaza de Palmas, ]
+Actual = 0.25169275104810507, Pred: 0.3830354262394249
+
+A* visiting[NODE at location (Lat: 32.869255
+Lon: -117.216927) intersects streets: Las Palmas Square, Costa Verde Boulevard, Costa Verde Boulevard, Plaza de Palmas, ]
+Actual = 0.3848447668517584, Pred: 0.3848447668517584
+Nodes visited in search: 5</pre>
+ <p>
+  <strong>
+   Test 3 (using utc.map)
+  </strong>
+ </p>
+ <pre language="plain_text">Test 3 using utc: Dijkstra should be 37 and AStar should be 10
+DIJKSTRA visiting[NODE at location (Lat: 32.8674388
+Lon: -117.2190213) intersects streets: Regents Road, Nobel Drive, ]
+DIJKSTRA visiting[NODE at location (Lat: 32.8675914
+Lon: -117.2189246) intersects streets: Nobel Drive, Regents Road, ]
+DIJKSTRA visiting[NODE at location (Lat: 32.8676364
+Lon: -117.2190487) intersects streets: Nobel Drive, Regents Road, ]
+DIJKSTRA visiting[NODE at location (Lat: 32.8674959
+Lon: -117.2191454) intersects streets: Nobel Drive, Regents Road, ]
+DIJKSTRA visiting[NODE at location (Lat: 32.8683381
+Lon: -117.2210633) intersects streets: Nobel Drive, Danica Mae Drive, Danica Mae Drive, ]
+DIJKSTRA visiting[NODE at location (Lat: 32.8682046
+Lon: -117.2211046) intersects streets: Danica Mae Drive, Nobel Drive, ]
+DIJKSTRA visiting[NODE at location (Lat: 32.8696045
+Lon: -117.2182699) intersects streets: Regents Road, Plaza de Palmas, Plaza de Palmas, ]
+DIJKSTRA visiting[NODE at location (Lat: 32.866421
+Lon: -117.2164968) intersects streets: Cargill Avenue, Nobel Drive, Cargill Avenue, ]
+DIJKSTRA visiting[NODE at location (Lat: 32.869606
+Lon: -117.21839) intersects streets: Regents Road, Mahaila Avenue, Plaza de Palmas, ]
+DIJKSTRA visiting[NODE at location (Lat: 32.8665949
+Lon: -117.2164918) intersects streets: Costa Verde Boulevard, Nobel Drive, Cargill Avenue, ]
+DIJKSTRA visiting[NODE at location (Lat: 32.865986
+Lon: -117.216492) intersects streets: Cargill Avenue, Cargill Avenue, Pulitzer Place, ]
+DIJKSTRA visiting[NODE at location (Lat: 32.869423
+Lon: -117.220917) intersects streets: Mahaila Avenue, Danica Mae Drive, Mahaila Avenue, ]
+DIJKSTRA visiting[NODE at location (Lat: 32.869255
+Lon: -117.216927) intersects streets: Las Palmas Square, Costa Verde Boulevard, Costa Verde Boulevard, Plaza de Palmas, ]
+DIJKSTRA visiting[NODE at location (Lat: 32.8684958
+Lon: -117.2186475) intersects streets: Regents Road, Crystal Dawn Lane, ]
+DIJKSTRA visiting[NODE at location (Lat: 32.8708603
+Lon: -117.2182184) intersects streets: ]
+DIJKSTRA visiting[NODE at location (Lat: 32.8694268
+Lon: -117.2212856) intersects streets: Mahaila Avenue, ]
+DIJKSTRA visiting[NODE at location (Lat: 32.8660691
+Lon: -117.217393) intersects streets: Pulitzer Place, ]
+DIJKSTRA visiting[NODE at location (Lat: 32.869488
+Lon: -117.220108) intersects streets: Crystal Dawn Lane, Mahaila Avenue, Mahaila Avenue, ]
+DIJKSTRA visiting[NODE at location (Lat: 32.8681153
+Lon: -117.2168759) intersects streets: Costa Verde Boulevard, Costa Verde Boulevard, ]
+DIJKSTRA visiting[NODE at location (Lat: 32.864117
+Lon: -117.216476) intersects streets: Cargill Avenue, Cargill Avenue, Decoro Street, ]
+DIJKSTRA visiting[NODE at location (Lat: 32.866743
+Lon: -117.2136249) intersects streets: Nobel Drive, Genesee Avenue, ]
+DIJKSTRA visiting[NODE at location (Lat: 32.868629
+Lon: -117.215393) intersects streets: Las Palmas Square, ]
+DIJKSTRA visiting[NODE at location (Lat: 32.8667891
+Lon: -117.2134384) intersects streets: Nobel Drive, Genesee Avenue, ]
+DIJKSTRA visiting[NODE at location (Lat: 32.8638314
+Lon: -117.2223726) intersects streets: Regents Road, Berino Court, ]
+DIJKSTRA visiting[NODE at location (Lat: 32.8669261
+Lon: -117.2134864) intersects streets: Nobel Drive, Genesee Avenue, ]
+DIJKSTRA visiting[NODE at location (Lat: 32.8637793
+Lon: -117.2222323) intersects streets: Regents Road, Berino Court, Berino Court, ]
+DIJKSTRA visiting[NODE at location (Lat: 32.868528
+Lon: -117.2247431) intersects streets: Nobel Drive, Lebon Drive, ]
+DIJKSTRA visiting[NODE at location (Lat: 32.870899
+Lon: -117.216026) intersects streets: Costa Verde Boulevard, ]
+DIJKSTRA visiting[NODE at location (Lat: 32.8668996
+Lon: -117.2136811) intersects streets: Genesee Avenue, Nobel Drive, ]
+DIJKSTRA visiting[NODE at location (Lat: 32.868528
+Lon: -117.2248976) intersects streets: Lebon Drive, Nobel Drive, ]
+DIJKSTRA visiting[NODE at location (Lat: 32.8683693
+Lon: -117.2248947) intersects streets: Lebon Drive, Nobel Drive, ]
+DIJKSTRA visiting[NODE at location (Lat: 32.863625
+Lon: -117.221817) intersects streets: Berino Court, Berino Court, Caminito Dia, ]
+DIJKSTRA visiting[NODE at location (Lat: 32.8683692
+Lon: -117.2247391) intersects streets: Lebon Drive, Nobel Drive, ]
+DIJKSTRA visiting[NODE at location (Lat: 32.86348
+Lon: -117.221451) intersects streets: Berino Court, ]
+DIJKSTRA visiting[NODE at location (Lat: 32.8670426
+Lon: -117.2121383) intersects streets: ]
+DIJKSTRA visiting[NODE at location (Lat: 32.862453
+Lon: -117.216522) intersects streets: Cargill Avenue, Cargill Avenue, Camino Ticina, ]
+DIJKSTRA visiting[NODE at location (Lat: 32.8697828
+Lon: -117.2244506) intersects streets: Lebon Drive, University Center Lane, ]
+Nodes visited in search: 37
+
+A* visiting[NODE at location (Lat: 32.8674388
+Lon: -117.2190213) intersects streets: Regents Road, Nobel Drive, ]
+Actual = 0.0, Pred: 0.0
+
+A* visiting[NODE at location (Lat: 32.8675914
+Lon: -117.2189246) intersects streets: Nobel Drive, Regents Road, ]
+Actual = 0.019228164610488048, Pred: 0.5901377945321551
+
+A* visiting[NODE at location (Lat: 32.8676364
+Lon: -117.2190487) intersects streets: Nobel Drive, Regents Road, ]
+Actual = 0.03185650673463668, Pred: 0.5901450812645133
+
+A* visiting[NODE at location (Lat: 32.8683381
+Lon: -117.2210633) intersects streets: Nobel Drive, Danica Mae Drive, Danica Mae Drive, ]
+Actual = 0.2356350474102522, Pred: 0.5905505417475037
+
+A* visiting[NODE at location (Lat: 32.8674959
+Lon: -117.2191454) intersects streets: Nobel Drive, Regents Road, ]
+Actual = 0.04990767095670076, Pred: 0.6070037651941586
+
+A* visiting[NODE at location (Lat: 32.8682046
+Lon: -117.2211046) intersects streets: Danica Mae Drive, Nobel Drive, ]
+Actual = 0.25097733000366274, Pred: 0.6094893744992479
+
+A* visiting[NODE at location (Lat: 32.869423
+Lon: -117.220917) intersects streets: Mahaila Avenue, Danica Mae Drive, Mahaila Avenue, ]
+Actual = 0.35776400427355637, Pred: 0.6902998772516449
+
+A* visiting[NODE at location (Lat: 32.8694268
+Lon: -117.2212856) intersects streets: Mahaila Avenue, ]
+Actual = 0.3922023178280481, Pred: 0.6905252110753941
+
+A* visiting[NODE at location (Lat: 32.868528
+Lon: -117.2247431) intersects streets: Nobel Drive, Lebon Drive, ]
+Actual = 0.5817555295533936, Pred: 0.7239766451760166
+
+A* visiting[NODE at location (Lat: 32.8697828
+Lon: -117.2244506) intersects streets: Lebon Drive, University Center Lane, ]
+Actual = 0.7277939669874567, Pred: 0.7277939669874567
+Nodes visited in search: 10</pre>
+ <p>
+ </p>
+</co-content>
+<style>
+ body {
+    padding: 50px 85px 50px 85px;
+}
+
+table th, table td {
+    border: 1px solid #e0e0e0;
+    padding: 5px 20px;
+    text-align: left;
+}
+input {
+    margin: 10px;
+}
+}
+th {
+    font-weight: bold;
+}
+td, th {
+    display: table-cell;
+    vertical-align: inherit;
+}
+img {
+    height: auto;
+    max-width: 100%;
+}
+pre {
+    display: block;
+    margin: 20px;
+    background: #424242;
+    color: #fff;
+    font-size: 13px;
+    white-space: pre-wrap;
+    padding: 9.5px;
+    margin: 0 0 10px;
+    border: 1px solid #ccc;
+}
+</style>
+<script async="" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript">
+</script>
+<script type="text/x-mathjax-config">
+ MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$$','$$'], ['$','$'] ],
+      displayMath: [ ["\\[","\\]"] ],
+      processEscapes: true
+    }
+  });
+</script>

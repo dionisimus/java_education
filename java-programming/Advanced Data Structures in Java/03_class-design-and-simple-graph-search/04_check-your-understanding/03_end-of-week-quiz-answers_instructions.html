@@ -1,0 +1,248 @@
+<meta charset="utf-8"/>
+<co-content>
+ <h2 level="2">
+  Quiz answers and explanations
+ </h2>
+ <p>
+  Congratulations on passing the final quiz for this week! Here are the answers and explanations for the quiz questions. Correct answers are in
+  <strong>
+   bold
+  </strong>
+  . Incorrect answers (when given) are indicated in
+  <em>
+   italics
+  </em>
+  .
+ </p>
+ <p>
+  1. What is the running time of the breadth first search (BFS) algorithm in the worst case?
+ </p>
+ <p>
+  First, if you struggled with this question, you probably want to review the Concept Challenge on BFS and DFS running time here:
+ </p>
+ <p>
+  <a href="https://www.coursera.org/learn/advanced-data-structures/lecture/pKPcI/concept-challenge-performance-of-dfs-and-bfs">
+   https://www.coursera.org/learn/advanced-data-structures/lecture/pKPcI/concept-challenge-performance-of-dfs-and-bfs
+  </a>
+ </p>
+ <p>
+  Now, here is a short explanation of each possible answer.
+ </p>
+ <ul bullettype="bullets">
+  <li>
+   <p>
+    <strong>
+     O(E + V) (correct)
+    </strong>
+   </p>
+  </li>
+ </ul>
+ <p>
+  As we saw in the video linked above, the algorithm in the worst case will traverse all the edges in the graph once, which is where the E term comes from.  The V term comes from the fact that in the worst case all of the nodes will also be visited.   These two terms are added together because the visits to the nodes and edges are done in sequence (i.e. you follow an edge, then visit a node) rather than, for example, visiting all the edges in the graph for EACH node.
+ </p>
+ <p>
+  Now, you might be wondering why we need to include both V and E, and not simply include E because in order to reach all nodes you need at least one each into each node so V would be about equal to E, and in the worst case E = V^2.  Including both terms makes the bound more general for slight variations of the algorithm on different graphs.  For example, if your initialization step iterates through all of the nodes marking them as unvisited, but you have no edges in your graph, then your BFS will still depend on V.  So the running time of BFS is expressed with both V and E.
+ </p>
+ <ul bullettype="bullets">
+  <li>
+   <p>
+    <em>
+     O(V) (incorrect) and  O(V^2)
+    </em>
+    (incorrect)
+   </p>
+  </li>
+ </ul>
+ <p>
+  You must include the E term because the main loop of the algorithm explores out from all of the edges coming out from each nodes that comes out of the queue, which in the worst case will be all edges in the graph.
+ </p>
+ <p>
+ </p>
+ <p>
+  2. Which of the following is true about code refactoring? Select all that apply.
+ </p>
+ <p>
+  Below we give the correct and incorrect answers to this question.  If you have trouble understanding why the correct answers are correct and the incorrect answers are incorrect, please re-watch the lecture
+  <a href="https://www.coursera.org/learn/advanced-data-structures/lecture/MPNmo/core-refactoring">
+   Core: Refactoring
+  </a>
+  For the last response, please pay particular attention to the difference between redesign and refactoring.
+ </p>
+ <ul bullettype="bullets">
+  <li>
+   <p>
+    <strong>
+     It is common during code development (correct)
+    </strong>
+   </p>
+  </li>
+ </ul>
+ <ul bullettype="bullets">
+  <li>
+   <p>
+    <em>
+     It should be avoided unless absolutely necessary (incorrect)
+    </em>
+   </p>
+  </li>
+ </ul>
+ <ul bullettype="bullets">
+  <li>
+   <p>
+    <strong>
+     It refers to the process of changing the structure of the code without changing its functionality (correct)
+    </strong>
+   </p>
+  </li>
+ </ul>
+ <ul bullettype="bullets">
+  <li>
+   <p>
+    <em>
+     It generally changes the code's public interface. (incorrect)
+    </em>
+   </p>
+  </li>
+ </ul>
+ <p>
+ </p>
+ <p>
+  3. Which of the following is/are true about Depth First Search (DFS)?
+ </p>
+ <ul bullettype="bullets">
+  <li>
+   <p>
+    <em>
+     In the worst case, depth first search is more efficient than breadth first search. (incorrect)
+    </em>
+   </p>
+  </li>
+ </ul>
+ <p>
+  In the worst case, both DFS and BFS have O(V+E) running time.
+ </p>
+ <ul bullettype="bullets">
+  <li>
+   <p>
+    <em>
+     DFS usually finds a shorter path (in terms of number of nodes) than BFS. (incorrect)
+    </em>
+   </p>
+  </li>
+ </ul>
+ <p>
+  In fact, BFS always finds the shortest path, while DFS may not.
+ </p>
+ <ul bullettype="bullets">
+  <li>
+   <p>
+    <strong>
+     DFS uses a Stack to hold the list of unexplored nodes. (correct)
+    </strong>
+   </p>
+  </li>
+ </ul>
+ <p>
+  DFS uses a stack, while BFS uses a queue.
+ </p>
+ <ul bullettype="bullets">
+  <li>
+   <p>
+    <strong>
+     DFS has a straightforward recursive solution. (correct)
+    </strong>
+   </p>
+  </li>
+ </ul>
+ <p>
+  The recursive solution relies on the program stack to store the nodes that need to be explored.
+ </p>
+ <ul bullettype="bullets">
+  <li>
+   <p>
+    <strong>
+     DFS will always find a path from Start to Goal if there is one. (correct)
+    </strong>
+   </p>
+  </li>
+ </ul>
+ <p>
+  Although DFS might not find the shortest path, it will eventually explore all edges and so it will find a path if one exists.
+ </p>
+ <p>
+ </p>
+ <p>
+  4. Which of the following is the better representation for the MapGraph graph that you implemented in the programming project this week?
+ </p>
+ <ul bullettype="bullets">
+  <li>
+   <p>
+    <strong>
+     Adjacency List (correct)
+    </strong>
+   </p>
+  </li>
+ </ul>
+ <p>
+  Because the number of edges is relatively similar to the number of nodes (i.e. each intersection has roads only to a small number of intersections nearby), an adjacency list will be space efficient, while a matrix will not.,
+ </p>
+ <ul bullettype="bullets">
+  <li>
+   <p>
+    <em>
+     Adjacency Matrix (incorrect)
+    </em>
+   </p>
+  </li>
+ </ul>
+ <p>
+ </p>
+</co-content>
+<style>
+ body {
+    padding: 50px 85px 50px 85px;
+}
+
+table th, table td {
+    border: 1px solid #e0e0e0;
+    padding: 5px 20px;
+    text-align: left;
+}
+input {
+    margin: 10px;
+}
+}
+th {
+    font-weight: bold;
+}
+td, th {
+    display: table-cell;
+    vertical-align: inherit;
+}
+img {
+    height: auto;
+    max-width: 100%;
+}
+pre {
+    display: block;
+    margin: 20px;
+    background: #424242;
+    color: #fff;
+    font-size: 13px;
+    white-space: pre-wrap;
+    padding: 9.5px;
+    margin: 0 0 10px;
+    border: 1px solid #ccc;
+}
+</style>
+<script async="" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript">
+</script>
+<script type="text/x-mathjax-config">
+ MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$$','$$'], ['$','$'] ],
+      displayMath: [ ["\\[","\\]"] ],
+      processEscapes: true
+    }
+  });
+</script>

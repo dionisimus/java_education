@@ -1,0 +1,149 @@
+<meta charset="utf-8"/>
+<co-content>
+ <p>
+  <strong>
+   Vertex
+  </strong>
+  : a node or object in a graph.  The plural of vertex is "vertices".
+ </p>
+ <p>
+  <strong>
+   Edge
+  </strong>
+  : a link between two vertices in the graph.  Each edge is incident on two vertices. If the edge is directed, then one of these vertices is the start point and the other vertex is the endpoint.  An edge may have a weight or cost associated with traversing it.
+  <strong>
+   Self-loop
+  </strong>
+  : an edge whose start and end points are the same vertex.
+  <strong>
+   Multiple edges
+  </strong>
+  : a pair of vertices may have multiple edges between them.
+ </p>
+ <p>
+  <strong>
+   In-degree
+  </strong>
+  : the in-degree of a vertex, v, is the number of edges with v as their endpoint.
+ </p>
+ <p>
+  <strong>
+   Out-degree
+  </strong>
+  : the out-degree of a vertex, v, is the number of edges with v as their start point.
+ </p>
+ <p>
+  <strong>
+   Degree
+  </strong>
+  : the degree of a vertex is the sum of its in-degree and its out-degree.
+ </p>
+ <p>
+  <strong>
+   Degree sequence
+  </strong>
+  : an ordered list containing the degrees of each of the vertices in a graph, in non-increasing sorted order (with repetitions).  The degree sequence of a graph is an invariant of the graph and can be used to distinguish between two graphs and to analyze graph properties.
+ </p>
+ <p>
+  <strong>
+   Neighbor
+  </strong>
+  : a vertex, u, is a neighbor of a vertex, v, if there's an edge that's incident on both u and v.  Occasionally it's useful to distinguish between the neighbors of v that are the start points of edges whose endpoint is v (
+  <strong>
+   in-neighbors
+  </strong>
+  ) and those neighbors of v that are the endpoints of edges whose start point is v (
+  <strong>
+   out-neighbors
+  </strong>
+  ).
+ </p>
+ <p>
+  <strong>
+   Adjacency matrix
+  </strong>
+  : a representation of the edge relation in a graph.  After labeling the vertices with integers, edges can be represented as nonzero entries in a 2D square array whose number of rows (and number of columns) is the number of vertices in the graph.  The entry in row i and column j in the array corresponds to edge(s) with start point the vertex, labelled i, and endpoint the vertex, labelled j.
+ </p>
+ <p>
+  <strong>
+   Adjacency list
+  </strong>
+  : another representation of the edge relation in a graph.  This data structure has a list associated with each vertex in the graph; the contents of this list are (representations of) each edge whose start point is that vertex.
+ </p>
+ <p hasmath="true">
+  <strong>
+   Path
+  </strong>
+  : a path in a graph is a sequence of vertices and edges in the graph $$v_1 e_1 v_2 e_2 \ldots v_i e_i \ldots v_m e_m$$ so that (for each $$i$$) the start point of $$e_i$$ is $$v_i$$ and its endpoint is $$v_{i+1}$$.  Paths are also referred to as walks or tours in the graph.
+ </p>
+ <p>
+  <strong>
+   Path length
+  </strong>
+  : the length of a path in the graph is the number of times it traverses edges.  If a single edge is traversed multiple times in a path, it gets counted each of those times.  This path length doesn't take into account any weights on edges (if they are present).
+ </p>
+ <p>
+  <strong>
+   Path cost
+  </strong>
+  : the total cost of traversing a path in a weighted graph is (typically) the sum of the weights of each of the edges it traverses.  Depending on the meaning of the costs, the total cost may be computed by multiplying them instead of adding.
+ </p>
+ <p>
+  <strong>
+   Distance
+  </strong>
+  : the distance between two vertices in a graph is the shortest length of a path between them.
+ </p>
+ <p>
+ </p>
+ <p>
+ </p>
+</co-content>
+<style>
+ body {
+    padding: 50px 85px 50px 85px;
+}
+
+table th, table td {
+    border: 1px solid #e0e0e0;
+    padding: 5px 20px;
+    text-align: left;
+}
+input {
+    margin: 10px;
+}
+}
+th {
+    font-weight: bold;
+}
+td, th {
+    display: table-cell;
+    vertical-align: inherit;
+}
+img {
+    height: auto;
+    max-width: 100%;
+}
+pre {
+    display: block;
+    margin: 20px;
+    background: #424242;
+    color: #fff;
+    font-size: 13px;
+    white-space: pre-wrap;
+    padding: 9.5px;
+    margin: 0 0 10px;
+    border: 1px solid #ccc;
+}
+</style>
+<script async="" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript">
+</script>
+<script type="text/x-mathjax-config">
+ MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$$','$$'], ['$','$'] ],
+      displayMath: [ ["\\[","\\]"] ],
+      processEscapes: true
+    }
+  });
+</script>

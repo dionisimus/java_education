@@ -1,0 +1,116 @@
+<meta charset="utf-8"/>
+<co-content>
+ <p>
+  We've tried to pull the answers/suggestions for the most frequently encountered issues on the first programming assignment into this document. If you don't see your question answered here, or to check out other questions people are asking (and hopefully some answers) remember to check the discussion forum for this week. If you have a suggestion for a question we should add to this document, please submit it using the "flag" at the bottom of this assignment.
+ </p>
+ <h3 level="3">
+  Q: The score the local grader gives me is different from the score I get when I submit the assignment.  What's going on?
+ </h3>
+ <p>
+  A: Make sure you are
+  <strong>
+   running the correct graders, and all of the graders, for this assignment
+  </strong>
+  .  The most common reason for this error is that people fail to run one of the two graders--e.g. they run GraphGrader but not DegreeGrader.  This assignment has two parts and two different graders: GraphGrader.java and DegreeGrader.java.
+ </p>
+ <p>
+  If that doesn't fix your problem, try
+  <strong>
+   posting in the discussion forum
+  </strong>
+  to see if anyone else has encountered something similar.
+ </p>
+ <p>
+  If none of these fix your problem, submit a bug report and we will look into it.
+ </p>
+ <h3 level="3">
+  Q: I am getting a Grader Failed message.  Is this something wrong with my code, or your graders?
+ </h3>
+ <p>
+  A: Chances are this is because your code is doing something very unexpected, that we were not able to anticipate with our graders.   This can happen if you submit the wrong files (e.g. class files instead of .java files).  Check to make sure you've submitted the correct files exactly as described in the assignment instructions.
+ </p>
+ <p>
+  If you don't see anything that you are doing wrong, post in the discussion forum for help.  As a last resort you can submit a bug report.
+ </p>
+ <h3 level="3">
+  Q: How can I test degreeSequence?  Graph.java is an abstract class so I can't instantiate it.
+ </h3>
+ <p>
+  A: You can test degreeSequence by creating an instance of either GraphAdjMatrix or GraphAdjList, which are both non-abstract.  Then, design a graph structure you want to test on and add the vertices and edges to your graph using addVertex and addEdge.  Finally, call degreeSequence on your graph object and print out the result to check it.  Alternatively, after adding your Vertices and Edges you can just print the graph, which will call degreeSequence for you and print out the degree sequence for the graph you created.
+ </p>
+ <p>
+  You can use this process to test the other methods you have to write for this assignment as well.
+ </p>
+ <p>
+  Of course, you're welcome to write JUnit tests as well if you get inspired to do so.  :)
+ </p>
+ <h3 level="3">
+  Q: (Why) Do I have to pay to submit my assignments?
+ </h3>
+ <p>
+  Yes, you do have to upgrade to the paid enrollment to submit your assignments for feedback.  Most Coursera courses require this now.  These courses took a lot of energy and resources to create, and we ask learners who want to get the full experience to pay a bit to help us recover the costs of production.
+ </p>
+ <p>
+  <a href="https://learner.coursera.help/hc/en-us/articles/209818613-Enrollment-options">
+   https://learner.coursera.help/hc/en-us/articles/209818613-Enrollment-options
+  </a>
+ </p>
+ <p>
+  If you cannot afford the course, but still want to submit your assignments, you can apply for financial aid which will usually fully cover the cost of the course for you.
+ </p>
+ <p>
+  <a href="https://learner.coursera.help/hc/en-us/articles/209819033-Apply-for-Financial-Aid">
+   https://learner.coursera.help/hc/en-us/articles/209819033-Apply-for-Financial-Aid
+  </a>
+ </p>
+ <p>
+ </p>
+</co-content>
+<style>
+ body {
+    padding: 50px 85px 50px 85px;
+}
+
+table th, table td {
+    border: 1px solid #e0e0e0;
+    padding: 5px 20px;
+    text-align: left;
+}
+input {
+    margin: 10px;
+}
+}
+th {
+    font-weight: bold;
+}
+td, th {
+    display: table-cell;
+    vertical-align: inherit;
+}
+img {
+    height: auto;
+    max-width: 100%;
+}
+pre {
+    display: block;
+    margin: 20px;
+    background: #424242;
+    color: #fff;
+    font-size: 13px;
+    white-space: pre-wrap;
+    padding: 9.5px;
+    margin: 0 0 10px;
+    border: 1px solid #ccc;
+}
+</style>
+<script async="" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript">
+</script>
+<script type="text/x-mathjax-config">
+ MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$$','$$'], ['$','$'] ],
+      displayMath: [ ["\\[","\\]"] ],
+      processEscapes: true
+    }
+  });
+</script>

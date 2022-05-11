@@ -1,0 +1,136 @@
+<html>
+<head>
+<title>Getting Started with Eclipse</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<style type="text/css">
+<!--
+-->
+</style>
+<link rel="stylesheet" href="../style.css" type="text/css">
+</head>
+
+<body bgcolor="#FFFFFF">
+<table border="3" cellspacing="0" cellpadding="6" bgcolor="#FFCC66" bordercolor="#996633" width="106%">
+  <tr bordercolor="#996633"> 
+    <td height="59"><font size="+2"><strong><font face="Arial, Helvetica, sans-serif">CIT 
+      591 Getting Started With Eclipse</font></strong></font><font face="Arial, Helvetica, sans-serif"><br>
+      Fall 2004, David Matuszek</font></td>
+  </tr>
+</table>
+<p><b><font face="Arial, Helvetica, sans-serif">Downloading and installing</font></b></p>
+<p>The main page is <a href="http://www.eclipse.org/">http://www.eclipse.org/</a> 
+  ; start there for everything.</p>
+<p>Click on &quot;downloads&quot; in either the main panel or the navigation panel; 
+  this will bring you to a page where you can select either the Main Eclipse download 
+  site or one of several mirrors. I suggest that you get the &quot;Latest Release.&quot; 
+  I'm using <b>Release&nbsp;3.0.1</b>, which is the latest release at the time 
+  I'm writing this.</p>
+<p>Installation is simple, but you must already have the Java SDK installed. Unzip 
+  the file and double-click <b>eclipse.exe</b>. </p>
+<p><b><font face="Arial, Helvetica, sans-serif">Getting started</font></b></p>
+<p>The following is slightly modified from <a href="http://www.eclipse.org/eclipse/faq/eclipse-faq.html#users_4">http://www.eclipse.org/eclipse/faq/eclipse-faq.html#users_4</a>:</p>
+<blockquote>
+  <table border="1" cellpadding="8" bordercolor="#996633">
+    <tr><td>
+<b>How do I write a simple "Hello World" program?</b> 
+    <p>To write a "Hello World" program follow these steps: 
+        <ol>
+          <li>Start Eclipse.</li>
+          <li>Create a new Java Project: 
+            <ol>
+              <li><b>File-&gt;New-&gt;Project</b>.</li>
+              <li>Select "<b>Java</b>" in the category list. 
+              <li>Select "<b>Java Project</b>" in the project list. Click "<b>Next</b>". 
+              <li>Enter a project name into the <b>Project name</b> field, for 
+                example, "<code>Hello World Project</code>". 
+              <li>Click "<b>Finish</b>"--It will ask you if you want the Java 
+                perspective to open. (You do.) 
+            </ol>
+          </li>
+          <li>Create a new Java class: 
+            <ol>
+              <li>Click the "<b>Create a Java Class</b>" button in the toolbar. 
+                (This is the icon below &quot;<b>Run</b>&quot; and &quot;<b>Window</b>&quot; 
+                with a tooltip that says &quot;New Java Class.&quot;) 
+              <li>Enter "<code>HelloWorld</code>" into the <b>Name</b> field. 
+              <li>Click the checkbox indicating that you would like Eclipse to 
+                create a "<code>public static void main(String[] args)</code>" 
+                method. 
+              <li>Click "<b>Finish</b>". 
+            </ol>
+          </li>
+          <li>A Java editor for <code>HelloWorld.java</code> will open. In the 
+            main method enter the following line.<br>
+            <code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;System.out.println("Hello World");</code></li>
+          <li>Save using <b>ctrl-s</b>. This automatically compiles <code>HelloWorld.java</code>.</li>
+          <li>Click the "<b>Run</b>" button in the toolbar (looks like a little 
+            man running).</li>
+          <li>You will be prompted to create a Launch configuration. Select "<b>Java 
+            Application</b>" and click "<b>New</b>".</li>
+          <li>Click "<b>Run</b>" to run the Hello World program. The console will 
+            open and display "<code><b>Hello World</b></code>".</li>
+        </ol>
+</td></tr></table>
+</blockquote>
+<p class="boxed"><b><font face="Arial, Helvetica, sans-serif">Using the tutorials</font></b></p>
+<p>The tutorials are online, and I haven't found an easy way to download them 
+  so that they can be used offline.</p>
+<p>To start a tutorial, first start up Eclipse. Go to the <b><code>Help</code></b> 
+  menu and choose <b><code>Help Contents</code></b>. This should open a browser 
+  window with contents in the leftmost pane and &quot;Using Eclipse help system&quot; 
+  in the right pane. (I have found that if you try to open a second window this 
+  way, it comes up with nothing in the leftmost pane; so use just the one window.)</p>
+<p>In the leftmost window, click on <b><code>Workbench User Guide</code></b>. 
+  Don't click on the icon next to it--that doesn't do anything--but click on the 
+  words themselves.</p>
+<p class="boxed">At this point, <b><code>Getting started</code></b> looks an acts 
+  like a link, but it doesn't do any good to click on it. Instead, click on the 
+  <span class="boxed">+</span> to its left. This opens up and you can click on 
+  <b> <code>Basic tutorial</code></b>, which is a link that opens a page that 
+  says &quot;Basic tutorial&quot; and little else. As before, if a link has a<b> 
+  +</b> to its left, you need to click on the <b>+</b> to open things up. Doing 
+  this again gets you to <b><code>The Workbench</code></b>, which is the first 
+  page with any useful information on it.</p>
+<p class="boxed">As you step through the sections of a tutorial, you will have 
+  to keep track of where you are; the Contents menu on the left does not highlight 
+  the current section.</p>
+<p class="boxed">Both Eclipse and the tutorial require a lot of screen space, 
+  so you will find yourself frequently switching back and forth between the two. 
+  It may help to resize the windows so they are full screen width but not as tall, 
+  so you can put one above the other.</p>
+<p class="boxed">You should work through at least these tutorials:<br>
+  <b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Workbench User Guide -&gt; Getting started 
+  -&gt; Basic tutorial<br>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Java Development User Guide -&gt; Getting 
+  started -&gt; Basic tutorial</b></p>
+<p class="boxed"><b><font face="Arial, Helvetica, sans-serif">Running JUnit tests</font></b></p>
+<p class="boxed">Before you can write JUnit tests you have to add the <code>junit.jar</code> 
+  library to your build class path.</p>
+<ol>
+  <li>Create a project.</li>
+  <li>Right-click on your project and choose <b><code>Properties</code></b>.</li>
+  <li>Click on <b><code>Java Build Path</code></b>.</li>
+  <li>Click on the <b><code>Libraries</code></b> tab.</li>
+  <li>Click on <b><code>Add External JARs...</code></b>.</li>
+  <li>Navigate to <code>junit.jar</code>. It should be in a location such as <code>...Eclipse 
+    3.0.1\plugins\org.junit_3.8.1\junit.jar</code>.</li>
+  <li>Select <code>junit.jar</code>, click on <b><code>Open</code></b>, click 
+    on <b><code>OK</code></b>.</li>
+</ol>
+<p>To create a test class:</p>
+<ol>
+  <li>Open the New wizard (<b><code>File &gt; New &gt; Other...</code></b>) </li>
+  <li>Select <b><code>Java &gt; JUnit</code></b> in the left pane and <b><code>TestCase</code></b> 
+    in the right pane and click <b><code>Next</code></b>. </li>
+  <li>Enter the name of your test class and click <b><code>OK</code></b>.</li>
+</ol>
+<p>To run your test class, select your test class and choose <b><code>Run as &gt; 
+  JUnit Test</code></b> from the <b><code>Run</code></b> drop-down menu in the 
+  toolbar.</p>
+<p>Pay special attention to this Eclipse tutorial: <b>Help -&gt; <nobr>Help Contents</nobr> 
+  -&gt; <nobr>Java Development User Guide</nobr> -&gt; <nobr>Getting Started</nobr> 
+  -&gt; <nobr>Basic tutorial</nobr> -&gt; <nobr>Writing and running JUnit tests</nobr></b><br>
+</p>
+<p>Also read: <b>JUnit Test Infected</b>, <a href="http://junit.sourceforge.net/doc/testinfected/testing.htm">http://junit.sourceforge.net/doc/testinfected/testing.htm</a>.</p>
+</body>
+</html>

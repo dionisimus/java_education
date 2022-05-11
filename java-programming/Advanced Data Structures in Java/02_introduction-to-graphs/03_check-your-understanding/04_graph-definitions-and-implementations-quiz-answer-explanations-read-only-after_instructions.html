@@ -1,0 +1,293 @@
+<meta charset="utf-8"/>
+<co-content>
+ <h2 level="2">
+  Quiz answers and explanations
+ </h2>
+ <p>
+  Congratulations on passing the final quiz for week 1! Here are the answers and explanations for the quiz. Correct answers are in
+  <strong>
+   bold
+  </strong>
+  . Incorrect answers (where they are given) are indicated in
+  <em>
+   italics
+  </em>
+  .
+ </p>
+ <ol bullettype="numbers">
+  <li>
+   <p>
+    Consider the following adjacency matrix representation of a directed graph (represented as code for nicer formatting):
+   </p>
+  </li>
+ </ol>
+ <pre>1 0 0 1 
+0 1 0 1 
+0 0 1 0 
+0 1 1 1
+</pre>
+ <p>
+  How many edges are in this graph?
+ </p>
+ <ul bullettype="bullets">
+  <li>
+   <p>
+    <strong>
+     8 (correct)
+    </strong>
+   </p>
+  </li>
+ </ul>
+ <p>
+  The sum of the entries in the matrix represents the number of edges in the graph because each entry of 1 is an edge between two nodes.
+ </p>
+ <p>
+ </p>
+ <p>
+  2. Consider the same adjacency matrix representation of a directed graph (represented as code for nicer formatting):
+ </p>
+ <pre>1 0 0 1
+0 1 0 1
+0 0 1 0
+0 1 1 1</pre>
+ <p>
+  How many vertices in this graph have a self-loop, i.e. an edge that starts in a vertex and ends at the same vertex it started at?
+ </p>
+ <ul bullettype="bullets">
+  <li>
+   <p>
+    <strong>
+     4 (correct)
+    </strong>
+   </p>
+  </li>
+ </ul>
+ <p>
+  The 1's on the diagonal represent edges that start in one vertex and go back to the same vertex.
+ </p>
+ <p>
+ </p>
+ <p>
+  3. If you have a graph with 5 vertices and 2 edges, how many
+  <em>
+   total
+  </em>
+  entries are there in the matrix with an adjacency matrix representation of this graph?
+ </p>
+ <ul bullettype="bullets">
+  <li>
+   <p>
+    <strong>
+     25 (correct)
+    </strong>
+   </p>
+  </li>
+ </ul>
+ <p>
+  There are 5*5 entries, representing each possible edge in the graph. It doesn't matter how many edges there actually are.
+ </p>
+ <p>
+ </p>
+ <p>
+  4. Consider the following adjacency list representation of a directed graph:
+ </p>
+ <pre>0 -&gt; {}
+1 -&gt; {2, 3}
+2 -&gt; {1}
+3 -&gt; {0, 2, 3}
+4 -&gt; {0, 1, 3, 4}</pre>
+ <p>
+  How many edges does this graph have?
+ </p>
+ <ul bullettype="bullets">
+  <li>
+   <p>
+    <strong>
+     10 (correct)
+    </strong>
+   </p>
+  </li>
+ </ul>
+ <p>
+  Great! The numbers in the lists on the right represent the edges in the graph.  For each row, there is one edge from the vertex  of the left to each vertex in the list of the right.
+ </p>
+ <p>
+ </p>
+ <p>
+  5. Consider the following adjacency list representation of a directed graph:
+ </p>
+ <pre>0 -&gt; {}
+1 -&gt; {2, 3}
+2 -&gt; {1}
+3 -&gt; {0, 2, 3}
+4 -&gt; {0, 1, 3, 4}</pre>
+ <p>
+  Which vertex in this graph has the highest
+  <em>
+   in
+  </em>
+  -degree?
+ </p>
+ <ul bullettype="bullets">
+  <li>
+   <p>
+    <strong>
+     3 (correct)
+    </strong>
+   </p>
+  </li>
+ </ul>
+ <p>
+  Great! 3 has three edges coming into it (from 4, 3, and 1).  To find the edges coming into a node, you need to find where the node appears in the lists on the left.
+ </p>
+ <p>
+ </p>
+ <p>
+  6. Consider the following adjacency list representation of a directed graph (note: this graph is slightly different from the graph in the previous two questions):
+ </p>
+ <pre>0 -&gt; {}
+1 -&gt; {2, 3}
+2 -&gt; {1, 3}
+3 -&gt; {0, 2, 3}
+4 -&gt; {0, 1, 3, 4}</pre>
+ <p>
+  What is the degree sequence for this graph? Make sure you put a single space between each number in the sequence. There should be no commas or additional spaces in the sequence.
+ </p>
+ <p>
+  Hint: make sure you list the degrees in the correct order.
+ </p>
+ <ul bullettype="bullets">
+  <li>
+   <p>
+    <strong>
+     7 5 4 4 2 (correct)
+    </strong>
+   </p>
+  </li>
+ </ul>
+ <p>
+  This is the correct answer.  Node 3 has a degree of 7 (3 outgoing edges and 4 incoming), node 7 has a degree of 5 (4 out, 1 in --the self-loop), nodes 2 and 1 have degrees of 4 (2 out, 2 in) and node 0 has a degree of 2 (2 in).  Remember that we do not write the node names or anything else in the degree sequence and it is always ordered in non-increasing order.
+ </p>
+ <p>
+  7. Consider the following adjacency list representation of a directed graph:
+ </p>
+ <pre>0 -&gt; {}
+1 -&gt; {2, 3}
+2 -&gt; {1}
+3 -&gt; {0, 2, 3}
+4 -&gt; {0, 1, 3, 4}</pre>
+ <p>
+  Which of the following pairs of vertices have paths from the first vertex to the second. Select all that apply.
+ </p>
+ <p>
+  For all of the following explanations, recall that the vertices in the lists are those you can reach via an edge from the vertex on the left.
+ </p>
+ <ul bullettype="bullets">
+  <li>
+   <p>
+    <strong>
+     From 1 to 0 (correct)
+    </strong>
+   </p>
+  </li>
+ </ul>
+ <p>
+  We can go from 1-&gt;3-&gt;0
+ </p>
+ <ul bullettype="bullets">
+  <li>
+   <p>
+    <em>
+     From 0 to 1 (incorrect)
+    </em>
+   </p>
+  </li>
+ </ul>
+ <p>
+  Notice that from 0 we cannot get to any other vertex.
+ </p>
+ <ul bullettype="bullets">
+  <li>
+   <p>
+    <em>
+     From 1 to 4 (incorrect)
+    </em>
+   </p>
+  </li>
+ </ul>
+ <p>
+  We can get from 1-&gt;3 or from 1-&gt;2 but we cannot get to 4 from either 2 or 3 (or 0, which we can get to from 3).  In fact, there are no edges into 4, except from 4 itself.
+ </p>
+ <ul bullettype="bullets">
+  <li>
+   <p>
+    <strong>
+     From 4 to 0 (correct)
+    </strong>
+   </p>
+  </li>
+ </ul>
+ <p>
+  There is a direct edge from 4-&gt;0
+ </p>
+ <ul bullettype="bullets">
+  <li>
+   <p>
+    <em>
+     From 3 to 4 (incorrect)
+    </em>
+   </p>
+  </li>
+ </ul>
+ <p>
+  As mentioned above, there are no edges into 4, except from 4 itself.
+ </p>
+</co-content>
+<style>
+ body {
+    padding: 50px 85px 50px 85px;
+}
+
+table th, table td {
+    border: 1px solid #e0e0e0;
+    padding: 5px 20px;
+    text-align: left;
+}
+input {
+    margin: 10px;
+}
+}
+th {
+    font-weight: bold;
+}
+td, th {
+    display: table-cell;
+    vertical-align: inherit;
+}
+img {
+    height: auto;
+    max-width: 100%;
+}
+pre {
+    display: block;
+    margin: 20px;
+    background: #424242;
+    color: #fff;
+    font-size: 13px;
+    white-space: pre-wrap;
+    padding: 9.5px;
+    margin: 0 0 10px;
+    border: 1px solid #ccc;
+}
+</style>
+<script async="" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript">
+</script>
+<script type="text/x-mathjax-config">
+ MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$$','$$'], ['$','$'] ],
+      displayMath: [ ["\\[","\\]"] ],
+      processEscapes: true
+    }
+  });
+</script>

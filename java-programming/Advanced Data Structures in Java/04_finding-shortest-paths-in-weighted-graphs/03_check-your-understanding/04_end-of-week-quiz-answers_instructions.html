@@ -1,0 +1,113 @@
+<meta charset="utf-8"/>
+<co-content>
+ <h2 level="2">
+  Quiz answers and explanations
+ </h2>
+ <p>
+  Congratulations on passing the final quiz for this week! This reading contains all the answers and explanations for the quiz questions. Correct answers are in
+  <strong>
+   bold
+  </strong>
+  . Incorrect answers are indicated in
+  <em>
+   italics
+  </em>
+  .
+ </p>
+ <ol bullettype="numbers">
+  <li>
+   <p>
+    Dijkstra and AStarSearch only differ substantially in the number of nodes they explore in the process of finding a route. As you've already completed those methods, Let's look at this in more detail.
+   </p>
+  </li>
+ </ol>
+ <p>
+  For this question, uncomment (or add) the following code to the
+  <strong>
+   main method in MapGraph.java
+  </strong>
+  . If you don't already count the number of items removed from the queue, you should add that to your code now. (Whenever an element is removed from the priority queue, you increment the count, then print out the count before the method returns. Elements are only added to the queue only when you find a "lower-cost" path to that element.)
+ </p>
+ <pre language="java">MapGraph theMap = new MapGraph();
+System.out.print("DONE. \nLoading the map...");
+GraphLoader.loadRoadMap("data/maps/utc.map", theMap);
+System.out.println("DONE.");
+
+GeographicPoint start = new GeographicPoint(32.8648772, -117.2254046);
+GeographicPoint end = new GeographicPoint(32.8660691, -117.217393);
+
+List&lt;GeographicPoint&gt; route = theMap.dijkstra(start,end);
+List&lt;GeographicPoint&gt; route2 = theMap.aStarSearch(start,end);</pre>
+ <p>
+  How many nodes were visited by Dijkstra and AStarSearch (if you are close but not exact to one of the results below, chose the one closest to your result)?
+ </p>
+ <ul bullettype="bullets">
+  <li>
+   <p>
+    <strong>
+     Dijkstra: 82, AStarSearch: 19 (correct)
+    </strong>
+   </p>
+  </li>
+ </ul>
+ <p>
+  Nicely done! AStarSearch is considerably more effective!
+ </p>
+ <p>
+  If you got any of the incorrect answers, double check that you are counting when you
+  <strong>
+   remove
+  </strong>
+  a node from the queue. This will include the start node and the final node (when you find the destination).
+ </p>
+ <p>
+ </p>
+</co-content>
+<style>
+ body {
+    padding: 50px 85px 50px 85px;
+}
+
+table th, table td {
+    border: 1px solid #e0e0e0;
+    padding: 5px 20px;
+    text-align: left;
+}
+input {
+    margin: 10px;
+}
+}
+th {
+    font-weight: bold;
+}
+td, th {
+    display: table-cell;
+    vertical-align: inherit;
+}
+img {
+    height: auto;
+    max-width: 100%;
+}
+pre {
+    display: block;
+    margin: 20px;
+    background: #424242;
+    color: #fff;
+    font-size: 13px;
+    white-space: pre-wrap;
+    padding: 9.5px;
+    margin: 0 0 10px;
+    border: 1px solid #ccc;
+}
+</style>
+<script async="" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript">
+</script>
+<script type="text/x-mathjax-config">
+ MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$$','$$'], ['$','$'] ],
+      displayMath: [ ["\\[","\\]"] ],
+      processEscapes: true
+    }
+  });
+</script>
