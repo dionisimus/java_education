@@ -8,7 +8,14 @@
 package roadgraph;
 
 
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.LinkedList;
 import java.util.List;
+import java.util.Map;
+import java.util.Queue;
 import java.util.Set;
 import java.util.function.Consumer;
 
@@ -25,13 +32,13 @@ import util.GraphLoader;
 public class MapGraph {
 	//TODO: Add your member variables here in WEEK 3
 	
-	
+	private List <GeographicPoint> vertixList = new ArrayList <GeographicPoint>();
+	private Map <GeographicPoint, ArrayList <GeographicPoint>> adjList = new HashMap <GeographicPoint, ArrayList <GeographicPoint>>();
 	/** 
 	 * Create a new empty MapGraph 
 	 */
-	public MapGraph()
-	{
-		// TODO: Implement in this constructor in WEEK 3
+	public MapGraph() {
+		
 	}
 	
 	/**
@@ -41,7 +48,8 @@ public class MapGraph {
 	public int getNumVertices()
 	{
 		//TODO: Implement this method in WEEK 3
-		return 0;
+		
+		return vertixList.size();
 	}
 	
 	/**
@@ -60,8 +68,21 @@ public class MapGraph {
 	 */
 	public int getNumEdges()
 	{
+		int num = 0;
 		//TODO: Implement this method in WEEK 3
-		return 0;
+		for (GeographicPoint key : adjList.keySet()) {
+			if (adjList.get(key).size() > 0) {
+				num++;
+				num += adjList.get(key).size();
+			}
+		}
+		return num;
+	}
+	
+	private ArrayList <GeographicPoint> getNeighb(GeographicPoint source)
+	{
+
+		return adjList.get(source);
 	}
 
 	
@@ -76,7 +97,11 @@ public class MapGraph {
 	public boolean addVertex(GeographicPoint location)
 	{
 		// TODO: Implement this method in WEEK 3
-		return false;
+		if (vertixList.contains(location) || location == null) {
+			return false;
+		}
+		vertixList.add(location);
+		return true;
 	}
 	
 	/**
@@ -95,6 +120,19 @@ public class MapGraph {
 			String roadType, double length) throws IllegalArgumentException {
 
 		//TODO: Implement this method in WEEK 3
+		if (from == null || to == null|| from.distance(to) < 0 || !vertixList.contains(from) || !vertixList.contains(to)) {
+			throw new IllegalArgumentException ("oops...something went wrong");
+		}
+		if (adjList.containsKey(from)) {
+			ArrayList <GeographicPoint> value = adjList.get(from);	
+			value.add(to);
+		}
+		else {
+			adjList.put(from,new ArrayList <GeographicPoint>());
+			ArrayList  <GeographicPoint> value = adjList.get(from);
+			value.add(to);
+			
+		}
 		
 	}
 	
@@ -124,6 +162,36 @@ public class MapGraph {
 			 					     GeographicPoint goal, Consumer<GeographicPoint> nodeSearched)
 	{
 		// TODO: Implement this method in WEEK 3
+		
+		Queue<GeographicPoint> queue = new LinkedList<GeographicPoint>();
+		List <GeographicPoint> visitedSet = new ArrayList <GeographicPoint>();
+//		Map <GeographicPoint, ArrayList <GeographicPoint>> parentMap = new HashMap  <GeographicPoint, ArrayList <GeographicPoint>>();
+		
+		
+		GeographicPoint curr = start;
+		queue.add(curr);
+		visitedSet.add(curr);
+		
+
+		
+
+		while (queue.peek() != null) {
+			ArrayList <GeographicPoint> currNeighbr = getNeighb(queue.peek());
+			nodeSearched.accept(queue.peek());
+			if (queue.peek().equals(goal)) {
+				return visitedSet;
+			}
+
+			if (currNeighbr != null) {
+				for (GeographicPoint n : currNeighbr) {
+					if (!visitedSet.contains(n)) {
+						visitedSet.add(n);
+						queue.add(n);	
+					}
+				}
+			}
+			queue.remove();
+		}
 		
 		// Hook for visualization.  See writeup.
 		//nodeSearched.accept(next.getLocation());
@@ -201,11 +269,39 @@ public class MapGraph {
 	
 	public static void main(String[] args)
 	{
-		System.out.print("Making a new map...");
+//		System.out.print("Making a new map...");
 		MapGraph firstMap = new MapGraph();
-		System.out.print("DONE. \nLoading the map...");
-		GraphLoader.loadRoadMap("data/testdata/simpletest.map", firstMap);
-		System.out.println("DONE.");
+//		System.out.print("DONE. \nLoading the map...");
+//		GraphLoader.loadRoadMap("data/testdata/simpletest.map", firstMap);
+//		System.out.println("DONE.");
+		
+//		System.out.println();
+		//System.out.println();
+		
+		//addEdge(GeographicPoint from, GeographicPoint to, String roadName, String roadType, double length) throws IllegalArgumentException
+		
+		firstMap.addVertex(new GeographicPoint(1.1, 1.1));
+		firstMap.addVertex(new GeographicPoint(4.1, 1.1));
+		firstMap.addVertex(new GeographicPoint(7.3, 1.1));
+		firstMap.addVertex(new GeographicPoint(8.1, 1.1));
+		
+		
+		
+
+		
+		
+		
+		firstMap.addEdge(firstMap.vertixList.get(0), firstMap.vertixList.get(1), "Some1", "Main", 1.0);
+		firstMap.addEdge(firstMap.vertixList.get(1), firstMap.vertixList.get(2), "Some2", "front", 2.0);
+		firstMap.addEdge(firstMap.vertixList.get(2), firstMap.vertixList.get(3), "Some3", "high", 3.0);
+		
+		firstMap.bfs(firstMap.vertixList.get(0), firstMap.vertixList.get(3));
+		
+		System.out.println(firstMap.bfs(firstMap.vertixList.get(0), firstMap.vertixList.get(3)));
+		
+		
+		
+//		List<GeographicPoint> bfs(GeographicPoint start, GeographicPoint goal, Consumer<GeographicPoint> nodeSearched)
 		
 		// You can use this method for testing.  
 		
@@ -261,6 +357,9 @@ public class MapGraph {
 
 		*/
 		
+
 	}
-	
+
 }
+
+
