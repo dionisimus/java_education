@@ -32,8 +32,11 @@ import util.GraphLoader;
 public class MapGraph {
 	//TODO: Add your member variables here in WEEK 3
 	
-	private List <GeographicPoint> vertixList = new ArrayList <GeographicPoint>();
-	private Map <GeographicPoint, ArrayList <GeographicPoint>> adjList = new HashMap <GeographicPoint, ArrayList <GeographicPoint>>();
+//	private List <GeographicPoint> vertixList = new ArrayList <GeographicPoint>();
+//	private Map <GeographicPoint, ArrayList <GeographicPoint>> adjList = new HashMap <GeographicPoint, ArrayList <GeographicPoint>>();
+	
+	HashMap <GeographicPoint, MapNodes> nodes = new HashMap <GeographicPoint, MapNodes>();
+	
 	/** 
 	 * Create a new empty MapGraph 
 	 */
@@ -49,7 +52,7 @@ public class MapGraph {
 	{
 		//TODO: Implement this method in WEEK 3
 		
-		return vertixList.size();
+		return nodes.size();
 	}
 	
 	/**
@@ -68,21 +71,20 @@ public class MapGraph {
 	 */
 	public int getNumEdges()
 	{
-		int num = 0;
-		//TODO: Implement this method in WEEK 3
-		for (GeographicPoint key : adjList.keySet()) {
-			if (adjList.get(key).size() > 0) {
-				num++;
-				num += adjList.get(key).size();
-			}
+		int edges = 0;
+		for (int i =0; i< getNumVertices(); i++) {
+			nodes.get(nodes)
 		}
-		return num;
+		return edges;
 	}
 	
 	private ArrayList <GeographicPoint> getNeighb(GeographicPoint source)
 	{
+		for (int i=0; i < nodes.size(); i++) {
+			
+		}
 
-		return adjList.get(source);
+		return nodes.get(source);
 	}
 
 	
@@ -165,9 +167,9 @@ public class MapGraph {
 		
 		Queue<GeographicPoint> queue = new LinkedList<GeographicPoint>();
 		List <GeographicPoint> visitedSet = new ArrayList <GeographicPoint>();
-//		Map <GeographicPoint, ArrayList <GeographicPoint>> parentMap = new HashMap  <GeographicPoint, ArrayList <GeographicPoint>>();
 		
 		
+		 
 		GeographicPoint curr = start;
 		queue.add(curr);
 		visitedSet.add(curr);
@@ -362,4 +364,16 @@ public class MapGraph {
 
 }
 
+class MapNodes {
+	GeographicPoint location;
+	List <MapEdges> edges;
+}
 
+
+
+class MapEdges {
+	GeographicPoint start;
+	GeographicPoint end;
+	String roadName;
+	double distance;
+}
