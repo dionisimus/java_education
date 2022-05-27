@@ -62,7 +62,8 @@ public class MapGraph {
 	public Set<GeographicPoint> getVertices()
 	{
 		//TODO: Implement this method in WEEK 3
-		return null;
+		
+		return nodes.keySet();
 	}
 	
 	/**
@@ -71,20 +72,15 @@ public class MapGraph {
 	 */
 	public int getNumEdges()
 	{
-		int edges = 0;
-		for (int i =0; i< getNumVertices(); i++) {
-			nodes.get(nodes)
+		
+		int edgesTotal = 0;
+		for (GeographicPoint n : getVertices()) {
+			MapNodes value = nodes.get(n);
+			List <MapEdges> edgeTemp = value.edges;
+			edgesTotal += edgeTemp.size();
 		}
-		return edges;
-	}
-	
-	private ArrayList <GeographicPoint> getNeighb(GeographicPoint source)
-	{
-		for (int i=0; i < nodes.size(); i++) {
-			
-		}
-
-		return nodes.get(source);
+		
+		return edgesTotal;
 	}
 
 	
@@ -99,10 +95,10 @@ public class MapGraph {
 	public boolean addVertex(GeographicPoint location)
 	{
 		// TODO: Implement this method in WEEK 3
-		if (vertixList.contains(location) || location == null) {
+		if (nodes.containsKey(location) || location == null) {
 			return false;
 		}
-		vertixList.add(location);
+		nodes.put(location, new MapNodes());
 		return true;
 	}
 	
@@ -121,20 +117,26 @@ public class MapGraph {
 	public void addEdge(GeographicPoint from, GeographicPoint to, String roadName,
 			String roadType, double length) throws IllegalArgumentException {
 
+		
 		//TODO: Implement this method in WEEK 3
-		if (from == null || to == null|| from.distance(to) < 0 || !vertixList.contains(from) || !vertixList.contains(to)) {
+		if (from == null || to == null|| from.distance(to) < 0 || !nodes.containsKey(from) || !nodes.containsKey(to)) {
 			throw new IllegalArgumentException ("oops...something went wrong");
 		}
-		if (adjList.containsKey(from)) {
-			ArrayList <GeographicPoint> value = adjList.get(from);	
-			value.add(to);
+		
+		for (MapEdges n: nodes.get(from).edges){
+			if (n.start == from && n.end == to) {
+				throw new IllegalArgumentException ("Edge exists");
+			}
 		}
-		else {
-			adjList.put(from,new ArrayList <GeographicPoint>());
-			ArrayList  <GeographicPoint> value = adjList.get(from);
-			value.add(to);
-			
-		}
+		
+		MapEdges temp = new MapEdges();
+		temp.start = from;
+		temp.end = to;
+		temp.roadName = roadType;
+		temp.distance = length;
+		
+		nodes.get(from).edges.add(temp);
+		
 		
 	}
 	
@@ -178,17 +180,16 @@ public class MapGraph {
 		
 
 		while (queue.peek() != null) {
-			ArrayList <GeographicPoint> currNeighbr = getNeighb(queue.peek());
 			nodeSearched.accept(queue.peek());
 			if (queue.peek().equals(goal)) {
 				return visitedSet;
 			}
 
-			if (currNeighbr != null) {
-				for (GeographicPoint n : currNeighbr) {
-					if (!visitedSet.contains(n)) {
-						visitedSet.add(n);
-						queue.add(n);	
+			if (nodes.get(queue.peek()).edges.size() >0 ) {
+				for (MapEdges n : nodes.get(queue.peek()).edges) {
+					if (!visitedSet.contains(n.end)) {
+						visitedSet.add(n.end);
+						queue.add(n.end);	
 					}
 				}
 			}
@@ -282,26 +283,6 @@ public class MapGraph {
 		
 		//addEdge(GeographicPoint from, GeographicPoint to, String roadName, String roadType, double length) throws IllegalArgumentException
 		
-		firstMap.addVertex(new GeographicPoint(1.1, 1.1));
-		firstMap.addVertex(new GeographicPoint(4.1, 1.1));
-		firstMap.addVertex(new GeographicPoint(7.3, 1.1));
-		firstMap.addVertex(new GeographicPoint(8.1, 1.1));
-		
-		
-		
-
-		
-		
-		
-		firstMap.addEdge(firstMap.vertixList.get(0), firstMap.vertixList.get(1), "Some1", "Main", 1.0);
-		firstMap.addEdge(firstMap.vertixList.get(1), firstMap.vertixList.get(2), "Some2", "front", 2.0);
-		firstMap.addEdge(firstMap.vertixList.get(2), firstMap.vertixList.get(3), "Some3", "high", 3.0);
-		
-		firstMap.bfs(firstMap.vertixList.get(0), firstMap.vertixList.get(3));
-		
-		System.out.println(firstMap.bfs(firstMap.vertixList.get(0), firstMap.vertixList.get(3)));
-		
-		
 		
 //		List<GeographicPoint> bfs(GeographicPoint start, GeographicPoint goal, Consumer<GeographicPoint> nodeSearched)
 		
@@ -368,7 +349,6 @@ class MapNodes {
 	GeographicPoint location;
 	List <MapEdges> edges;
 }
-
 
 
 class MapEdges {
