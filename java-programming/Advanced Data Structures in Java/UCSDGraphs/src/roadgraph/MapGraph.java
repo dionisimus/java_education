@@ -10,11 +10,13 @@ package roadgraph;
 
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
+import java.util.PriorityQueue;
 import java.util.Queue;
 import java.util.Set;
 import java.util.function.Consumer;
@@ -233,6 +235,11 @@ public class MapGraph {
 		// Hook for visualization.  See writeup.
 		//nodeSearched.accept(next.getLocation());
 		
+		Comparator<MapEdges> comp = new Comparator<MapEdges>();
+		
+		PriorityQueue<MapEdges> queue = new PriorityQueue<MapEdges>(new Comparator <MapEdges>());
+		
+		
 		return null;
 	}
 
@@ -351,9 +358,28 @@ class MapNodes {
 }
 
 
-class MapEdges {
+class MapEdges implements Comparable <MapEdges>{
 	GeographicPoint start;
 	GeographicPoint end;
 	String roadName;
 	double distance;
+
+	public MapEdges(double distance) {
+		this.distance = distance;
+	}
+	
+	public double getDistance() {
+		return distance;
+	}
+	
+	@Override
+    public int compareTo(MapEdges other) {
+        if(this.getDistance() > other.getDistance()) {
+            return 1;
+        } else if (this.getDistance() < other.getDistance()) {
+            return -1;
+        } else {
+            return 0;
+        }
+    }
 }
