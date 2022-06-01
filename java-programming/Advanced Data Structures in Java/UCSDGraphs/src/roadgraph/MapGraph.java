@@ -241,31 +241,61 @@ public class MapGraph {
 		
 
 		
-		PriorityQueue<GeographicPoint> queue = new PriorityQueue<GeographicPoint>();
-		List <GeographicPoint> visitedSet = new ArrayList <GeographicPoint>();
-		HashMap <GeographicPoint,GeographicPoint> parentMap = new HashMap <GeographicPoint,GeographicPoint>();
+//		PriorityQueue<GeographicPoint> queue = new PriorityQueue<GeographicPoint>();
+//		List <GeographicPoint> visitedSet = new ArrayList <GeographicPoint>();
+//		HashMap <GeographicPoint,GeographicPoint> parentMap = new HashMap <GeographicPoint,GeographicPoint>();
+//		GeographicPoint curr =  start;
+//		queue.add(curr);
+//		
+//		while (queue.peek() != null) {
+//			queue.remove();
+//			if (!visitedSet.contains(curr)) {
+//				visitedSet.add(curr);
+//				if (curr == goal) {
+//					return null;
+//				}
+//			
+//				List <MapEdges> neighb = getMapNodes(curr).getEdges();
+//				
+//				double dist = Double.POSITIVE_INFINITY;
+//				for (MapEdges n : neighb) {
+//					if (!visitedSet.contains(n.getEnd())) {
+//						if (curr.distance(n.getEnd())< dist) {
+//							n.setDistance(curr.distance(n.getEnd()));
+//							parentMap.put(curr,n.getEnd());
+//							queue.add(n.getEnd());
+//						}
+//					}
+//				}
+//			}
+//		}
+//		
+//		return null;
+//	}
 		
-		GeographicPoint curr =  start;
+		PriorityQueue<MapEdges> queue = new PriorityQueue<MapEdges>();
+		List <MapEdges> visitedSet = new ArrayList <MapEdges>();
+		HashMap <GeographicPoint,GeographicPoint> parentMap = new HashMap <GeographicPoint,GeographicPoint>();
+		MapEdges curr = getMapNodes(start).getEdges().get(0);
+		
 		queue.add(curr);
 		
 		while (queue.peek() != null) {
 			queue.remove();
 			if (!visitedSet.contains(curr)) {
 				visitedSet.add(curr);
-				if (curr == goal) {
+				if (curr.getEnd() == goal) {
 					return null;
 				}
-			
-				List <MapEdges> neighb = getMapNodes(curr).getEdges();
-				
-				double dist = Double.POSITIVE_INFINITY;
-				for (MapEdges n : neighb) {
-					if (!visitedSet.contains(n.getEnd())) {
-						if (curr.distance(n.getEnd())< dist) {
-							n.setDistance(curr.distance(n.getEnd()));
-							parentMap.put(curr,n.getEnd());
-							queue.add(n.getEnd());
-						}
+			}
+			List <MapEdges> currNeighb = getMapNodes(curr.getStart()).getEdges();
+			double dist = Double.POSITIVE_INFINITY;
+			for (MapEdges n : currNeighb) {
+				if(!visitedSet.contains(n)) {
+					if (n.getDistance() < dist) {
+						dist = n.getDistance();
+						parentMap.put(curr.getStart(),n.getEnd());
+						
 					}
 				}
 			}
@@ -273,6 +303,7 @@ public class MapGraph {
 		
 		return null;
 	}
+		
 
 	/** Find the path from start to goal using A-Star search
 	 * 
@@ -431,4 +462,3 @@ class MapEdges implements Comparable<MapEdges>{
 	    }
 	}
 }
-
