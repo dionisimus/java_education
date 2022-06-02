@@ -12,6 +12,7 @@ package roadgraph;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
@@ -56,10 +57,7 @@ public class MapGraph {
 		return nodes.size();
 	}
 	
-	public MapNodes getMapNodes(GeographicPoint gp)
-	{		
-		return nodes.get(gp);
-	}
+
 	
 	/**
 	 * Return the intersections, which are the vertices in this graph.
@@ -104,7 +102,7 @@ public class MapGraph {
 		if (nodes.containsKey(location) || location == null) {
 			return false;
 		}
-		nodes.put(location, new MapNodes());
+		nodes.put(location, new MapNodes(location));
 		return true;
 	}
 	
@@ -129,21 +127,20 @@ public class MapGraph {
 			throw new IllegalArgumentException ("oops...something went wrong");
 		}
 		
-		for (MapEdges n: nodes.get(from).edges){
-			if (n.start == from && n.end == to) {
+		for (MapEdges n: nodes.get(from).getEdges()){
+			if (n.getStart() == from && n.getEnd() == to) {
 				throw new IllegalArgumentException ("Edge exists");
 			}
 		}
 		
 		MapEdges temp = new MapEdges();
-		temp.start = from;
-		temp.end = to;
-		temp.roadName = roadType;
-		temp.distance = length;
+		temp.setStart(from);
+		temp.setEnd(to);
+		temp.setRoadType(roadType);
+		temp.setRoadName(roadName);
+		temp.setDist(length);
 		
-		nodes.get(from).edges.add(temp);
-		
-		
+		nodes.get(from).setEdges(temp);
 	}
 	
 
@@ -238,69 +235,29 @@ public class MapGraph {
 
 		// Hook for visualization.  See writeup.
 		//nodeSearched.accept(next.getLocation());
-		
+		HashMap<MapNodes,MapNodes> parentMap = new HashMap<MapNodes, MapNodes>();
+		HashSet<MapNodes> visited = new HashSet<MapNodes>();
+		PriorityQueue<MapNodes> queue = new PriorityQueue<MapNodes>();
+		HashMap<MapNodes,Double> distanceNode = new HashMap<MapNodes, Double>();
 
-		
-//		PriorityQueue<GeographicPoint> queue = new PriorityQueue<GeographicPoint>();
-//		List <GeographicPoint> visitedSet = new ArrayList <GeographicPoint>();
-//		HashMap <GeographicPoint,GeographicPoint> parentMap = new HashMap <GeographicPoint,GeographicPoint>();
-//		GeographicPoint curr =  start;
-//		queue.add(curr);
-//		
-//		while (queue.peek() != null) {
-//			queue.remove();
-//			if (!visitedSet.contains(curr)) {
-//				visitedSet.add(curr);
-//				if (curr == goal) {
-//					return null;
-//				}
-//			
-//				List <MapEdges> neighb = getMapNodes(curr).getEdges();
-//				
-//				double dist = Double.POSITIVE_INFINITY;
-//				for (MapEdges n : neighb) {
-//					if (!visitedSet.contains(n.getEnd())) {
-//						if (curr.distance(n.getEnd())< dist) {
-//							n.setDistance(curr.distance(n.getEnd()));
-//							parentMap.put(curr,n.getEnd());
-//							queue.add(n.getEnd());
-//						}
-//					}
-//				}
-//			}
-//		}
-//		
-//		return null;
-//	}
-		
-		PriorityQueue<MapEdges> queue = new PriorityQueue<MapEdges>();
-		List <MapEdges> visitedSet = new ArrayList <MapEdges>();
-		HashMap <GeographicPoint,GeographicPoint> parentMap = new HashMap <GeographicPoint,GeographicPoint>();
-		MapEdges curr = getMapNodes(start).getEdges().get(0);
-		
-		queue.add(curr);
-		
-		while (queue.peek() != null) {
-			queue.remove();
-			if (!visitedSet.contains(curr)) {
-				visitedSet.add(curr);
-				if (curr.getEnd() == goal) {
+		MapNodes startNode = nodes.get(start);
+		queue.add(startNode);
+		while(!queue.isEmpty()){
+			MapNodes curr = queue.poll();
+			if(!visited.contains(curr)){
+				visited.add(curr);
+				if (curr.getLocation().equals(goal)) {
 					return null;
 				}
-			}
-			List <MapEdges> currNeighb = getMapNodes(curr.getStart()).getEdges();
-			double dist = Double.POSITIVE_INFINITY;
-			for (MapEdges n : currNeighb) {
-				if(!visitedSet.contains(n)) {
-					if (n.getDistance() < dist) {
-						dist = n.getDistance();
-						parentMap.put(curr.getStart(),n.getEnd());
+				List<MapEdges> children = curr.getEdges();
+				for(MapEdges child:children){
+					if(!visited.contains(child)){
 						
 					}
 				}
 			}
+			
 		}
-		
 		return null;
 	}
 		
@@ -341,11 +298,22 @@ public class MapGraph {
 	
 	public static void main(String[] args)
 	{
-//		System.out.print("Making a new map...");
+		System.out.print("Making a new map...");
 		MapGraph firstMap = new MapGraph();
-//		System.out.print("DONE. \nLoading the map...");
-//		GraphLoader.loadRoadMap("data/testdata/simpletest.map", firstMap);
-//		System.out.println("DONE.");
+		System.out.print("DONE. \nLoading the map...");
+		GraphLoader.loadRoadMap("data/testdata/simpletest.map", firstMap);
+		System.out.println("DONE.");
+		
+		for (MapNodes n : firstMap.nodes.values()) {
+			System.out.println(n.getLocation());
+		}
+		
+//		GeographicPoint testStart = new GeographicPoint(1.0, 1.0);
+//		GeographicPoint testEnd = new GeographicPoint(8.0, -1.0);
+//		
+//		
+//		System.out.println(firstMap.dijkstra(testStart,testEnd));
+		
 		
 //		System.out.println();
 		//System.out.println();
@@ -415,15 +383,27 @@ public class MapGraph {
 }
 
 class MapNodes {
-	GeographicPoint location;
-	List <MapEdges> edges;
+	GeographicPoint location = new GeographicPoint(0,0);
+	List <MapEdges> edges = new ArrayList <MapEdges>();
+	
+	public MapNodes () {
+	}
+	
+	public MapNodes (GeographicPoint val) {
+		this.location = val;
+	}
 	
 	public GeographicPoint getLocation() {
 		return location;
 	}
-	
+	public void setLocation(GeographicPoint val) {
+		location = val;
+	}
 	public List <MapEdges> getEdges() {
 		return edges;
+	}
+	public void setEdges(MapEdges val) {
+		edges.add(val);
 	}
 }
 
@@ -432,6 +412,7 @@ class MapEdges implements Comparable<MapEdges>{
 	GeographicPoint start;
 	GeographicPoint end;
 	String roadName;
+	String roadType;
 	double distance;
 
 	public GeographicPoint getStart() {
@@ -446,10 +427,28 @@ class MapEdges implements Comparable<MapEdges>{
 		return distance;
 	}
 	
-	public void setDistance(double val) {
+	public void setStart(GeographicPoint val) {
+		start = val;
+
+	}
+	public void setEnd(GeographicPoint val) {
+		end = val;
+
+	}
+	public void setRoadName(String val) {
+		roadName = val;
+
+	}
+	public void setRoadType(String val) {
+		roadType = val;
+
+	}
+	public void setDist(double val) {
 		distance = val;
 
 	}
+
+
 	
 	@Override
 	public int compareTo(MapEdges other) {
