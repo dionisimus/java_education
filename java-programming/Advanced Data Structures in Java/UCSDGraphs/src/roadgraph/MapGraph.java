@@ -230,38 +230,66 @@ public class MapGraph {
 	 */
 	public List<GeographicPoint> dijkstra(GeographicPoint start, 
 										  GeographicPoint goal, Consumer<GeographicPoint> nodeSearched)
+//	{
+//		// TODO: Implement this method in WEEK 4
+//
+//		// Hook for visualization.  See writeup.
+//		//nodeSearched.accept(next.getLocation());
+
 	{
-		// TODO: Implement this method in WEEK 4
-
-		// Hook for visualization.  See writeup.
-		//nodeSearched.accept(next.getLocation());
-		HashMap<MapNodes,MapNodes> parentMap = new HashMap<MapNodes, MapNodes>();
-		HashSet<MapNodes> visited = new HashSet<MapNodes>();
-		PriorityQueue<MapNodes> queue = new PriorityQueue<MapNodes>();
-		HashMap<MapNodes,Double> distanceNode = new HashMap<MapNodes, Double>();
-
+		PriorityQueue <MapNodes> pq = new PriorityQueue <MapNodes>();
+		Set <MapNodes> visited = new HashSet <MapNodes>();
+		HashMap <MapNodes,MapNodes> parentMap = new HashMap <MapNodes,MapNodes> ();
+		
 		MapNodes startNode = nodes.get(start);
-		queue.add(startNode);
-		while(!queue.isEmpty()){
-			MapNodes curr = queue.poll();
-			if(!visited.contains(curr)){
-				visited.add(curr);
-				if (curr.getLocation().equals(goal)) {
-					return null;
-				}
-				List<MapEdges> children = curr.getEdges();
-				for(MapEdges child:children){
-					if(!visited.contains(child)){
-						
-					}
-				}
+		startNode.setDistance(0);
+		pq.add(startNode);
+	
+		while (!pq.isEmpty()) {
+			MapNodes curr = pq.poll();
+			if (!visited.contains(curr)) {
+			visited.add(curr);
+			if (curr.getLocation().equals(goal)) {
+
+				return createPath(parentMap, nodes.get(goal), nodes.get(start));
 			}
 			
+			for (MapEdges neighb : curr.getEdges()) {
+				MapNodes next = nodes.get(neighb.getEnd());
+				if (!visited.contains(next)) {
+					double newDist = curr.getCurrDistance() + neighb.getDistance();
+					if (next.getCurrDistance() > newDist) {
+						next.setDistance(newDist);
+						parentMap.put(next,curr);
+						pq.add(next);
+					}
+				}
+				
+			}
 		}
-		return null;
 	}
-		
+		return null;
 
+}
+	
+	
+	private List<GeographicPoint> createPath(HashMap<MapNodes,MapNodes> map, MapNodes goal, MapNodes start){
+		List<GeographicPoint> route = new LinkedList<>();
+		MapNodes current = goal;
+		
+		while(!current.equals(start)){
+			
+			((LinkedList<GeographicPoint>) route).addFirst(current.getLocation());
+			//route.addFirst(map.get(current).getLocation());
+			System.out.println(current.getLocation());
+			current = map.get(current);
+			
+		}
+		((LinkedList<GeographicPoint>) route).addFirst(start.getLocation());
+		return route;
+	}
+	
+	
 	/** Find the path from start to goal using A-Star search
 	 * 
 	 * @param start The starting location
@@ -304,16 +332,19 @@ public class MapGraph {
 		GraphLoader.loadRoadMap("data/testdata/simpletest.map", firstMap);
 		System.out.println("DONE.");
 		
-		for (MapNodes n : firstMap.nodes.values()) {
-			System.out.println(n.getLocation());
-		}
 		
-//		GeographicPoint testStart = new GeographicPoint(1.0, 1.0);
-//		GeographicPoint testEnd = new GeographicPoint(8.0, -1.0);
-//		
-//		
-//		System.out.println(firstMap.dijkstra(testStart,testEnd));
 		
+		GeographicPoint testStart = new GeographicPoint(1.0, 1.0);
+		GeographicPoint testEnd = new GeographicPoint(8.0, -1.0);
+		
+//		for (GeographicPoint n : firstMap.dijkstra(testStart,testEnd)) {
+//			System.out.println(n);
+//		}
+		
+		
+		
+		System.out.println(firstMap.dijkstra(testStart,testEnd));
+//		firstMap.dijkstra(testStart,testEnd);
 		
 //		System.out.println();
 		//System.out.println();
@@ -382,9 +413,10 @@ public class MapGraph {
 
 }
 
-class MapNodes {
+class MapNodes implements Comparable<MapNodes>{
 	GeographicPoint location = new GeographicPoint(0,0);
 	List <MapEdges> edges = new ArrayList <MapEdges>();
+	double currDistance = Double.POSITIVE_INFINITY;
 	
 	public MapNodes () {
 	}
@@ -405,10 +437,35 @@ class MapNodes {
 	public void setEdges(MapEdges val) {
 		edges.add(val);
 	}
+	
+	public void currDistance(double val) {
+		currDistance = val;
+	}
+	
+	public double getCurrDistance() {
+		return currDistance;
+	}
+	
+	public void setDistance(double val) {
+		currDistance = val;
+	}
+	
+	@Override
+	public int compareTo(MapNodes other) {
+	    if(this.getCurrDistance() > other.getCurrDistance()) {
+	        return 1;
+	    } 
+	    if (this.getCurrDistance() < other.getCurrDistance()) {
+	        return -1;
+	    } else {
+	        return 0;
+	    }
+	}
+	
 }
 
 
-class MapEdges implements Comparable<MapEdges>{
+class MapEdges {
 	GeographicPoint start;
 	GeographicPoint end;
 	String roadName;
@@ -424,7 +481,7 @@ class MapEdges implements Comparable<MapEdges>{
 	}
 	
 	public double getDistance() {
-		return distance;
+		return start.distance(end);
 	}
 	
 	public void setStart(GeographicPoint val) {
@@ -446,18 +503,5 @@ class MapEdges implements Comparable<MapEdges>{
 	public void setDist(double val) {
 		distance = val;
 
-	}
-
-
-	
-	@Override
-	public int compareTo(MapEdges other) {
-	    if(this.getDistance() > other.getDistance()) {
-	        return 1;
-	    } else if (this.getDistance() < other.getDistance()) {
-	        return -1;
-	    } else {
-	        return 0;
-	    }
 	}
 }
