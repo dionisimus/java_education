@@ -1,0 +1,216 @@
+<meta charset="utf-8"/>
+<co-content>
+ <h1 level="1">
+  DON'T PEEK AT THIS READING UNTIL YOU'VE FILMED THE VIDEO ASSOCIATED WITH THE ASSIGNMENT THIS WEEK!!
+ </h1>
+ <p>
+ </p>
+ <p>
+  OK, since you are still reading, we assume you have already completed your interview video solving a technical problem on the whiteboard.  In this reading we provide solutions to the technical problems we asked you to solve.  These are the final solution that we would arrive at after some iterations, and perform better than the brute-force solution we would try first.   We provide them so that you can gauge the correctness and optimality of the solution you came up with in your video.
+ </p>
+ <p>
+ </p>
+ <p>
+  We put a lot of white space between the solutions so that you don't need to see them both at once if you want to have the experience of trying out a second question.  In fact, we recommend that you repeat this exercise and practice with many, many other questions as well.  There are lots of resources out there for additional practice questions.  We've already listed a few in this reading
+ </p>
+ <p>
+  <a href="https://www.coursera.org/learn/cs-tech-interview/supplement/c5nAU/resources-for-finding-problems-to-practice-with">
+   https://www.coursera.org/learn/cs-tech-interview/supplement/c5nAU/resources-for-finding-problems-to-practice-with
+  </a>
+ </p>
+ <p>
+  but here are some additional ones too:
+ </p>
+ <p>
+  <a href="https://leetcode.com/">
+   https://leetcode.com/
+  </a>
+ </p>
+ <p>
+  <a href="http://www.crackingthecodinginterview.com/">
+   http://www.crackingthecodinginterview.com/
+  </a>
+ </p>
+ <p>
+  <a href="http://careercup.com/">
+   http://careercup.com/
+  </a>
+ </p>
+ <p>
+  <a href="http://intearview.com/">
+   http://intearview.com/
+  </a>
+ </p>
+ <p>
+  <a href="http://stackoverflow.com/search?q=interview+questions">
+   http://stackoverflow.com/search?q=interview+questions
+  </a>
+ </p>
+ <p>
+ </p>
+ <p>
+ </p>
+ <p>
+ </p>
+ <p>
+ </p>
+ <p>
+ </p>
+ <p>
+ </p>
+ <p>
+ </p>
+ <p>
+ </p>
+ <p>
+ </p>
+ <p>
+ </p>
+ <p>
+ </p>
+ <p>
+ </p>
+ <p>
+ </p>
+ <p>
+ </p>
+ <p>
+ </p>
+ <p>
+  <strong>
+   For the prompt
+  </strong>
+  : Given list of n numbers from 0 to 1000, find the number that occurs most often (frequently).
+ </p>
+ <p>
+  <strong>
+   Optimal solution
+  </strong>
+  : since the numbers in the list are bounded by 1000, we can use them to index an array where we accumulate counts.  This solution runs in O(n).
+ </p>
+ <pre language="java">public int findMode(ArrayList&lt;Integer&gt; nums, int bound) 	
+{		
+  // Java will automatically initalize this counts array to contain all 0s
+  int[] counts = new int[bound];		
+
+  for (int k = 0; k &lt; nums.size(); k++) 
+  {			
+    counts[nums.get(k)] ++;		
+  }		
+  int maxFreq = counts[0];		
+  int mode = 0;		
+  for (int k = 1; k &lt; counts.length; k++) 
+  {			
+    if (counts[k] &gt; maxFreq) 
+    {				
+      maxFreq = counts[k];				
+      mode = k;			
+    }		
+  }		
+  return mode;	
+}</pre>
+ <p>
+ </p>
+ <p>
+ </p>
+ <p>
+ </p>
+ <p>
+ </p>
+ <p>
+ </p>
+ <p>
+ </p>
+ <p>
+ </p>
+ <p>
+ </p>
+ <p>
+ </p>
+ <p>
+ </p>
+ <p>
+ </p>
+ <p>
+ </p>
+ <p>
+ </p>
+ <p>
+ </p>
+ <p>
+ </p>
+ <p>
+ </p>
+ <p>
+  <strong>
+   For the prompt
+  </strong>
+  : Given a list of numbers from 0 to n, with exactly one number removed, find the missing number.
+ </p>
+ <p>
+  <strong>
+   Optimal solution
+  </strong>
+  : We can leverage the known formula for the sum of integers from 0 to n.  This solution runs in O(n). Notice that the prompt does not explicitly state that the given list is sorted. So it is important to formulate solution without making an assumption.
+ </p>
+ <pre language="java">public int findMissing(ArrayList&lt;Integer&gt; nums) 
+{		
+  int sum = 0;		
+  int n = nums.size();		
+  for (int k=0; k &lt; n; k++) 
+  {			
+    sum += nums.get(k);		
+  }		
+  return (n*(n+1)/2 - sum);	
+}</pre>
+ <p>
+ </p>
+</co-content>
+<style>
+ body {
+    padding: 50px 85px 50px 85px;
+}
+
+table th, table td {
+    border: 1px solid #e0e0e0;
+    padding: 5px 20px;
+    text-align: left;
+}
+input {
+    margin: 10px;
+}
+}
+th {
+    font-weight: bold;
+}
+td, th {
+    display: table-cell;
+    vertical-align: inherit;
+}
+img {
+    height: auto;
+    max-width: 100%;
+}
+pre {
+    display: block;
+    margin: 20px;
+    background: #424242;
+    color: #fff;
+    font-size: 13px;
+    white-space: pre-wrap;
+    padding: 9.5px;
+    margin: 0 0 10px;
+    border: 1px solid #ccc;
+}
+</style>
+<script async="" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript">
+</script>
+<script type="text/x-mathjax-config">
+ MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$$','$$'], ['$','$'] ],
+      displayMath: [ ["\\[","\\]"] ],
+      processEscapes: true
+    }
+  });
+</script>
